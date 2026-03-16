@@ -1,0 +1,1970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rubiq Financial Partners — Wealth Advisory</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rubiq: {
+              blue:      '#1A5EA8',
+              bluedark:  '#133F73',
+              bluelight: '#2A74C8',
+              gold:      '#C49A4A',
+              goldlight: '#D4AE6A',
+              golddark:  '#9E7A32',
+              ink:       '#0F1724',
+              inksoft:   '#1C2D44',
+              slate:     '#2C3E55',
+              mist:      '#F4F6F9',
+              parchment: '#FAF8F4',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: {
+            tightest: '-0.04em',
+            tighter:  '-0.03em',
+          },
+          lineHeight: { relaxed2: '1.7' },
+          boxShadow: {
+            card:  '0 2px 8px rgba(26,94,168,0.08), 0 8px 32px rgba(26,94,168,0.06)',
+            cardh: '0 4px 16px rgba(26,94,168,0.14), 0 16px 48px rgba(26,94,168,0.10)',
+            gold:  '0 2px 12px rgba(196,154,74,0.25), 0 8px 32px rgba(196,154,74,0.12)',
+            glow:  '0 0 40px rgba(26,94,168,0.20)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; background: #FAF8F4; }
+
+    /* Grain texture */
+    .grain::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* Nav blur */
+    .nav-blur {
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+    }
+
+    /* Gold underline */
+    .gold-underline { position: relative; display: inline-block; }
+    .gold-underline::after {
+      content: ''; position: absolute; left: 0; bottom: -6px;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, #C49A4A, #D4AE6A, #C49A4A);
+      border-radius: 2px;
+    }
+
+    /* Section rule */
+    .section-rule {
+      width: 48px; height: 3px;
+      background: linear-gradient(90deg, #1A5EA8, #C49A4A);
+      border-radius: 2px; margin-bottom: 1.5rem;
+    }
+
+    /* Cards */
+    .service-card {
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 4px 16px rgba(26,94,168,0.14), 0 16px 48px rgba(26,94,168,0.10);
+    }
+    .team-card {
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+    }
+    .team-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 16px rgba(26,94,168,0.14), 0 16px 48px rgba(26,94,168,0.10);
+    }
+    .resource-card {
+      transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s ease;
+    }
+    .resource-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 16px rgba(26,94,168,0.14), 0 16px 48px rgba(26,94,168,0.10);
+    }
+
+    /* Award card hover */
+    .award-card {
+      transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .award-card:hover {
+      background: rgba(255,255,255,0.05) !important;
+      border-color: rgba(196,154,74,0.30) !important;
+      transform: translateY(-3px);
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+      box-shadow: 0 2px 8px rgba(26,94,168,0.30);
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(26,94,168,0.40); }
+    .btn-primary:focus-visible { outline: 2px solid #C49A4A; outline-offset: 3px; }
+    .btn-primary:active { transform: translateY(0); opacity: 1; }
+
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); transform: translateY(-1px); }
+    .btn-ghost:focus-visible { outline: 2px solid #C49A4A; outline-offset: 3px; }
+    .btn-ghost:active { transform: translateY(0); }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #C49A4A 0%, #D4AE6A 100%);
+      color: #0F1724; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.875rem 2.5rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+      box-shadow: 0 2px 12px rgba(196,154,74,0.35);
+    }
+    .btn-gold:hover { opacity: 0.92; transform: translateY(-2px); box-shadow: 0 4px 20px rgba(196,154,74,0.50); }
+    .btn-gold:focus-visible { outline: 2px solid #1A5EA8; outline-offset: 3px; }
+    .btn-gold:active { transform: translateY(0); }
+
+    /* ─── Interactive Hover Button animation ─── */
+    /* Translates the existing btn-gold / btn-primary / btn-ghost into
+       the sliding-text + blob-expand pattern from the React component   */
+    .ihb {
+      position: relative;
+      overflow: hidden;
+    }
+    /* Text that slides OUT on hover */
+    .ihb .ihb-label {
+      display: inline-block;
+      position: relative;
+      z-index: 5;
+      transform: translateX(2px);
+      transition: transform 0.30s cubic-bezier(0.4,0,0.2,1),
+                  opacity  0.30s cubic-bezier(0.4,0,0.2,1);
+    }
+    .ihb:hover .ihb-label {
+      transform: translateX(52px);
+      opacity: 0;
+    }
+    /* Text + arrow that slides IN on hover */
+    .ihb .ihb-hover {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      transform: translateX(52px);
+      opacity: 0;
+      z-index: 10;
+      transition: transform 0.30s cubic-bezier(0.4,0,0.2,1),
+                  opacity  0.30s cubic-bezier(0.4,0,0.2,1);
+      /* inherit the parent's font settings */
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
+      text-transform: inherit;
+    }
+    .ihb:hover .ihb-hover {
+      transform: translateX(-2px);
+      opacity: 1;
+    }
+    /* Expanding blob — the colour is set per button variant below */
+    .ihb .ihb-blob {
+      position: absolute;
+      left: 20%;
+      top: 40%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      transform: scale(1);
+      z-index: 1;
+      transition: left   0.32s cubic-bezier(0.4,0,0.2,1),
+                  top    0.32s cubic-bezier(0.4,0,0.2,1),
+                  width  0.32s cubic-bezier(0.4,0,0.2,1),
+                  height 0.32s cubic-bezier(0.4,0,0.2,1),
+                  transform 0.32s cubic-bezier(0.4,0,0.2,1);
+      pointer-events: none;
+    }
+    .ihb:hover .ihb-blob {
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      transform: scale(1.8);
+    }
+    /* Gold button blob — deeper gold so the ripple is visible */
+    .btn-gold .ihb-blob  { background: #9E7A32; }
+    .btn-gold .ihb-hover { color: #0F1724; }
+    /* Primary (blue) button blob */
+    .btn-primary .ihb-blob  { background: #0E3060; }
+    .btn-primary .ihb-hover { color: #ffffff; }
+    /* Ghost button blob */
+    .btn-ghost .ihb-blob  { background: rgba(255,255,255,0.18); }
+    .btn-ghost .ihb-hover { color: #ffffff; }
+
+    /* Nav links */
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
+      text-decoration: none; padding: 0.25rem 0; position: relative; transition: color 0.18s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1.5px; background: #C49A4A; transition: width 0.22s ease;
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:focus-visible { outline: 2px solid #C49A4A; outline-offset: 4px; border-radius: 2px; }
+
+    /* Form */
+    .form-input {
+      width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px; padding: 0.75rem 1rem; color: white;
+      font-family: 'Inter', sans-serif; font-size: 0.9rem;
+      transition: border-color 0.18s ease, background 0.18s ease; outline: none;
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.35); }
+    .form-input:focus { border-color: #C49A4A; background: rgba(255,255,255,0.10); }
+
+    /* Icon circle */
+    .icon-circle {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(26,94,168,0.12) 0%, rgba(196,154,74,0.10) 100%);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+
+    /* Stat */
+    .stat-number {
+      font-family: 'Playfair Display', serif; font-size: 2.75rem; font-weight: 700;
+      color: #C49A4A; line-height: 1; letter-spacing: -0.03em;
+    }
+
+    /* Mobile menu */
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+
+    @media (max-width: 768px) {
+      .hero-headline { font-size: 2.5rem !important; }
+      .hero-grid { grid-template-columns: 1fr !important; }
+      .hero-crystal-wrap { height: 320px !important; margin-top: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+
+<!-- ══════════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-blur transition-all duration-300"
+     style="background:rgba(15,23,36,0.85);border-bottom:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+
+      <!-- Logo -->
+      <a href="#" class="flex-shrink-0 flex items-center">
+        <img src="Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+             alt="Rubiq Financial Partners"
+             style="height:34px;width:auto;object-fit:contain;" />
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#team" class="nav-link">Team</a>
+        <a href="#resources" class="nav-link">Resources</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <!-- CTA -->
+      <div class="hidden md:block">
+        <a href="#contact">
+          <button class="btn-primary ihb">
+            <span class="ihb-label">Schedule a Call</span>
+            <span class="ihb-hover">Schedule a Call <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            <span class="ihb-blob"></span>
+          </button>
+        </a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="hamburger" onclick="toggleMobile()"
+              class="md:hidden flex flex-col gap-1.5 p-2 rounded"
+              style="color:white;" aria-label="Open menu">
+        <span class="block w-5 h-0.5 bg-white transition-transform duration-200" id="h1"></span>
+        <span class="block w-5 h-0.5 bg-white transition-opacity duration-200" id="h2"></span>
+        <span class="block w-5 h-0.5 bg-white transition-transform duration-200" id="h3"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden flex-col px-6 pb-6 gap-4"
+       style="border-top:1px solid rgba(255,255,255,0.08);">
+    <a href="#services" onclick="toggleMobile()" class="nav-link pt-4 block">Services</a>
+    <a href="#about"    onclick="toggleMobile()" class="nav-link block">About</a>
+    <a href="#team"     onclick="toggleMobile()" class="nav-link block">Team</a>
+    <a href="#resources"onclick="toggleMobile()" class="nav-link block">Resources</a>
+    <a href="#contact"  onclick="toggleMobile()" class="nav-link block">Contact</a>
+    <a href="#contact" onclick="toggleMobile()">
+      <button class="btn-primary ihb mt-2 w-full">
+        <span class="ihb-label">Schedule a Call</span>
+        <span class="ihb-hover">Schedule a Call <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <span class="ihb-blob"></span>
+      </button>
+    </a>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════ -->
+<section class="relative grain overflow-hidden"
+         style="min-height:100vh;background:#0F1724;display:flex;align-items:center;">
+
+  <!-- Layered radial gradients -->
+  <div style="position:absolute;inset:0;pointer-events:none;z-index:1;">
+    <div style="position:absolute;top:-10%;left:-15%;width:60%;height:80%;
+                background:radial-gradient(ellipse,rgba(26,94,168,0.30) 0%,transparent 65%);"></div>
+    <div style="position:absolute;bottom:-20%;right:-10%;width:55%;height:75%;
+                background:radial-gradient(ellipse,rgba(196,154,74,0.16) 0%,transparent 65%);"></div>
+    <div style="position:absolute;top:40%;left:40%;width:40%;height:50%;
+                background:radial-gradient(ellipse,rgba(26,94,168,0.12) 0%,transparent 65%);"></div>
+  </div>
+
+  <!-- Geometric line accent -->
+  <div style="position:absolute;top:0;right:0;width:40%;height:100%;pointer-events:none;z-index:1;overflow:hidden;">
+    <div style="position:absolute;top:20%;right:8%;width:1px;height:55%;
+                background:linear-gradient(to bottom,transparent,rgba(196,154,74,0.30),transparent);"></div>
+    <div style="position:absolute;top:30%;right:16%;width:1px;height:35%;
+                background:linear-gradient(to bottom,transparent,rgba(26,94,168,0.25),transparent);"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-32 w-full">
+    <div class="hero-grid" style="display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:3rem;">
+
+      <!-- Left: text content -->
+      <div>
+
+        <!-- Eyebrow -->
+        <div class="flex items-center gap-3 mb-8">
+          <div style="width:32px;height:1.5px;background:linear-gradient(90deg,#C49A4A,#D4AE6A);border-radius:2px;"></div>
+          <span style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.14em;
+                       text-transform:uppercase;color:#C49A4A;">Independent Financial Advisory</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="hero-headline"
+            style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.25rem);
+                   font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
+          Wealth Strategy<br />
+          <em style="font-style:italic;color:#C49A4A;">Built Around</em><br />
+          Your Life.
+        </h1>
+
+        <!-- Subhead -->
+        <p style="font-family:'Inter',sans-serif;font-size:1.125rem;font-weight:300;line-height:1.7;
+                  color:rgba(255,255,255,0.65);max-width:580px;margin-bottom:2.5rem;">
+          Rubiq Financial Partners serves entrepreneurs, business owners, and high-net-worth families
+          navigating life's most complex financial decisions. Fee-only. Fiduciary. Always on your side.
+          We <em style="font-style:italic;color:rgba(196,154,74,0.90);font-weight:400;">Bring Clarity to Complexity.</em>
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-4 items-center">
+          <a href="#contact">
+            <button class="btn-gold ihb">
+              <span class="ihb-label">Schedule a Call</span>
+              <span class="ihb-hover">Schedule a Call <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+              <span class="ihb-blob"></span>
+            </button>
+          </a>
+          <a href="#services">
+            <button class="btn-ghost ihb">
+              <span class="ihb-label">Our Services</span>
+              <span class="ihb-hover">Our Services <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+              <span class="ihb-blob"></span>
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: crystalline shader -->
+      <div class="hero-crystal-wrap" style="position:relative;height:520px;">
+        <canvas id="crystal-canvas" style="position:absolute;inset:0;width:100%;height:100%;display:block;"></canvas>
+        <!-- Vignette blends canvas edges into the dark background -->
+        <div style="position:absolute;inset:0;pointer-events:none;
+                    background:radial-gradient(ellipse at 50% 50%, transparent 42%, #0F1724 82%);"></div>
+      </div>
+
+    </div><!-- /hero-grid -->
+
+    <!-- Stats bar -->
+    <div class="mt-20 pt-10 grid grid-cols-2 md:grid-cols-4 gap-8"
+         style="border-top:1px solid rgba(255,255,255,0.10);">
+      <div>
+        <div class="stat-number">$200M+</div>
+        <div style="font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;
+                    color:rgba(255,255,255,0.45);margin-top:0.4rem;">Assets Advised</div>
+      </div>
+      <div>
+        <div class="stat-number">50+</div>
+        <div style="font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;
+                    color:rgba(255,255,255,0.45);margin-top:0.4rem;">Years of Experience</div>
+      </div>
+      <div>
+        <div class="stat-number">100+</div>
+        <div style="font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;
+                    color:rgba(255,255,255,0.45);margin-top:0.4rem;">Client Families</div>
+      </div>
+      <div>
+        <div class="stat-number">Fiduciary</div>
+        <div style="font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;
+                    color:rgba(255,255,255,0.45);margin-top:0.4rem;">Always, Fee-Only</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     AWARDS & RECOGNITION
+══════════════════════════════════════════════════════ -->
+<section style="background:#111B28;padding:4.5rem 0;border-top:1px solid rgba(255,255,255,0.05);
+                border-bottom:1px solid rgba(255,255,255,0.05);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <!-- Header -->
+    <div class="text-center mb-10">
+      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;
+                color:rgba(196,154,74,0.70);margin-bottom:0.4rem;">Recognition</p>
+      <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;
+                 color:white;letter-spacing:-0.02em;">Awards &amp; Recognitions</h2>
+    </div>
+
+    <!-- Award cards grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+      <!-- Award 1 -->
+      <div class="award-card rounded-lg p-6 text-center"
+           style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);">
+        <div style="margin-bottom:0.875rem;">
+          <div style="font-family:'Playfair Display',serif;font-size:1.375rem;font-weight:700;
+                      letter-spacing:-0.02em;color:white;line-height:1.1;">BARRON'S</div>
+        </div>
+        <div style="width:32px;height:1.5px;background:linear-gradient(90deg,#C49A4A,#D4AE6A);
+                    border-radius:2px;margin:0 auto 0.75rem;"></div>
+        <div style="font-size:0.8125rem;font-weight:600;color:#C49A4A;margin-bottom:0.3rem;">Top 1,200 Advisors</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.35);font-weight:300;">2022 · 2023 · 2024</div>
+      </div>
+
+      <!-- Award 2 -->
+      <div class="award-card rounded-lg p-6 text-center"
+           style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);">
+        <div style="margin-bottom:0.875rem;">
+          <div style="font-family:'Playfair Display',serif;font-size:1.375rem;font-weight:700;
+                      letter-spacing:-0.02em;color:white;line-height:1.1;">Forbes</div>
+        </div>
+        <div style="width:32px;height:1.5px;background:linear-gradient(90deg,#C49A4A,#D4AE6A);
+                    border-radius:2px;margin:0 auto 0.75rem;"></div>
+        <div style="font-size:0.8125rem;font-weight:600;color:#C49A4A;margin-bottom:0.3rem;">Best-in-State Advisors</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.35);font-weight:300;">2023 · 2024</div>
+      </div>
+
+      <!-- Award 3 -->
+      <div class="award-card rounded-lg p-6 text-center"
+           style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);">
+        <div style="margin-bottom:0.875rem;">
+          <div style="font-size:0.9rem;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;
+                      color:white;line-height:1.1;">Five Star<br/>Professional</div>
+        </div>
+        <div style="width:32px;height:1.5px;background:linear-gradient(90deg,#C49A4A,#D4AE6A);
+                    border-radius:2px;margin:0 auto 0.75rem;"></div>
+        <div style="font-size:0.8125rem;font-weight:600;color:#C49A4A;margin-bottom:0.3rem;">Wealth Manager Award</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.35);font-weight:300;">9 Consecutive Years</div>
+      </div>
+
+      <!-- Award 4 -->
+      <div class="award-card rounded-lg p-6 text-center"
+           style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);">
+        <div style="margin-bottom:0.875rem;">
+          <div style="font-size:0.9rem;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;
+                      color:white;line-height:1.1;">FA<br/>Magazine</div>
+        </div>
+        <div style="width:32px;height:1.5px;background:linear-gradient(90deg,#C49A4A,#D4AE6A);
+                    border-radius:2px;margin:0 auto 0.75rem;"></div>
+        <div style="font-size:0.8125rem;font-weight:600;color:#C49A4A;margin-bottom:0.3rem;">RIA Leaders List</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.35);font-weight:300;">2024</div>
+      </div>
+
+    </div>
+
+    <!-- Disclaimer footnote -->
+    <p style="font-size:0.675rem;color:rgba(255,255,255,0.20);text-align:center;margin-top:1.75rem;line-height:1.5;">
+      Awards and recognitions are not indicative of future performance or client outcomes. Rankings are based on
+      third-party criteria and are not reviewed or endorsed by Rubiq Financial Partners.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     SERVICES
+══════════════════════════════════════════════════════ -->
+<section id="services" class="py-28" style="background:#FAF8F4;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="mb-16 max-w-xl">
+      <div class="section-rule"></div>
+      <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+                color:#1A5EA8;margin-bottom:0.75rem;">What We Do</p>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.75rem);
+                 font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:#0F1724;margin-bottom:1rem;">
+        Comprehensive Advisory<br />Across Every Dimension
+      </h2>
+      <p style="font-size:1rem;line-height:1.7;color:#2C3E55;font-weight:300;">
+        We integrate investment management, tax strategy, and life planning into a unified approach
+        tailored to your goals.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Card 1 -->
+      <div class="service-card bg-white rounded-lg p-8"
+           style="box-shadow:0 2px 8px rgba(26,94,168,0.08),0 8px 32px rgba(26,94,168,0.06);">
+        <div class="icon-circle mb-6">
+          <svg width="22" height="22" fill="none" stroke="#1A5EA8" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M3 3v18h18"/><path d="M18 17 13 12 9 16 3 10"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;
+                   color:#0F1724;margin-bottom:0.75rem;">Investment Management</h3>
+        <p style="font-size:0.9rem;line-height:1.7;color:#4A5568;font-weight:300;">
+          Disciplined, evidence-based portfolio construction aligned with your risk tolerance,
+          time horizon, and financial objectives.
+        </p>
+        <div class="mt-6 flex items-center gap-2" style="color:#1A5EA8;font-size:0.8125rem;font-weight:500;">
+          <span>Learn more</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-card bg-white rounded-lg p-8"
+           style="box-shadow:0 2px 8px rgba(26,94,168,0.08),0 8px 32px rgba(26,94,168,0.06);">
+        <div class="icon-circle mb-6">
+          <svg width="22" height="22" fill="none" stroke="#1A5EA8" stroke-width="1.8" viewBox="0 0 24 24">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;
+                   color:#0F1724;margin-bottom:0.75rem;">Financial Planning</h3>
+        <p style="font-size:0.9rem;line-height:1.7;color:#4A5568;font-weight:300;">
+          Comprehensive roadmaps covering cash flow, savings strategy, insurance, education
+          funding, and major life transitions.
+        </p>
+        <div class="mt-6 flex items-center gap-2" style="color:#1A5EA8;font-size:0.8125rem;font-weight:500;">
+          <span>Learn more</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card bg-white rounded-lg p-8"
+           style="box-shadow:0 2px 8px rgba(26,94,168,0.08),0 8px 32px rgba(26,94,168,0.06);">
+        <div class="icon-circle mb-6">
+          <svg width="22" height="22" fill="none" stroke="#1A5EA8" stroke-width="1.8" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;
+                   color:#0F1724;margin-bottom:0.75rem;">Retirement Planning</h3>
+        <p style="font-size:0.9rem;line-height:1.7;color:#4A5568;font-weight:300;">
+          Structured income strategies, Social Security optimization, and tax-efficient withdrawal
+          plans to sustain the retirement you envision.
+        </p>
+        <div class="mt-6 flex items-center gap-2" style="color:#1A5EA8;font-size:0.8125rem;font-weight:500;">
+          <span>Learn more</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="service-card bg-white rounded-lg p-8"
+           style="box-shadow:0 2px 8px rgba(26,94,168,0.08),0 8px 32px rgba(26,94,168,0.06);">
+        <div class="icon-circle mb-6">
+          <svg width="22" height="22" fill="none" stroke="#1A5EA8" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;
+                   color:#0F1724;margin-bottom:0.75rem;">Estate &amp; Legacy</h3>
+        <p style="font-size:0.9rem;line-height:1.7;color:#4A5568;font-weight:300;">
+          Coordinated estate planning, trust strategies, gifting programs, and philanthropic
+          structures to protect and transfer your wealth.
+        </p>
+        <div class="mt-6 flex items-center gap-2" style="color:#1A5EA8;font-size:0.8125rem;font-weight:500;">
+          <span>Learn more</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     ABOUT / PHILOSOPHY
+══════════════════════════════════════════════════════ -->
+<section id="about" style="background:#1C2D44;padding:7rem 0;overflow:hidden;position:relative;">
+
+  <div style="position:absolute;top:-20%;right:-15%;width:50%;height:120%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.08) 0%,transparent 65%);
+              pointer-events:none;"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Text side -->
+      <div>
+        <div class="section-rule"></div>
+        <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+                  color:#C49A4A;margin-bottom:0.75rem;">Our Philosophy</p>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.75rem);
+                   font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
+          Independent Advice.<br />
+          <em style="font-style:italic;color:#C49A4A;">No Conflicts. Ever.</em>
+        </h2>
+        <p style="font-size:1rem;line-height:1.7;color:rgba(255,255,255,0.65);margin-bottom:1.25rem;font-weight:300;">
+          As a fee-only fiduciary, Rubiq Financial Partners has no products to sell, no commissions to earn,
+          and no incentive other than advancing your interests. Our advice is shaped entirely by your
+          situation — not by what pays us the most.
+        </p>
+        <p style="font-size:1rem;line-height:1.7;color:rgba(255,255,255,0.55);font-weight:300;">
+          We believe that genuine wealth management goes beyond portfolio returns. It encompasses your
+          values, your family, your business, and the legacy you intend to leave. We are long-term
+          partners in that journey.
+        </p>
+
+        <!-- Values -->
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div class="flex items-start gap-3">
+            <div style="width:6px;height:6px;border-radius:50%;background:#C49A4A;margin-top:7px;flex-shrink:0;"></div>
+            <div>
+              <div style="font-family:'Inter',sans-serif;font-weight:600;font-size:0.9rem;color:white;margin-bottom:0.25rem;">Fiduciary Standard</div>
+              <div style="font-size:0.8125rem;line-height:1.6;color:rgba(255,255,255,0.50);font-weight:300;">Your interests legally come first, always.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div style="width:6px;height:6px;border-radius:50%;background:#C49A4A;margin-top:7px;flex-shrink:0;"></div>
+            <div>
+              <div style="font-family:'Inter',sans-serif;font-weight:600;font-size:0.9rem;color:white;margin-bottom:0.25rem;">Fee-Only</div>
+              <div style="font-size:0.8125rem;line-height:1.6;color:rgba(255,255,255,0.50);font-weight:300;">No commissions, no hidden incentives.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div style="width:6px;height:6px;border-radius:50%;background:#C49A4A;margin-top:7px;flex-shrink:0;"></div>
+            <div>
+              <div style="font-family:'Inter',sans-serif;font-weight:600;font-size:0.9rem;color:white;margin-bottom:0.25rem;">Holistic Approach</div>
+              <div style="font-size:0.8125rem;line-height:1.6;color:rgba(255,255,255,0.50);font-weight:300;">Tax, estate, insurance — all coordinated.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div style="width:6px;height:6px;border-radius:50%;background:#C49A4A;margin-top:7px;flex-shrink:0;"></div>
+            <div>
+              <div style="font-family:'Inter',sans-serif;font-weight:600;font-size:0.9rem;color:white;margin-bottom:0.25rem;">Long-Term Partnership</div>
+              <div style="font-size:0.8125rem;line-height:1.6;color:rgba(255,255,255,0.50);font-weight:300;">We grow alongside our clients for decades.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Process steps -->
+      <div class="relative">
+        <div class="flex flex-col gap-0">
+
+          <div class="flex gap-5 items-start pb-8">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1A5EA8,#2A74C8);
+                          display:flex;align-items:center;justify-content:center;flex-shrink:0;
+                          box-shadow:0 2px 12px rgba(26,94,168,0.40);">
+                <span style="font-family:'Playfair Display',serif;font-weight:700;color:white;font-size:1rem;">1</span>
+              </div>
+              <div style="width:1px;flex:1;background:linear-gradient(to bottom,rgba(26,94,168,0.40),transparent);min-height:40px;margin-top:4px;"></div>
+            </div>
+            <div style="padding-top:8px;">
+              <h4 style="font-family:'Inter',sans-serif;font-weight:600;font-size:1rem;color:white;margin-bottom:0.4rem;">Discover</h4>
+              <p style="font-size:0.875rem;line-height:1.65;color:rgba(255,255,255,0.50);font-weight:300;">We start by understanding you — your goals, your fears, your timeline, and what wealth means to your family.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-5 items-start pb-8">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1A5EA8,#2A74C8);
+                          display:flex;align-items:center;justify-content:center;flex-shrink:0;
+                          box-shadow:0 2px 12px rgba(26,94,168,0.40);">
+                <span style="font-family:'Playfair Display',serif;font-weight:700;color:white;font-size:1rem;">2</span>
+              </div>
+              <div style="width:1px;flex:1;background:linear-gradient(to bottom,rgba(26,94,168,0.40),transparent);min-height:40px;margin-top:4px;"></div>
+            </div>
+            <div style="padding-top:8px;">
+              <h4 style="font-family:'Inter',sans-serif;font-weight:600;font-size:1rem;color:white;margin-bottom:0.4rem;">Design</h4>
+              <p style="font-size:0.875rem;line-height:1.65;color:rgba(255,255,255,0.50);font-weight:300;">We build a comprehensive, personalized financial plan that integrates every dimension of your wealth.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-5 items-start pb-8">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1A5EA8,#2A74C8);
+                          display:flex;align-items:center;justify-content:center;flex-shrink:0;
+                          box-shadow:0 2px 12px rgba(26,94,168,0.40);">
+                <span style="font-family:'Playfair Display',serif;font-weight:700;color:white;font-size:1rem;">3</span>
+              </div>
+              <div style="width:1px;flex:1;background:linear-gradient(to bottom,rgba(26,94,168,0.40),transparent);min-height:40px;margin-top:4px;"></div>
+            </div>
+            <div style="padding-top:8px;">
+              <h4 style="font-family:'Inter',sans-serif;font-weight:600;font-size:1rem;color:white;margin-bottom:0.4rem;">Implement</h4>
+              <p style="font-size:0.875rem;line-height:1.65;color:rgba(255,255,255,0.50);font-weight:300;">We execute the strategy, coordinate with your tax and legal advisors, and put your plan into motion.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-5 items-start">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#C49A4A,#D4AE6A);
+                          display:flex;align-items:center;justify-content:center;flex-shrink:0;
+                          box-shadow:0 2px 12px rgba(196,154,74,0.40);">
+                <span style="font-family:'Playfair Display',serif;font-weight:700;color:#0F1724;font-size:1rem;">4</span>
+              </div>
+            </div>
+            <div style="padding-top:8px;">
+              <h4 style="font-family:'Inter',sans-serif;font-weight:600;font-size:1rem;color:white;margin-bottom:0.4rem;">Evolve</h4>
+              <p style="font-size:0.875rem;line-height:1.65;color:rgba(255,255,255,0.50);font-weight:300;">Life changes — and so do your plans. We review, adapt, and refine continuously as your world evolves.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     TEAM
+══════════════════════════════════════════════════════ -->
+<section id="team" class="py-28" style="background:#F4F6F9;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="mb-16 text-center max-w-2xl mx-auto">
+      <div class="section-rule mx-auto"></div>
+      <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+                color:#1A5EA8;margin-bottom:0.75rem;">Our Team</p>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.75rem);
+                 font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:#0F1724;margin-bottom:1rem;">
+        Experienced Advisors.<br />Personal Relationships.
+      </h2>
+      <p style="font-size:1rem;line-height:1.7;color:#4A5568;font-weight:300;">
+        Our team combines deep technical expertise with a genuine commitment to the entrepreneurs,
+        business owners, and families we serve.
+      </p>
+    </div>
+
+    <!-- 2-column centered grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+
+      <!-- Andreas Wochtl -->
+      <div class="team-card bg-white rounded-lg overflow-hidden"
+           style="box-shadow:0 2px 8px rgba(26,94,168,0.08),0 8px 32px rgba(26,94,168,0.06);">
+        <div style="position:relative;overflow:hidden;height:320px;">
+          <img src="Media/andreas_headshot.jpg" alt="Andreas Wochtl"
+               style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,36,0.60) 0%,transparent 50%);"></div>
+          <div style="position:absolute;inset:0;background:rgba(26,94,168,0.06);mix-blend-mode:multiply;"></div>
+        </div>
+        <div class="p-7">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;
+                     color:#0F1724;margin-bottom:0.2rem;">Andreas Wochtl</h3>
+          <p style="font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+                    color:#1A5EA8;margin-bottom:1rem;">Founder &amp; Private Wealth Advisor</p>
+          <p style="font-size:0.9rem;line-height:1.7;color:#4A5568;font-weight:300;">
+            Andreas founded Rubiq Financial Partners to deliver truly independent, conflict-free
+            wealth management to entrepreneurs and high-net-worth families. His client-first approach
+            and decades of experience bring clarity to even the most complex financial situations.
+          </p>
+          <!-- Social link -->
+          <div class="mt-5 flex items-center gap-3">
+            <a href="#" style="display:flex;align-items:center;gap:6px;font-size:0.8rem;font-weight:500;
+                               color:#1A5EA8;text-decoration:none;transition:opacity 0.18s;"
+               onmouseover="this.style.opacity='0.70'" onmouseout="this.style.opacity='1'">
+              <svg width="14" height="14" fill="#1A5EA8" viewBox="0 0 24 24">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+                <circle cx="4" cy="4" r="2" fill="#1A5EA8"/>
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doug Grom -->
+      <div class="team-card bg-white rounded-lg overflow-hidden"
+           style="box-shadow:0 2px 8px rgba(26,94,168,0.08),0 8px 32px rgba(26,94,168,0.06);">
+        <div style="position:relative;overflow:hidden;height:320px;">
+          <img src="Media/doug_headshot.jpg" alt="Doug Grom"
+               style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,36,0.60) 0%,transparent 50%);"></div>
+          <div style="position:absolute;inset:0;background:rgba(26,94,168,0.06);mix-blend-mode:multiply;"></div>
+        </div>
+        <div class="p-7">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;
+                     color:#0F1724;margin-bottom:0.2rem;">Doug Grom</h3>
+          <p style="font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+                    color:#1A5EA8;margin-bottom:1rem;">Private Wealth Advisor</p>
+          <p style="font-size:0.9rem;line-height:1.7;color:#4A5568;font-weight:300;">
+            Doug brings extensive experience advising business owners and executive clients through
+            complex financial transitions — from liquidity events to retirement planning and
+            multi-generational estate strategies.
+          </p>
+          <!-- Social link -->
+          <div class="mt-5 flex items-center gap-3">
+            <a href="#" style="display:flex;align-items:center;gap:6px;font-size:0.8rem;font-weight:500;
+                               color:#1A5EA8;text-decoration:none;transition:opacity 0.18s;"
+               onmouseover="this.style.opacity='0.70'" onmouseout="this.style.opacity='1'">
+              <svg width="14" height="14" fill="#1A5EA8" viewBox="0 0 24 24">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+                <circle cx="4" cy="4" r="2" fill="#1A5EA8"/>
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     RESOURCES
+══════════════════════════════════════════════════════ -->
+<section id="resources" class="py-28" style="background:#FAF8F4;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+      <div>
+        <div class="section-rule"></div>
+        <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+                  color:#1A5EA8;margin-bottom:0.75rem;">Resources</p>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.75rem);
+                   font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:#0F1724;">
+          Insights &amp; Perspectives
+        </h2>
+      </div>
+      <a href="#" style="font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;
+                          letter-spacing:0.04em;text-transform:uppercase;color:#1A5EA8;
+                          text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:6px;">
+        View all articles
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <a href="#" style="text-decoration:none;">
+        <div class="resource-card bg-white rounded-lg overflow-hidden"
+             style="box-shadow:0 2px 8px rgba(26,94,168,0.08),0 8px 32px rgba(26,94,168,0.06);">
+          <div style="height:180px;overflow:hidden;position:relative;">
+            <img src="https://placehold.co/600x360/1C2D44/C49A4A" alt="Article"
+                 style="width:100%;height:100%;object-fit:cover;" />
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,36,0.40),transparent);"></div>
+            <div style="position:absolute;top:14px;left:14px;background:rgba(196,154,74,0.15);
+                        border:1px solid rgba(196,154,74,0.35);border-radius:3px;
+                        padding:3px 10px;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;
+                        text-transform:uppercase;color:#C49A4A;">Retirement</div>
+          </div>
+          <div class="p-7">
+            <h4 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;
+                       color:#0F1724;line-height:1.35;margin-bottom:0.75rem;">
+              The 4% Rule Revisited: What Retirees Need to Know in 2026
+            </h4>
+            <p style="font-size:0.875rem;line-height:1.65;color:#4A5568;font-weight:300;margin-bottom:1rem;">
+              Classic retirement income research has evolved. We examine how rising rates and longevity risk
+              affect safe withdrawal strategies today.
+            </p>
+            <div style="font-size:0.75rem;font-weight:500;color:rgba(44,62,85,0.55);">March 10, 2026 · 6 min read</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" style="text-decoration:none;">
+        <div class="resource-card bg-white rounded-lg overflow-hidden"
+             style="box-shadow:0 2px 8px rgba(26,94,168,0.08),0 8px 32px rgba(26,94,168,0.06);">
+          <div style="height:180px;overflow:hidden;position:relative;">
+            <img src="https://placehold.co/600x360/133F73/FAF8F4" alt="Article"
+                 style="width:100%;height:100%;object-fit:cover;" />
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,36,0.40),transparent);"></div>
+            <div style="position:absolute;top:14px;left:14px;background:rgba(26,94,168,0.15);
+                        border:1px solid rgba(26,94,168,0.35);border-radius:3px;
+                        padding:3px 10px;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;
+                        text-transform:uppercase;color:#2A74C8;">Tax Strategy</div>
+          </div>
+          <div class="p-7">
+            <h4 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;
+                       color:#0F1724;line-height:1.35;margin-bottom:0.75rem;">
+              Roth Conversion Ladders: Timing the Window Before Tax Rates Change
+            </h4>
+            <p style="font-size:0.875rem;line-height:1.65;color:#4A5568;font-weight:300;margin-bottom:1rem;">
+              With potential rate changes on the horizon, we explore the case for accelerating Roth conversions.
+            </p>
+            <div style="font-size:0.75rem;font-weight:500;color:rgba(44,62,85,0.55);">February 24, 2026 · 5 min read</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" style="text-decoration:none;">
+        <div class="resource-card bg-white rounded-lg overflow-hidden"
+             style="box-shadow:0 2px 8px rgba(26,94,168,0.08),0 8px 32px rgba(26,94,168,0.06);">
+          <div style="height:180px;overflow:hidden;position:relative;">
+            <img src="https://placehold.co/600x360/2C3E55/D4AE6A" alt="Article"
+                 style="width:100%;height:100%;object-fit:cover;" />
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,36,0.40),transparent);"></div>
+            <div style="position:absolute;top:14px;left:14px;background:rgba(196,154,74,0.15);
+                        border:1px solid rgba(196,154,74,0.35);border-radius:3px;
+                        padding:3px 10px;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;
+                        text-transform:uppercase;color:#C49A4A;">Estate Planning</div>
+          </div>
+          <div class="p-7">
+            <h4 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;
+                       color:#0F1724;line-height:1.35;margin-bottom:0.75rem;">
+              How to Talk to Your Children About Inherited Wealth
+            </h4>
+            <p style="font-size:0.875rem;line-height:1.65;color:#4A5568;font-weight:300;margin-bottom:1rem;">
+              Multi-generational wealth transfer is as much a family conversation as a legal one.
+            </p>
+            <div style="font-size:0.75rem;font-weight:500;color:rgba(44,62,85,0.55);">January 15, 2026 · 7 min read</div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     FEE CALCULATOR
+══════════════════════════════════════════════════════ -->
+<section id="pricing" style="background:#111B28;padding:6rem 0;position:relative;overflow:hidden;">
+
+  <!-- Radial accent -->
+  <div style="position:absolute;top:-20%;right:-10%;width:50%;height:120%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.07) 0%,transparent 65%);
+              pointer-events:none;"></div>
+
+  <style>
+    /* Slider track & thumb for fee calculator */
+    #aum-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+    }
+    #aum-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid #C49A4A;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(196,154,74,0.40);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    #aum-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 4px 18px rgba(196,154,74,0.60);
+    }
+    #aum-slider::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid #C49A4A;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(196,154,74,0.40);
+    }
+    .fee-tier-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.625rem 0.875rem;
+      border-radius: 5px;
+      transition: background 0.2s ease, opacity 0.2s ease;
+      margin-bottom: 4px;
+    }
+    .fee-tier-row.active {
+      background: rgba(196,154,74,0.10);
+      border: 1px solid rgba(196,154,74,0.22);
+    }
+    .fee-tier-row.inactive {
+      background: transparent;
+      border: 1px solid transparent;
+      opacity: 0.40;
+    }
+    .fee-tier-row.future {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      opacity: 0.55;
+    }
+    .service-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 400;
+      line-height: 1.4;
+      padding: 2px 0;
+    }
+    .service-pill::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #C49A4A;
+      flex-shrink: 0;
+    }
+  </style>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <!-- Section header -->
+    <div class="mb-12">
+      <div class="section-rule"></div>
+      <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+                color:#C49A4A;margin-bottom:0.75rem;">Pricing</p>
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;">
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.75rem);
+                   font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:white;">
+          Fee Transparency
+        </h2>
+        <p style="font-size:0.9375rem;line-height:1.7;color:rgba(255,255,255,0.50);font-weight:300;max-width:480px;">
+          Drag the slider to your approximate assets under management and see your estimated annual
+          advisory fee — broken down by tier, with no surprises.
+        </p>
+      </div>
+    </div>
+
+    <!-- Main two-column layout -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+
+      <!-- LEFT: Interactive slider card -->
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
+                  border-radius:10px;padding:2.25rem 2rem;">
+
+        <!-- AUM display -->
+        <div style="margin-bottom:0.5rem;">
+          <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+                    color:rgba(255,255,255,0.35);margin-bottom:0.4rem;">Your Assets Under Management</p>
+          <div id="aum-display"
+               style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;
+                      color:#C49A4A;letter-spacing:-0.03em;line-height:1;">$2,500,000</div>
+          <div id="aum-label" style="font-size:0.8125rem;color:rgba(255,255,255,0.40);margin-top:4px;">$2.5M</div>
+        </div>
+
+        <!-- Slider -->
+        <div style="margin:1.75rem 0 0.5rem;">
+          <input id="aum-slider" type="range" min="0" max="28" step="1" value="9" />
+          <div style="display:flex;justify-content:space-between;margin-top:8px;">
+            <span style="font-size:0.68rem;color:rgba(255,255,255,0.30);">$500K</span>
+            <span style="font-size:0.68rem;color:rgba(255,255,255,0.30);">$50M+</span>
+          </div>
+        </div>
+
+        <!-- Fee result box -->
+        <div id="fee-result-box" style="margin:1.75rem 0;padding:1.5rem;border-radius:8px;
+             background:linear-gradient(135deg,rgba(196,154,74,0.12) 0%,rgba(26,94,168,0.08) 100%);
+             border:1px solid rgba(196,154,74,0.25);">
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;text-align:center;">
+            <div>
+              <div id="fee-annual"
+                   style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;
+                          color:#C49A4A;line-height:1;letter-spacing:-0.02em;">$37,500</div>
+              <div style="font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+                          color:rgba(255,255,255,0.35);margin-top:5px;">Annual Fee</div>
+            </div>
+            <div style="border-left:1px solid rgba(255,255,255,0.10);border-right:1px solid rgba(255,255,255,0.10);">
+              <div id="fee-rate"
+                   style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;
+                          color:white;line-height:1;letter-spacing:-0.02em;">1.25%</div>
+              <div style="font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+                          color:rgba(255,255,255,0.35);margin-top:5px;">Effective Rate</div>
+            </div>
+            <div>
+              <div id="fee-quarterly"
+                   style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;
+                          color:rgba(196,154,74,0.70);line-height:1;letter-spacing:-0.02em;">$9,375</div>
+              <div style="font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+                          color:rgba(255,255,255,0.35);margin-top:5px;">Per Quarter</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Negotiable overlay (hidden by default) -->
+        <div id="negotiable-box" style="display:none;margin:1.75rem 0;padding:1.75rem 1.5rem;
+             border-radius:8px;background:rgba(196,154,74,0.08);border:1px solid rgba(196,154,74,0.25);
+             text-align:center;">
+          <div style="font-family:'Playfair Display',serif;font-size:1.375rem;font-weight:600;
+                      color:#C49A4A;margin-bottom:0.5rem;">Fees Are Negotiable</div>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.55);font-weight:300;line-height:1.6;margin-bottom:1.25rem;">
+            For portfolios above $50M we structure a custom fee arrangement tailored to the
+            scope and complexity of your engagement.
+          </p>
+          <a href="#contact">
+            <button class="btn-gold ihb" style="font-size:0.8125rem;padding:0.65rem 1.75rem;">
+              <span class="ihb-label">Contact Us</span>
+              <span class="ihb-hover">Contact Us <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+              <span class="ihb-blob"></span>
+            </button>
+          </a>
+        </div>
+
+        <!-- Tier breakdown table -->
+        <div>
+          <p style="font-size:0.68rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;
+                    color:rgba(255,255,255,0.30);margin-bottom:0.75rem;">Fee Tier Breakdown</p>
+
+          <div id="tier-1-row" class="fee-tier-row active">
+            <div>
+              <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$500K – $2M</span>
+              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">1.50% / yr</span>
+            </div>
+            <div id="tier-1-fee" style="font-size:0.8125rem;font-weight:600;color:#C49A4A;">$22,500</div>
+          </div>
+
+          <div id="tier-2-row" class="fee-tier-row active">
+            <div>
+              <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$2M – $5M</span>
+              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">1.25% / yr</span>
+            </div>
+            <div id="tier-2-fee" style="font-size:0.8125rem;font-weight:600;color:#C49A4A;">$6,250</div>
+          </div>
+
+          <div id="tier-3-row" class="fee-tier-row future">
+            <div>
+              <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$5M – $10M</span>
+              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">1.00% / yr</span>
+            </div>
+            <div id="tier-3-fee" style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.30);">—</div>
+          </div>
+
+          <div id="tier-4-row" class="fee-tier-row future">
+            <div>
+              <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$10M – $20M</span>
+              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">0.75% / yr</span>
+            </div>
+            <div id="tier-4-fee" style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.30);">—</div>
+          </div>
+
+          <div id="tier-5-row" class="fee-tier-row future">
+            <div>
+              <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$20M – $50M</span>
+              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">0.65% / yr</span>
+            </div>
+            <div id="tier-5-fee" style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.30);">—</div>
+          </div>
+
+          <div id="tier-6-row" class="fee-tier-row future">
+            <div>
+              <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$50M+</span>
+            </div>
+            <div style="font-size:0.75rem;font-style:italic;color:rgba(255,255,255,0.35);">Negotiable</div>
+          </div>
+
+          <!-- Divider + total -->
+          <div style="border-top:1px solid rgba(255,255,255,0.08);margin-top:10px;padding-top:10px;
+                      display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.50);">Total Annual Fee</span>
+            <span id="tier-total" style="font-family:'Playfair Display',serif;font-size:1.1rem;
+                                         font-weight:700;color:#C49A4A;">$28,750</span>
+          </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <p style="font-size:0.68rem;color:rgba(255,255,255,0.22);line-height:1.55;margin-top:1.5rem;">
+          Estimates are for illustrative purposes only. Actual fees are outlined in your advisory agreement.
+          Fees are charged on a tiered basis — each rate applies only to the portion of AUM within that tier.
+          Minimum account size: $500,000.
+        </p>
+      </div>
+
+      <!-- RIGHT: What's included -->
+      <div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
+                    border-radius:10px;padding:2.25rem 2rem;margin-bottom:2rem;">
+          <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+                    color:#C49A4A;margin-bottom:0.4rem;">Every Client Engagement Includes</p>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.375rem;font-weight:600;
+                     color:white;margin-bottom:1.5rem;line-height:1.25;">
+            Comprehensive Planning<br />Across Every Dimension
+          </h3>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem 1rem;">
+
+            <!-- Retirement Planning -->
+            <div>
+              <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+                <div style="width:28px;height:28px;border-radius:6px;background:rgba(26,94,168,0.20);
+                            display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                  </svg>
+                </div>
+                <span style="font-size:0.8125rem;font-weight:600;color:white;">Retirement Planning</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+                <span class="service-pill">Goal Setting &amp; Income Planning</span>
+                <span class="service-pill">Social Security &amp; Medicare</span>
+                <span class="service-pill">IRA / 401(k) Strategies</span>
+                <span class="service-pill">RMDs &amp; Withdrawal Planning</span>
+                <span class="service-pill">Annuities &amp; Pensions</span>
+              </div>
+            </div>
+
+            <!-- Investment Planning -->
+            <div>
+              <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+                <div style="width:28px;height:28px;border-radius:6px;background:rgba(26,94,168,0.20);
+                            display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M3 3v18h18"/><path d="M18 17 13 12 9 16 3 10"/>
+                  </svg>
+                </div>
+                <span style="font-size:0.8125rem;font-weight:600;color:white;">Investment Planning</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+                <span class="service-pill">Portfolio Asset Allocation</span>
+                <span class="service-pill">Investment Policy Statement</span>
+                <span class="service-pill">Stock Concentration Review</span>
+                <span class="service-pill">Outside Holdings Analysis</span>
+                <span class="service-pill">Time Horizon Strategy</span>
+              </div>
+            </div>
+
+            <!-- Estate Planning -->
+            <div>
+              <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+                <div style="width:28px;height:28px;border-radius:6px;background:rgba(196,154,74,0.15);
+                            display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="14" height="14" fill="none" stroke="#C49A4A" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                  </svg>
+                </div>
+                <span style="font-size:0.8125rem;font-weight:600;color:white;">Estate Planning</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+                <span class="service-pill">Wills &amp; Power of Attorney</span>
+                <span class="service-pill">Trusts &amp; ILIT Strategies</span>
+                <span class="service-pill">Estate Tax Planning</span>
+                <span class="service-pill">Charitable Giving</span>
+                <span class="service-pill">Guardianship Planning</span>
+              </div>
+            </div>
+
+            <!-- Income Tax Planning -->
+            <div>
+              <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+                <div style="width:28px;height:28px;border-radius:6px;background:rgba(196,154,74,0.15);
+                            display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="14" height="14" fill="none" stroke="#C49A4A" stroke-width="2" viewBox="0 0 24 24">
+                    <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+                  </svg>
+                </div>
+                <span style="font-size:0.8125rem;font-weight:600;color:white;">Income Tax Planning</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+                <span class="service-pill">Tax Loss Harvesting</span>
+                <span class="service-pill">Roth Conversion Analysis</span>
+                <span class="service-pill">Cost Basis &amp; Gains Review</span>
+                <span class="service-pill">HSA / FSA Optimization</span>
+                <span class="service-pill">Deductions &amp; Credits</span>
+              </div>
+            </div>
+
+            <!-- Cash Flow -->
+            <div>
+              <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+                <div style="width:28px;height:28px;border-radius:6px;background:rgba(26,94,168,0.20);
+                            display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                  </svg>
+                </div>
+                <span style="font-size:0.8125rem;font-weight:600;color:white;">Cash Flow &amp; Budget</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+                <span class="service-pill">Income &amp; Expense Analysis</span>
+                <span class="service-pill">Debt Management</span>
+                <span class="service-pill">Emergency Fund Planning</span>
+                <span class="service-pill">Mortgage &amp; Credit Review</span>
+                <span class="service-pill">Dollar Cost Averaging</span>
+              </div>
+            </div>
+
+            <!-- Education -->
+            <div>
+              <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+                <div style="width:28px;height:28px;border-radius:6px;background:rgba(196,154,74,0.15);
+                            display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="14" height="14" fill="none" stroke="#C49A4A" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                  </svg>
+                </div>
+                <span style="font-size:0.8125rem;font-weight:600;color:white;">Education Planning</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+                <span class="service-pill">529 College Savings</span>
+                <span class="service-pill">Roth IRAs for Children</span>
+                <span class="service-pill">UGMA / UTMA Accounts</span>
+                <span class="service-pill">Financial Aid Strategy</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CTA card -->
+        <div style="background:linear-gradient(135deg,rgba(26,94,168,0.20) 0%,rgba(196,154,74,0.12) 100%);
+                    border:1px solid rgba(196,154,74,0.20);border-radius:10px;padding:1.75rem 2rem;
+                    display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:600;
+                        color:white;margin-bottom:0.35rem;">Ready for a no-obligation review?</div>
+            <div style="font-size:0.875rem;color:rgba(255,255,255,0.50);font-weight:300;">
+              The first conversation is always complimentary.
+            </div>
+          </div>
+          <a href="#contact">
+            <button class="btn-gold ihb" style="font-size:0.8125rem;padding:0.75rem 1.75rem;white-space:nowrap;">
+              <span class="ihb-label">Schedule a Call</span>
+              <span class="ihb-hover">Schedule a Call <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+              <span class="ihb-blob"></span>
+            </button>
+          </a>
+        </div>
+
+      </div><!-- /right col -->
+    </div><!-- /grid -->
+  </div><!-- /container -->
+
+  <script>
+    // ── AUM breakpoints ($500K → $50M, then negotiable)
+    const AUM_VALUES = [
+      500000, 600000, 750000, 1000000, 1250000, 1500000, 1750000, 2000000,
+      2500000, 3000000, 3500000, 4000000, 4500000, 5000000,
+      6000000, 7000000, 8000000, 9000000, 10000000,
+      12500000, 15000000, 17500000, 20000000,
+      25000000, 30000000, 35000000, 40000000, 45000000, 50000000
+    ]; // index 0-28; slider max=28
+
+    // ── Fee tiers (tiered / bracket model — each rate applies to AUM within that range)
+    const TIERS = [
+      { min:      500000, max:  2000000, rate: 0.0150, id: 1 },
+      { min:     2000000, max:  5000000, rate: 0.0125, id: 2 },
+      { min:     5000000, max: 10000000, rate: 0.0100, id: 3 },
+      { min:    10000000, max: 20000000, rate: 0.0075, id: 4 },
+      { min:    20000000, max: 50000000, rate: 0.0065, id: 5 },
+    ];
+
+    function formatMoney(n) {
+      if (n >= 1000000) return '$' + (n / 1000000).toFixed(n % 1000000 === 0 ? 0 : 1) + 'M';
+      if (n >= 1000)    return '$' + (n / 1000).toFixed(0) + 'K';
+      return '$' + n;
+    }
+
+    function formatDollar(n) {
+      return '$' + Math.round(n).toLocaleString('en-US');
+    }
+
+    function calcFee(aum) {
+      let remaining = aum;
+      let total = 0;
+      const breakdown = [];
+      for (const t of TIERS) {
+        if (remaining <= t.min) { breakdown.push({ id: t.id, fee: 0, status: 'future' }); continue; }
+        const inTier = Math.min(remaining, t.max) - t.min;
+        const fee    = inTier * t.rate;
+        breakdown.push({ id: t.id, fee, status: inTier >= (t.max - t.min) ? 'full' : 'partial' });
+        total += fee;
+      }
+      return { total, breakdown, rate: total / aum };
+    }
+
+    function updateSlider() {
+      const idx = parseInt(document.getElementById('aum-slider').value);
+      const aum = AUM_VALUES[idx];
+      const isNegotiable = aum >= 50000000;
+
+      // AUM display
+      document.getElementById('aum-display').textContent = '$' + aum.toLocaleString('en-US');
+      document.getElementById('aum-label').textContent   = formatMoney(aum);
+
+      // Slider gradient fill
+      const pct = (idx / 28 * 100).toFixed(1);
+      document.getElementById('aum-slider').style.background =
+        `linear-gradient(to right, #C49A4A 0%, #C49A4A ${pct}%, rgba(255,255,255,0.12) ${pct}%, rgba(255,255,255,0.12) 100%)`;
+
+      if (isNegotiable) {
+        document.getElementById('fee-result-box').style.display  = 'none';
+        document.getElementById('negotiable-box').style.display  = 'block';
+        // Gray out all tiers
+        for (let i = 1; i <= 5; i++) {
+          document.getElementById('tier-' + i + '-row').className = 'fee-tier-row inactive';
+          document.getElementById('tier-' + i + '-fee').textContent = '—';
+          document.getElementById('tier-' + i + '-fee').style.color  = 'rgba(255,255,255,0.30)';
+        }
+        document.getElementById('tier-6-row').className = 'fee-tier-row active';
+        document.getElementById('tier-total').textContent = 'Negotiable';
+        document.getElementById('tier-total').style.color = 'rgba(255,255,255,0.50)';
+        return;
+      }
+
+      document.getElementById('fee-result-box').style.display = 'block';
+      document.getElementById('negotiable-box').style.display  = 'none';
+      document.getElementById('tier-6-row').className = 'fee-tier-row future';
+      document.getElementById('tier-total').style.color = '#C49A4A';
+
+      const { total, breakdown, rate } = calcFee(aum);
+
+      // Summary row
+      document.getElementById('fee-annual').textContent    = formatDollar(total);
+      document.getElementById('fee-rate').textContent      = (rate * 100).toFixed(2) + '%';
+      document.getElementById('fee-quarterly').textContent = formatDollar(total / 4);
+      document.getElementById('tier-total').textContent    = formatDollar(total);
+
+      // Per-tier rows
+      breakdown.forEach(({ id, fee, status }) => {
+        const row    = document.getElementById('tier-' + id + '-row');
+        const feeEl  = document.getElementById('tier-' + id + '-fee');
+        if (fee === 0) {
+          row.className    = 'fee-tier-row future';
+          feeEl.textContent = '—';
+          feeEl.style.color = 'rgba(255,255,255,0.30)';
+        } else {
+          row.className    = 'fee-tier-row active';
+          feeEl.textContent = formatDollar(fee);
+          feeEl.style.color = '#C49A4A';
+        }
+      });
+    }
+
+    document.getElementById('aum-slider').addEventListener('input', updateSlider);
+    updateSlider(); // init
+  </script>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     CTA BANNER
+══════════════════════════════════════════════════════ -->
+<section style="background:linear-gradient(135deg,#133F73 0%,#1A5EA8 50%,#2A74C8 100%);
+                padding:6rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-30%;right:-10%;width:50%;height:150%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.18) 0%,transparent 60%);
+              pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-20%;left:-5%;width:40%;height:100%;
+              background:radial-gradient(ellipse,rgba(255,255,255,0.06) 0%,transparent 60%);
+              pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center relative z-10">
+    <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+              color:rgba(196,154,74,0.90);margin-bottom:1rem;">Ready to Begin?</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);
+               font-weight:700;line-height:1.12;letter-spacing:-0.03em;color:white;margin-bottom:1.25rem;">
+      Your financial future deserves<br />
+      <em style="font-style:italic;color:#D4AE6A;">a clear strategy.</em>
+    </h2>
+    <p style="font-size:1rem;line-height:1.7;color:rgba(255,255,255,0.65);
+              max-width:520px;margin:0 auto 2.5rem;font-weight:300;">
+      Schedule a no-obligation discovery call with one of our advisors and find out how
+      Rubiq Financial Partners can help you achieve clarity and confidence in your finances.
+    </p>
+    <a href="#contact">
+      <button class="btn-gold ihb" style="font-size:0.9375rem;padding:1rem 3rem;">
+        <span class="ihb-label">Schedule a Call</span>
+        <span class="ihb-hover">Schedule a Call <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <span class="ihb-blob"></span>
+      </button>
+    </a>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════════════════ -->
+<section id="contact" style="background:#0F1724;padding:5rem 0 6rem;position:relative;overflow:hidden;">
+
+  <!-- Radial bg accents -->
+  <div style="position:absolute;top:-10%;left:-10%;width:50%;height:80%;
+              background:radial-gradient(ellipse,rgba(26,94,168,0.18) 0%,transparent 65%);
+              pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-15%;right:-5%;width:40%;height:70%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.08) 0%,transparent 65%);
+              pointer-events:none;"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <!-- Section header (full-width) -->
+    <div style="margin-bottom:3.5rem;">
+      <div class="section-rule"></div>
+      <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+                color:#C49A4A;margin-bottom:0.75rem;">Get in Touch</p>
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;">
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.75rem);
+                   font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:white;">
+          Let's Start a Conversation
+        </h2>
+        <p style="font-size:1rem;line-height:1.7;color:rgba(255,255,255,0.50);
+                  font-weight:300;max-width:460px;">
+          Whether you're starting fresh or looking for a second opinion, we're here to listen.
+          The first conversation is always complimentary — pick a time that works for you.
+        </p>
+      </div>
+    </div>
+
+    <!-- Two-column: info left, Calendly right -->
+    <div style="display:grid;grid-template-columns:300px 1fr;gap:3.5rem;align-items:start;">
+
+      <!-- ── Left: contact info ── -->
+      <div style="position:sticky;top:100px;">
+
+        <!-- Contact details -->
+        <div style="display:flex;flex-direction:column;gap:1.75rem;margin-bottom:2.5rem;">
+
+          <div style="display:flex;align-items:flex-start;gap:1rem;">
+            <div class="icon-circle" style="background:rgba(255,255,255,0.05);">
+              <svg width="18" height="18" fill="none" stroke="#C49A4A" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.36C1.21 2.18 2.12 1 3.3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.76-.76a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.28 16z"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight:600;font-size:0.875rem;color:white;margin-bottom:0.2rem;">Phone</div>
+              <div style="font-size:0.875rem;color:rgba(255,255,255,0.50);font-weight:300;">610-215-9499</div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:flex-start;gap:1rem;">
+            <div class="icon-circle" style="background:rgba(255,255,255,0.05);">
+              <svg width="18" height="18" fill="none" stroke="#C49A4A" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight:600;font-size:0.875rem;color:white;margin-bottom:0.2rem;">Email</div>
+              <div style="font-size:0.875rem;color:rgba(255,255,255,0.50);font-weight:300;">clientservice@rubiqfinancial.com</div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:flex-start;gap:1rem;">
+            <div class="icon-circle" style="background:rgba(255,255,255,0.05);">
+              <svg width="18" height="18" fill="none" stroke="#C49A4A" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight:600;font-size:0.875rem;color:white;margin-bottom:0.2rem;">Office</div>
+              <div style="font-size:0.875rem;color:rgba(255,255,255,0.50);font-weight:300;line-height:1.6;">
+                1065 Andrew Drive<br />West Chester, PA 19380
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Divider -->
+        <div style="width:100%;height:1px;background:rgba(255,255,255,0.08);margin-bottom:2rem;"></div>
+
+        <!-- Why meet with us -->
+        <div>
+          <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+                    color:rgba(255,255,255,0.30);margin-bottom:1rem;">What to Expect</p>
+          <div style="display:flex;flex-direction:column;gap:0.875rem;">
+            <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+              <div style="width:6px;height:6px;border-radius:50%;background:#C49A4A;
+                          margin-top:6px;flex-shrink:0;"></div>
+              <span style="font-size:0.8125rem;line-height:1.6;color:rgba(255,255,255,0.55);font-weight:300;">
+                30-minute introductory call
+              </span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+              <div style="width:6px;height:6px;border-radius:50%;background:#C49A4A;
+                          margin-top:6px;flex-shrink:0;"></div>
+              <span style="font-size:0.8125rem;line-height:1.6;color:rgba(255,255,255,0.55);font-weight:300;">
+                No obligation, no pressure
+              </span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+              <div style="width:6px;height:6px;border-radius:50%;background:#C49A4A;
+                          margin-top:6px;flex-shrink:0;"></div>
+              <span style="font-size:0.8125rem;line-height:1.6;color:rgba(255,255,255,0.55);font-weight:300;">
+                Discuss your goals &amp; situation
+              </span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+              <div style="width:6px;height:6px;border-radius:50%;background:#C49A4A;
+                          margin-top:6px;flex-shrink:0;"></div>
+              <span style="font-size:0.8125rem;line-height:1.6;color:rgba(255,255,255,0.55);font-weight:300;">
+                Learn if we're the right fit
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /left -->
+
+      <!-- ── Right: Calendly inline widget ── -->
+      <div style="border-radius:12px;overflow:hidden;
+                  border:1px solid rgba(255,255,255,0.08);
+                  box-shadow:0 8px 40px rgba(0,0,0,0.40);">
+        <!-- Calendly inline widget
+             Colors passed via URL params:
+               background_color = 0f1724  (site ink dark)
+               text_color       = ffffff
+               primary_color    = c49a4a  (site gold)
+        -->
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/awochtl/prospect-intro?background_color=0f1724&text_color=ffffff&primary_color=c49a4a&hide_gdpr_banner=1"
+             style="min-width:320px;height:700px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      </div><!-- /calendly -->
+
+    </div><!-- /grid -->
+  </div><!-- /container -->
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════ -->
+<footer style="background:#090F1A;padding:4rem 0 2rem;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10"
+         style="border-bottom:1px solid rgba(255,255,255,0.06);">
+
+      <!-- Logo + tagline -->
+      <div class="md:col-span-1">
+        <div style="margin-bottom:1.25rem;">
+          <img src="Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Vertical -White.png"
+               alt="Rubiq Financial Partners"
+               style="height:72px;width:auto;object-fit:contain;" />
+        </div>
+        <p style="font-size:0.875rem;line-height:1.65;color:rgba(255,255,255,0.40);font-weight:300;">
+          Independent, fee-only financial advisory for entrepreneurs, business owners,
+          and high-net-worth families.
+        </p>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h5 style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.10em;
+                   text-transform:uppercase;color:rgba(255,255,255,0.30);margin-bottom:1.25rem;">Services</h5>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.65rem;">
+          <li><a href="#services" style="font-size:0.875rem;color:rgba(255,255,255,0.50);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Investment Management</a></li>
+          <li><a href="#services" style="font-size:0.875rem;color:rgba(255,255,255,0.50);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Financial Planning</a></li>
+          <li><a href="#services" style="font-size:0.875rem;color:rgba(255,255,255,0.50);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Retirement Planning</a></li>
+          <li><a href="#services" style="font-size:0.875rem;color:rgba(255,255,255,0.50);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Estate &amp; Legacy</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h5 style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.10em;
+                   text-transform:uppercase;color:rgba(255,255,255,0.30);margin-bottom:1.25rem;">Company</h5>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.65rem;">
+          <li><a href="#about"     style="font-size:0.875rem;color:rgba(255,255,255,0.50);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">About</a></li>
+          <li><a href="#team"      style="font-size:0.875rem;color:rgba(255,255,255,0.50);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Team</a></li>
+          <li><a href="#resources" style="font-size:0.875rem;color:rgba(255,255,255,0.50);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Resources</a></li>
+          <li><a href="#contact"   style="font-size:0.875rem;color:rgba(255,255,255,0.50);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h5 style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.10em;
+                   text-transform:uppercase;color:rgba(255,255,255,0.30);margin-bottom:1.25rem;">Contact</h5>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.65rem;">
+          <li style="font-size:0.875rem;color:rgba(255,255,255,0.50);font-weight:300;">610-215-9499</li>
+          <li style="font-size:0.875rem;color:rgba(255,255,255,0.50);font-weight:300;">clientservice@rubiqfinancial.com</li>
+          <li style="font-size:0.875rem;color:rgba(255,255,255,0.50);font-weight:300;line-height:1.5;">1065 Andrew Drive<br />West Chester, PA 19380</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.25);font-weight:300;">
+        © 2026 Rubiq Financial Partners. All rights reserved.
+      </p>
+      <div class="flex gap-6">
+        <a href="#" style="font-size:0.75rem;color:rgba(255,255,255,0.30);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.30)'">Privacy Policy</a>
+        <a href="#" style="font-size:0.75rem;color:rgba(255,255,255,0.30);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.30)'">Terms of Use</a>
+        <a href="#" style="font-size:0.75rem;color:rgba(255,255,255,0.30);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.30)'">ADV Disclosure</a>
+      </div>
+    </div>
+
+    <p style="font-size:0.7rem;color:rgba(255,255,255,0.18);line-height:1.6;margin-top:1.5rem;font-weight:300;">
+      Rubiq Financial Partners is a registered investment adviser. Registration does not imply a certain level of skill or training.
+      The information on this website is for informational purposes only and does not constitute investment advice.
+      Investing involves risk, including possible loss of principal. Past performance is not indicative of future results.
+    </p>
+  </div>
+</footer>
+
+
+<script>
+  function toggleMobile() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 40) {
+      nav.style.background = 'rgba(15,23,36,0.97)';
+      nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.35)';
+    } else {
+      nav.style.background = 'rgba(15,23,36,0.85)';
+      nav.style.boxShadow = 'none';
+    }
+  });
+</script>
+
+<!-- ══════════════════════════════════════════════════
+     CRYSTALLINE SHADER — Hero right-column WebGL
+══════════════════════════════════════════════════════ -->
+<script>
+(function() {
+  const canvas = document.getElementById('crystal-canvas');
+  if (!canvas) return;
+
+  const gl = canvas.getContext('webgl');
+  if (!gl) return;
+
+  const mousePos = { x: 0.5, y: 0.5 };
+
+  const vertSrc = `
+    attribute vec2 aPosition;
+    void main() { gl_Position = vec4(aPosition, 0.0, 1.0); }
+  `;
+
+  const fragSrc = `
+    precision highp float;
+    uniform vec2  iResolution;
+    uniform float iTime;
+    uniform vec2  iMouse;
+
+    #define MAX_STEPS 64
+    #define MAX_DIST  100.0
+    #define SURF_DIST 0.001
+
+    // Rubiq brand palette: Royal Blue → highlight → Warm Gold → Deep Navy
+    vec3 brandPalette(float t) {
+      t = fract(t);
+      vec3 blue  = vec3(0.106, 0.369, 0.659); // #1B5EA8
+      vec3 gold  = vec3(0.769, 0.604, 0.353); // #C49A5A
+      vec3 navy  = vec3(0.102, 0.247, 0.435); // #1A3F6F
+      vec3 light = vec3(0.82,  0.78,  0.70);  // warm near-white highlight
+      if (t < 0.25) return mix(blue,  light, t / 0.25);
+      if (t < 0.50) return mix(light, gold,  (t - 0.25) / 0.25);
+      if (t < 0.75) return mix(gold,  navy,  (t - 0.50) / 0.25);
+      return mix(navy, blue, (t - 0.75) / 0.25);
+    }
+
+    mat3 rotate3(vec3 axis, float angle) {
+      axis = normalize(axis);
+      float s = sin(angle), c = cos(angle), oc = 1.0 - c;
+      return mat3(
+        oc*axis.x*axis.x + c,           oc*axis.x*axis.y - axis.z*s,  oc*axis.z*axis.x + axis.y*s,
+        oc*axis.x*axis.y + axis.z*s,    oc*axis.y*axis.y + c,         oc*axis.y*axis.z - axis.x*s,
+        oc*axis.z*axis.x - axis.y*s,    oc*axis.y*axis.z + axis.x*s,  oc*axis.z*axis.z + c
+      );
+    }
+
+    float getDist(vec3 p) {
+      p = rotate3(normalize(vec3(1.0, 1.0, 1.0)), iTime * 0.18) * p;
+      float box = length(max(abs(p) - vec3(1.0), 0.0));
+      float d   = sin(5.5 * p.x) * sin(5.5 * p.y) * sin(5.5 * p.z);
+      return box - d * 0.12;
+    }
+
+    vec3 getNormal(vec3 p) {
+      vec2 e = vec2(0.001, 0.0);
+      float d = getDist(p);
+      return normalize(d - vec3(getDist(p-e.xyy), getDist(p-e.yxy), getDist(p-e.yyx)));
+    }
+
+    float rayMarch(vec3 ro, vec3 rd) {
+      float dO = 0.0;
+      for (int i = 0; i < MAX_STEPS; i++) {
+        float dS = getDist(ro + rd * dO);
+        dO += dS;
+        if (dO > MAX_DIST || dS < SURF_DIST) break;
+      }
+      return dO;
+    }
+
+    void main() {
+      vec2 uv = (gl_FragCoord.xy - 0.5 * iResolution.xy) / iResolution.y;
+      vec3 ro  = vec3(0.0, 0.0, -5.0);
+      vec3 rd  = normalize(vec3(uv, 1.0));
+
+      float d = rayMarch(ro, rd);
+      // Background: match hero dark (#0F1724)
+      vec3 col = vec3(0.059, 0.090, 0.141);
+
+      if (d < MAX_DIST) {
+        vec3 p = ro + rd * d;
+        vec3 n = getNormal(p);
+
+        // Light driven by mouse
+        vec2 m = (iMouse.xy / iResolution.xy - 0.5) * 2.0;
+        vec3 lPos = vec3(m.x * 1.6, m.y * 1.6, -3.0);
+        vec3 l = normalize(lPos - p);
+
+        float dif  = clamp(dot(n, l), 0.0, 1.0);
+        vec3  h    = normalize(l + normalize(ro - p));
+        float spec = pow(clamp(dot(n, h), 0.0, 1.0), 48.0);
+
+        vec3 baseCol = brandPalette(length(p) * 0.22 + iTime * 0.14);
+        col = (dif * baseCol + spec * vec3(0.95, 0.90, 0.80)) * 1.3;
+
+        // Soft rim light in gold
+        float rim = 1.0 - clamp(dot(normalize(ro - p), n), 0.0, 1.0);
+        col += pow(rim, 3.5) * vec3(0.769, 0.604, 0.353) * 0.45;
+      }
+
+      // No background glow — cube sits directly on the page
+
+      gl_FragColor = vec4(col, 1.0);
+    }
+  `;
+
+  function compileShader(src, type) {
+    const sh = gl.createShader(type);
+    gl.shaderSource(sh, src);
+    gl.compileShader(sh);
+    if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) {
+      console.error('Shader error:', gl.getShaderInfoLog(sh));
+      gl.deleteShader(sh);
+      return null;
+    }
+    return sh;
+  }
+
+  const vs = compileShader(vertSrc, gl.VERTEX_SHADER);
+  const fs = compileShader(fragSrc, gl.FRAGMENT_SHADER);
+  if (!vs || !fs) return;
+
+  const prog = gl.createProgram();
+  gl.attachShader(prog, vs);
+  gl.attachShader(prog, fs);
+  gl.linkProgram(prog);
+  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+    console.error('Program link error:', gl.getProgramInfoLog(prog));
+    return;
+  }
+  gl.useProgram(prog);
+
+  const verts = new Float32Array([-1,-1, 1,-1, -1,1, -1,1, 1,-1, 1,1]);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
+  const aPos = gl.getAttribLocation(prog, 'aPosition');
+  gl.enableVertexAttribArray(aPos);
+  gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+  const uRes   = gl.getUniformLocation(prog, 'iResolution');
+  const uTime  = gl.getUniformLocation(prog, 'iTime');
+  const uMouse = gl.getUniformLocation(prog, 'iMouse');
+
+  function resize() {
+    canvas.width  = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.uniform2f(uRes, canvas.width, canvas.height);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  window.addEventListener('mousemove', function(e) {
+    const r = canvas.getBoundingClientRect();
+    mousePos.x = e.clientX - r.left;
+    mousePos.y = e.clientY - r.top;
+  });
+
+  const t0 = performance.now();
+  function loop() {
+    if (gl.isContextLost()) return;
+    gl.uniform1f(uTime, (performance.now() - t0) / 1000);
+    gl.uniform2f(uMouse, mousePos.x, canvas.height - mousePos.y);
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+</script>
+
+</body>
+</html>
