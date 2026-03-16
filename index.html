@@ -280,12 +280,6 @@
       width: 200px; height: 200px;
       position: relative;
       transform-style: preserve-3d;
-      animation: heroSpin 22s infinite linear;
-    }
-    @keyframes heroSpin {
-      0%   { transform: rotateX(-18deg) rotateY(0deg) rotateZ(2deg); }
-      50%  { transform: rotateX(-28deg) rotateY(180deg) rotateZ(-2deg); }
-      100% { transform: rotateX(-18deg) rotateY(360deg) rotateZ(2deg); }
     }
     .hero-cube-face {
       position: absolute;
@@ -302,7 +296,15 @@
     .hero-cube-face.left   { transform: rotateY(-90deg) translateZ(100px); }
     .hero-cube-face.top    { transform: rotateX(90deg)  translateZ(100px); }
     .hero-cube-face.bottom { transform: rotateX(-90deg) translateZ(100px); }
-    .hc { border-radius: 4px; }
+    .hc {
+      border-radius: 4px;
+      background-image: linear-gradient(145deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.04) 45%, rgba(0,0,0,0.18) 100%);
+      box-shadow:
+        inset 0 2px 2px rgba(255,255,255,0.28),
+        inset 0 -2px 2px rgba(0,0,0,0.28),
+        inset 2px 0 2px rgba(255,255,255,0.12),
+        inset -2px 0 2px rgba(0,0,0,0.18);
+    }
 
     @media (max-width: 768px) {
       .hero-headline { font-size: 2.5rem !important; }
@@ -483,9 +485,9 @@
       </div>
 
       <!-- Cube -->
-      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;padding-right:1rem;">
+      <div style="display:flex;align-items:center;justify-content:center;padding-right:1rem;">
         <div class="hero-cube-scene">
-          <div class="hero-cube">
+          <div class="hero-cube" id="hero-cube-el">
 
             <!-- FRONT: mostly blue, two gold cells (scrambled) -->
             <div class="hero-cube-face front">
@@ -568,17 +570,6 @@
           </div>
         </div>
 
-        <!-- Label beneath cube -->
-        <div style="text-align:center;">
-          <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
-                    color:rgba(196,154,74,0.55);margin-bottom:0.35rem;">Every dimension, connected.</p>
-          <a href="Pages/services.html"
-             style="font-size:0.75rem;font-weight:500;color:rgba(255,255,255,0.35);text-decoration:none;
-                    letter-spacing:0.03em;transition:color 0.18s ease;"
-             onmouseover="this.style.color='rgba(196,154,74,0.80)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">
-            Explore our services →
-          </a>
-        </div>
       </div>
 
     </div><!-- /hero-grid -->
@@ -2080,6 +2071,40 @@
 
 
 <script>
+  // ── Hero cube: random tumble ──
+  (function() {
+    const cube = document.getElementById('hero-cube-el');
+    if (!cube) return;
+    let rx = -18, ry = 20, rz = 3;
+    let vx = 0.04, vy = 0.18, vz = 0.01;
+
+    function tick() {
+      // Random nudges — small and infrequent so motion feels organic
+      if (Math.random() < 0.03) vx += (Math.random() - 0.5) * 0.18;
+      if (Math.random() < 0.03) vy += (Math.random() - 0.5) * 0.22;
+      if (Math.random() < 0.02) vz += (Math.random() - 0.5) * 0.10;
+
+      // Gentle damping — keeps energy but prevents runaway spin
+      vx *= 0.994;
+      vy *= 0.994;
+      vz *= 0.994;
+
+      // Soft clamps so it never goes too fast or stops
+      const clamp = (v, mn, mx) => Math.max(mn, Math.min(mx, v));
+      vx = clamp(vx, -0.35, 0.35);
+      vy = clamp(vy, -0.55, 0.55);
+      vz = clamp(vz, -0.18, 0.18);
+
+      // Nudge back toward movement if it gets too slow
+      if (Math.abs(vy) < 0.06) vy += (Math.random() - 0.5) * 0.12;
+
+      rx += vx; ry += vy; rz += vz;
+      cube.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg)`;
+      requestAnimationFrame(tick);
+    }
+    tick();
+  })();
+
   function toggleMobile() {
     document.getElementById('mobile-menu').classList.toggle('open');
   }
