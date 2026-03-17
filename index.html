@@ -319,6 +319,16 @@
       .hero-cube-face.left   { transform: rotateY(-90deg) translateZ(75px); }
       .hero-cube-face.top    { transform: rotateX(90deg)  translateZ(75px); }
       .hero-cube-face.bottom { transform: rotateX(-90deg) translateZ(75px); }
+
+      /* Analytics stats bar — prevent overflow and collision on small screens */
+      .stat-number { font-size: 1.875rem !important; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr) !important; gap: 1.25rem 1rem !important; }
+    }
+
+    @media (max-width: 400px) {
+      /* Very small screens: single column to eliminate any remaining collision risk */
+      .stats-bar { grid-template-columns: 1fr 1fr !important; }
+      .stat-number { font-size: 1.625rem !important; }
     }
   </style>
 </head>
@@ -589,7 +599,7 @@
     </div><!-- /hero-grid -->
 
     <!-- Stats bar -->
-    <div class="mt-20 pt-10 grid grid-cols-2 md:grid-cols-4 gap-8"
+    <div class="stats-bar mt-20 pt-10 grid grid-cols-2 md:grid-cols-4 gap-8"
          style="border-top:1px solid rgba(255,255,255,0.10);">
       <div>
         <div class="stat-number">$200M+</div>
