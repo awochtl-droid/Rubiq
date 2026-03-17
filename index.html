@@ -1372,6 +1372,12 @@
       background: #C49A4A;
       flex-shrink: 0;
     }
+    @media (max-width: 767px) {
+      #pricing-grid     { grid-template-columns: 1fr !important; }
+      #contact-grid     { grid-template-columns: 1fr !important; gap: 2rem !important; }
+      #contact-name-row { grid-template-columns: 1fr !important; }
+      #contact-left-col { position: static !important; }
+    }
   </style>
 
   <div class="max-w-7xl mx-auto px-6 lg:px-10">
@@ -1397,7 +1403,7 @@
     </div>
 
     <!-- Main two-column layout -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+    <div id="pricing-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
 
       <!-- LEFT: Interactive slider card -->
       <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
@@ -1898,10 +1904,10 @@
     </div>
 
     <!-- Two-column: info left, Calendly right -->
-    <div style="display:grid;grid-template-columns:300px 1fr;gap:3.5rem;align-items:start;">
+    <div id="contact-grid" style="display:grid;grid-template-columns:300px 1fr;gap:3.5rem;align-items:start;">
 
       <!-- ── Left: contact info ── -->
-      <div style="position:sticky;top:100px;">
+      <div id="contact-left-col" style="position:sticky;top:100px;">
 
         <!-- Contact details -->
         <div style="display:flex;flex-direction:column;gap:1.75rem;margin-bottom:2.5rem;">
@@ -1998,7 +2004,7 @@
         <form id="contact-form" action="mailto:andreas@rubiqfinancial.com" method="post" enctype="text/plain"
               style="display:flex;flex-direction:column;gap:1.25rem;">
 
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+          <div id="contact-name-row" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
             <div>
               <label style="display:block;font-size:0.75rem;font-weight:600;letter-spacing:0.06em;
                             text-transform:uppercase;color:rgba(255,255,255,0.40);margin-bottom:0.5rem;">First Name</label>
