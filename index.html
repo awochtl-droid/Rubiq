@@ -334,6 +334,16 @@
       .stats-bar { grid-template-columns: 1fr 1fr !important; }
       .stat-number { font-size: 1.625rem !important; }
     }
+
+    /* ── Mobile tap targets ── */
+    @media (max-width: 767px) {
+      /* Mobile nav menu items */
+      #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+      /* Footer nav column links */
+      footer ul li a { display: block; padding: 0.5rem 0; }
+      /* Footer legal links (Privacy, Terms, ADV, etc.) */
+      #footer-legal-links a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -2151,7 +2161,7 @@
           Advisory services offered through Wealthcare Advisory Partners. Brokerage products offered through LPL Financial, Member <a href="https://www.finra.org" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.28);text-decoration:underline;">FINRA</a>/<a href="https://www.sipc.org" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.28);text-decoration:underline;">SIPC</a>.
         </p>
       </div>
-      <div class="flex gap-6">
+      <div id="footer-legal-links" class="flex gap-6">
         <a href="Pages/privacy-policy.html" style="font-size:0.75rem;color:rgba(255,255,255,0.30);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.30)'">Privacy Policy</a>
         <a href="Pages/terms-of-use.html" style="font-size:0.75rem;color:rgba(255,255,255,0.30);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.30)'">Terms of Use</a>
         <a href="https://adviserinfo.sec.gov/firm/summary/171976" target="_blank" rel="noopener noreferrer" style="font-size:0.75rem;color:rgba(255,255,255,0.30);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.30)'">Wealthcare ADV</a>
