@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resources — Rubiq Financial Partners</title>
+  <title>Terms of Use — Rubiq Financial Partners</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,8 +53,6 @@
     }
     .nav-link:hover { color: white; }
     .nav-link:hover::after { width: 100%; }
-    .nav-link.active { color: white; }
-    .nav-link.active::after { width: 100%; }
 
     .btn-primary {
       background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
@@ -64,6 +62,14 @@
       transition: opacity 0.18s ease, transform 0.18s ease;
     }
     .btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
+    .btn-gold {
+      background: linear-gradient(135deg, #C49A4A 0%, #D4AE6A 100%);
+      color: #0F1724; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.875rem 2.25rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .btn-gold:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(196,154,74,0.40); }
     .btn-ghost {
       background: transparent; color: white; font-family: 'Inter', sans-serif;
       font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
@@ -72,23 +78,38 @@
     }
     .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); }
 
-    .section-rule {
-      width: 48px; height: 3px;
-      background: linear-gradient(90deg, #1A5EA8, #C49A4A);
-      border-radius: 2px; margin-bottom: 1.5rem;
-    }
-
-    .resource-card {
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
-    }
-    .resource-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 16px rgba(26,94,168,0.14), 0 16px 48px rgba(26,94,168,0.10) !important;
-    }
-
-    /* Mobile menu */
     #mobile-menu { display: none; }
     #mobile-menu.open { display: flex; }
+
+    .section-rule {
+      display: block; width: 48px; height: 3px; border-radius: 2px; margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, #1A5EA8 0%, #C49A4A 100%);
+    }
+
+    .policy-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: #0F1724;
+      margin: 2.5rem 0 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    .policy-section p {
+      font-size: 0.9375rem;
+      line-height: 1.80;
+      color: #3A4A5C;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+    .policy-section ol, .policy-section ul {
+      margin: 0.5rem 0 1rem 1.5rem;
+      font-size: 0.9375rem;
+      line-height: 1.80;
+      color: #3A4A5C;
+      font-weight: 300;
+    }
+    .policy-section li { margin-bottom: 0.5rem; }
+    .policy-section strong { font-weight: 600; color: #0F1724; }
   </style>
 </head>
 <body>
@@ -105,11 +126,11 @@
              alt="Rubiq Financial Partners" style="height:34px;width:auto;object-fit:contain;" />
       </a>
       <div class="hidden md:flex items-center gap-8">
-        <a href="services.html"           class="nav-link">Services</a>
-        <a href="about.html"              class="nav-link">About</a>
-        <a href="team.html"               class="nav-link">Team</a>
-        <a href="resources.html"          class="nav-link active">Resources</a>
-        <a href="contact.html"            class="nav-link">Contact</a>
+        <a href="services.html"  class="nav-link">Services</a>
+        <a href="about.html"     class="nav-link">About</a>
+        <a href="team.html"      class="nav-link">Team</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="contact.html"   class="nav-link">Contact</a>
       </div>
       <div class="hidden md:flex items-center gap-3">
         <a href="https://www.gdx360.com/login/securelogin/loginbase.aspx" target="_blank" rel="noopener noreferrer">
@@ -136,7 +157,7 @@
     <a href="resources.html" class="nav-link" style="padding:0.75rem 0;font-size:0.9375rem;">Resources</a>
     <a href="contact.html"   class="nav-link" style="padding:0.75rem 0;font-size:0.9375rem;">Contact</a>
     <div style="margin-top:1.25rem;">
-      <a href="contact.html"><button class="btn-primary" style="width:100%;">Schedule a Call</button></a>
+      <a href="contact.html"><button class="btn-gold" style="width:100%;">Schedule a Call</button></a>
     </div>
   </div>
 </nav>
@@ -146,8 +167,7 @@
      HERO
 ══════════════════════════════════════════════════════ -->
 <section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 55%,#1A5EA8 100%);
-                padding:10rem 0 7rem;position:relative;overflow:hidden;">
-
+                padding:10rem 0 6rem;position:relative;overflow:hidden;">
   <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.025;pointer-events:none;" aria-hidden="true">
     <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
     <feColorMatrix type="saturate" values="0"/></filter>
@@ -162,115 +182,155 @@
                 border-radius:100px;padding:0.35rem 1rem;margin-bottom:2rem;">
       <div style="width:6px;height:6px;border-radius:50%;background:#C49A4A;flex-shrink:0;"></div>
       <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A4A;">
-        Resources
+        Legal
       </span>
     </div>
 
-    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,3.75rem);
-               font-weight:700;line-height:1.10;letter-spacing:-0.03em;color:white;margin-bottom:1.75rem;">
-      Insights &amp;<br />
-      <em style="font-style:italic;color:#D4AE6A;">Perspectives.</em>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.25rem,5vw,3.5rem);
+               font-weight:700;line-height:1.10;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
+      Terms of Use
     </h1>
 
-    <p style="font-size:1.125rem;line-height:1.80;color:rgba(255,255,255,0.72);
-              font-weight:300;max-width:620px;">
-      Thoughtful commentary on wealth management, tax strategy, and the decisions that matter
-      most to the families and entrepreneurs we serve.
+    <p style="font-size:1rem;line-height:1.80;color:rgba(255,255,255,0.60);
+              font-weight:300;max-width:600px;">
+      Please read these terms carefully before using this website. By accessing or using
+      rubiqfp.com, you agree to be bound by the terms and conditions set forth below.
+    </p>
+    <p style="font-size:0.8125rem;color:rgba(255,255,255,0.35);margin-top:1.25rem;font-weight:300;">
+      Last updated: March 2026
     </p>
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════════════════
-     ARTICLES
+     TERMS CONTENT
 ══════════════════════════════════════════════════════ -->
 <section style="background:#FAF8F4;padding:5rem 0 6rem;">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+  <div class="max-w-3xl mx-auto px-6 lg:px-10 policy-section">
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <span class="section-rule"></span>
 
-      <!-- Card 1 -->
-      <a href="#" style="text-decoration:none;">
-        <div class="resource-card bg-white rounded-lg overflow-hidden"
-             style="box-shadow:0 2px 8px rgba(26,94,168,0.08),0 8px 32px rgba(26,94,168,0.06);">
-          <div style="height:180px;overflow:hidden;position:relative;">
-            <img src="https://placehold.co/600x360/1C2D44/C49A4A" alt="Article"
-                 style="width:100%;height:100%;object-fit:cover;" />
-            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,36,0.40),transparent);"></div>
-            <div style="position:absolute;top:14px;left:14px;background:rgba(196,154,74,0.15);
-                        border:1px solid rgba(196,154,74,0.35);border-radius:3px;
-                        padding:3px 10px;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;
-                        text-transform:uppercase;color:#C49A4A;">Alternatives</div>
-          </div>
-          <div class="p-7">
-            <h4 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;
-                       color:#0F1724;line-height:1.35;margin-bottom:0.75rem;">
-              Private Credit Market: What Investors Need to Know
-            </h4>
-            <p style="font-size:0.875rem;line-height:1.65;color:#4A5568;font-weight:300;margin-bottom:1rem;">
-              Private credit has grown into a multi-trillion dollar asset class. We explore the risks, returns,
-              and how it fits within a diversified portfolio.
-            </p>
-            <div style="font-size:0.75rem;font-weight:500;color:rgba(44,62,85,0.55);">March 10, 2026 · 6 min read</div>
-          </div>
-        </div>
-      </a>
+    <h2>Acceptance of Terms</h2>
+    <p>
+      By accessing and using this website, you accept and agree to be bound by these Terms of Use and
+      all applicable laws and regulations. If you do not agree with any of these terms, you are
+      prohibited from using or accessing this site. Rubiq Financial Partners LLC ("Rubiq") reserves the
+      right to modify these terms at any time, and such modifications will be effective immediately upon
+      posting. We encourage you to review these terms periodically for any changes.
+    </p>
 
-      <!-- Card 2 -->
-      <a href="#" style="text-decoration:none;">
-        <div class="resource-card bg-white rounded-lg overflow-hidden"
-             style="box-shadow:0 2px 8px rgba(26,94,168,0.08),0 8px 32px rgba(26,94,168,0.06);">
-          <div style="height:180px;overflow:hidden;position:relative;">
-            <img src="https://placehold.co/600x360/133F73/FAF8F4" alt="Article"
-                 style="width:100%;height:100%;object-fit:cover;" />
-            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,36,0.40),transparent);"></div>
-            <div style="position:absolute;top:14px;left:14px;background:rgba(26,94,168,0.15);
-                        border:1px solid rgba(26,94,168,0.35);border-radius:3px;
-                        padding:3px 10px;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;
-                        text-transform:uppercase;color:#2A74C8;">Portfolio Management</div>
-          </div>
-          <div class="p-7">
-            <h4 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;
-                       color:#0F1724;line-height:1.35;margin-bottom:0.75rem;">
-              How Often Should I Rebalance My Portfolio?
-            </h4>
-            <p style="font-size:0.875rem;line-height:1.65;color:#4A5568;font-weight:300;margin-bottom:1rem;">
-              There is no universal answer, but the decision matters more than most investors realize.
-              We break down the tradeoffs between calendar, threshold, and tactical rebalancing.
-            </p>
-            <div style="font-size:0.75rem;font-weight:500;color:rgba(44,62,85,0.55);">February 24, 2026 · 5 min read</div>
-          </div>
-        </div>
-      </a>
+    <h2>No Investment Advice</h2>
+    <p>
+      <strong>The information contained on this website is for informational and educational purposes
+      only and does not constitute investment, legal, or tax advice.</strong> Nothing on this site
+      should be construed as a solicitation, offer, or recommendation to buy or sell any security or
+      investment product. Past performance is not indicative of future results. All investments involve
+      risk, including the possible loss of principal.
+    </p>
+    <p>
+      Tax-aware investing strategies discussed on this site should not be viewed as a substitute for
+      individualized tax advice. Rubiq recommends that you consult with a qualified tax or legal
+      professional before making any financial decision.
+    </p>
 
-      <!-- Card 3 -->
-      <a href="#" style="text-decoration:none;">
-        <div class="resource-card bg-white rounded-lg overflow-hidden"
-             style="box-shadow:0 2px 8px rgba(26,94,168,0.08),0 8px 32px rgba(26,94,168,0.06);">
-          <div style="height:180px;overflow:hidden;position:relative;">
-            <img src="https://placehold.co/600x360/2C3E55/D4AE6A" alt="Article"
-                 style="width:100%;height:100%;object-fit:cover;" />
-            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,36,0.40),transparent);"></div>
-            <div style="position:absolute;top:14px;left:14px;background:rgba(26,94,168,0.15);
-                        border:1px solid rgba(26,94,168,0.35);border-radius:3px;
-                        padding:3px 10px;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;
-                        text-transform:uppercase;color:#2A74C8;">Tax Strategy</div>
-          </div>
-          <div class="p-7">
-            <h4 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;
-                       color:#0F1724;line-height:1.35;margin-bottom:0.75rem;">
-              Roth Conversion Conversations: A Guide for Every Stage of Life
-            </h4>
-            <p style="font-size:0.875rem;line-height:1.65;color:#4A5568;font-weight:300;margin-bottom:1rem;">
-              When does a Roth conversion make sense — and how do you talk about it with your advisor?
-              We walk through the key questions to ask.
-            </p>
-            <div style="font-size:0.75rem;font-weight:500;color:rgba(44,62,85,0.55);">January 15, 2026 · 7 min read</div>
-          </div>
-        </div>
-      </a>
+    <h2>Investment Risk Disclosures</h2>
+    <p>
+      Different types of investments involve varying degrees of risk, and there can be no assurance
+      that any specific investment will be suitable or profitable for a client's investment portfolio.
+      Asset allocation and diversification may be used in an effort to manage risk and enhance returns;
+      however, they do not guarantee a profit or protect against loss in declining markets.
+    </p>
+    <p>
+      References to likelihood of achieving financial goals or any specific outcome relate solely to
+      illustrative planning scenarios and are not guarantees of any particular result. Financial
+      planning services are only effective if a client actively participates in and adheres to the
+      recommended plan.
+    </p>
 
+    <h2>Regulatory Information</h2>
+    <p>
+      Advisory services are offered through Wealthcare Advisory Partners, a registered investment
+      adviser with the Securities and Exchange Commission (SEC) under the Investment Advisers Act of
+      1940. Brokerage products are offered through LPL Financial, Member
+      <a href="https://www.finra.org" target="_blank" rel="noopener noreferrer" style="color:#1A5EA8;">FINRA</a> /
+      <a href="https://www.sipc.org" target="_blank" rel="noopener noreferrer" style="color:#1A5EA8;">SIPC</a>.
+      Rubiq Financial Partners LLC and the above-referenced entities are separate and unaffiliated companies.
+    </p>
+    <p>
+      Clients and prospective clients may obtain a copy of our Form ADV Part 2A (Disclosure Brochure)
+      and applicable brochure supplements for advisory personnel by contacting us or visiting the
+      SEC's Investment Adviser Public Disclosure website. You may also verify the registration status
+      of our advisors by visiting
+      <a href="https://brokercheck.finra.org" target="_blank" rel="noopener noreferrer" style="color:#1A5EA8;">FINRA BrokerCheck</a>.
+    </p>
+
+    <h2>Electronic Communications</h2>
+    <p>
+      <strong>Do not send sensitive personal, financial, or account information via email.</strong>
+      Rubiq does not accept trading instructions, money movement requests, or other time-sensitive
+      directives through electronic communication channels including email or this website's contact
+      form. All electronic communications may be subject to monitoring and review by compliance
+      personnel or regulators.
+    </p>
+    <p>
+      By submitting information through this website's contact form, you consent to being contacted
+      by Rubiq representatives via email or phone in response to your inquiry.
+    </p>
+
+    <h2>Social Media &amp; Third-Party Platforms</h2>
+    <p>
+      Any content Rubiq publishes on third-party social media platforms or websites is considered
+      advertising or marketing material under applicable securities regulations. Rubiq retains copies
+      of all such communications for compliance review purposes. Third-party sites linked from this
+      website are not under the control of Rubiq, and we are not responsible for their content,
+      privacy practices, or terms of use.
+    </p>
+
+    <h2>Intellectual Property</h2>
+    <p>
+      All content on this website — including text, graphics, logos, images, and software — is the
+      property of Rubiq Financial Partners LLC or its content suppliers and is protected by applicable
+      intellectual property laws. Unauthorized use, reproduction, or distribution of any content from
+      this site is strictly prohibited without prior written consent from Rubiq.
+    </p>
+
+    <h2>Limitation of Liability</h2>
+    <p>
+      To the fullest extent permitted by law, Rubiq Financial Partners LLC, its affiliates, officers,
+      directors, employees, and agents shall not be liable for any direct, indirect, incidental,
+      special, consequential, or punitive damages arising from your use of — or inability to use —
+      this website or any content herein, even if advised of the possibility of such damages.
+    </p>
+
+    <h2>Governing Law</h2>
+    <p>
+      These Terms of Use shall be governed by and construed in accordance with the laws of the
+      applicable jurisdiction, without regard to conflict of law principles. Any disputes arising
+      under or related to these terms shall be subject to the exclusive jurisdiction of the courts
+      in the applicable venue.
+    </p>
+
+    <h2>Contact Us</h2>
+    <p>
+      If you have questions about these Terms of Use, please contact us via our
+      <a href="contact.html" style="color:#1A5EA8;text-decoration:underline;">Contact page</a> or at:
+    </p>
+    <p>
+      <strong>Rubiq Financial Partners LLC</strong><br />
+      Email: <a href="mailto:compliance@rubiqfp.com" style="color:#1A5EA8;">compliance@rubiqfp.com</a>
+    </p>
+
+    <div style="margin-top:3rem;padding:1.5rem 2rem;background:rgba(26,94,168,0.06);
+                border-left:3px solid #1A5EA8;border-radius:4px;">
+      <p style="margin:0;font-size:0.875rem;color:#3A4A5C;line-height:1.7;">
+        Advisory services offered through Wealthcare Advisory Partners, a registered investment
+        adviser. Brokerage products offered through LPL Financial, Member FINRA/SIPC. Rubiq
+        Financial Partners LLC and the above-referenced entities are separate and unaffiliated companies.
+        Registration with the SEC does not imply a certain level of skill or training.
+      </p>
     </div>
+
   </div>
 </section>
 
