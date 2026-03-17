@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Often Should I Rebalance My Portfolio? | Rubiq Financial Partners</title>
+  <meta name="description" content="Calendar vs. threshold vs. tactical rebalancing — there is no universal answer, but the decision matters more than most investors realize. Rubiq's advisors break down the tradeoffs." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/resources-rebalancing.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rubiq: {
+              blue:      '#1A5EA8',
+              bluedark:  '#133F73',
+              bluelight: '#2A74C8',
+              gold:      '#C49A4A',
+              goldlight: '#D4AE6A',
+              golddark:  '#9E7A32',
+              ink:       '#0F1724',
+              inksoft:   '#1C2D44',
+              slate:     '#2C3E55',
+              mist:      '#F4F6F9',
+              parchment: '#FAF8F4',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #0F1724; margin: 0; }
+
+    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.70);
+      text-decoration: none; position: relative; padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1.5px; background: #C49A4A; transition: width 0.22s ease;
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: white; }
+    .nav-link.active::after { width: 100%; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); }
+
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+    @media (max-width: 767px) {
+      #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+      footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
+    }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.625rem; font-weight: 700; color: #0F1724;
+      line-height: 1.25; letter-spacing: -0.02em;
+      margin: 2.75rem 0 1rem;
+    }
+    .article-body h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.0625rem; font-weight: 600; color: #1C2D44;
+      margin: 2rem 0 0.625rem;
+    }
+    .article-body p {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin: 0 0 1.35rem;
+    }
+    .article-body ul {
+      margin: 0 0 1.35rem 1.25rem; padding: 0;
+    }
+    .article-body ul li {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin-bottom: 0.5rem;
+      list-style: none; position: relative; padding-left: 1.25rem;
+    }
+    .article-body ul li::before {
+      content: ''; position: absolute; left: 0; top: 0.65em;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: linear-gradient(135deg, #1A5EA8, #C49A4A);
+    }
+
+    .stat-callout {
+      border-left: 3px solid #C49A4A;
+      background: linear-gradient(135deg, rgba(196,154,74,0.06), rgba(26,94,168,0.04));
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem; font-weight: 700; color: #1A5EA8;
+      line-height: 1; letter-spacing: -0.03em;
+    }
+    .stat-label {
+      font-size: 0.8125rem; font-weight: 500; color: #2C3E55;
+      letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.25rem;
+    }
+
+    .pull-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-style: italic; font-weight: 500;
+      color: #133F73; line-height: 1.55;
+      border-left: 3px solid #1A5EA8;
+      padding: 1rem 1.75rem;
+      margin: 2.5rem 0;
+    }
+
+    .comparison-row {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+    .comparison-cell {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid rgba(26,94,168,0.08);
+      font-size: 0.875rem; line-height: 1.5; color: #2C3E55;
+      font-weight: 300;
+    }
+    .comparison-header {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: white;
+      background: linear-gradient(135deg, #133F73, #1A5EA8);
+      padding: 0.875rem 1.25rem;
+    }
+
+    .resource-link {
+      display: flex; align-items: flex-start; gap: 0.875rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(26,94,168,0.12);
+      border-radius: 8px;
+      background: white;
+      text-decoration: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+      margin-bottom: 0.75rem;
+    }
+    .resource-link:hover {
+      border-color: rgba(196,154,74,0.40);
+      box-shadow: 0 4px 16px rgba(26,94,168,0.10);
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur"
+     style="background:rgba(15,23,36,0.90);border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex-shrink-0 flex items-center">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+             alt="Rubiq Financial Partners logo" width="160" height="34" style="height:34px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="services.html"  class="nav-link">Services</a>
+        <a href="about.html"     class="nav-link">About</a>
+        <a href="team.html"      class="nav-link">Team</a>
+        <a href="resources.html" class="nav-link active">Resources</a>
+        <a href="contact.html"   class="nav-link">Contact</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://www.gdx360.com/login/securelogin/loginbase.aspx" target="_blank" rel="noopener noreferrer">
+          <button class="btn-ghost">Client Access</button>
+        </a>
+        <a href="contact.html"><button class="btn-primary">Schedule a Call</button></a>
+      </div>
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('open')"
+              class="md:hidden p-2" style="color:white;" aria-label="Open menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu"
+       style="background:rgba(15,23,36,0.97);border-top:1px solid rgba(255,255,255,0.07);
+              flex-direction:column;padding:1.5rem 1.5rem 2rem;">
+    <a href="services.html"  class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Services</a>
+    <a href="about.html"     class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">About</a>
+    <a href="team.html"      class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Team</a>
+    <a href="resources.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Resources</a>
+    <a href="contact.html"   class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Contact</a>
+    <div style="margin-top:1.25rem;">
+      <a href="contact.html"><button class="btn-primary" style="width:100%;">Schedule a Call</button></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<div style="position:relative;height:520px;overflow:hidden;margin-top:72px;">
+  <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1400&q=80"
+       alt="Precision balance scale representing portfolio rebalancing decisions"
+       style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="eager" decoding="async" />
+  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,36,0.92) 0%,rgba(19,63,115,0.60) 50%,rgba(15,23,36,0.25) 100%);"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(26,94,168,0.20),transparent 55%);"></div>
+
+  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:3.5rem;">
+    <a href="resources.html" style="display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.55);font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;text-decoration:none;margin-bottom:1.25rem;transition:color 0.18s ease;"
+       onmouseover="this.style.color='#D4AE6A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      All Resources
+    </a>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(42,116,200,0.18);border:1px solid rgba(42,116,200,0.35);border-radius:100px;padding:0.3rem 0.9rem;margin-bottom:1.25rem;width:fit-content;">
+      <div style="width:5px;height:5px;border-radius:50%;background:#2A74C8;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#7BB3E8;">Portfolio Management</span>
+    </div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;line-height:1.12;letter-spacing:-0.03em;color:white;margin-bottom:1rem;">
+      How Often Should I<br />Rebalance My Portfolio?
+    </h1>
+    <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">February 24, 2026</span>
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);"></span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">5 min read</span>
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);"></span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">Rubiq Financial Partners</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ARTICLE BODY -->
+<section style="background:#FAF8F4;padding:5rem 0 6rem;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+
+      <!-- Main Content -->
+      <div class="lg:col-span-2 article-body">
+
+        <p style="font-size:1.175rem;line-height:1.80;color:#1C2D44;font-weight:400;border-left:3px solid #1A5EA8;padding-left:1.5rem;margin-bottom:2.5rem;">
+          Rebalancing is one of those investment decisions that seems simple on the surface and reveals surprising complexity the moment you look closely. The question is not whether to rebalance — nearly every serious practitioner agrees you should — but how often, by how much, and under what conditions.
+        </p>
+
+        <h2>Why Rebalancing Matters at All</h2>
+        <p>
+          When you set a target asset allocation — say, 60% equities and 40% bonds — you are making a deliberate statement about your risk tolerance, your time horizon, and your expected return requirements. Markets don't stand still. Over time, the assets that outperform will grow to represent a larger share of your portfolio than you intended, and your actual risk exposure will drift away from your stated preferences.
+        </p>
+        <p>
+          A portfolio that started at 60/40 in early 2020 and was never rebalanced would have arrived at approximately 75/25 by the end of 2021, reflecting the dramatic outperformance of equities. An investor who thought they held a moderate-risk portfolio would have actually been holding something considerably more aggressive — fine during a bull market, but painful in 2022's drawdown.
+        </p>
+        <p>
+          Rebalancing is, in essence, a risk management discipline. It forces you to sell what has risen and buy what has fallen — a practice that is intellectually simple but emotionally difficult, which is precisely why systematic rules help.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4" style="margin:2rem 0;">
+          <div class="stat-callout" style="border-left-color:#1A5EA8;">
+            <div class="stat-number">~15%</div>
+            <div class="stat-label">Average equity drift in a 60/40 portfolio over a 2-year bull market (no rebalancing)</div>
+          </div>
+          <div class="stat-callout">
+            <div class="stat-number">0.4%</div>
+            <div class="stat-label">Estimated annual return drag from excess portfolio drift vs. a disciplined strategy (Vanguard)</div>
+          </div>
+          <div class="stat-callout" style="border-left-color:#1C2D44;">
+            <div class="stat-number">Annual</div>
+            <div class="stat-label">Rebalancing frequency cited as optimal for most taxable accounts (Schwab research)</div>
+          </div>
+        </div>
+
+        <h2>The Three Primary Approaches</h2>
+
+        <!-- Comparison Table -->
+        <div style="border:1px solid rgba(26,94,168,0.12);border-radius:10px;overflow:hidden;margin:1.5rem 0 2rem;">
+          <div class="comparison-row">
+            <div class="comparison-header">Strategy</div>
+            <div class="comparison-header">How It Works</div>
+            <div class="comparison-header">Best For</div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-cell" style="font-weight:600;color:#0F1724;">Calendar Rebalancing</div>
+            <div class="comparison-cell">Rebalance on a fixed schedule — annually, semi-annually, or quarterly — regardless of how much allocations have drifted.</div>
+            <div class="comparison-cell">Simple, low-maintenance portfolios. Investors who prefer a routine process over active monitoring.</div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-cell" style="font-weight:600;color:#0F1724;">Threshold / Band Rebalancing</div>
+            <div class="comparison-cell">Rebalance only when an asset class drifts beyond a defined tolerance band — typically ±3–5% from the target weight.</div>
+            <div class="comparison-cell">Investors who want to minimize unnecessary transactions while maintaining tighter control over risk exposure.</div>
+          </div>
+          <div class="comparison-row" style="border-bottom:none;">
+            <div class="comparison-cell" style="font-weight:600;color:#0F1724;">Tactical / Opportunistic</div>
+            <div class="comparison-cell">Rebalance in response to specific market events — significant drawdowns, volatility spikes, or major valuation dislocations.</div>
+            <div class="comparison-cell">Experienced investors with active oversight, or as a complement to a systematic rule-based approach.</div>
+          </div>
+        </div>
+
+        <h3>Calendar Rebalancing: Pros and Cons</h3>
+        <p>
+          The appeal of calendar rebalancing is its simplicity. You set a date — January 1st, or the end of each quarter — and you rebalance regardless of market conditions. This removes emotion from the process entirely. The weakness is inefficiency: if markets haven't moved much, you're paying transaction costs and potentially triggering capital gains for minimal benefit. If markets have moved dramatically, you may be catching the drift weeks or months late.
+        </p>
+
+        <h3>Threshold Rebalancing: The Research Favorite</h3>
+        <p>
+          Most academic research on rebalancing frequency concludes that a tolerance band approach outperforms calendar rebalancing on both a risk-adjusted and tax-adjusted basis. The T. Rowe Price research group found that a ±5% tolerance band for each asset class strikes the best balance between drift control and transaction efficiency. Vanguard's 2019 analysis reached a similar conclusion, finding that the choice of specific threshold matters less than simply having and following a consistent rule.
+        </p>
+        <p>
+          The practical challenge is that threshold rebalancing requires ongoing monitoring — either by you or your advisor. If you don't check your portfolio regularly, you won't know when a threshold has been crossed.
+        </p>
+
+        <h3>A Hybrid That Works Well in Practice</h3>
+        <p>
+          For most clients, we find that a hybrid approach works best: check allocations quarterly, and rebalance if any asset class has drifted more than 5% from its target weight. This combines the discipline of a regular review cadence with the efficiency of acting only when drift is meaningful. Annual reviews catch the gradual drift; the 5% trigger catches sudden market dislocations.
+        </p>
+
+        <div class="pull-quote">
+          "The optimal rebalancing strategy is not the one with the best backtest — it is the one you will actually follow consistently across bull markets, bear markets, and everything in between."
+        </div>
+
+        <h2>The Tax Dimension</h2>
+        <p>
+          In a tax-advantaged account (IRA, 401k, Roth), rebalancing is frictionless. You can sell appreciated positions without triggering capital gains and buy underweighted assets freely. Rebalance as often as your strategy calls for with no tax penalty.
+        </p>
+        <p>
+          In a taxable brokerage account, every sale of an appreciated position generates a taxable event. This changes the calculus meaningfully:
+        </p>
+        <ul>
+          <li><strong>Use new contributions first.</strong> Before selling anything, direct new cash flows into underweighted asset classes. This is the most tax-efficient rebalancing method available and should always be the first step.</li>
+          <li><strong>Harvest losses to offset gains.</strong> If some positions have declined in value, selling them creates losses that offset capital gains generated by selling appreciated positions. Tax-loss harvesting is a powerful tool that, done systematically, can cover a significant portion of rebalancing's tax drag.</li>
+          <li><strong>Prioritize long-term capital gains.</strong> If you must sell appreciated assets, hold them for more than a year first. Long-term capital gains rates (0%, 15%, or 20% depending on income) are substantially lower than short-term rates (ordinary income).</li>
+          <li><strong>Consider which accounts hold which assets.</strong> Asset location — placing tax-inefficient assets (bonds, REITs, active funds) in tax-advantaged accounts and tax-efficient assets (index ETFs, growth stocks) in taxable accounts — reduces the rebalancing tax burden over time.</li>
+        </ul>
+
+        <h2>How Large Portfolios Differ</h2>
+        <p>
+          For portfolios above $2M, the rebalancing conversation expands considerably. The absolute dollar amounts involved mean that each trade carries meaningful tax consequences, and the portfolio complexity — multiple account types, alternative investments, concentrated positions — requires more sophisticated coordination.
+        </p>
+        <p>
+          Concentrated positions in a single stock (often a founder's holding or employer equity) require particular care. The standard rebalancing heuristic of "sell what's risen" can generate enormous capital gains taxes if applied naively to a concentrated position. Strategies like exchange funds, charitable remainder trusts, or protective options strategies may be preferable to an outright sale.
+        </p>
+        <p>
+          Multi-account households also benefit from viewing all accounts — personal taxable, IRA, Roth, spouse's accounts, trust accounts — as a single unified portfolio. Rebalancing across the entire household while optimizing for tax location can significantly improve after-tax outcomes versus managing each account in isolation.
+        </p>
+
+        <h2>The Behavioral Case for Systematic Rebalancing</h2>
+        <p>
+          Perhaps the strongest argument for a rules-based rebalancing policy is not the financial one — it is the behavioral one. Markets generate powerful emotional signals. At the peak of a bull market, selling your outperforming equities and buying underperforming bonds feels deeply counterintuitive. During a crash, buying equities when they've fallen 30% while selling bonds feels terrifying.
+        </p>
+        <p>
+          A pre-committed rebalancing policy converts these emotional moments into mechanical execution. When your calendar says January 1st, or when your monitoring system flags a threshold breach, the decision has already been made. You are not trying to be brave in the moment — you are following a plan you made when you were calm.
+        </p>
+        <p>
+          Decades of behavioral finance research confirm that investors who follow systematic investment processes significantly outperform those who make discretionary decisions at market extremes. Rebalancing policy is one of the clearest expressions of that principle.
+        </p>
+
+        <h2>The Rubiq Approach</h2>
+        <p>
+          We review every client's portfolio on a quarterly basis, with a threshold trigger of ±5% from target weights for major asset classes. For taxable accounts, we coordinate rebalancing with tax-loss harvesting opportunities and new contribution timing. For clients with concentrated equity positions, we address rebalancing through a multi-year plan that manages the tax impact across multiple calendar years.
+        </p>
+        <p>
+          The specific parameters matter less than the consistency. What we've found, across years of working with entrepreneurs and investors, is that the willingness to systematically buy what's cheap and sell what's expensive — especially in volatile markets — is one of the most durable sources of long-term outperformance available.
+        </p>
+
+      </div><!-- /main content -->
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-1">
+        <div style="position:sticky;top:100px;">
+
+          <!-- Key Stats Box -->
+          <div style="background:linear-gradient(160deg,#0F1724,#133F73);border-radius:10px;padding:2rem;margin-bottom:1.75rem;">
+            <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C49A4A;margin-bottom:1.25rem;">By the Numbers</div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">±5%</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Recommended tolerance band per asset class (T. Rowe Price)</div>
+            </div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">Quarterly</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Rubiq's standard portfolio review cadence</div>
+            </div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">0–20%</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Long-term capital gains tax rate (vs. up to 37% short-term)</div>
+            </div>
+            <div>
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">New $$ First</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Most tax-efficient rebalancing tool: directing contributions to underweighted assets</div>
+            </div>
+          </div>
+
+          <!-- External Resources -->
+          <div style="margin-bottom:1.75rem;">
+            <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2C3E55;margin-bottom:1rem;">Further Reading</div>
+
+            <a href="https://advisors.vanguard.com/insights/article/inenvironmentofslowgrowth" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">Vanguard: Best Practices for Portfolio Rebalancing</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Foundational research on frequency and method</div>
+              </div>
+            </a>
+
+            <a href="https://www.schwab.com/learn/story/rebalancing-your-portfolio" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">Schwab Center for Financial Research</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Tolerance band analysis and tax-aware rebalancing</div>
+              </div>
+            </a>
+
+            <a href="https://www.troweprice.com/personal-investing/resources/insights/portfolio-rebalancing.html" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">T. Rowe Price: The Case for Rebalancing</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Frequency comparison, drift analysis, and investor behavior</div>
+              </div>
+            </a>
+
+            <a href="https://www.morningstar.com/articles/what-is-rebalancing" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">Morningstar: The Art of Rebalancing</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Academic research synthesis and practical frameworks</div>
+              </div>
+            </a>
+
+            <a href="https://www.irs.gov/taxtopics/tc409" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">IRS Topic 409: Capital Gains and Losses</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Official guidance on capital gains tax rates and rules</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- CTA -->
+          <div style="background:linear-gradient(135deg,rgba(26,94,168,0.08),rgba(196,154,74,0.06));border:1px solid rgba(26,94,168,0.18);border-radius:10px;padding:1.75rem;">
+            <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:#0F1724;margin-bottom:0.625rem;line-height:1.3;">
+              Is your portfolio drifting from its target?
+            </div>
+            <p style="font-size:0.875rem;line-height:1.6;color:#4A5568;font-weight:300;margin-bottom:1.25rem;">
+              We conduct a complimentary portfolio review that includes allocation drift analysis and tax-aware rebalancing recommendations.
+            </p>
+            <a href="contact.html">
+              <button class="btn-primary" style="width:100%;text-align:center;">Schedule a Portfolio Review</button>
+            </a>
+          </div>
+
+        </div>
+      </div><!-- /sidebar -->
+
+    </div><!-- /grid -->
+  </div>
+</section>
+
+
+<!-- RELATED ARTICLES -->
+<section style="background:white;padding:5rem 0;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div style="width:48px;height:3px;background:linear-gradient(90deg,#1A5EA8,#C49A4A);border-radius:2px;margin-bottom:1rem;"></div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#0F1724;margin-bottom:2.5rem;letter-spacing:-0.02em;">Continue Reading</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <a href="resources-alternative-investments.html" style="text-decoration:none;display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;border:1px solid rgba(26,94,168,0.10);border-radius:10px;background:#FAF8F4;transition:box-shadow 0.22s ease,transform 0.22s ease;"
+         onmouseover="this.style.boxShadow='0 8px 32px rgba(26,94,168,0.12)';this.style.transform='translateY(-2px)'"
+         onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+        <div style="width:80px;height:64px;border-radius:6px;overflow:hidden;flex-shrink:0;">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=160&h=128&q=80"
+               alt="Aerial city mosaic" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />
+        </div>
+        <div>
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#C49A4A;margin-bottom:0.4rem;">Alternatives</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#0F1724;line-height:1.35;">Private Credit Market: What Investors Need to Know</div>
+          <div style="font-size:0.75rem;color:#6B7280;margin-top:0.4rem;">Mar 10, 2026 · 8 min read</div>
+        </div>
+      </a>
+
+      <a href="resources-roth-conversion.html" style="text-decoration:none;display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;border:1px solid rgba(26,94,168,0.10);border-radius:10px;background:#FAF8F4;transition:box-shadow 0.22s ease,transform 0.22s ease;"
+         onmouseover="this.style.boxShadow='0 8px 32px rgba(26,94,168,0.12)';this.style.transform='translateY(-2px)'"
+         onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+        <div style="width:80px;height:64px;border-radius:6px;overflow:hidden;flex-shrink:0;">
+          <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=160&h=128&q=80"
+               alt="Transformation and growth" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />
+        </div>
+        <div>
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2A74C8;margin-bottom:0.4rem;">Tax Strategy</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#0F1724;line-height:1.35;">Roth Conversion Conversations: A Guide for Every Stage of Life</div>
+          <div style="font-size:0.75rem;color:#6B7280;margin-top:0.4rem;">Jan 15, 2026 · 7 min read</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer style="background:#0F1724;padding:2rem 0;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+         alt="Rubiq Financial Partners logo" width="120" height="26" style="height:26px;width:auto;opacity:0.70;" loading="lazy" decoding="async" />
+    <div style="text-align:center;">
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.28);margin:0 0 0.35rem;">
+        &copy; 2026 Rubiq Financial Partners LLC. All rights reserved.
+      </p>
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.18);margin:0 0 0.5rem;line-height:1.6;font-weight:300;">
+        Advisory services offered through Wealthcare Advisory Partners. Brokerage products offered through LPL Financial, Member FINRA/SIPC.
+      </p>
+      <div style="display:flex;justify-content:center;gap:1.5rem;">
+        <a href="privacy-policy.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Privacy Policy</a>
+        <a href="terms-of-use.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Terms of Use</a>
+        <a href="sitemap.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Sitemap</a>
+      </div>
+    </div>
+    <a href="resources.html" style="font-size:0.75rem;font-weight:500;color:rgba(255,255,255,0.45);text-decoration:none;white-space:nowrap;letter-spacing:0.03em;transition:color 0.18s ease;"
+       onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+      ← Back to Resources
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>

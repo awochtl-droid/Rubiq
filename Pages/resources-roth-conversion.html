@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roth Conversion Conversations: A Guide for Every Stage of Life | Rubiq Financial Partners</title>
+  <meta name="description" content="When does a Roth conversion make sense — and how do you talk about it with your advisor? Rubiq walks through the key questions, life stages, and TCJA sunset implications." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/resources-roth-conversion.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rubiq: {
+              blue:      '#1A5EA8',
+              bluedark:  '#133F73',
+              bluelight: '#2A74C8',
+              gold:      '#C49A4A',
+              goldlight: '#D4AE6A',
+              golddark:  '#9E7A32',
+              ink:       '#0F1724',
+              inksoft:   '#1C2D44',
+              slate:     '#2C3E55',
+              mist:      '#F4F6F9',
+              parchment: '#FAF8F4',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #0F1724; margin: 0; }
+
+    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.70);
+      text-decoration: none; position: relative; padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1.5px; background: #C49A4A; transition: width 0.22s ease;
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: white; }
+    .nav-link.active::after { width: 100%; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); }
+
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+    @media (max-width: 767px) {
+      #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+      footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
+    }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.625rem; font-weight: 700; color: #0F1724;
+      line-height: 1.25; letter-spacing: -0.02em;
+      margin: 2.75rem 0 1rem;
+    }
+    .article-body h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.0625rem; font-weight: 600; color: #1C2D44;
+      margin: 2rem 0 0.625rem;
+    }
+    .article-body p {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin: 0 0 1.35rem;
+    }
+    .article-body ul {
+      margin: 0 0 1.35rem 1.25rem; padding: 0;
+    }
+    .article-body ul li {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin-bottom: 0.5rem;
+      list-style: none; position: relative; padding-left: 1.25rem;
+    }
+    .article-body ul li::before {
+      content: ''; position: absolute; left: 0; top: 0.65em;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: linear-gradient(135deg, #1A5EA8, #C49A4A);
+    }
+
+    .stat-callout {
+      border-left: 3px solid #C49A4A;
+      background: linear-gradient(135deg, rgba(196,154,74,0.06), rgba(26,94,168,0.04));
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem; font-weight: 700; color: #1A5EA8;
+      line-height: 1; letter-spacing: -0.03em;
+    }
+    .stat-label {
+      font-size: 0.8125rem; font-weight: 500; color: #2C3E55;
+      letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.25rem;
+    }
+
+    .pull-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-style: italic; font-weight: 500;
+      color: #133F73; line-height: 1.55;
+      border-left: 3px solid #1A5EA8;
+      padding: 1rem 1.75rem;
+      margin: 2.5rem 0;
+    }
+
+    .life-stage-card {
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .life-stage-header {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: linear-gradient(135deg, #133F73, #1A5EA8);
+    }
+    .life-stage-body {
+      padding: 1.25rem 1.5rem;
+      background: white;
+      border: 1px solid rgba(26,94,168,0.10);
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      font-size: 0.9375rem; line-height: 1.7; color: #2C3E55; font-weight: 300;
+    }
+
+    .resource-link {
+      display: flex; align-items: flex-start; gap: 0.875rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(26,94,168,0.12);
+      border-radius: 8px;
+      background: white;
+      text-decoration: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+      margin-bottom: 0.75rem;
+    }
+    .resource-link:hover {
+      border-color: rgba(196,154,74,0.40);
+      box-shadow: 0 4px 16px rgba(26,94,168,0.10);
+      transform: translateY(-1px);
+    }
+
+    .bracket-row {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+      border-bottom: 1px solid rgba(26,94,168,0.08);
+    }
+    .bracket-cell {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.875rem; color: #2C3E55; font-weight: 300;
+    }
+    .bracket-header {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      color: white; background: linear-gradient(135deg, #133F73, #1A5EA8);
+      padding: 0.875rem 1.25rem;
+    }
+    .bracket-highlight { background: rgba(196,154,74,0.06); font-weight: 500; color: #9E7A32; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur"
+     style="background:rgba(15,23,36,0.90);border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex-shrink-0 flex items-center">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+             alt="Rubiq Financial Partners logo" width="160" height="34" style="height:34px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="services.html"  class="nav-link">Services</a>
+        <a href="about.html"     class="nav-link">About</a>
+        <a href="team.html"      class="nav-link">Team</a>
+        <a href="resources.html" class="nav-link active">Resources</a>
+        <a href="contact.html"   class="nav-link">Contact</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://www.gdx360.com/login/securelogin/loginbase.aspx" target="_blank" rel="noopener noreferrer">
+          <button class="btn-ghost">Client Access</button>
+        </a>
+        <a href="contact.html"><button class="btn-primary">Schedule a Call</button></a>
+      </div>
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('open')"
+              class="md:hidden p-2" style="color:white;" aria-label="Open menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu"
+       style="background:rgba(15,23,36,0.97);border-top:1px solid rgba(255,255,255,0.07);
+              flex-direction:column;padding:1.5rem 1.5rem 2rem;">
+    <a href="services.html"  class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Services</a>
+    <a href="about.html"     class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">About</a>
+    <a href="team.html"      class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Team</a>
+    <a href="resources.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Resources</a>
+    <a href="contact.html"   class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Contact</a>
+    <div style="margin-top:1.25rem;">
+      <a href="contact.html"><button class="btn-primary" style="width:100%;">Schedule a Call</button></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<div style="position:relative;height:520px;overflow:hidden;margin-top:72px;">
+  <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1400&q=80"
+       alt="Circular arrows symbolizing the transformation of traditional IRA assets through a Roth conversion"
+       style="width:100%;height:100%;object-fit:cover;object-position:center 40%;" loading="eager" decoding="async" />
+  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,36,0.93) 0%,rgba(15,23,36,0.58) 45%,rgba(15,23,36,0.20) 100%);"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(196,154,74,0.15),transparent 50%);"></div>
+
+  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:3.5rem;">
+    <a href="resources.html" style="display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.55);font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;text-decoration:none;margin-bottom:1.25rem;transition:color 0.18s ease;"
+       onmouseover="this.style.color='#D4AE6A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      All Resources
+    </a>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(42,116,200,0.18);border:1px solid rgba(42,116,200,0.35);border-radius:100px;padding:0.3rem 0.9rem;margin-bottom:1.25rem;width:fit-content;">
+      <div style="width:5px;height:5px;border-radius:50%;background:#2A74C8;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#7BB3E8;">Tax Strategy</span>
+    </div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.875rem,4.5vw,3.25rem);font-weight:700;line-height:1.12;letter-spacing:-0.03em;color:white;margin-bottom:1rem;">
+      Roth Conversion Conversations:<br />A Guide for Every Stage of Life
+    </h1>
+    <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">January 15, 2026</span>
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);"></span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">7 min read</span>
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);"></span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">Rubiq Financial Partners</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ARTICLE BODY -->
+<section style="background:#FAF8F4;padding:5rem 0 6rem;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+
+      <!-- Main Content -->
+      <div class="lg:col-span-2 article-body">
+
+        <!-- TCJA Alert Banner -->
+        <div style="background:linear-gradient(135deg,rgba(196,154,74,0.12),rgba(158,122,50,0.08));border:1px solid rgba(196,154,74,0.35);border-radius:8px;padding:1.25rem 1.5rem;margin-bottom:2.5rem;display:flex;gap:1rem;align-items:flex-start;">
+          <div style="width:20px;height:20px;border-radius:50%;background:#C49A4A;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:0.1rem;">
+            <svg width="10" height="10" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+          </div>
+          <div>
+            <div style="font-size:0.8125rem;font-weight:600;color:#9E7A32;margin-bottom:0.3rem;">Tax Law Notice — 2026 Bracket Sunset</div>
+            <div style="font-size:0.875rem;line-height:1.6;color:#5C4A2A;font-weight:300;">
+              The Tax Cuts and Jobs Act (TCJA) individual tax provisions are set to expire after 2025 unless Congress acts. If the cuts sunset, top federal marginal rates rise from 37% to 39.6%, and the 22% bracket reverts to 25%. This creates a meaningful — and potentially closing — window for Roth conversions at current rates.
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size:1.175rem;line-height:1.80;color:#1C2D44;font-weight:400;border-left:3px solid #C49A4A;padding-left:1.5rem;margin-bottom:2.5rem;">
+          The Roth IRA is one of the most powerful tools in the American tax code. The ability to grow investments tax-free — and withdraw them tax-free in retirement — is a genuine structural advantage. But converting existing traditional IRA or 401(k) assets to Roth is a complex decision that depends heavily on your current tax rate, your expected future rate, your time horizon, and your liquidity position.
+        </p>
+
+        <h2>The Core Tradeoff: Pay Tax Now or Pay Tax Later</h2>
+        <p>
+          Every dollar in a traditional IRA represents a deferred tax liability. The government will collect eventually — either when you take distributions in retirement, or when your beneficiaries do. The question a Roth conversion asks is simple: do you expect your tax rate at withdrawal to be higher or lower than your tax rate today?
+        </p>
+        <p>
+          If you expect to be in a higher bracket later — or if you believe tax rates broadly will rise — paying the tax now and locking in tax-free growth is advantageous. If you expect to be in a lower bracket in retirement (common for people with lower post-career income), the traditional approach of deferring tax may still be preferable.
+        </p>
+        <p>
+          The complication is that most people cannot know their future bracket with certainty. Future income, Social Security benefits, required minimum distributions (RMDs), investment returns, and changes in tax law all affect the outcome. This is why Roth conversion analysis should be done with a comprehensive financial model — not a back-of-the-envelope calculation.
+        </p>
+
+        <h2>The 2026 Tax Rate Inflection Point</h2>
+        <p>
+          The Tax Cuts and Jobs Act of 2017 created the current rate structure, including reductions at nearly every income level. Those reductions are scheduled to expire after December 31, 2025, reverting to the pre-TCJA schedule absent new legislation. The differences are meaningful:
+        </p>
+
+        <!-- Tax Bracket Table -->
+        <div style="border:1px solid rgba(26,94,168,0.12);border-radius:10px;overflow:hidden;margin:1.5rem 0 2rem;">
+          <div class="bracket-row">
+            <div class="bracket-header">Income Range (MFJ)</div>
+            <div class="bracket-header">Current Rate (TCJA)</div>
+            <div class="bracket-header">2026 Rate (If Sunset)</div>
+          </div>
+          <div class="bracket-row">
+            <div class="bracket-cell">Up to ~$23,850</div>
+            <div class="bracket-cell">10%</div>
+            <div class="bracket-cell">10%</div>
+          </div>
+          <div class="bracket-row">
+            <div class="bracket-cell">~$23,850 – $96,950</div>
+            <div class="bracket-cell">12%</div>
+            <div class="bracket-cell bracket-highlight">15%</div>
+          </div>
+          <div class="bracket-row">
+            <div class="bracket-cell">~$96,950 – $206,700</div>
+            <div class="bracket-cell">22%</div>
+            <div class="bracket-cell bracket-highlight">25%</div>
+          </div>
+          <div class="bracket-row">
+            <div class="bracket-cell">~$206,700 – $394,600</div>
+            <div class="bracket-cell">24%</div>
+            <div class="bracket-cell bracket-highlight">28%</div>
+          </div>
+          <div class="bracket-row">
+            <div class="bracket-cell">~$394,600 – $501,050</div>
+            <div class="bracket-cell">32%</div>
+            <div class="bracket-cell bracket-highlight">33%</div>
+          </div>
+          <div class="bracket-row" style="border-bottom:none;">
+            <div class="bracket-cell">Above $731,200</div>
+            <div class="bracket-cell">37%</div>
+            <div class="bracket-cell bracket-highlight">39.6%</div>
+          </div>
+        </div>
+
+        <p>
+          For a married couple with $300,000 of income converting $100,000 of IRA assets in 2025, the conversion might be taxed at 24%. If they wait until 2027 and rates revert, the same conversion could be taxed at 28% — a 4% difference that on a $100,000 conversion equals $4,000. On larger conversions, the difference compounds significantly.
+        </p>
+        <p>
+          The uncertainty about whether Congress will extend the cuts adds complexity. But planning for the current law to sunset — rather than assuming an extension — is the conservative approach that most tax professionals recommend.
+        </p>
+
+        <h2>Five Situations Where Conversions Make Particular Sense</h2>
+        <ul>
+          <li><strong>Low-Income Years.</strong> A sabbatical, a year between selling a business and starting a new venture, or an early retirement before Social Security begins — any year where your taxable income is temporarily lower creates an opportunity to convert at a reduced rate. You're filling up a bracket that would otherwise go unused.</li>
+          <li><strong>Market Downturns.</strong> If your IRA balance has declined — say from $500,000 to $380,000 during a correction — you pay taxes on the $380,000 converted, not the original $500,000. When markets recover, that growth occurs tax-free inside the Roth. You pay a smaller tax bill for the same long-term benefit.</li>
+          <li><strong>Pre-RMD Window.</strong> Required minimum distributions begin at age 73 under SECURE 2.0. Converting IRA assets before RMDs begin reduces the size of future forced distributions, which can push you into higher brackets later in retirement and increase the taxation of Social Security benefits.</li>
+          <li><strong>Legacy Planning.</strong> Roth IRAs have no required minimum distributions during the owner's lifetime. For assets you don't expect to spend, leaving a Roth IRA to heirs is significantly more valuable than leaving a traditional IRA — beneficiaries can withdraw over 10 years fully tax-free rather than owing income tax on every distribution.</li>
+          <li><strong>IRMAA Management.</strong> Medicare Part B and Part D premiums are subject to income-related surcharges (IRMAA) based on modified adjusted gross income. Converting large amounts in a single year can trigger surcharges; a multi-year conversion strategy can grow a Roth significantly while managing Medicare costs.</li>
+        </ul>
+
+        <div class="pull-quote">
+          "The best time to consider a Roth conversion is often during the 'gap years' — after earned income falls but before Social Security, pensions, and RMDs begin filling up your tax brackets again."
+        </div>
+
+        <h2>A Life-Stage Guide to Roth Conversions</h2>
+
+        <div class="life-stage-card">
+          <div class="life-stage-header">
+            <div style="width:36px;height:36px;border-radius:50%;background:rgba(196,154,74,0.20);border:1.5px solid rgba(196,154,74,0.40);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#D4AE6A;">30s</span>
+            </div>
+            <div>
+              <div style="font-size:0.875rem;font-weight:600;color:white;">Early Career (Ages 30–45)</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);">Planting seeds for tax-free compounding</div>
+            </div>
+          </div>
+          <div class="life-stage-body">
+            Time is the most powerful variable in any Roth analysis. A 35-year-old who converts $50,000 has nearly 30 years for that money to compound tax-free before age 65. Even if the tax cost today feels significant, the long-term math often favors acting early. Prioritize Roth contributions through a Roth 401(k) or Roth IRA (subject to income limits) before pursuing conversions. If your employer offers a Roth 401(k), use it — especially in your lower-earning years when the tax cost is smallest.
+          </div>
+        </div>
+
+        <div class="life-stage-card">
+          <div class="life-stage-header">
+            <div style="width:36px;height:36px;border-radius:50%;background:rgba(196,154,74,0.20);border:1.5px solid rgba(196,154,74,0.40);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#D4AE6A;">50s</span>
+            </div>
+            <div>
+              <div style="font-size:0.875rem;font-weight:600;color:white;">Peak Earning Years (Ages 45–60)</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);">Strategic partial conversions in context</div>
+            </div>
+          </div>
+          <div class="life-stage-body">
+            This is typically the highest-income decade — and often not the best time for large conversions. Focus here on understanding your total future retirement income picture: when will Social Security start, what pension if any, what are your projected RMDs? That analysis will define how much "room" you have in your future brackets. If you have a particularly low-income year in this period — a business transition, a sabbatical — that is the opportunistic moment to convert.
+          </div>
+        </div>
+
+        <div class="life-stage-card">
+          <div class="life-stage-header">
+            <div style="width:36px;height:36px;border-radius:50%;background:rgba(196,154,74,0.20);border:1.5px solid rgba(196,154,74,0.40);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#D4AE6A;">60s</span>
+            </div>
+            <div>
+              <div style="font-size:0.875rem;font-weight:600;color:white;">The Conversion Corridor (Ages 60–73)</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);">The prime window for most high-net-worth investors</div>
+            </div>
+          </div>
+          <div class="life-stage-body">
+            This is the most powerful window for many of our clients. Earned income has stopped or reduced. Social Security has not yet started (or can be delayed). RMDs haven't begun. For many investors, this "corridor" represents several years of artificially low taxable income. Converting aggressively — up to the top of your current bracket — during this period can dramatically reduce future RMD burden and improve after-tax wealth transfer to heirs. For a 63-year-old with $2M in traditional IRAs, converting $150,000/year for 10 years before RMDs begin could reduce future forced distributions by hundreds of thousands of dollars.
+          </div>
+        </div>
+
+        <div class="life-stage-card">
+          <div class="life-stage-header">
+            <div style="width:36px;height:36px;border-radius:50%;background:rgba(196,154,74,0.20);border:1.5px solid rgba(196,154,74,0.40);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#D4AE6A;">70s</span>
+            </div>
+            <div>
+              <div style="font-size:0.875rem;font-weight:600;color:white;">Retirement & RMD Years (Ages 73+)</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);">Legacy-focused conversions may still make sense</div>
+            </div>
+          </div>
+          <div class="life-stage-body">
+            Once RMDs begin, large conversions become harder to justify for personal use — you're already being forced to take distributions. But for estate planning purposes, conversions may still make sense: if you have significant IRA assets you don't intend to spend, converting and paying the tax now leaves a Roth IRA to heirs that they can draw down over 10 years tax-free rather than paying ordinary income tax on every dollar. This is especially powerful if your estate will face estate taxes as well, since paying the income tax now reduces the taxable estate.
+          </div>
+        </div>
+
+        <h2>Common Mistakes to Avoid</h2>
+        <ul>
+          <li><strong>Converting too much in a single year.</strong> A large conversion in one year can push you into a higher bracket than necessary, trigger IRMAA surcharges on Medicare premiums, and increase the taxable portion of Social Security benefits. Multi-year conversion strategies almost always outperform single large conversions.</li>
+          <li><strong>Using IRA money to pay the tax.</strong> If you convert $100,000 but then withdraw $22,000 from the IRA to pay the tax, you've effectively converted only $78,000 while paying tax on all $100,000. The tax bill should be paid from taxable funds outside the IRA to maximize the Roth benefit.</li>
+          <li><strong>Forgetting state income taxes.</strong> Pennsylvania has no state income tax on retirement income. But if you've recently moved from a high-tax state, or may move to one, this affects the calculation meaningfully.</li>
+          <li><strong>Ignoring the 5-year rule.</strong> Roth conversions have their own 5-year clock for penalty-free withdrawals (separate from the general Roth 5-year rule). For investors within 5 years of needing the money, this matters.</li>
+          <li><strong>Not stress-testing against multiple scenarios.</strong> Roth conversion analysis should test multiple tax rate scenarios — what if rates stay the same? What if they rise? What if you live to 95? The most robust decisions hold up across scenarios, not just the most optimistic one.</li>
+        </ul>
+
+        <h2>The Math in Practice</h2>
+
+        <div style="background:white;border:1px solid rgba(26,94,168,0.12);border-radius:10px;padding:2rem;margin:2rem 0;">
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2A74C8;margin-bottom:1.25rem;">Illustrative Example — Converting at 22% vs. Withdrawing at 25%</div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div style="background:#FAF8F4;border-radius:8px;padding:1.5rem;">
+              <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin-bottom:0.75rem;">Traditional IRA — No Conversion</div>
+              <div style="font-size:0.875rem;line-height:1.7;color:#4A5568;font-weight:300;">
+                $200,000 current balance<br/>
+                Grows at 7%/year for 15 years<br/>
+                <strong style="color:#0F1724;">= $551,860 at age 75</strong><br/>
+                Less 25% tax at withdrawal<br/>
+                <strong style="color:#9E7A32;">= $413,895 net after tax</strong>
+              </div>
+            </div>
+            <div style="background:linear-gradient(135deg,rgba(26,94,168,0.05),rgba(196,154,74,0.04));border:1px solid rgba(196,154,74,0.20);border-radius:8px;padding:1.5rem;">
+              <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin-bottom:0.75rem;">Roth Conversion — Convert Now at 22%</div>
+              <div style="font-size:0.875rem;line-height:1.7;color:#4A5568;font-weight:300;">
+                $200,000 converted; $44,000 tax paid from other funds<br/>
+                $200,000 Roth grows at 7%/year for 15 years<br/>
+                <strong style="color:#0F1724;">= $551,860 at age 75</strong><br/>
+                Tax-free Roth withdrawal<br/>
+                <strong style="color:#1A5EA8;">= $551,860 net — $137,965 more</strong>
+              </div>
+            </div>
+          </div>
+          <div style="font-size:0.75rem;color:#9CA3AF;margin-top:1.25rem;font-style:italic;">
+            Illustrative only. Assumes 22% conversion rate, 25% withdrawal rate, 7% annual growth. Actual results depend on individual circumstances, tax law changes, and investment performance. Not investment or tax advice.
+          </div>
+        </div>
+
+      </div><!-- /main content -->
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-1">
+        <div style="position:sticky;top:100px;">
+
+          <!-- Key Stats Box -->
+          <div style="background:linear-gradient(160deg,#0F1724,#133F73);border-radius:10px;padding:2rem;margin-bottom:1.75rem;">
+            <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C49A4A;margin-bottom:1.25rem;">Key Figures for 2026</div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">39.6%</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Potential top federal rate if TCJA sunsets (vs. 37% current)</div>
+            </div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">Age 73</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">When RMDs begin (SECURE 2.0 Act)</div>
+            </div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">10 Years</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Inherited IRA withdrawal window for most non-spouse beneficiaries (SECURE Act)</div>
+            </div>
+            <div>
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">5 Years</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Waiting period before converted amounts can be withdrawn penalty-free</div>
+            </div>
+          </div>
+
+          <!-- External Resources -->
+          <div style="margin-bottom:1.75rem;">
+            <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2C3E55;margin-bottom:1rem;">Further Reading</div>
+
+            <a href="https://www.irs.gov/publications/p590a" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">IRS Publication 590-A: Contributions to IRAs</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Official rules on Roth conversions, limits, and eligibility</div>
+              </div>
+            </a>
+
+            <a href="https://investor.vanguard.com/tools-calculators/roth-ira-conversion" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">Vanguard Roth Conversion Calculator</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Model conversion scenarios with tax projections</div>
+              </div>
+            </a>
+
+            <a href="https://www.fidelity.com/retirement-ira/roth-conversion-checklists" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 12-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">Fidelity: Roth Conversion Checklist</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Step-by-step considerations before converting</div>
+              </div>
+            </a>
+
+            <a href="https://www.ssa.gov/benefits/retirement/planner/taxes.html" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">SSA: Taxes on Social Security Benefits</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">How IRA income affects Social Security taxation</div>
+              </div>
+            </a>
+
+            <a href="https://www.cms.gov/medicare/regulations-guidance/legislation/sec-1860d-13-subsidy-for-part-d" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">Medicare IRMAA Surcharge Thresholds</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Income thresholds that trigger higher Medicare premiums</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- CTA -->
+          <div style="background:linear-gradient(135deg,rgba(196,154,74,0.10),rgba(26,94,168,0.06));border:1px solid rgba(196,154,74,0.25);border-radius:10px;padding:1.75rem;">
+            <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:#0F1724;margin-bottom:0.625rem;line-height:1.3;">
+              Is now the right time for a Roth conversion?
+            </div>
+            <p style="font-size:0.875rem;line-height:1.6;color:#4A5568;font-weight:300;margin-bottom:1.25rem;">
+              We model Roth conversion scenarios across multiple tax rate assumptions and life stages, incorporating your complete financial picture before making any recommendation.
+            </p>
+            <a href="contact.html">
+              <button class="btn-primary" style="width:100%;text-align:center;">Request a Conversion Analysis</button>
+            </a>
+          </div>
+
+        </div>
+      </div><!-- /sidebar -->
+
+    </div><!-- /grid -->
+  </div>
+</section>
+
+
+<!-- RELATED ARTICLES -->
+<section style="background:white;padding:5rem 0;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div style="width:48px;height:3px;background:linear-gradient(90deg,#1A5EA8,#C49A4A);border-radius:2px;margin-bottom:1rem;"></div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#0F1724;margin-bottom:2.5rem;letter-spacing:-0.02em;">Continue Reading</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <a href="resources-alternative-investments.html" style="text-decoration:none;display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;border:1px solid rgba(26,94,168,0.10);border-radius:10px;background:#FAF8F4;transition:box-shadow 0.22s ease,transform 0.22s ease;"
+         onmouseover="this.style.boxShadow='0 8px 32px rgba(26,94,168,0.12)';this.style.transform='translateY(-2px)'"
+         onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+        <div style="width:80px;height:64px;border-radius:6px;overflow:hidden;flex-shrink:0;">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=160&h=128&q=80"
+               alt="Aerial city mosaic" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />
+        </div>
+        <div>
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#C49A4A;margin-bottom:0.4rem;">Alternatives</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#0F1724;line-height:1.35;">Private Credit Market: What Investors Need to Know</div>
+          <div style="font-size:0.75rem;color:#6B7280;margin-top:0.4rem;">Mar 10, 2026 · 8 min read</div>
+        </div>
+      </a>
+
+      <a href="resources-rebalancing.html" style="text-decoration:none;display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;border:1px solid rgba(26,94,168,0.10);border-radius:10px;background:#FAF8F4;transition:box-shadow 0.22s ease,transform 0.22s ease;"
+         onmouseover="this.style.boxShadow='0 8px 32px rgba(26,94,168,0.12)';this.style.transform='translateY(-2px)'"
+         onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+        <div style="width:80px;height:64px;border-radius:6px;overflow:hidden;flex-shrink:0;">
+          <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=160&h=128&q=80"
+               alt="Justice scale" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />
+        </div>
+        <div>
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2A74C8;margin-bottom:0.4rem;">Portfolio Management</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#0F1724;line-height:1.35;">How Often Should I Rebalance My Portfolio?</div>
+          <div style="font-size:0.75rem;color:#6B7280;margin-top:0.4rem;">Feb 24, 2026 · 5 min read</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer style="background:#0F1724;padding:2rem 0;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+         alt="Rubiq Financial Partners logo" width="120" height="26" style="height:26px;width:auto;opacity:0.70;" loading="lazy" decoding="async" />
+    <div style="text-align:center;">
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.28);margin:0 0 0.35rem;">
+        &copy; 2026 Rubiq Financial Partners LLC. All rights reserved.
+      </p>
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.18);margin:0 0 0.5rem;line-height:1.6;font-weight:300;">
+        Advisory services offered through Wealthcare Advisory Partners. Brokerage products offered through LPL Financial, Member FINRA/SIPC.
+      </p>
+      <div style="display:flex;justify-content:center;gap:1.5rem;">
+        <a href="privacy-policy.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Privacy Policy</a>
+        <a href="terms-of-use.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Terms of Use</a>
+        <a href="sitemap.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Sitemap</a>
+      </div>
+    </div>
+    <a href="resources.html" style="font-size:0.75rem;font-weight:500;color:rgba(255,255,255,0.45);text-decoration:none;white-space:nowrap;letter-spacing:0.03em;transition:color 0.18s ease;"
+       onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+      ← Back to Resources
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
