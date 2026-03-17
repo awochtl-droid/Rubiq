@@ -8,7 +8,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
   <script>
     tailwind.config = {
       theme: {
@@ -201,7 +202,7 @@
     <div class="flex items-center justify-between" style="height:72px;">
       <a href="../index.html" class="flex-shrink-0 flex items-center">
         <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
-             alt="Rubiq Financial Partners logo" width="160" height="34" style="height:34px;width:auto;object-fit:contain;" />
+             alt="Rubiq Financial Partners logo" width="160" height="34" style="height:34px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
       </a>
       <div class="hidden md:flex items-center gap-8">
         <a href="services.html" class="nav-link">Services</a>
@@ -974,7 +975,7 @@
 <footer style="background:#0F1724;padding:2rem 0;border-top:1px solid rgba(255,255,255,0.06);">
   <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
     <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
-         alt="Rubiq Financial Partners logo" width="120" height="26" style="height:26px;width:auto;opacity:0.70;" />
+         alt="Rubiq Financial Partners logo" width="120" height="26" style="height:26px;width:auto;opacity:0.70;" loading="lazy" decoding="async" />
     <div style="text-align:center;">
       <p style="font-size:0.75rem;color:rgba(255,255,255,0.28);margin:0 0 0.35rem;">
         &copy; 2026 Rubiq Financial Partners LLC. All rights reserved.
