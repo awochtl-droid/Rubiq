@@ -371,35 +371,35 @@
           <div id="tier-1-row" class="fee-tier-row active">
             <div>
               <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$500K – $2M</span>
-              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">1.50% / yr</span>
+              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">1.25% / yr</span>
             </div>
             <div id="tier-1-fee" style="font-size:0.8125rem;font-weight:600;color:#C49A4A;">$22,500</div>
           </div>
           <div id="tier-2-row" class="fee-tier-row active">
             <div>
               <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$2M – $5M</span>
-              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">1.25% / yr</span>
+              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">1.00% / yr</span>
             </div>
             <div id="tier-2-fee" style="font-size:0.8125rem;font-weight:600;color:#C49A4A;">$6,250</div>
           </div>
           <div id="tier-3-row" class="fee-tier-row future">
             <div>
               <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$5M – $10M</span>
-              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">1.00% / yr</span>
+              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">0.75% / yr</span>
             </div>
             <div id="tier-3-fee" style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.30);">—</div>
           </div>
           <div id="tier-4-row" class="fee-tier-row future">
             <div>
               <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$10M – $20M</span>
-              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">0.75% / yr</span>
+              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">0.55% / yr</span>
             </div>
             <div id="tier-4-fee" style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.30);">—</div>
           </div>
           <div id="tier-5-row" class="fee-tier-row future">
             <div>
               <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$20M – $50M</span>
-              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">0.65% / yr</span>
+              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">0.45% / yr</span>
             </div>
             <div id="tier-5-fee" style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.30);">—</div>
           </div>
@@ -565,11 +565,11 @@
       25000000,30000000,35000000,40000000,45000000,50000000
     ];
     const TIERS = [
-      { min:0,       max:2000000,  rate:0.0150, id:1 },
-      { min:2000000, max:5000000,  rate:0.0125, id:2 },
-      { min:5000000, max:10000000, rate:0.0100, id:3 },
-      { min:10000000,max:20000000, rate:0.0075, id:4 },
-      { min:20000000,max:50000000, rate:0.0065, id:5 },
+      { min:0,       max:2000000,  rate:0.0125, id:1 },
+      { min:2000000, max:5000000,  rate:0.0100, id:2 },
+      { min:5000000, max:10000000, rate:0.0075, id:3 },
+      { min:10000000,max:20000000, rate:0.0055, id:4 },
+      { min:20000000,max:50000000, rate:0.0045, id:5 },
     ];
     function formatMoney(n){ if(n>=1000000)return'$'+(n/1000000).toFixed(n%1000000===0?0:1)+'M'; if(n>=1000)return'$'+(n/1000).toFixed(0)+'K'; return'$'+n; }
     function formatDollar(n){ return'$'+Math.round(n).toLocaleString('en-US'); }
