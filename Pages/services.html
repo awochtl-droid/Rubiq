@@ -207,63 +207,6 @@
       #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
       footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
     }
-
-    /* ── Component 3: Interactive SVG Cube ── */
-    .face-group .sticker {
-      transition: opacity 0.25s, filter 0.25s;
-      cursor: pointer;
-    }
-    .face-group .sticker:hover { filter: brightness(1.3); }
-    .face-group.dimmed .sticker { opacity: 0.22; }
-    .face-group.active .sticker { opacity: 1; filter: brightness(1.15); }
-    .c-investments { fill: #3b82f6; }
-    .c-planning    { fill: #10b981; }
-    .c-retirement  { fill: #f59e0b; }
-    .c-estate      { fill: #8b5cf6; }
-    .c-tax         { fill: #ef4444; }
-    svg#rubiks-cube {
-      width: 260px; height: 260px;
-      filter: drop-shadow(0 20px 60px rgba(201,168,76,0.15));
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .svc-item {
-      display: flex; align-items: flex-start; gap: 14px;
-      padding: 12px 14px; border-radius: 6px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .svc-item:last-child { border-bottom: none; }
-    .svc-item:hover, .svc-item.active {
-      background: rgba(201,168,76,0.06);
-      border-color: rgba(201,168,76,0.15);
-    }
-    .svc-item.active { border-color: rgba(201,168,76,0.3); }
-    .svc-dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      flex-shrink: 0; margin-top: 4px;
-    }
-    .svc-name {
-      font-weight: 600; font-size: 0.875rem;
-      color: white; margin-bottom: 3px;
-    }
-    .svc-desc {
-      font-size: 0.78rem; color: rgba(143,163,191,0.9);
-      line-height: 1.55;
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
-      opacity: 0;
-    }
-    .svc-item.active .svc-desc { max-height: 100px; opacity: 1; }
-    .svc-link {
-      font-size: 0.72rem; color: #C49A4A; margin-top: 5px;
-      display: inline-block; text-decoration: none;
-      letter-spacing: 0.05em; font-weight: 600;
-    }
-    .svc-link::after { content: ' →'; }
   </style>
   <script type="application/ld+json">
   {
@@ -591,156 +534,111 @@
         </div>
       </div>
 
-      <!-- Right: Interactive SVG Rubik's Cube -->
-      <div style="display:flex;flex-direction:column;align-items:center;gap:2rem;
+      <!-- Right: Rubik's cube -->
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3rem;
                   position:relative;z-index:2;">
 
-        <!-- SVG Cube -->
-        <div style="display:flex;justify-content:center;align-items:center;">
-          <svg id="rubiks-cube" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <filter id="cube-shadow">
-                <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.5"/>
-              </filter>
-            </defs>
-
-            <!-- TOP FACE — Investments (Blue) -->
-            <g class="face-group" id="face-investments" data-service="investments">
-              <polygon class="sticker c-investments" points="140,24 172,40 140,56 108,40"/>
-              <polygon class="sticker c-investments" points="173,41 205,57 173,73 141,57"/>
-              <polygon class="sticker c-investments" points="107,41 139,57 107,73 75,57"/>
-              <polygon class="sticker c-investments" points="140,58 172,74 140,90 108,74"/>
-              <polygon class="sticker c-investments" points="173,75 205,91 173,107 141,91"/>
-              <polygon class="sticker c-investments" points="107,75 139,91 107,107 75,91"/>
-              <polygon class="sticker c-investments" points="140,92 172,108 140,124 108,108"/>
-              <polygon class="sticker c-investments" points="173,109 205,125 173,141 141,125"/>
-              <polygon class="sticker c-investments" points="107,109 139,125 107,141 75,125"/>
-            </g>
-
-            <!-- RIGHT FACE — Retirement (Amber) -->
-            <g class="face-group" id="face-retirement" data-service="retirement">
-              <polygon class="sticker c-retirement" points="206,60 238,76 238,108 206,92"/>
-              <polygon class="sticker c-retirement" points="206,94 238,110 238,142 206,126"/>
-              <polygon class="sticker c-retirement" points="206,128 238,144 238,176 206,160"/>
-              <polygon class="sticker c-retirement" points="206,162 238,178 238,210 206,194"/>
-              <polygon class="sticker c-retirement" points="206,196 238,212 238,244 206,228"/>
-            </g>
-
-            <!-- LEFT FACE — Estate (Purple) -->
-            <g class="face-group" id="face-estate" data-service="estate">
-              <polygon class="sticker c-estate" points="74,92 106,108 106,140 74,124"/>
-              <polygon class="sticker c-estate" points="74,126 106,142 106,174 74,158"/>
-              <polygon class="sticker c-estate" points="74,160 106,176 106,208 74,192"/>
-              <polygon class="sticker c-estate" points="74,194 106,210 106,242 74,226"/>
-              <polygon class="sticker c-estate" points="74,228 106,244 106,256 74,256"/>
-            </g>
-
-            <!-- FRONT FACE — Planning (Green) + Tax (Red) -->
-            <g class="face-group" id="face-planning" data-service="planning">
-              <rect class="sticker c-planning" x="108" y="126" width="30" height="26" rx="2"/>
-              <rect class="sticker c-planning" x="141" y="126" width="30" height="26" rx="2"/>
-              <rect class="sticker c-tax"      x="174" y="126" width="30" height="26" rx="2"/>
-              <rect class="sticker c-planning" x="108" y="155" width="30" height="26" rx="2"/>
-              <rect class="sticker c-tax"      x="141" y="155" width="30" height="26" rx="2"/>
-              <rect class="sticker c-tax"      x="174" y="155" width="30" height="26" rx="2"/>
-              <rect class="sticker c-planning" x="108" y="184" width="30" height="26" rx="2"/>
-              <rect class="sticker c-tax"      x="141" y="184" width="30" height="26" rx="2"/>
-              <rect class="sticker c-tax"      x="174" y="184" width="30" height="26" rx="2"/>
-            </g>
-
-            <!-- Cube edge lines -->
-            <polyline fill="none" stroke="rgba(15,23,36,0.9)" stroke-width="3"
-              points="140,24 206,58 206,228 140,262 74,228 74,90 140,24"/>
-            <line fill="none" stroke="rgba(15,23,36,0.9)" stroke-width="2" x1="140" y1="124" x2="140" y2="262"/>
-            <line fill="none" stroke="rgba(15,23,36,0.9)" stroke-width="2" x1="206" y1="58" x2="140" y2="124"/>
-            <line fill="none" stroke="rgba(15,23,36,0.9)" stroke-width="2" x1="74" y1="90" x2="140" y2="124"/>
-
-            <text x="140" y="276" text-anchor="middle"
-              fill="rgba(201,168,76,0.4)" font-size="9" font-family="Inter, sans-serif"
-              letter-spacing="0.12em" font-weight="600">CLICK A FACE TO EXPLORE</text>
-          </svg>
-        </div>
-
-        <!-- Service list -->
-        <div id="svc-list" style="width:100%;max-width:340px;">
-          <div class="svc-item active" data-service="investments" onclick="cubeSelectService('investments',this)">
-            <div class="svc-dot" style="background:#3b82f6"></div>
-            <div>
-              <div class="svc-name">Investment Management</div>
-              <div class="svc-desc">Disciplined, evidence-based portfolios built around your risk tolerance, time horizon, and after-tax objectives.
-                <a class="svc-link" href="#investment-management">Explore</a>
-              </div>
+        <!-- Animated cube -->
+        <div class="cube-scene">
+          <div class="cube">
+            <!-- Front face: Rubiq blue -->
+            <div class="cube-face front face-blue">
+              <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              <div class="cube-cell"></div><div class="cube-cell" style="background:#C49A4A;"></div><div class="cube-cell"></div>
+              <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
             </div>
-          </div>
-          <div class="svc-item" data-service="planning" onclick="cubeSelectService('planning',this)">
-            <div class="svc-dot" style="background:#10b981"></div>
-            <div>
-              <div class="svc-name">Financial Planning</div>
-              <div class="svc-desc">Comprehensive roadmaps covering cash flow, insurance, education funding, and every major life transition.
-                <a class="svc-link" href="#financial-planning">Explore</a>
-              </div>
+            <!-- Back face: dark blue -->
+            <div class="cube-face back face-dark">
+              <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
             </div>
-          </div>
-          <div class="svc-item" data-service="retirement" onclick="cubeSelectService('retirement',this)">
-            <div class="svc-dot" style="background:#f59e0b"></div>
-            <div>
-              <div class="svc-name">Retirement Planning</div>
-              <div class="svc-desc">Structured withdrawal strategies, Social Security optimization, and RMD sequencing to sustain your retirement.
-                <a class="svc-link" href="#retirement-planning">Explore</a>
-              </div>
+            <!-- Right face: gold -->
+            <div class="cube-face right face-gold">
+              <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              <div class="cube-cell"></div><div class="cube-cell" style="background:#1A5EA8;"></div><div class="cube-cell"></div>
+              <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
             </div>
-          </div>
-          <div class="svc-item" data-service="estate" onclick="cubeSelectService('estate',this)">
-            <div class="svc-dot" style="background:#8b5cf6"></div>
-            <div>
-              <div class="svc-name">Estate &amp; Legacy</div>
-              <div class="svc-desc">Coordinated trust strategy, gifting programs, and philanthropic structures to protect and transfer your wealth.
-                <a class="svc-link" href="#estate-legacy">Explore</a>
-              </div>
+            <!-- Left face: muted slate -->
+            <div class="cube-face left face-muted">
+              <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
             </div>
-          </div>
-          <div class="svc-item" data-service="tax" onclick="cubeSelectService('tax',this)">
-            <div class="svc-dot" style="background:#ef4444"></div>
-            <div>
-              <div class="svc-name">Tax Planning</div>
-              <div class="svc-desc">Proactive tax strategy woven into every portfolio decision, Roth conversion, and real estate transaction.
-                <a class="svc-link" href="#tax-planning">Explore</a>
-              </div>
+            <!-- Top face: blue light -->
+            <div class="cube-face top face-light">
+              <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+            </div>
+            <!-- Bottom face: ink -->
+            <div class="cube-face bottom face-ink">
+              <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
             </div>
           </div>
         </div>
 
-        <script>
-        function cubeSelectService(service, listItem) {
-          document.querySelectorAll('.svc-item').forEach(el => el.classList.remove('active'));
-          if (listItem) listItem.classList.add('active');
-          document.querySelectorAll('.face-group').forEach(g => {
-            g.classList.remove('active','dimmed');
-            const mapped = g.dataset.service;
-            if (mapped === service || (service === 'tax' && mapped === 'planning')) {
-              g.classList.add('active');
-            } else {
-              g.classList.add('dimmed');
-            }
-          });
-        }
-        document.querySelectorAll('.face-group').forEach(g => {
-          g.addEventListener('click', () => {
-            const svc = g.dataset.service;
-            cubeSelectService(svc, document.querySelector(`.svc-item[data-service="${svc}"]`));
-            clearInterval(cubeCycle);
-          });
-        });
-        document.getElementById('svc-list').addEventListener('click', () => clearInterval(cubeCycle));
-        const cubeServices = ['investments','planning','retirement','estate','tax'];
-        let cubeIdx = 0;
-        let cubeCycle = setInterval(() => {
-          const s = cubeServices[cubeIdx % cubeServices.length];
-          cubeSelectService(s, document.querySelector(`.svc-item[data-service="${s}"]`));
-          cubeIdx++;
-        }, 2800);
-        </script>
-
+        <!-- The six faces legend -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.875rem;max-width:340px;width:100%;">
+          <a href="#investment-management"
+             style="display:flex;align-items:center;gap:10px;text-decoration:none;
+                    background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
+                    border-radius:8px;padding:0.75rem 1rem;
+                    transition:background 0.18s ease,border-color 0.18s ease;"
+             onmouseover="this.style.background='rgba(196,154,74,0.08)';this.style.borderColor='rgba(196,154,74,0.30)'"
+             onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.borderColor='rgba(255,255,255,0.08)'">
+            <div style="width:12px;height:12px;border-radius:3px;background:#1A5EA8;flex-shrink:0;"></div>
+            <span style="font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.80);line-height:1.3;">Investments</span>
+          </a>
+          <a href="#financial-planning"
+             style="display:flex;align-items:center;gap:10px;text-decoration:none;
+                    background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
+                    border-radius:8px;padding:0.75rem 1rem;
+                    transition:background 0.18s ease,border-color 0.18s ease;"
+             onmouseover="this.style.background='rgba(196,154,74,0.08)';this.style.borderColor='rgba(196,154,74,0.30)'"
+             onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.borderColor='rgba(255,255,255,0.08)'">
+            <div style="width:12px;height:12px;border-radius:3px;background:#2A74C8;flex-shrink:0;"></div>
+            <span style="font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.80);line-height:1.3;">Financial Planning</span>
+          </a>
+          <a href="#retirement-planning"
+             style="display:flex;align-items:center;gap:10px;text-decoration:none;
+                    background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
+                    border-radius:8px;padding:0.75rem 1rem;
+                    transition:background 0.18s ease,border-color 0.18s ease;"
+             onmouseover="this.style.background='rgba(196,154,74,0.08)';this.style.borderColor='rgba(196,154,74,0.30)'"
+             onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.borderColor='rgba(255,255,255,0.08)'">
+            <div style="width:12px;height:12px;border-radius:3px;background:#C49A4A;flex-shrink:0;"></div>
+            <span style="font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.80);line-height:1.3;">Retirement</span>
+          </a>
+          <a href="#estate-legacy"
+             style="display:flex;align-items:center;gap:10px;text-decoration:none;
+                    background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
+                    border-radius:8px;padding:0.75rem 1rem;
+                    transition:background 0.18s ease,border-color 0.18s ease;"
+             onmouseover="this.style.background='rgba(196,154,74,0.08)';this.style.borderColor='rgba(196,154,74,0.30)'"
+             onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.borderColor='rgba(255,255,255,0.08)'">
+            <div style="width:12px;height:12px;border-radius:3px;background:#D4AE6A;flex-shrink:0;"></div>
+            <span style="font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.80);line-height:1.3;">Estate &amp; Legacy</span>
+          </a>
+          <a href="#tax-planning"
+             style="display:flex;align-items:center;gap:10px;text-decoration:none;
+                    background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
+                    border-radius:8px;padding:0.75rem 1rem;
+                    transition:background 0.18s ease,border-color 0.18s ease;"
+             onmouseover="this.style.background='rgba(196,154,74,0.08)';this.style.borderColor='rgba(196,154,74,0.30)'"
+             onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.borderColor='rgba(255,255,255,0.08)'">
+            <div style="width:12px;height:12px;border-radius:3px;background:#9E7A32;flex-shrink:0;"></div>
+            <span style="font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.80);line-height:1.3;">Tax Planning</span>
+          </a>
+          <div style="display:flex;align-items:center;gap:10px;
+                      background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);
+                      border-radius:8px;padding:0.75rem 1rem;">
+            <div style="width:12px;height:12px;border-radius:3px;background:#2C3E55;flex-shrink:0;"></div>
+            <span style="font-size:0.78rem;font-weight:400;color:rgba(255,255,255,0.40);line-height:1.3;font-style:italic;">All connected.</span>
+          </div>
+        </div>
       </div>
 
     </div>
