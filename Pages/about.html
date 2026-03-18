@@ -313,18 +313,6 @@
       color: #4A5568; font-weight: 300;
     }
     .te-faq-a strong { color: #1A5EA8; font-weight: 600; }
-    .te-formula {
-      display: inline-block;
-      background: rgba(26,94,168,0.06);
-      border: 1px solid rgba(26,94,168,0.15);
-      border-radius: 4px;
-      padding: 2px 8px;
-      font-size: 0.78rem;
-      color: #133F73;
-      font-family: 'Georgia', serif;
-      font-style: italic;
-      margin-top: 6px;
-    }
     .te-cta-strip {
       margin-top: 2.5rem;
       background: linear-gradient(135deg, #0F1724 0%, #133F73 60%, #1A5EA8 100%);
@@ -851,9 +839,9 @@
           <div class="te-faq-q">What is tax drag, and why does it matter?</div>
           <div class="te-faq-a">
             Tax drag is the annual return lost to taxes on investment distributions — dividends and realized capital gains.
-            It does <em>not</em> apply to your entire return, only to the portion that's actually distributed and taxed in a given year.
-            On a $2M portfolio with 7.8% gross return, a high-turnover active fund might distribute enough gains to create
-            <strong>~1.2% of annual drag</strong> — compounding that loss into a six-figure gap within a decade.
+            It does <em>not</em> apply to your entire return, only to the portion actually distributed and taxed in a given year.
+            A high-turnover active fund can easily create over 1% of annual drag on an otherwise solid return, and
+            compounding that loss quietly erases six figures over a decade.
           </div>
         </div>
 
@@ -861,24 +849,21 @@
           <div class="te-faq-icon">🧮</div>
           <div class="te-faq-q">How does the estimator calculate annual tax drag?</div>
           <div class="te-faq-a">
-            Only two things trigger taxes each year: income distributions (dividends, interest) and capital gains
-            distributions from fund turnover. Unrealized price appreciation is <strong>never taxed annually</strong> —
-            it compounds untouched until you sell.
-            <span class="te-formula">Annual Drag = (Yield + Appreciation × Turnover) × Tax Rate</span>
-            A fund returning 7.8% with 1.5% yield and 65% turnover at a 28% rate creates ~1.27%/yr of drag —
-            not 2.18%/yr as the old "tax the whole return" approach would falsely imply.
+            Two things trigger taxes each year: income distributions (dividends, interest) and capital gains
+            distributions driven by fund turnover. Unrealized price appreciation is <strong>never taxed annually</strong> —
+            it compounds untouched until you sell. The drag is calculated on only those two distributed amounts,
+            multiplied by your blended tax rate.
           </div>
         </div>
 
         <div class="te-faq-card">
           <div class="te-faq-icon">⚡</div>
-          <div class="te-faq-q">What does "Fund Turnover" have to do with taxes?</div>
+          <div class="te-faq-q">What does fund turnover have to do with taxes?</div>
           <div class="te-faq-a">
             When a fund sells holdings to rebalance or replace positions, it realizes capital gains and distributes
             them to shareholders — creating a taxable event even if you never sold a share yourself.
-            A fund with 65% annual turnover is realizing and distributing the majority of its appreciation each year.
-            An index ETF with 5% turnover barely touches it.
-            <span class="te-formula">Gains Distributed = Price Appreciation × Turnover Ratio</span>
+            A fund with 65% annual turnover is effectively realizing and distributing the majority of its price appreciation
+            each year. An index ETF at 5% turnover barely triggers any distributions at all.
           </div>
         </div>
 
@@ -886,32 +871,32 @@
           <div class="te-faq-icon">🔍</div>
           <div class="te-faq-q">How do I estimate my own tax drag?</div>
           <div class="te-faq-a">
-            Start with your <strong>blended effective rate on investment gains</strong> (short-term gains are taxed as ordinary income; long-term
-            at 0%, 15%, or 20% plus 3.8% NIIT for high earners). Then estimate your portfolio's annual turnover.
-            High turnover = more realized gains = higher drag. Most active funds turn over 60–80% annually.
-            Index funds and direct indexing strategies can reduce that dramatically.
+            Look up the annual turnover ratio on each fund you hold — it's published in the fund's prospectus or on
+            Morningstar. Pair that with your effective rate on investment gains (long-term rates are 15–23.8% for most
+            high earners; short-term gains are taxed as ordinary income). High turnover combined with a high tax bracket
+            is where drag becomes most severe.
           </div>
         </div>
 
         <div class="te-faq-card">
           <div class="te-faq-icon">📍</div>
-          <div class="te-faq-q">What about tax-advantaged accounts (401k, IRA, Roth)?</div>
+          <div class="te-faq-q">What about 401(k), IRA, and Roth accounts?</div>
           <div class="te-faq-a">
-            Assets inside a 401(k), IRA, or Roth IRA grow without annual tax drag — gains are deferred or tax-free.
-            This estimator models your <strong>taxable brokerage accounts</strong>, where drag is most impactful.
-            A key part of our planning process is optimizing which assets sit in which account type — a strategy called
-            <strong>asset location</strong>.
+            Assets inside tax-deferred and tax-free accounts grow without any annual drag — gains compound untouched.
+            This estimator focuses on <strong>taxable brokerage accounts</strong>, where the drag is most visible.
+            A significant part of our planning work is deciding which assets belong in which account type, a strategy
+            called <strong>asset location</strong>, to minimize drag across the whole portfolio.
           </div>
         </div>
 
         <div class="te-faq-card">
           <div class="te-faq-icon">📈</div>
-          <div class="te-faq-q">What strategies reduce tax drag in practice?</div>
+          <div class="te-faq-q">What strategies actually reduce tax drag?</div>
           <div class="te-faq-a">
-            The most effective tools are: <strong>tax-loss harvesting</strong> (offsetting gains with losses),
-            <strong>direct indexing</strong> (owning individual stocks to harvest at the lot level),
-            <strong>asset location</strong> (holding high-yield assets in tax-deferred accounts),
-            <strong>Roth conversion ladders</strong>, and minimizing short-term gain realization through low-turnover strategies.
+            The most impactful tools are <strong>direct indexing</strong> (owning individual stocks so losses can be
+            harvested at the lot level without triggering distributions), <strong>tax-loss harvesting</strong> to offset
+            realized gains, <strong>asset location</strong> to shift income-heavy holdings into tax-deferred accounts,
+            and deliberate use of low-turnover strategies that defer gains rather than distribute them annually.
           </div>
         </div>
 
