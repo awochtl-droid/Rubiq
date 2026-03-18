@@ -714,7 +714,7 @@
         <!-- Inputs -->
         <div class="tax-est-inputs">
           <div class="te-input-group">
-            <label class="te-input-label">Portfolio Value</label>
+            <label class="te-input-label">Portfolio Value (Taxable Accounts)</label>
             <div class="te-input-row">
               <span class="te-input-val" id="te-val-portfolio">$2.0M</span>
               <input type="range" class="te-range" id="te-portfolio"
@@ -725,18 +725,44 @@
           <div class="te-input-group">
             <label class="te-input-label">Gross Annual Return</label>
             <div class="te-input-row">
-              <span class="te-input-val" id="te-val-return">7.5%</span>
+              <span class="te-input-val" id="te-val-return">7.8%</span>
               <input type="range" class="te-range" id="te-return"
-                     min="3" max="14" step="0.5" value="7.5"
+                     min="3" max="14" step="0.5" value="7.8"
                      oninput="teUpdate()">
             </div>
           </div>
           <div class="te-input-group">
-            <label class="te-input-label">Effective Tax Rate on Gains</label>
+            <label class="te-input-label"
+                   title="Dividends and fund income distributions paid out each year — taxed in the year received regardless of whether you sell anything.">
+              Dividend / Income Yield
+              <span style="font-size:9px;color:rgba(143,163,191,0.6);font-weight:400;letter-spacing:0;text-transform:none;margin-left:4px;">% of portfolio distributed annually</span>
+            </label>
+            <div class="te-input-row">
+              <span class="te-input-val" id="te-val-yield">1.5%</span>
+              <input type="range" class="te-range" id="te-yield"
+                     min="0" max="6" step="0.25" value="1.5"
+                     oninput="teUpdate()">
+            </div>
+          </div>
+          <div class="te-input-group">
+            <label class="te-input-label"
+                   title="How much of the fund's holdings are sold and replaced each year, triggering capital gains distributions. Index ETFs: ~5%. Active mutual funds: 50–100%.">
+              Fund Turnover Ratio
+              <span style="font-size:9px;color:rgba(143,163,191,0.6);font-weight:400;letter-spacing:0;text-transform:none;margin-left:4px;">% of price gains realized &amp; distributed</span>
+            </label>
+            <div class="te-input-row">
+              <span class="te-input-val" id="te-val-turnover">50%</span>
+              <input type="range" class="te-range" id="te-turnover"
+                     min="0" max="120" step="5" value="50"
+                     oninput="teUpdate()">
+            </div>
+          </div>
+          <div class="te-input-group">
+            <label class="te-input-label">Blended Tax Rate on Investment Income</label>
             <div class="te-input-row">
               <span class="te-input-val" id="te-val-taxrate">28%</span>
               <input type="range" class="te-range" id="te-taxrate"
-                     min="10" max="50" step="1" value="28"
+                     min="10" max="54" step="1" value="28"
                      oninput="teUpdate()">
             </div>
           </div>
@@ -749,15 +775,6 @@
                      oninput="teUpdate()">
             </div>
           </div>
-          <div class="te-input-group">
-            <label class="te-input-label">Tax Efficiency Improvement</label>
-            <div class="te-input-row">
-              <span class="te-input-val" id="te-val-efficiency">40%</span>
-              <input type="range" class="te-range" id="te-efficiency"
-                     min="10" max="80" step="5" value="40"
-                     oninput="teUpdate()">
-            </div>
-          </div>
         </div>
 
         <!-- Outputs -->
@@ -767,15 +784,19 @@
             <span class="te-result-val neutral" id="te-out-start">$2,000,000</span>
           </div>
           <div class="te-result-row">
+            <span class="te-result-label">Annual Tax Drag (current strategy)</span>
+            <span class="te-result-val negative" id="te-out-drag-rate">—</span>
+          </div>
+          <div class="te-result-row">
             <span class="te-result-label">Pre-Tax Ending Value</span>
             <span class="te-result-val neutral" id="te-out-pretax">—</span>
           </div>
           <div class="te-result-row">
-            <span class="te-result-label">After-Tax Value (Unoptimized)</span>
+            <span class="te-result-label">After-Tax Value (current strategy)</span>
             <span class="te-result-val negative" id="te-out-aftertax">—</span>
           </div>
           <div class="te-result-row">
-            <span class="te-result-label">After-Tax Value (Rubiq Optimized)</span>
+            <span class="te-result-label">After-Tax Value (Rubiq optimized)</span>
             <span class="te-result-val positive" id="te-out-optimized">—</span>
           </div>
 
@@ -783,7 +804,7 @@
             <div class="te-gap-fill" id="te-gap-fill" style="width:45%;"></div>
           </div>
           <div class="te-gap-legend">
-            <span>Unoptimized</span>
+            <span>Current Strategy</span>
             <span>Rubiq Optimized</span>
           </div>
 
@@ -792,7 +813,7 @@
             <span class="te-result-val highlight" id="te-out-delta">—</span>
           </div>
           <div class="te-result-row">
-            <span class="te-result-label">Annualized Tax Drag Reduction</span>
+            <span class="te-result-label">Annual Drag Eliminated (Rubiq)</span>
             <span class="te-result-val positive" id="te-out-drag">—</span>
           </div>
         </div>
@@ -800,11 +821,11 @@
 
       <!-- Presets -->
       <div class="te-presets">
-        <button class="te-preset-btn" onclick="tePreset('base',this)">Base Case</button>
+        <button class="te-preset-btn active" onclick="tePreset('active',this)">Typical Active Fund</button>
+        <button class="te-preset-btn" onclick="tePreset('passive',this)">Passive Index</button>
         <button class="te-preset-btn" onclick="tePreset('exec',this)">Corporate Executive</button>
         <button class="te-preset-btn" onclick="tePreset('preretiree',this)">Pre-Retiree</button>
-        <button class="te-preset-btn" onclick="tePreset('bizowner',this)">Business Owner Exit</button>
-        <button class="te-preset-btn active" onclick="tePreset('rubiq',this)">Rubiq Optimized</button>
+        <button class="te-preset-btn" onclick="tePreset('rubiq',this)">Rubiq Optimized</button>
       </div>
 
       <div class="te-disclaimer">
@@ -829,31 +850,35 @@
           <div class="te-faq-icon">📐</div>
           <div class="te-faq-q">What is tax drag, and why does it matter?</div>
           <div class="te-faq-a">
-            Tax drag is the difference between what your portfolio earns before taxes and what you actually keep after taxes are paid each year.
-            On a $2M portfolio earning 7.5%, a 28% tax rate quietly removes <strong>~1.4% per year</strong> — and compounding turns that annual
-            haircut into a six-figure gap over a decade.
+            Tax drag is the annual return lost to taxes on investment distributions — dividends and realized capital gains.
+            It does <em>not</em> apply to your entire return, only to the portion that's actually distributed and taxed in a given year.
+            On a $2M portfolio with 7.8% gross return, a high-turnover active fund might distribute enough gains to create
+            <strong>~1.2% of annual drag</strong> — compounding that loss into a six-figure gap within a decade.
           </div>
         </div>
 
         <div class="te-faq-card">
           <div class="te-faq-icon">🧮</div>
-          <div class="te-faq-q">How does the estimator calculate "After-Tax Value"?</div>
+          <div class="te-faq-q">How does the estimator calculate annual tax drag?</div>
           <div class="te-faq-a">
-            We apply your effective tax rate annually to your gross return, then compound over your horizon.
-            <span class="te-formula">After-Tax Return = Gross Return × (1 − Tax Rate)</span>
-            This assumes all gains are realized and taxed each year — a conservative baseline. Your actual drag
-            may be lower if you hold positions long-term or use tax-advantaged accounts.
+            Only two things trigger taxes each year: income distributions (dividends, interest) and capital gains
+            distributions from fund turnover. Unrealized price appreciation is <strong>never taxed annually</strong> —
+            it compounds untouched until you sell.
+            <span class="te-formula">Annual Drag = (Yield + Appreciation × Turnover) × Tax Rate</span>
+            A fund returning 7.8% with 1.5% yield and 65% turnover at a 28% rate creates ~1.27%/yr of drag —
+            not 2.18%/yr as the old "tax the whole return" approach would falsely imply.
           </div>
         </div>
 
         <div class="te-faq-card">
           <div class="te-faq-icon">⚡</div>
-          <div class="te-faq-q">What does "Tax Efficiency Improvement" mean?</div>
+          <div class="te-faq-q">What does "Fund Turnover" have to do with taxes?</div>
           <div class="te-faq-a">
-            This slider represents the percentage of your annual tax burden that proactive strategies can defer or eliminate —
-            through tax-loss harvesting, asset location, Roth conversions, and low-turnover investing.
-            A 40% improvement means 40% less of your gain is taxed each year.
-            <span class="te-formula">Optimized Return = Gross Return × (1 − Tax Rate × (1 − Efficiency))</span>
+            When a fund sells holdings to rebalance or replace positions, it realizes capital gains and distributes
+            them to shareholders — creating a taxable event even if you never sold a share yourself.
+            A fund with 65% annual turnover is realizing and distributing the majority of its appreciation each year.
+            An index ETF with 5% turnover barely touches it.
+            <span class="te-formula">Gains Distributed = Price Appreciation × Turnover Ratio</span>
           </div>
         </div>
 
@@ -918,76 +943,120 @@
   </div>
 
   <script>
-  // ── Component 5: Tax Drag Estimator ──
+  // ── Component 5: Tax Drag Estimator (corrected model) ──
+  //
+  // Tax drag only applies to two annual events:
+  //   1. Dividend / income distributions  → taxed in full each year
+  //   2. Capital gains distributions      → driven by fund turnover × price appreciation
+  //
+  // Unrealized price appreciation that is NOT distributed compounds tax-free
+  // until the investor eventually sells (terminal-year tax is NOT modeled here —
+  // this focuses on the annual drag difference between strategies).
+  //
+  // Annual after-tax return:
+  //   appreciation = grossReturn - yieldRate
+  //   annualDrag   = (yieldRate + appreciation × turnover) × taxRate
+  //   netReturn    = grossReturn − annualDrag
+  //
+  // Rubiq Optimized: same gross return but dramatically lower turnover
+  // (direct indexing + low-turnover ETFs + TLH offsets), modeled as
+  // rubiq_turnover = turnover × 0.15  (≈85% reduction via direct indexing/TLH)
+
   const TE_PRESETS = {
-    base:       { portfolio: 2000000, ret: 7.5,  taxrate: 28, years: 20, efficiency: 40 },
-    exec:       { portfolio: 5000000, ret: 8.0,  taxrate: 37, years: 15, efficiency: 50 },
-    preretiree: { portfolio: 3000000, ret: 6.5,  taxrate: 24, years: 10, efficiency: 35 },
-    bizowner:   { portfolio: 7500000, ret: 9.0,  taxrate: 40, years: 12, efficiency: 55 },
-    rubiq:      { portfolio: 2000000, ret: 7.5,  taxrate: 28, years: 20, efficiency: 60 },
+    // { portfolio, ret, yld, turnover, taxrate, years }
+    active:     { portfolio: 2000000, ret: 7.8, yld: 1.5, turnover: 65, taxrate: 28, years: 20 },
+    passive:    { portfolio: 2000000, ret: 7.5, yld: 1.5, turnover: 5,  taxrate: 20, years: 20 },
+    exec:       { portfolio: 5000000, ret: 8.0, yld: 2.0, turnover: 55, taxrate: 37, years: 15 },
+    preretiree: { portfolio: 3000000, ret: 6.5, yld: 3.0, turnover: 30, taxrate: 24, years: 10 },
+    rubiq:      { portfolio: 2000000, ret: 7.8, yld: 1.5, turnover: 8,  taxrate: 23, years: 20 },
   };
 
   function fmtDollars(n) {
-    if (n >= 1e6) return '$' + (n/1e6).toFixed(2) + 'M';
+    if (n >= 1e6) return '$' + (n / 1e6).toFixed(2) + 'M';
     return '$' + Math.round(n).toLocaleString();
+  }
+
+  function fmtPct(n, decimals) {
+    return n.toFixed(decimals !== undefined ? decimals : 2) + '% / yr';
   }
 
   function teUpdateRange(el) {
     const min = parseFloat(el.min), max = parseFloat(el.max), val = parseFloat(el.value);
-    const pct = ((val - min) / (max - min)) * 100;
-    el.style.setProperty('--pct', pct + '%');
+    el.style.setProperty('--pct', ((val - min) / (max - min) * 100) + '%');
+  }
+
+  function calcDrag(ret, yld, turnover, taxrate) {
+    // All inputs as fractions
+    const appreciation = ret - yld;
+    // Only the distributed portion of appreciation (turnover) is taxed annually
+    const taxableReturn = yld + Math.max(appreciation, 0) * turnover;
+    return taxableReturn * taxrate;
   }
 
   function teUpdate() {
-    const portfolio   = parseFloat(document.getElementById('te-portfolio').value);
-    const ret         = parseFloat(document.getElementById('te-return').value) / 100;
-    const taxrate     = parseFloat(document.getElementById('te-taxrate').value) / 100;
-    const years       = parseInt(document.getElementById('te-years').value);
-    const efficiency  = parseFloat(document.getElementById('te-efficiency').value) / 100;
+    const portfolio = parseFloat(document.getElementById('te-portfolio').value);
+    const ret       = parseFloat(document.getElementById('te-return').value)   / 100;
+    const yld       = parseFloat(document.getElementById('te-yield').value)    / 100;
+    const turnover  = parseFloat(document.getElementById('te-turnover').value) / 100;
+    const taxrate   = parseFloat(document.getElementById('te-taxrate').value)  / 100;
+    const years     = parseInt(document.getElementById('te-years').value);
 
-    // Update display labels
+    // Display labels
     document.getElementById('te-val-portfolio').textContent = fmtDollars(portfolio);
     document.getElementById('te-val-return').textContent    = (ret * 100).toFixed(1) + '%';
+    document.getElementById('te-val-yield').textContent     = (yld * 100).toFixed(2) + '%';
+    document.getElementById('te-val-turnover').textContent  = Math.round(turnover * 100) + '%';
     document.getElementById('te-val-taxrate').textContent   = Math.round(taxrate * 100) + '%';
     document.getElementById('te-val-years').textContent     = years + ' yrs';
-    document.getElementById('te-val-efficiency').textContent = Math.round(efficiency * 100) + '%';
 
-    // Update range gradient fills
-    ['te-portfolio','te-return','te-taxrate','te-years','te-efficiency'].forEach(id => {
+    // Update range fills
+    ['te-portfolio','te-return','te-yield','te-turnover','te-taxrate','te-years'].forEach(id => {
       teUpdateRange(document.getElementById(id));
     });
 
-    // Calculations
-    const preTax      = portfolio * Math.pow(1 + ret, years);
-    const afterTaxNet = ret * (1 - taxrate);
-    const afterTax    = portfolio * Math.pow(1 + afterTaxNet, years);
-    const optNet      = ret * (1 - taxrate * (1 - efficiency));
-    const optimized   = portfolio * Math.pow(1 + optNet, years);
-    const delta       = optimized - afterTax;
-    const annDrag     = efficiency * taxrate * ret * 100;
+    // ── Current strategy ──
+    const annDrag    = calcDrag(ret, yld, turnover, taxrate);
+    const netReturn  = ret - annDrag;
+    const preTax     = portfolio * Math.pow(1 + ret, years);
+    const afterTax   = portfolio * Math.pow(1 + netReturn, years);
 
+    // ── Rubiq optimized ──
+    // Direct indexing + TLH reduces effective turnover to ~15% of current
+    // and shifts yield toward qualified rates (modeled as 15% lower blended tax)
+    const rubiqTurnover = Math.max(turnover * 0.15, 0.02); // floor at 2%
+    const rubiqTaxrate  = taxrate * 0.85;                  // better qualified/LT treatment
+    const rubiqDrag     = calcDrag(ret, yld, rubiqTurnover, rubiqTaxrate);
+    const rubiqReturn   = ret - rubiqDrag;
+    const optimized     = portfolio * Math.pow(1 + rubiqReturn, years);
+
+    const delta         = optimized - afterTax;
+    const dragReduction = annDrag - rubiqDrag;
+
+    // Outputs
     document.getElementById('te-out-start').textContent     = fmtDollars(portfolio);
+    document.getElementById('te-out-drag-rate').textContent = '−' + fmtPct(annDrag * 100);
     document.getElementById('te-out-pretax').textContent    = fmtDollars(preTax);
     document.getElementById('te-out-aftertax').textContent  = fmtDollars(afterTax);
     document.getElementById('te-out-optimized').textContent = fmtDollars(optimized);
     document.getElementById('te-out-delta').textContent     = '+' + fmtDollars(delta);
-    document.getElementById('te-out-drag').textContent      = '+' + annDrag.toFixed(2) + '% / yr';
+    document.getElementById('te-out-drag').textContent      = '+' + fmtPct(dragReduction * 100);
 
-    // Gap bar: ratio of delta to preTax spread
+    // Gap bar
     const spread = preTax - afterTax;
     const gapPct = spread > 0 ? Math.min((delta / spread) * 100, 95) : 50;
-    document.getElementById('te-gap-fill').style.width = gapPct + '%';
+    document.getElementById('te-gap-fill').style.width = Math.max(gapPct, 5) + '%';
   }
 
   function tePreset(key, btn) {
     document.querySelectorAll('.te-preset-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const p = TE_PRESETS[key];
-    document.getElementById('te-portfolio').value  = p.portfolio;
-    document.getElementById('te-return').value     = p.ret;
-    document.getElementById('te-taxrate').value    = p.taxrate;
-    document.getElementById('te-years').value      = p.years;
-    document.getElementById('te-efficiency').value = p.efficiency;
+    document.getElementById('te-portfolio').value = p.portfolio;
+    document.getElementById('te-return').value    = p.ret;
+    document.getElementById('te-yield').value     = p.yld;
+    document.getElementById('te-turnover').value  = p.turnover;
+    document.getElementById('te-taxrate').value   = p.taxrate;
+    document.getElementById('te-years').value     = p.years;
     teUpdate();
   }
 
