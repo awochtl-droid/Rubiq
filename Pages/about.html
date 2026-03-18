@@ -277,6 +277,75 @@
       border-top: 1px solid rgba(196,154,74,0.1); line-height: 1.6;
       background: rgba(0,0,0,0.15);
     }
+
+    /* ── Tax Drag FAQ / Legend ── */
+    .te-faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 2.5rem;
+    }
+    .te-faq-card {
+      background: white;
+      border: 1px solid rgba(26,94,168,0.10);
+      border-radius: 6px;
+      padding: 22px 24px;
+      transition: box-shadow 0.22s ease, transform 0.22s ease;
+    }
+    .te-faq-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(26,94,168,0.10), 0 12px 40px rgba(26,94,168,0.07);
+    }
+    .te-faq-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(26,94,168,0.10), rgba(196,154,74,0.10));
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+      font-size: 1rem;
+    }
+    .te-faq-q {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem; font-weight: 600;
+      color: #0F1724; margin-bottom: 8px; line-height: 1.35;
+    }
+    .te-faq-a {
+      font-size: 0.82rem; line-height: 1.7;
+      color: #4A5568; font-weight: 300;
+    }
+    .te-faq-a strong { color: #1A5EA8; font-weight: 600; }
+    .te-formula {
+      display: inline-block;
+      background: rgba(26,94,168,0.06);
+      border: 1px solid rgba(26,94,168,0.15);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 0.78rem;
+      color: #133F73;
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      margin-top: 6px;
+    }
+    .te-cta-strip {
+      margin-top: 2.5rem;
+      background: linear-gradient(135deg, #0F1724 0%, #133F73 60%, #1A5EA8 100%);
+      border-radius: 8px;
+      padding: 40px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+      position: relative; overflow: hidden;
+    }
+    .te-cta-strip::before {
+      content: '';
+      position: absolute; top: -40%; right: -5%;
+      width: 45%; height: 180%;
+      background: radial-gradient(ellipse, rgba(196,154,74,0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .te-cta-text { position: relative; z-index: 1; }
+    .te-cta-text p {
+      font-size: 0.82rem; color: rgba(255,255,255,0.60);
+      margin-top: 6px; max-width: 480px; line-height: 1.65; font-weight: 300;
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -744,6 +813,108 @@
         and account type. Consult a qualified tax advisor before making any financial decisions.
       </div>
     </div>
+
+    <!-- FAQ / Legend -->
+    <div style="margin-top:2.75rem;">
+      <div style="margin-bottom:1.5rem;">
+        <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+                  color:#1A5EA8;margin-bottom:0.5rem;">How It Works</p>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;
+                   color:#0F1724;letter-spacing:-0.02em;margin:0;">Understanding Your Tax Drag</h3>
+      </div>
+
+      <div class="te-faq-grid">
+
+        <div class="te-faq-card">
+          <div class="te-faq-icon">📐</div>
+          <div class="te-faq-q">What is tax drag, and why does it matter?</div>
+          <div class="te-faq-a">
+            Tax drag is the difference between what your portfolio earns before taxes and what you actually keep after taxes are paid each year.
+            On a $2M portfolio earning 7.5%, a 28% tax rate quietly removes <strong>~1.4% per year</strong> — and compounding turns that annual
+            haircut into a six-figure gap over a decade.
+          </div>
+        </div>
+
+        <div class="te-faq-card">
+          <div class="te-faq-icon">🧮</div>
+          <div class="te-faq-q">How does the estimator calculate "After-Tax Value"?</div>
+          <div class="te-faq-a">
+            We apply your effective tax rate annually to your gross return, then compound over your horizon.
+            <span class="te-formula">After-Tax Return = Gross Return × (1 − Tax Rate)</span>
+            This assumes all gains are realized and taxed each year — a conservative baseline. Your actual drag
+            may be lower if you hold positions long-term or use tax-advantaged accounts.
+          </div>
+        </div>
+
+        <div class="te-faq-card">
+          <div class="te-faq-icon">⚡</div>
+          <div class="te-faq-q">What does "Tax Efficiency Improvement" mean?</div>
+          <div class="te-faq-a">
+            This slider represents the percentage of your annual tax burden that proactive strategies can defer or eliminate —
+            through tax-loss harvesting, asset location, Roth conversions, and low-turnover investing.
+            A 40% improvement means 40% less of your gain is taxed each year.
+            <span class="te-formula">Optimized Return = Gross Return × (1 − Tax Rate × (1 − Efficiency))</span>
+          </div>
+        </div>
+
+        <div class="te-faq-card">
+          <div class="te-faq-icon">🔍</div>
+          <div class="te-faq-q">How do I estimate my own tax drag?</div>
+          <div class="te-faq-a">
+            Start with your <strong>blended effective rate on investment gains</strong> (short-term gains are taxed as ordinary income; long-term
+            at 0%, 15%, or 20% plus 3.8% NIIT for high earners). Then estimate your portfolio's annual turnover.
+            High turnover = more realized gains = higher drag. Most active funds turn over 60–80% annually.
+            Index funds and direct indexing strategies can reduce that dramatically.
+          </div>
+        </div>
+
+        <div class="te-faq-card">
+          <div class="te-faq-icon">📍</div>
+          <div class="te-faq-q">What about tax-advantaged accounts (401k, IRA, Roth)?</div>
+          <div class="te-faq-a">
+            Assets inside a 401(k), IRA, or Roth IRA grow without annual tax drag — gains are deferred or tax-free.
+            This estimator models your <strong>taxable brokerage accounts</strong>, where drag is most impactful.
+            A key part of our planning process is optimizing which assets sit in which account type — a strategy called
+            <strong>asset location</strong>.
+          </div>
+        </div>
+
+        <div class="te-faq-card">
+          <div class="te-faq-icon">📈</div>
+          <div class="te-faq-q">What strategies reduce tax drag in practice?</div>
+          <div class="te-faq-a">
+            The most effective tools are: <strong>tax-loss harvesting</strong> (offsetting gains with losses),
+            <strong>direct indexing</strong> (owning individual stocks to harvest at the lot level),
+            <strong>asset location</strong> (holding high-yield assets in tax-deferred accounts),
+            <strong>Roth conversion ladders</strong>, and minimizing short-term gain realization through low-turnover strategies.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="te-cta-strip">
+      <div class="te-cta-text">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;
+                   color:white;letter-spacing:-0.02em;margin:0 0 6px;">
+          Want to know your <em style="font-style:italic;color:#D4AE6A;">actual</em> tax drag?
+        </h3>
+        <p>
+          This tool gives you a directional estimate. A real analysis requires your tax returns, account statements,
+          and cost basis history. We do that work — and show you exactly where the drag is coming from and how to close it.
+        </p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;flex-shrink:0;position:relative;z-index:1;">
+        <a href="contact.html">
+          <button class="btn-gold" style="white-space:nowrap;">Schedule a Free Analysis</button>
+        </a>
+        <a href="fee-structure.html">
+          <button class="btn-ghost" style="white-space:nowrap;">See How We're Paid</button>
+        </a>
+      </div>
+    </div>
+
   </div>
 
   <script>
