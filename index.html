@@ -1739,11 +1739,11 @@
 
     // ── Fee tiers (tiered / bracket model — each rate applies to AUM within that range)
     const TIERS = [
-      { min:           0, max:  2000000, rate: 0.0150, id: 1 },
-      { min:     2000000, max:  5000000, rate: 0.0125, id: 2 },
-      { min:     5000000, max: 10000000, rate: 0.0100, id: 3 },
-      { min:    10000000, max: 20000000, rate: 0.0075, id: 4 },
-      { min:    20000000, max: 50000000, rate: 0.0065, id: 5 },
+      { min:           0, max:  2000000, rate: 0.0125, id: 1 },
+      { min:     2000000, max:  5000000, rate: 0.0100, id: 2 },
+      { min:     5000000, max: 10000000, rate: 0.0075, id: 3 },
+      { min:    10000000, max: 20000000, rate: 0.0055, id: 4 },
+      { min:    20000000, max: 50000000, rate: 0.0045, id: 5 },
     ];
 
     function formatMoney(n) {
