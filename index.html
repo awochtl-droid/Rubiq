@@ -2376,84 +2376,16 @@
 
       </div><!-- /left -->
 
-      <!-- ── Right: Contact form ── -->
+      <!-- ── Right: Booking iframe ── -->
       <div style="border-radius:12px;overflow:hidden;
                   border:1px solid rgba(255,255,255,0.08);
-                  background:rgba(255,255,255,0.03);
                   box-shadow:0 8px 40px rgba(0,0,0,0.40);
-                  padding:2.5rem;">
-        <form id="contact-form" action="mailto:andreas@rubiqfinancial.com" method="post" enctype="text/plain"
-              style="display:flex;flex-direction:column;gap:1.25rem;">
-
-          <div id="contact-name-row" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
-            <div>
-              <label style="display:block;font-size:0.75rem;font-weight:600;letter-spacing:0.06em;
-                            text-transform:uppercase;color:rgba(255,255,255,0.40);margin-bottom:0.5rem;">First Name</label>
-              <input type="text" name="First Name" required
-                     style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);
-                            border-radius:8px;padding:0.75rem 1rem;font-size:0.9rem;color:white;
-                            font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;"
-                     onfocus="this.style.borderColor='rgba(196,154,74,0.60)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"
-                     placeholder="Jane" />
-            </div>
-            <div>
-              <label style="display:block;font-size:0.75rem;font-weight:600;letter-spacing:0.06em;
-                            text-transform:uppercase;color:rgba(255,255,255,0.40);margin-bottom:0.5rem;">Last Name</label>
-              <input type="text" name="Last Name" required
-                     style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);
-                            border-radius:8px;padding:0.75rem 1rem;font-size:0.9rem;color:white;
-                            font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;"
-                     onfocus="this.style.borderColor='rgba(196,154,74,0.60)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"
-                     placeholder="Smith" />
-            </div>
-          </div>
-
-          <div>
-            <label style="display:block;font-size:0.75rem;font-weight:600;letter-spacing:0.06em;
-                          text-transform:uppercase;color:rgba(255,255,255,0.40);margin-bottom:0.5rem;">Email Address</label>
-            <input type="email" name="Email" required
-                   style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);
-                          border-radius:8px;padding:0.75rem 1rem;font-size:0.9rem;color:white;
-                          font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;"
-                   onfocus="this.style.borderColor='rgba(196,154,74,0.60)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"
-                   placeholder="jane@example.com" />
-          </div>
-
-          <div>
-            <label style="display:block;font-size:0.75rem;font-weight:600;letter-spacing:0.06em;
-                          text-transform:uppercase;color:rgba(255,255,255,0.40);margin-bottom:0.5rem;">Phone (optional)</label>
-            <input type="tel" name="Phone"
-                   style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);
-                          border-radius:8px;padding:0.75rem 1rem;font-size:0.9rem;color:white;
-                          font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;"
-                   onfocus="this.style.borderColor='rgba(196,154,74,0.60)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"
-                   placeholder="(610) 000-0000" />
-          </div>
-
-          <div>
-            <label style="display:block;font-size:0.75rem;font-weight:600;letter-spacing:0.06em;
-                          text-transform:uppercase;color:rgba(255,255,255,0.40);margin-bottom:0.5rem;">How Can We Help?</label>
-            <textarea name="Message" rows="5" required
-                      style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);
-                             border-radius:8px;padding:0.75rem 1rem;font-size:0.9rem;color:white;
-                             font-family:'Inter',sans-serif;outline:none;resize:vertical;
-                             transition:border-color 0.2s;line-height:1.6;"
-                      onfocus="this.style.borderColor='rgba(196,154,74,0.60)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'"
-                      placeholder="Tell us a bit about your situation and what you're looking for…"></textarea>
-          </div>
-
-          <button type="submit" class="btn-gold ihb" style="align-self:flex-start;">
-            <span class="ihb-label">Send Message</span>
-            <span class="ihb-hover">Send Message
-              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </span>
-            <span class="ihb-blob"></span>
-          </button>
-
-        </form>
-      </div><!-- /contact form -->
+                  min-height:720px;">
+        <iframe src="https://outlook.office.com/book/RubiqFinancialPartners1@wealthcarecapital.com/?ismsaljsauthenabled"
+                width="100%" height="720" scrolling="yes"
+                style="border:0;display:block;"
+                title="Schedule a meeting with Rubiq Financial Partners"></iframe>
+      </div><!-- /booking iframe -->
 
     </div><!-- /grid -->
   </div><!-- /container -->
