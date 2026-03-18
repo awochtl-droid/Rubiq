@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fee Structure & Pricing | Rubiq Financial Partners</title>
+  <meta name="description" content="Transparent, tiered advisory fees with no hidden charges. See exactly what you'll pay based on your assets under management. Fiduciary fee-only advice." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/fee-structure.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rubiq: {
+              blue:      '#1A5EA8',
+              bluedark:  '#133F73',
+              bluelight: '#2A74C8',
+              gold:      '#C49A4A',
+              goldlight: '#D4AE6A',
+              golddark:  '#9E7A32',
+              ink:       '#0F1724',
+              inksoft:   '#1C2D44',
+              slate:     '#2C3E55',
+              mist:      '#F4F6F9',
+              parchment: '#FAF8F4',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #0F1724; margin: 0; }
+
+    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.70);
+      text-decoration: none; position: relative; padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1.5px; background: #C49A4A; transition: width 0.22s ease;
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: white; }
+    .nav-link.active::after { width: 100%; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
+    .btn-gold {
+      background: linear-gradient(135deg, #C49A4A 0%, #D4AE6A 100%);
+      color: #0F1724; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.875rem 2.25rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .btn-gold:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(196,154,74,0.40); }
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); }
+
+    .section-rule {
+      width: 48px; height: 3px;
+      background: linear-gradient(90deg, #1A5EA8, #C49A4A);
+      border-radius: 2px; margin-bottom: 1.5rem;
+    }
+
+    /* Mobile menu */
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+
+    /* ── Fee calculator ── */
+    #aum-slider {
+      -webkit-appearance: none; appearance: none;
+      width: 100%; height: 6px; border-radius: 3px; outline: none; cursor: pointer;
+    }
+    #aum-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 26px; height: 26px; border-radius: 50%;
+      background: #ffffff; border: 2px solid #C49A4A; cursor: pointer;
+      box-shadow: 0 2px 10px rgba(196,154,74,0.40);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    #aum-slider::-webkit-slider-thumb:hover { transform: scale(1.15); box-shadow: 0 4px 18px rgba(196,154,74,0.60); }
+    #aum-slider::-moz-range-thumb {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: #ffffff; border: 2px solid #C49A4A; cursor: pointer;
+      box-shadow: 0 2px 10px rgba(196,154,74,0.40);
+    }
+    .fee-tier-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.625rem 0.875rem; border-radius: 5px;
+      transition: background 0.2s ease, opacity 0.2s ease; margin-bottom: 4px;
+    }
+    .fee-tier-row.active  { background: rgba(196,154,74,0.10); border: 1px solid rgba(196,154,74,0.22); }
+    .fee-tier-row.inactive { background: transparent; border: 1px solid transparent; opacity: 0.40; }
+    .fee-tier-row.future  { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); opacity: 0.55; }
+    .service-pill {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.75rem; color: rgba(255,255,255,0.65); font-weight: 400; line-height: 1.4; padding: 2px 0;
+    }
+    .service-pill::before {
+      content: ''; display: inline-block; width: 4px; height: 4px;
+      border-radius: 50%; background: #C49A4A; flex-shrink: 0;
+    }
+    .ihb { position: relative; overflow: hidden; }
+    .ihb .ihb-label {
+      display: inline-block; position: relative; z-index: 5; transform: translateX(2px);
+      transition: transform 0.30s cubic-bezier(0.4,0,0.2,1), opacity 0.30s cubic-bezier(0.4,0,0.2,1);
+    }
+    .ihb:hover .ihb-label { transform: translateX(52px); opacity: 0; }
+    .ihb .ihb-hover {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 7px;
+      transform: translateX(52px); opacity: 0; z-index: 10;
+      transition: transform 0.30s cubic-bezier(0.4,0,0.2,1), opacity 0.30s cubic-bezier(0.4,0,0.2,1);
+      font-family: inherit; font-size: inherit; font-weight: inherit; letter-spacing: inherit; text-transform: inherit;
+    }
+    .ihb:hover .ihb-hover { transform: translateX(-2px); opacity: 1; }
+    .ihb .ihb-blob {
+      position: absolute; left: 20%; top: 40%; width: 8px; height: 8px; border-radius: 50%;
+      transform: scale(1); z-index: 1; pointer-events: none;
+      transition: left 0.32s cubic-bezier(0.4,0,0.2,1), top 0.32s cubic-bezier(0.4,0,0.2,1),
+                  width 0.32s cubic-bezier(0.4,0,0.2,1), height 0.32s cubic-bezier(0.4,0,0.2,1),
+                  transform 0.32s cubic-bezier(0.4,0,0.2,1);
+    }
+    .ihb:hover .ihb-blob { left: 0; top: 0; width: 100%; height: 100%; transform: scale(1.8); }
+    .btn-gold .ihb-blob  { background: #9E7A32; }
+    .btn-gold .ihb-hover { color: #0F1724; }
+
+    /* ── Mobile tap targets ── */
+    @media (max-width: 767px) {
+      #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+      footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
+      #fee-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.rubiqfinancial.com/Pages/fee-structure.html",
+    "url": "https://www.rubiqfinancial.com/Pages/fee-structure.html",
+    "name": "Fee Structure & Pricing | Rubiq Financial Partners",
+    "description": "Transparent, tiered advisory fees with no hidden charges. See exactly what you'll pay based on your assets under management. Fiduciary fee-only advice.",
+    "publisher": { "@id": "https://www.rubiqfinancial.com/#organization" }
+  }
+  </script>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════════════ -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur"
+     style="background:rgba(15,23,36,0.90);border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex-shrink-0 flex items-center">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+             alt="Rubiq Financial Partners logo" width="160" height="34" style="height:34px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html"    class="nav-link">About</a>
+        <a href="fee-structure.html" class="nav-link active">Fee Structure</a>
+        <a href="team.html"     class="nav-link">Team</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://www.gdx360.com/login/securelogin/loginbase.aspx" target="_blank" rel="noopener noreferrer">
+          <button class="btn-ghost">Client Access</button>
+        </a>
+        <a href="contact.html">
+          <button class="btn-primary">Schedule a Call</button>
+        </a>
+      </div>
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('open')"
+              class="md:hidden p-2" style="color:white;" aria-label="Open menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu"
+       style="background:rgba(15,23,36,0.97);border-top:1px solid rgba(255,255,255,0.07);
+              flex-direction:column;padding:1.5rem 1.5rem 2rem;">
+    <a href="services.html"      class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Services</a>
+    <a href="about.html"         class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">About</a>
+    <a href="fee-structure.html" class="nav-link active" style="padding:1rem 0;font-size:0.9375rem;">Fee Structure</a>
+    <a href="team.html"          class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Team</a>
+    <a href="resources.html"     class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Resources</a>
+    <div style="margin-top:1.25rem;">
+      <a href="contact.html"><button class="btn-gold" style="width:100%;">Schedule a Call</button></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════ -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 55%,#1A5EA8 100%);
+                padding:10rem 0 7rem;position:relative;overflow:hidden;">
+
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.025;pointer-events:none;" aria-hidden="true">
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+  <div style="position:absolute;top:-10%;right:-5%;width:55%;height:110%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.10) 0%,transparent 60%);pointer-events:none;"></div>
+
+  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
+    <div style="display:inline-flex;align-items:center;gap:8px;
+                background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.25);
+                border-radius:100px;padding:0.35rem 1rem;margin-bottom:2rem;">
+      <div style="width:6px;height:6px;border-radius:50%;background:#C49A4A;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A4A;">
+        Transparent Pricing
+      </span>
+    </div>
+
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,3.75rem);
+               font-weight:700;line-height:1.10;letter-spacing:-0.03em;color:white;margin-bottom:1.75rem;">
+      Fee Structure.<br />
+      <em style="font-style:italic;color:#D4AE6A;">No Surprises.</em>
+    </h1>
+
+    <p style="font-size:1.125rem;line-height:1.80;color:rgba(255,255,255,0.72);
+              font-weight:300;max-width:680px;margin-bottom:1.5rem;">
+      We believe fee transparency is a cornerstone of genuine fiduciary advice.
+      Our tiered fee schedule is straightforward — you pay a percentage of assets under management,
+      declining as your portfolio grows.
+    </p>
+    <p style="font-size:1rem;line-height:1.80;color:rgba(255,255,255,0.50);
+              font-weight:300;max-width:640px;">
+      No commissions. No product sales. No hidden charges. Use the calculator below to see
+      your estimated advisory fee based on your assets under management.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     FEE CALCULATOR
+══════════════════════════════════════════════════════ -->
+<section style="background:#111B28;padding:6rem 0;position:relative;overflow:hidden;">
+
+  <div style="position:absolute;top:-20%;right:-10%;width:50%;height:120%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.07) 0%,transparent 65%);
+              pointer-events:none;"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <!-- Section header -->
+    <div class="mb-12">
+      <div class="section-rule"></div>
+      <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+                color:#C49A4A;margin-bottom:0.75rem;">Pricing</p>
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;">
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.75rem);
+                   font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:white;">
+          Fee Transparency
+        </h2>
+        <p style="font-size:0.9375rem;line-height:1.7;color:rgba(255,255,255,0.50);font-weight:300;max-width:480px;">
+          Drag the slider to your approximate assets under management and see your estimated annual
+          advisory fee — broken down by tier, with no surprises.
+        </p>
+      </div>
+    </div>
+
+    <!-- Two-column layout -->
+    <div id="fee-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+
+      <!-- LEFT: Slider card -->
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
+                  border-radius:10px;padding:2.25rem 2rem;">
+
+        <div style="margin-bottom:0.5rem;">
+          <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+                    color:rgba(255,255,255,0.35);margin-bottom:0.4rem;">Your Assets Under Management</p>
+          <div id="aum-display"
+               style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;
+                      color:#C49A4A;letter-spacing:-0.03em;line-height:1;">$2,500,000</div>
+          <div id="aum-label" style="font-size:0.8125rem;color:rgba(255,255,255,0.40);margin-top:4px;">$2.5M</div>
+        </div>
+
+        <div style="margin:1.75rem 0 0.5rem;">
+          <input id="aum-slider" type="range" min="0" max="28" step="1" value="9" />
+          <div style="display:flex;justify-content:space-between;margin-top:8px;">
+            <span style="font-size:0.68rem;color:rgba(255,255,255,0.30);">$500K</span>
+            <span style="font-size:0.68rem;color:rgba(255,255,255,0.30);">$50M+</span>
+          </div>
+        </div>
+
+        <div id="fee-result-box" style="margin:1.75rem 0;padding:1.5rem;border-radius:8px;
+             background:linear-gradient(135deg,rgba(196,154,74,0.12) 0%,rgba(26,94,168,0.08) 100%);
+             border:1px solid rgba(196,154,74,0.25);">
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;text-align:center;">
+            <div>
+              <div id="fee-annual"
+                   style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;
+                          color:#C49A4A;line-height:1;letter-spacing:-0.02em;">$37,500</div>
+              <div style="font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+                          color:rgba(255,255,255,0.35);margin-top:5px;">Annual Fee</div>
+            </div>
+            <div style="border-left:1px solid rgba(255,255,255,0.10);border-right:1px solid rgba(255,255,255,0.10);">
+              <div id="fee-rate"
+                   style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;
+                          color:white;line-height:1;letter-spacing:-0.02em;">1.25%</div>
+              <div style="font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+                          color:rgba(255,255,255,0.35);margin-top:5px;">Effective Rate</div>
+            </div>
+            <div>
+              <div id="fee-quarterly"
+                   style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;
+                          color:rgba(196,154,74,0.70);line-height:1;letter-spacing:-0.02em;">$9,375</div>
+              <div style="font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+                          color:rgba(255,255,255,0.35);margin-top:5px;">Per Quarter</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="negotiable-box" style="display:none;margin:1.75rem 0;padding:1.75rem 1.5rem;
+             border-radius:8px;background:rgba(196,154,74,0.08);border:1px solid rgba(196,154,74,0.25);
+             text-align:center;">
+          <div style="font-family:'Playfair Display',serif;font-size:1.375rem;font-weight:600;
+                      color:#C49A4A;margin-bottom:0.5rem;">Fees Are Negotiable</div>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.55);font-weight:300;line-height:1.6;margin-bottom:1.25rem;">
+            For portfolios above $50M we structure a custom fee arrangement tailored to the
+            scope and complexity of your engagement.
+          </p>
+          <a href="contact.html">
+            <button class="btn-gold ihb" style="font-size:0.8125rem;padding:0.65rem 1.75rem;">
+              <span class="ihb-label">Contact Us</span>
+              <span class="ihb-hover">Contact Us <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+              <span class="ihb-blob"></span>
+            </button>
+          </a>
+        </div>
+
+        <div>
+          <p style="font-size:0.68rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;
+                    color:rgba(255,255,255,0.30);margin-bottom:0.75rem;">Fee Tier Breakdown</p>
+
+          <div id="tier-1-row" class="fee-tier-row active">
+            <div>
+              <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$500K – $2M</span>
+              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">1.50% / yr</span>
+            </div>
+            <div id="tier-1-fee" style="font-size:0.8125rem;font-weight:600;color:#C49A4A;">$22,500</div>
+          </div>
+          <div id="tier-2-row" class="fee-tier-row active">
+            <div>
+              <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$2M – $5M</span>
+              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">1.25% / yr</span>
+            </div>
+            <div id="tier-2-fee" style="font-size:0.8125rem;font-weight:600;color:#C49A4A;">$6,250</div>
+          </div>
+          <div id="tier-3-row" class="fee-tier-row future">
+            <div>
+              <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$5M – $10M</span>
+              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">1.00% / yr</span>
+            </div>
+            <div id="tier-3-fee" style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.30);">—</div>
+          </div>
+          <div id="tier-4-row" class="fee-tier-row future">
+            <div>
+              <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$10M – $20M</span>
+              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">0.75% / yr</span>
+            </div>
+            <div id="tier-4-fee" style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.30);">—</div>
+          </div>
+          <div id="tier-5-row" class="fee-tier-row future">
+            <div>
+              <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$20M – $50M</span>
+              <span style="font-size:0.75rem;color:rgba(255,255,255,0.40);margin-left:8px;">0.65% / yr</span>
+            </div>
+            <div id="tier-5-fee" style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.30);">—</div>
+          </div>
+          <div id="tier-6-row" class="fee-tier-row future">
+            <div><span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$50M+</span></div>
+            <div style="font-size:0.75rem;font-style:italic;color:rgba(255,255,255,0.35);">Contact Us</div>
+          </div>
+
+          <div style="border-top:1px solid rgba(255,255,255,0.08);margin-top:10px;padding-top:10px;
+                      display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.50);">Total Annual Fee</span>
+            <span id="tier-total" style="font-family:'Playfair Display',serif;font-size:1.1rem;
+                                         font-weight:700;color:#C49A4A;">$28,750</span>
+          </div>
+        </div>
+
+        <p style="font-size:0.68rem;color:rgba(255,255,255,0.22);line-height:1.55;margin-top:1.5rem;">
+          Estimates are for illustrative purposes only. Actual fees are outlined in your advisory agreement.
+          Fees are charged on a tiered basis — each rate applies only to the portion of AUM within that tier.
+          Minimum account size: $500,000.
+        </p>
+        <div style="margin-top:1rem;">
+          <a href="Rubiq_Fee_Schedule.pdf" target="_blank"
+             style="display:inline-flex;align-items:center;gap:5px;font-size:0.75rem;font-weight:500;
+                    color:rgba(196,154,74,0.70);text-decoration:none;letter-spacing:0.03em;transition:color 0.18s ease;"
+             onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(196,154,74,0.70)'">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            View Full Fee Schedule
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: What's included -->
+      <div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
+                    border-radius:10px;padding:2.25rem 2rem;margin-bottom:2rem;">
+          <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+                    color:#C49A4A;margin-bottom:0.4rem;">Every Client Engagement Includes</p>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.375rem;font-weight:600;
+                     color:white;margin-bottom:1.5rem;line-height:1.25;">
+            Comprehensive Planning<br />Across Every Dimension
+          </h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem 1rem;">
+            <div>
+              <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+                <div style="width:28px;height:28px;border-radius:6px;background:rgba(26,94,168,0.20);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <span style="font-size:0.8125rem;font-weight:600;color:white;">Retirement Planning</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+                <span class="service-pill">Goal Setting &amp; Income Planning</span>
+                <span class="service-pill">Social Security &amp; Medicare</span>
+                <span class="service-pill">IRA / 401(k) Strategies</span>
+                <span class="service-pill">RMDs &amp; Withdrawal Planning</span>
+              </div>
+            </div>
+            <div>
+              <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+                <div style="width:28px;height:28px;border-radius:6px;background:rgba(26,94,168,0.20);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17 13 12 9 16 3 10"/></svg>
+                </div>
+                <span style="font-size:0.8125rem;font-weight:600;color:white;">Investment Planning</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+                <span class="service-pill">Portfolio Asset Allocation</span>
+                <span class="service-pill">Stock Concentration Review</span>
+                <span class="service-pill">Outside Holdings Analysis</span>
+                <span class="service-pill">Time Horizon Strategy</span>
+              </div>
+            </div>
+            <div>
+              <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+                <div style="width:28px;height:28px;border-radius:6px;background:rgba(196,154,74,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="14" height="14" fill="none" stroke="#C49A4A" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <span style="font-size:0.8125rem;font-weight:600;color:white;">Estate Planning</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+                <span class="service-pill">Wills &amp; Power of Attorney</span>
+                <span class="service-pill">Trusts &amp; ILIT Strategies</span>
+                <span class="service-pill">Estate Tax Planning</span>
+                <span class="service-pill">Charitable Giving</span>
+              </div>
+            </div>
+            <div>
+              <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+                <div style="width:28px;height:28px;border-radius:6px;background:rgba(196,154,74,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="14" height="14" fill="none" stroke="#C49A4A" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                </div>
+                <span style="font-size:0.8125rem;font-weight:600;color:white;">Income Tax Planning</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+                <span class="service-pill">Tax Loss Harvesting</span>
+                <span class="service-pill">Roth Conversion Analysis</span>
+                <span class="service-pill">Cost Basis &amp; Gains Review</span>
+                <span class="service-pill">Deductions &amp; Credits</span>
+              </div>
+            </div>
+            <div>
+              <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+                <div style="width:28px;height:28px;border-radius:6px;background:rgba(26,94,168,0.20);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                </div>
+                <span style="font-size:0.8125rem;font-weight:600;color:white;">Insurance Planning</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+                <span class="service-pill">Life &amp; Disability Coverage</span>
+                <span class="service-pill">Long-Term Care Analysis</span>
+                <span class="service-pill">Policy Review &amp; Optimization</span>
+                <span class="service-pill">Risk Gap Assessment</span>
+              </div>
+            </div>
+            <div>
+              <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+                <div style="width:28px;height:28px;border-radius:6px;background:rgba(26,94,168,0.20);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <span style="font-size:0.8125rem;font-weight:600;color:white;">Business Planning</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+                <span class="service-pill">Business Succession Planning</span>
+                <span class="service-pill">Exit Strategy &amp; Liquidity</span>
+                <span class="service-pill">Key Person Insurance</span>
+                <span class="service-pill">Buy-Sell Agreements</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:linear-gradient(135deg,rgba(26,94,168,0.20) 0%,rgba(196,154,74,0.12) 100%);
+                    border:1px solid rgba(196,154,74,0.20);border-radius:10px;padding:1.75rem 2rem;
+                    display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:600;
+                        color:white;margin-bottom:0.35rem;">Ready for a no-obligation review?</div>
+            <div style="font-size:0.875rem;color:rgba(255,255,255,0.50);font-weight:300;">
+              The first conversation is always complimentary.
+            </div>
+          </div>
+          <a href="contact.html">
+            <button class="btn-gold ihb" style="font-size:0.8125rem;padding:0.75rem 1.75rem;white-space:nowrap;">
+              <span class="ihb-label">Schedule a Call</span>
+              <span class="ihb-hover">Schedule a Call <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+              <span class="ihb-blob"></span>
+            </button>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const AUM_VALUES = [
+      500000,600000,750000,1000000,1250000,1500000,1750000,2000000,
+      2500000,3000000,3500000,4000000,4500000,5000000,
+      6000000,7000000,8000000,9000000,10000000,
+      12500000,15000000,17500000,20000000,
+      25000000,30000000,35000000,40000000,45000000,50000000
+    ];
+    const TIERS = [
+      { min:0,       max:2000000,  rate:0.0150, id:1 },
+      { min:2000000, max:5000000,  rate:0.0125, id:2 },
+      { min:5000000, max:10000000, rate:0.0100, id:3 },
+      { min:10000000,max:20000000, rate:0.0075, id:4 },
+      { min:20000000,max:50000000, rate:0.0065, id:5 },
+    ];
+    function formatMoney(n){ if(n>=1000000)return'$'+(n/1000000).toFixed(n%1000000===0?0:1)+'M'; if(n>=1000)return'$'+(n/1000).toFixed(0)+'K'; return'$'+n; }
+    function formatDollar(n){ return'$'+Math.round(n).toLocaleString('en-US'); }
+    function calcFee(aum){
+      let total=0; const breakdown=[];
+      for(const t of TIERS){
+        if(aum<=t.min){breakdown.push({id:t.id,fee:0,status:'future'});continue;}
+        const inTier=Math.min(aum,t.max)-t.min; const fee=inTier*t.rate;
+        breakdown.push({id:t.id,fee,status:inTier>=(t.max-t.min)?'full':'partial'}); total+=fee;
+      }
+      return{total,breakdown,rate:total/aum};
+    }
+    function updateSlider(){
+      const idx=parseInt(document.getElementById('aum-slider').value);
+      const aum=AUM_VALUES[idx]; const isNeg=aum>=50000000;
+      document.getElementById('aum-display').textContent='$'+aum.toLocaleString('en-US');
+      document.getElementById('aum-label').textContent=formatMoney(aum);
+      const pct=(idx/28*100).toFixed(1);
+      document.getElementById('aum-slider').style.background=
+        `linear-gradient(to right,#C49A4A 0%,#C49A4A ${pct}%,rgba(255,255,255,0.12) ${pct}%,rgba(255,255,255,0.12) 100%)`;
+      if(isNeg){
+        document.getElementById('fee-result-box').style.display='none';
+        document.getElementById('negotiable-box').style.display='block';
+        for(let i=1;i<=5;i++){
+          document.getElementById('tier-'+i+'-row').className='fee-tier-row inactive';
+          document.getElementById('tier-'+i+'-fee').textContent='—';
+          document.getElementById('tier-'+i+'-fee').style.color='rgba(255,255,255,0.30)';
+        }
+        document.getElementById('tier-6-row').className='fee-tier-row active';
+        document.getElementById('tier-total').textContent='Contact Us';
+        document.getElementById('tier-total').style.color='rgba(255,255,255,0.50)';
+        return;
+      }
+      document.getElementById('fee-result-box').style.display='block';
+      document.getElementById('negotiable-box').style.display='none';
+      document.getElementById('tier-6-row').className='fee-tier-row future';
+      document.getElementById('tier-total').style.color='#C49A4A';
+      const{total,breakdown,rate}=calcFee(aum);
+      document.getElementById('fee-annual').textContent=formatDollar(total);
+      document.getElementById('fee-rate').textContent=(rate*100).toFixed(2)+'%';
+      document.getElementById('fee-quarterly').textContent=formatDollar(total/4);
+      document.getElementById('tier-total').textContent=formatDollar(total);
+      breakdown.forEach(({id,fee})=>{
+        const row=document.getElementById('tier-'+id+'-row');
+        const feeEl=document.getElementById('tier-'+id+'-fee');
+        if(fee===0){row.className='fee-tier-row future';feeEl.textContent='—';feeEl.style.color='rgba(255,255,255,0.30)';}
+        else{row.className='fee-tier-row active';feeEl.textContent=formatDollar(fee);feeEl.style.color='#C49A4A';}
+      });
+    }
+    document.getElementById('aum-slider').addEventListener('input',updateSlider);
+    updateSlider();
+  </script>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     CTA
+══════════════════════════════════════════════════════ -->
+<section style="background:linear-gradient(135deg,#133F73 0%,#1A5EA8 50%,#2A74C8 100%);
+                padding:6rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-30%;right:-10%;width:50%;height:150%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.18) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center" style="position:relative;z-index:2;">
+    <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+              color:rgba(196,154,74,0.90);margin-bottom:1rem;">Ready to Begin?</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,2.875rem);
+               font-weight:700;line-height:1.12;letter-spacing:-0.03em;color:white;margin-bottom:1.25rem;">
+      Advice built around<br />
+      <em style="font-style:italic;color:#D4AE6A;">what you keep.</em>
+    </h2>
+    <p style="font-size:1rem;line-height:1.7;color:rgba(255,255,255,0.65);
+              max-width:500px;margin:0 auto 2.5rem;font-weight:300;">
+      Schedule a no-obligation discovery call and learn how Rubiq's after-tax, fiduciary
+      approach can change the long-term trajectory of your wealth.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="contact.html">
+        <button class="btn-gold">Schedule a Call</button>
+      </a>
+      <a href="about.html">
+        <button class="btn-ghost">Our Philosophy</button>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════ -->
+<footer style="background:#0F1724;padding:2rem 0;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+         alt="Rubiq Financial Partners logo" width="120" height="26" style="height:26px;width:auto;opacity:0.70;" loading="lazy" decoding="async" />
+    <div style="text-align:center;">
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.28);margin:0 0 0.35rem;">
+        &copy; 2026 Rubiq Financial Partners LLC. All rights reserved.
+      </p>
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.18);margin:0 0 0.5rem;line-height:1.6;font-weight:300;">
+        Advisory services offered through Wealthcare Advisory Partners. Brokerage products offered through LPL Financial, Member FINRA/SIPC.
+      </p>
+      <div style="display:flex;justify-content:center;gap:1.5rem;">
+        <a href="privacy-policy.html"
+           style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">
+          Privacy Policy
+        </a>
+        <a href="terms-of-use.html"
+           style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">
+          Terms of Use
+        </a>
+        <a href="sitemap.html"
+           style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">
+          Sitemap
+        </a>
+      </div>
+    </div>
+    <a href="../index.html"
+       style="font-size:0.75rem;font-weight:500;color:rgba(255,255,255,0.45);
+              text-decoration:none;white-space:nowrap;letter-spacing:0.03em;
+              transition:color 0.18s ease;"
+       onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+      ← Back to Home
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>

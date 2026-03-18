@@ -436,11 +436,11 @@
 
       <!-- Desktop nav -->
       <div class="hidden md:flex items-center gap-8">
-        <a href="Pages/services.html" class="nav-link">Services</a>
-        <a href="Pages/about.html" class="nav-link">About</a>
-        <a href="Pages/team.html" class="nav-link">Team</a>
-        <a href="Pages/resources.html" class="nav-link">Resources</a>
-        <a href="Pages/contact.html" class="nav-link">Contact</a>
+        <a href="Pages/services.html"      class="nav-link">Services</a>
+        <a href="Pages/about.html"         class="nav-link">About</a>
+        <a href="Pages/fee-structure.html" class="nav-link">Fee Structure</a>
+        <a href="Pages/team.html"          class="nav-link">Team</a>
+        <a href="Pages/resources.html"     class="nav-link">Resources</a>
       </div>
 
       <!-- CTAs -->
@@ -475,11 +475,11 @@
   <!-- Mobile menu -->
   <div id="mobile-menu" class="md:hidden flex-col px-6 pb-6 gap-4"
        style="border-top:1px solid rgba(255,255,255,0.08);">
-    <a href="Pages/services.html" onclick="toggleMobile()" class="nav-link pt-4 block">Services</a>
-    <a href="Pages/about.html"   onclick="toggleMobile()" class="nav-link block">About</a>
-    <a href="Pages/team.html"    onclick="toggleMobile()" class="nav-link block">Team</a>
-    <a href="Pages/resources.html"         onclick="toggleMobile()" class="nav-link block">Resources</a>
-    <a href="Pages/contact.html" onclick="toggleMobile()" class="nav-link block">Contact</a>
+    <a href="Pages/services.html"      onclick="toggleMobile()" class="nav-link pt-4 block">Services</a>
+    <a href="Pages/about.html"         onclick="toggleMobile()" class="nav-link block">About</a>
+    <a href="Pages/fee-structure.html" onclick="toggleMobile()" class="nav-link block">Fee Structure</a>
+    <a href="Pages/team.html"          onclick="toggleMobile()" class="nav-link block">Team</a>
+    <a href="Pages/resources.html"     onclick="toggleMobile()" class="nav-link block">Resources</a>
     <a href="Pages/contact.html" onclick="toggleMobile()">
       <button class="btn-primary ihb mt-2 w-full">
         <span class="ihb-label">Schedule a Call</span>
@@ -554,7 +554,7 @@
 
         <!-- CTAs -->
         <div class="flex flex-wrap gap-3 items-center">
-          <a href="Pages/contact.html">
+          <a href="#contact">
             <button class="btn-gold ihb">
               <span class="ihb-label">Schedule a Call</span>
               <span class="ihb-hover">Schedule a Call <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
@@ -1394,7 +1394,7 @@
     <!-- Section header -->
     <div class="mb-12">
       <div class="section-rule"></div>
-      <a href="Pages/about.html" style="text-decoration:none;">
+      <a href="Pages/fee-structure.html" style="text-decoration:none;">
         <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
                   color:#C49A4A;margin-bottom:0.75rem;transition:color 0.18s ease;"
            onmouseover="this.style.color='white'" onmouseout="this.style.color='#C49A4A'">Pricing</p>
@@ -1831,6 +1831,20 @@
     document.getElementById('aum-slider').addEventListener('input', updateSlider);
     updateSlider(); // init
   </script>
+
+  <!-- Link to dedicated fee page -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-10" style="padding-top:2.5rem;text-align:center;">
+    <a href="Pages/fee-structure.html"
+       style="display:inline-flex;align-items:center;gap:7px;font-size:0.8125rem;font-weight:500;
+              color:rgba(196,154,74,0.70);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;
+              transition:color 0.18s ease;"
+       onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(196,154,74,0.70)'">
+      View Full Fee Structure &amp; Calculator
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </div>
 
 </section>
 
