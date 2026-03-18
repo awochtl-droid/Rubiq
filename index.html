@@ -2376,47 +2376,96 @@
 
       </div><!-- /left -->
 
-      <!-- ── Right: Booking iframe ── -->
+      <!-- ── Right: Booking CTA ── -->
       <div style="border-radius:16px;overflow:hidden;
-                  border:1px solid rgba(196,154,74,0.25);
+                  border:1px solid rgba(196,154,74,0.20);
                   box-shadow:0 0 0 1px rgba(255,255,255,0.04),
                              0 24px 64px rgba(0,0,0,0.55),
-                             0 0 40px rgba(196,154,74,0.08);
-                  position:relative;">
-        <!-- Branded header -->
-        <div style="background:linear-gradient(135deg,#133F73 0%,#1A5EA8 60%,#1C2D44 100%);
-                    padding:1.5rem 2rem;
-                    border-bottom:1px solid rgba(196,154,74,0.30);
-                    display:flex;align-items:center;gap:1rem;">
-          <div style="width:3px;height:2.5rem;background:linear-gradient(180deg,#C49A4A,#9E7A32);
-                      border-radius:2px;flex-shrink:0;"></div>
-          <div>
-            <p style="margin:0;font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:600;
-                      letter-spacing:0.1em;text-transform:uppercase;color:rgba(196,154,74,0.85);">
-              Complimentary Consultation
-            </p>
-            <p style="margin:0.2rem 0 0;font-family:'Playfair Display',serif;font-size:1.25rem;
-                      font-weight:600;color:#ffffff;line-height:1.2;">
-              Schedule a Meeting
-            </p>
-          </div>
-          <div style="margin-left:auto;width:36px;height:36px;border-radius:50%;
-                      background:rgba(196,154,74,0.12);border:1px solid rgba(196,154,74,0.25);
-                      display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="16" height="16" fill="none" stroke="#C49A4A" stroke-width="2" viewBox="0 0 24 24">
-              <rect x="3" y="4" width="18" height="18" rx="2"/>
-              <path d="M16 2v4M8 2v4M3 10h18"/>
+                             0 0 40px rgba(196,154,74,0.07);
+                  background:linear-gradient(160deg,#1A2D45 0%,#0F1724 60%);
+                  padding:2.75rem 2.5rem;
+                  display:flex;flex-direction:column;gap:2rem;">
+
+        <!-- Header -->
+        <div>
+          <p style="margin:0 0 0.5rem;font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:600;
+                    letter-spacing:0.12em;text-transform:uppercase;color:#C49A4A;">
+            Complimentary Consultation
+          </p>
+          <h3 style="margin:0;font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:600;
+                     color:#ffffff;line-height:1.2;">
+            Pick a Time That<br>Works for You
+          </h3>
+          <p style="margin:0.9rem 0 0;font-family:'Inter',sans-serif;font-size:0.95rem;
+                    color:rgba(255,255,255,0.60);line-height:1.7;">
+            Use our online scheduler to book directly — no back-and-forth emails.
+            Choose a date and time that fits your schedule.
+          </p>
+        </div>
+
+        <!-- What to expect list -->
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:0.85rem;">
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;font-family:'Inter',sans-serif;
+                     font-size:0.9rem;color:rgba(255,255,255,0.70);line-height:1.5;">
+            <span style="width:18px;height:18px;border-radius:50%;background:rgba(196,154,74,0.15);
+                         border:1px solid rgba(196,154,74,0.40);display:flex;align-items:center;
+                         justify-content:center;flex-shrink:0;margin-top:1px;">
+              <svg width="9" height="9" fill="none" stroke="#C49A4A" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
+            </span>
+            30-minute introductory call — no obligation
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;font-family:'Inter',sans-serif;
+                     font-size:0.9rem;color:rgba(255,255,255,0.70);line-height:1.5;">
+            <span style="width:18px;height:18px;border-radius:50%;background:rgba(196,154,74,0.15);
+                         border:1px solid rgba(196,154,74,0.40);display:flex;align-items:center;
+                         justify-content:center;flex-shrink:0;margin-top:1px;">
+              <svg width="9" height="9" fill="none" stroke="#C49A4A" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
+            </span>
+            Discuss your goals, portfolio, and situation
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;font-family:'Inter',sans-serif;
+                     font-size:0.9rem;color:rgba(255,255,255,0.70);line-height:1.5;">
+            <span style="width:18px;height:18px;border-radius:50%;background:rgba(196,154,74,0.15);
+                         border:1px solid rgba(196,154,74,0.40);display:flex;align-items:center;
+                         justify-content:center;flex-shrink:0;margin-top:1px;">
+              <svg width="9" height="9" fill="none" stroke="#C49A4A" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
+            </span>
+            Learn if we're the right fit — honestly, either way
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;font-family:'Inter',sans-serif;
+                     font-size:0.9rem;color:rgba(255,255,255,0.70);line-height:1.5;">
+            <span style="width:18px;height:18px;border-radius:50%;background:rgba(196,154,74,0.15);
+                         border:1px solid rgba(196,154,74,0.40);display:flex;align-items:center;
+                         justify-content:center;flex-shrink:0;margin-top:1px;">
+              <svg width="9" height="9" fill="none" stroke="#C49A4A" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
+            </span>
+            Video call or phone — your preference
+          </li>
+        </ul>
+
+        <!-- CTA button -->
+        <div>
+          <a href="https://outlook.office.com/book/RubiqFinancialPartners1@wealthcarecapital.com/?ismsaljsauthenabled"
+             target="_blank" rel="noopener"
+             style="display:inline-flex;align-items:center;gap:0.6rem;
+                    background:linear-gradient(135deg,#C49A4A,#9E7A32);
+                    color:#0F1724;font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:700;
+                    letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;
+                    padding:0.9rem 2rem;border-radius:8px;
+                    box-shadow:0 4px 20px rgba(196,154,74,0.30);
+                    transition:transform 0.18s ease,box-shadow 0.18s ease;"
+             onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(196,154,74,0.45)'"
+             onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(196,154,74,0.30)'">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
             </svg>
-          </div>
+            Schedule Online
+          </a>
+          <p style="margin:0.8rem 0 0;font-family:'Inter',sans-serif;font-size:0.78rem;
+                    color:rgba(255,255,255,0.35);">Opens in a new tab &rsaquo; Outlook Bookings</p>
         </div>
-        <!-- Booking iframe -->
-        <div style="background:#fff;">
-          <iframe src="https://outlook.office.com/book/RubiqFinancialPartners1@wealthcarecapital.com/?ismsaljsauthenabled"
-                  width="100%" height="580" scrolling="yes"
-                  style="border:0;display:block;"
-                  title="Schedule a meeting with Rubiq Financial Partners"></iframe>
-        </div>
-      </div><!-- /booking iframe -->
+
+      </div><!-- /booking CTA -->
 
     </div><!-- /grid -->
   </div><!-- /container -->
