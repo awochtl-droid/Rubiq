@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tax Loss Harvesting & Direct Indexing: A Complete Guide | Rubiq Financial Partners</title>
+  <meta name="description" content="Tax loss harvesting turns market volatility into a tax advantage. Learn how direct indexing and long/short strategies unlock significantly more harvesting potential than traditional funds." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/resources-tax-loss-harvesting.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rubiq: {
+              blue:      '#1A5EA8',
+              bluedark:  '#133F73',
+              bluelight: '#2A74C8',
+              gold:      '#C49A4A',
+              goldlight: '#D4AE6A',
+              golddark:  '#9E7A32',
+              ink:       '#0F1724',
+              inksoft:   '#1C2D44',
+              slate:     '#2C3E55',
+              mist:      '#F4F6F9',
+              parchment: '#FAF8F4',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #0F1724; margin: 0; }
+
+    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.70);
+      text-decoration: none; position: relative; padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1.5px; background: #C49A4A; transition: width 0.22s ease;
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: white; }
+    .nav-link.active::after { width: 100%; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); }
+
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+    @media (max-width: 767px) {
+      #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+      footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
+    }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.625rem; font-weight: 700; color: #0F1724;
+      line-height: 1.25; letter-spacing: -0.02em;
+      margin: 2.75rem 0 1rem;
+    }
+    .article-body h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.0625rem; font-weight: 600; color: #1C2D44;
+      margin: 2rem 0 0.625rem;
+    }
+    .article-body p {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin: 0 0 1.35rem;
+    }
+    .article-body ul {
+      margin: 0 0 1.35rem 1.25rem; padding: 0;
+    }
+    .article-body ul li {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin-bottom: 0.5rem;
+      list-style: none; position: relative; padding-left: 1.25rem;
+    }
+    .article-body ul li::before {
+      content: ''; position: absolute; left: 0; top: 0.65em;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: linear-gradient(135deg, #1A5EA8, #C49A4A);
+    }
+
+    .stat-callout {
+      border-left: 3px solid #C49A4A;
+      background: linear-gradient(135deg, rgba(196,154,74,0.06), rgba(26,94,168,0.04));
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem; font-weight: 700; color: #1A5EA8;
+      line-height: 1; letter-spacing: -0.03em;
+    }
+    .stat-label {
+      font-size: 0.8125rem; font-weight: 500; color: #2C3E55;
+      letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.25rem;
+    }
+
+    .pull-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-style: italic; font-weight: 500;
+      color: #133F73; line-height: 1.55;
+      border-left: 3px solid #1A5EA8;
+      padding: 1rem 1.75rem;
+      margin: 2.5rem 0;
+    }
+
+    .strategy-card {
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .strategy-header {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: linear-gradient(135deg, #133F73, #1A5EA8);
+    }
+    .strategy-body {
+      padding: 1.25rem 1.5rem;
+      background: white;
+      border: 1px solid rgba(26,94,168,0.10);
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      font-size: 0.9375rem; line-height: 1.7; color: #2C3E55; font-weight: 300;
+    }
+
+    .resource-link {
+      display: flex; align-items: flex-start; gap: 0.875rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(26,94,168,0.12);
+      border-radius: 8px;
+      background: white;
+      text-decoration: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+      margin-bottom: 0.75rem;
+    }
+    .resource-link:hover {
+      border-color: rgba(196,154,74,0.40);
+      box-shadow: 0 4px 16px rgba(26,94,168,0.10);
+      transform: translateY(-1px);
+    }
+
+    .comparison-row {
+      display: grid; grid-template-columns: 1.75fr 1fr 1fr 1fr;
+      border-bottom: 1px solid rgba(26,94,168,0.08);
+    }
+    .comparison-cell {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.875rem; color: #2C3E55; font-weight: 300;
+    }
+    .comparison-header {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      color: white; background: linear-gradient(135deg, #133F73, #1A5EA8);
+      padding: 0.875rem 1.25rem;
+    }
+    .comparison-highlight { background: rgba(196,154,74,0.06); font-weight: 500; color: #9E7A32; }
+  </style>
+  <!-- Social / AEO -->
+  <meta property="og:type"        content="article" />
+  <meta property="og:site_name"   content="Rubiq Financial Partners" />
+  <meta property="og:title"       content="Tax Loss Harvesting & Direct Indexing: A Complete Guide | Rubiq Financial Partners" />
+  <meta property="og:description" content="Tax loss harvesting turns market volatility into a tax advantage. Learn how direct indexing and long/short strategies unlock significantly more harvesting potential than traditional funds." />
+  <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/resources-tax-loss-harvesting.html" />
+  <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Tax Loss Harvesting & Direct Indexing: A Complete Guide | Rubiq Financial Partners" />
+  <meta name="twitter:description" content="Tax loss harvesting turns market volatility into a tax advantage. Learn how direct indexing and long/short strategies unlock significantly more harvesting potential than traditional funds." />
+  <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Tax Loss Harvesting & Direct Indexing: A Complete Guide",
+    "description": "Tax loss harvesting turns market volatility into a tax advantage. Learn how direct indexing and long/short strategies unlock significantly more harvesting potential than traditional funds.",
+    "url": "https://www.rubiqfinancial.com/Pages/resources-tax-loss-harvesting.html",
+    "datePublished": "2026-03-18",
+    "dateModified": "2026-03-18",
+    "author": { "@type": "Person", "name": "Andreas Wochtl, CFP®", "url": "https://www.rubiqfinancial.com/Pages/team.html" },
+    "publisher": { "@id": "https://www.rubiqfinancial.com/#organization" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.rubiqfinancial.com/Pages/resources-tax-loss-harvesting.html" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home",                   "item": "https://www.rubiqfinancial.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Resources",              "item": "https://www.rubiqfinancial.com/Pages/resources.html" },
+      { "@type": "ListItem", "position": 3, "name": "Tax Loss Harvesting",    "item": "https://www.rubiqfinancial.com/Pages/resources-tax-loss-harvesting.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur"
+     style="background:rgba(15,23,36,0.90);border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex-shrink-0 flex items-center">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+             alt="Rubiq Financial Partners logo" width="160" height="34" style="height:34px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="services.html"      class="nav-link">Services</a>
+        <a href="about.html"         class="nav-link">About</a>
+        <a href="fee-structure.html" class="nav-link">Fee Structure</a>
+        <a href="team.html"          class="nav-link">Team</a>
+        <a href="resources.html"     class="nav-link active">Resources</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://www.gdx360.com/login/securelogin/loginbase.aspx" target="_blank" rel="noopener noreferrer">
+          <button class="btn-ghost">Client Access</button>
+        </a>
+        <a href="contact.html"><button class="btn-primary">Schedule a Call</button></a>
+      </div>
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('open')"
+              class="md:hidden p-2" style="color:white;" aria-label="Open menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu"
+       style="background:rgba(15,23,36,0.97);border-top:1px solid rgba(255,255,255,0.07);
+              flex-direction:column;padding:1.5rem 1.5rem 2rem;">
+    <a href="services.html"      class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Services</a>
+    <a href="about.html"         class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">About</a>
+    <a href="fee-structure.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Fee Structure</a>
+    <a href="team.html"          class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Team</a>
+    <a href="resources.html"     class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Resources</a>
+    <div style="margin-top:1.25rem;">
+      <a href="contact.html"><button class="btn-primary" style="width:100%;">Schedule a Call</button></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<div style="position:relative;height:520px;overflow:hidden;margin-top:72px;">
+  <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1400&q=80"
+       alt="Financial market data and charts representing tax-efficient portfolio management"
+       width="1400" height="520"
+       style="width:100%;height:100%;object-fit:cover;object-position:center 35%;" loading="eager" decoding="async" fetchpriority="high" />
+  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,36,0.95) 0%,rgba(15,23,36,0.60) 45%,rgba(15,23,36,0.22) 100%);"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 75% 25%,rgba(196,154,74,0.14),transparent 50%);"></div>
+
+  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:3.5rem;">
+    <a href="resources.html" style="display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.55);font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;text-decoration:none;margin-bottom:1.25rem;transition:color 0.18s ease;"
+       onmouseover="this.style.color='#D4AE6A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      All Resources
+    </a>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(42,116,200,0.18);border:1px solid rgba(42,116,200,0.35);border-radius:100px;padding:0.3rem 0.9rem;margin-bottom:1.25rem;width:fit-content;">
+      <div style="width:5px;height:5px;border-radius:50%;background:#2A74C8;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#7BB3E8;">Tax Strategy</span>
+    </div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.875rem,4.5vw,3.25rem);font-weight:700;line-height:1.12;letter-spacing:-0.03em;color:white;margin-bottom:1rem;">
+      Tax Loss Harvesting & Direct Indexing:<br />Turning Volatility into a Tax Advantage
+    </h1>
+    <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">March 18, 2026</span>
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);"></span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">9 min read</span>
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);"></span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">Andreas Wochtl, CFP®  ·  Rubiq Financial Partners</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ARTICLE BODY -->
+<section style="background:#FAF8F4;padding:5rem 0 6rem;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+
+      <!-- Main Content -->
+      <div class="lg:col-span-2 article-body">
+
+        <p style="font-size:1.175rem;line-height:1.80;color:#1C2D44;font-weight:400;border-left:3px solid #C49A4A;padding-left:1.5rem;margin-bottom:2.5rem;">
+          Every market downturn, every correction, every period of volatility produces something valuable for a taxable investor: losses that can be harvested. Tax loss harvesting is the practice of selling securities that have declined in value, realizing those losses to offset gains elsewhere in your portfolio — and immediately reinvesting in a similar holding to maintain your market exposure. Done systematically, it converts the inevitable turbulence of markets into a structural tax advantage. Done through direct indexing, it becomes one of the most powerful tools in high-net-worth tax planning.
+        </p>
+
+        <h2>The Mechanics: What Tax Loss Harvesting Actually Does</h2>
+        <p>
+          The IRS taxes capital gains when you sell an appreciated investment. But it also recognizes capital losses when you sell something that has declined — and those losses can offset gains dollar-for-dollar. If you have $50,000 in gains from selling a property or a concentrated stock position, $50,000 in harvested losses eliminates the tax bill entirely. If losses exceed gains in a given year, up to $3,000 can be applied against ordinary income, with the remainder carried forward indefinitely into future years.
+        </p>
+        <p>
+          The key constraint is the <strong>wash-sale rule</strong>: you cannot repurchase the same security — or a "substantially identical" one — within 30 days before or after the sale. This is what makes harvesting a management challenge rather than a simple trade. You must sell the losing position, immediately reinvest in a correlated but not identical substitute, and wait 30 days before returning to the original holding if desired. The goal is to capture the loss while preserving economic exposure to the market.
+        </p>
+        <p>
+          For an investor holding individual stocks, this is straightforward. Sold Apple at a loss? Buy Microsoft or a broad tech ETF for the 30-day window. The complication arises with mutual funds and ETFs: if you own an S&P 500 index fund, selling it to harvest a loss means finding a substitute index that is similar enough to maintain exposure but different enough to avoid wash-sale status. Two nearly identical S&P 500 funds from different providers generally satisfy the rule; two funds tracking the exact same index from the same provider do not.
+        </p>
+
+        <div class="stat-callout">
+          <div style="display:flex;gap:3rem;flex-wrap:wrap;">
+            <div>
+              <div class="stat-number">0.5–1.5%</div>
+              <div class="stat-label">Estimated annual after-tax alpha from standard TLH in volatile markets</div>
+            </div>
+            <div>
+              <div class="stat-number">$3,000</div>
+              <div class="stat-label">Annual limit for applying excess losses against ordinary income (unlimited carryforward)</div>
+            </div>
+          </div>
+        </div>
+
+        <h2>The Problem with Fund-Based Portfolios</h2>
+        <p>
+          Owning a portfolio of mutual funds or ETFs severely limits tax loss harvesting opportunities. When the broad market declines, all of your funds likely decline together — you can harvest a loss on one and swap to a similar fund, but the opportunity is limited and coarse. More importantly, within the fund, individual stocks are moving in many directions. On any given day, even in an up-market, dozens of individual securities within an index may be down 10%, 20%, or more. A fund investor sees none of those opportunities — the losses inside the fund are invisible and unharvested.
+        </p>
+        <p>
+          This is the core insight behind direct indexing: owning the individual securities gives you visibility and control over each position, which means you can harvest losses at the security level rather than only at the fund level.
+        </p>
+
+        <div class="pull-quote">
+          "Inside any index, on any given day, dozens of stocks are down double digits — even in an up-market. Fund investors see none of those harvesting opportunities. Direct indexing makes every one of them accessible."
+        </div>
+
+        <h2>Direct Indexing: Systematic Harvesting at Scale</h2>
+        <p>
+          Direct indexing means owning the individual securities that comprise a benchmark index — rather than buying a fund that holds them. A direct index replicating the S&P 500, for example, holds some or all of the 500 underlying stocks in their index weights, directly in the investor's taxable account.
+        </p>
+        <p>
+          The harvesting advantage is significant. With 500 individual positions, it is virtually certain that at any given point, a meaningful number of them have declined from their cost basis. A direct indexing manager monitors every position daily — often continuously — and harvests losses as they appear, immediately replacing each sold position with a correlated substitute to maintain index-like exposure while satisfying the wash-sale rule.
+        </p>
+        <p>
+          Over time, this generates a steady stream of realized losses that can offset gains elsewhere. For an investor regularly realizing capital gains — through business sales, real estate transactions, concentrated stock liquidations, or active management in other accounts — this loss generation is extraordinarily valuable. The harvested losses in the direct index function as a tax offset engine, running continuously in the background.
+        </p>
+
+        <h3>What Direct Indexing Is Not</h3>
+        <p>
+          Direct indexing is not active management. The goal is not to select better stocks — it is to hold the index while systematically harvesting the tax benefits that fund ownership prevents. Tracking error relative to the benchmark is intentionally kept small. The investment thesis is market exposure; the value-add is purely in the tax dimension.
+        </p>
+        <p>
+          Direct indexing also enables <strong>personalization</strong> beyond tax: you can exclude specific securities (a company you work for, a sector you're overexposed to elsewhere, or holdings that conflict with personal values) without abandoning the index strategy. This flexibility is not possible inside a fund.
+        </p>
+
+        <div style="background:white;border:1px solid rgba(26,94,168,0.12);border-radius:10px;padding:2rem;margin:2rem 0;">
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2A74C8;margin-bottom:1.25rem;">Harvesting Potential: Fund vs. Direct Index</div>
+          <div style="border-radius:8px;overflow:hidden;border:1px solid rgba(26,94,168,0.08);">
+            <div class="comparison-row">
+              <div class="comparison-header">Approach</div>
+              <div class="comparison-header" style="text-align:center;">Annual Harvest Opportunities</div>
+              <div class="comparison-header" style="text-align:center;">Tax Alpha Range</div>
+              <div class="comparison-header" style="text-align:center;">Customization</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-cell"><strong style="color:#0F1724;">Mutual Fund / ETF</strong></div>
+              <div class="comparison-cell" style="text-align:center;">Limited to fund-level moves</div>
+              <div class="comparison-cell" style="text-align:center;">0–0.3%</div>
+              <div class="comparison-cell" style="text-align:center;">None</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-cell"><strong style="color:#0F1724;">Direct Index (Long-Only)</strong></div>
+              <div class="comparison-cell" style="text-align:center;">Daily, security-level</div>
+              <div class="comparison-cell" style="text-align:center;">0.5–1.5%</div>
+              <div class="comparison-cell" style="text-align:center;">Exclusions, tilts</div>
+            </div>
+            <div class="comparison-row" style="border-bottom:none;">
+              <div class="comparison-cell comparison-highlight"><strong>Long/Short Direct Index</strong></div>
+              <div class="comparison-cell comparison-highlight" style="text-align:center;">Both sides, amplified</div>
+              <div class="comparison-cell comparison-highlight" style="text-align:center;">1.5–3%+</div>
+              <div class="comparison-cell comparison-highlight" style="text-align:center;">Full</div>
+            </div>
+          </div>
+          <div style="font-size:0.75rem;color:#9CA3AF;margin-top:1.25rem;font-style:italic;">
+            Tax alpha ranges are illustrative estimates based on industry research. Actual results depend on market conditions, portfolio size, turnover, and individual tax circumstances. Not a guarantee of future results.
+          </div>
+        </div>
+
+        <h2>Long/Short Direct Indexing: The Advanced Strategy</h2>
+        <p>
+          Standard direct indexing harvests losses from positions that have declined — but only from the long side. If a stock you own falls, you can harvest the loss. If a stock you don't own falls, that opportunity is invisible to you.
+        </p>
+        <p>
+          Long/short direct indexing changes that equation fundamentally. By adding <strong>short positions</strong> to the strategy, the manager can generate harvesting opportunities from stocks that decline even when you don't hold them. The short positions also serve as an additional source of alpha, since stocks that are shorted may be underweighted or excluded from the long book — the result is a more actively managed exposure profile that still maintains index-like risk characteristics overall.
+        </p>
+        <p>
+          The mechanics work as follows: the strategy holds a long book of index-representative stocks (similar to standard direct indexing) paired with a short book of securities that are either poor candidates for the long portfolio or that create offsetting exposures. When short positions increase in value (stocks fall), those gains can be closed and the proceeds reinvested. When positions decline against the short (i.e., the shorted stocks rise), those losses are available to harvest. The interaction between the long and short books creates a continuous cycle of gain and loss realization that, in aggregate, significantly amplifies the total harvesting volume.
+        </p>
+
+        <div class="strategy-card">
+          <div class="strategy-header">
+            <div style="width:36px;height:36px;border-radius:6px;background:rgba(196,154,74,0.20);border:1.5px solid rgba(196,154,74,0.40);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" fill="none" stroke="#D4AE6A" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+            </div>
+            <div>
+              <div style="font-size:0.875rem;font-weight:600;color:white;">Long-Only Direct Indexing</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);">Best for: Taxable accounts with $250K–$2M; ongoing capital gains to offset</div>
+            </div>
+          </div>
+          <div class="strategy-body">
+            The portfolio holds individual securities in index-like weights. Daily monitoring identifies positions that have declined from cost basis and harvests those losses, immediately substituting correlated replacements to maintain market exposure. Best suited for investors with existing capital gains (business sales, real estate, concentrated positions) who need a steady source of realized losses. Minimum account sizes typically begin around $250,000–$500,000, where the number of positions is large enough to generate meaningful harvesting opportunities.
+          </div>
+        </div>
+
+        <div class="strategy-card">
+          <div class="strategy-header">
+            <div style="width:36px;height:36px;border-radius:6px;background:rgba(196,154,74,0.20);border:1.5px solid rgba(196,154,74,0.40);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" fill="none" stroke="#D4AE6A" stroke-width="2" viewBox="0 0 24 24"><path d="M17 7l-9.2 9.2M7 7v10h10"/></svg>
+            </div>
+            <div>
+              <div style="font-size:0.875rem;font-weight:600;color:white;">Long/Short Direct Indexing</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);">Best for: Portfolios of $1M+; investors with large, recurring gain events</div>
+            </div>
+          </div>
+          <div class="strategy-body">
+            Adds a short book alongside the long direct index, dramatically expanding the universe of harvesting opportunities. Because losses can be generated from both rising and falling individual securities (via short positions), total annual loss realization is substantially higher. This approach requires margin capability and is typically appropriate for investors with $1M or more in taxable assets who face significant recurring capital gains — such as business owners, executives with large equity compensation, or investors actively liquidating a concentrated position over time. The net market exposure remains broadly index-like despite the added complexity.
+          </div>
+        </div>
+
+        <h2>Who Benefits Most — and Minimum Scale Requirements</h2>
+        <p>
+          Tax loss harvesting delivers maximum value to investors in high tax brackets with ongoing capital gains events. The math is straightforward: if you're in the 37% ordinary income bracket and the 20% long-term capital gains bracket (plus the 3.8% net investment income tax), every dollar of harvested loss saves 23.8 cents in capital gains taxes, or 37 cents if applied against short-term gains or ordinary income. The benefit is highly sensitive to your tax rate.
+        </p>
+        <ul>
+          <li><strong>Business owners and executives</strong> with equity compensation (RSUs, options) regularly generating short-term gains are among the highest-value candidates. Direct indexing losses, which can be long-term, offset short-term gains at the marginal rate — a particularly powerful combination.</li>
+          <li><strong>Investors with concentrated positions</strong> looking to diversify gradually find direct indexing losses invaluable: each tranche of concentrated stock sold generates capital gains that the direct index can systematically offset.</li>
+          <li><strong>Real estate investors</strong> who periodically sell appreciated properties face large one-time gain events that a standing loss carryforward from direct indexing can significantly defray.</li>
+          <li><strong>Retirees in the conversion corridor</strong> (ages 60–73) doing <a href="resources-roth-conversion.html" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:400;">Roth conversions</a> may generate taxable income that harvested losses can partially offset.</li>
+        </ul>
+        <p>
+          Direct indexing requires a meaningful account size because the benefit scales with the number of individual positions — you need enough securities to generate harvesting opportunities and maintain index-like diversification simultaneously. Most programs begin at $250,000–$500,000 for long-only direct indexing; long/short strategies generally require $1M or more. Below those thresholds, the harvesting math doesn't justify the additional complexity and cost relative to simply using ETF pairs for basic loss swaps.
+        </p>
+
+        <h2>The Tax Drag Problem: What You're Paying Without Knowing It</h2>
+        <p>
+          Tax drag is the performance penalty that taxable investors pay each year through dividends, interest, and realized gains inside their portfolios. It is often invisible — it doesn't show up as a line item on a statement — but it compounds meaningfully over time. A portfolio generating 2% in annual tax drag over 20 years at a 7% gross return produces roughly 17% less ending wealth than the same portfolio managed to minimize drag. That is not a rounding error; it is a structural disadvantage that accumulates silently.
+        </p>
+        <p>
+          Tax loss harvesting, and direct indexing specifically, is one of the most effective tools to reduce this drag. The losses generated offset taxable distributions and rebalancing gains, deferring — and in many cases permanently eliminating — a portion of the tax liability through the step-up in basis at death or charitable gifting of appreciated shares.
+        </p>
+
+        <!-- Tax Calculator CTA Block -->
+        <div style="background:linear-gradient(135deg,rgba(19,63,115,0.06),rgba(196,154,74,0.05));border:1.5px solid rgba(196,154,74,0.30);border-radius:12px;padding:2rem;margin:2.5rem 0;">
+          <div style="display:flex;align-items:flex-start;gap:1.25rem;">
+            <div style="width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,#133F73,#1A5EA8);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.15rem;">
+              <svg width="20" height="20" fill="none" stroke="white" stroke-width="1.75" viewBox="0 0 24 24">
+                <rect x="4" y="2" width="16" height="20" rx="2"/>
+                <path d="M9 7h6M9 12h6M9 17h4"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:#0F1724;margin-bottom:0.5rem;line-height:1.3;">
+                Estimate Your Portfolio's Annual Tax Drag
+              </div>
+              <p style="font-size:0.9375rem;line-height:1.65;color:#2C3E55;font-weight:300;margin:0 0 1.25rem;">
+                Our Tax Drag Estimator shows you how much your taxable account is losing to taxes each year — and what systematic harvesting could recover. It takes under two minutes.
+              </p>
+              <a href="resources.html#tax-estimator"
+                 style="display:inline-flex;align-items:center;gap:0.5rem;background:linear-gradient(135deg,#1A5EA8,#2A74C8);color:white;font-family:'Inter',sans-serif;font-weight:600;font-size:0.8125rem;letter-spacing:0.05em;text-transform:uppercase;padding:0.7rem 1.5rem;border-radius:4px;text-decoration:none;transition:opacity 0.18s ease,transform 0.18s ease;"
+                 onmouseover="this.style.opacity='0.90';this.style.transform='translateY(-1px)'"
+                 onmouseout="this.style.opacity='1';this.style.transform='translateY(0)'">
+                Open the Tax Drag Estimator
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <h2>The Rubiq Approach to Tax-Efficient Investing</h2>
+        <p>
+          At Rubiq, we view tax management as an integral part of investment management — not an afterthought. For clients in high tax brackets with substantial taxable assets, we evaluate direct indexing as part of the portfolio architecture from the outset, not as an add-on considered after the fact.
+        </p>
+        <p>
+          Our process begins with an analysis of your complete tax picture: current marginal rates, the nature and timing of anticipated capital gains events, existing loss carryforwards, and the composition of assets across taxable and tax-advantaged accounts. We then model the expected annual loss generation under both long-only and long/short direct indexing approaches to quantify the benefit before recommending a strategy.
+        </p>
+        <p>
+          For clients with concentrated stock positions, we pair direct indexing with a systematic diversification plan — using the loss stream from the direct index to fund gradual liquidation of the concentrated holding without triggering a large tax bill in any single year. This coordination between tax loss harvesting, <a href="resources-rebalancing.html" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:400;">portfolio rebalancing</a>, and concentrated position management is where the real compounding value lies.
+        </p>
+        <p>
+          The result, over a full market cycle, is a portfolio that tracks its benchmark closely on a pre-tax basis while generating meaningfully better outcomes on an after-tax basis — the only number that actually matters.
+        </p>
+
+      </div><!-- /main content -->
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-1">
+        <div style="position:sticky;top:100px;">
+
+          <!-- Key Stats Box -->
+          <div style="background:linear-gradient(160deg,#0F1724,#133F73);border-radius:10px;padding:2rem;margin-bottom:1.75rem;">
+            <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C49A4A;margin-bottom:1.25rem;">Key Numbers</div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">$3,000</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Max annual deduction of excess losses against ordinary income; unused losses carry forward indefinitely</div>
+            </div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">30 Days</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Wash-sale window: cannot repurchase the same or substantially identical security within 30 days before or after the loss sale</div>
+            </div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">$250K+</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Practical minimum for long-only direct indexing; long/short strategies typically require $1M+</div>
+            </div>
+            <div>
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">23.8%</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Combined federal long-term capital gains rate (20%) + net investment income tax (3.8%) for top-bracket investors</div>
+            </div>
+          </div>
+
+          <!-- Tax Calculator Link -->
+          <div style="background:linear-gradient(135deg,rgba(196,154,74,0.12),rgba(26,94,168,0.06));border:1.5px solid rgba(196,154,74,0.30);border-radius:10px;padding:1.5rem;margin-bottom:1.75rem;">
+            <div style="display:flex;align-items:center;gap:0.625rem;margin-bottom:0.75rem;">
+              <div style="width:28px;height:28px;border-radius:6px;background:linear-gradient(135deg,#9E7A32,#C49A4A);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="13" height="13" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 7h6M9 12h6M9 17h4"/></svg>
+              </div>
+              <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9E7A32;">Interactive Tool</div>
+            </div>
+            <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#0F1724;margin-bottom:0.5rem;line-height:1.3;">Tax Drag Estimator</div>
+            <p style="font-size:0.8125rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0 0 1rem;">
+              See how much tax drag your taxable account generates annually — and what harvesting could recover.
+            </p>
+            <a href="resources.html#tax-estimator"
+               style="display:flex;align-items:center;justify-content:center;gap:0.4rem;background:linear-gradient(135deg,#9E7A32,#C49A4A);color:white;font-family:'Inter',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;padding:0.625rem 1rem;border-radius:4px;text-decoration:none;transition:opacity 0.18s ease,transform 0.18s ease;"
+               onmouseover="this.style.opacity='0.88';this.style.transform='translateY(-1px)'"
+               onmouseout="this.style.opacity='1';this.style.transform='translateY(0)'">
+              Run the Estimator
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- External Resources -->
+          <div style="margin-bottom:1.75rem;">
+            <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2C3E55;margin-bottom:1rem;">Further Reading</div>
+
+            <a href="https://www.irs.gov/publications/p550" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">IRS Publication 550: Investment Income &amp; Expenses</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Official wash-sale rules, capital loss limits, and carryforward rules</div>
+              </div>
+            </a>
+
+            <a href="https://www.vanguard.com/pdf/ISGTLH.pdf" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">Vanguard: Tax-Loss Harvesting Research</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Quantitative analysis of harvesting alpha across market environments</div>
+              </div>
+            </a>
+
+            <a href="https://www.parametric.com/insights/direct-indexing" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">Parametric: Direct Indexing Explained</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Deep dive into direct indexing mechanics and tax outcomes</div>
+              </div>
+            </a>
+
+            <a href="https://www.blackrock.com/us/individual/insights/direct-indexing" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">BlackRock: Direct Indexing Insights</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Analysis of long/short enhancements and personalization benefits</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- CTA -->
+          <div style="background:linear-gradient(135deg,rgba(196,154,74,0.10),rgba(26,94,168,0.06));border:1px solid rgba(196,154,74,0.25);border-radius:10px;padding:1.75rem;">
+            <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:#0F1724;margin-bottom:0.625rem;line-height:1.3;">
+              Could direct indexing work for your portfolio?
+            </div>
+            <p style="font-size:0.875rem;line-height:1.6;color:#4A5568;font-weight:300;margin-bottom:1.25rem;">
+              We evaluate tax loss harvesting and direct indexing strategies in the context of your full tax picture — existing gains, account mix, and anticipated liquidity events.
+            </p>
+            <a href="contact.html">
+              <button class="btn-primary" style="width:100%;text-align:center;">Request a Tax Strategy Review</button>
+            </a>
+          </div>
+
+        </div>
+      </div><!-- /sidebar -->
+
+    </div><!-- /grid -->
+  </div>
+</section>
+
+
+<!-- RELATED ARTICLES -->
+<section style="background:white;padding:5rem 0;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div style="width:48px;height:3px;background:linear-gradient(90deg,#1A5EA8,#C49A4A);border-radius:2px;margin-bottom:1rem;"></div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#0F1724;margin-bottom:2.5rem;letter-spacing:-0.02em;">Continue Reading</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <a href="resources-roth-conversion.html" style="text-decoration:none;display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;border:1px solid rgba(26,94,168,0.10);border-radius:10px;background:#FAF8F4;transition:box-shadow 0.22s ease,transform 0.22s ease;"
+         onmouseover="this.style.boxShadow='0 8px 32px rgba(26,94,168,0.12)';this.style.transform='translateY(-2px)'"
+         onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+        <div style="width:80px;height:64px;border-radius:6px;overflow:hidden;flex-shrink:0;">
+          <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=160&h=128&q=80"
+               alt="Circular arrows symbolizing Roth conversion" width="160" height="128" style="width:100%;height:100%;object-fit:cover;" loading="lazy" decoding="async" />
+        </div>
+        <div>
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2A74C8;margin-bottom:0.4rem;">Tax Strategy</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#0F1724;line-height:1.35;">Roth Conversion Conversations: A Guide for Every Stage of Life</div>
+          <div style="font-size:0.75rem;color:#6B7280;margin-top:0.4rem;">Jan 15, 2026 · 7 min read</div>
+        </div>
+      </a>
+
+      <a href="resources-rebalancing.html" style="text-decoration:none;display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;border:1px solid rgba(26,94,168,0.10);border-radius:10px;background:#FAF8F4;transition:box-shadow 0.22s ease,transform 0.22s ease;"
+         onmouseover="this.style.boxShadow='0 8px 32px rgba(26,94,168,0.12)';this.style.transform='translateY(-2px)'"
+         onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+        <div style="width:80px;height:64px;border-radius:6px;overflow:hidden;flex-shrink:0;">
+          <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=160&h=128&q=80"
+               alt="Justice scale representing portfolio balance" width="160" height="128" style="width:100%;height:100%;object-fit:cover;" loading="lazy" decoding="async" />
+        </div>
+        <div>
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2A74C8;margin-bottom:0.4rem;">Portfolio Management</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#0F1724;line-height:1.35;">How Often Should I Rebalance My Portfolio?</div>
+          <div style="font-size:0.75rem;color:#6B7280;margin-top:0.4rem;">Feb 24, 2026 · 5 min read</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer style="background:#0F1724;padding:2rem 0;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+         alt="Rubiq Financial Partners logo" width="120" height="26" style="height:26px;width:auto;opacity:0.70;" loading="lazy" decoding="async" />
+    <div style="text-align:center;">
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.28);margin:0 0 0.35rem;">
+        &copy; 2026 Rubiq Financial Partners LLC. All rights reserved.
+      </p>
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.18);margin:0 0 0.5rem;line-height:1.6;font-weight:300;">
+        Advisory services offered through Wealthcare Advisory Partners. Brokerage products offered through LPL Financial, Member FINRA/SIPC.
+      </p>
+      <div style="display:flex;justify-content:center;gap:1.5rem;">
+        <a href="privacy-policy.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Privacy Policy</a>
+        <a href="terms-of-use.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Terms of Use</a>
+        <a href="sitemap.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Sitemap</a>
+      </div>
+    </div>
+    <a href="resources.html" style="font-size:0.75rem;font-weight:500;color:rgba(255,255,255,0.45);text-decoration:none;white-space:nowrap;letter-spacing:0.03em;transition:color 0.18s ease;"
+       onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+      ← Back to Resources
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
