@@ -181,6 +181,102 @@
       #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
       footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
     }
+
+    /* ── Component 5: Tax Drag Estimator ── */
+    .tax-estimator {
+      background: #1C2D44;
+      border: 1px solid rgba(196,154,74,0.2);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .tax-est-header {
+      padding: 24px 32px;
+      border-bottom: 1px solid rgba(196,154,74,0.15);
+      background: rgba(196,154,74,0.04);
+    }
+    .tax-est-header h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.3rem;
+      color: white; font-weight: 400; margin-bottom: 5px;
+    }
+    .tax-est-header p { font-size: 0.82rem; color: rgba(143,163,191,0.8); }
+    .tax-est-body { display: grid; grid-template-columns: 1fr 1fr; }
+    @media (max-width: 800px) { .tax-est-body { grid-template-columns: 1fr; } }
+    .tax-est-inputs {
+      padding: 24px 32px;
+      border-right: 1px solid rgba(196,154,74,0.15);
+    }
+    @media (max-width: 800px) {
+      .tax-est-inputs { border-right: none; border-bottom: 1px solid rgba(196,154,74,0.15); }
+    }
+    .tax-est-outputs { padding: 24px 32px; }
+    .te-input-group { margin-bottom: 20px; }
+    .te-input-label {
+      display: block; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(143,163,191,0.9); margin-bottom: 8px;
+    }
+    .te-input-row { display: flex; align-items: center; gap: 12px; }
+    .te-input-val {
+      font-family: 'Playfair Display', serif; font-size: 1.15rem;
+      color: #C49A4A; min-width: 80px;
+      font-variant-numeric: tabular-nums;
+    }
+    input.te-range {
+      flex: 1; -webkit-appearance: none;
+      height: 4px; border-radius: 2px;
+      outline: none; cursor: pointer;
+      background: linear-gradient(to right, #C49A4A 0%, #C49A4A var(--pct, 50%), #1a3560 var(--pct, 50%), #1a3560 100%);
+    }
+    input.te-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: #C49A4A; cursor: pointer;
+      border: 3px solid #1C2D44;
+      box-shadow: 0 0 0 2px #C49A4A;
+      transition: transform 0.15s;
+    }
+    input.te-range::-webkit-slider-thumb:hover { transform: scale(1.2); }
+    .te-result-row {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      padding: 11px 0; border-bottom: 1px solid rgba(196,154,74,0.1);
+    }
+    .te-result-row:last-child { border-bottom: none; }
+    .te-result-label { font-size: 0.8rem; color: rgba(143,163,191,0.8); }
+    .te-result-val {
+      font-family: 'Playfair Display', serif; font-size: 1.05rem;
+      font-weight: 400; font-variant-numeric: tabular-nums;
+    }
+    .te-result-val.highlight { color: #C49A4A; font-size: 1.35rem; }
+    .te-result-val.positive  { color: #34d399; }
+    .te-result-val.negative  { color: #f87171; }
+    .te-result-val.neutral   { color: white; }
+    .te-gap-bar { margin: 16px 0; height: 8px; border-radius: 4px; background: #0F1724; overflow: hidden; }
+    .te-gap-fill {
+      height: 100%; border-radius: 4px;
+      background: linear-gradient(90deg, #C49A4A, #f87171);
+      transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .te-gap-legend { display: flex; justify-content: space-between; font-size: 10px; color: rgba(143,163,191,0.6); }
+    .te-presets {
+      border-top: 1px solid rgba(196,154,74,0.15);
+      padding: 18px 32px;
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .te-preset-btn {
+      padding: 5px 12px; border-radius: 100px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+      border: 1px solid rgba(196,154,74,0.2); color: rgba(143,163,191,0.8);
+      background: none; cursor: pointer;
+      transition: all 0.22s ease;
+    }
+    .te-preset-btn:hover { border-color: #C49A4A; color: #C49A4A; }
+    .te-preset-btn.active { background: rgba(196,154,74,0.12); border-color: #C49A4A; color: #C49A4A; }
+    .te-disclaimer {
+      padding: 12px 32px;
+      font-size: 10px; color: rgba(143,163,191,0.5);
+      border-top: 1px solid rgba(196,154,74,0.1); line-height: 1.6;
+      background: rgba(0,0,0,0.15);
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -517,6 +613,216 @@
 
     </div>
   </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     TAX DRAG ESTIMATOR
+══════════════════════════════════════════════════════ -->
+<section style="background:#FAF8F4;padding:5rem 0;">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10">
+
+    <div style="margin-bottom:2.5rem;">
+      <div class="section-rule"></div>
+      <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+                color:#1A5EA8;margin-bottom:0.75rem;">Interactive Tool</p>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3vw,2.4rem);
+                 font-weight:700;line-height:1.18;letter-spacing:-0.03em;color:#0F1724;margin-bottom:0.75rem;">
+        Your <em style="font-style:italic;color:#9E7A32;">Tax Drag</em> Estimator
+      </h2>
+      <p style="font-size:0.9375rem;line-height:1.7;color:#4A5568;max-width:560px;font-weight:300;">
+        See how much tax drag is silently eroding your portfolio — and what a tax-optimized strategy could recover.
+      </p>
+    </div>
+
+    <div class="tax-estimator">
+      <div class="tax-est-header">
+        <h3>After-Tax Portfolio Projection</h3>
+        <p>Adjust the sliders to model your situation. All figures are illustrative estimates.</p>
+      </div>
+
+      <div class="tax-est-body">
+        <!-- Inputs -->
+        <div class="tax-est-inputs">
+          <div class="te-input-group">
+            <label class="te-input-label">Portfolio Value</label>
+            <div class="te-input-row">
+              <span class="te-input-val" id="te-val-portfolio">$2.0M</span>
+              <input type="range" class="te-range" id="te-portfolio"
+                     min="250000" max="10000000" step="250000" value="2000000"
+                     oninput="teUpdate()">
+            </div>
+          </div>
+          <div class="te-input-group">
+            <label class="te-input-label">Gross Annual Return</label>
+            <div class="te-input-row">
+              <span class="te-input-val" id="te-val-return">7.5%</span>
+              <input type="range" class="te-range" id="te-return"
+                     min="3" max="14" step="0.5" value="7.5"
+                     oninput="teUpdate()">
+            </div>
+          </div>
+          <div class="te-input-group">
+            <label class="te-input-label">Effective Tax Rate on Gains</label>
+            <div class="te-input-row">
+              <span class="te-input-val" id="te-val-taxrate">28%</span>
+              <input type="range" class="te-range" id="te-taxrate"
+                     min="10" max="50" step="1" value="28"
+                     oninput="teUpdate()">
+            </div>
+          </div>
+          <div class="te-input-group">
+            <label class="te-input-label">Investment Horizon (Years)</label>
+            <div class="te-input-row">
+              <span class="te-input-val" id="te-val-years">20 yrs</span>
+              <input type="range" class="te-range" id="te-years"
+                     min="5" max="40" step="1" value="20"
+                     oninput="teUpdate()">
+            </div>
+          </div>
+          <div class="te-input-group">
+            <label class="te-input-label">Tax Efficiency Improvement</label>
+            <div class="te-input-row">
+              <span class="te-input-val" id="te-val-efficiency">40%</span>
+              <input type="range" class="te-range" id="te-efficiency"
+                     min="10" max="80" step="5" value="40"
+                     oninput="teUpdate()">
+            </div>
+          </div>
+        </div>
+
+        <!-- Outputs -->
+        <div class="tax-est-outputs">
+          <div class="te-result-row">
+            <span class="te-result-label">Starting Portfolio</span>
+            <span class="te-result-val neutral" id="te-out-start">$2,000,000</span>
+          </div>
+          <div class="te-result-row">
+            <span class="te-result-label">Pre-Tax Ending Value</span>
+            <span class="te-result-val neutral" id="te-out-pretax">—</span>
+          </div>
+          <div class="te-result-row">
+            <span class="te-result-label">After-Tax Value (Unoptimized)</span>
+            <span class="te-result-val negative" id="te-out-aftertax">—</span>
+          </div>
+          <div class="te-result-row">
+            <span class="te-result-label">After-Tax Value (Rubiq Optimized)</span>
+            <span class="te-result-val positive" id="te-out-optimized">—</span>
+          </div>
+
+          <div class="te-gap-bar">
+            <div class="te-gap-fill" id="te-gap-fill" style="width:45%;"></div>
+          </div>
+          <div class="te-gap-legend">
+            <span>Unoptimized</span>
+            <span>Rubiq Optimized</span>
+          </div>
+
+          <div class="te-result-row" style="margin-top:12px;border-top:1px solid rgba(196,154,74,0.2);padding-top:14px;">
+            <span class="te-result-label" style="font-weight:600;color:white;">Potential Wealth Recovered</span>
+            <span class="te-result-val highlight" id="te-out-delta">—</span>
+          </div>
+          <div class="te-result-row">
+            <span class="te-result-label">Annualized Tax Drag Reduction</span>
+            <span class="te-result-val positive" id="te-out-drag">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Presets -->
+      <div class="te-presets">
+        <button class="te-preset-btn" onclick="tePreset('base',this)">Base Case</button>
+        <button class="te-preset-btn" onclick="tePreset('exec',this)">Corporate Executive</button>
+        <button class="te-preset-btn" onclick="tePreset('preretiree',this)">Pre-Retiree</button>
+        <button class="te-preset-btn" onclick="tePreset('bizowner',this)">Business Owner Exit</button>
+        <button class="te-preset-btn active" onclick="tePreset('rubiq',this)">Rubiq Optimized</button>
+      </div>
+
+      <div class="te-disclaimer">
+        This tool is for illustrative purposes only and does not constitute investment advice. Actual results will vary based on market conditions,
+        individual tax situations, and investment choices. Tax drag estimates assume annual realization; actual drag depends on turnover, holding period,
+        and account type. Consult a qualified tax advisor before making any financial decisions.
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // ── Component 5: Tax Drag Estimator ──
+  const TE_PRESETS = {
+    base:       { portfolio: 2000000, ret: 7.5,  taxrate: 28, years: 20, efficiency: 40 },
+    exec:       { portfolio: 5000000, ret: 8.0,  taxrate: 37, years: 15, efficiency: 50 },
+    preretiree: { portfolio: 3000000, ret: 6.5,  taxrate: 24, years: 10, efficiency: 35 },
+    bizowner:   { portfolio: 7500000, ret: 9.0,  taxrate: 40, years: 12, efficiency: 55 },
+    rubiq:      { portfolio: 2000000, ret: 7.5,  taxrate: 28, years: 20, efficiency: 60 },
+  };
+
+  function fmtDollars(n) {
+    if (n >= 1e6) return '$' + (n/1e6).toFixed(2) + 'M';
+    return '$' + Math.round(n).toLocaleString();
+  }
+
+  function teUpdateRange(el) {
+    const min = parseFloat(el.min), max = parseFloat(el.max), val = parseFloat(el.value);
+    const pct = ((val - min) / (max - min)) * 100;
+    el.style.setProperty('--pct', pct + '%');
+  }
+
+  function teUpdate() {
+    const portfolio   = parseFloat(document.getElementById('te-portfolio').value);
+    const ret         = parseFloat(document.getElementById('te-return').value) / 100;
+    const taxrate     = parseFloat(document.getElementById('te-taxrate').value) / 100;
+    const years       = parseInt(document.getElementById('te-years').value);
+    const efficiency  = parseFloat(document.getElementById('te-efficiency').value) / 100;
+
+    // Update display labels
+    document.getElementById('te-val-portfolio').textContent = fmtDollars(portfolio);
+    document.getElementById('te-val-return').textContent    = (ret * 100).toFixed(1) + '%';
+    document.getElementById('te-val-taxrate').textContent   = Math.round(taxrate * 100) + '%';
+    document.getElementById('te-val-years').textContent     = years + ' yrs';
+    document.getElementById('te-val-efficiency').textContent = Math.round(efficiency * 100) + '%';
+
+    // Update range gradient fills
+    ['te-portfolio','te-return','te-taxrate','te-years','te-efficiency'].forEach(id => {
+      teUpdateRange(document.getElementById(id));
+    });
+
+    // Calculations
+    const preTax      = portfolio * Math.pow(1 + ret, years);
+    const afterTaxNet = ret * (1 - taxrate);
+    const afterTax    = portfolio * Math.pow(1 + afterTaxNet, years);
+    const optNet      = ret * (1 - taxrate * (1 - efficiency));
+    const optimized   = portfolio * Math.pow(1 + optNet, years);
+    const delta       = optimized - afterTax;
+    const annDrag     = efficiency * taxrate * ret * 100;
+
+    document.getElementById('te-out-start').textContent     = fmtDollars(portfolio);
+    document.getElementById('te-out-pretax').textContent    = fmtDollars(preTax);
+    document.getElementById('te-out-aftertax').textContent  = fmtDollars(afterTax);
+    document.getElementById('te-out-optimized').textContent = fmtDollars(optimized);
+    document.getElementById('te-out-delta').textContent     = '+' + fmtDollars(delta);
+    document.getElementById('te-out-drag').textContent      = '+' + annDrag.toFixed(2) + '% / yr';
+
+    // Gap bar: ratio of delta to preTax spread
+    const spread = preTax - afterTax;
+    const gapPct = spread > 0 ? Math.min((delta / spread) * 100, 95) : 50;
+    document.getElementById('te-gap-fill').style.width = gapPct + '%';
+  }
+
+  function tePreset(key, btn) {
+    document.querySelectorAll('.te-preset-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const p = TE_PRESETS[key];
+    document.getElementById('te-portfolio').value  = p.portfolio;
+    document.getElementById('te-return').value     = p.ret;
+    document.getElementById('te-taxrate').value    = p.taxrate;
+    document.getElementById('te-years').value      = p.years;
+    document.getElementById('te-efficiency').value = p.efficiency;
+    teUpdate();
+  }
+
+  // Init
+  teUpdate();
+  </script>
 </section>
 
 

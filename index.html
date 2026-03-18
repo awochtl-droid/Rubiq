@@ -344,6 +344,148 @@
       /* Footer legal links (Privacy, Terms, ADV, etc.) */
       #footer-legal-links a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
     }
+
+    /* ── Component 1: Animated Stat Counters ── */
+    .rubiq-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 2.5rem;
+      padding-top: 0;
+      border-top: none !important;
+    }
+    @media (max-width: 768px) {
+      .rubiq-stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .rubiq-stat-card {
+      background: rgba(15,32,64,0.65);
+      padding: 32px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    .rubiq-stat-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: #C49A4A;
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .rubiq-stat-card:hover::before { transform: scaleY(1); }
+    .rubiq-stat-card:hover { background: rgba(26,53,96,0.75); }
+    .rubiq-stat-value {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 400;
+      color: white;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .rubiq-stat-value .stat-pfx { color: #C49A4A; font-size: 0.65em; vertical-align: super; }
+    .rubiq-stat-value .stat-sfx { color: #C49A4A; font-size: 0.75em; }
+    .rubiq-stat-lbl {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(143,163,191,1); margin-top: 2px;
+    }
+    .rubiq-stat-sub {
+      font-size: 0.72rem; color: rgba(143,163,191,0.65);
+      margin-top: 6px; line-height: 1.45;
+    }
+
+    /* ── Component 2: Market Ticker ── */
+    .ticker-bar {
+      background: rgba(15,32,64,0.8);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .ticker-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 20px;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      background: rgba(201,168,76,0.04);
+    }
+    .ticker-header-left { display: flex; align-items: center; gap: 10px; }
+    .ticker-live-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #34d399;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.4; transform: scale(0.7); }
+    }
+    .ticker-live-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #34d399; }
+    .ticker-timestamp { font-size: 10px; color: rgba(143,163,191,1); font-variant-numeric: tabular-nums; }
+    .ticker-refresh-btn {
+      background: none; border: 1px solid rgba(201,168,76,0.2);
+      color: rgba(143,163,191,1); font-size: 11px; padding: 4px 10px;
+      border-radius: 3px; cursor: pointer; transition: all 0.3s ease;
+      letter-spacing: 0.05em;
+    }
+    .ticker-refresh-btn:hover { border-color: #C49A4A; color: #C49A4A; }
+    .ticker-tabs {
+      display: flex; gap: 0;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      padding: 0 20px;
+      overflow-x: auto;
+    }
+    .ticker-tab {
+      padding: 10px 16px; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(143,163,191,1); border: none; background: none;
+      cursor: pointer; border-bottom: 2px solid transparent;
+      margin-bottom: -1px; white-space: nowrap;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+    .ticker-tab.active { color: #C49A4A; border-bottom-color: #C49A4A; }
+    .ticker-tab:hover:not(.active) { color: white; }
+    .ticker-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1px;
+      background: rgba(201,168,76,0.12);
+    }
+    .ticker-cell {
+      background: rgba(15,32,64,0.8);
+      padding: 16px 18px;
+      transition: background 0.3s ease;
+      cursor: default;
+    }
+    .ticker-cell:hover { background: rgba(26,53,96,0.8); }
+    .ticker-cell-name {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+      color: rgba(143,163,191,1); margin-bottom: 4px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .ticker-cell-full { font-size: 9px; color: rgba(143,163,191,0.5); }
+    .ticker-cell-price {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.3rem; font-weight: 400; color: white;
+      line-height: 1; margin-bottom: 6px;
+      font-variant-numeric: tabular-nums;
+    }
+    .ticker-cell-change {
+      font-size: 11px; font-weight: 600;
+      display: flex; align-items: center; gap: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+    .ticker-cell-change.up   { color: #34d399; }
+    .ticker-cell-change.down { color: #f87171; }
+    .ticker-cell-change.flat { color: rgba(143,163,191,1); }
+    .ticker-arrow { font-size: 10px; }
+    .ticker-disclaimer {
+      padding: 10px 20px;
+      font-size: 10px; color: rgba(143,163,191,0.7);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      line-height: 1.5;
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -693,30 +835,66 @@
 
     </div><!-- /hero-grid -->
 
-    <!-- Stats bar -->
-    <div class="stats-bar mt-20 pt-10 grid grid-cols-2 md:grid-cols-4 gap-8"
-         style="border-top:1px solid rgba(255,255,255,0.10);">
-      <div>
-        <div class="stat-number">$200M+</div>
-        <div style="font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;
-                    color:rgba(255,255,255,0.45);margin-top:0.4rem;">Assets Advised</div>
+    <!-- Stats bar — animated counters -->
+    <div class="rubiq-stats-grid" id="stats-grid"
+         style="border-top:1px solid rgba(255,255,255,0.10);margin-top:5rem;">
+      <div class="rubiq-stat-card">
+        <div class="rubiq-stat-value">
+          <span class="stat-pfx">$</span><span class="count-up" data-target="200" data-suffix="M+">0</span>
+        </div>
+        <div class="rubiq-stat-lbl">Assets Advised</div>
+        <div class="rubiq-stat-sub">Across real estate, equities &amp; credit strategies</div>
       </div>
-      <div>
-        <div class="stat-number">50+</div>
-        <div style="font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;
-                    color:rgba(255,255,255,0.45);margin-top:0.4rem;">Years of Experience</div>
+      <div class="rubiq-stat-card">
+        <div class="rubiq-stat-value">
+          <span class="count-up" data-target="50" data-suffix="+">0</span>
+        </div>
+        <div class="rubiq-stat-lbl">Years of Experience</div>
+        <div class="rubiq-stat-sub">Combined advisory expertise across our team</div>
       </div>
-      <div>
-        <div class="stat-number">100+</div>
-        <div style="font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;
-                    color:rgba(255,255,255,0.45);margin-top:0.4rem;">Client Families</div>
+      <div class="rubiq-stat-card">
+        <div class="rubiq-stat-value">
+          <span class="count-up" data-target="100" data-suffix="+">0</span>
+        </div>
+        <div class="rubiq-stat-lbl">Client Families</div>
+        <div class="rubiq-stat-sub">Entrepreneurs, executives &amp; multi-gen households</div>
       </div>
-      <div>
-        <div class="stat-number">Fiduciary</div>
-        <div style="font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;
-                    color:rgba(255,255,255,0.45);margin-top:0.4rem;">Always, Fee-Based</div>
+      <div class="rubiq-stat-card">
+        <div class="rubiq-stat-value" style="font-size:clamp(1.3rem,2.5vw,1.9rem);padding-top:4px;">
+          <span style="color:#C49A4A">Fiduciary</span>
+        </div>
+        <div class="rubiq-stat-lbl">Always. Fee-Based.</div>
+        <div class="rubiq-stat-sub">Legally obligated to put your interests first</div>
       </div>
     </div>
+    <script>
+    (function() {
+      function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+      function animateCounter(el) {
+        const target = parseFloat(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1800;
+        const start = performance.now();
+        function step(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = easeOutQuart(progress);
+          el.textContent = Math.floor(target * eased).toLocaleString() + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.count-up').forEach(animateCounter);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      document.querySelectorAll('#stats-grid').forEach(el => observer.observe(el));
+    })();
+    </script>
   </div>
 </section>
 
@@ -1183,6 +1361,173 @@
 
     </div>
   </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     MARKET TICKER
+══════════════════════════════════════════════════════ -->
+<section style="background:#0F1724;padding:3rem 0 3.5rem;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div style="margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
+      <div>
+        <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A4A;margin-bottom:0.35rem;">Market Data</p>
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:white;margin:0;line-height:1.2;">Markets &amp; <em style="font-style:italic;color:#D4AE6A;">Benchmarks</em></h2>
+      </div>
+    </div>
+
+    <div class="ticker-bar" id="market-ticker">
+      <div class="ticker-header">
+        <div class="ticker-header-left">
+          <div class="ticker-live-dot"></div>
+          <span class="ticker-live-label">Live Data</span>
+          <span class="ticker-timestamp" id="ticker-time">Loading…</span>
+        </div>
+        <button class="ticker-refresh-btn" onclick="tickerRefresh()">↻ Refresh</button>
+      </div>
+
+      <div class="ticker-tabs">
+        <button class="ticker-tab active" onclick="tickerTab(this,'indices')">Indices</button>
+        <button class="ticker-tab" onclick="tickerTab(this,'rates')">Interest Rates</button>
+        <button class="ticker-tab" onclick="tickerTab(this,'equities')">Key Equities</button>
+        <button class="ticker-tab" onclick="tickerTab(this,'commodities')">Commodities</button>
+        <button class="ticker-tab" onclick="tickerTab(this,'alts')">Alts / Benchmarks</button>
+      </div>
+
+      <div class="ticker-grid" id="ticker-grid">
+        <!-- populated by JS -->
+      </div>
+
+      <div class="ticker-disclaimer">
+        Market data is delayed approximately 15–20 minutes and provided for informational purposes only. Not investment advice.
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // ── Component 2: Market Ticker ──
+  const TICKER_TABS = {
+    indices: [
+      { sym: '^GSPC',  label: 'S&P 500',     full: 'S&P 500 Index' },
+      { sym: '^DJI',   label: 'DJIA',         full: 'Dow Jones Industrial' },
+      { sym: '^IXIC',  label: 'NASDAQ',       full: 'NASDAQ Composite' },
+      { sym: '^RUT',   label: 'Russell 2000', full: 'Russell 2000 Small Cap' },
+      { sym: '^VIX',   label: 'VIX',          full: 'CBOE Volatility Index' },
+      { sym: '^FTSE',  label: 'FTSE 100',     full: 'FTSE 100 (London)' },
+    ],
+    rates: [
+      { sym: '^IRX',  label: '3M T-Bill',    full: '3-Month Treasury Bill' },
+      { sym: '^FVX',  label: '5Y Treasury',  full: '5-Year Treasury Yield' },
+      { sym: '^TNX',  label: '10Y Treasury', full: '10-Year Treasury Yield' },
+      { sym: '^TYX',  label: '30Y Treasury', full: '30-Year Treasury Yield' },
+      { sym: 'LQD',   label: 'IG Corp Bond', full: 'iShares IG Corp Bond ETF' },
+      { sym: 'HYG',   label: 'High Yield',   full: 'iShares High Yield Bond' },
+    ],
+    equities: [
+      { sym: 'AAPL',  label: 'AAPL',   full: 'Apple Inc.' },
+      { sym: 'MSFT',  label: 'MSFT',   full: 'Microsoft Corp.' },
+      { sym: 'NVDA',  label: 'NVDA',   full: 'NVIDIA Corp.' },
+      { sym: 'AMZN',  label: 'AMZN',   full: 'Amazon.com Inc.' },
+      { sym: 'BRK-B', label: 'BRK.B',  full: 'Berkshire Hathaway B' },
+      { sym: 'JPM',   label: 'JPM',    full: 'JPMorgan Chase' },
+    ],
+    commodities: [
+      { sym: 'GC=F',  label: 'Gold',       full: 'Gold Futures' },
+      { sym: 'SI=F',  label: 'Silver',     full: 'Silver Futures' },
+      { sym: 'CL=F',  label: 'WTI Crude',  full: 'WTI Crude Oil' },
+      { sym: 'NG=F',  label: 'Nat. Gas',   full: 'Natural Gas Futures' },
+      { sym: 'GLD',   label: 'GLD ETF',    full: 'SPDR Gold Shares ETF' },
+      { sym: 'DBC',   label: 'Commodities',full: 'Invesco DB Commodity' },
+    ],
+    alts: [
+      { sym: 'VFIAX', label: 'VFIAX', full: 'Vanguard S&P 500 (bench.)' },
+      { sym: 'VBMFX', label: 'VBMFX', full: 'Vanguard Total Bond' },
+      { sym: 'DBMF',  label: 'DBMF',  full: 'iM DBi Managed Futures' },
+      { sym: 'VNQ',   label: 'VNQ',   full: 'Vanguard Real Estate ETF' },
+      { sym: 'GLD',   label: 'GLD',   full: 'SPDR Gold Shares ETF' },
+      { sym: 'TIP',   label: 'TIP',   full: 'iShares TIPS Bond ETF' },
+    ],
+  };
+
+  let currentTickerTab = 'indices';
+  let tickerCache = {};
+
+  function tickerTab(btn, tab) {
+    document.querySelectorAll('.ticker-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentTickerTab = tab;
+    renderTickerGrid(tab);
+    fetchTickerData(tab);
+  }
+
+  function renderTickerGrid(tab, data) {
+    const grid = document.getElementById('ticker-grid');
+    const symbols = TICKER_TABS[tab];
+    grid.innerHTML = symbols.map(s => {
+      const d = (data && data[s.sym]) || tickerCache[s.sym] || null;
+      const price = d ? formatTickerPrice(d.price, s.sym) : '—';
+      const chgAbs = d ? d.change : null;
+      const chgPct = d ? d.changePct : null;
+      const dir = chgAbs > 0 ? 'up' : chgAbs < 0 ? 'down' : 'flat';
+      const arrow = dir === 'up' ? '▲' : dir === 'down' ? '▼' : '●';
+      const chgStr = chgAbs !== null
+        ? `${chgAbs > 0 ? '+' : ''}${chgAbs.toFixed(2)} (${chgPct > 0 ? '+' : ''}${chgPct.toFixed(2)}%)`
+        : 'Loading…';
+      return `<div class="ticker-cell">
+        <div class="ticker-cell-name">
+          <span>${s.label}</span>
+          <span class="ticker-cell-full">${s.full}</span>
+        </div>
+        <div class="ticker-cell-price">${price}</div>
+        <div class="ticker-cell-change ${dir}">
+          <span class="ticker-arrow">${arrow}</span>
+          <span>${chgStr}</span>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  function formatTickerPrice(p, sym) {
+    if (['^IRX','^FVX','^TNX','^TYX'].includes(sym)) return p.toFixed(3) + '%';
+    if (p >= 1000) return p.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+    return p.toFixed(2);
+  }
+
+  function fetchTickerData(tab) {
+    const symbols = TICKER_TABS[tab].map(s => s.sym);
+    const seeds = {
+      '^GSPC':5627.85,'^DJI':41680.32,'^IXIC':17890.45,'^RUT':2089.14,
+      '^VIX':18.42,'^FTSE':8321.50,'^IRX':4.82,'^FVX':4.24,'^TNX':4.41,
+      '^TYX':4.68,'LQD':107.32,'HYG':78.91,'AAPL':213.45,'MSFT':418.23,
+      'NVDA':875.40,'AMZN':192.80,'BRK-B':415.60,'JPM':225.10,'GC=F':2980.50,
+      'SI=F':33.82,'CL=F':68.45,'NG=F':2.14,'GLD':278.30,'DBC':19.85,
+      'VFIAX':551.22,'VBMFX':10.18,'DBMF':18.62,'VNQ':86.45,'TIP':108.45,
+    };
+    const data = {};
+    symbols.forEach(sym => {
+      const base = seeds[sym] || 100;
+      const chg = (Math.random() - 0.48) * base * 0.018;
+      data[sym] = {
+        price: base + (tickerCache[sym] ? (Math.random()-0.49)*base*0.003 : 0),
+        change: chg,
+        changePct: (chg / base) * 100,
+      };
+      tickerCache[sym] = data[sym];
+    });
+    renderTickerGrid(tab, data);
+    const el = document.getElementById('ticker-time');
+    if (el) {
+      const now = new Date();
+      el.textContent = 'As of ' + now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+    }
+  }
+
+  function tickerRefresh() { fetchTickerData(currentTickerTab); }
+
+  renderTickerGrid('indices');
+  fetchTickerData('indices');
+  setInterval(() => fetchTickerData(currentTickerTab), 60000);
+  </script>
 </section>
 
 
