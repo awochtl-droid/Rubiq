@@ -334,6 +334,21 @@
       font-size: 0.82rem; color: rgba(255,255,255,0.60);
       margin-top: 6px; max-width: 480px; line-height: 1.65; font-weight: 300;
     }
+
+    /* ── Page nav pills ── */
+    .svc-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.02em;
+      color: rgba(255,255,255,0.65); text-decoration: none;
+      padding: 0.5rem 1.1rem; border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.12);
+      transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+      white-space: nowrap;
+    }
+    .svc-pill:hover, .svc-pill.active {
+      color: #C49A4A; border-color: rgba(196,154,74,0.45);
+      background: rgba(196,154,74,0.06);
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -356,11 +371,11 @@
   <meta property="og:title"       content="Our Investment Philosophy | Rubiq Financial Partners" />
   <meta property="og:description" content="Fee-based fiduciary focused on after-tax returns and independent advice. Serving entrepreneurs and real estate investors from Philadelphia, nationwide." />
   <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/about.html" />
-  <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.jpg" />
+  <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:title"       content="Our Investment Philosophy | Rubiq Financial Partners" />
   <meta name="twitter:description" content="Fee-based fiduciary focused on after-tax returns and independent advice. Serving entrepreneurs and real estate investors from Philadelphia, nationwide." />
-  <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.jpg" />
+  <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -470,9 +485,42 @@
 
 
 <!-- ══════════════════════════════════════════════════
+     STICKY PAGE NAV
+══════════════════════════════════════════════════════ -->
+<div style="position:sticky;top:72px;z-index:40;background:rgba(15,23,36,0.96);
+            backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.07);
+            padding:0.875rem 0;overflow-x:auto;">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10">
+    <div style="display:flex;gap:0.625rem;align-items:center;min-width:max-content;">
+      <a href="#philosophy" class="svc-pill">
+        <div style="width:8px;height:8px;border-radius:2px;background:#1A5EA8;flex-shrink:0;"></div>
+        Our Philosophy
+      </a>
+      <a href="#after-tax" class="svc-pill">
+        <div style="width:8px;height:8px;border-radius:2px;background:#2A74C8;flex-shrink:0;"></div>
+        After-Tax Returns
+      </a>
+      <a href="#edge" class="svc-pill">
+        <div style="width:8px;height:8px;border-radius:2px;background:#C49A4A;flex-shrink:0;"></div>
+        Where We Find the Edge
+      </a>
+      <a href="#fees" class="svc-pill">
+        <div style="width:8px;height:8px;border-radius:2px;background:#D4AE6A;flex-shrink:0;"></div>
+        Fee Structure
+      </a>
+      <a href="#who-we-serve" class="svc-pill">
+        <div style="width:8px;height:8px;border-radius:2px;background:#9E7A32;flex-shrink:0;"></div>
+        Who We Serve
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════
      SECTION 1 — THE MARKET IS SMARTER THAN YOU THINK
 ══════════════════════════════════════════════════════ -->
-<section style="background:#FAF8F4;padding:6rem 0;">
+<section id="philosophy" style="background:#FAF8F4;padding:6rem 0;">
   <div class="max-w-6xl mx-auto px-6 lg:px-10">
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -566,7 +614,7 @@
 <!-- ══════════════════════════════════════════════════
      SECTION 2 — AFTER-TAX IS THE ONLY SCORE THAT MATTERS
 ══════════════════════════════════════════════════════ -->
-<section style="background:#F4F6F9;padding:6rem 0;">
+<section id="after-tax" style="background:#F4F6F9;padding:6rem 0;">
   <div class="max-w-6xl mx-auto px-6 lg:px-10">
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -679,7 +727,7 @@
 <!-- ══════════════════════════════════════════════════
      SECTION 3 — WHERE WE FIND THE EDGE
 ══════════════════════════════════════════════════════ -->
-<section style="background:#1C2D44;padding:6rem 0;position:relative;overflow:hidden;">
+<section id="edge" style="background:#1C2D44;padding:6rem 0;position:relative;overflow:hidden;">
   <div style="position:absolute;top:-20%;right:-10%;width:50%;height:120%;
               background:radial-gradient(ellipse,rgba(196,154,74,0.07) 0%,transparent 65%);pointer-events:none;"></div>
 
@@ -804,7 +852,7 @@
 <!-- ══════════════════════════════════════════════════
      FEE STRUCTURE TEASER
 ══════════════════════════════════════════════════════ -->
-<section style="background:#111B28;padding:6rem 0;position:relative;overflow:hidden;">
+<section id="fees" style="background:#111B28;padding:6rem 0;position:relative;overflow:hidden;">
 
   <div style="position:absolute;top:-20%;right:-10%;width:50%;height:120%;
               background:radial-gradient(ellipse,rgba(196,154,74,0.07) 0%,transparent 65%);
@@ -874,7 +922,7 @@
 <!-- ══════════════════════════════════════════════════
      WHO WE SERVE
 ══════════════════════════════════════════════════════ -->
-<section style="background:#FAF8F4;padding:6rem 0;">
+<section id="who-we-serve" style="background:#FAF8F4;padding:6rem 0;">
   <div class="max-w-6xl mx-auto px-6 lg:px-10">
 
     <div class="mb-14">
