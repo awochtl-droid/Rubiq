@@ -20,7 +20,7 @@
               blue:      '#1A5EA8',
               bluedark:  '#133F73',
               bluelight: '#2A74C8',
-              gold:      '#C49A4A',
+              gold:      '#C49A5A',
               goldlight: '#D4AE6A',
               golddark:  '#9E7A32',
               ink:       '#0F1724',
@@ -52,7 +52,7 @@
     }
     .nav-link::after {
       content: ''; position: absolute; left: 0; bottom: -2px;
-      width: 0; height: 1.5px; background: #C49A4A; transition: width 0.22s ease;
+      width: 0; height: 1.5px; background: #C49A5A; transition: width 0.22s ease;
     }
     .nav-link:hover { color: white; }
     .nav-link:hover::after { width: 100%; }
@@ -75,7 +75,7 @@
     }
     .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); }
     .btn-gold {
-      background: linear-gradient(135deg, #C49A4A 0%, #D4AE6A 100%);
+      background: linear-gradient(135deg, #C49A5A 0%, #D4AE6A 100%);
       color: #0F1724; font-family: 'Inter', sans-serif; font-weight: 600;
       font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
       padding: 0.875rem 2.25rem; border-radius: 4px; border: none; cursor: pointer;
@@ -85,13 +85,13 @@
 
     .section-rule {
       width: 48px; height: 3px;
-      background: linear-gradient(90deg, #1A5EA8, #C49A4A);
+      background: linear-gradient(90deg, #1A5EA8, #C49A5A);
       border-radius: 2px; margin-bottom: 1.5rem;
     }
 
     .resource-card {
       background: white;
-      border-top: 2px solid #C49A4A;
+      border-top: 2px solid #C49A5A;
       padding: 2rem 2rem 1.75rem;
       transition: transform 0.22s ease, box-shadow 0.22s ease;
       box-shadow: 0 1px 4px rgba(15,23,36,0.06), 0 4px 20px rgba(15,23,36,0.05);
@@ -124,16 +124,16 @@
       color: #2C3E55; background: transparent;
       transition: all 0.22s ease;
     }
-    .filter-pill:hover { border-color: #C49A4A; color: #9E7A32; }
+    .filter-pill:hover { border-color: #C49A5A; color: #9E7A32; }
     .filter-pill.active {
-      background: #C49A4A; color: white;
-      border-color: #C49A4A;
+      background: #C49A5A; color: white;
+      border-color: #C49A5A;
     }
     .filter-count {
       font-size: 0.82rem; color: #4A5568;
       margin-bottom: 24px;
     }
-    .filter-count span { color: #C49A4A; font-weight: 600; }
+    .filter-count span { color: #C49A5A; font-weight: 600; }
     .resource-card.hidden { display: none !important; }
     .resource-card.fade-in { animation: fadeInCard 0.3s ease forwards; }
     @keyframes fadeInCard {
@@ -158,25 +158,25 @@
     .te-input-group { margin-bottom: 20px; }
     .te-input-label { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(143,163,191,0.9); margin-bottom: 8px; }
     .te-input-row { display: flex; align-items: center; gap: 12px; }
-    .te-input-val { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: #C49A4A; min-width: 80px; font-variant-numeric: tabular-nums; }
-    input.te-range { flex: 1; -webkit-appearance: none; height: 4px; border-radius: 2px; outline: none; cursor: pointer; background: linear-gradient(to right, #C49A4A 0%, #C49A4A var(--pct, 50%), #1a3560 var(--pct, 50%), #1a3560 100%); }
-    input.te-range::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #C49A4A; cursor: pointer; border: 3px solid #1C2D44; box-shadow: 0 0 0 2px #C49A4A; transition: transform 0.15s; }
+    .te-input-val { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: #C49A5A; min-width: 80px; font-variant-numeric: tabular-nums; }
+    input.te-range { flex: 1; -webkit-appearance: none; height: 4px; border-radius: 2px; outline: none; cursor: pointer; background: linear-gradient(to right, #C49A5A 0%, #C49A5A var(--pct, 50%), #1a3560 var(--pct, 50%), #1a3560 100%); }
+    input.te-range::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #C49A5A; cursor: pointer; border: 3px solid #1C2D44; box-shadow: 0 0 0 2px #C49A5A; transition: transform 0.15s; }
     input.te-range::-webkit-slider-thumb:hover { transform: scale(1.2); }
     .te-result-row { display: flex; justify-content: space-between; align-items: flex-end; padding: 11px 0; border-bottom: 1px solid rgba(196,154,74,0.1); }
     .te-result-row:last-child { border-bottom: none; }
     .te-result-label { font-size: 0.8rem; color: rgba(143,163,191,0.8); }
     .te-result-val { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 400; font-variant-numeric: tabular-nums; }
-    .te-result-val.highlight { color: #C49A4A; font-size: 1.35rem; }
+    .te-result-val.highlight { color: #C49A5A; font-size: 1.35rem; }
     .te-result-val.positive  { color: #34d399; }
     .te-result-val.negative  { color: #f87171; }
     .te-result-val.neutral   { color: white; }
     .te-gap-bar { margin: 16px 0; height: 8px; border-radius: 4px; background: #0F1724; overflow: hidden; }
-    .te-gap-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #C49A4A, #f87171); transition: width 0.5s cubic-bezier(0.4,0,0.2,1); }
+    .te-gap-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #C49A5A, #f87171); transition: width 0.5s cubic-bezier(0.4,0,0.2,1); }
     .te-gap-legend { display: flex; justify-content: space-between; font-size: 10px; color: rgba(143,163,191,0.6); }
     .te-presets { border-top: 1px solid rgba(196,154,74,0.15); padding: 18px 32px; display: flex; gap: 8px; flex-wrap: wrap; }
     .te-preset-btn { padding: 5px 12px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; border: 1px solid rgba(196,154,74,0.2); color: rgba(143,163,191,0.8); background: none; cursor: pointer; transition: all 0.22s ease; }
-    .te-preset-btn:hover { border-color: #C49A4A; color: #C49A4A; }
-    .te-preset-btn.active { background: rgba(196,154,74,0.12); border-color: #C49A4A; color: #C49A4A; }
+    .te-preset-btn:hover { border-color: #C49A5A; color: #C49A5A; }
+    .te-preset-btn.active { background: rgba(196,154,74,0.12); border-color: #C49A5A; color: #C49A5A; }
     .te-disclaimer { padding: 12px 32px; font-size: 10px; color: rgba(143,163,191,0.5); border-top: 1px solid rgba(196,154,74,0.1); line-height: 1.6; background: rgba(0,0,0,0.15); }
     .te-faq-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top: 2.5rem; }
     .te-faq-card { background: white; border: 1px solid rgba(26,94,168,0.10); border-radius: 6px; padding: 22px 24px; transition: box-shadow 0.22s ease, transform 0.22s ease; }
@@ -201,7 +201,7 @@
       white-space: nowrap;
     }
     .svc-pill:hover, .svc-pill.active {
-      color: #C49A4A; border-color: rgba(196,154,74,0.45);
+      color: #C49A5A; border-color: rgba(196,154,74,0.45);
       background: rgba(196,154,74,0.06);
     }
   </style>
@@ -341,8 +341,8 @@
     <div style="display:inline-flex;align-items:center;gap:8px;
                 background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.25);
                 border-radius:100px;padding:0.35rem 1rem;margin-bottom:2rem;">
-      <div style="width:6px;height:6px;border-radius:50%;background:#C49A4A;flex-shrink:0;"></div>
-      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A4A;">
+      <div style="width:6px;height:6px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">
         Rubiq Financial Partners
       </span>
     </div>
@@ -375,7 +375,7 @@
         Articles
       </a>
       <a href="#client-resources" class="svc-pill">
-        <div style="width:8px;height:8px;border-radius:2px;background:#C49A4A;flex-shrink:0;"></div>
+        <div style="width:8px;height:8px;border-radius:2px;background:#C49A5A;flex-shrink:0;"></div>
         Client Resources
       </a>
       <a href="#tax-estimator" class="svc-pill">
@@ -411,7 +411,7 @@
       <a href="resources-alternative-investments.html" style="text-decoration:none;"
          class="resource-card" data-category="alternatives">
         <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;
-                  color:#C49A4A;margin-bottom:1.25rem;">Alternatives</p>
+                  color:#C49A5A;margin-bottom:1.25rem;">Alternatives</p>
         <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:600;
                    color:#0F1724;line-height:1.35;margin-bottom:0.875rem;">
           Private Credit Market: What Investors Need to Know
@@ -632,7 +632,7 @@
         <div style="display:inline-flex;align-items:center;gap:5px;
                     background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.30);
                     border-radius:100px;padding:0.2rem 0.65rem;">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="#C49A4A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="#C49A5A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <span style="font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#9E7A32;">Client's Favorite Tool</span>
         </div>
         <p style="font-size:0.875rem;line-height:1.55;color:#4A5568;font-weight:300;margin:0;">
@@ -717,7 +717,7 @@
         <div style="display:flex;align-items:center;justify-content:space-between;">
           <span style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#FAF8F4;letter-spacing:-0.01em;">Book an Appointment</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;opacity:0.6;">
-            <path d="M3 13L13 3M13 3H7M13 3V9" stroke="#C49A4A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 13L13 3M13 3H7M13 3V9" stroke="#C49A5A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         <p style="font-size:0.875rem;line-height:1.55;color:rgba(250,248,244,0.70);font-weight:300;margin:0;">
@@ -1059,22 +1059,22 @@
       <div style="display:flex;justify-content:center;gap:1.5rem;">
         <a href="privacy-policy.html"
            style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
-           onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">
           Privacy Policy
         </a>
         <a href="terms-of-use.html"
            style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
-           onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">
           Terms of Use
         </a>
         <a href="faq.html"
            style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
-           onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">
           FAQ
         </a>
         <a href="sitemap.html"
            style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
-           onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">
           Sitemap
         </a>
       </div>
