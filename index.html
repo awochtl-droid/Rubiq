@@ -95,15 +95,15 @@
       box-shadow: 0 4px 16px rgba(26,94,168,0.14), 0 16px 48px rgba(26,94,168,0.10);
     }
     .resource-card {
-      background: white;
+      background: rgba(255,255,255,0.06);
       border-top: 2px solid #C49A4A;
       padding: 2rem 2rem 1.75rem;
       transition: transform 0.22s ease, box-shadow 0.22s ease;
-      box-shadow: 0 1px 4px rgba(15,23,36,0.06), 0 4px 20px rgba(15,23,36,0.05);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15), 0 4px 20px rgba(0,0,0,0.10);
     }
     .resource-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 4px 16px rgba(15,23,36,0.10), 0 12px 36px rgba(15,23,36,0.08);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25), 0 12px 36px rgba(0,0,0,0.18);
     }
 
     /* Award card hover */
@@ -837,7 +837,7 @@
 <!-- ══════════════════════════════════════════════════
      RESOURCES
 ══════════════════════════════════════════════════════ -->
-<section id="resources" style="background:#FAF8F4;padding:4rem 0;">
+<section id="resources" style="background:#1C2D44;padding:4rem 0;">
   <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
@@ -845,16 +845,16 @@
         <div class="section-rule"></div>
         <a href="Pages/resources.html" style="text-decoration:none;">
           <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
-                    color:#1A5EA8;margin-bottom:0.75rem;transition:color 0.18s ease;"
-             onmouseover="this.style.color='#C49A4A'" onmouseout="this.style.color='#1A5EA8'">Resources</p>
+                    color:#C49A4A;margin-bottom:0.75rem;transition:color 0.18s ease;"
+             onmouseover="this.style.color='white'" onmouseout="this.style.color='#C49A4A'">Resources</p>
         </a>
         <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.75rem);
-                   font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:#0F1724;">
+                   font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:white;">
           Insights &amp; Perspectives
         </h2>
       </div>
       <a href="Pages/resources.html" style="font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;
-                          letter-spacing:0.04em;text-transform:uppercase;color:#1A5EA8;
+                          letter-spacing:0.04em;text-transform:uppercase;color:#C49A4A;
                           text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:6px;">
         View all articles
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -870,17 +870,17 @@
           <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;
                     color:#C49A4A;margin-bottom:1.25rem;">Alternatives</p>
           <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:600;
-                     color:#0F1724;line-height:1.35;margin-bottom:0.875rem;">
+                     color:rgba(255,255,255,0.92);line-height:1.35;margin-bottom:0.875rem;">
             Private Credit Market: What Investors Need to Know
           </h3>
-          <p style="font-size:0.875rem;line-height:1.7;color:#4A5568;font-weight:300;margin-bottom:1.5rem;">
+          <p style="font-size:0.875rem;line-height:1.7;color:rgba(255,255,255,0.55);font-weight:300;margin-bottom:1.5rem;">
             Private credit has grown into a multi-trillion dollar asset class. We explore the risks, returns,
             and how it fits within a diversified portfolio.
           </p>
           <div style="display:flex;align-items:center;justify-content:space-between;">
-            <span style="font-size:0.75rem;font-weight:400;color:rgba(44,62,85,0.45);letter-spacing:0.01em;">March 10, 2026 &nbsp;·&nbsp; 6 min read</span>
+            <span style="font-size:0.75rem;font-weight:400;color:rgba(255,255,255,0.35);letter-spacing:0.01em;">March 10, 2026 &nbsp;·&nbsp; 6 min read</span>
             <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
+              <path d="M5 12h14M12 5l7 7-7 7" stroke="#C49A4A"/>
             </svg>
           </div>
         </div>
@@ -889,19 +889,19 @@
       <a href="Pages/resources-rebalancing.html" style="text-decoration:none;">
         <div class="resource-card">
           <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;
-                    color:#1A5EA8;margin-bottom:1.25rem;">Portfolio Management</p>
+                    color:#C49A4A;margin-bottom:1.25rem;">Portfolio Management</p>
           <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:600;
-                     color:#0F1724;line-height:1.35;margin-bottom:0.875rem;">
+                     color:rgba(255,255,255,0.92);line-height:1.35;margin-bottom:0.875rem;">
             How Often Should I Rebalance My Portfolio?
           </h3>
-          <p style="font-size:0.875rem;line-height:1.7;color:#4A5568;font-weight:300;margin-bottom:1.5rem;">
+          <p style="font-size:0.875rem;line-height:1.7;color:rgba(255,255,255,0.55);font-weight:300;margin-bottom:1.5rem;">
             There is no universal answer, but the decision matters more than most investors realize.
             We break down the tradeoffs between calendar, threshold, and tactical rebalancing.
           </p>
           <div style="display:flex;align-items:center;justify-content:space-between;">
-            <span style="font-size:0.75rem;font-weight:400;color:rgba(44,62,85,0.45);letter-spacing:0.01em;">February 24, 2026 &nbsp;·&nbsp; 5 min read</span>
+            <span style="font-size:0.75rem;font-weight:400;color:rgba(255,255,255,0.35);letter-spacing:0.01em;">February 24, 2026 &nbsp;·&nbsp; 5 min read</span>
             <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
+              <path d="M5 12h14M12 5l7 7-7 7" stroke="#C49A4A"/>
             </svg>
           </div>
         </div>
@@ -910,18 +910,18 @@
       <a href="Pages/resources-tax-loss-harvesting.html" style="text-decoration:none;">
         <div class="resource-card">
           <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;
-                    color:#1A5EA8;margin-bottom:1.25rem;">Tax Strategy</p>
+                    color:#C49A4A;margin-bottom:1.25rem;">Tax Strategy</p>
           <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:600;
-                     color:#0F1724;line-height:1.35;margin-bottom:0.875rem;">
+                     color:rgba(255,255,255,0.92);line-height:1.35;margin-bottom:0.875rem;">
             Tax Loss Harvesting &amp; Direct Indexing: Turning Volatility into a Tax Advantage
           </h3>
-          <p style="font-size:0.875rem;line-height:1.7;color:#4A5568;font-weight:300;margin-bottom:1.5rem;">
+          <p style="font-size:0.875rem;line-height:1.7;color:rgba(255,255,255,0.55);font-weight:300;margin-bottom:1.5rem;">
             From basic harvesting mechanics to long/short direct indexing — how to use tax strategy
             to systematically convert market volatility into after-tax outperformance.
           </p>
           <div style="display:flex;align-items:center;justify-content:space-between;">
-            <span style="font-size:0.75rem;font-weight:400;color:rgba(44,62,85,0.45);letter-spacing:0.01em;">March 18, 2026 &nbsp;·&nbsp; 9 min read</span>
-            <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24">
+            <span style="font-size:0.75rem;font-weight:400;color:rgba(255,255,255,0.35);letter-spacing:0.01em;">March 18, 2026 &nbsp;·&nbsp; 9 min read</span>
+            <svg width="14" height="14" fill="none" stroke="#C49A4A" stroke-width="2" viewBox="0 0 24 24">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </div>
