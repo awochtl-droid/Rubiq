@@ -95,11 +95,15 @@
       box-shadow: 0 4px 16px rgba(26,94,168,0.14), 0 16px 48px rgba(26,94,168,0.10);
     }
     .resource-card {
-      transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s ease;
+      background: white;
+      border-top: 2px solid #C49A4A;
+      padding: 2rem 2rem 1.75rem;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      box-shadow: 0 1px 4px rgba(15,23,36,0.06), 0 4px 20px rgba(15,23,36,0.05);
     }
     .resource-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 16px rgba(26,94,168,0.14), 0 16px 48px rgba(26,94,168,0.10);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 16px rgba(15,23,36,0.10), 0 12px 36px rgba(15,23,36,0.08);
     }
 
     /* Award card hover */
@@ -531,8 +535,8 @@
         <h1 class="hero-headline"
             style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.25rem);
                    font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
-          Clarity <em style="font-style:italic;color:#C49A4A;">from</em><br />
-          Complexity.
+          Clarity <em style="font-style:italic;color:#C49A4A;">for</em><br />
+          Complex Capital.
         </h1>
 
         <!-- Subhead -->
@@ -1020,85 +1024,64 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
       <a href="Pages/resources-alternative-investments.html" style="text-decoration:none;">
-        <div class="resource-card bg-white rounded-lg overflow-hidden"
-             style="box-shadow:0 2px 8px rgba(26,94,168,0.08),0 8px 32px rgba(26,94,168,0.06);">
-          <div style="height:180px;overflow:hidden;position:relative;">
-            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=600&h=360&q=80"
-                 alt="Aerial mosaic of city buildings representing layered alternative investment strategies"
-                 width="600" height="360"
-                 style="width:100%;height:100%;object-fit:cover;" loading="lazy" decoding="async" />
-            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,36,0.40),transparent);"></div>
-            <div style="position:absolute;top:14px;left:14px;background:rgba(196,154,74,0.15);
-                        border:1px solid rgba(196,154,74,0.35);border-radius:3px;
-                        padding:3px 10px;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;
-                        text-transform:uppercase;color:#C49A4A;">Alternatives</div>
-          </div>
-          <div class="p-7">
-            <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;
-                       color:#0F1724;line-height:1.35;margin-bottom:0.75rem;">
-              Private Credit Market: What Investors Need to Know
-            </h3>
-            <p style="font-size:0.875rem;line-height:1.65;color:#4A5568;font-weight:300;margin-bottom:1rem;">
-              Private credit has grown into a multi-trillion dollar asset class. We explore the risks, returns,
-              and how it fits within a diversified portfolio.
-            </p>
-            <div style="font-size:0.75rem;font-weight:500;color:rgba(44,62,85,0.55);">March 10, 2026 · 6 min read</div>
+        <div class="resource-card">
+          <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;
+                    color:#C49A4A;margin-bottom:1.25rem;">Alternatives</p>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:600;
+                     color:#0F1724;line-height:1.35;margin-bottom:0.875rem;">
+            Private Credit Market: What Investors Need to Know
+          </h3>
+          <p style="font-size:0.875rem;line-height:1.7;color:#4A5568;font-weight:300;margin-bottom:1.5rem;">
+            Private credit has grown into a multi-trillion dollar asset class. We explore the risks, returns,
+            and how it fits within a diversified portfolio.
+          </p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:0.75rem;font-weight:400;color:rgba(44,62,85,0.45);letter-spacing:0.01em;">March 10, 2026 &nbsp;·&nbsp; 6 min read</span>
+            <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
           </div>
         </div>
       </a>
 
       <a href="Pages/resources-rebalancing.html" style="text-decoration:none;">
-        <div class="resource-card bg-white rounded-lg overflow-hidden"
-             style="box-shadow:0 2px 8px rgba(26,94,168,0.08),0 8px 32px rgba(26,94,168,0.06);">
-          <div style="height:180px;overflow:hidden;position:relative;">
-            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&h=360&q=80"
-                 alt="Precision balance scale representing disciplined portfolio rebalancing"
-                 width="600" height="360"
-                 style="width:100%;height:100%;object-fit:cover;" loading="lazy" decoding="async" />
-            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,36,0.40),transparent);"></div>
-            <div style="position:absolute;top:14px;left:14px;background:rgba(26,94,168,0.15);
-                        border:1px solid rgba(26,94,168,0.35);border-radius:3px;
-                        padding:3px 10px;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;
-                        text-transform:uppercase;color:#2A74C8;">Portfolio Management</div>
-          </div>
-          <div class="p-7">
-            <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;
-                       color:#0F1724;line-height:1.35;margin-bottom:0.75rem;">
-              How Often Should I Rebalance My Portfolio?
-            </h3>
-            <p style="font-size:0.875rem;line-height:1.65;color:#4A5568;font-weight:300;margin-bottom:1rem;">
-              There is no universal answer, but the decision matters more than most investors realize.
-              We break down the tradeoffs between calendar, threshold, and tactical rebalancing.
-            </p>
-            <div style="font-size:0.75rem;font-weight:500;color:rgba(44,62,85,0.55);">February 24, 2026 · 5 min read</div>
+        <div class="resource-card">
+          <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;
+                    color:#1A5EA8;margin-bottom:1.25rem;">Portfolio Management</p>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:600;
+                     color:#0F1724;line-height:1.35;margin-bottom:0.875rem;">
+            How Often Should I Rebalance My Portfolio?
+          </h3>
+          <p style="font-size:0.875rem;line-height:1.7;color:#4A5568;font-weight:300;margin-bottom:1.5rem;">
+            There is no universal answer, but the decision matters more than most investors realize.
+            We break down the tradeoffs between calendar, threshold, and tactical rebalancing.
+          </p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:0.75rem;font-weight:400;color:rgba(44,62,85,0.45);letter-spacing:0.01em;">February 24, 2026 &nbsp;·&nbsp; 5 min read</span>
+            <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
           </div>
         </div>
       </a>
 
       <a href="Pages/resources-roth-conversion.html" style="text-decoration:none;">
-        <div class="resource-card bg-white rounded-lg overflow-hidden"
-             style="box-shadow:0 2px 8px rgba(26,94,168,0.08),0 8px 32px rgba(26,94,168,0.06);">
-          <div style="height:180px;overflow:hidden;position:relative;">
-            <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=600&h=360&q=80"
-                 alt="Circular transformation imagery representing Roth IRA conversion"
-                 width="600" height="360"
-                 style="width:100%;height:100%;object-fit:cover;" loading="lazy" decoding="async" />
-            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,36,0.40),transparent);"></div>
-            <div style="position:absolute;top:14px;left:14px;background:rgba(26,94,168,0.15);
-                        border:1px solid rgba(26,94,168,0.35);border-radius:3px;
-                        padding:3px 10px;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;
-                        text-transform:uppercase;color:#2A74C8;">Tax Strategy</div>
-          </div>
-          <div class="p-7">
-            <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;
-                       color:#0F1724;line-height:1.35;margin-bottom:0.75rem;">
-              Roth Conversion Conversations: A Guide for Every Stage of Life
-            </h3>
-            <p style="font-size:0.875rem;line-height:1.65;color:#4A5568;font-weight:300;margin-bottom:1rem;">
-              When does a Roth conversion make sense — and how do you talk about it with your advisor?
-              We walk through the key questions to ask.
-            </p>
-            <div style="font-size:0.75rem;font-weight:500;color:rgba(44,62,85,0.55);">January 15, 2026 · 7 min read</div>
+        <div class="resource-card">
+          <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;
+                    color:#1A5EA8;margin-bottom:1.25rem;">Tax Strategy</p>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:600;
+                     color:#0F1724;line-height:1.35;margin-bottom:0.875rem;">
+            Roth Conversion Conversations: A Guide for Every Stage of Life
+          </h3>
+          <p style="font-size:0.875rem;line-height:1.7;color:#4A5568;font-weight:300;margin-bottom:1.5rem;">
+            When does a Roth conversion make sense — and how do you talk about it with your advisor?
+            We walk through the key questions to ask.
+          </p>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:0.75rem;font-weight:400;color:rgba(44,62,85,0.45);letter-spacing:0.01em;">January 15, 2026 &nbsp;·&nbsp; 7 min read</span>
+            <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
           </div>
         </div>
       </a>
@@ -1127,7 +1110,7 @@
       no hidden charges, no product commissions embedded in recommendations.
     </p>
     <p style="font-size:1.0625rem;line-height:1.75;color:rgba(255,255,255,0.60);font-weight:300;margin-bottom:2.5rem;">
-      Fees range from 1.50% on the first 00K to custom arrangements above 0M.
+      Fees range from 1.50% on the first $500K to custom arrangements above $50M.
       Every engagement includes comprehensive planning, not investment management alone.
     </p>
     <a href="Pages/fee-structure.html"
