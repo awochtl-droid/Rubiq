@@ -139,6 +139,13 @@
     .face-ink    .cube-cell { background: #1C2D44; }
     .face-muted  .cube-cell { background: #2C3E55; }
 
+    /* ── Cube float ── */
+    @keyframes hero-float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-22px); }
+    }
+    .cube-float { animation: hero-float 3.5s ease-in-out infinite; }
+
     /* ── Service nav pills ── */
     .svc-pill {
       display: inline-flex; align-items: center; gap: 6px;
@@ -551,6 +558,7 @@
                   position:relative;z-index:2;">
 
         <!-- Animated cube -->
+        <div class="cube-float">
         <div class="cube-scene">
           <div class="cube">
             <!-- Front face: Rubiq blue -->
@@ -591,6 +599,7 @@
             </div>
           </div>
         </div>
+        </div><!-- /cube-float -->
 
       </div>
 

@@ -139,6 +139,27 @@
       color: #C49A5A; border-color: rgba(196,154,74,0.45);
       background: rgba(196,154,74,0.06);
     }
+
+    /* ── Hero cube ── */
+    .cube-scene { perspective:700px; width:160px; height:160px; margin:0 auto; }
+    .cube { width:160px; height:160px; position:relative; transform-style:preserve-3d; animation:cubespin 18s infinite linear; }
+    @keyframes cubespin { 0% { transform:rotateX(-22deg) rotateY(0deg); } 100% { transform:rotateX(-22deg) rotateY(360deg); } }
+    .cube-face { position:absolute; width:160px; height:160px; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,1fr); gap:4px; padding:4px; border-radius:4px; }
+    .cube-face.front  { transform:translateZ(80px); }
+    .cube-face.back   { transform:rotateY(180deg) translateZ(80px); }
+    .cube-face.right  { transform:rotateY(90deg) translateZ(80px); }
+    .cube-face.left   { transform:rotateY(-90deg) translateZ(80px); }
+    .cube-face.top    { transform:rotateX(90deg) translateZ(80px); }
+    .cube-face.bottom { transform:rotateX(-90deg) translateZ(80px); }
+    .cube-cell { border-radius:3px; opacity:0.92; }
+    .face-blue  .cube-cell { background:#1A5EA8; }
+    .face-gold  .cube-cell { background:#C49A5A; }
+    .face-dark  .cube-cell { background:#133F73; }
+    .face-light .cube-cell { background:#2A74C8; }
+    .face-ink   .cube-cell { background:#1C2D44; }
+    .face-muted .cube-cell { background:#2C3E55; }
+    @keyframes hero-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-22px); } }
+    .cube-float { animation:hero-float 3.5s ease-in-out infinite; }
   </style>
   <script type="application/ld+json">
   {
@@ -258,7 +279,7 @@
      HERO
 ══════════════════════════════════════════════════════ -->
 <section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 55%,#1A5EA8 100%);
-                padding:10rem 0 7rem;position:relative;overflow:hidden;">
+                padding:10rem 0 7rem;position:relative;overflow:hidden;display:flex;align-items:center;">
 
   <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.025;pointer-events:none;" aria-hidden="true">
     <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
@@ -268,27 +289,74 @@
   <div style="position:absolute;top:-10%;right:-5%;width:55%;height:110%;
               background:radial-gradient(ellipse,rgba(196,154,74,0.10) 0%,transparent 60%);pointer-events:none;"></div>
 
-  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
-    <div style="display:inline-flex;align-items:center;gap:8px;
-                background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.25);
-                border-radius:100px;padding:0.35rem 1rem;margin-bottom:2rem;">
-      <div style="width:6px;height:6px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
-      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">
-        Rubiq Financial Partners
-      </span>
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 w-full" style="position:relative;z-index:2;">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Left: copy -->
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:8px;
+                    background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.25);
+                    border-radius:100px;padding:0.35rem 1rem;margin-bottom:2rem;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
+          <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">
+            Rubiq Financial Partners
+          </span>
+        </div>
+
+        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,3.75rem);
+                   font-weight:700;line-height:1.10;letter-spacing:-0.03em;color:white;margin-bottom:1.75rem;">
+          Experienced Advisors.<br />
+          <em style="font-style:italic;color:#D4AE6A;">Personal Relationships.</em>
+        </h1>
+
+        <p style="font-size:1.125rem;line-height:1.80;color:rgba(255,255,255,0.72);
+                  font-weight:300;max-width:540px;">
+          Our team combines deep technical expertise with a genuine commitment to the entrepreneurs,
+          business owners, and families we serve. Independent advice. No conflicts. Always fiduciary.
+        </p>
+      </div>
+
+      <!-- Right: floating cube -->
+      <div style="display:flex;align-items:center;justify-content:center;">
+        <div class="cube-float">
+          <div class="cube-scene">
+            <div class="cube">
+              <div class="cube-face front face-blue">
+                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+                <div class="cube-cell"></div><div class="cube-cell" style="background:#C49A5A;"></div><div class="cube-cell"></div>
+                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              </div>
+              <div class="cube-face back face-dark">
+                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              </div>
+              <div class="cube-face right face-gold">
+                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+                <div class="cube-cell"></div><div class="cube-cell" style="background:#1A5EA8;"></div><div class="cube-cell"></div>
+                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              </div>
+              <div class="cube-face left face-muted">
+                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              </div>
+              <div class="cube-face top face-light">
+                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              </div>
+              <div class="cube-face bottom face-ink">
+                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,3.75rem);
-               font-weight:700;line-height:1.10;letter-spacing:-0.03em;color:white;margin-bottom:1.75rem;">
-      Experienced Advisors.<br />
-      <em style="font-style:italic;color:#D4AE6A;">Personal Relationships.</em>
-    </h1>
-
-    <p style="font-size:1.125rem;line-height:1.80;color:rgba(255,255,255,0.72);
-              font-weight:300;max-width:680px;">
-      Our team combines deep technical expertise with a genuine commitment to the entrepreneurs,
-      business owners, and families we serve. Independent advice. No conflicts. Always fiduciary.
-    </p>
   </div>
 </section>
 

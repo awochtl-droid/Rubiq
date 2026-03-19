@@ -317,6 +317,13 @@
 
     }
 
+    /* ── Cube float ── */
+    @keyframes hero-float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-22px); }
+    }
+    .cube-float { animation: hero-float 3.5s ease-in-out infinite; }
+
     /* ── Mobile tap targets ── */
     @media (max-width: 767px) {
       /* Mobile nav menu items */
@@ -550,6 +557,7 @@
 
       <!-- Cube -->
       <div style="display:flex;align-items:center;justify-content:center;padding-right:1rem;">
+        <div class="cube-float">
         <div class="hero-cube-scene">
           <div class="hero-cube" id="hero-cube-el">
 
@@ -633,6 +641,7 @@
 
           </div>
         </div>
+        </div><!-- /cube-float -->
 
       </div>
 
