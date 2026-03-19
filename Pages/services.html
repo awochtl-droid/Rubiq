@@ -157,7 +157,19 @@
     /* ── Detail section ── */
     .detail-section { padding: 6rem 0; }
     .detail-section:nth-child(odd)  { background: #FAF8F4; }
-    .detail-section:nth-child(even) { background: #F4F6F9; }
+    .detail-section:nth-child(even) { background: #1C2D44; }
+
+    /* ── Dark section text overrides ── */
+    .dark-section h2 { color: white !important; }
+    .dark-section p  { color: rgba(255,255,255,0.65) !important; }
+    .dark-section div[style*="color:#0F1724"]  { color: rgba(255,255,255,0.92) !important; }
+    .dark-section div[style*="color:#4A5568"]  { color: rgba(255,255,255,0.55) !important; }
+    .dark-section div[style*="color:#2C3E55"]  { color: rgba(255,255,255,0.65) !important; }
+    .dark-section div[style*="border-top:1px solid rgba(44,62,85"] { border-top-color: rgba(255,255,255,0.12) !important; }
+    .dark-section .check-icon { background: rgba(255,255,255,0.08) !important; }
+    .dark-section .advisor-callout { background: rgba(255,255,255,0.05) !important; border-color: rgba(255,255,255,0.15) !important; border-left-color: #C49A5A !important; }
+    .dark-section .advisor-callout p[style*="color:#1A5EA8"] { color: #C49A5A !important; }
+    .dark-section .question-item { border-bottom-color: rgba(255,255,255,0.10) !important; }
 
     /* ── Check list ── */
     .check-item {
@@ -580,65 +592,6 @@
           </div>
         </div>
 
-        <!-- The six faces legend -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.875rem;max-width:340px;width:100%;">
-          <a href="#investment-management"
-             style="display:flex;align-items:center;gap:10px;text-decoration:none;
-                    background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
-                    border-radius:8px;padding:0.75rem 1rem;
-                    transition:background 0.18s ease,border-color 0.18s ease;"
-             onmouseover="this.style.background='rgba(196,154,74,0.08)';this.style.borderColor='rgba(196,154,74,0.30)'"
-             onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.borderColor='rgba(255,255,255,0.08)'">
-            <div style="width:12px;height:12px;border-radius:3px;background:#1A5EA8;flex-shrink:0;"></div>
-            <span style="font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.80);line-height:1.3;">Investments</span>
-          </a>
-          <a href="#financial-planning"
-             style="display:flex;align-items:center;gap:10px;text-decoration:none;
-                    background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
-                    border-radius:8px;padding:0.75rem 1rem;
-                    transition:background 0.18s ease,border-color 0.18s ease;"
-             onmouseover="this.style.background='rgba(196,154,74,0.08)';this.style.borderColor='rgba(196,154,74,0.30)'"
-             onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.borderColor='rgba(255,255,255,0.08)'">
-            <div style="width:12px;height:12px;border-radius:3px;background:#2A74C8;flex-shrink:0;"></div>
-            <span style="font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.80);line-height:1.3;">Financial Planning</span>
-          </a>
-          <a href="#retirement-planning"
-             style="display:flex;align-items:center;gap:10px;text-decoration:none;
-                    background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
-                    border-radius:8px;padding:0.75rem 1rem;
-                    transition:background 0.18s ease,border-color 0.18s ease;"
-             onmouseover="this.style.background='rgba(196,154,74,0.08)';this.style.borderColor='rgba(196,154,74,0.30)'"
-             onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.borderColor='rgba(255,255,255,0.08)'">
-            <div style="width:12px;height:12px;border-radius:3px;background:#C49A5A;flex-shrink:0;"></div>
-            <span style="font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.80);line-height:1.3;">Retirement</span>
-          </a>
-          <a href="#estate-legacy"
-             style="display:flex;align-items:center;gap:10px;text-decoration:none;
-                    background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
-                    border-radius:8px;padding:0.75rem 1rem;
-                    transition:background 0.18s ease,border-color 0.18s ease;"
-             onmouseover="this.style.background='rgba(196,154,74,0.08)';this.style.borderColor='rgba(196,154,74,0.30)'"
-             onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.borderColor='rgba(255,255,255,0.08)'">
-            <div style="width:12px;height:12px;border-radius:3px;background:#D4AE6A;flex-shrink:0;"></div>
-            <span style="font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.80);line-height:1.3;">Estate &amp; Legacy</span>
-          </a>
-          <a href="#tax-planning"
-             style="display:flex;align-items:center;gap:10px;text-decoration:none;
-                    background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
-                    border-radius:8px;padding:0.75rem 1rem;
-                    transition:background 0.18s ease,border-color 0.18s ease;"
-             onmouseover="this.style.background='rgba(196,154,74,0.08)';this.style.borderColor='rgba(196,154,74,0.30)'"
-             onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.borderColor='rgba(255,255,255,0.08)'">
-            <div style="width:12px;height:12px;border-radius:3px;background:#9E7A32;flex-shrink:0;"></div>
-            <span style="font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.80);line-height:1.3;">Tax Planning</span>
-          </a>
-          <div style="display:flex;align-items:center;gap:10px;
-                      background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);
-                      border-radius:8px;padding:0.75rem 1rem;">
-            <div style="width:12px;height:12px;border-radius:3px;background:#2C3E55;flex-shrink:0;"></div>
-            <span style="font-size:0.78rem;font-weight:400;color:rgba(255,255,255,0.40);line-height:1.3;font-style:italic;">All connected.</span>
-          </div>
-        </div>
       </div>
 
     </div>
@@ -808,7 +761,7 @@
 <!-- ══════════════════════════════════════════════════
      02 — FINANCIAL PLANNING
 ══════════════════════════════════════════════════════ -->
-<section id="financial-planning" class="detail-section">
+<section id="financial-planning" class="detail-section dark-section">
   <div class="max-w-7xl mx-auto px-6 lg:px-10">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
@@ -836,12 +789,12 @@
           to keep you on track.
         </p>
 
-        <div style="margin-top:2rem;background:rgba(42,116,200,0.05);border-radius:8px;
-                    border:1px solid rgba(42,116,200,0.12);padding:1.25rem 1.5rem;">
-          <p style="font-size:0.8125rem;font-weight:500;color:#2A74C8;margin-bottom:0.35rem;">
+        <div style="margin-top:2rem;background:rgba(255,255,255,0.06);border-radius:8px;
+                    border:1px solid rgba(255,255,255,0.14);padding:1.25rem 1.5rem;">
+          <p style="font-size:0.8125rem;font-weight:500;color:#C49A5A;margin-bottom:0.35rem;">
             How this face connects to the others
           </p>
-          <p style="font-size:0.875rem;line-height:1.65;color:#4A5568;font-weight:300;margin:0;">
+          <p style="font-size:0.875rem;line-height:1.65;color:rgba(255,255,255,0.60);font-weight:300;margin:0;">
             A salary increase changes your savings rate, your tax bracket, and your Roth eligibility —
             all at once. We map those implications before you make the first move.
           </p>
@@ -1042,7 +995,7 @@
 <!-- ══════════════════════════════════════════════════
      04 — ESTATE & LEGACY
 ══════════════════════════════════════════════════════ -->
-<section id="estate-legacy" class="detail-section">
+<section id="estate-legacy" class="detail-section dark-section">
   <div class="max-w-7xl mx-auto px-6 lg:px-10">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
@@ -1096,12 +1049,12 @@
           </div>
         </div>
 
-        <div style="margin-top:1.5rem;background:rgba(196,154,74,0.06);border-radius:8px;
-                    border:1px solid rgba(196,154,74,0.15);padding:1.25rem 1.5rem;">
+        <div style="margin-top:1.5rem;background:rgba(255,255,255,0.06);border-radius:8px;
+                    border:1px solid rgba(255,255,255,0.14);padding:1.25rem 1.5rem;">
           <p style="font-size:0.8125rem;font-weight:500;color:#C49A5A;margin-bottom:0.35rem;">
             How this face connects to the others
           </p>
-          <p style="font-size:0.875rem;line-height:1.65;color:#4A5568;font-weight:300;margin:0;">
+          <p style="font-size:0.875rem;line-height:1.65;color:rgba(255,255,255,0.60);font-weight:300;margin:0;">
             Changing a beneficiary designation can affect your estate tax exposure. A trust structure
             can unlock new gifting strategies. We coordinate these decisions across your entire plan.
           </p>
