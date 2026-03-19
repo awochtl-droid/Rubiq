@@ -141,23 +141,16 @@
     }
 
     /* ── Hero cube ── */
-    .cube-scene { perspective:700px; width:160px; height:160px; margin:0 auto; }
-    .cube { width:160px; height:160px; position:relative; transform-style:preserve-3d; animation:cubespin 18s infinite linear; }
-    @keyframes cubespin { 0% { transform:rotateX(-22deg) rotateY(0deg); } 100% { transform:rotateX(-22deg) rotateY(360deg); } }
-    .cube-face { position:absolute; width:160px; height:160px; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,1fr); gap:4px; padding:4px; border-radius:4px; }
-    .cube-face.front  { transform:translateZ(80px); }
-    .cube-face.back   { transform:rotateY(180deg) translateZ(80px); }
-    .cube-face.right  { transform:rotateY(90deg) translateZ(80px); }
-    .cube-face.left   { transform:rotateY(-90deg) translateZ(80px); }
-    .cube-face.top    { transform:rotateX(90deg) translateZ(80px); }
-    .cube-face.bottom { transform:rotateX(-90deg) translateZ(80px); }
-    .cube-cell { border-radius:3px; opacity:0.92; }
-    .face-blue  .cube-cell { background:#1A5EA8; }
-    .face-gold  .cube-cell { background:#C49A5A; }
-    .face-dark  .cube-cell { background:#133F73; }
-    .face-light .cube-cell { background:#2A74C8; }
-    .face-ink   .cube-cell { background:#1C2D44; }
-    .face-muted .cube-cell { background:#2C3E55; }
+    .cube-scene { perspective:800px; width:200px; height:200px; margin:0 auto; filter:drop-shadow(0 30px 60px rgba(196,154,74,0.18)) drop-shadow(0 8px 20px rgba(26,94,168,0.25)); }
+    .cube { width:200px; height:200px; position:relative; transform-style:preserve-3d; }
+    .cube-face { position:absolute; width:200px; height:200px; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,1fr); gap:5px; padding:5px; border-radius:5px; }
+    .cube-face.front  { transform:translateZ(100px); }
+    .cube-face.back   { transform:rotateY(180deg) translateZ(100px); }
+    .cube-face.right  { transform:rotateY(90deg) translateZ(100px); }
+    .cube-face.left   { transform:rotateY(-90deg) translateZ(100px); }
+    .cube-face.top    { transform:rotateX(90deg) translateZ(100px); }
+    .cube-face.bottom { transform:rotateX(-90deg) translateZ(100px); }
+    .hc { border-radius:4px; background-image:linear-gradient(145deg,rgba(255,255,255,0.22) 0%,rgba(255,255,255,0.04) 45%,rgba(0,0,0,0.18) 100%); box-shadow:inset 0 2px 2px rgba(255,255,255,0.28),inset 0 -2px 2px rgba(0,0,0,0.28),inset 2px 0 2px rgba(255,255,255,0.12),inset -2px 0 2px rgba(0,0,0,0.18); }
     @keyframes hero-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-22px); } }
     .cube-float { animation:hero-float 3.5s ease-in-out infinite; }
   </style>
@@ -320,36 +313,36 @@
       <div style="display:flex;align-items:center;justify-content:center;">
         <div class="cube-float">
           <div class="cube-scene">
-            <div class="cube">
-              <div class="cube-face front face-blue">
-                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
-                <div class="cube-cell"></div><div class="cube-cell" style="background:#C49A5A;"></div><div class="cube-cell"></div>
-                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+            <div class="cube" id="page-cube-el">
+              <div class="cube-face front">
+                <div class="hc" style="background:#1A5EA8;"></div><div class="hc" style="background:#C49A5A;"></div><div class="hc" style="background:#1A5EA8;"></div>
+                <div class="hc" style="background:#1A5EA8;"></div><div class="hc" style="background:#1A5EA8;"></div><div class="hc" style="background:#2A74C8;"></div>
+                <div class="hc" style="background:#C49A5A;"></div><div class="hc" style="background:#1A5EA8;"></div><div class="hc" style="background:#1A5EA8;"></div>
               </div>
-              <div class="cube-face back face-dark">
-                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
-                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
-                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              <div class="cube-face back">
+                <div class="hc" style="background:#133F73;"></div><div class="hc" style="background:#133F73;"></div><div class="hc" style="background:#2A74C8;"></div>
+                <div class="hc" style="background:#133F73;"></div><div class="hc" style="background:#133F73;"></div><div class="hc" style="background:#133F73;"></div>
+                <div class="hc" style="background:#133F73;"></div><div class="hc" style="background:#1A5EA8;"></div><div class="hc" style="background:#133F73;"></div>
               </div>
-              <div class="cube-face right face-gold">
-                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
-                <div class="cube-cell"></div><div class="cube-cell" style="background:#1A5EA8;"></div><div class="cube-cell"></div>
-                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              <div class="cube-face right">
+                <div class="hc" style="background:#C49A5A;"></div><div class="hc" style="background:#C49A5A;"></div><div class="hc" style="background:#C49A5A;"></div>
+                <div class="hc" style="background:#1A5EA8;"></div><div class="hc" style="background:#C49A5A;"></div><div class="hc" style="background:#C49A5A;"></div>
+                <div class="hc" style="background:#C49A5A;"></div><div class="hc" style="background:#D4AE6A;"></div><div class="hc" style="background:#C49A5A;"></div>
               </div>
-              <div class="cube-face left face-muted">
-                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
-                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
-                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              <div class="cube-face left">
+                <div class="hc" style="background:#2C3E55;"></div><div class="hc" style="background:#2C3E55;"></div><div class="hc" style="background:#C49A5A;"></div>
+                <div class="hc" style="background:#2C3E55;"></div><div class="hc" style="background:#2C3E55;"></div><div class="hc" style="background:#2C3E55;"></div>
+                <div class="hc" style="background:#9E7A32;"></div><div class="hc" style="background:#2C3E55;"></div><div class="hc" style="background:#2C3E55;"></div>
               </div>
-              <div class="cube-face top face-light">
-                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
-                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
-                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              <div class="cube-face top">
+                <div class="hc" style="background:#2A74C8;"></div><div class="hc" style="background:#2A74C8;"></div><div class="hc" style="background:#2A74C8;"></div>
+                <div class="hc" style="background:#2A74C8;"></div><div class="hc" style="background:#D4AE6A;"></div><div class="hc" style="background:#2A74C8;"></div>
+                <div class="hc" style="background:#2A74C8;"></div><div class="hc" style="background:#2A74C8;"></div><div class="hc" style="background:#1A5EA8;"></div>
               </div>
-              <div class="cube-face bottom face-ink">
-                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
-                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
-                <div class="cube-cell"></div><div class="cube-cell"></div><div class="cube-cell"></div>
+              <div class="cube-face bottom">
+                <div class="hc" style="background:#1C2D44;"></div><div class="hc" style="background:#0F1724;"></div><div class="hc" style="background:#1C2D44;"></div>
+                <div class="hc" style="background:#0F1724;"></div><div class="hc" style="background:#1C2D44;"></div><div class="hc" style="background:#0F1724;"></div>
+                <div class="hc" style="background:#1C2D44;"></div><div class="hc" style="background:#0F1724;"></div><div class="hc" style="background:#1C2D44;"></div>
               </div>
             </div>
           </div>
@@ -888,5 +881,26 @@
   </div>
 </footer>
 
+<script>
+  (function() {
+    const cube = document.getElementById('page-cube-el');
+    if (!cube) return;
+    let rx = -18, ry = 20, rz = 3;
+    let vx = 0.04, vy = 0.18, vz = 0.01;
+    function tick() {
+      if (Math.random() < 0.03) vx += (Math.random() - 0.5) * 0.18;
+      if (Math.random() < 0.03) vy += (Math.random() - 0.5) * 0.22;
+      if (Math.random() < 0.02) vz += (Math.random() - 0.5) * 0.10;
+      vx *= 0.994; vy *= 0.994; vz *= 0.994;
+      const clamp = (v, mn, mx) => Math.max(mn, Math.min(mx, v));
+      vx = clamp(vx, -0.35, 0.35); vy = clamp(vy, -0.55, 0.55); vz = clamp(vz, -0.18, 0.18);
+      if (Math.abs(vy) < 0.06) vy += (Math.random() - 0.5) * 0.12;
+      rx += vx; ry += vy; rz += vz;
+      cube.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg)`;
+      requestAnimationFrame(tick);
+    }
+    tick();
+  })();
+</script>
 </body>
 </html>
