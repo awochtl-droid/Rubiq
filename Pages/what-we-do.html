@@ -232,6 +232,15 @@
       .hero-cube-face.bottom { transform: rotateX(-90deg) translateZ(75px); }
     }
 
+    .service-pill {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.75rem; color: rgba(255,255,255,0.65); font-weight: 400; line-height: 1.4; padding: 2px 0;
+    }
+    .service-pill::before {
+      content: ''; display: inline-block; width: 4px; height: 4px;
+      border-radius: 50%; background: #C49A5A; flex-shrink: 0;
+    }
+
     /* ── Mobile tap targets ── */
     @media (max-width: 767px) {
       #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
@@ -1557,6 +1566,113 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     EVERY CLIENT ENGAGEMENT INCLUDES
+══════════════════════════════════════════════════════ -->
+<section style="background:#111B28;padding:6rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-20%;right:-10%;width:50%;height:120%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.07) 0%,transparent 65%);
+              pointer-events:none;"></div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
+                border-radius:10px;padding:2.25rem 2rem;">
+      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+                color:#C49A5A;margin-bottom:0.4rem;">Every Client Engagement Includes</p>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.375rem;font-weight:600;
+                 color:white;margin-bottom:1.5rem;line-height:1.25;">
+        Comprehensive Planning<br /><em style="font-style:italic;color:#D4AE6A;">Across Every Dimension</em>
+      </h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem 1rem;">
+        <div>
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+            <div style="width:28px;height:28px;border-radius:6px;background:rgba(26,94,168,0.20);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <span style="font-size:0.8125rem;font-weight:600;color:white;">Retirement Planning</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+            <span class="service-pill">Income Architecture &amp; Cash Flow Design</span>
+            <span class="service-pill">Distribution Sequencing &amp; Tax Efficiency</span>
+            <span class="service-pill">Deferred Compensation &amp; Executive Benefits</span>
+            <span class="service-pill">RMD Strategy &amp; Legacy Coordination</span>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+            <div style="width:28px;height:28px;border-radius:6px;background:rgba(26,94,168,0.20);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17 13 12 9 16 3 10"/></svg>
+            </div>
+            <span style="font-size:0.8125rem;font-weight:600;color:white;">Investment Planning</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+            <span class="service-pill">Portfolio Asset Allocation</span>
+            <span class="service-pill">Stock Concentration Review</span>
+            <span class="service-pill">Outside Holdings Analysis</span>
+            <span class="service-pill">Time Horizon Strategy</span>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+            <div style="width:28px;height:28px;border-radius:6px;background:rgba(196,154,74,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="14" height="14" fill="none" stroke="#C49A5A" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <span style="font-size:0.8125rem;font-weight:600;color:white;">Estate Planning</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+            <span class="service-pill">Wills &amp; Power of Attorney</span>
+            <span class="service-pill">Trusts &amp; ILIT Strategies</span>
+            <span class="service-pill">Estate Tax Planning</span>
+            <span class="service-pill">Charitable Giving</span>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+            <div style="width:28px;height:28px;border-radius:6px;background:rgba(196,154,74,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="14" height="14" fill="none" stroke="#C49A5A" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <span style="font-size:0.8125rem;font-weight:600;color:white;">Income Tax Planning</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+            <span class="service-pill">Tax Loss Harvesting</span>
+            <span class="service-pill">Roth Conversion Analysis</span>
+            <span class="service-pill">Cost Basis &amp; Gains Review</span>
+            <span class="service-pill">Deductions &amp; Credits</span>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+            <div style="width:28px;height:28px;border-radius:6px;background:rgba(26,94,168,0.20);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+            </div>
+            <span style="font-size:0.8125rem;font-weight:600;color:white;">Insurance Planning</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+            <span class="service-pill">Life &amp; Disability Coverage</span>
+            <span class="service-pill">Long-Term Care Analysis</span>
+            <span class="service-pill">Policy Review &amp; Optimization</span>
+            <span class="service-pill">Risk Gap Assessment</span>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
+            <div style="width:28px;height:28px;border-radius:6px;background:rgba(26,94,168,0.20);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <span style="font-size:0.8125rem;font-weight:600;color:white;">Business Planning</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:2px;padding-left:35px;">
+            <span class="service-pill">Business Succession Planning</span>
+            <span class="service-pill">Exit Strategy &amp; Liquidity</span>
+            <span class="service-pill">Key Person Insurance</span>
+            <span class="service-pill">Buy-Sell Agreements</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
