@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Section 351 Exchanges & ETFs: Tax-Free Portfolio Transitions | Rubiq Financial Partners</title>
+  <meta name="description" content="How Section 351 exchanges allow investors to convert concentrated or legacy holdings into diversified ETFs without triggering capital gains. Rubiq's fiduciary advisors explain the mechanics, benefits, and limitations." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/resources-section-351.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rubiq: {
+              blue:      '#1A5EA8',
+              bluedark:  '#133F73',
+              bluelight: '#2A74C8',
+              gold:      '#C49A5A',
+              goldlight: '#D4AE6A',
+              golddark:  '#9E7A32',
+              ink:       '#0F1724',
+              inksoft:   '#1C2D44',
+              slate:     '#2C3E55',
+              mist:      '#F4F6F9',
+              parchment: '#FAF8F4',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #0F1724; margin: 0; }
+
+    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.70);
+      text-decoration: none; position: relative; padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1.5px; background: #C49A5A; transition: width 0.22s ease;
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: white; }
+    .nav-link.active::after { width: 100%; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); }
+
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+    @media (max-width: 767px) {
+      #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+      footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
+    }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.625rem; font-weight: 700; color: #0F1724;
+      line-height: 1.25; letter-spacing: -0.02em;
+      margin: 2.75rem 0 1rem;
+    }
+    .article-body h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.0625rem; font-weight: 600; color: #1C2D44;
+      margin: 2rem 0 0.625rem;
+    }
+    .article-body p {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin: 0 0 1.35rem;
+    }
+    .article-body ul {
+      margin: 0 0 1.35rem 1.25rem; padding: 0;
+    }
+    .article-body ul li {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin-bottom: 0.5rem;
+      list-style: none; position: relative; padding-left: 1.25rem;
+    }
+    .article-body ul li::before {
+      content: ''; position: absolute; left: 0; top: 0.65em;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: linear-gradient(135deg, #1A5EA8, #C49A5A);
+    }
+
+    .stat-callout {
+      border-left: 3px solid #C49A5A;
+      background: linear-gradient(135deg, rgba(196,154,74,0.06), rgba(26,94,168,0.04));
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem; font-weight: 700; color: #1A5EA8;
+      line-height: 1; letter-spacing: -0.03em;
+    }
+    .stat-label {
+      font-size: 0.8125rem; font-weight: 500; color: #2C3E55;
+      letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.25rem;
+    }
+
+    .pull-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-style: italic; font-weight: 500;
+      color: #133F73; line-height: 1.55;
+      border-left: 3px solid #1A5EA8;
+      padding: 1rem 1.75rem;
+      margin: 2.5rem 0;
+    }
+
+    .comparison-row {
+      display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 0;
+    }
+    .comparison-cell {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid rgba(26,94,168,0.08);
+      font-size: 0.875rem; line-height: 1.5; color: #2C3E55;
+      font-weight: 300;
+    }
+    .comparison-header {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: white;
+      background: linear-gradient(135deg, #133F73, #1A5EA8);
+      padding: 0.875rem 1.25rem;
+    }
+
+    .resource-link {
+      display: flex; align-items: flex-start; gap: 0.875rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(26,94,168,0.12);
+      border-radius: 8px;
+      background: white;
+      text-decoration: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+      margin-bottom: 0.75rem;
+    }
+    .resource-link:hover {
+      border-color: rgba(196,154,74,0.40);
+      box-shadow: 0 4px 16px rgba(26,94,168,0.10);
+      transform: translateY(-1px);
+    }
+  </style>
+  <!-- Social / AEO -->
+  <meta property="og:type"        content="article" />
+  <meta property="og:site_name"   content="Rubiq Financial Partners" />
+  <meta property="og:title"       content="Section 351 Exchanges & ETFs: Tax-Free Portfolio Transitions | Rubiq Financial Partners" />
+  <meta property="og:description" content="How Section 351 exchanges allow investors to convert concentrated or legacy holdings into diversified ETFs without triggering capital gains. Rubiq's fiduciary advisors explain the mechanics, benefits, and limitations." />
+  <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/resources-section-351.html" />
+  <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Section 351 Exchanges & ETFs: Tax-Free Portfolio Transitions | Rubiq Financial Partners" />
+  <meta name="twitter:description" content="How Section 351 exchanges allow investors to convert concentrated or legacy holdings into diversified ETFs without triggering capital gains. Rubiq's fiduciary advisors explain the mechanics, benefits, and limitations." />
+  <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Section 351 Exchanges & ETFs: Tax-Free Portfolio Transitions",
+    "description": "How Section 351 exchanges allow investors to convert concentrated or legacy holdings into diversified ETFs without triggering capital gains. Rubiq's fiduciary advisors explain the mechanics, benefits, and limitations.",
+    "url": "https://www.rubiqfinancial.com/Pages/resources-section-351.html",
+    "datePublished": "2025-04-15",
+    "dateModified": "2025-04-15",
+    "author": { "@type": "Person", "name": "Andreas Wochtl, CFP\u00ae", "url": "https://www.rubiqfinancial.com/Pages/team.html" },
+    "publisher": { "@id": "https://www.rubiqfinancial.com/#organization" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.rubiqfinancial.com/Pages/resources-section-351.html" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home",                 "item": "https://www.rubiqfinancial.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Resources",            "item": "https://www.rubiqfinancial.com/Pages/resources.html" },
+      { "@type": "ListItem", "position": 3, "name": "Section 351 Exchanges","item": "https://www.rubiqfinancial.com/Pages/resources-section-351.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur"
+     style="background:rgba(15,23,36,0.90);border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex-shrink-0 flex items-center">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+             alt="Rubiq Financial Partners logo" width="160" height="34" style="height:34px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="what-we-do.html"  class="nav-link">What We Do</a>
+        <a href="who-we-serve.html"     class="nav-link">Who We Serve</a>
+        <a href="fee-structure.html" class="nav-link">Fee Structure</a>
+        <a href="team.html"      class="nav-link">Team</a>
+        <a href="resources.html" class="nav-link active">Resources</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://www.gdx360.com/login/securelogin/loginbase.aspx" target="_blank" rel="noopener noreferrer">
+          <button class="btn-ghost">Client Access</button>
+        </a>
+        <a href="contact.html"><button class="btn-primary">Schedule a Call</button></a>
+      </div>
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('open')"
+              class="md:hidden p-2" style="color:white;" aria-label="Open menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu"
+       style="background:rgba(15,23,36,0.97);border-top:1px solid rgba(255,255,255,0.07);
+              flex-direction:column;padding:1.5rem 1.5rem 2rem;">
+    <a href="what-we-do.html"  class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">What We Do</a>
+    <a href="who-we-serve.html"     class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">About</a>
+    <a href="fee-structure.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Fee Structure</a>
+    <a href="team.html"      class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Team</a>
+    <a href="resources.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Resources</a>
+    <div style="margin-top:1.25rem;">
+      <a href="contact.html"><button class="btn-primary" style="width:100%;">Schedule a Call</button></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<div style="position:relative;height:520px;overflow:hidden;margin-top:72px;">
+  <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1400&q=80"
+       alt="Modern glass architecture reflecting structured financial transitions"
+       width="1400" height="520"
+       style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="eager" decoding="async" fetchpriority="high" />
+  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,36,0.92) 0%,rgba(19,63,115,0.60) 50%,rgba(15,23,36,0.25) 100%);"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(26,94,168,0.20),transparent 55%);"></div>
+
+  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:3.5rem;">
+    <a href="resources.html" style="display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.55);font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;text-decoration:none;margin-bottom:1.25rem;transition:color 0.18s ease;"
+       onmouseover="this.style.color='#D4AE6A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      All Resources
+    </a>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(42,116,200,0.18);border:1px solid rgba(42,116,200,0.35);border-radius:100px;padding:0.3rem 0.9rem;margin-bottom:1.25rem;width:fit-content;">
+      <div style="width:5px;height:5px;border-radius:50%;background:#2A74C8;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#7BB3E8;">Tax Strategy</span>
+    </div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;line-height:1.12;letter-spacing:-0.03em;color:white;margin-bottom:1rem;">
+      Section 351 Exchanges:<br />Tax-Free Transitions into ETFs
+    </h1>
+    <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">April 15, 2025</span>
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);"></span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">8 min read</span>
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);"></span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">Andreas Wochtl, CFP®  ·  Rubiq Financial Partners</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ARTICLE BODY -->
+<section style="background:#FAF8F4;padding:5rem 0 6rem;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+
+      <!-- Main Content -->
+      <div class="lg:col-span-2 article-body">
+
+        <p style="font-size:1.175rem;line-height:1.80;color:#1C2D44;font-weight:400;border-left:3px solid #1A5EA8;padding-left:1.5rem;margin-bottom:2.5rem;">
+          Section 351 of the Internal Revenue Code was originally designed for corporate formations, but in recent years it has become one of the most powerful tools available to investors seeking to transition concentrated or legacy portfolios into modern, tax-efficient ETF structures — without triggering a taxable event.
+        </p>
+
+        <h2>What Is a Section 351 Exchange?</h2>
+        <p>
+          Under IRC Section 351, when one or more investors transfer appreciated securities to a newly formed investment company — or, more commonly today, to an ETF sponsor organizing a new fund — in exchange for shares of that entity, no gain or loss is recognized at the time of the transfer. The critical requirement is that the transferors, taken together, must control at least 80% of the receiving entity immediately after the exchange.
+        </p>
+        <p>
+          The provision was originally written to facilitate tax-free corporate formations: founders contributing property to a new corporation in exchange for stock should not face a taxable event simply for changing the legal wrapper around assets they already own. The logic is straightforward — nothing economically has changed, so nothing should be taxed.
+        </p>
+        <p>
+          In recent years, ETF sponsors have recognized that this same logic applies to portfolio transitions. An investor holding $5 million in a concentrated stock position has not realized any economic gain by contributing those shares to an ETF in exchange for ETF shares of equivalent value. The wealth hasn't changed hands. It has simply been restructured into a more diversified vehicle.
+        </p>
+
+        <h2>How It Works with ETFs</h2>
+        <p>
+          The mechanics of a Section 351 ETF exchange follow a specific sequence. An ETF sponsor — typically a firm like Dimensional Fund Advisors, Cambria, or one of several boutique providers — announces a new fund offering that will accept in-kind contributions of appreciated securities. Multiple investors contribute their individual stock holdings into the fund during a designated contribution window.
+        </p>
+        <p>
+          Each contributing investor receives ETF shares with a net asset value equal to the fair market value of the securities they contributed. Crucially, the cost basis of the original holdings carries over to the new ETF shares. If you bought shares of a company at $20 that are now worth $200, your ETF shares will carry that same $20 basis. The embedded gain does not disappear — it is deferred.
+        </p>
+        <p>
+          The key benefit is immediate diversification without an immediate tax bill. An investor who might owe $1 million or more in capital gains taxes on a direct sale can instead transition into a broadly diversified ETF portfolio and defer that tax liability indefinitely — or until they choose to sell the ETF shares.
+        </p>
+
+        <!-- Comparison Table -->
+        <div style="border:1px solid rgba(26,94,168,0.12);border-radius:10px;overflow:hidden;margin:1.5rem 0 2rem;">
+          <div class="comparison-row">
+            <div class="comparison-header">Strategy</div>
+            <div class="comparison-header">Tax Impact</div>
+            <div class="comparison-header">Diversification</div>
+            <div class="comparison-header">Complexity</div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-cell" style="font-weight:600;color:#0F1724;">Direct Sale & Reinvest</div>
+            <div class="comparison-cell">Immediate capital gains tax</div>
+            <div class="comparison-cell">Full diversification</div>
+            <div class="comparison-cell">Low</div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-cell" style="font-weight:600;color:#0F1724;">Section 351 Exchange</div>
+            <div class="comparison-cell">No immediate tax (deferred)</div>
+            <div class="comparison-cell">Full diversification via ETF</div>
+            <div class="comparison-cell">Moderate</div>
+          </div>
+          <div class="comparison-row" style="border-bottom:none;">
+            <div class="comparison-cell" style="font-weight:600;color:#0F1724;">Exchange Fund (LP)</div>
+            <div class="comparison-cell">No immediate tax (deferred)</div>
+            <div class="comparison-cell">Partial diversification</div>
+            <div class="comparison-cell">High (7-year lock-up)</div>
+          </div>
+        </div>
+
+        <h2>Who Benefits Most</h2>
+        <p>
+          The Section 351 exchange is not a mass-market product. It is designed for investors who hold significant concentrated positions with large embedded gains — the kind of positions where a direct sale would generate a six- or seven-figure tax bill. Three groups tend to benefit most:
+        </p>
+        <ul>
+          <li><strong>Founders and executives</strong> with concentrated single-stock positions accumulated through equity compensation, IPO shares, or long-tenured employment at a single company. These investors often hold 30–70% of their net worth in a single security.</li>
+          <li><strong>Legacy portfolio holders</strong> with decades of unrealized gains in individual stocks inherited or purchased at very low cost bases — sometimes positions dating back to the 1980s or 1990s with 90%+ embedded gains.</li>
+          <li><strong>Real estate investors</strong> who have sold properties (perhaps through 1031 exchanges that eventually terminated) and now hold appreciated REIT or equity positions where further diversification is needed but the tax cost of selling is prohibitive.</li>
+        </ul>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4" style="margin:2rem 0;">
+          <div class="stat-callout" style="border-left-color:#1A5EA8;">
+            <div class="stat-number">$0</div>
+            <div class="stat-label">Capital gains tax at time of exchange</div>
+          </div>
+          <div class="stat-callout">
+            <div class="stat-number">80%</div>
+            <div class="stat-label">Minimum control threshold required by IRC §351</div>
+          </div>
+          <div class="stat-callout" style="border-left-color:#1C2D44;">
+            <div class="stat-number" style="font-size:2rem;">Carry-over</div>
+            <div class="stat-label">Cost basis transfers from original shares to ETF shares</div>
+          </div>
+        </div>
+
+        <h2>The ETF Advantage</h2>
+        <p>
+          Why are ETFs the ideal receiving vehicle for a Section 351 exchange? The answer lies in the ETF's unique structural advantage: the in-kind creation and redemption mechanism. When authorized participants create or redeem ETF shares, they do so by exchanging baskets of underlying securities rather than cash. This means the ETF itself rarely needs to sell holdings internally, and therefore rarely distributes capital gains to its shareholders.
+        </p>
+        <p>
+          This creates what we call the double benefit of the Section 351 ETF exchange. The 351 exchange gets you into the diversified portfolio tax-free. And the ETF structure keeps the ongoing tax drag minimal once you are inside. Compare this to a traditional mutual fund, where internal trading and annual capital gains distributions can erode after-tax returns by 1–2% annually, and the advantage becomes clear.
+        </p>
+        <p>
+          For an investor with a $5 million concentrated position, the combination of tax-free entry via Section 351 and ongoing tax efficiency via the ETF wrapper can represent hundreds of thousands of dollars in preserved wealth over a 10–20 year horizon compared to selling, paying tax, and reinvesting into a mutual fund.
+        </p>
+
+        <h2>Limitations and Considerations</h2>
+        <p>
+          Section 351 exchanges are powerful, but they come with meaningful constraints that every investor should understand before proceeding:
+        </p>
+        <ul>
+          <li><strong>Limited availability.</strong> Not all ETF sponsors offer 351 exchange programs. The universe of participating sponsors is relatively small, and new offerings are typically announced with specific contribution windows that may open only once or twice per year.</li>
+          <li><strong>High minimums.</strong> Minimum contribution thresholds are typically $1 million or more. Some programs set the floor at $2.5 million or $5 million. This is not a tool for small or moderate portfolios.</li>
+          <li><strong>Basis carries over.</strong> The original cost basis transfers to the new ETF shares. The gain is deferred, not eliminated. When you eventually sell the ETF shares, you will owe capital gains tax on the full appreciation from the original purchase price.</li>
+          <li><strong>Diversification requirements.</strong> The IRS requires that the resulting fund be sufficiently diversified. Contributions of a single stock from a single investor that would dominate the fund may not qualify. This is why 351 exchanges are typically organized as pooled offerings with multiple contributors.</li>
+          <li><strong>Wash sale considerations.</strong> If you sell substantially identical securities within 30 days before or after the exchange, wash sale rules may apply, potentially disallowing certain loss deductions.</li>
+          <li><strong>The 80% control test.</strong> The transferors must collectively control 80% or more of the receiving entity immediately after the exchange. This means these programs are typically structured with specific enrollment windows where all participants contribute simultaneously.</li>
+        </ul>
+
+        <div class="pull-quote">
+          "Section 351 doesn't eliminate your tax liability — it defers it. But when combined with the structural tax efficiency of an ETF, the total after-tax outcome can be dramatically better than selling and reinvesting."
+        </div>
+
+        <h2>How Rubiq Approaches 351 Exchanges</h2>
+        <p>
+          We evaluate each client's concentrated positions holistically, considering the full range of available strategies: Section 351 exchanges, exchange funds, charitable remainder trusts, qualified opportunity zone investments, protective option collars, and staged liquidation plans. The right answer depends on the size of the position, the embedded gain, the client's income trajectory, their charitable intentions, and their liquidity needs.
+        </p>
+        <p>
+          For clients with $1 million or more in a single concentrated position, the Section 351 exchange conversation is always on the table. We maintain relationships with the ETF sponsors that offer these programs and track their contribution windows so that when a client is ready to act, the infrastructure is already in place.
+        </p>
+        <p>
+          What we consistently find is that the optimal approach for most concentrated position holders is not a single strategy but a coordinated combination — perhaps contributing a portion of the position to a 351 exchange ETF, donating appreciated shares to a donor-advised fund, and liquidating a slice in a low-income year. The goal is always the same: maximize after-tax diversification while preserving as much wealth as possible for the client's long-term objectives.
+        </p>
+
+      </div><!-- /main content -->
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-1">
+        <div style="position:sticky;top:100px;">
+
+          <!-- Key Stats Box -->
+          <div style="background:linear-gradient(160deg,#0F1724,#133F73);border-radius:10px;padding:2rem;margin-bottom:1.75rem;">
+            <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C49A5A;margin-bottom:1.25rem;">By the Numbers</div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">$0</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Capital gains tax triggered at time of Section 351 exchange</div>
+            </div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">80%</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Minimum collective control threshold (IRC §351)</div>
+            </div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">Carry-over</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Original cost basis transfers to new ETF shares</div>
+            </div>
+            <div>
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">$1M+</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Typical minimum contribution for 351 exchange programs</div>
+            </div>
+          </div>
+
+          <!-- External Resources -->
+          <div style="margin-bottom:1.75rem;">
+            <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2C3E55;margin-bottom:1rem;">Further Reading</div>
+
+            <a href="https://www.law.cornell.edu/uscode/text/26/351" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">IRS: Section 351 — Transfer to Corporation Controlled by Transferor</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Official IRC statutory text</div>
+              </div>
+            </a>
+
+            <a href="https://www.dimensional.com/us-en/insights/tax-managed-solutions" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">Dimensional Fund Advisors: Tax-Managed Transitions</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Research on tax-efficient portfolio restructuring</div>
+              </div>
+            </a>
+
+            <a href="https://www.etf.com/sections/features-and-news/how-section-351-etf-conversions-work" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">ETF.com: How Section 351 ETF Conversions Work</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Mechanics and practical considerations</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- CTA -->
+          <div style="background:linear-gradient(135deg,rgba(26,94,168,0.08),rgba(196,154,74,0.06));border:1px solid rgba(26,94,168,0.18);border-radius:10px;padding:1.75rem;">
+            <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:#0F1724;margin-bottom:0.625rem;line-height:1.3;">
+              Holding a concentrated position?
+            </div>
+            <p style="font-size:0.875rem;line-height:1.6;color:#4A5568;font-weight:300;margin-bottom:1.25rem;">
+              We can evaluate whether a Section 351 exchange, exchange fund, or staged liquidation is the right path for your situation.
+            </p>
+            <a href="contact.html">
+              <button class="btn-primary" style="width:100%;text-align:center;">Schedule a Consultation</button>
+            </a>
+          </div>
+
+        </div>
+      </div><!-- /sidebar -->
+
+    </div><!-- /grid -->
+  </div>
+</section>
+
+
+<!-- RELATED ARTICLES -->
+<section style="background:white;padding:5rem 0;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div style="width:48px;height:3px;background:linear-gradient(90deg,#1A5EA8,#C49A5A);border-radius:2px;margin-bottom:1rem;"></div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#0F1724;margin-bottom:2.5rem;letter-spacing:-0.02em;">Continue Reading</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <a href="resources-tax-loss-harvesting.html" style="text-decoration:none;display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;border:1px solid rgba(26,94,168,0.10);border-radius:10px;background:#FAF8F4;transition:box-shadow 0.22s ease,transform 0.22s ease;"
+         onmouseover="this.style.boxShadow='0 8px 32px rgba(26,94,168,0.12)';this.style.transform='translateY(-2px)'"
+         onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+        <div style="width:80px;height:64px;border-radius:6px;overflow:hidden;flex-shrink:0;">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=160&h=128&q=80"
+               alt="Financial planning documents" width="160" height="128" style="width:100%;height:100%;object-fit:cover;" loading="lazy" decoding="async" />
+        </div>
+        <div>
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2A74C8;margin-bottom:0.4rem;">Tax Strategy</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#0F1724;line-height:1.35;">Tax-Loss Harvesting: Turning Market Declines into Tax Savings</div>
+          <div style="font-size:0.75rem;color:#6B7280;margin-top:0.4rem;">Tax Strategy · 6 min read</div>
+        </div>
+      </a>
+
+      <a href="resources-roth-conversion.html" style="text-decoration:none;display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;border:1px solid rgba(26,94,168,0.10);border-radius:10px;background:#FAF8F4;transition:box-shadow 0.22s ease,transform 0.22s ease;"
+         onmouseover="this.style.boxShadow='0 8px 32px rgba(26,94,168,0.12)';this.style.transform='translateY(-2px)'"
+         onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+        <div style="width:80px;height:64px;border-radius:6px;overflow:hidden;flex-shrink:0;">
+          <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=160&h=128&q=80"
+               alt="Transformation and growth" width="160" height="128" style="width:100%;height:100%;object-fit:cover;" loading="lazy" decoding="async" />
+        </div>
+        <div>
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2A74C8;margin-bottom:0.4rem;">Tax Strategy</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#0F1724;line-height:1.35;">Roth Conversion Conversations: A Guide for Every Stage of Life</div>
+          <div style="font-size:0.75rem;color:#6B7280;margin-top:0.4rem;">Jan 15, 2026 · 7 min read</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer style="background:#0F1724;padding:2rem 0;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+         alt="Rubiq Financial Partners logo" width="120" height="26" style="height:26px;width:auto;opacity:0.70;" loading="lazy" decoding="async" />
+    <div style="text-align:center;">
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.28);margin:0 0 0.35rem;">
+        &copy; 2026 Rubiq Financial Partners LLC. All rights reserved.
+      </p>
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.18);margin:0 0 0.5rem;line-height:1.6;font-weight:300;">
+        Advisory services offered through Wealthcare Advisory Partners. Brokerage products offered through LPL Financial, Member FINRA/SIPC.
+      </p>
+      <div style="display:flex;justify-content:center;gap:1.5rem;">
+        <a href="privacy-policy.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Privacy Policy</a>
+        <a href="terms-of-use.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Terms of Use</a>
+        <a href="faq.html"
+           style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">
+          FAQ
+        </a>
+        <a href="sitemap.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Sitemap</a>
+      </div>
+    </div>
+    <a href="resources.html" style="font-size:0.75rem;font-weight:500;color:rgba(255,255,255,0.45);text-decoration:none;white-space:nowrap;letter-spacing:0.03em;transition:color 0.18s ease;"
+       onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+      ← Back to Resources
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
