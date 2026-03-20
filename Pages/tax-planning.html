@@ -112,6 +112,59 @@
     .dark-section .advisor-callout p[style*="color:#1A5EA8"] { color: #C49A5A !important; }
     .dark-section .question-item { border-bottom-color: rgba(255,255,255,0.10) !important; }
 
+    /* ── Hero cube ── */
+    .hero-cube-scene {
+      perspective: 800px;
+      width: 200px; height: 200px;
+      margin: 0 auto;
+      filter: drop-shadow(0 30px 60px rgba(196,154,74,0.18)) drop-shadow(0 8px 20px rgba(26,94,168,0.25));
+    }
+    .hero-cube {
+      width: 200px; height: 200px;
+      position: relative;
+      transform-style: preserve-3d;
+    }
+    .hero-cube-face {
+      position: absolute;
+      width: 200px; height: 200px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 5px; padding: 5px;
+      border-radius: 5px;
+    }
+    .hero-cube-face.front  { transform: translateZ(100px); }
+    .hero-cube-face.back   { transform: rotateY(180deg) translateZ(100px); }
+    .hero-cube-face.right  { transform: rotateY(90deg)  translateZ(100px); }
+    .hero-cube-face.left   { transform: rotateY(-90deg) translateZ(100px); }
+    .hero-cube-face.top    { transform: rotateX(90deg)  translateZ(100px); }
+    .hero-cube-face.bottom { transform: rotateX(-90deg) translateZ(100px); }
+    .hc {
+      border-radius: 4px;
+      background-image: linear-gradient(145deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.04) 45%, rgba(0,0,0,0.18) 100%);
+      box-shadow:
+        inset 0 2px 2px rgba(255,255,255,0.28),
+        inset 0 -2px 2px rgba(0,0,0,0.28),
+        inset 2px 0 2px rgba(255,255,255,0.12),
+        inset -2px 0 2px rgba(0,0,0,0.18);
+    }
+    @keyframes hero-float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-22px); }
+    }
+    .cube-float { animation: hero-float 3.5s ease-in-out infinite; }
+    @media (max-width: 768px) {
+      .hero-cube-scene { width: 150px; height: 150px; }
+      .hero-cube { width: 150px; height: 150px; }
+      .hero-cube-face { width: 150px; height: 150px; }
+      .hero-cube-face.front  { transform: translateZ(75px); }
+      .hero-cube-face.back   { transform: rotateY(180deg) translateZ(75px); }
+      .hero-cube-face.right  { transform: rotateY(90deg)  translateZ(75px); }
+      .hero-cube-face.left   { transform: rotateY(-90deg) translateZ(75px); }
+      .hero-cube-face.top    { transform: rotateX(90deg)  translateZ(75px); }
+      .hero-cube-face.bottom { transform: rotateX(-90deg) translateZ(75px); }
+    }
+
     /* ── Check list ── */
     .check-item {
       display: flex; align-items: flex-start; gap: 12px;
@@ -217,34 +270,128 @@
      HERO
 ══════════════════════════════════════════════════════ -->
 <section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 50%,#1A5EA8 100%);
-                padding:9rem 0 6rem;position:relative;overflow:hidden;">
+                padding:7rem 0 5rem;position:relative;overflow:hidden;
+                display:flex;align-items:center;min-height:520px;">
   <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.025;pointer-events:none;" aria-hidden="true">
     <filter id="grain2"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
     <feColorMatrix type="saturate" values="0"/></filter>
     <rect width="100%" height="100%" filter="url(#grain2)"/>
   </svg>
   <div style="position:absolute;top:-10%;right:-5%;width:55%;height:110%;
-              background:radial-gradient(ellipse,rgba(196,154,74,0.12) 0%,transparent 60%);pointer-events:none;"></div>
-  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
-    <a href="what-we-do.html" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:2rem;
-      font-size:0.75rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(255,255,255,0.45);
-      text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
-      ← What We Do
-    </a>
-    <div style="display:inline-flex;align-items:center;gap:8px;
-                background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.25);
-                border-radius:100px;padding:0.35rem 1rem;margin-bottom:1.75rem;">
-      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">
-        Rubiq Financial Partners
-      </span>
+              background:radial-gradient(ellipse,rgba(196,154,74,0.12) 0%,transparent 60%);
+              pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-20%;left:-5%;width:45%;height:90%;
+              background:radial-gradient(ellipse,rgba(42,116,200,0.15) 0%,transparent 65%);
+              pointer-events:none;"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Left: copy -->
+      <div style="position:relative;z-index:2;">
+        <a href="what-we-do.html" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:2rem;
+          font-size:0.75rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(255,255,255,0.45);
+          text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+          ← What We Do
+        </a>
+        <div style="display:inline-flex;align-items:center;gap:8px;
+                    background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.25);
+                    border-radius:100px;padding:0.35rem 1rem;margin-bottom:2rem;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
+          <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">
+            Rubiq Financial Partners
+          </span>
+        </div>
+
+        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.25rem);
+                   font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
+          Tax &amp; Estate<br /><em style="font-style:italic;color:#D4AE6A;">Planning</em>
+        </h1>
+
+        <p style="font-size:1.125rem;line-height:1.7;color:rgba(255,255,255,0.75);
+                  font-weight:300;max-width:500px;">
+          Tax awareness is embedded in every decision we make. From Roth conversion timing to business sale structuring to estate transfer strategies — we think in after-tax terms, always, and plan for what you keep.
+        </p>
+      </div>
+
+      <!-- Right: Animated cube -->
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3rem;
+                  position:relative;z-index:2;">
+        <div class="cube-float">
+        <div class="hero-cube-scene">
+          <div class="hero-cube" id="page-cube-el">
+            <div class="hero-cube-face front">
+              <div class="hc" style="background:#1A5EA8;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#1A5EA8;"></div>
+              <div class="hc" style="background:#1A5EA8;"></div>
+              <div class="hc" style="background:#1A5EA8;"></div>
+              <div class="hc" style="background:#2A74C8;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#1A5EA8;"></div>
+              <div class="hc" style="background:#1A5EA8;"></div>
+            </div>
+            <div class="hero-cube-face back">
+              <div class="hc" style="background:#133F73;"></div>
+              <div class="hc" style="background:#133F73;"></div>
+              <div class="hc" style="background:#2A74C8;"></div>
+              <div class="hc" style="background:#133F73;"></div>
+              <div class="hc" style="background:#133F73;"></div>
+              <div class="hc" style="background:#133F73;"></div>
+              <div class="hc" style="background:#133F73;"></div>
+              <div class="hc" style="background:#1A5EA8;"></div>
+              <div class="hc" style="background:#133F73;"></div>
+            </div>
+            <div class="hero-cube-face right">
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#1A5EA8;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#D4AE6A;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+            </div>
+            <div class="hero-cube-face left">
+              <div class="hc" style="background:#2C3E55;"></div>
+              <div class="hc" style="background:#2C3E55;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#2C3E55;"></div>
+              <div class="hc" style="background:#2C3E55;"></div>
+              <div class="hc" style="background:#2C3E55;"></div>
+              <div class="hc" style="background:#9E7A32;"></div>
+              <div class="hc" style="background:#2C3E55;"></div>
+              <div class="hc" style="background:#2C3E55;"></div>
+            </div>
+            <div class="hero-cube-face top">
+              <div class="hc" style="background:#2A74C8;"></div>
+              <div class="hc" style="background:#2A74C8;"></div>
+              <div class="hc" style="background:#2A74C8;"></div>
+              <div class="hc" style="background:#2A74C8;"></div>
+              <div class="hc" style="background:#D4AE6A;"></div>
+              <div class="hc" style="background:#2A74C8;"></div>
+              <div class="hc" style="background:#2A74C8;"></div>
+              <div class="hc" style="background:#2A74C8;"></div>
+              <div class="hc" style="background:#1A5EA8;"></div>
+            </div>
+            <div class="hero-cube-face bottom">
+              <div class="hc" style="background:#1C2D44;"></div>
+              <div class="hc" style="background:#0F1724;"></div>
+              <div class="hc" style="background:#1C2D44;"></div>
+              <div class="hc" style="background:#0F1724;"></div>
+              <div class="hc" style="background:#1C2D44;"></div>
+              <div class="hc" style="background:#0F1724;"></div>
+              <div class="hc" style="background:#1C2D44;"></div>
+              <div class="hc" style="background:#0F1724;"></div>
+              <div class="hc" style="background:#1C2D44;"></div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
     </div>
-    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.25rem);
-               font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
-      Tax &amp; Estate<br /><em style="font-style:italic;color:#D4AE6A;">Planning</em>
-    </h1>
-    <p style="font-size:1.125rem;line-height:1.7;color:rgba(255,255,255,0.75);font-weight:300;max-width:600px;">
-      Tax awareness is embedded in every decision we make. From Roth conversion timing to business sale structuring to estate transfer strategies — we think in after-tax terms, always, and plan for what you keep.
-    </p>
   </div>
 </section>
 
@@ -611,6 +758,31 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // ── Hero cube: random tumble ──
+  (function() {
+    const cube = document.getElementById('page-cube-el');
+    if (!cube) return;
+    let rx = -18, ry = 20, rz = 3;
+    let vx = 0.04, vy = 0.18, vz = 0.01;
+    function tick() {
+      if (Math.random() < 0.03) vx += (Math.random() - 0.5) * 0.18;
+      if (Math.random() < 0.03) vy += (Math.random() - 0.5) * 0.22;
+      if (Math.random() < 0.02) vz += (Math.random() - 0.5) * 0.10;
+      vx *= 0.994; vy *= 0.994; vz *= 0.994;
+      const clamp = (v, mn, mx) => Math.max(mn, Math.min(mx, v));
+      vx = clamp(vx, -0.35, 0.35);
+      vy = clamp(vy, -0.55, 0.55);
+      vz = clamp(vz, -0.18, 0.18);
+      if (Math.abs(vy) < 0.06) vy += (Math.random() - 0.5) * 0.12;
+      rx += vx; ry += vy; rz += vz;
+      cube.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg)`;
+      requestAnimationFrame(tick);
+    }
+    tick();
+  })();
+</script>
 
 </body>
 </html>
