@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qualified Opportunity Zones | Chester County | Rubiq Financial Partners</title>
+  <meta name="description" content="Rubiq's fiduciary advisors explain Qualified Opportunity Zones — tax deferral, the 10-year exclusion, depreciation benefits, and 2025 legislative updates." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/resources-opportunity-zones.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rubiq: {
+              blue:      '#1A5EA8',
+              bluedark:  '#133F73',
+              bluelight: '#2A74C8',
+              gold:      '#C49A5A',
+              goldlight: '#D4AE6A',
+              golddark:  '#9E7A32',
+              ink:       '#0F1724',
+              inksoft:   '#1C2D44',
+              slate:     '#2C3E55',
+              mist:      '#F4F6F9',
+              parchment: '#FAF8F4',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #0F1724; margin: 0; }
+
+    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.70);
+      text-decoration: none; position: relative; padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1.5px; background: #C49A5A; transition: width 0.22s ease;
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: white; }
+    .nav-link.active::after { width: 100%; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); }
+
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+    @media (max-width: 767px) {
+      #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+      footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
+    }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.625rem; font-weight: 700; color: #0F1724;
+      line-height: 1.25; letter-spacing: -0.02em;
+      margin: 2.75rem 0 1rem;
+    }
+    .article-body h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.0625rem; font-weight: 600; color: #1C2D44;
+      margin: 2rem 0 0.625rem;
+    }
+    .article-body p {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin: 0 0 1.35rem;
+    }
+    .article-body ul {
+      margin: 0 0 1.35rem 1.25rem; padding: 0;
+    }
+    .article-body ul li {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin-bottom: 0.5rem;
+      list-style: none; position: relative; padding-left: 1.25rem;
+    }
+    .article-body ul li::before {
+      content: ''; position: absolute; left: 0; top: 0.65em;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: linear-gradient(135deg, #1A5EA8, #C49A5A);
+    }
+    .article-body ol {
+      margin: 0 0 1.35rem 1.25rem; padding: 0;
+      counter-reset: step-counter;
+    }
+    .article-body ol li {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin-bottom: 0.75rem;
+      list-style: none; position: relative; padding-left: 2.5rem;
+    }
+    .article-body ol li::before {
+      counter-increment: step-counter;
+      content: counter(step-counter);
+      position: absolute; left: 0; top: 0.1em;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: linear-gradient(135deg, #1A5EA8, #133F73);
+      color: white; font-weight: 600; font-size: 0.8rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .stat-callout {
+      border-left: 3px solid #C49A5A;
+      background: linear-gradient(135deg, rgba(196,154,74,0.06), rgba(26,94,168,0.04));
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem; font-weight: 700; color: #1A5EA8;
+      line-height: 1; letter-spacing: -0.03em;
+    }
+    .stat-label {
+      font-size: 0.8125rem; font-weight: 500; color: #2C3E55;
+      letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.25rem;
+    }
+
+    .pull-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-style: italic; font-weight: 500;
+      color: #133F73; line-height: 1.55;
+      border-left: 3px solid #1A5EA8;
+      padding: 1rem 1.75rem;
+      margin: 2.5rem 0;
+    }
+
+    .resource-link {
+      display: flex; align-items: flex-start; gap: 0.875rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(26,94,168,0.12);
+      border-radius: 8px;
+      background: white;
+      text-decoration: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+      margin-bottom: 0.75rem;
+    }
+    .resource-link:hover {
+      border-color: rgba(196,154,74,0.40);
+      box-shadow: 0 4px 16px rgba(26,94,168,0.10);
+      transform: translateY(-1px);
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(26,94,168,0.06), rgba(196,154,74,0.06));
+      border: 1px solid rgba(26,94,168,0.15);
+      border-radius: 10px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+    .highlight-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 600; color: #0F1724;
+      margin: 0 0 1rem;
+    }
+  </style>
+  <!-- Social / AEO -->
+  <meta property="og:type"        content="article" />
+  <meta property="og:site_name"   content="Rubiq Financial Partners" />
+  <meta property="og:title"       content="Qualified Opportunity Zones | Rubiq Financial Partners" />
+  <meta property="og:description" content="How Qualified Opportunity Zones allow investors to defer capital gains, access depreciation benefits, and potentially eliminate taxes on new investment gains after 10 years." />
+  <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/resources-opportunity-zones.html" />
+  <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Qualified Opportunity Zones | Rubiq Financial Partners" />
+  <meta name="twitter:description" content="How Qualified Opportunity Zones allow investors to defer capital gains, access depreciation benefits, and potentially eliminate taxes on new investment gains after 10 years." />
+  <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Qualified Opportunity Zones: Tax Deferral, Depreciation, and the 10-Year Exit",
+    "description": "How Qualified Opportunity Zones allow investors to defer capital gains, access depreciation benefits, and potentially eliminate taxes on new investment gains after 10 years.",
+    "url": "https://www.rubiqfinancial.com/Pages/resources-opportunity-zones.html",
+    "datePublished": "2025-11-06",
+    "dateModified": "2025-11-06",
+    "author": { "@type": "Person", "name": "Andreas Wochtl, CFP®", "url": "https://www.rubiqfinancial.com/Pages/team.html" },
+    "publisher": { "@id": "https://www.rubiqfinancial.com/#organization" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.rubiqfinancial.com/Pages/resources-opportunity-zones.html" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home",      "item": "https://www.rubiqfinancial.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.rubiqfinancial.com/Pages/resources.html" },
+      { "@type": "ListItem", "position": 3, "name": "Qualified Opportunity Zones", "item": "https://www.rubiqfinancial.com/Pages/resources-opportunity-zones.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur"
+     style="background:rgba(15,23,36,0.90);border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex-shrink-0 flex items-center">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+             alt="Rubiq Financial Partners logo" width="160" height="34" style="height:34px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="what-we-do.html"      class="nav-link">What We Do</a>
+        <a href="who-we-serve.html"    class="nav-link">Who We Serve</a>
+        <a href="team.html"            class="nav-link">Who We Are</a>
+        <a href="resources.html"       class="nav-link active">Resources</a>
+        <a href="fee-structure.html"   class="nav-link">Fee Structure</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://www.gdx360.com/login/securelogin/loginbase.aspx" target="_blank" rel="noopener noreferrer">
+          <button class="btn-ghost">Client Access</button>
+        </a>
+        <a href="contact.html"><button class="btn-primary">Schedule a Call</button></a>
+      </div>
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('open')"
+              class="md:hidden p-2" style="color:white;" aria-label="Open menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu"
+       style="background:rgba(15,23,36,0.97);border-top:1px solid rgba(255,255,255,0.07);
+              flex-direction:column;padding:1.5rem 1.5rem 2rem;">
+    <a href="what-we-do.html"    class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">What We Do</a>
+    <a href="who-we-serve.html"  class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Who We Serve</a>
+    <a href="team.html"          class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Who We Are</a>
+    <a href="resources.html"     class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Resources</a>
+    <a href="fee-structure.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Fee Structure</a>
+    <div style="margin-top:1.25rem;">
+      <a href="contact.html"><button class="btn-primary" style="width:100%;">Schedule a Call</button></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<div style="position:relative;height:520px;overflow:hidden;margin-top:72px;">
+  <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=1400&q=80"
+       alt="Urban development and construction representing Qualified Opportunity Zone investment"
+       width="1400" height="520"
+       style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="eager" decoding="async" fetchpriority="high" />
+  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,36,0.90) 0%,rgba(15,23,36,0.55) 50%,rgba(15,23,36,0.30) 100%);"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(196,154,74,0.18),transparent 60%);"></div>
+
+  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:3.5rem;">
+    <a href="resources.html" style="display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.55);font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;text-decoration:none;margin-bottom:1.25rem;transition:color 0.18s ease;"
+       onmouseover="this.style.color='#D4AE6A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      All Resources
+    </a>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(196,154,74,0.15);border:1px solid rgba(196,154,74,0.35);border-radius:100px;padding:0.3rem 0.9rem;margin-bottom:1.25rem;width:fit-content;">
+      <div style="width:5px;height:5px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">Tax Strategy</span>
+    </div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;line-height:1.12;letter-spacing:-0.03em;color:white;margin-bottom:1rem;">
+      Qualified Opportunity Zones:<br />Tax Deferral, Depreciation &amp; the 10-Year Exit
+    </h1>
+    <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">November 6, 2025</span>
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);"></span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">10 min read</span>
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);"></span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">Andreas Wochtl, CFP&reg;  &middot;  Rubiq Financial Partners</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ARTICLE BODY -->
+<section style="background:#FAF8F4;padding:5rem 0 6rem;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+
+      <!-- Main Content -->
+      <div class="lg:col-span-2 article-body">
+
+        <p style="font-size:1.175rem;line-height:1.80;color:#1C2D44;font-weight:400;border-left:3px solid #C49A5A;padding-left:1.5rem;margin-bottom:2.5rem;">
+          Qualified Opportunity Zones remain one of the most powerful tax incentives available to investors with realized capital gains. Created by the Tax Cuts and Jobs Act of 2017 (IRC &sect;1400Z-2), the program offers three distinct tax benefits &mdash; deferral of existing gains, a potential step-up in basis, and a full exclusion of new gains after a 10-year hold. For investors who understand the mechanics and the deadlines, the economics can be compelling.
+        </p>
+
+        <h2>How the Program Works</h2>
+        <p>
+          The Opportunity Zone program designates approximately 8,764 census tracts across the United States as Qualified Opportunity Zones (QOZs). These are generally low-income communities that Congress identified as benefiting from private investment. The incentive is straightforward: invest capital gains into a Qualified Opportunity Fund (QOF) that deploys capital into these zones, and you receive favorable tax treatment in return.
+        </p>
+        <p>
+          The program is available for any type of capital gain &mdash; short-term, long-term, Section 1231 gains from business or real estate sales, and gains from the sale of stocks, bonds, or other investments. The gain must be invested within 180 days of the sale event (with some extensions for partnership and S corporation gains, where the 180-day clock can start at the end of the entity&rsquo;s tax year).
+        </p>
+
+        <h2>The Three Tax Benefits</h2>
+
+        <h3>1. Capital Gains Deferral</h3>
+        <p>
+          When you invest a realized capital gain into a QOF, you defer the tax on that gain. Under the original 2017 rules, the deferred gain was recognized on the earlier of the date you sold the QOF investment or December 31, 2026. The One Big Beautiful Bill Act (OBBBA), signed into law on July 4, 2025, changed this to a <strong>rolling 5-year deferral</strong> starting January 1, 2027 &mdash; meaning the deferred gain is recognized 5 years after the date of investment, with a new outside deadline of December 31, 2033 for post-2026 investments.
+        </p>
+        <p>
+          For investments made before 2027, the original December 31, 2026 recognition date still applies. Plan now for the tax liability that will come due in April 2027 on those earlier deferred gains.
+        </p>
+
+        <h3>2. Basis Step-Up on the Deferred Gain</h3>
+        <p>
+          Under the original TCJA rules, investors who held for 5 years received a 10% step-up in basis on the deferred gain, and a 15% step-up after 7 years. Both of those timelines expired for new investments well before 2025 (the 5-year window closed December 31, 2021; the 7-year window closed December 31, 2019).
+        </p>
+        <p>
+          The OBBBA revives and restructures this benefit starting January 1, 2027. Standard QOF investments will again receive a <strong>10% basis step-up after 5 years</strong>. A new category &mdash; <strong>Qualified Rural Opportunity Funds (QROFs)</strong> &mdash; receives an enhanced <strong>30% step-up after 5 years</strong>. The 7-year/15% tier is eliminated going forward.
+        </p>
+
+        <h3>3. The 10-Year Exclusion &mdash; The Real Prize</h3>
+        <p>
+          The most powerful benefit is the permanent exclusion of capital gains on appreciation of the QOF investment itself. If you hold your QOF investment for at least 10 years, any gain on the QOF investment (not the original deferred gain, but the new gain earned within the zone) is permanently excluded from federal income tax. Your basis in the QOF investment is stepped up to fair market value at the time of sale.
+        </p>
+        <p>
+          This is not a deferral &mdash; it is an exclusion. If a $1 million QOF investment grows to $3 million over 12 years, the $2 million of appreciation is never taxed at the federal level. For investors in the highest brackets (currently 20% long-term capital gains + 3.8% net investment income tax), that exclusion is worth $476,000 on $2 million of gain.
+        </p>
+
+        <div class="pull-quote">
+          &ldquo;The 10-year exclusion is what makes Opportunity Zones exceptional. Deferral is helpful. Exclusion of future gains is transformational &mdash; it turns a tax strategy into a wealth creation tool.&rdquo;
+        </div>
+
+        <h2>Ways to Invest</h2>
+        <p>
+          There are two primary paths into Opportunity Zone investments:
+        </p>
+
+        <h3>Direct Investment via a Self-Certified QOF</h3>
+        <p>
+          An investor (or group of investors) can create their own Qualified Opportunity Fund &mdash; which can be organized as a partnership or corporation &mdash; and self-certify by filing IRS Form 8996 with their tax return. The QOF must hold at least 90% of its assets in Qualified Opportunity Zone Property. This approach gives the investor maximum control over the investment strategy but requires significant expertise in real estate development or business operations within eligible zones.
+        </p>
+
+        <h3>Investing Through a Sponsored QOF</h3>
+        <p>
+          Most individual investors access Opportunity Zones through professionally managed QOFs offered by real estate developers, private equity firms, or investment sponsors. These funds pool capital from multiple investors and deploy it into development projects &mdash; multifamily housing, commercial real estate, mixed-use developments, and operating businesses &mdash; within designated zones. Minimum investments typically range from $50,000 to $250,000.
+        </p>
+
+        <h2>Depreciation: A Hidden Advantage</h2>
+        <p>
+          For real estate-focused QOZ investments, the depreciation benefits can be substantial. When a QOF acquires property in an Opportunity Zone, it must &ldquo;substantially improve&rdquo; the property within 30 months &mdash; meaning the additions to basis must exceed the original cost of the building (land excluded). This improvement requirement creates a large depreciable asset base.
+        </p>
+        <p>
+          Critically, under current tax law, QOZ property can take advantage of bonus depreciation and accelerated depreciation schedules, generating significant paper losses in the early years that offset other income. And here is where it gets interesting: when the investor exits after 10+ years and claims the permanent exclusion on appreciation, the depreciation that was taken during the hold is not recaptured. In a typical real estate sale, depreciation recapture is taxed at 25% under Section 1250. But because the 10-year QOZ exclusion steps up the basis to fair market value, there is no gain to recapture against.
+        </p>
+        <p>
+          This combination &mdash; deducting depreciation during the hold and avoiding recapture at exit &mdash; makes QOZ real estate one of the most tax-efficient structures available for investors willing to commit to a long hold period.
+        </p>
+
+        <h2>The 10-Year Exit Strategy</h2>
+        <p>
+          The 10-year exclusion is available any time after the 10-year mark and has no expiration date. The statute allows the investor to elect to step up their basis to fair market value on the date of sale, effectively zeroing out the taxable gain on appreciation.
+        </p>
+        <p>
+          Practically, this means investors should plan their exit timing carefully:
+        </p>
+        <ul>
+          <li><strong>Hold for at least 10 years and 1 day</strong> to ensure the exclusion applies</li>
+          <li><strong>Time the exit for maximum appreciation</strong> &mdash; there is no penalty for holding longer than 10 years, and the exclusion applies to all appreciation regardless of holding period beyond the minimum</li>
+          <li><strong>Remember the December 31, 2026 deferral deadline</strong> &mdash; the original deferred gain becomes taxable on this date regardless of whether you sell the QOF investment. Plan for the tax liability on the deferred gain separately from the long-term hold strategy for the exclusion</li>
+          <li><strong>Consider state tax implications</strong> &mdash; not all states conform to the federal QOZ tax benefits. Some states (including California, Mississippi, and North Carolina) do not recognize the deferral or exclusion at the state level</li>
+        </ul>
+
+        <h2>Key Requirements and Pitfalls</h2>
+        <ul>
+          <li><strong>180-day investment window.</strong> Capital gains must be invested within 180 days of the sale or exchange that triggered the gain. Missing this window disqualifies the gain from deferral.</li>
+          <li><strong>90% asset test.</strong> The QOF must hold at least 90% of its assets in Qualified Opportunity Zone Property, tested semi-annually. Failure results in penalties.</li>
+          <li><strong>Substantial improvement.</strong> For acquired existing buildings, the QOF must invest an amount equal to the adjusted basis of the building (excluding land) within 30 months. New construction satisfies this automatically.</li>
+          <li><strong>Only capital gains qualify.</strong> Ordinary income, wages, and other non-capital-gain income cannot be invested into a QOF for deferral treatment.</li>
+          <li><strong>Invest only the gain.</strong> You need only invest the gain amount (not the full sale proceeds) to receive the deferral. The remaining proceeds from the sale can be deployed elsewhere.</li>
+        </ul>
+
+        <!-- 2025 Update Box -->
+        <div class="highlight-box" style="margin-top:3rem;">
+          <h3 style="display:flex;align-items:center;gap:0.5rem;">
+            <svg width="20" height="20" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            2025 Landmark Legislation: The One Big Beautiful Bill Act
+          </h3>
+          <p style="font-size:0.9375rem;line-height:1.75;color:#2C3E55;font-weight:300;margin-bottom:1rem;">
+            On July 4, 2025, President Trump signed the One Big Beautiful Bill Act (OBBBA) into law, making the Opportunity Zone program <strong>permanent</strong> and introducing the most significant changes since its creation in 2017. Here are the key provisions:
+          </p>
+          <ul>
+            <li><strong>Program made permanent.</strong> The OZ incentive no longer has a sunset date. This removes the uncertainty that had hung over the program and gives investors confidence to commit to long-term projects in designated zones.</li>
+            <li><strong>Rolling 5-year deferral (effective January 1, 2027).</strong> The fixed December 31, 2026 recognition date is replaced with a rolling deferral &mdash; gains are recognized 5 years after the date of investment, with a new outside deadline of December 31, 2033. For pre-2027 investments, the original 12/31/2026 recognition date still applies.</li>
+            <li><strong>Basis step-up restored.</strong> Standard QOF investments receive a 10% basis step-up after 5 years. The new Qualified Rural Opportunity Fund (QROF) category &mdash; for zones outside metropolitan areas or in communities under 50,000 &mdash; receives an enhanced <strong>30% step-up</strong> after 5 years.</li>
+            <li><strong>Decennial zone redesignation.</strong> New zone designations begin July 1, 2026, recurring every 10 years. Current QOZs retain their status through December 31, 2028, ensuring no disruption to existing investments.</li>
+            <li><strong>100% bonus depreciation restored.</strong> The OBBBA reinstated 100% bonus depreciation for property placed in service after January 19, 2025, reversing the phase-down that had been reducing the allowance. This significantly enhances the depreciation benefits for new QOZ real estate projects.</li>
+            <li><strong>Reduced substantial improvement threshold for rural zones.</strong> Rural QOZ investments need only add 50% of adjusted basis (vs. 100% for standard zones) to meet the substantial improvement requirement, making rural projects more accessible.</li>
+            <li><strong>Enhanced reporting requirements.</strong> New Sections 6039K and 6039L impose mandatory reporting on QOFs, with penalties for non-compliance. This addresses the transparency concerns raised by earlier bipartisan proposals like the Opportunity Zones Transparency, Extension, and Improvement Act.</li>
+            <li><strong>State conformity remains uneven.</strong> While the majority of states conform to the federal OZ tax treatment, investors in non-conforming states (including California, Mississippi, and North Carolina) should factor state-level capital gains taxes into their analysis.</li>
+            <li><strong>The 10-year exclusion remains fully intact.</strong> The permanent exclusion of gains on QOF investments held 10+ years is unchanged. This remains the most valuable benefit for long-term investors.</li>
+          </ul>
+        </div>
+
+        <h2>The Bottom Line</h2>
+        <p>
+          Qualified Opportunity Zones offer a genuinely unique combination of tax benefits &mdash; deferral, depreciation, and a permanent exclusion of new gains &mdash; that no other provision in the tax code can match. But the program is complex, the deadlines are real, and the investment risk (you are investing in designated low-income areas) requires careful underwriting.
+        </p>
+        <p>
+          For investors with significant realized capital gains, a long time horizon, and the ability to tolerate illiquidity, a well-structured QOZ investment can be a powerful component of an overall tax and wealth strategy. The key is working with advisors who understand both the tax mechanics and the real estate or operating business fundamentals.
+        </p>
+        <p>
+          At Rubiq, we evaluate Opportunity Zone investments within the context of your full financial picture &mdash; including the transition from the original 2026 deferral rules to the OBBBA&rsquo;s new rolling deferral framework, your state tax situation, and how a QOZ allocation fits alongside your existing real estate and <a href="resources-section-351.html" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;">tax planning strategies</a>.
+        </p>
+
+      </div><!-- /main content -->
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-1">
+        <div style="position:sticky;top:100px;">
+
+          <!-- Key Stats Box -->
+          <div style="background:linear-gradient(160deg,#0F1724,#133F73);border-radius:10px;padding:2rem;margin-bottom:1.75rem;">
+            <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C49A5A;margin-bottom:1.25rem;">Key Data Points</div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">8,764</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Designated Qualified Opportunity Zones nationwide</div>
+            </div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">$75B+</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Total capital invested into QOFs (Treasury, 2024)</div>
+            </div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">10 yrs</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Minimum hold for permanent gain exclusion</div>
+            </div>
+            <div>
+              <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">12/31/26</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Deferral recognition deadline for all QOF gains</div>
+            </div>
+          </div>
+
+          <!-- External Resources -->
+          <div style="margin-bottom:1.75rem;">
+            <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2C3E55;margin-bottom:1rem;">Further Reading</div>
+
+            <a href="https://www.irs.gov/credits-deductions/opportunity-zones" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">IRS: Opportunity Zones</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Official IRS guidance, FAQs, and final regulations</div>
+              </div>
+            </a>
+
+            <a href="https://www.cdfifund.gov/opportunity-zones" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">CDFI Fund: OZ Map &amp; Data</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Interactive map of all designated Opportunity Zones</div>
+              </div>
+            </a>
+
+            <a href="https://www.irs.gov/pub/irs-pdf/f8996.pdf" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">IRS Form 8996</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">QOF annual reporting form and instructions</div>
+              </div>
+            </a>
+
+            <a href="https://home.treasury.gov/policy-issues/tax-policy/opportunity-zones" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">U.S. Treasury: Opportunity Zones</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Treasury policy guidance and program data</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- CTA -->
+          <div style="background:linear-gradient(135deg,rgba(196,154,74,0.10),rgba(26,94,168,0.08));border:1px solid rgba(196,154,74,0.25);border-radius:10px;padding:1.75rem;">
+            <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:#0F1724;margin-bottom:0.625rem;line-height:1.3;">
+              Have capital gains to deploy?
+            </div>
+            <p style="font-size:0.875rem;line-height:1.6;color:#4A5568;font-weight:300;margin-bottom:1.25rem;">
+              We evaluate Opportunity Zone investments alongside your full tax picture &mdash; including the 2026 deferral deadline and state-level conformity &mdash; to determine if a QOZ allocation makes sense.
+            </p>
+            <a href="contact.html">
+              <button class="btn-primary" style="width:100%;text-align:center;">Schedule a Conversation</button>
+            </a>
+          </div>
+
+        </div>
+      </div><!-- /sidebar -->
+
+    </div><!-- /grid -->
+  </div>
+</section>
+
+
+<!-- RELATED ARTICLES -->
+<section style="background:white;padding:5rem 0;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div style="width:48px;height:3px;background:linear-gradient(90deg,#1A5EA8,#C49A5A);border-radius:2px;margin-bottom:1rem;"></div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#0F1724;margin-bottom:2.5rem;letter-spacing:-0.02em;">Continue Reading</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <a href="resources-section-351.html" style="text-decoration:none;display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;border:1px solid rgba(26,94,168,0.10);border-radius:10px;background:#FAF8F4;transition:box-shadow 0.22s ease,transform 0.22s ease;"
+         onmouseover="this.style.boxShadow='0 8px 32px rgba(26,94,168,0.12)';this.style.transform='translateY(-2px)'"
+         onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+        <div style="width:80px;height:64px;border-radius:6px;overflow:hidden;flex-shrink:0;">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=160&h=128&q=80"
+               alt="Financial documents" width="160" height="128" style="width:100%;height:100%;object-fit:cover;" loading="lazy" decoding="async" />
+        </div>
+        <div>
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#1A5EA8;margin-bottom:0.4rem;">Tax Strategy</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#0F1724;line-height:1.35;">Section 351 Exchanges &amp; ETFs: Tax-Free Portfolio Transitions</div>
+          <div style="font-size:0.75rem;color:#6B7280;margin-top:0.4rem;">Apr 15, 2025 &middot; 8 min read</div>
+        </div>
+      </a>
+
+      <a href="resources-dst-1031.html" style="text-decoration:none;display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;border:1px solid rgba(26,94,168,0.10);border-radius:10px;background:#FAF8F4;transition:box-shadow 0.22s ease,transform 0.22s ease;"
+         onmouseover="this.style.boxShadow='0 8px 32px rgba(26,94,168,0.12)';this.style.transform='translateY(-2px)'"
+         onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+        <div style="width:80px;height:64px;border-radius:6px;overflow:hidden;flex-shrink:0;">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=160&h=128&q=80"
+               alt="Real estate keys" width="160" height="128" style="width:100%;height:100%;object-fit:cover;" loading="lazy" decoding="async" />
+        </div>
+        <div>
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#C49A5A;margin-bottom:0.4rem;">Real Estate Strategy</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#0F1724;line-height:1.35;">Leveraging DSTs in a 1031 Exchange</div>
+          <div style="font-size:0.75rem;color:#6B7280;margin-top:0.4rem;">Oct 8, 2024 &middot; 9 min read</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer style="background:#0F1724;padding:2rem 0;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+         alt="Rubiq Financial Partners logo" width="120" height="26" style="height:26px;width:auto;opacity:0.70;" loading="lazy" decoding="async" />
+    <div style="text-align:center;">
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.28);margin:0 0 0.35rem;">
+        &copy; 2026 Rubiq Financial Partners LLC. All rights reserved.
+      </p>
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.18);margin:0 0 0.5rem;line-height:1.6;font-weight:300;">
+        Advisory services offered through Wealthcare Advisory Partners. Brokerage products offered through LPL Financial, Member FINRA/SIPC.
+      </p>
+      <div style="display:flex;justify-content:center;gap:1.5rem;">
+        <a href="privacy-policy.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Privacy Policy</a>
+        <a href="terms-of-use.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Terms of Use</a>
+        <a href="faq.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">FAQ</a>
+        <a href="sitemap.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Sitemap</a>
+      </div>
+    </div>
+    <a href="resources.html" style="font-size:0.75rem;font-weight:500;color:rgba(255,255,255,0.45);text-decoration:none;white-space:nowrap;letter-spacing:0.03em;transition:color 0.18s ease;"
+       onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+      &larr; Back to Resources
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>

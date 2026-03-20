@@ -118,8 +118,36 @@
   </url>
 
   <url>
+    <loc>https://www.rubiqfinancial.com/Pages/resources-dst-1031.html</loc>
+    <lastmod>2024-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://www.rubiqfinancial.com/Pages/resources-annuities.html</loc>
     <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/resources-reits.html</loc>
+    <lastmod>2024-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/resources-opportunity-zones.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/resources-secondaries.html</loc>
+    <lastmod>2024-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
