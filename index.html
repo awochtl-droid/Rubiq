@@ -53,7 +53,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; background: #FAF8F4; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; background: #FAF8F4; overflow-x: hidden; }
 
     /* Grain texture */
     .grain::after {
@@ -314,7 +314,29 @@
       .hero-cube-face.left   { transform: rotateY(-90deg) translateZ(75px); }
       .hero-cube-face.top    { transform: rotateX(90deg)  translateZ(75px); }
       .hero-cube-face.bottom { transform: rotateX(-90deg) translateZ(75px); }
+    }
 
+    /* ── Mobile spacing tighten ── */
+    @media (max-width: 767px) {
+      /* Reduce horizontal padding on all section containers */
+      #about > .max-w-7xl,
+      #who-we-serve > .max-w-7xl,
+      #pricing > .max-w-7xl,
+      #resources > .max-w-7xl,
+      #contact > .max-w-7xl,
+      footer > .max-w-7xl { padding-left: 1rem !important; padding-right: 1rem !important; }
+
+      /* Reduce section vertical padding */
+      #about, #who-we-serve, #resources { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+      #pricing { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+      #contact { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+
+      /* Tighten card internal padding */
+      .who-serve-grid > div { padding: 1.5rem 1.25rem !important; }
+      .resource-card { padding: 1.25rem 1.25rem 1rem !important; }
+
+      /* Reduce hero padding */
+      .hero-grid { gap: 2rem !important; }
     }
 
     /* ── Cube float ── */
@@ -1024,11 +1046,10 @@
         <h5 style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:400;letter-spacing:0.10em;
                    text-transform:uppercase;color:rgba(255,255,255,0.22);margin-bottom:1.5rem;">Services</h5>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:1rem;">
-          <li><a href="Pages/what-we-do.html#investment-management" style="font-size:0.875rem;color:rgba(255,255,255,0.50);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Investment Management</a></li>
-          <li><a href="Pages/what-we-do.html#financial-planning" style="font-size:0.875rem;color:rgba(255,255,255,0.50);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Financial Planning</a></li>
-          <li><a href="Pages/what-we-do.html#retirement-planning" style="font-size:0.875rem;color:rgba(255,255,255,0.50);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Retirement Planning</a></li>
-          <li><a href="Pages/what-we-do.html#estate-legacy" style="font-size:0.875rem;color:rgba(255,255,255,0.50);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Estate &amp; Legacy</a></li>
-          <li><a href="Pages/what-we-do.html#tax-planning" style="font-size:0.875rem;color:rgba(255,255,255,0.50);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Tax Planning</a></li>
+          <li><a href="Pages/investment-management.html" style="font-size:0.875rem;color:rgba(255,255,255,0.50);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Investment Management</a></li>
+          <li><a href="Pages/retirement-planning.html" style="font-size:0.875rem;color:rgba(255,255,255,0.50);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Retirement Planning</a></li>
+          <li><a href="Pages/retirement-planning.html" style="font-size:0.875rem;color:rgba(255,255,255,0.50);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Financial Planning</a></li>
+          <li><a href="Pages/tax-planning.html" style="font-size:0.875rem;color:rgba(255,255,255,0.50);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Tax &amp; Estate Planning</a></li>
         </ul>
       </div>
 
@@ -1067,7 +1088,7 @@
           Advisory services offered through Wealthcare Advisory Partners. Brokerage products offered through LPL Financial, Member <a href="https://www.finra.org" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.28);text-decoration:underline;">FINRA</a>/<a href="https://www.sipc.org" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.28);text-decoration:underline;">SIPC</a>.
         </p>
       </div>
-      <div id="footer-legal-links" class="flex gap-6">
+      <div id="footer-legal-links" class="flex gap-6" style="flex-wrap:wrap;">
         <a href="Pages/privacy-policy.html" style="font-size:0.75rem;color:rgba(255,255,255,0.30);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.30)'">Privacy Policy</a>
         <a href="Pages/terms-of-use.html" style="font-size:0.75rem;color:rgba(255,255,255,0.30);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.30)'">Terms of Use</a>
         <a href="Pages/sitemap.html" style="font-size:0.75rem;color:rgba(255,255,255,0.30);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.30)'">Sitemap</a>
