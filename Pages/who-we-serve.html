@@ -41,12 +41,12 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; color: #0F1724; margin: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
 
-    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
     .nav-link {
       font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
-      letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.70);
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
       text-decoration: none; position: relative; padding-bottom: 2px;
       transition: color 0.18s ease;
     }
@@ -64,7 +64,7 @@
       padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
       transition: opacity 0.18s ease, transform 0.18s ease;
     }
-    .btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
     .btn-gold {
       background: linear-gradient(135deg, #C49A5A 0%, #D4AE6A 100%);
       color: #0F1724; font-family: 'Inter', sans-serif; font-weight: 600;
@@ -437,6 +437,54 @@
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home",  "item": "https://www.rubiqfinancial.com/" },
       { "@type": "ListItem", "position": 2, "name": "Who We Serve", "item": "https://www.rubiqfinancial.com/Pages/who-we-serve.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What types of clients does Rubiq Financial Partners serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rubiq serves ultra-high-net-worth families (typically $20M+ in investable assets), entrepreneurs preparing for or recovering from liquidity events, real estate investors managing complex property portfolios, and corporate executives navigating equity compensation (RSUs, stock options, deferred compensation). The firm maintains an intentionally selective client base to ensure each relationship receives family office-level depth of service."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Rubiq work with real estate investors?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — real estate investors are a core client segment. Rubiq advises on 1031 exchanges, depreciation and cost segregation strategies, securities-backed lending against existing portfolios, passive activity loss planning, disposition timing, and how directly held properties integrate with a broader wealth plan. The firm coordinates real estate strategy with investment management, tax planning, and estate planning to maximize after-tax outcomes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the minimum account size to work with Rubiq?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rubiq typically works with clients who have a meaningful financial objective and sufficient complexity to benefit from integrated wealth management — generally families and individuals with $5 million or more in investable assets. The firm uses a transparent, tiered fee structure that scales down as assets under management increase, ensuring alignment of interests as the relationship grows."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Rubiq a fiduciary financial advisor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — Rubiq Financial Partners operates as an independent, fee-based fiduciary advisor. This means the firm is legally obligated to act in clients' best interests at all times. Rubiq is not affiliated with any bank, brokerage, or insurance company, and does not manufacture financial products — ensuring that advice is free from institutional conflicts of interest."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Rubiq serve clients outside of Pennsylvania?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — while Rubiq is headquartered in the Philadelphia area (Chester County, PA), the firm serves clients nationwide. Meetings are conducted via video, phone, or in-person, and the firm's expertise in tax-efficient wealth management, estate planning, and alternative investments is not geographically limited."
+        }
+      }
     ]
   }
   </script>

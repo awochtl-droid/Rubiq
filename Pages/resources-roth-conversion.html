@@ -41,12 +41,12 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; color: #0F1724; margin: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
 
-    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
     .nav-link {
       font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
-      letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.70);
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
       text-decoration: none; position: relative; padding-bottom: 2px;
       transition: color 0.18s ease;
     }
@@ -66,7 +66,7 @@
       padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
       transition: opacity 0.18s ease, transform 0.18s ease;
     }
-    .btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
     .btn-ghost {
       background: transparent; color: white; font-family: 'Inter', sans-serif;
       font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
@@ -220,6 +220,46 @@
       { "@type": "ListItem", "position": 1, "name": "Home",              "item": "https://www.rubiqfinancial.com/" },
       { "@type": "ListItem", "position": 2, "name": "Resources",         "item": "https://www.rubiqfinancial.com/Pages/resources.html" },
       { "@type": "ListItem", "position": 3, "name": "Roth Conversion",   "item": "https://www.rubiqfinancial.com/Pages/resources-roth-conversion.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a Roth conversion and when does it make sense?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Roth conversion moves money from a traditional IRA or 401(k) into a Roth IRA, triggering income tax on the converted amount in the current year. It makes sense when your current tax rate is lower than your expected future rate — such as during early retirement before Social Security and RMDs begin (the 'conversion corridor' between ages 60–73), during low-income transition years, or after market downturns when account values are temporarily depressed. There is no income limit on Roth conversions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the Roth conversion corridor and why is it important for UHNW retirees?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The conversion corridor is the window between retirement (typically age 60) and the start of required minimum distributions at age 73 under SECURE 2.0. During these years, many high-net-worth retirees are in temporarily lower tax brackets because they haven't yet begun Social Security or RMDs. Strategic multi-year conversions during this window can significantly reduce lifetime tax liability and IRMAA surcharges on Medicare premiums, while creating tax-free Roth assets that have no RMDs for the original owner."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the most common Roth conversion mistakes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Common mistakes include: converting too much in a single year and jumping into a higher tax bracket, paying the conversion tax from IRA funds (rather than outside funds, which reduces the benefit), ignoring IRMAA thresholds (which can trigger higher Medicare premiums two years later), overlooking the pro-rata rule when non-deductible IRA contributions are present, and failing to consider state income tax implications. A multi-year conversion strategy with annual bracket management typically produces better after-tax outcomes than a single large conversion."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do Roth IRAs have required minimum distributions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No — Roth IRAs are not subject to required minimum distributions (RMDs) during the original owner's lifetime, making them a powerful legacy and estate planning tool. This means Roth assets can continue growing tax-free for decades. However, inherited Roth IRAs are subject to the 10-year distribution rule under the SECURE Act for most non-spouse beneficiaries, though those distributions remain tax-free. This makes Roth conversions particularly valuable for high-net-worth families focused on multigenerational wealth transfer."
+        }
+      }
     ]
   }
   </script>

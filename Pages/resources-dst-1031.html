@@ -41,12 +41,12 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; color: #0F1724; margin: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
 
-    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
     .nav-link {
       font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
-      letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.70);
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
       text-decoration: none; position: relative; padding-bottom: 2px;
       transition: color 0.18s ease;
     }
@@ -66,7 +66,7 @@
       padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
       transition: opacity 0.18s ease, transform 0.18s ease;
     }
-    .btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
     .btn-ghost {
       background: transparent; color: white; font-family: 'Inter', sans-serif;
       font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
@@ -213,6 +213,54 @@
       { "@type": "ListItem", "position": 1, "name": "Home",                 "item": "https://www.rubiqfinancial.com/" },
       { "@type": "ListItem", "position": 2, "name": "Resources",            "item": "https://www.rubiqfinancial.com/Pages/resources.html" },
       { "@type": "ListItem", "position": 3, "name": "DSTs in a 1031 Exchange","item": "https://www.rubiqfinancial.com/Pages/resources-dst-1031.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a Delaware Statutory Trust (DST)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Delaware Statutory Trust is a legal entity that holds title to real estate and allows multiple investors to own fractional interests in institutional-grade properties. Under IRS Revenue Ruling 2004-86, DST interests qualify as like-kind replacement property for 1031 exchanges, enabling investors to defer capital gains taxes while transitioning from active property management to passive ownership."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does a DST work within a 1031 exchange?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "After selling an investment property, an investor uses a qualified intermediary to hold proceeds and identifies DST interests as replacement property within the 45-day identification window. The investor must close within 180 days. DSTs allow investors to defer 100% of capital gains taxes while gaining access to institutional-quality assets like multifamily, industrial, or net-lease properties — without landlord responsibilities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the risks of investing in a DST?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Key risks include illiquidity (typical hold periods of 5–10 years with no secondary market), loss of operational control due to the IRS \"seven deadly sins\" restrictions, sponsor credit risk, and significant upfront fees (typically 10–15%). DSTs also carry the same risks as direct real estate — vacancy, market downturns, and interest-rate sensitivity. Investors should evaluate sponsor track record, property quality, leverage ratios, and distribution coverage ratios before committing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who is a good candidate for a DST 1031 exchange?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DSTs are particularly well-suited for high-net-worth and ultra-high-net-worth real estate investors who want to exit active property management while deferring capital gains taxes. Common candidates include aging landlords seeking passive income, investors with highly appreciated properties facing large tax liabilities, and families pursuing estate planning strategies that benefit from stepped-up basis at death."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do DSTs compare to direct real estate ownership for estate planning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DST interests receive a stepped-up cost basis at the owner's death, which can eliminate deferred capital gains for heirs. This makes DSTs a potentially powerful estate planning tool — an investor can defer taxes through successive 1031 exchanges during their lifetime, and heirs may inherit the position at current fair market value with no embedded gain. However, estate and tax rules are complex and investors should consult qualified advisors."
+        }
+      }
     ]
   }
   </script>

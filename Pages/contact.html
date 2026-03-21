@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact a Fiduciary Advisor | West Chester, PA | Rubiq Financial Partners</title>
-  <meta name="description" content="Ready to work with a fee-based fiduciary in Chester County? Contact Rubiq Financial Partners in West Chester, PA — serving entrepreneurs and HNW families nationwide." />
+  <meta name="description" content="Ready to work with a fee-based fiduciary advisor? Contact Rubiq Financial Partners in West Chester, PA — serving ultra-high-net-worth families, real estate investors, entrepreneurs, and executives nationwide." />
   <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/contact.html" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,12 +41,12 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; color: #0F1724; margin: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
 
-    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
     .nav-link {
       font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
-      letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.70);
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
       text-decoration: none; position: relative; padding-bottom: 2px;
       transition: color 0.18s ease;
     }
@@ -66,7 +66,7 @@
       padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
       transition: opacity 0.18s ease, transform 0.18s ease;
     }
-    .btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
     .btn-ghost {
       background: transparent; color: white; font-family: 'Inter', sans-serif;
       font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
@@ -139,16 +139,16 @@
     }
 
     /* ── Hero cube ── */
-    .cube-scene { perspective:700px; width:160px; height:160px; margin:0 auto; }
-    .cube { width:160px; height:160px; position:relative; transform-style:preserve-3d; animation:cubespin 18s infinite linear; }
+    .cube-scene { perspective:800px; width:200px; height:200px; margin:0 auto; filter:drop-shadow(0 30px 60px rgba(196,154,74,0.18)) drop-shadow(0 8px 20px rgba(26,94,168,0.25)); }
+    .cube { width:200px; height:200px; position:relative; transform-style:preserve-3d; animation:cubespin 18s infinite linear; }
     @keyframes cubespin { 0% { transform:rotateX(-22deg) rotateY(0deg); } 100% { transform:rotateX(-22deg) rotateY(360deg); } }
-    .cube-face { position:absolute; width:160px; height:160px; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,1fr); gap:4px; padding:4px; border-radius:4px; }
-    .cube-face.front  { transform:translateZ(80px); }
-    .cube-face.back   { transform:rotateY(180deg) translateZ(80px); }
-    .cube-face.right  { transform:rotateY(90deg) translateZ(80px); }
-    .cube-face.left   { transform:rotateY(-90deg) translateZ(80px); }
-    .cube-face.top    { transform:rotateX(90deg) translateZ(80px); }
-    .cube-face.bottom { transform:rotateX(-90deg) translateZ(80px); }
+    .cube-face { position:absolute; width:200px; height:200px; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,1fr); gap:5px; padding:5px; border-radius:5px; }
+    .cube-face.front  { transform:translateZ(100px); }
+    .cube-face.back   { transform:rotateY(180deg) translateZ(100px); }
+    .cube-face.right  { transform:rotateY(90deg) translateZ(100px); }
+    .cube-face.left   { transform:rotateY(-90deg) translateZ(100px); }
+    .cube-face.top    { transform:rotateX(90deg) translateZ(100px); }
+    .cube-face.bottom { transform:rotateX(-90deg) translateZ(100px); }
     .cube-cell { border-radius:3px; opacity:0.92; }
     .face-blue  .cube-cell { background:#1A5EA8; }
     .face-gold  .cube-cell { background:#C49A5A; }
@@ -158,6 +158,17 @@
     .face-muted .cube-cell { background:#2C3E55; }
     @keyframes hero-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-22px); } }
     .cube-float { animation:hero-float 3.5s ease-in-out infinite; }
+    @media (max-width: 768px) {
+      .cube-scene { width:150px; height:150px; }
+      .cube { width:150px; height:150px; }
+      .cube-face { width:150px; height:150px; }
+      .cube-face.front  { transform:translateZ(75px); }
+      .cube-face.back   { transform:rotateY(180deg) translateZ(75px); }
+      .cube-face.right  { transform:rotateY(90deg) translateZ(75px); }
+      .cube-face.left   { transform:rotateY(-90deg) translateZ(75px); }
+      .cube-face.top    { transform:rotateX(90deg) translateZ(75px); }
+      .cube-face.bottom { transform:rotateX(-90deg) translateZ(75px); }
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -188,12 +199,12 @@
   <meta property="og:type"        content="website" />
   <meta property="og:site_name"   content="Rubiq Financial Partners" />
   <meta property="og:title"       content="Get in Touch | Rubiq Financial Partners | Fiduciary" />
-  <meta property="og:description" content="Ready to work with a fee-based fiduciary? Contact Rubiq Financial Partners in Philadelphia. We serve entrepreneurs and real estate investors across the country." />
+  <meta property="og:description" content="Ready to work with a fee-based fiduciary advisor? Contact Rubiq Financial Partners in West Chester, PA — serving ultra-high-net-worth families, real estate investors, entrepreneurs, and executives nationwide." />
   <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/contact.html" />
   <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:title"       content="Get in Touch | Rubiq Financial Partners | Fiduciary" />
-  <meta name="twitter:description" content="Ready to work with a fee-based fiduciary? Contact Rubiq Financial Partners in Philadelphia. We serve entrepreneurs and real estate investors across the country." />
+  <meta name="twitter:description" content="Ready to work with a fee-based fiduciary advisor? Contact Rubiq Financial Partners in West Chester, PA — serving ultra-high-net-worth families, real estate investors, entrepreneurs, and executives nationwide." />
   <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
   <script type="application/ld+json">
   {

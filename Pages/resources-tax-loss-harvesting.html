@@ -41,12 +41,12 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; color: #0F1724; margin: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
 
-    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
     .nav-link {
       font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
-      letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.70);
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
       text-decoration: none; position: relative; padding-bottom: 2px;
       transition: color 0.18s ease;
     }
@@ -66,7 +66,7 @@
       padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
       transition: opacity 0.18s ease, transform 0.18s ease;
     }
-    .btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
     .btn-ghost {
       background: transparent; color: white; font-family: 'Inter', sans-serif;
       font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
@@ -220,6 +220,46 @@
       { "@type": "ListItem", "position": 1, "name": "Home",                   "item": "https://www.rubiqfinancial.com/" },
       { "@type": "ListItem", "position": 2, "name": "Resources",              "item": "https://www.rubiqfinancial.com/Pages/resources.html" },
       { "@type": "ListItem", "position": 3, "name": "Tax Loss Harvesting",    "item": "https://www.rubiqfinancial.com/Pages/resources-tax-loss-harvesting.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is tax-loss harvesting and how does it work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tax-loss harvesting is the practice of selling investments at a loss to offset realized capital gains elsewhere in your portfolio, reducing your current-year tax bill. Harvested losses offset gains dollar for dollar, with up to $3,000 per year deductible against ordinary income and unlimited carryforward of unused losses to future years. To maintain market exposure, investors typically purchase a similar (but not substantially identical) security immediately after selling, avoiding the 30-day wash-sale rule."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is direct indexing and how does it improve tax-loss harvesting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Direct indexing replicates a market index by purchasing individual stocks rather than a single index fund. This provides visibility into each security's cost basis, enabling systematic daily harvesting at the individual stock level — far more opportunities than a fund-based approach. Research suggests long-only direct indexing can generate 0.5–1.5% in annual after-tax alpha compared to holding a traditional index fund, because individual securities frequently diverge from the index even when the overall market is rising."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is long/short direct indexing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Long/short direct indexing is an advanced strategy that adds a short portfolio on top of a long direct index portfolio, creating additional opportunities to harvest losses from both sides. While long-only direct indexing typically generates 0.5–1.5% in annual tax alpha, long/short strategies can potentially produce significantly higher harvesting yields — though results are highly variable and depend on market conditions, portfolio turnover, and implementation costs. This strategy is best suited for ultra-high-net-worth investors in the highest tax brackets."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is fund-based tax-loss harvesting less effective than direct indexing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "With a traditional index fund or ETF, you can only harvest a loss when the entire fund is down — you have no visibility into the gains and losses of individual holdings. Funds may also distribute capital gains to shareholders even in years when the fund's share price has declined. Direct indexing solves both problems by giving you individual security-level control, enabling harvesting opportunities that exist even in rising markets because individual stocks routinely decline even when the broad index does not."
+        }
+      }
     ]
   }
   </script>

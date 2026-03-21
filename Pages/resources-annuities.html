@@ -41,12 +41,12 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; color: #0F1724; margin: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
 
-    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
     .nav-link {
       font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
-      letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.70);
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
       text-decoration: none; position: relative; padding-bottom: 2px;
       transition: color 0.18s ease;
     }
@@ -66,7 +66,7 @@
       padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
       transition: opacity 0.18s ease, transform 0.18s ease;
     }
-    .btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
     .btn-ghost {
       background: transparent; color: white; font-family: 'Inter', sans-serif;
       font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
@@ -220,6 +220,46 @@
       { "@type": "ListItem", "position": 1, "name": "Home",       "item": "https://www.rubiqfinancial.com/" },
       { "@type": "ListItem", "position": 2, "name": "Resources",  "item": "https://www.rubiqfinancial.com/Pages/resources.html" },
       { "@type": "ListItem", "position": 3, "name": "Annuities",  "item": "https://www.rubiqfinancial.com/Pages/resources-annuities.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an annuity and how does it work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An annuity is an insurance contract — not an investment account — where you transfer a lump sum or series of payments to an insurance company in exchange for guaranteed income, tax-deferred growth, or both. U.S. annuity sales reached a record $385 billion in 2023 (LIMRA), with total reserves exceeding $4 trillion. There are three main types: fixed/MYGA (guaranteed rates), fixed indexed (market-linked upside with a guaranteed floor, typically 0%), and variable/RILA (subaccount investments with higher risk and reward)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are annuities a good idea for high-net-worth investors?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Annuities can serve specific purposes for high-net-worth investors, particularly tax-deferred growth in non-qualified accounts and guaranteed lifetime income for retirement planning. However, annuities do not receive a stepped-up cost basis at death (unlike appreciated securities or real estate), and withdrawals are taxed LIFO as ordinary income. For UHNW investors, annuities are typically one tool among many rather than a primary strategy — the tax-deferral benefit must be weighed against surrender charges, fees, and loss of basis step-up."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a fixed indexed annuity (FIA)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A fixed indexed annuity credits interest based on the performance of a market index (such as the S&P 500) but guarantees a minimum floor — typically 0% — so your principal is protected from market losses. FIAs were the fastest-growing annuity segment with over $90 billion in sales in 2023. Upside is typically limited by a participation rate or cap, and returns are generated through options-based mechanics within the insurance company's general account. FIAs can also include optional income riders (GLWBs) for guaranteed lifetime withdrawal benefits."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How are annuity withdrawals taxed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Non-qualified annuity withdrawals are taxed LIFO (last in, first out), meaning earnings come out first and are taxed as ordinary income at your marginal rate. A 10% IRS penalty applies to withdrawals before age 59½. Unlike stocks, bonds, or real estate, annuities do not qualify for long-term capital gains rates or stepped-up basis at death. For high-net-worth investors, this tax treatment means annuities are most valuable when the tax-deferred compounding benefit outweighs the eventual ordinary income treatment."
+        }
+      }
     ]
   }
   </script>

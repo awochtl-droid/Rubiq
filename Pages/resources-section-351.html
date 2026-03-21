@@ -41,12 +41,12 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; color: #0F1724; margin: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
 
-    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
     .nav-link {
       font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
-      letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.70);
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
       text-decoration: none; position: relative; padding-bottom: 2px;
       transition: color 0.18s ease;
     }
@@ -66,7 +66,7 @@
       padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
       transition: opacity 0.18s ease, transform 0.18s ease;
     }
-    .btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
     .btn-ghost {
       background: transparent; color: white; font-family: 'Inter', sans-serif;
       font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
@@ -203,6 +203,46 @@
       { "@type": "ListItem", "position": 1, "name": "Home",                 "item": "https://www.rubiqfinancial.com/" },
       { "@type": "ListItem", "position": 2, "name": "Resources",            "item": "https://www.rubiqfinancial.com/Pages/resources.html" },
       { "@type": "ListItem", "position": 3, "name": "Section 351 Exchanges","item": "https://www.rubiqfinancial.com/Pages/resources-section-351.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a Section 351 exchange?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Section 351 exchange under the Internal Revenue Code allows investors to transfer appreciated securities into an ETF on a tax-free basis, provided the transferors collectively own at least 80% of the receiving entity after the exchange. The investor's cost basis carries over to the new ETF shares, deferring — not eliminating — capital gains taxes. This strategy enables high-net-worth investors to diversify away from concentrated stock positions without triggering an immediate tax bill."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who benefits most from a Section 351 exchange into an ETF?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Section 351 exchanges are most valuable for ultra-high-net-worth investors with large concentrated positions — typically founders, early employees, or long-term holders of highly appreciated stock. Minimums are generally $1 million to $5 million or more. The strategy provides a double benefit: tax-free entry into a diversified ETF, plus the ongoing tax efficiency of the ETF's in-kind creation/redemption mechanism, which minimizes capital gains distributions going forward."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does a Section 351 exchange compare to an exchange fund?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both strategies allow diversification of concentrated positions without immediate capital gains taxes. An exchange fund (limited partnership) pools multiple investors' appreciated securities and requires a 7-year lockup; participants receive a diversified basket of all contributed positions. A Section 351 ETF exchange provides daily liquidity after the transfer, targets a specific index or strategy, and has no multi-year lockup — but has higher minimums and limited availability (few ETF sponsors participate). The right choice depends on the investor's liquidity needs, concentration limits, and available sponsors."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the limitations of a Section 351 exchange?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Key limitations include high investment minimums ($1M–$5M+), a small universe of participating ETF sponsors, per-security concentration limits (typically 20–25% of the ETF), potential wash-sale complications if the investor recently sold the same security, and the fact that cost basis carries over — meaning taxes are deferred, not eliminated. Investors should also coordinate with other strategies like charitable remainder trusts (CRTs) or donor-advised funds (DAFs) to optimize the overall tax outcome."
+        }
+      }
     ]
   }
   </script>

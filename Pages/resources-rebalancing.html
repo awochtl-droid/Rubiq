@@ -41,12 +41,12 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; color: #0F1724; margin: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
 
-    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
     .nav-link {
       font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
-      letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.70);
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
       text-decoration: none; position: relative; padding-bottom: 2px;
       transition: color 0.18s ease;
     }
@@ -66,7 +66,7 @@
       padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
       transition: opacity 0.18s ease, transform 0.18s ease;
     }
-    .btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
     .btn-ghost {
       background: transparent; color: white; font-family: 'Inter', sans-serif;
       font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
@@ -203,6 +203,46 @@
       { "@type": "ListItem", "position": 1, "name": "Home",                 "item": "https://www.rubiqfinancial.com/" },
       { "@type": "ListItem", "position": 2, "name": "Resources",            "item": "https://www.rubiqfinancial.com/Pages/resources.html" },
       { "@type": "ListItem", "position": 3, "name": "Portfolio Rebalancing","item": "https://www.rubiqfinancial.com/Pages/resources-rebalancing.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How often should I rebalance my investment portfolio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Research from Vanguard, Schwab, and T. Rowe Price suggests that a hybrid approach works best for most investors: quarterly calendar reviews combined with threshold-based triggers (typically ±5% deviation from target allocation). Vanguard research shows that a portfolio left unrebalanced during a 2-year bull market can drift by roughly 15%, creating an average 0.4% annual return drag. For high-net-worth investors, tax-aware rebalancing is critical — coordinating with tax-loss harvesting and preferring long-term capital gains treatment."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is threshold-based rebalancing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Threshold-based (or band) rebalancing triggers trades only when an asset class drifts beyond a set tolerance — typically ±5% of its target weight. For example, if your target equity allocation is 60%, rebalancing occurs only when it exceeds 65% or drops below 55%. This approach is more tax-efficient than strict calendar rebalancing because it avoids unnecessary transactions during periods of low drift, while still capturing meaningful rebalancing opportunities after large market moves."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does rebalancing differ for large portfolios?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Large and ultra-high-net-worth portfolios face unique rebalancing challenges: concentrated stock positions may require specialized strategies (exchange funds, charitable remainder trusts, or protective collars), illiquid alternative investments cannot be easily trimmed, and multi-account household coordination is necessary to optimize across taxable, tax-deferred, and tax-free accounts. Tax impact analysis is also more complex, requiring careful lot-level tracking and asset location optimization."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does tax-loss harvesting fit into portfolio rebalancing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tax-loss harvesting and rebalancing are complementary strategies. During rebalancing, selling overweight positions that have declined below their cost basis generates losses that can offset realized gains elsewhere in the portfolio — dollar for dollar against capital gains and up to $3,000 per year against ordinary income, with unlimited carryforward. For UHNW investors, systematic coordination of harvesting and rebalancing can materially improve after-tax returns over time."
+        }
+      }
     ]
   }
   </script>
