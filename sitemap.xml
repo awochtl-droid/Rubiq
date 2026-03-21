@@ -95,6 +95,35 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Case Studies -->
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/case-study-real-estate.html</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/case-study-entrepreneur.html</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/case-study-executive.html</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/case-study-uhnw.html</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Resources Hub -->
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/resources.html</loc>
