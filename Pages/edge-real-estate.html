@@ -238,40 +238,28 @@
 
 
 <!-- HERO -->
-<div style="position:relative;height:520px;overflow:hidden;margin-top:72px;">
-  <div style="position:absolute;inset:0;background:linear-gradient(135deg,#0F1724 0%,#133F73 40%,#1A5EA8 70%,#2A74C8 100%);"></div>
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(196,154,74,0.12),transparent 55%);"></div>
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(42,116,200,0.25),transparent 50%);"></div>
-
-  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:3.5rem;">
-    <!-- Breadcrumb -->
-    <div style="display:flex;align-items:center;gap:6px;margin-bottom:1.25rem;flex-wrap:wrap;">
-      <a href="../index.html" style="color:rgba(255,255,255,0.45);font-size:0.8125rem;font-weight:400;text-decoration:none;transition:color 0.18s ease;"
-         onmouseover="this.style.color='#D4AE6A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Home</a>
-      <span style="color:rgba(255,255,255,0.25);font-size:0.75rem;">›</span>
-      <a href="what-we-do.html" style="color:rgba(255,255,255,0.45);font-size:0.8125rem;font-weight:400;text-decoration:none;transition:color 0.18s ease;"
-         onmouseover="this.style.color='#D4AE6A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">What We Do</a>
-      <span style="color:rgba(255,255,255,0.25);font-size:0.75rem;">›</span>
-      <span style="color:rgba(255,255,255,0.55);font-size:0.8125rem;font-weight:500;">Directly Held Real Estate</span>
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 55%,#1A5EA8 100%);padding:7rem 0 5rem;min-height:520px;position:relative;overflow:hidden;margin-top:72px;">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.025;pointer-events:none;" aria-hidden="true">
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+  <div style="position:absolute;top:-10%;right:-5%;width:55%;height:110%;background:radial-gradient(ellipse,rgba(196,154,74,0.10) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.25);border-radius:100px;padding:0.35rem 1rem;margin-bottom:2rem;">
+      <div style="width:6px;height:6px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">Rubiq Financial Partners - Real Estate</span>
     </div>
-    <!-- Back link -->
-    <a href="what-we-do.html" style="display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.55);font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;text-decoration:none;margin-bottom:1.25rem;transition:color 0.18s ease;"
-       onmouseover="this.style.color='#D4AE6A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
-      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      What We Do
-    </a>
-    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(196,154,90,0.18);border:1px solid rgba(196,154,90,0.35);border-radius:100px;padding:0.3rem 0.9rem;margin-bottom:1.25rem;width:fit-content;">
-      <div style="width:5px;height:5px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
-      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#D4AE6A;">Real Estate Strategy</span>
-    </div>
-    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;line-height:1.12;letter-spacing:-0.03em;color:white;margin-bottom:0.75rem;">
-      Directly Held Real Estate
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.25rem);font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
+      Directly Held Real Estate<br />
+      <em style="font-style:italic;color:#D4AE6A;">The Most Tangible Edge.</em>
     </h1>
-    <p style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2vw,1.35rem);font-style:italic;color:#D4AE6A;font-weight:400;line-height:1.4;margin:0;">
-      The most tangible asset in any portfolio — and the one most often left out of the plan.
+    <p style="font-size:1.125rem;line-height:1.80;color:rgba(255,255,255,0.72);font-weight:300;max-width:680px;">
+      Integrating physical property into your wealth plan — tax strategy,
+      cash flow modeling, and disposition planning for what you already own.
     </p>
   </div>
-</div>
+</section>
 
 
 <!-- ARTICLE BODY -->
