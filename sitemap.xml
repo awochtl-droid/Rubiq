@@ -73,6 +73,20 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/business-planning.html</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/insurance.html</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Edge Strategy Pages -->
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/edge-real-estate.html</loc>
