@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study: Unlocking Income and Liquidity from a Legacy Real Estate Portfolio | Rubiq Financial Partners</title>
+  <meta name="description" content="How Rubiq Financial Partners helped a real estate investor restructure a $20M legacy portfolio using DSTs, Qualified Opportunity Zones, and 1031 exchanges to shield taxes, increase income, and create liquidity for the next generation." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/case-study-real-estate.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rubiq: {
+              blue:      '#1A5EA8',
+              bluedark:  '#133F73',
+              bluelight: '#2A74C8',
+              gold:      '#C49A5A',
+              goldlight: '#D4AE6A',
+              golddark:  '#9E7A32',
+              ink:       '#0F1724',
+              inksoft:   '#1C2D44',
+              slate:     '#2C3E55',
+              mist:      '#F4F6F9',
+              parchment: '#FAF8F4',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
+
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
+      text-decoration: none; position: relative; padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1.5px; background: #C49A5A; transition: width 0.22s ease;
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-gold {
+      background: linear-gradient(135deg, #C49A5A 0%, #D4AE6A 100%);
+      color: #0F1724; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.875rem 2.25rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .btn-gold:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(196,154,74,0.40); }
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); }
+
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+    @media (max-width: 767px) {
+      #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+      footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
+    }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.625rem; font-weight: 700; color: #0F1724;
+      line-height: 1.25; letter-spacing: -0.02em;
+      margin: 2.75rem 0 1rem;
+    }
+    .article-body h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.0625rem; font-weight: 600; color: #1C2D44;
+      margin: 2rem 0 0.625rem;
+    }
+    .article-body p {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin: 0 0 1.35rem;
+    }
+    .article-body ul {
+      margin: 0 0 1.35rem 1.25rem; padding: 0;
+    }
+    .article-body ul li {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin-bottom: 0.5rem;
+      list-style: none; position: relative; padding-left: 1.25rem;
+    }
+    .article-body ul li::before {
+      content: ''; position: absolute; left: 0; top: 0.65em;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: linear-gradient(135deg, #1A5EA8, #C49A5A);
+    }
+
+    .pull-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-style: italic; font-weight: 500;
+      color: #133F73; line-height: 1.55;
+      border-left: 3px solid #C49A5A;
+      padding: 1rem 1.75rem;
+      margin: 2.5rem 0;
+    }
+  </style>
+  <meta property="og:type"        content="article" />
+  <meta property="og:site_name"   content="Rubiq Financial Partners" />
+  <meta property="og:title"       content="Case Study: Unlocking Income and Liquidity from a Legacy Real Estate Portfolio | Rubiq Financial Partners" />
+  <meta property="og:description" content="How Rubiq helped a real estate investor restructure a $20M legacy portfolio using DSTs, QOZs, and 1031 exchanges to shield taxes, increase income, and create liquidity." />
+  <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/case-study-real-estate.html" />
+  <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Case Study: Unlocking Income and Liquidity from a Legacy Real Estate Portfolio | Rubiq Financial Partners" />
+  <meta name="twitter:description" content="How Rubiq helped a real estate investor restructure a $20M legacy portfolio using DSTs, QOZs, and 1031 exchanges to shield taxes, increase income, and create liquidity." />
+  <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Unlocking Income and Liquidity from a Legacy Real Estate Portfolio",
+    "description": "How Rubiq Financial Partners helped a real estate investor restructure a $20M legacy portfolio using DSTs, Qualified Opportunity Zones, and 1031 exchanges to shield taxes, increase income, and create liquidity.",
+    "datePublished": "2025-03-01",
+    "dateModified": "2025-03-01",
+    "author": { "@type": "Person", "name": "Andreas Wochtl, CFP®", "url": "https://www.rubiqfinancial.com/Pages/team.html" },
+    "publisher": { "@id": "https://www.rubiqfinancial.com/#organization" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.rubiqfinancial.com/Pages/case-study-real-estate.html" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home",      "item": "https://www.rubiqfinancial.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Who We Serve", "item": "https://www.rubiqfinancial.com/Pages/who-we-serve.html" },
+      { "@type": "ListItem", "position": 3, "name": "Real Estate Investor Case Study", "item": "https://www.rubiqfinancial.com/Pages/case-study-real-estate.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur"
+     style="background:rgba(15,23,36,0.92);border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex-shrink-0 flex items-center">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+             alt="Rubiq Financial Partners"
+             style="height:34px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="what-we-do.html" class="nav-link">What We Do</a>
+        <a href="who-we-serve.html" class="nav-link">Who We Serve</a>
+        <a href="team.html" class="nav-link">Who We Are</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="fee-structure.html" class="nav-link">Fee Structure</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://www.gdx360.com/login/securelogin/loginbase.aspx" target="_blank" rel="noopener noreferrer">
+          <button class="btn-ghost">Client Access</button>
+        </a>
+        <a href="contact.html"><button class="btn-primary">Schedule a Call</button></a>
+      </div>
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('open')"
+              class="md:hidden p-2" style="color:white;" aria-label="Open menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu"
+       style="background:rgba(15,23,36,0.97);border-top:1px solid rgba(255,255,255,0.07);
+              flex-direction:column;padding:1.5rem 1.5rem 2rem;">
+    <a href="what-we-do.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">What We Do</a>
+    <a href="who-we-serve.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Who We Serve</a>
+    <a href="team.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Who We Are</a>
+    <a href="resources.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Resources</a>
+    <a href="fee-structure.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Fee Structure</a>
+    <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.75rem;">
+      <a href="contact.html"><button class="btn-gold" style="width:100%;">Schedule a Call</button></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 50%,#1A5EA8 100%);
+                padding:7.5rem 0 4rem;position:relative;overflow:hidden;min-height:420px;">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.025;pointer-events:none;" aria-hidden="true">
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+  <div style="position:absolute;top:-10%;right:-5%;width:55%;height:110%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.12) 0%,transparent 60%);pointer-events:none;"></div>
+
+  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
+    <a href="who-we-serve.html" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:2rem;
+      font-size:0.75rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(255,255,255,0.45);
+      text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+      ← Who We Serve
+    </a>
+
+    <div style="display:inline-flex;align-items:center;gap:8px;
+                background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.25);
+                border-radius:100px;padding:0.35rem 1rem;margin-bottom:1.5rem;">
+      <div style="width:6px;height:6px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">
+        Case Study
+      </span>
+    </div>
+
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;line-height:1.12;letter-spacing:-0.03em;color:white;margin-bottom:1rem;">
+      Unlocking Income and Liquidity<br />
+      <em style="font-style:italic;color:#D4AE6A;">from a Legacy Real Estate Portfolio</em>
+    </h1>
+
+    <div style="display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;margin-top:1.25rem;">
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.50);">8 min read</span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.50);">Real Estate Investor</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ARTICLE -->
+<section style="background:#FAF8F4;padding:4rem 0;">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <div class="article-body">
+
+      <!-- Lead -->
+      <div style="border-left:3px solid #C49A5A;padding-left:1.75rem;margin-bottom:2.5rem;">
+        <p style="font-size:1.125rem;line-height:1.75;color:#2C3E55;font-weight:400;">
+          A real estate investor in his early 70s came to Rubiq with a problem that decades of success had created: a $20M portfolio of properties that was overwhelming to manage, generating only $300,000 in annual income, and carrying a cost basis that had depreciated to near zero. Every property he considered selling would trigger a massive tax event — so he held on, year after year, stuck in a portfolio that no longer served him.
+        </p>
+      </div>
+
+      <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(44,62,85,0.45);margin-bottom:0.25rem;">
+        Note: Details have been modified to protect client confidentiality. This case study is illustrative of the type of work we do.
+      </p>
+
+      <h2>The Situation</h2>
+
+      <p>
+        The investor had been acquiring properties since the 1980s. Over four decades, depreciation had reduced his cost basis on most holdings to effectively zero. The portfolio was asset-rich but income-poor — generating roughly 1.5% on $20M in property value. Many of the buildings required ongoing capital expenditures, tenant management, and hands-on oversight that was becoming physically and mentally unsustainable as he moved into his 70s.
+      </p>
+
+      <p>
+        At the same time, his children had no interest in managing the properties. The investor wanted to simplify his life, increase his income, and eventually pass the wealth to his family — but every path forward seemed to lead through a tax bill that would consume a significant portion of the portfolio's value.
+      </p>
+
+      <p>Specifically, he was facing:</p>
+      <ul>
+        <li>Near-zero cost basis across most properties, meaning any outright sale would trigger substantial capital gains and depreciation recapture taxes</li>
+        <li>A portfolio generating only 1.5% income — far below what he needed to support his lifestyle and cover health-related expenses as he aged</li>
+        <li>Increasing management burden with no succession plan for the properties</li>
+        <li>No coordinated strategy for transitioning the real estate wealth to the next generation tax-efficiently</li>
+      </ul>
+
+      <h2>The Liquidation Plan: 1031 Exchanges into DSTs</h2>
+
+      <p>
+        Rather than selling properties outright and absorbing the tax consequences, we worked with the investor and his real estate professionals to design a phased liquidation plan using Section 1031 exchanges. The key was identifying the right replacement properties — not more buildings to manage, but institutional-quality Delaware Statutory Trusts (DSTs) that qualified as like-kind replacement property under the 1031 rules.
+      </p>
+
+      <p>
+        We educated the investor on how DSTs work: professionally managed, diversified real estate holdings — often institutional-grade multifamily, industrial, or net-lease properties — that offer fractional ownership with no active management responsibility. By exchanging his legacy properties into DSTs through 1031, he deferred all capital gains and depreciation recapture taxes while immediately upgrading the quality and diversification of his real estate portfolio.
+      </p>
+
+      <div class="pull-quote">
+        "He'd spent 40 years building this portfolio. Our job was to help him transition out of it without giving a third of it to the IRS."
+      </div>
+
+      <p>
+        The results were significant. The DSTs generated income at approximately 5% of portfolio value — more than tripling his annual cash flow from roughly $300,000 to over $1,000,000. The portfolio was now diversified across multiple property types and geographies rather than concentrated in a handful of locally managed buildings. And critically, all taxes on the accumulated gains were deferred.
+      </p>
+
+      <p>
+        The DST structure also created built-in liquidity. After the typical two-year hold period, DST sponsors often facilitate a sale or refinancing of the underlying properties — giving the investor the option to take proceeds, reinvest via another 1031 exchange, or deploy capital elsewhere. This created a rolling liquidity mechanism that his legacy portfolio never had.
+      </p>
+
+      <h2>Qualified Opportunity Zones: Building a Cash Reserve</h2>
+
+      <p>
+        While the 1031 exchanges addressed the bulk of the portfolio, we identified an additional opportunity using Qualified Opportunity Zone (QOZ) investments. For a portion of the capital gains generated during the transition, the investor allocated funds into a QOZ investment that accomplished two goals simultaneously.
+      </p>
+
+      <p>
+        First, the QOZ investment provided bonus depreciation that generated significant paper losses — offsetting taxable income in the near term and reducing his current-year tax burden. Second, the structure allowed him to hold a portion of the proceeds as cash rather than tying up every dollar in replacement real estate.
+      </p>
+
+      <p>
+        This was a deliberate planning decision. As someone in his early 70s, having liquid cash on hand for health-related expenses, unexpected costs, and general peace of mind was a priority. The QOZ gave him a way to maintain that cash reserve while still capturing meaningful tax benefits from the investment — something a pure 1031 exchange strategy alone would not have allowed.
+      </p>
+
+      <h2>Working with His Professional Team</h2>
+
+      <p>
+        This engagement required close coordination with the investor's existing real estate professionals — his property managers, brokers, and 1031 qualified intermediary. Rubiq served as the strategic layer, working alongside his team to sequence dispositions, identify exchange timelines, and ensure each transaction met the strict 1031 identification and closing deadlines.
+      </p>
+
+      <p>
+        We also coordinated with his CPA to model the tax impact of each phase of the liquidation plan, ensuring the combination of 1031 exchanges and QOZ investments maximized deferral while maintaining income targets. The plan wasn't executed all at once — it was designed as a multi-year roadmap, giving the investor time to transition gradually and adjust as market conditions or personal needs changed.
+      </p>
+
+      <h2>Shielding Taxes for the Next Generation</h2>
+
+      <p>
+        One of the most powerful outcomes of the DST strategy was what it meant for the investor's children. Because DST interests receive a stepped-up cost basis at death — just like directly owned real estate — the capital gains that had been deferred through 1031 exchanges over four decades could be eliminated entirely when the assets pass to the next generation.
+      </p>
+
+      <p>
+        In practical terms, this meant the investor's heirs could inherit the DST interests at current market value, with no embedded capital gains tax liability. Decades of accumulated gains — gains that would have been taxable if the investor had sold outright during his lifetime — were effectively shielded. The wealth transferred to his children not only intact, but unburdened by the tax consequences that had kept him locked into his legacy portfolio for years.
+      </p>
+
+      <h2>The Outcome</h2>
+
+      <p>
+        Within the first two years of the engagement, the investor had:
+      </p>
+
+      <ul>
+        <li>Transitioned from a concentrated, management-intensive portfolio into diversified, professionally managed DST holdings — with no active management responsibilities</li>
+        <li>Increased annual income from approximately $300,000 to over $1,000,000 — roughly 5% of portfolio value — without selling a single property in a taxable event</li>
+        <li>Deferred all capital gains and depreciation recapture taxes through 1031 exchanges into qualifying DSTs</li>
+        <li>Established a cash reserve through a Qualified Opportunity Zone investment, using bonus depreciation to offset income while maintaining liquidity for health and emergency expenses</li>
+        <li>Created a structure where his children would inherit the portfolio with a stepped-up basis — effectively shielding decades of accumulated gains from taxation</li>
+      </ul>
+
+      <p>
+        The investor went from being overwhelmed by a portfolio he'd outgrown to having a plan that worked for him — more income, less complexity, and a clear path for his family. The properties he spent 40 years building didn't have to become a burden. They became a legacy.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Disclaimer -->
+<div style="max-width:820px;margin:0 auto;padding:0 1.5rem 2rem;">
+  <p style="font-size:0.75rem;line-height:1.6;color:rgba(44,62,85,0.45);font-style:italic;border-top:1px solid rgba(26,94,168,0.10);padding-top:1.25rem;margin:0;">
+    This case study is for illustrative purposes only. Client details have been modified to protect confidentiality. Past results do not guarantee future outcomes. Individual circumstances vary — consult a qualified advisor before making financial decisions. DSTs and QOZ investments involve risks including potential loss of principal, illiquidity, and lack of control over management decisions. 1031 exchanges must comply with strict IRS timelines and requirements. Rubiq Financial Partners does not provide legal or tax preparation services.
+  </p>
+</div>
+
+
+<!-- CTA -->
+<section style="background:linear-gradient(135deg,#133F73 0%,#1A5EA8 50%,#2A74C8 100%);
+                padding:3.5rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-30%;right:-10%;width:50%;height:150%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.18) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center" style="position:relative;z-index:2;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);
+               font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
+      Is your real estate portfolio<br />
+      <em style="font-style:italic;color:#D4AE6A;">working as hard as you did to build it?</em>
+    </h2>
+
+    <div style="display:flex;flex-direction:column;gap:0.75rem;align-items:center;margin-bottom:2rem;">
+      <a href="tel:6102159499"
+         style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;
+                font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);
+                transition:color 0.18s ease;"
+         onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        (610) 215-9499
+      </a>
+      <a href="mailto:info@rubiqfinancial.com"
+         style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;
+                font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);
+                transition:color 0.18s ease;"
+         onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        info@rubiqfinancial.com
+      </a>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+      <a href="contact.html"><button class="btn-gold">Schedule a Call</button></a>
+      <a href="team.html"><button class="btn-ghost">Meet Our Advisors</button></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer style="background:#0F1724;padding:3rem 0 2rem;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;margin-bottom:2rem;">
+      <div style="max-width:320px;">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+             alt="Rubiq Financial Partners" style="height:28px;width:auto;margin-bottom:1rem;object-fit:contain;" loading="lazy" decoding="async" />
+        <p style="font-size:0.8125rem;line-height:1.6;color:rgba(255,255,255,0.40);font-weight:300;">
+          Independent, fee-based financial advisory for entrepreneurs, business owners,
+          and ultra-high-net-worth families.
+        </p>
+      </div>
+      <div style="display:flex;gap:2.5rem;flex-wrap:wrap;">
+        <a href="who-we-serve.html" style="font-size:0.8125rem;color:rgba(255,255,255,0.40);text-decoration:none;transition:color 0.18s;"
+           onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.40)'">Who We Serve</a>
+        <a href="contact.html" style="font-size:0.8125rem;color:rgba(255,255,255,0.40);text-decoration:none;transition:color 0.18s;"
+           onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.40)'">Contact</a>
+        <a href="privacy-policy.html" style="font-size:0.8125rem;color:rgba(255,255,255,0.40);text-decoration:none;transition:color 0.18s;"
+           onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.40)'">Privacy Policy</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:1.5rem;">
+      <p style="font-size:0.6875rem;line-height:1.6;color:rgba(255,255,255,0.25);max-width:720px;">
+        Investment advisory services offered through Legally Registered Entity. Rubiq Financial Partners, LLC is a separate entity.
+        This site is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
