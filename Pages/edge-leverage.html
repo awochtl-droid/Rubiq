@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intelligent Use of Leverage | Portfolio Strategy | Rubiq Financial Partners</title>
+  <meta name="description" content="Portfolio margin, long/short strategies, and structured notes — Rubiq explains how sophisticated investors use leverage as a precision tool to express market views and control risk." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/edge-leverage.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rubiq: {
+              blue:      '#1A5EA8',
+              bluedark:  '#133F73',
+              bluelight: '#2A74C8',
+              gold:      '#C49A5A',
+              goldlight: '#D4AE6A',
+              golddark:  '#9E7A32',
+              ink:       '#0F1724',
+              inksoft:   '#1C2D44',
+              slate:     '#2C3E55',
+              mist:      '#F4F6F9',
+              parchment: '#FAF8F4',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #0F1724; margin: 0; }
+
+    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.70);
+      text-decoration: none; position: relative; padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1.5px; background: #C49A5A; transition: width 0.22s ease;
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: white; }
+    .nav-link.active::after { width: 100%; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); }
+
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+    @media (max-width: 767px) {
+      #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+      footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
+    }
+
+    /* Article typography */
+    .article-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.625rem; font-weight: 700; color: #0F1724;
+      line-height: 1.25; letter-spacing: -0.02em;
+      margin: 2.75rem 0 1rem;
+    }
+    .article-body h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.0625rem; font-weight: 600; color: #1C2D44;
+      margin: 2rem 0 0.625rem;
+    }
+    .article-body p {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin: 0 0 1.35rem;
+    }
+    .article-body ul {
+      margin: 0 0 1.35rem 1.25rem; padding: 0;
+    }
+    .article-body ul li {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin-bottom: 0.5rem;
+      list-style: none; position: relative; padding-left: 1.25rem;
+    }
+    .article-body ul li::before {
+      content: ''; position: absolute; left: 0; top: 0.65em;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: linear-gradient(135deg, #1A5EA8, #C49A5A);
+    }
+
+    .stat-callout {
+      border-left: 3px solid #C49A5A;
+      background: linear-gradient(135deg, rgba(196,154,74,0.06), rgba(26,94,168,0.04));
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem; font-weight: 700; color: #1A5EA8;
+      line-height: 1; letter-spacing: -0.03em;
+    }
+    .stat-label {
+      font-size: 0.8125rem; font-weight: 500; color: #2C3E55;
+      letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.25rem;
+    }
+
+    .pull-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-style: italic; font-weight: 500;
+      color: #133F73; line-height: 1.55;
+      border-left: 3px solid #1A5EA8;
+      padding: 1rem 1.75rem;
+      margin: 2.5rem 0;
+    }
+
+    .resource-link {
+      display: flex; align-items: flex-start; gap: 0.875rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(26,94,168,0.12);
+      border-radius: 8px;
+      background: white;
+      text-decoration: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+      margin-bottom: 0.75rem;
+    }
+    .resource-link:hover {
+      border-color: rgba(196,154,74,0.40);
+      box-shadow: 0 4px 16px rgba(26,94,168,0.10);
+      transform: translateY(-1px);
+    }
+  </style>
+  <!-- Social / AEO -->
+  <meta property="og:type"        content="article" />
+  <meta property="og:site_name"   content="Rubiq Financial Partners" />
+  <meta property="og:title"       content="Intelligent Use of Leverage | Portfolio Strategy | Rubiq Financial Partners" />
+  <meta property="og:description" content="Portfolio margin, long/short strategies, and structured notes — how sophisticated investors use leverage as a precision tool to express market views and control risk." />
+  <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/edge-leverage.html" />
+  <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Intelligent Use of Leverage | Portfolio Strategy | Rubiq Financial Partners" />
+  <meta name="twitter:description" content="Portfolio margin, long/short strategies, and structured notes — how sophisticated investors use leverage as a precision tool to express market views and control risk." />
+  <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Intelligent Use of Leverage",
+    "description": "Portfolio margin, long/short strategies, and structured notes — how sophisticated investors use leverage as a precision tool to express market views and control risk.",
+    "url": "https://www.rubiqfinancial.com/Pages/edge-leverage.html",
+    "datePublished": "2026-03-20",
+    "dateModified": "2026-03-20",
+    "author": { "@type": "Person", "name": "Andreas Wochtl, CFP\u00ae", "url": "https://www.rubiqfinancial.com/Pages/team.html" },
+    "publisher": { "@id": "https://www.rubiqfinancial.com/#organization" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.rubiqfinancial.com/Pages/edge-leverage.html" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home",                          "item": "https://www.rubiqfinancial.com/" },
+      { "@type": "ListItem", "position": 2, "name": "What We Do",                    "item": "https://www.rubiqfinancial.com/Pages/what-we-do.html" },
+      { "@type": "ListItem", "position": 3, "name": "Intelligent Use of Leverage",   "item": "https://www.rubiqfinancial.com/Pages/edge-leverage.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur"
+     style="background:rgba(15,23,36,0.90);border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex-shrink-0 flex items-center">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+             alt="Rubiq Financial Partners logo" width="160" height="34" style="height:34px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="what-we-do.html"  class="nav-link active">What We Do</a>
+        <a href="who-we-serve.html"     class="nav-link">Who We Serve</a>
+        <a href="fee-structure.html" class="nav-link">Fee Structure</a>
+        <a href="team.html"      class="nav-link">Team</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://www.gdx360.com/login/securelogin/loginbase.aspx" target="_blank" rel="noopener noreferrer">
+          <button class="btn-ghost">Client Access</button>
+        </a>
+        <a href="contact.html"><button class="btn-primary">Schedule a Call</button></a>
+      </div>
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('open')"
+              class="md:hidden p-2" style="color:white;" aria-label="Open menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu"
+       style="background:rgba(15,23,36,0.97);border-top:1px solid rgba(255,255,255,0.07);
+              flex-direction:column;padding:1.5rem 1.5rem 2rem;">
+    <a href="what-we-do.html"  class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">What We Do</a>
+    <a href="who-we-serve.html"     class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Who We Serve</a>
+    <a href="fee-structure.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Fee Structure</a>
+    <a href="team.html"      class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Team</a>
+    <a href="resources.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Resources</a>
+    <div style="margin-top:1.25rem;">
+      <a href="contact.html"><button class="btn-primary" style="width:100%;">Schedule a Call</button></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO (blue gradient, no image) -->
+<div style="position:relative;min-height:480px;overflow:hidden;margin-top:72px;
+            background:linear-gradient(160deg,#0F1724 0%,#133F73 40%,#1A5EA8 80%,#2A74C8 100%);">
+  <!-- decorative radials -->
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 75% 25%,rgba(196,154,74,0.14),transparent 55%);pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(26,94,168,0.25),transparent 50%);pointer-events:none;"></div>
+
+  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;min-height:480px;padding-bottom:3.5rem;padding-top:3rem;">
+    <!-- Breadcrumb -->
+    <div style="display:flex;align-items:center;gap:6px;margin-bottom:1.25rem;flex-wrap:wrap;">
+      <a href="../index.html" style="color:rgba(255,255,255,0.45);font-size:0.75rem;font-weight:400;text-decoration:none;transition:color 0.18s ease;"
+         onmouseover="this.style.color='#D4AE6A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Home</a>
+      <span style="color:rgba(255,255,255,0.25);font-size:0.7rem;">›</span>
+      <a href="what-we-do.html" style="color:rgba(255,255,255,0.45);font-size:0.75rem;font-weight:400;text-decoration:none;transition:color 0.18s ease;"
+         onmouseover="this.style.color='#D4AE6A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">What We Do</a>
+      <span style="color:rgba(255,255,255,0.25);font-size:0.7rem;">›</span>
+      <span style="color:rgba(255,255,255,0.60);font-size:0.75rem;font-weight:400;">Intelligent Use of Leverage</span>
+    </div>
+    <!-- Back link -->
+    <a href="what-we-do.html" style="display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.55);font-size:0.8125rem;font-weight:500;letter-spacing:0.04em;text-decoration:none;margin-bottom:1.25rem;transition:color 0.18s ease;"
+       onmouseover="this.style.color='#D4AE6A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      What We Do
+    </a>
+    <!-- Category pill -->
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(196,154,74,0.15);border:1px solid rgba(196,154,74,0.35);border-radius:100px;padding:0.3rem 0.9rem;margin-bottom:1.25rem;width:fit-content;">
+      <div style="width:5px;height:5px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">Portfolio Strategy</span>
+    </div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;line-height:1.12;letter-spacing:-0.03em;color:white;margin-bottom:0.75rem;">
+      Intelligent Use of Leverage
+    </h1>
+    <p style="font-family:'Playfair Display',serif;font-size:clamp(1.05rem,2vw,1.25rem);font-style:italic;color:#D4AE6A;font-weight:400;line-height:1.5;margin:0 0 1.25rem;max-width:600px;">
+      Precision tools for expressing conviction — not speculation for its own sake.
+    </p>
+    <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">March 2026</span>
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);"></span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">10 min read</span>
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);"></span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">Andreas Wochtl, CFP®  ·  Rubiq Financial Partners</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ARTICLE BODY -->
+<section style="background:#FAF8F4;padding:5rem 0 6rem;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+
+      <!-- Main Content -->
+      <div class="lg:col-span-2 article-body">
+
+        <p style="font-size:1.175rem;line-height:1.80;color:#1C2D44;font-weight:400;border-left:3px solid #C49A5A;padding-left:1.5rem;margin-bottom:2.5rem;">
+          Leverage is one of the most misunderstood concepts in portfolio management. In the popular imagination, it conjures images of speculative excess — margin calls, blown-up hedge funds, systemic risk. But in the hands of a disciplined advisor, leverage is a precision instrument: a way to express carefully considered views on markets, sectors, and individual securities while managing downside exposure with specificity that unleveraged portfolios simply cannot achieve.
+        </p>
+
+        <h2>What Do We Mean by Leverage?</h2>
+        <p>
+          When we talk about leverage at Rubiq, we are not talking about borrowing money to amplify a single directional bet. We mean two distinct — and complementary — approaches:
+        </p>
+        <ul>
+          <li><strong>Portfolio margin and long/short strategies</strong> — using the capital efficiency of portfolio margin to construct portfolios that can go long sectors and securities we are bullish on, while simultaneously shorting those we believe are overvalued or vulnerable. This allows us to express nuanced, relative-value views on the market.</li>
+          <li><strong>Structured notes</strong> — custom-engineered securities that amplify upside participation while defining and controlling downside exposure. These instruments let us express opinions on the direction of the broad market or specific sectors with risk parameters that are explicit from the outset.</li>
+        </ul>
+        <p>
+          Both approaches share a common philosophy: leverage should serve the investment thesis, not the other way around. Every leveraged position we take has a clearly articulated rationale, defined risk parameters, and a plan for what happens if we are wrong.
+        </p>
+
+        <h2>Portfolio Margin & Long/Short Strategy</h2>
+        <p>
+          Traditional buy-and-hold portfolios are inherently one-directional. When you believe technology is overvalued and energy is undervalued, the most a long-only investor can do is underweight technology and overweight energy. That is a muted expression of a strong view.
+        </p>
+        <p>
+          Portfolio margin — the more capital-efficient margin framework available to qualified investors — allows us to construct long/short portfolios that express these views with greater precision. Rather than simply underweighting a sector, we can short it directly, creating a portfolio that profits from both the sectors we are right about going up <em>and</em> the ones we are right about going down.
+        </p>
+
+        <div class="stat-callout" style="border-left-color:#1A5EA8;">
+          <div class="stat-number">Net Exposure</div>
+          <div class="stat-label">The key metric — not gross leverage, but the directional tilt of the portfolio</div>
+        </div>
+
+        <h3>How It Works in Practice</h3>
+        <p>
+          Consider a portfolio with $5 million in long positions and $2 million in short positions. The gross exposure is $7 million (140% of capital), but the net exposure is only $3 million (60% of capital). That portfolio has <em>less</em> directional market risk than a fully invested long-only portfolio — even though it uses margin. The shorts act as a partial hedge, reducing the portfolio's sensitivity to broad market declines.
+        </p>
+        <p>
+          This is the counterintuitive truth about well-constructed long/short portfolios: leverage, properly managed, can actually reduce overall portfolio risk while increasing the precision with which investment views are expressed.
+        </p>
+
+        <h3>Expressing Market & Sector Views</h3>
+        <p>
+          The real power of a long/short framework is in relative-value positioning. When we have conviction that one area of the market will outperform another, we do not need to predict the absolute direction of the market. We can go long the sector we favor and short the one we do not, isolating the spread between the two. This approach:
+        </p>
+        <ul>
+          <li>Reduces dependence on getting the overall market direction right</li>
+          <li>Allows us to profit in flat or declining markets if our relative view is correct</li>
+          <li>Creates natural hedges that dampen portfolio volatility</li>
+          <li>Permits more concentrated positions in high-conviction ideas because the shorts offset some of the risk</li>
+        </ul>
+
+        <h3>Managing Net Exposure</h3>
+        <p>
+          Net exposure — the difference between long and short positions as a percentage of capital — is our primary risk dial. In markets where we have strong directional conviction, we may run higher net exposure (70-90%). In uncertain environments, we can reduce it to 30-50% or lower, effectively dialing down our market sensitivity without selling our best long positions. This flexibility is simply unavailable to long-only portfolios.
+        </p>
+
+        <div class="pull-quote">
+          "The question is never whether to use leverage. It is whether you are using it deliberately, with defined parameters, or whether the structure of your portfolio is implicitly leveraged to a single outcome — the market going up."
+        </div>
+
+        <h2>Structured Notes</h2>
+        <p>
+          Structured notes are custom securities — typically issued by major banks — that combine a bond component with a derivative component to create a specific payoff profile. They are one of the most powerful tools available for expressing a market view with explicitly defined risk.
+        </p>
+
+        <h3>How They Work</h3>
+        <p>
+          A structured note links its return to the performance of an underlying asset — an equity index, a sector ETF, an individual stock, or a commodity — while modifying the payoff in ways that pure equity or bond ownership cannot replicate. The key features include:
+        </p>
+        <ul>
+          <li><strong>Amplified upside participation.</strong> A note might offer 150% or 200% of the upside of the S&P 500 up to a cap. If the index returns 10%, the note returns 15% or 20%. This allows us to express bullish views with greater capital efficiency.</li>
+          <li><strong>Principal protection or buffered downside.</strong> Many notes include a buffer that absorbs the first 10%, 15%, or even 30% of losses. Below the buffer, the investor participates in losses, but the buffer provides a significant cushion that pure equity ownership does not offer.</li>
+          <li><strong>Contingent coupons.</strong> Some notes pay periodic income — 8%, 10%, or more annually — as long as the underlying asset remains above a specified barrier level (e.g., 70% of its initial value). This generates income in flat or mildly declining markets.</li>
+          <li><strong>Barrier levels.</strong> The specific thresholds below which the protective features expire. Understanding barrier levels is essential — they define the precise point at which a structured note transitions from a buffered investment to one that participates fully in losses.</li>
+        </ul>
+
+        <h3>Expressing Sector & Market Views</h3>
+        <p>
+          Structured notes are particularly valuable when we have a thesis about a sector or market but want to control the range of outcomes. For example:
+        </p>
+        <ul>
+          <li><strong>Bullish on semiconductors, cautious on timing:</strong> a note offering 1.5x upside participation on a semiconductor index with a 20% downside buffer gives us leveraged exposure to our thesis while protecting against near-term volatility.</li>
+          <li><strong>Positive on broad equities, want income:</strong> an autocallable note on the S&P 500 paying 9% annual coupons with a 30% barrier generates meaningful income as long as the market doesn't decline more than 30% — a scenario that has occurred only a handful of times in the past century.</li>
+          <li><strong>Sector rotation view:</strong> notes referencing sector-specific indices let us implement rotation strategies with asymmetric payoff profiles — capturing most of the upside of our thesis while limiting downside to defined levels.</li>
+        </ul>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" style="margin:2rem 0;">
+          <div class="stat-callout" style="border-left-color:#1A5EA8;">
+            <div class="stat-number">1.5–2x</div>
+            <div class="stat-label">Typical upside participation rate on growth notes</div>
+          </div>
+          <div class="stat-callout">
+            <div class="stat-number">10–30%</div>
+            <div class="stat-label">Common downside buffer range on protected notes</div>
+          </div>
+        </div>
+
+        <h2>When Leverage Makes Sense</h2>
+        <p>
+          Leverage is not appropriate for every investor or every market environment. It makes sense when:
+        </p>
+        <ul>
+          <li><strong>You have a clearly articulated investment thesis</strong> — not a vague feeling that "the market is going up," but a specific, researchable view on relative value, sector dynamics, or macro trends.</li>
+          <li><strong>Your overall portfolio can absorb the worst-case outcome</strong> — leverage should be sized so that even a maximum-loss scenario does not materially impair your financial plan.</li>
+          <li><strong>You have the temperament and time horizon</strong> — leveraged positions can be volatile in the short term even when the thesis is ultimately correct. You need the emotional discipline to hold through drawdowns and the time horizon to allow the thesis to play out.</li>
+          <li><strong>The risk/reward is asymmetric</strong> — the best leveraged trades are ones where the upside is meaningfully larger than the downside, either inherently or because of how the position is structured.</li>
+        </ul>
+        <p>
+          Leverage does <em>not</em> make sense when an investor is reaching for returns to compensate for insufficient savings, when it is used to amplify positions in speculative assets without fundamental support, or when the investor cannot withstand the mark-to-market volatility that comes with leveraged exposure.
+        </p>
+
+        <h2>Risk Management</h2>
+        <p>
+          Every leveraged strategy we implement is governed by a disciplined risk management framework. This is not an afterthought — it is the foundation on which leverage becomes a responsible tool rather than a speculative liability.
+        </p>
+
+        <h3>Stress Testing</h3>
+        <p>
+          Before initiating any leveraged position, we stress-test the portfolio against historical scenarios (2008 financial crisis, 2020 COVID crash, 2022 rate shock) and hypothetical scenarios calibrated to current risks. We ask: what happens to the portfolio if rates rise 200 basis points? If the sector we are long drops 25%? If correlations spike to 1.0? The position is sized so the worst-case outcome is tolerable, not catastrophic.
+        </p>
+
+        <h3>Position Sizing</h3>
+        <p>
+          No single leveraged position — whether a short, a structured note, or a margined long — is allowed to grow to a size where its adverse movement could impair the broader portfolio or the client's financial plan. We use systematic position-sizing rules that account for the volatility of the underlying asset, the degree of leverage employed, and the correlation with other holdings.
+        </p>
+
+        <h3>Margin Maintenance & Liquidity</h3>
+        <p>
+          For portfolio margin strategies, we maintain margin buffers well above minimum requirements. We never operate at the edge of a margin call — the portfolio is constructed so that even significant market moves leave adequate margin cushion. We also ensure that sufficient liquid reserves exist outside the margined portfolio to meet potential capital calls or increased margin requirements.
+        </p>
+
+        <h3>Ongoing Monitoring</h3>
+        <p>
+          Leveraged positions receive more frequent review than long-only holdings. Net exposure, individual position sizes, margin utilization, and structured note barrier distances are monitored continuously. When market conditions change materially, we adjust — reducing net exposure, adding hedges, or unwinding positions — before risk exceeds our defined thresholds.
+        </p>
+
+        <div class="pull-quote">
+          "Risk management for leveraged portfolios is not about avoiding losses. It is about ensuring that no single position, scenario, or market dislocation can cause permanent impairment to the client's financial plan."
+        </div>
+
+      </div><!-- /main content -->
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-1">
+        <div style="position:sticky;top:100px;">
+
+          <!-- Key Concepts Box -->
+          <div style="background:linear-gradient(160deg,#0F1724,#133F73);border-radius:10px;padding:2rem;margin-bottom:1.75rem;">
+            <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C49A5A;margin-bottom:1.25rem;">Key Concepts</div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:white;line-height:1.2;">Portfolio Margin</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.35rem;line-height:1.5;">Risk-based margin that enables capital-efficient long/short positioning for qualified investors</div>
+            </div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:white;line-height:1.2;">Net Exposure</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.35rem;line-height:1.5;">Long positions minus short positions — the true directional risk of a portfolio</div>
+            </div>
+            <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
+              <div style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:white;line-height:1.2;">Structured Notes</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.35rem;line-height:1.5;">Custom securities combining bonds and derivatives to create defined payoff profiles</div>
+            </div>
+            <div>
+              <div style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:white;line-height:1.2;">Downside Buffer</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.35rem;line-height:1.5;">A defined range of losses absorbed by the note issuer before the investor participates</div>
+            </div>
+          </div>
+
+          <!-- External Resources -->
+          <div style="margin-bottom:1.75rem;">
+            <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2C3E55;margin-bottom:1rem;">Further Reading</div>
+
+            <a href="https://www.sec.gov/about/reports-publications/investorpubsmarginhtm" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">SEC: Margin — Borrowing Money to Pay for Stocks</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Official investor bulletin on margin accounts and risks</div>
+              </div>
+            </a>
+
+            <a href="https://www.finra.org/investors/insights/structured-notes" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">FINRA: Structured Notes with Principal at Risk</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Regulatory guidance on structured product complexity and suitability</div>
+              </div>
+            </a>
+
+            <a href="https://www.cboe.com/education/" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">CBOE Options Education Center</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Comprehensive resources on options strategies and risk management</div>
+              </div>
+            </a>
+
+            <a href="https://www.finra.org/investors/insights/margin-accounts" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,#1A5EA8,#133F73);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.8125rem;font-weight:600;color:#0F1724;line-height:1.3;">FINRA: Understanding Margin Accounts</div>
+                <div style="font-size:0.75rem;color:#6B7280;margin-top:0.2rem;">Key risks, rules, and investor responsibilities for margin borrowing</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- CTA -->
+          <div style="background:linear-gradient(135deg,rgba(196,154,74,0.10),rgba(26,94,168,0.08));border:1px solid rgba(196,154,74,0.25);border-radius:10px;padding:1.75rem;">
+            <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:#0F1724;margin-bottom:0.625rem;line-height:1.3;">
+              Is a leverage strategy appropriate for your portfolio?
+            </div>
+            <p style="font-size:0.875rem;line-height:1.6;color:#4A5568;font-weight:300;margin-bottom:1.25rem;">
+              Our advisors evaluate whether portfolio margin, structured notes, or long/short positioning makes sense given your specific risk tolerance, tax situation, and financial objectives.
+            </p>
+            <a href="contact.html">
+              <button class="btn-primary" style="width:100%;text-align:center;">Discuss Leverage Strategies</button>
+            </a>
+          </div>
+
+        </div>
+      </div><!-- /sidebar -->
+
+    </div><!-- /grid -->
+  </div>
+</section>
+
+
+<!-- Article Disclaimer (enhanced for leverage) -->
+<div style="max-width:820px;margin:0 auto;padding:0 1.5rem 2rem;">
+  <div style="border-top:1px solid rgba(26,94,168,0.10);padding-top:1.25rem;">
+    <p style="font-size:0.75rem;line-height:1.6;color:rgba(44,62,85,0.55);font-style:italic;margin:0 0 0.75rem;">
+      <strong style="font-weight:600;color:rgba(44,62,85,0.65);">Important Risk Disclosures:</strong> Leverage amplifies both gains and losses. The use of margin involves interest charges and the risk of margin calls, which may require the investor to deposit additional funds or liquidate securities at unfavorable prices. Past performance of leveraged strategies does not guarantee future results.
+    </p>
+    <p style="font-size:0.75rem;line-height:1.6;color:rgba(44,62,85,0.55);font-style:italic;margin:0 0 0.75rem;">
+      Structured notes are complex financial instruments that involve issuer credit risk, limited or no liquidity, and potential loss of principal. Returns on structured notes are subject to the creditworthiness of the issuing institution. Structured notes may not be suitable for all investors and should only be considered as part of a diversified portfolio after careful review of the offering documents.
+    </p>
+    <p style="font-size:0.75rem;line-height:1.6;color:rgba(44,62,85,0.45);font-style:italic;margin:0;">
+      This page is for informational purposes only and does not constitute investment, tax, or legal advice. Individual circumstances vary. Consult a qualified advisor before making any investment decisions. Investing involves risk, including the possible loss of principal. Short selling involves unlimited risk of loss.
+    </p>
+  </div>
+</div>
+
+
+<!-- RELATED ARTICLES -->
+<section style="background:white;padding:5rem 0;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div style="width:48px;height:3px;background:linear-gradient(90deg,#1A5EA8,#C49A5A);border-radius:2px;margin-bottom:1rem;"></div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#0F1724;margin-bottom:2.5rem;letter-spacing:-0.02em;">Related Reading</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <a href="resources-alternative-investments.html" style="text-decoration:none;display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;border:1px solid rgba(26,94,168,0.10);border-radius:10px;background:#FAF8F4;transition:box-shadow 0.22s ease,transform 0.22s ease;"
+         onmouseover="this.style.boxShadow='0 8px 32px rgba(26,94,168,0.12)';this.style.transform='translateY(-2px)'"
+         onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+        <div style="width:80px;height:64px;border-radius:6px;overflow:hidden;flex-shrink:0;">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=160&h=128&q=80"
+               alt="City buildings representing layered alternative investments" width="160" height="128" style="width:100%;height:100%;object-fit:cover;" loading="lazy" decoding="async" />
+        </div>
+        <div>
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2A74C8;margin-bottom:0.4rem;">Alternatives</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#0F1724;line-height:1.35;">Private Credit Market: What Investors Need to Know</div>
+          <div style="font-size:0.75rem;color:#6B7280;margin-top:0.4rem;">March 10, 2026 · 8 min read</div>
+        </div>
+      </a>
+
+      <a href="resources-tax-loss-harvesting.html" style="text-decoration:none;display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;border:1px solid rgba(26,94,168,0.10);border-radius:10px;background:#FAF8F4;transition:box-shadow 0.22s ease,transform 0.22s ease;"
+         onmouseover="this.style.boxShadow='0 8px 32px rgba(26,94,168,0.12)';this.style.transform='translateY(-2px)'"
+         onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+        <div style="width:80px;height:64px;border-radius:6px;overflow:hidden;flex-shrink:0;">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=160&h=128&q=80"
+               alt="Financial documents and calculations" width="160" height="128" style="width:100%;height:100%;object-fit:cover;" loading="lazy" decoding="async" />
+        </div>
+        <div>
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2A74C8;margin-bottom:0.4rem;">Tax Strategy</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#0F1724;line-height:1.35;">Tax Loss Harvesting & Direct Indexing</div>
+          <div style="font-size:0.75rem;color:#6B7280;margin-top:0.4rem;">Feb 2026 · 7 min read</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA BANNER -->
+<section style="background:linear-gradient(135deg,#133F73 0%,#1A5EA8 50%,#2A74C8 100%);
+                padding:3.5rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-30%;right:-10%;width:50%;height:150%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.18) 0%,transparent 60%);
+              pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center" style="position:relative;z-index:2;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);
+               font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
+      Relationships begin with<br />
+      <em style="font-style:italic;color:#D4AE6A;">a conversation.</em>
+    </h2>
+
+    <div style="display:flex;flex-direction:column;gap:0.75rem;align-items:center;margin-bottom:2rem;">
+      <a href="tel:6102159499"
+         style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;
+                font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);
+                transition:color 0.18s ease;"
+         onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="15" height="15" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24" style="flex-shrink:0;">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.36C1.21 2.18 2.12 1 3.3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.76-.76a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.28 16z"/>
+        </svg>
+        610-215-9499
+      </a>
+      <a href="mailto:clientservice@rubiqfinancial.com"
+         style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;
+                font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);
+                transition:color 0.18s ease;"
+         onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="15" height="15" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24" style="flex-shrink:0;">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        clientservice@rubiqfinancial.com
+      </a>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="contact.html">
+        <button class="btn-gold" style="background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);color:#0F1724;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;letter-spacing:0.04em;text-transform:uppercase;padding:0.875rem 2.25rem;border-radius:4px;border:none;cursor:pointer;transition:opacity 0.18s ease,transform 0.18s ease;">Schedule a Call</button>
+      </a>
+      <a href="team.html">
+        <button class="btn-ghost" style="background:transparent;color:white;font-family:'Inter',sans-serif;font-weight:500;font-size:0.875rem;letter-spacing:0.04em;text-transform:uppercase;padding:0.75rem 1.75rem;border-radius:4px;border:1.5px solid rgba(255,255,255,0.35);cursor:pointer;transition:background 0.18s ease,border-color 0.18s ease;">Meet Our Advisors</button>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer style="background:#0F1724;padding:2rem 0;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+         alt="Rubiq Financial Partners logo" width="120" height="26" style="height:26px;width:auto;opacity:0.70;" loading="lazy" decoding="async" />
+    <div style="text-align:center;">
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.28);margin:0 0 0.35rem;">
+        &copy; 2026 Rubiq Financial Partners LLC. All rights reserved.
+      </p>
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.18);margin:0 0 0.5rem;line-height:1.6;font-weight:300;">
+        Advisory services offered through Wealthcare Advisory Partners. Brokerage products offered through LPL Financial, Member FINRA/SIPC.
+      </p>
+      <div style="display:flex;justify-content:center;gap:1.5rem;">
+        <a href="privacy-policy.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Privacy Policy</a>
+        <a href="terms-of-use.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Terms of Use</a>
+        <a href="faq.html"
+           style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">
+          FAQ
+        </a>
+        <a href="sitemap.html" style="font-size:0.7rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Sitemap</a>
+      </div>
+    </div>
+    <a href="what-we-do.html" style="font-size:0.75rem;font-weight:500;color:rgba(255,255,255,0.45);text-decoration:none;white-space:nowrap;letter-spacing:0.03em;transition:color 0.18s ease;"
+       onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+      &larr; Back to What We Do
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
