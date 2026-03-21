@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Wealth Client Case Study | Rubiq Financial Partners</title>
+  <meta name="description" content="How a $13M private bank client gained tax-efficient investing, alternative strategies, real estate income, estate coordination, and liability protection after leaving a major wirehouse." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/case-study-private-wealth.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rubiq: {
+              blue:      '#1A5EA8',
+              bluedark:  '#133F73',
+              bluelight: '#2A74C8',
+              gold:      '#C49A5A',
+              goldlight: '#D4AE6A',
+              golddark:  '#9E7A32',
+              ink:       '#0F1724',
+              inksoft:   '#1C2D44',
+              slate:     '#2C3E55',
+              mist:      '#F4F6F9',
+              parchment: '#FAF8F4',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
+
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
+      text-decoration: none; position: relative; padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1.5px; background: #C49A5A; transition: width 0.22s ease;
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-gold {
+      background: linear-gradient(135deg, #C49A5A 0%, #D4AE6A 100%);
+      color: #0F1724; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.875rem 2.25rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .btn-gold:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(196,154,74,0.40); }
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); }
+
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+    @media (max-width: 767px) {
+      #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+      footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
+    }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.625rem; font-weight: 700; color: #0F1724;
+      line-height: 1.25; letter-spacing: -0.02em;
+      margin: 2.75rem 0 1rem;
+    }
+    .article-body h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.0625rem; font-weight: 600; color: #1C2D44;
+      margin: 2rem 0 0.625rem;
+    }
+    .article-body p {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin: 0 0 1.35rem;
+    }
+    .article-body ul {
+      margin: 0 0 1.35rem 1.25rem; padding: 0;
+    }
+    .article-body ul li {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin-bottom: 0.5rem;
+      list-style: none; position: relative; padding-left: 1.25rem;
+    }
+    .article-body ul li::before {
+      content: ''; position: absolute; left: 0; top: 0.65em;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: linear-gradient(135deg, #1A5EA8, #C49A5A);
+    }
+
+    .pull-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-style: italic; font-weight: 500;
+      color: #133F73; line-height: 1.55;
+      border-left: 3px solid #C49A5A;
+      padding: 1rem 1.75rem;
+      margin: 2.5rem 0;
+    }
+  </style>
+  <meta property="og:type"        content="article" />
+  <meta property="og:site_name"   content="Rubiq Financial Partners" />
+  <meta property="og:title"       content="Private Wealth Client Case Study | Rubiq Financial Partners" />
+  <meta property="og:description" content="How a $13M private bank client gained tax-efficient investing, alternative strategies, real estate income, estate coordination, and liability protection after leaving a major wirehouse." />
+  <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/case-study-private-wealth.html" />
+  <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Private Wealth Client Case Study | Rubiq Financial Partners" />
+  <meta name="twitter:description" content="How a $13M private bank client gained tax-efficient investing, alternative strategies, real estate income, estate coordination, and liability protection after leaving a major wirehouse." />
+  <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "From Private Bank to Independent Advisor: A $13M Case Study",
+    "description": "How a $13M private bank client gained tax-efficient investing, alternative strategies, real estate income, estate coordination, and liability protection after leaving a major wirehouse.",
+    "datePublished": "2026-03-21",
+    "dateModified": "2026-03-21",
+    "author": { "@type": "Person", "name": "Andreas Wochtl, CFP®", "url": "https://www.rubiqfinancial.com/Pages/team.html" },
+    "publisher": { "@id": "https://www.rubiqfinancial.com/#organization" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.rubiqfinancial.com/Pages/case-study-private-wealth.html" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home",      "item": "https://www.rubiqfinancial.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Who We Serve", "item": "https://www.rubiqfinancial.com/Pages/who-we-serve.html" },
+      { "@type": "ListItem", "position": 3, "name": "Private Wealth Client Case Study", "item": "https://www.rubiqfinancial.com/Pages/case-study-private-wealth.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why do private bank and wirehouse clients switch to an independent advisor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Private bank clients with $5M–$30M in assets often find that even at a major wirehouse, they are limited to a curated product menu, lack coordination across tax, estate, and investment strategy, and have no single point of accountability. The firm's profit-sharing model among investment partners can restrict access to the full range of tools a client needs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is long/short direct indexing and how does it reduce taxes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Long/short direct indexing replaces a traditional index fund with individual stock ownership, allowing an advisor to harvest tax losses on specific positions while maintaining market exposure. The short component can generate additional losses to offset gains elsewhere in the portfolio, significantly reducing the client's annual tax bill."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can alternative investments lower portfolio risk?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Alternative investments — including private credit, hedge funds, and structured notes — often have low correlation to public equity markets. Adding them to a traditional stock-and-bond portfolio can reduce overall volatility and drawdown risk while maintaining or improving long-term return expectations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is tenants by entirety and how does it protect assets?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tenants by entirety is a form of property ownership available to married couples in certain states. It shields jointly held assets from the individual creditors of either spouse — meaning a judgment against one spouse cannot reach property held in this structure. Many private banks never educate clients on this powerful form of liability protection."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur"
+     style="background:rgba(15,23,36,0.92);border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex-shrink-0 flex items-center">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+             alt="Rubiq Financial Partners"
+             style="height:34px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="what-we-do.html" class="nav-link">What We Do</a>
+        <a href="who-we-serve.html" class="nav-link">Who We Serve</a>
+        <a href="team.html" class="nav-link">Who We Are</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="fee-structure.html" class="nav-link">Fee Structure</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://www.gdx360.com/login/securelogin/loginbase.aspx" target="_blank" rel="noopener noreferrer">
+          <button class="btn-ghost">Client Access</button>
+        </a>
+        <a href="contact.html"><button class="btn-primary">Schedule a Call</button></a>
+      </div>
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('open')"
+              class="md:hidden p-2" style="color:white;" aria-label="Open menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu"
+       style="background:rgba(15,23,36,0.97);border-top:1px solid rgba(255,255,255,0.07);
+              flex-direction:column;padding:1.5rem 1.5rem 2rem;">
+    <a href="what-we-do.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">What We Do</a>
+    <a href="who-we-serve.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Who We Serve</a>
+    <a href="team.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Who We Are</a>
+    <a href="resources.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Resources</a>
+    <a href="fee-structure.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Fee Structure</a>
+    <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.75rem;">
+      <a href="contact.html"><button class="btn-gold" style="width:100%;">Schedule a Call</button></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 50%,#1A5EA8 100%);
+                padding:7.5rem 0 4rem;position:relative;overflow:hidden;min-height:420px;">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.025;pointer-events:none;" aria-hidden="true">
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+  <div style="position:absolute;top:-10%;right:-5%;width:55%;height:110%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.12) 0%,transparent 60%);pointer-events:none;"></div>
+
+  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
+    <a href="who-we-serve.html" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:2rem;
+      font-size:0.75rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(255,255,255,0.45);
+      text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+      &larr; Who We Serve
+    </a>
+
+    <div style="display:inline-flex;align-items:center;gap:8px;
+                background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.25);
+                border-radius:100px;padding:0.35rem 1rem;margin-bottom:1.5rem;">
+      <div style="width:6px;height:6px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">
+        Case Study
+      </span>
+    </div>
+
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;line-height:1.12;letter-spacing:-0.03em;color:white;margin-bottom:1rem;">
+      From Private Bank to<br />
+      <em style="font-style:italic;color:#D4AE6A;">Independent Advice</em>
+    </h1>
+
+    <div style="display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;margin-top:1.25rem;">
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.50);">7 min read</span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.50);">Private Wealth Client</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ARTICLE -->
+<section style="background:#FAF8F4;padding:4rem 0;">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <div class="article-body">
+
+      <!-- Lead -->
+      <div style="border-left:3px solid #C49A5A;padding-left:1.75rem;margin-bottom:2.5rem;">
+        <p style="font-size:1.125rem;line-height:1.75;color:#2C3E55;font-weight:400;">
+          A private wealth client with $13M in investable assets came to Rubiq after years at a major private bank. On paper, everything looked fine — a dedicated private banker, access to research, a branded client portal. In practice, he was tired of chasing down 1099s and K-1s every spring, and no one at the firm could answer the simplest question: <strong>what can I do to lower my tax bill?</strong>
+        </p>
+      </div>
+
+      <div style="background:rgba(26,94,168,0.06);border:1px solid rgba(26,94,168,0.15);border-radius:0.5rem;padding:1rem 1.25rem;margin-bottom:1.5rem;">
+        <p style="font-size:0.78rem;line-height:1.6;color:rgba(44,62,85,0.60);margin:0;">
+          <strong style="color:rgba(44,62,85,0.75);">Important Disclosure:</strong> This case study is a hypothetical illustration based on a composite of client experiences. Details have been modified to protect confidentiality. The results depicted are not guaranteed, may not be representative of all client experiences, and should not be interpreted as indicative of future performance. Individual outcomes will vary based on market conditions, tax situations, and other factors.
+        </p>
+      </div>
+
+      <h2>The Private Bank Problem</h2>
+
+      <p>
+        Private banks and wirehouses serve clients with $5M to $30M in assets — substantial portfolios by any measure. But even at this level, the experience often falls short. The client is one of hundreds on a banker's book. There are resources and research available, but no one tying it all together. And the product shelf is curated — not because every option was evaluated and the best ones selected, but because the firm's profit-sharing model among its investment partners determines which strategies make the menu.
+      </p>
+
+      <p>
+        This client's experience was typical of what we see:
+      </p>
+
+      <ul>
+        <li>Tax documents scattered across multiple custodians and account types, with no coordination at tax time and no proactive strategy to reduce the annual bill</li>
+        <li>An investment portfolio built from the firm's approved product list — solid but generic, missing the tax-efficient and alternative strategies that a $13M portfolio warrants</li>
+        <li>No integration between investment management, tax planning, estate planning, and liability protection — each lived in a separate silo with a separate contact</li>
+        <li>No accountability for outcomes — quarterly reports showed performance relative to a benchmark, but no one ever asked whether the overall plan was actually working</li>
+      </ul>
+
+      <div class="pull-quote">
+        "He didn't leave because the returns were bad. He left because no one could answer the one question that mattered: what are we actually doing to protect and grow this in a tax-efficient way?"
+      </div>
+
+      <h2>Building a Tax-Efficient Investment Strategy</h2>
+
+      <p>
+        The first thing we addressed was the investment portfolio itself. The private bank had the client in a mix of mutual funds and model portfolios — reasonable holdings, but entirely off-the-shelf. There was no tax management layer, no loss harvesting, and no consideration of how the portfolio's structure interacted with his broader tax picture.
+      </p>
+
+      <p>
+        We implemented a long/short direct indexing strategy across his taxable accounts. Instead of holding index funds, we own the individual securities — allowing us to harvest tax losses on specific positions throughout the year while maintaining full market exposure. The short component generates additional offsetting losses, creating a persistent tax alpha that compounds over time. For a client in the highest marginal bracket, this approach can generate meaningful savings every single year — the kind of value his private bank never delivered because it wasn't on their menu.
+      </p>
+
+      <h2>Alternatives to Lower Portfolio Risk</h2>
+
+      <p>
+        The private bank portfolio was almost entirely public equities and fixed income — a standard 60/40 with minor tilts. For a $13M portfolio, this was a missed opportunity. We introduced a meaningful allocation to alternative investments — including private credit, structured notes, and interval funds — designed to reduce correlation to public markets and dampen overall portfolio volatility.
+      </p>
+
+      <p>
+        These aren't exotic instruments for their own sake. They serve a specific role: lowering the risk profile of the overall portfolio without sacrificing return expectations. The private bank had access to some alternatives, but the internal approval process and profit-sharing dynamics meant the best options often never made it to the client's desk.
+      </p>
+
+      <h2>Real Estate for Tax-Efficient Income</h2>
+
+      <p>
+        Income generation was a priority, but the client didn't want to create more tax liability in the process. We built a real estate allocation designed to deliver income with built-in tax efficiency — combining private REITs that generate distributions sheltered by depreciation with direct real estate strategies that take advantage of cost segregation and pass-through deductions.
+      </p>
+
+      <p>
+        The result was a durable income stream that didn't simply add to his taxable income the way bond interest or dividend-paying stock funds would. Instead, each dollar of real estate income carried its own tax shield — turning what had been a purely pre-tax exercise at the private bank into an after-tax income strategy that put more money in his pocket.
+      </p>
+
+      <h2>Estate Coordination</h2>
+
+      <p>
+        The client had an estate plan — trusts, wills, powers of attorney — drafted by a competent estate attorney. But no one at the private bank had ever looked at whether the investment strategy was aligned with the estate plan. Assets were titled inconsistently. Beneficiary designations hadn't been updated in years. The trust provisions assumed an asset structure that no longer matched reality.
+      </p>
+
+      <p>
+        We worked directly with the client's estate attorney to align everything. Account titling was corrected to match trust provisions. Beneficiary designations were updated to reflect current intent. Investment allocations were adjusted to account for the different tax treatment of assets held inside and outside of trusts. For the first time, the investment plan and the estate plan were actually speaking to each other.
+      </p>
+
+      <h2>Liability Protection: Tenants by Entirety</h2>
+
+      <p>
+        The final piece was one the private bank had never raised: liability protection. The client and his spouse held significant assets jointly, but the titling was standard joint tenancy — which offers no protection from individual creditors. A judgment against either spouse could reach every jointly held asset.
+      </p>
+
+      <p>
+        Because their state recognized tenants by entirety ownership, we restructured the titling of their jointly held assets into this form. Tenants by entirety shields property from the individual creditors of either spouse — only joint creditors can reach the assets. It's a simple, powerful form of protection that costs nothing to implement and provides meaningful insulation against professional liability, business disputes, or personal judgments. The private bank never mentioned it. Most don't — because asset titling doesn't generate revenue.
+      </p>
+
+      <h2>The Outcome</h2>
+
+      <p>
+        Within the first year of the engagement, the client had:
+      </p>
+
+      <ul>
+        <li>A tax-efficient investment portfolio powered by long/short direct indexing — generating persistent tax alpha that his private bank's approved product list could never deliver</li>
+        <li>A diversified allocation to alternatives that reduced portfolio risk and lowered correlation to public market drawdowns</li>
+        <li>A real estate income strategy built for after-tax efficiency — combining private REITs and depreciation-sheltered structures to maximize what he actually keeps</li>
+        <li>Full coordination between his investment strategy and estate plan — with titling, beneficiary designations, and trust provisions finally aligned</li>
+        <li>Liability protection through tenants by entirety — a zero-cost structure that shields jointly held assets from individual creditors, something the private bank never educated him on</li>
+      </ul>
+
+      <p>
+        The portfolio didn't change dramatically in size. What changed was everything around it — the tax efficiency, the risk profile, the estate alignment, and the protection layer. For the first time, someone was accountable for tying it all together. That was the difference.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Disclaimer -->
+<div style="max-width:820px;margin:0 auto;padding:0 1.5rem 2rem;">
+  <p style="font-size:0.75rem;line-height:1.6;color:rgba(44,62,85,0.45);font-style:italic;border-top:1px solid rgba(26,94,168,0.10);padding-top:1.25rem;margin:0;">
+    <strong>Disclosures:</strong> This case study is hypothetical and for illustrative purposes only. It is based on a composite of client situations and does not represent the experience of any single client. Client details have been modified to protect confidentiality. The outcomes described are not guaranteed, are not representative of all client experiences, and should not be construed as a promise or guarantee of similar results. Past results do not guarantee future outcomes. Not all clients will achieve similar results. Individual circumstances, market conditions, tax situations, and regulatory changes may produce materially different outcomes. Direct indexing strategies involve market risk and tax outcomes depend on individual circumstances. Alternative investments are subject to liquidity constraints and may involve higher fees. Real estate investments involve risks including illiquidity, market fluctuations, and potential loss of principal. Tenants by entirety is available only in certain states and its protections vary by jurisdiction — consult a qualified attorney. Rubiq Financial Partners does not provide legal or tax preparation services. Always consult your own tax, legal, and financial advisors before making investment decisions.
+  </p>
+</div>
+
+
+<!-- Related Services -->
+<div style="max-width:820px;margin:0 auto;padding:0 1.5rem 2rem;">
+  <p style="font-family:'Inter',sans-serif;font-size:0.72rem;letter-spacing:0.10em;text-transform:uppercase;color:rgba(44,62,85,0.45);font-weight:600;margin-bottom:0.75rem;">Related Services</p>
+  <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+    <a href="investment-management.html" style="font-family:'Inter',sans-serif;font-size:0.78rem;color:#1A5EA8;text-decoration:none;padding:0.4rem 0.875rem;border:1px solid rgba(26,94,168,0.20);border-radius:100px;transition:background 0.18s ease;" onmouseover="this.style.background='rgba(26,94,168,0.06)'" onmouseout="this.style.background='transparent'">Investment Management</a>
+    <a href="tax-planning.html" style="font-family:'Inter',sans-serif;font-size:0.78rem;color:#1A5EA8;text-decoration:none;padding:0.4rem 0.875rem;border:1px solid rgba(26,94,168,0.20);border-radius:100px;transition:background 0.18s ease;" onmouseover="this.style.background='rgba(26,94,168,0.06)'" onmouseout="this.style.background='transparent'">Tax Planning</a>
+    <a href="insurance.html" style="font-family:'Inter',sans-serif;font-size:0.78rem;color:#1A5EA8;text-decoration:none;padding:0.4rem 0.875rem;border:1px solid rgba(26,94,168,0.20);border-radius:100px;transition:background 0.18s ease;" onmouseover="this.style.background='rgba(26,94,168,0.06)'" onmouseout="this.style.background='transparent'">Insurance Review</a>
+    <a href="edge-real-estate.html" style="font-family:'Inter',sans-serif;font-size:0.78rem;color:#1A5EA8;text-decoration:none;padding:0.4rem 0.875rem;border:1px solid rgba(26,94,168,0.20);border-radius:100px;transition:background 0.18s ease;" onmouseover="this.style.background='rgba(26,94,168,0.06)'" onmouseout="this.style.background='transparent'">Real Estate</a>
+    <a href="edge-alternatives.html" style="font-family:'Inter',sans-serif;font-size:0.78rem;color:#1A5EA8;text-decoration:none;padding:0.4rem 0.875rem;border:1px solid rgba(26,94,168,0.20);border-radius:100px;transition:background 0.18s ease;" onmouseover="this.style.background='rgba(26,94,168,0.06)'" onmouseout="this.style.background='transparent'">Alternatives</a>
+  </div>
+</div>
+
+<!-- CTA -->
+<section style="background:linear-gradient(135deg,#133F73 0%,#1A5EA8 50%,#2A74C8 100%);
+                padding:3.5rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-30%;right:-10%;width:50%;height:150%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.18) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center" style="position:relative;z-index:2;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);
+               font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
+      Outgrowing your<br />
+      <em style="font-style:italic;color:#D4AE6A;">private bank?</em>
+    </h2>
+
+    <div style="display:flex;flex-direction:column;gap:0.75rem;align-items:center;margin-bottom:2rem;">
+      <a href="tel:6102159499"
+         style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;
+                font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);
+                transition:color 0.18s ease;"
+         onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        (610) 215-9499
+      </a>
+      <a href="mailto:info@rubiqfinancial.com"
+         style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;
+                font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);
+                transition:color 0.18s ease;"
+         onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        info@rubiqfinancial.com
+      </a>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+      <a href="contact.html"><button class="btn-gold">Schedule a Call</button></a>
+      <a href="team.html"><button class="btn-ghost">Meet Our Advisors</button></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer style="background:#0F1724;padding:3rem 0 2rem;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;margin-bottom:2rem;">
+      <div style="max-width:320px;">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+             alt="Rubiq Financial Partners" style="height:28px;width:auto;margin-bottom:1rem;object-fit:contain;" loading="lazy" decoding="async" />
+        <p style="font-size:0.8125rem;line-height:1.6;color:rgba(255,255,255,0.40);font-weight:300;">
+          Independent, fee-based financial advisory for entrepreneurs, business owners,
+          and ultra-high-net-worth families.
+        </p>
+      </div>
+      <div style="display:flex;gap:2.5rem;flex-wrap:wrap;">
+        <a href="who-we-serve.html" style="font-size:0.8125rem;color:rgba(255,255,255,0.40);text-decoration:none;transition:color 0.18s;"
+           onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.40)'">Who We Serve</a>
+        <a href="contact.html" style="font-size:0.8125rem;color:rgba(255,255,255,0.40);text-decoration:none;transition:color 0.18s;"
+           onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.40)'">Contact</a>
+        <a href="privacy-policy.html" style="font-size:0.8125rem;color:rgba(255,255,255,0.40);text-decoration:none;transition:color 0.18s;"
+           onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.40)'">Privacy Policy</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:1.5rem;">
+      <p style="font-size:0.6875rem;line-height:1.6;color:rgba(255,255,255,0.25);max-width:720px;">
+        Advisory services offered through Wealthcare Advisory Partners. Brokerage products offered through LPL Financial, Member FINRA/SIPC.
+        Rubiq Financial Partners LLC is a separate entity. This site is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
