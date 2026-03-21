@@ -366,6 +366,31 @@
 
 
 <!-- ══════════════════════════════════════════════════
+     STICKY PAGE NAV
+══════════════════════════════════════════════════════ -->
+<div style="position:sticky;top:72px;z-index:40;background:rgba(15,23,36,0.96);
+            backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.07);
+            padding:0.875rem 0;overflow-x:auto;">
+  <div class="max-w-5xl mx-auto px-6 lg:px-10">
+    <div style="display:flex;gap:0.625rem;align-items:center;min-width:max-content;">
+      <a href="#our-team" class="svc-pill">
+        <div style="width:8px;height:8px;border-radius:2px;background:#1A5EA8;flex-shrink:0;"></div>
+        Our Team
+      </a>
+      <a href="#our-partners" class="svc-pill">
+        <div style="width:8px;height:8px;border-radius:2px;background:#C49A5A;flex-shrink:0;"></div>
+        Our Partners
+      </a>
+      <a href="#our-tools" class="svc-pill">
+        <div style="width:8px;height:8px;border-radius:2px;background:#9E7A32;flex-shrink:0;"></div>
+        Our Tools
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════
      CREDIBILITY BANNER
 ══════════════════════════════════════════════════════ -->
 <section style="background:linear-gradient(135deg,#0F1724 0%,#162236 100%);padding:2.5rem 0;border-top:1px solid rgba(196,154,90,0.15);border-bottom:1px solid rgba(196,154,90,0.15);position:relative;overflow:hidden;">
@@ -411,36 +436,11 @@
 
 
 <!-- ══════════════════════════════════════════════════
-     STICKY PAGE NAV
-══════════════════════════════════════════════════════ -->
-<div style="position:sticky;top:72px;z-index:40;background:rgba(15,23,36,0.96);
-            backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.07);
-            padding:0.875rem 0;overflow-x:auto;">
-  <div class="max-w-5xl mx-auto px-6 lg:px-10">
-    <div style="display:flex;gap:0.625rem;align-items:center;min-width:max-content;">
-      <a href="#our-team" class="svc-pill">
-        <div style="width:8px;height:8px;border-radius:2px;background:#1A5EA8;flex-shrink:0;"></div>
-        Our Team
-      </a>
-      <a href="#our-partners" class="svc-pill">
-        <div style="width:8px;height:8px;border-radius:2px;background:#C49A5A;flex-shrink:0;"></div>
-        Our Partners
-      </a>
-      <a href="#our-tools" class="svc-pill">
-        <div style="width:8px;height:8px;border-radius:2px;background:#9E7A32;flex-shrink:0;"></div>
-        Our Tools
-      </a>
-    </div>
-  </div>
-</div>
-
-
-<!-- ══════════════════════════════════════════════════
      TEAM CARDS
 ══════════════════════════════════════════════════════ -->
 <section id="our-team" style="background:#1C2D44;padding:5rem 0 6rem;">
   <div class="max-w-5xl mx-auto px-6 lg:px-10">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
       <!-- ── Andreas Wochtl ── -->
       <div class="team-card bg-white rounded-lg overflow-hidden"
@@ -677,6 +677,98 @@
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               </svg>
               SEC
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Client Service Associate — Village FS ── -->
+      <div class="team-card bg-white rounded-lg overflow-hidden"
+           style="box-shadow:0 2px 8px rgba(26,94,168,0.08),0 8px 32px rgba(26,94,168,0.06);">
+
+        <!-- Photo placeholder -->
+        <div style="position:relative;overflow:hidden;height:340px;background:linear-gradient(135deg,#F4F6F9 0%,#E8ECF2 100%);
+                    display:flex;align-items:center;justify-content:center;">
+          <div style="text-align:center;">
+            <svg width="64" height="64" fill="none" stroke="#1A5EA8" stroke-width="1.5" viewBox="0 0 24 24" style="opacity:0.3;margin:0 auto 0.75rem;">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <p style="font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(26,94,168,0.35);margin:0;">
+              Dedicated CSA
+            </p>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="p-7">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;
+                     color:#0F1724;margin-bottom:0.2rem;">Your Client Service Associate</h3>
+          <p style="font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+                    color:#1A5EA8;margin-bottom:0.875rem;">Client Service Associate</p>
+
+          <!-- Credentials -->
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem;">
+            <span style="display:inline-block;font-size:0.72rem;font-weight:600;letter-spacing:0.04em;
+                         color:#2C3E55;background:rgba(44,62,85,0.06);border:1px solid rgba(44,62,85,0.15);
+                         border-radius:4px;padding:0.2rem 0.6rem;">Powered by Village Financial Services</span>
+          </div>
+
+          <!-- Focus pills -->
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem;">
+            <span class="focus-pill">Client Experience</span>
+            <span class="focus-pill">Account Management</span>
+            <span class="focus-pill">Operations</span>
+          </div>
+
+          <p style="font-size:0.9rem;line-height:1.7;color:#4A5568;font-weight:300;margin-bottom:1.25rem;">
+            Client experience and consistency are central to how we operate. That's why we partner with
+            <a href="https://www.villagefs.com/" target="_blank" rel="noopener" style="color:#1A5EA8;font-weight:500;text-decoration:none;transition:opacity 0.18s;" onmouseover="this.style.opacity='0.70'" onmouseout="this.style.opacity='1'">Village Financial Services</a>
+            for dedicated Client Service Associate support. Your CSA serves as a consistent point of contact
+            for day-to-day account needs — account openings, transfers, paperwork, service requests, and
+            scheduling — so that every interaction with Rubiq feels seamless and every detail is handled
+            with the same standard of care our advisors bring to your financial strategy.
+          </p>
+
+          <!-- Experience outline -->
+          <div style="margin-bottom:1.25rem;">
+            <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+                      color:#2C3E55;margin-bottom:0.75rem;">How Your CSA Supports You</p>
+            <div class="exp-item">
+              <div class="exp-dot"></div>
+              <p style="font-size:0.875rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">
+                Account administration — new account openings, transfers, beneficiary updates,
+                and documentation handled with accuracy and follow-through
+              </p>
+            </div>
+            <div class="exp-item">
+              <div class="exp-dot"></div>
+              <p style="font-size:0.875rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">
+                Client communication and scheduling — meeting coordination, follow-ups, and
+                ensuring your requests are addressed promptly
+              </p>
+            </div>
+            <div class="exp-item">
+              <div class="exp-dot"></div>
+              <p style="font-size:0.875rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">
+                Operational continuity — a dedicated professional who knows your accounts and
+                preferences, providing a consistent experience every time you reach out
+              </p>
+            </div>
+          </div>
+
+          <!-- Link -->
+          <div class="flex flex-wrap items-center gap-4">
+            <a href="https://www.villagefs.com/" target="_blank" rel="noopener noreferrer"
+               style="display:flex;align-items:center;gap:6px;font-size:0.8rem;font-weight:500;
+                      color:#1A5EA8;text-decoration:none;transition:opacity 0.18s;"
+               onmouseover="this.style.opacity='0.70'" onmouseout="this.style.opacity='1'">
+              <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+              Village Financial Services
             </a>
           </div>
         </div>
