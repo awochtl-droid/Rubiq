@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rubiq Financial Group — Brand Guidelines v2.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: letter;
+    margin: 0.75in;
+  }
+  @media print {
+    .page-break { page-break-before: always; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 11pt;
+    line-height: 1.7;
+    color: #1C2D44;
+    background: #ffffff;
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0.75in;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32pt;
+    font-weight: 700;
+    color: #1A5EA8;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 0.3rem;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: #1A5EA8;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-top: 2.5rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid #C49A5A;
+  }
+  h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 14pt;
+    font-weight: 600;
+    color: #1A5EA8;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 12pt;
+    font-weight: 600;
+    color: #C49A5A;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+  }
+  p { margin-bottom: 0.75rem; }
+  .subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 13pt;
+    font-weight: 400;
+    color: #C49A5A;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    font-size: 9.5pt;
+    color: #2C3E55;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.25rem;
+  }
+  .callout {
+    border-left: 3px solid #C49A5A;
+    background: #FAF8F4;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+    font-style: italic;
+    color: #1C2D44;
+    font-size: 10.5pt;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.75rem 0 1rem;
+    font-size: 10pt;
+  }
+  thead th {
+    background: #1A5EA8;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 9pt;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+  }
+  tbody td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #e8e8e8;
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) td { background: #FAF8F4; }
+  .swatch-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+  }
+  .swatch {
+    width: 60px;
+    height: 40px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+  .swatch-info { flex: 1; }
+  .swatch-name {
+    font-weight: 600;
+    font-size: 11pt;
+    color: #1C2D44;
+  }
+  .swatch-hex {
+    font-family: 'Courier New', monospace;
+    font-size: 9.5pt;
+    color: #2C3E55;
+  }
+  .swatch-use {
+    font-size: 9.5pt;
+    color: #555;
+    margin-top: 0.15rem;
+  }
+  code, pre {
+    font-family: 'Courier New', monospace;
+    font-size: 9.5pt;
+  }
+  pre {
+    background: #0F1724;
+    color: #e0e0e0;
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+    margin: 0.75rem 0 1rem;
+    overflow-x: auto;
+    line-height: 1.6;
+  }
+  pre .comment { color: #C49A5A; }
+  .dont-list {
+    list-style: none;
+    padding: 0;
+  }
+  .dont-list li {
+    padding: 0.35rem 0 0.35rem 1.5rem;
+    position: relative;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 10.5pt;
+  }
+  .dont-list li::before {
+    content: "\2717";
+    position: absolute;
+    left: 0;
+    color: #c0392b;
+    font-weight: 700;
+  }
+  .cover {
+    text-align: center;
+    padding: 3in 0 2in;
+  }
+  .cover-logo {
+    max-width: 280px;
+    margin: 0 auto 2rem;
+    display: block;
+  }
+  .cover-rule {
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #C49A5A, transparent);
+    margin: 1.5rem auto;
+  }
+  .section-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .section-group > div {
+    flex: 1;
+    min-width: 200px;
+  }
+  .font-specimen {
+    padding: 1.25rem;
+    border-radius: 6px;
+    margin: 0.75rem 0;
+  }
+  .font-specimen-dark {
+    background: #0F1724;
+    color: white;
+  }
+  .font-specimen-light {
+    background: #FAF8F4;
+    color: #1C2D44;
+    border: 1px solid rgba(26,94,168,0.10);
+  }
+  hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, #1A5EA8, #C49A5A);
+    margin: 2rem 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ COVER ═══════════════ -->
+<div class="cover">
+  <img src="Rubiq Financial Partners Logo - FINAL2 - Vertical.jpg" alt="Rubiq Financial Group" class="cover-logo" />
+  <h1>BRAND GUIDELINES</h1>
+  <p class="subtitle">Visual Identity &amp; Usage Standards</p>
+  <div class="cover-rule"></div>
+  <p class="meta">Rubiq Financial Group &middot; West Chester, PA &middot; rubiqfinancial.com</p>
+  <p class="meta">Version 2.0 &middot; March 2026</p>
+</div>
+
+<!-- ═══════════════ 01 BRAND OVERVIEW ═══════════════ -->
+<div class="page-break"></div>
+<h2>01&ensp;Brand Overview</h2>
+
+<p>Rubiq Financial Group is a private wealth advisory firm offering investment advisory, real estate investment, and credit strategies to individuals and institutions. The brand identity projects precision, authority, and approachability — a modern financial firm that combines institutional discipline with personal service.</p>
+
+<div class="callout">The Rubiq brand communicates: trust, sophistication, and strategic intelligence. Every visual and written touchpoint should reinforce these values.</div>
+
+<h3>Brand Positioning</h3>
+<p>Rubiq Financial Group occupies the space between institutional asset management and boutique private wealth advisory. The brand is forward-thinking and data-driven, yet personal and client-focused. It avoids both the stiff formality of large wirehouse firms and the casual tone of fintech startups.</p>
+
+<h3>Key Brand Attributes</h3>
+<table>
+  <thead><tr><th>Tone</th><th>Feel</th></tr></thead>
+  <tbody><tr><td>Professional · Confident · Approachable</td><td>Trustworthy · Sophisticated · Modern</td></tr></tbody>
+</table>
+<table>
+  <thead><tr><th>Audience</th><th>Differentiator</th></tr></thead>
+  <tbody><tr><td>High-net-worth individuals, family offices, accredited investors</td><td>Integrated private wealth, real estate &amp; credit expertise</td></tr></tbody>
+</table>
+
+<!-- ═══════════════ 02 LOGO ═══════════════ -->
+<div class="page-break"></div>
+<h2>02&ensp;Logo</h2>
+
+<h3>Primary Logo — Landscape (Preferred)</h3>
+<p>The landscape configuration is the primary logo and should be used in most contexts, including website headers, email signatures, presentations, and digital marketing.</p>
+<div style="text-align:center;padding:1.5rem;background:#FAF8F4;border-radius:8px;margin:1rem 0;">
+  <img src="Rubiq Financial Partners Logo - FINAL2-Horizontal.png" alt="Rubiq Logo Horizontal" style="max-width:360px;width:100%;" />
+</div>
+
+<h3>Secondary Logo — Stacked / Vertical</h3>
+<p>The stacked logo is used when horizontal space is constrained, such as square social profile images, mobile app icons, or embossed materials.</p>
+<div style="text-align:center;padding:1.5rem;background:#FAF8F4;border-radius:8px;margin:1rem 0;">
+  <img src="Rubiq Financial Partners Logo - FINAL2-Vertical.png" alt="Rubiq Logo Vertical" style="max-height:200px;" />
+</div>
+
+<h3>White Logo Variants — For Dark Backgrounds</h3>
+<p>On dark backgrounds (#0F1724, #1C2D44, or dark gradients), use the white logo variant to maintain legibility and contrast.</p>
+<div style="text-align:center;padding:1.5rem;background:#0F1724;border-radius:8px;margin:1rem 0;">
+  <img src="Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png" alt="Rubiq Logo White Horizontal" style="max-width:360px;width:100%;" />
+</div>
+
+<h3>Logo Construction</h3>
+<p>The Rubiq mark consists of two elements: (1) the geometric icon — a stylized 'R' set inside nested square brackets rendered in Royal Blue, with gold/bronze accent elements on the lower portions — and (2) the wordmark 'RUBIQ' in bold spaced capitals followed by 'Financial Group' in a lighter weight beneath.</p>
+<div class="callout">The icon and wordmark must always appear together. Never use the 'R' icon alone as the primary identifier in client-facing materials.</div>
+
+<h3>Clear Space</h3>
+<p>Always maintain clear space around the logo equal to the height of the capital 'R' in the wordmark on all four sides. No other graphic elements, text, or imagery should intrude within this zone.</p>
+
+<h3>Minimum Size</h3>
+<table>
+  <thead><tr><th>Format</th><th>Landscape Min Width</th><th>Stacked Min Height</th></tr></thead>
+  <tbody>
+    <tr><td>Print</td><td>1.5 inches</td><td>0.75 inches</td></tr>
+    <tr><td>Digital / Screen</td><td>200px wide</td><td>100px tall</td></tr>
+  </tbody>
+</table>
+
+<h3>Logo Don'ts</h3>
+<ul class="dont-list">
+  <li>Do not stretch or distort the logo proportions</li>
+  <li>Do not rotate the logo</li>
+  <li>Do not apply drop shadows, outlines, or special effects</li>
+  <li>Do not change the logo colors — use only approved color variants</li>
+  <li>Do not place the logo on busy or low-contrast backgrounds</li>
+  <li>Do not recreate the logo in other typefaces or software</li>
+  <li>Do not use the icon mark alone to represent the company in client-facing materials</li>
+</ul>
+
+<!-- ═══════════════ 03 COLOR PALETTE ═══════════════ -->
+<div class="page-break"></div>
+<h2>03&ensp;Color Palette</h2>
+
+<p>The Rubiq color palette draws on two core hues — Royal Blue and Warm Gold — that balance institutional authority with approachable sophistication. The palette is extended with a dark ink system for immersive digital surfaces and warm neutral tints for light sections. Use them consistently across all touchpoints.</p>
+
+<h3>Primary Colors</h3>
+
+<div class="swatch-row">
+  <div class="swatch" style="background:#1A5EA8;"></div>
+  <div class="swatch-info">
+    <div class="swatch-name">Royal Blue — Primary Brand Color</div>
+    <div class="swatch-hex">#1A5EA8</div>
+    <div class="swatch-use">Use for: logo, headings, primary CTAs, key UI elements, borders, navigation</div>
+  </div>
+</div>
+
+<div class="swatch-row">
+  <div class="swatch" style="background:#C49A5A;"></div>
+  <div class="swatch-info">
+    <div class="swatch-name">Warm Gold / Champagne</div>
+    <div class="swatch-hex">#C49A5A</div>
+    <div class="swatch-use">Use for: logo accent, subheadings, dividers, highlights, decorative borders, eyebrow labels</div>
+  </div>
+</div>
+
+<h3>Blue Variants</h3>
+
+<div class="swatch-row">
+  <div class="swatch" style="background:#133F73;"></div>
+  <div class="swatch-info">
+    <div class="swatch-name">Blue Dark</div>
+    <div class="swatch-hex">#133F73</div>
+    <div class="swatch-use">Use for: gradient endpoints, hero deep tones, CTA gradient backgrounds</div>
+  </div>
+</div>
+
+<div class="swatch-row">
+  <div class="swatch" style="background:#2A74C8;"></div>
+  <div class="swatch-info">
+    <div class="swatch-name">Blue Light</div>
+    <div class="swatch-hex">#2A74C8</div>
+    <div class="swatch-use">Use for: gradient highlights, button gradient endpoints, interactive hover states</div>
+  </div>
+</div>
+
+<h3>Gold Variants</h3>
+
+<div class="swatch-row">
+  <div class="swatch" style="background:#D4AE6A;"></div>
+  <div class="swatch-info">
+    <div class="swatch-name">Gold Light</div>
+    <div class="swatch-hex">#D4AE6A</div>
+    <div class="swatch-use">Use for: gradient highlights, italic accent text, button gradient endpoints</div>
+  </div>
+</div>
+
+<div class="swatch-row">
+  <div class="swatch" style="background:#9E7A32;"></div>
+  <div class="swatch-info">
+    <div class="swatch-name">Gold Dark</div>
+    <div class="swatch-hex">#9E7A32</div>
+    <div class="swatch-use">Use for: button active/pressed states, dark gold accents</div>
+  </div>
+</div>
+
+<h3>Dark Palette — Ink System</h3>
+<p>The dark palette creates the immersive, premium feel used across the website's hero sections, dark content blocks, and navigation. These colors do not appear in print materials.</p>
+
+<div class="swatch-row">
+  <div class="swatch" style="background:#0F1724;"></div>
+  <div class="swatch-info">
+    <div class="swatch-name">Ink — Deepest Dark</div>
+    <div class="swatch-hex">#0F1724</div>
+    <div class="swatch-use">Use for: hero backgrounds, navbar base, footer, deepest surface layer</div>
+  </div>
+</div>
+
+<div class="swatch-row">
+  <div class="swatch" style="background:#1C2D44;"></div>
+  <div class="swatch-info">
+    <div class="swatch-name">Ink Soft — Primary Dark Surface</div>
+    <div class="swatch-hex">#1C2D44</div>
+    <div class="swatch-use">Use for: dark content sections, body text color on light backgrounds, card overlays</div>
+  </div>
+</div>
+
+<div class="swatch-row">
+  <div class="swatch" style="background:#2C3E55;"></div>
+  <div class="swatch-info">
+    <div class="swatch-name">Slate — Tertiary Dark</div>
+    <div class="swatch-hex">#2C3E55</div>
+    <div class="swatch-use">Use for: muted text, tertiary labels, secondary information</div>
+  </div>
+</div>
+
+<h3>Light Palette — Warm Neutrals</h3>
+
+<div class="swatch-row">
+  <div class="swatch" style="background:#FAF8F4;border:1px solid #e8e4dc;"></div>
+  <div class="swatch-info">
+    <div class="swatch-name">Parchment — Primary Light Surface</div>
+    <div class="swatch-hex">#FAF8F4</div>
+    <div class="swatch-use">Use for: light content sections, alternating section backgrounds, callout boxes</div>
+  </div>
+</div>
+
+<div class="swatch-row">
+  <div class="swatch" style="background:#F4F6F9;border:1px solid #e0e4ea;"></div>
+  <div class="swatch-info">
+    <div class="swatch-name">Mist — Secondary Light Surface</div>
+    <div class="swatch-hex">#F4F6F9</div>
+    <div class="swatch-use">Use for: secondary light backgrounds, form surfaces, subtle section breaks</div>
+  </div>
+</div>
+
+<div class="swatch-row">
+  <div class="swatch" style="background:#FFFFFF;border:1px solid #e8e8e8;"></div>
+  <div class="swatch-info">
+    <div class="swatch-name">White</div>
+    <div class="swatch-hex">#FFFFFF</div>
+    <div class="swatch-use">Use for: card backgrounds, input fields, breathing room between dark/parchment sections</div>
+  </div>
+</div>
+
+<h3>Print-Only Supporting Colors</h3>
+<p>These colors are used in print documents (letterhead, decks, reports) but not on the website.</p>
+
+<div class="swatch-row">
+  <div class="swatch" style="background:#EAF1FB;border:1px solid #d0dced;"></div>
+  <div class="swatch-info">
+    <div class="swatch-name">Light Blue Tint</div>
+    <div class="swatch-hex">#EAF1FB</div>
+    <div class="swatch-use">Print only: table row backgrounds, callout boxes, section backgrounds</div>
+  </div>
+</div>
+
+<div class="swatch-row">
+  <div class="swatch" style="background:#FDF6EC;border:1px solid #efe5d4;"></div>
+  <div class="swatch-info">
+    <div class="swatch-name">Light Gold Tint</div>
+    <div class="swatch-hex">#FDF6EC</div>
+    <div class="swatch-use">Print only: alternating table rows, warm callout backgrounds, accent sections</div>
+  </div>
+</div>
+
+<div class="swatch-row">
+  <div class="swatch" style="background:#F5F5F5;border:1px solid #e0e0e0;"></div>
+  <div class="swatch-info">
+    <div class="swatch-name">Light Gray</div>
+    <div class="swatch-hex">#F5F5F5</div>
+    <div class="swatch-use">Print only: alternating rows, form backgrounds, subtle dividers</div>
+  </div>
+</div>
+
+<div class="swatch-row">
+  <div class="swatch" style="background:#555555;"></div>
+  <div class="swatch-info">
+    <div class="swatch-name">Body Text Gray</div>
+    <div class="swatch-hex">#555555</div>
+    <div class="swatch-use">Print only: body copy, secondary text, captions, fine print</div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+<h3>Color Usage Ratios</h3>
+
+<div class="callout">
+  <strong>Web:</strong> Dark ink backgrounds dominate hero and alternating sections (~40%). Parchment/white for light sections (~30%). Royal Blue for headings, CTAs, and accents (~20%). Warm Gold as accent for dividers, labels, and highlights (~10%).<br><br>
+  <strong>Print:</strong> Royal Blue should dominate (60%). Warm Gold is an accent (20%). White provides breathing room (15%). Grays handle supporting text (5%).<br><br>
+  Never use the accent gold as a background for body text.
+</div>
+
+<h3>Web / CSS Variables — Tailwind Config</h3>
+<pre>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        blue:      <span class="comment">'#1A5EA8'</span>,   <span class="comment">/* Royal Blue — primary */</span>
+        blueDark:  <span class="comment">'#133F73'</span>,   <span class="comment">/* Blue Dark — gradients */</span>
+        blueLight: <span class="comment">'#2A74C8'</span>,   <span class="comment">/* Blue Light — highlights */</span>
+        gold:      <span class="comment">'#C49A5A'</span>,   <span class="comment">/* Warm Gold — accent */</span>
+        goldLight: <span class="comment">'#D4AE6A'</span>,   <span class="comment">/* Gold Light — gradients */</span>
+        goldDark:  <span class="comment">'#9E7A32'</span>,   <span class="comment">/* Gold Dark — pressed states */</span>
+        ink:       <span class="comment">'#0F1724'</span>,   <span class="comment">/* Ink — deepest dark */</span>
+        inkSoft:   <span class="comment">'#1C2D44'</span>,   <span class="comment">/* Ink Soft — dark sections */</span>
+        slate:     <span class="comment">'#2C3E55'</span>,   <span class="comment">/* Slate — muted text */</span>
+        parchment: <span class="comment">'#FAF8F4'</span>,   <span class="comment">/* Parchment — light sections */</span>
+        mist:      <span class="comment">'#F4F6F9'</span>,   <span class="comment">/* Mist — secondary light */</span>
+      }
+    }
+  }
+}
+</pre>
+
+<h3>Gradient Recipes</h3>
+<table>
+  <thead><tr><th>Name</th><th>CSS Value</th><th>Use For</th></tr></thead>
+  <tbody>
+    <tr><td>Primary Button</td><td><code>linear-gradient(135deg, #1A5EA8, #2A74C8)</code></td><td>Primary CTA buttons</td></tr>
+    <tr><td>Gold Button</td><td><code>linear-gradient(135deg, #C49A5A, #D4AE6A)</code></td><td>Gold accent buttons</td></tr>
+    <tr><td>Section Rule</td><td><code>linear-gradient(90deg, #1A5EA8, #C49A5A)</code></td><td>Decorative divider bars</td></tr>
+    <tr><td>CTA Section</td><td><code>linear-gradient(160deg, #0F1724, #133F73 55%, #1A5EA8)</code></td><td>Call-to-action backgrounds</td></tr>
+    <tr><td>Credibility Banner</td><td><code>linear-gradient(135deg, #0F1724, #162236)</code></td><td>Awards/stats banner</td></tr>
+    <tr><td>Gold Underline</td><td><code>linear-gradient(90deg, #C49A5A, #D4AE6A, #C49A5A)</code></td><td>Nav link hover underlines</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════ 04 TYPOGRAPHY ═══════════════ -->
+<div class="page-break"></div>
+<h2>04&ensp;Typography</h2>
+
+<p>The typography system pairs a refined serif display face with a clean sans-serif body font. This dual-font approach creates clear visual hierarchy — the serif signals authority and craft, while the sans-serif ensures readability across all screen sizes.</p>
+
+<h3>Display Typeface — Playfair Display (Web)</h3>
+<p>Playfair Display is the display typeface for all website headings, section titles, and pull quotes. Its high-contrast strokes and elegant serifs project the sophistication and authority central to the Rubiq brand.</p>
+
+<div class="font-specimen font-specimen-dark">
+  <p style="font-family:'Playfair Display',serif;font-size:28pt;font-weight:700;letter-spacing:-0.03em;line-height:1.15;color:white;margin-bottom:0.5rem;">Clarity <em style="color:#D4AE6A;">for</em> Complex Capital</p>
+  <p style="font-family:'Playfair Display',serif;font-size:14pt;font-weight:500;color:rgba(255,255,255,0.65);margin:0;">Playfair Display — 400, 500, 600, 700 weights + italics</p>
+</div>
+
+<pre>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
+font-family: 'Playfair Display', serif;
+</pre>
+
+<h3>Body Typeface — Inter (Web)</h3>
+<p>Inter is the body typeface for all web and digital interfaces. It renders excellently at all screen sizes and provides the clean, professional counterpoint to Playfair Display's ornamental character.</p>
+
+<div class="font-specimen font-specimen-light">
+  <p style="font-family:'Inter',sans-serif;font-size:13pt;font-weight:400;line-height:1.7;margin-bottom:0.5rem;">The quick brown fox jumps over the lazy dog. 0123456789</p>
+  <p style="font-family:'Inter',sans-serif;font-size:10pt;font-weight:500;color:#2C3E55;margin:0;">Inter — 300 (Light), 400 (Regular), 500 (Medium), 600 (SemiBold) weights</p>
+</div>
+
+<pre>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+</pre>
+
+<h3>Print Typeface — Calibri</h3>
+<p>Calibri is the primary typeface for all documents, presentations, and print materials. It is universally available across Microsoft Office, web, and Adobe environments and maintains brand consistency.</p>
+
+<h3>Web Type Scale</h3>
+<table>
+  <thead><tr><th>Usage</th><th>Font</th><th>Size</th><th>Weight</th><th>Spacing</th><th>Color</th></tr></thead>
+  <tbody>
+    <tr><td>Hero Headline</td><td>Playfair Display</td><td>clamp(2.5rem, 5vw, 4.25rem)</td><td>700</td><td>-0.03em</td><td>White</td></tr>
+    <tr><td>Section Heading (H2)</td><td>Playfair Display</td><td>clamp(1.75rem, 3vw, 2.5rem)</td><td>700</td><td>-0.03em</td><td>White or #1C2D44</td></tr>
+    <tr><td>Card Title (H3)</td><td>Playfair Display</td><td>1.15–1.35rem</td><td>600</td><td>-0.02em</td><td>#1C2D44 or White</td></tr>
+    <tr><td>Eyebrow / Label</td><td>Inter</td><td>0.7–0.75rem</td><td>600</td><td>0.12–0.14em</td><td>#C49A5A</td></tr>
+    <tr><td>Navigation Links</td><td>Inter</td><td>0.8125rem</td><td>500</td><td>0.06em</td><td>White (0.75 opacity)</td></tr>
+    <tr><td>Body Text</td><td>Inter</td><td>0.95–1rem</td><td>400</td><td>normal</td><td>#1C2D44</td></tr>
+    <tr><td>Button Text</td><td>Inter</td><td>0.875rem</td><td>600</td><td>0.04em</td><td>White or #0F1724</td></tr>
+    <tr><td>Caption / Fine Print</td><td>Inter</td><td>0.65–0.75rem</td><td>300–400</td><td>normal</td><td>rgba(255,255,255,0.45)</td></tr>
+    <tr><td>Footer Links</td><td>Inter</td><td>0.875rem</td><td>300</td><td>normal</td><td>White (0.50 opacity)</td></tr>
+  </tbody>
+</table>
+
+<h3>Print Type Scale</h3>
+<table>
+  <thead><tr><th>Usage</th><th>Size</th><th>Weight</th><th>Color</th></tr></thead>
+  <tbody>
+    <tr><td>Page / Section Title</td><td>26–28pt</td><td>Bold</td><td>Royal Blue #1A5EA8</td></tr>
+    <tr><td>Section Heading (H2)</td><td>18–20pt</td><td>Bold</td><td>Royal Blue or Deep Navy</td></tr>
+    <tr><td>Subheading (H3)</td><td>14–16pt</td><td>SemiBold</td><td>#133F73</td></tr>
+    <tr><td>Body Text</td><td>11–12pt</td><td>Regular</td><td>#555555</td></tr>
+    <tr><td>Caption / Fine Print</td><td>8–10pt</td><td>Regular</td><td>#555555</td></tr>
+    <tr><td>Disclaimer / Legal</td><td>7.5–9pt</td><td>Regular</td><td>#555555</td></tr>
+  </tbody>
+</table>
+
+<h3>Key Typography Rules</h3>
+<table>
+  <thead><tr><th>Property</th><th>Value</th><th>Applied To</th></tr></thead>
+  <tbody>
+    <tr><td>Letter-spacing (tight)</td><td>-0.03em</td><td>Large headlines</td></tr>
+    <tr><td>Letter-spacing (spaced)</td><td>0.04–0.06em</td><td>Buttons, nav links</td></tr>
+    <tr><td>Letter-spacing (wide)</td><td>0.10–0.14em</td><td>Eyebrow labels, uppercase text</td></tr>
+    <tr><td>Line-height (headings)</td><td>1.08–1.25</td><td>All headings</td></tr>
+    <tr><td>Line-height (body)</td><td>1.7</td><td>Body copy</td></tr>
+    <tr><td>Text-transform</td><td>uppercase</td><td>Buttons, nav links, eyebrow labels</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════ 05 GRAPHIC ELEMENTS ═══════════════ -->
+<div class="page-break"></div>
+<h2>05&ensp;Graphic Elements &amp; Layout</h2>
+
+<p>The Rubiq visual system uses a distinctive ghosted bracket motif — derived from the 'R' icon — as a background watermark element. This appears in the lower-right corner of stationery, envelopes, and presentation slides to add depth without distraction.</p>
+
+<h3>Background Bracket Motif</h3>
+<p>The nested bracket watermark should appear at 8–12% opacity in Royal Blue. It should never compete with content. Do not recolor it gold or use it at full opacity. On dark backgrounds, use at 15% white opacity.</p>
+<div class="callout">The ghosted bracket graphic is a subtle cue — it reinforces brand identity without dominating the page. Use it consistently on formal documents and presentation templates.</div>
+
+<h3>Section Divider / Rule</h3>
+<p>The decorative section rule is a signature element used on the website to separate content areas. It uses the blue-to-gold gradient and should be consistent across all pages.</p>
+<table>
+  <thead><tr><th>Property</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>Width</td><td>48px</td></tr>
+    <tr><td>Height</td><td>3px</td></tr>
+    <tr><td>Background</td><td>linear-gradient(90deg, #1A5EA8, #C49A5A)</td></tr>
+    <tr><td>Border-radius</td><td>2px</td></tr>
+    <tr><td>Margin-bottom</td><td>1.5rem</td></tr>
+  </tbody>
+</table>
+
+<h3>Dividers &amp; Rules (Print)</h3>
+<p>Use thin horizontal rules (1px) in Royal Blue or Warm Gold to separate sections within documents. Gold rules are preferred for section headers; lighter gray rules are used within body content.</p>
+
+<h3>Web Surface Layering</h3>
+<p>The website uses a three-tier depth system to create visual hierarchy:</p>
+<table>
+  <thead><tr><th>Layer</th><th>Background</th><th>Use</th></tr></thead>
+  <tbody>
+    <tr><td>Base (Dark)</td><td>#0F1724 Ink</td><td>Hero, navbar, footer — the deepest visual layer</td></tr>
+    <tr><td>Elevated (Dark)</td><td>#1C2D44 Ink Soft</td><td>Dark content sections — slightly lifted from base</td></tr>
+    <tr><td>Base (Light)</td><td>#FAF8F4 Parchment</td><td>Light content sections — alternates with dark</td></tr>
+    <tr><td>Elevated (Light)</td><td>#FFFFFF White</td><td>Cards, inputs — float above parchment</td></tr>
+  </tbody>
+</table>
+
+<h3>Layout Grid (Print)</h3>
+<table>
+  <thead><tr><th>Element</th><th>Specification</th></tr></thead>
+  <tbody>
+    <tr><td>Document Margins</td><td>1 inch on all sides (US Letter)</td></tr>
+    <tr><td>Column Width (single)</td><td>6.5 inches for body text</td></tr>
+    <tr><td>Header Height</td><td>1.2 inches including logo and address line</td></tr>
+    <tr><td>Footer Height</td><td>0.75 inches for contact/disclaimer</td></tr>
+    <tr><td>Logo Position</td><td>Top-left, 0.5" from edges</td></tr>
+    <tr><td>Address Block</td><td>Right-aligned or below logo per template</td></tr>
+  </tbody>
+</table>
+
+<h3>Web Layout</h3>
+<table>
+  <thead><tr><th>Element</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>Max-width (main container)</td><td>max-w-7xl (80rem / 1280px)</td></tr>
+    <tr><td>Max-width (article/detail)</td><td>max-w-4xl (56rem)</td></tr>
+    <tr><td>Max-width (narrow content)</td><td>max-w-3xl (48rem)</td></tr>
+    <tr><td>Horizontal padding</td><td>px-6 (1.5rem) mobile, px-10 (2.5rem) desktop</td></tr>
+    <tr><td>Section padding (vertical)</td><td>4–6rem</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════ 06 STATIONERY ═══════════════ -->
+<div class="page-break"></div>
+<h2>06&ensp;Stationery System</h2>
+
+<p>Rubiq Financial Group maintains a complete stationery system for professional correspondence. All pieces use consistent branding, and each element has a defined role.</p>
+
+<h3>Letterhead</h3>
+<table>
+  <thead><tr><th>Element</th><th>Specification</th></tr></thead>
+  <tbody>
+    <tr><td>Logo</td><td>Landscape logo, top-left, approximately 2.5" wide</td></tr>
+    <tr><td>Address Block</td><td>1065 Andrew Drive, West Chester, PA 19380</td></tr>
+    <tr><td>Phone</td><td>(610) 883-3999</td></tr>
+    <tr><td>Website</td><td>rubiqfinancial.com</td></tr>
+    <tr><td>Disclaimer</td><td>Investment advisory services disclosure (Wealthcare Capital Partners LLC) runs in footer</td></tr>
+    <tr><td>Bracket Motif</td><td>Ghosted watermark, lower-right</td></tr>
+  </tbody>
+</table>
+
+<h3>Business Card</h3>
+<p>Business cards use the landscape logo on the front with contact information in a two-column layout. The ghosted bracket motif appears as a background element. Front-side typography uses Royal Blue for the name and Deep Navy / Warm Gold for hierarchy.</p>
+<table>
+  <thead><tr><th>Element</th><th>Content</th></tr></thead>
+  <tbody>
+    <tr><td>Name</td><td>Andreas M. Wochtl, CFP, MBA</td></tr>
+    <tr><td>Title</td><td>Private Wealth Advisor</td></tr>
+    <tr><td>Office Phone</td><td>(601) 215-9499</td></tr>
+    <tr><td>Direct Phone</td><td>(610) 883-3999</td></tr>
+    <tr><td>Email</td><td>andreas@rubiqfinancial.com</td></tr>
+    <tr><td>Website</td><td>rubiqfinancial.com</td></tr>
+    <tr><td>Address</td><td>1065 Andrew Drive, West Chester, PA 19380</td></tr>
+  </tbody>
+</table>
+
+<h3>Envelope — No. 10</h3>
+<p>The standard No. 10 envelope uses the landscape logo in the upper-left with the return address beneath. The ghosted bracket motif appears in the lower-right quadrant at low opacity. Recipient address is centered horizontally, positioned in the lower-center third of the envelope.</p>
+
+<!-- ═══════════════ 07 DIGITAL & WEB ═══════════════ -->
+<div class="page-break"></div>
+<h2>07&ensp;Digital &amp; Web Guidelines</h2>
+
+<h3>Website Header / Navigation</h3>
+<p>The website header uses a fixed, translucent dark navbar with backdrop blur for a premium glass-morphism effect.</p>
+<table>
+  <thead><tr><th>Property</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>Background</td><td>rgba(15, 23, 36, 0.85)</td></tr>
+    <tr><td>Backdrop filter</td><td>blur(16px) saturate(180%)</td></tr>
+    <tr><td>Height</td><td>72px</td></tr>
+    <tr><td>Border-bottom</td><td>1px solid rgba(255, 255, 255, 0.06)</td></tr>
+    <tr><td>Logo</td><td>White variant, landscape, left-aligned</td></tr>
+    <tr><td>Nav links</td><td>Inter, 0.8125rem, 500 weight, uppercase, 0.06em spacing</td></tr>
+    <tr><td>Link hover</td><td>Animated gold underline (width 0 → 100%, 220ms ease)</td></tr>
+    <tr><td>CTA button</td><td>Gold accent button, far right</td></tr>
+  </tbody>
+</table>
+
+<h3>Section Background Pattern</h3>
+<p>The homepage alternates between dark and light sections in a consistent rhythm:</p>
+<table>
+  <thead><tr><th>Section</th><th>Background</th></tr></thead>
+  <tbody>
+    <tr><td>Hero</td><td>#0F1724 + radial gradients (blue + gold)</td></tr>
+    <tr><td>Credibility Banner</td><td>linear-gradient(135deg, #0F1724, #162236)</td></tr>
+    <tr><td>Content Section (odd)</td><td>#FAF8F4 (Parchment)</td></tr>
+    <tr><td>Content Section (even)</td><td>#1C2D44 (Ink Soft)</td></tr>
+    <tr><td>CTA</td><td>linear-gradient(160deg, #0F1724, #133F73 55%, #1A5EA8)</td></tr>
+    <tr><td>Footer</td><td>rgba(15, 23, 36, 0.92)</td></tr>
+  </tbody>
+</table>
+
+<h3>Button Styles</h3>
+<table>
+  <thead><tr><th>Type</th><th>Background</th><th>Text</th><th>Padding</th><th>Use Case</th></tr></thead>
+  <tbody>
+    <tr><td>Primary CTA</td><td>linear-gradient(135deg, #1A5EA8, #2A74C8)</td><td>White</td><td>0.75rem 1.75rem</td><td>Main actions</td></tr>
+    <tr><td>Gold Accent</td><td>linear-gradient(135deg, #C49A5A, #D4AE6A)</td><td>#0F1724</td><td>0.875rem 2.25rem</td><td>Premium highlights</td></tr>
+    <tr><td>Ghost / Outline</td><td>Transparent</td><td>White</td><td>0.75rem 1.75rem</td><td>On dark backgrounds</td></tr>
+  </tbody>
+</table>
+<p>All buttons: border-radius 4px, Inter font, 0.875rem, 600 weight, 0.04em letter-spacing, uppercase. Hover: opacity 0.92, translateY(-1px). Focus-visible: 2px gold outline, 3px offset.</p>
+
+<h3>Card Styles</h3>
+<table>
+  <thead><tr><th>Property</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>Background</td><td>White</td></tr>
+    <tr><td>Border-radius</td><td>8px</td></tr>
+    <tr><td>Box-shadow (rest)</td><td>0 2px 8px rgba(26,94,168,0.08), 0 8px 32px rgba(26,94,168,0.06)</td></tr>
+    <tr><td>Box-shadow (hover)</td><td>0 4px 16px rgba(26,94,168,0.14), 0 16px 48px rgba(26,94,168,0.10)</td></tr>
+    <tr><td>Hover transform</td><td>translateY(-3px) to translateY(-4px)</td></tr>
+    <tr><td>Transition</td><td>transform 0.22s cubic-bezier(0.4,0,0.2,1), box-shadow 0.22s ease</td></tr>
+  </tbody>
+</table>
+
+<h3>Email Signature</h3>
+<p>Email signatures use the landscape logo at a maximum width of 220px. Contact details follow below in a consistent format. Font: Arial or sans-serif fallback for email clients. Colors match the brand palette.</p>
+
+<pre>
+&lt;img src='[logo_landscape.png]' width='220' alt='Rubiq Financial Group'&gt;
+&lt;p style='margin:8px 0 2px; font-family:Arial; font-size:14px;
+   font-weight:bold; color:#1A5EA8;'&gt;
+  Andreas M. Wochtl, CFP, MBA
+&lt;/p&gt;
+&lt;p style='margin:0 0 8px; font-family:Arial; font-size:12px;
+   color:#C49A5A;'&gt;
+  Private Wealth Advisor
+&lt;/p&gt;
+&lt;p style='font-family:Arial; font-size:11px; color:#555555;
+   line-height:1.6;'&gt;
+  O: (601) 215-9499 &nbsp;|&nbsp; D: (610) 883-3999&lt;br&gt;
+  andreas@rubiqfinancial.com &nbsp;|&nbsp; rubiqfinancial.com&lt;br&gt;
+  1065 Andrew Drive, West Chester, PA 19380
+&lt;/p&gt;
+</pre>
+
+<!-- ═══════════════ 08 VOICE & TONE ═══════════════ -->
+<div class="page-break"></div>
+<h2>08&ensp;Voice &amp; Tone</h2>
+
+<p>The Rubiq voice reflects the dual identity of the firm: rigorous analytical capability paired with approachable, client-first communication. Written materials should feel authoritative but never stiff, and professional but never cold.</p>
+
+<h3>Core Voice Principles</h3>
+
+<h4>Confident, not arrogant</h4>
+<p>State positions clearly and support them with reasoning. Avoid hedging excessively, but acknowledge complexity where it exists.</p>
+
+<h4>Precise, not dense</h4>
+<p>Use accurate financial language appropriate to the audience. Translate jargon for general audiences without being condescending.</p>
+
+<h4>Warm, not casual</h4>
+<p>Maintain professionalism while being genuinely personable. Client letters should feel personal and considered, not templated.</p>
+
+<h4>Forward-looking, not speculative</h4>
+<p>Lead with opportunity and strategy. Avoid alarmist language or uncalibrated predictions.</p>
+
+<h3>Writing for Multiple Audiences</h3>
+<p>Rubiq serves clients across multiple sophistication levels. The same market insight or trade recommendation should be adaptable into at least three registers:</p>
+<table>
+  <thead><tr><th>Register</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Formal / Technical</strong></td><td>Full analytical context, data citations, risk disclosures, and precise financial terminology. For investment committee level or institutional audiences.</td></tr>
+    <tr><td><strong>Condensed Professional</strong></td><td>Core thesis and key supporting points. Assumes financial literacy. Suitable for most advisory clients and RIA partners.</td></tr>
+    <tr><td><strong>Plain Language</strong></td><td>Clear, direct explanation without jargon. Focuses on what it means for the client's portfolio. For general audience or introductory communications.</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════ 09 COMPLIANCE ═══════════════ -->
+<div class="page-break"></div>
+<h2>09&ensp;Compliance &amp; Regulatory Language</h2>
+
+<p>All client-facing and marketing materials must carry the required investment advisory disclosure. This language is mandatory on all regulated communications.</p>
+
+<h3>Standard Disclosure — Full Form</h3>
+<div class="callout">Investment advisory services are offered through Wealthcare Capital Partners LLC, dba Rubiq Wealth Management. Wealthcare Capital Partners LLC is a Registered Investment Advisor with the U.S. Securities and Exchange Commission ("SEC").</div>
+
+<h3>Placement Guidelines</h3>
+<table>
+  <thead><tr><th>Context</th><th>Placement</th></tr></thead>
+  <tbody>
+    <tr><td>Letterhead</td><td>Footer, in 7.5–8.5pt Calibri, light gray text</td></tr>
+    <tr><td>Email Signature</td><td>Below contact details, in small gray text</td></tr>
+    <tr><td>Presentations / Decks</td><td>Last slide and/or footer on first slide</td></tr>
+    <tr><td>Deal Documents / Memos</td><td>Page footer throughout, or prominently on cover page</td></tr>
+    <tr><td>Website</td><td>Footer on every page; also on advisory services pages</td></tr>
+    <tr><td>Marketing Materials</td><td>Back of printed pieces; footer/bottom of digital materials</td></tr>
+  </tbody>
+</table>
+
+<h3>Contact Information — Master Reference</h3>
+<table>
+  <thead><tr><th>Element</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>Firm Name</td><td>Rubiq Financial Group</td></tr>
+    <tr><td>Address</td><td>1065 Andrew Drive, West Chester, PA 19380</td></tr>
+    <tr><td>Office Phone</td><td>(601) 215-9499</td></tr>
+    <tr><td>Direct Phone</td><td>(610) 883-3999</td></tr>
+    <tr><td>Primary Email</td><td>andreas@rubiqfinancial.com</td></tr>
+    <tr><td>Website</td><td>rubiqfinancial.com</td></tr>
+    <tr><td>Advisor</td><td>Andreas M. Wochtl, CFP, MBA — Private Wealth Advisor</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<p style="text-align:center;font-style:italic;color:#2C3E55;font-size:10pt;margin-top:1.5rem;">
+  Questions about brand usage? Contact: andreas@rubiqfinancial.com<br>
+  &copy; 2026 Rubiq Financial Group. All rights reserved.
+</p>
+
+</body>
+</html>
