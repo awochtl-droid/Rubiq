@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Portal | Rubiq Financial Partners</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rubiq: {
+              blue: '#1A5EA8', bluedark: '#133F73', bluelight: '#2A74C8',
+              gold: '#C49A5A', goldlight: '#D4AE6A', golddark: '#9E7A32',
+              ink: '#0F1724', inksoft: '#1C2D44', slate: '#2C3E55',
+              mist: '#F4F6F9', parchment: '#FAF8F4',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; background: #0F1724; margin: 0; overflow-x: hidden; }
+
+    .nav-blur {
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+    }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
+      text-decoration: none; padding: 0.25rem 0; position: relative; transition: color 0.18s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1.5px; background: #C49A5A; transition: width 0.22s ease;
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: white; }
+    .nav-link.active::after { width: 100%; }
+
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+      box-shadow: 0 2px 8px rgba(26,94,168,0.30);
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(26,94,168,0.40); }
+
+    /* Grain texture */
+    .grain::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* Animated lock icon */
+    @keyframes pulse-ring {
+      0% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.15); opacity: 0.15; }
+      100% { transform: scale(1); opacity: 0.4; }
+    }
+    .pulse-ring {
+      animation: pulse-ring 2s ease-in-out infinite;
+    }
+
+    /* Progress bar */
+    @keyframes progress-fill {
+      0% { width: 0%; }
+      60% { width: 70%; }
+      80% { width: 85%; }
+      100% { width: 100%; }
+    }
+    .progress-bar {
+      animation: progress-fill 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    /* Fade in elements */
+    @keyframes fade-up {
+      0% { opacity: 0; transform: translateY(16px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up {
+      animation: fade-up 0.6s ease forwards;
+    }
+    .fade-up-delay {
+      animation: fade-up 0.6s ease 0.3s forwards;
+      opacity: 0;
+    }
+    .fade-up-delay2 {
+      animation: fade-up 0.6s ease 0.6s forwards;
+      opacity: 0;
+    }
+
+    /* Subtle floating dots */
+    @keyframes float-dot {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.15; }
+      50% { transform: translateY(-12px) scale(1.2); opacity: 0.3; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-blur"
+     style="background:rgba(15,23,36,0.85);border-bottom:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex-shrink-0 flex items-center">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+             alt="Rubiq Financial Partners logo"
+             width="160" height="34"
+             style="height:34px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="what-we-do.html" class="nav-link">What We Do</a>
+        <a href="who-we-serve.html" class="nav-link">Who We Serve</a>
+        <a href="team.html" class="nav-link">Who We Are</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="fee-structure.html" class="nav-link">Fee Structure</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <button class="btn-ghost active" style="border-color:rgba(196,154,90,0.5);color:#C49A5A;">Client Access</button>
+        <a href="contact.html"><button class="btn-primary">Schedule a Call</button></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── PORTAL TRANSITION PAGE ─── -->
+<main class="min-h-screen flex items-center justify-center relative grain" style="padding-top:72px;">
+
+  <!-- Background gradients -->
+  <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(26,94,168,0.12) 0%, transparent 70%);"></div>
+  <div class="absolute inset-0" style="background: radial-gradient(ellipse 40% 40% at 30% 60%, rgba(196,154,74,0.06) 0%, transparent 70%);"></div>
+
+  <!-- Floating accent dots -->
+  <div class="absolute" style="top:20%;left:15%;width:6px;height:6px;border-radius:50%;background:#C49A5A;animation:float-dot 4s ease-in-out infinite;"></div>
+  <div class="absolute" style="top:35%;right:20%;width:4px;height:4px;border-radius:50%;background:#1A5EA8;animation:float-dot 3.5s ease-in-out 0.8s infinite;"></div>
+  <div class="absolute" style="bottom:30%;left:25%;width:5px;height:5px;border-radius:50%;background:#C49A5A;animation:float-dot 4.5s ease-in-out 1.2s infinite;"></div>
+
+  <div class="relative z-10 text-center max-w-lg mx-auto px-6">
+
+    <!-- Lock icon with pulse -->
+    <div class="fade-up flex justify-center mb-8">
+      <div class="relative">
+        <div class="absolute inset-0 rounded-full pulse-ring" style="background:rgba(196,154,74,0.12);"></div>
+        <div class="relative flex items-center justify-center" style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,rgba(26,94,168,0.15) 0%,rgba(196,154,74,0.10) 100%);border:1px solid rgba(196,154,74,0.20);">
+          <svg width="32" height="32" fill="none" stroke="#C49A5A" stroke-width="1.5" viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2.5" ry="2.5"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            <circle cx="12" cy="16.5" r="1.5" fill="#C49A5A" stroke="none"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text -->
+    <h1 class="fade-up-delay font-display text-white text-3xl md:text-4xl font-semibold mb-3" style="letter-spacing:-0.03em;line-height:1.2;">
+      Secure Client Portal
+    </h1>
+    <p class="fade-up-delay2 text-base md:text-lg mb-10" style="color:rgba(255,255,255,0.55);line-height:1.7;">
+      Connecting you to your personalized wealth dashboard&hellip;
+    </p>
+
+    <!-- Progress bar -->
+    <div class="fade-up-delay2 mx-auto" style="max-width:280px;">
+      <div style="height:3px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden;">
+        <div class="progress-bar" style="height:100%;background:linear-gradient(90deg,#1A5EA8,#C49A5A);border-radius:2px;"></div>
+      </div>
+      <p class="mt-4 text-xs uppercase tracking-widest" style="color:rgba(255,255,255,0.30);">
+        Encrypted connection
+      </p>
+    </div>
+
+    <!-- Fallback link -->
+    <p class="mt-12 text-sm" style="color:rgba(255,255,255,0.35);">
+      Not redirecting? <a href="https://www.gdx360.com/login/securelogin/loginbase.aspx"
+        class="underline transition-colors duration-200" style="color:#C49A5A;"
+        onmouseover="this.style.color='#D4AE6A'" onmouseout="this.style.color='#C49A5A'">
+        Click here to continue</a>
+    </p>
+  </div>
+</main>
+
+<!-- Redirect after animation completes -->
+<script>
+  setTimeout(() => { window.location.href = 'https://www.gdx360.com/login/securelogin/loginbase.aspx'; }, 3000);
+</script>
+
+</body>
+</html>
