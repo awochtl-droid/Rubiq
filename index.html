@@ -252,7 +252,7 @@
       font-family: 'Inter', sans-serif; font-size: 0.9rem;
       transition: border-color 0.18s ease, background 0.18s ease; outline: none;
     }
-    .form-input::placeholder { color: rgba(255,255,255,0.35); }
+    .form-input::placeholder { color: rgba(255,255,255,0.45); }
     .form-input:focus { border-color: #C49A5A; background: rgba(255,255,255,0.10); }
 
     /* Icon circle */
@@ -512,6 +512,16 @@
 </head>
 <body>
 
+<!-- Skip to main content (visible only on keyboard focus) -->
+<a href="#main-content" class="skip-nav"
+   style="position:absolute;top:-100%;left:1rem;z-index:9999;
+          background:#C49A5A;color:#0F1724;padding:0.75rem 1.5rem;
+          font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:600;
+          letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;
+          border-radius:0 0 4px 4px;transition:top 0.18s ease;"
+   onfocus="this.style.top='0'" onblur="this.style.top='-100%'">
+  Skip to main content
+</a>
 
 <!-- ══════════════════════════════════════════════════
      NAVBAR
@@ -559,7 +569,7 @@
       <!-- Mobile hamburger -->
       <button id="hamburger" onclick="toggleMobile()"
               class="md:hidden flex flex-col gap-1.5 p-2 rounded"
-              style="color:white;" aria-label="Open menu">
+              style="color:white;" aria-label="Open navigation menu">
         <span class="block w-5 h-0.5 bg-white transition-transform duration-200" id="h1"></span>
         <span class="block w-5 h-0.5 bg-white transition-opacity duration-200" id="h2"></span>
         <span class="block w-5 h-0.5 bg-white transition-transform duration-200" id="h3"></span>
@@ -763,7 +773,7 @@
       <a href="https://www.barrons.com/advisor/report/top-financial-advisors/ria?page=7&mod=faranking_subnav_riafirms" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;text-align:center;text-decoration:none;transition:opacity 0.18s ease;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
         <img src="Media/Awards-300x100-Barrons-1.webp" alt="Barron's" width="51" height="17" style="height:17px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.70;" loading="lazy" />
         <p style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:white;margin:0;">Top&nbsp;100</p>
-        <p style="font-family:'Inter',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.45);margin-top:-0.2rem;">RIA Firms &bull; 2025</p>
+        <p style="font-family:'Inter',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.55);margin-top:-0.2rem;">RIA Firms &bull; 2025</p>
       </a>
 
       <div style="width:1px;height:2.5rem;background:rgba(196,154,90,0.25);"></div>
@@ -772,7 +782,7 @@
       <a href="https://www.wealthcaregdx.com/insights/fa-2025-ria-survey-and-ranking/" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;text-align:center;text-decoration:none;transition:opacity 0.18s ease;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
         <img src="Media/Awards-300x100-FA-Magazine-1.webp" alt="Financial Advisor Magazine" width="51" height="17" style="height:17px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.70;" loading="lazy" />
         <p style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:white;margin:0;">RIA Ranking</p>
-        <p style="font-family:'Inter',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.45);margin-top:-0.2rem;">Survey &amp; Ranking &bull; 2025</p>
+        <p style="font-family:'Inter',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.55);margin-top:-0.2rem;">Survey &amp; Ranking &bull; 2025</p>
       </a>
 
       <div style="width:1px;height:2.5rem;background:rgba(196,154,90,0.25);"></div>
@@ -781,7 +791,7 @@
       <a href="https://www.advisorhub.com/advisors-to-watch-ria-2025/" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;text-align:center;text-decoration:none;transition:opacity 0.18s ease;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
         <img src="Media/advisorhub-logo.png" alt="AdvisorHub" width="42" height="14" style="height:14px;width:auto;object-fit:contain;opacity:0.70;" loading="lazy" />
         <p style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:white;margin:0;">Top 250 RIAs</p>
-        <p style="font-family:'Inter',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.45);margin-top:-0.2rem;">Advisors to Watch &bull; 2025</p>
+        <p style="font-family:'Inter',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.55);margin-top:-0.2rem;">Advisors to Watch &bull; 2025</p>
       </a>
 
       <div style="width:1px;height:2.5rem;background:rgba(196,154,90,0.25);"></div>
@@ -790,20 +800,20 @@
       <a href="https://www.prnewswire.com/news-releases/wealth-solutions-report-announces-inaugural-wealth-exemplar-award-winners-301695408.html" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;text-align:center;text-decoration:none;transition:opacity 0.18s ease;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
         <img src="Media/wealthsolutions_logo.webp" alt="Wealth Solutions Report" width="60" height="20" style="height:20px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.70;" loading="lazy" />
         <p style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:white;margin:0;">Platform of the Year</p>
-        <p style="font-family:'Inter',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.45);margin-top:-0.2rem;">Wealth Exemplar Awards</p>
+        <p style="font-family:'Inter',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.55);margin-top:-0.2rem;">Wealth Exemplar Awards</p>
       </a>
 
     </div>
 
     <!-- Stats row -->
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 2.5rem;margin-top:1rem;">
-      <p style="font-family:'Inter',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.40);margin:0;">
+      <p style="font-family:'Inter',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.50);margin:0;">
         <span style="color:#C49A5A;font-weight:700;font-size:1.05rem;">$10B+</span> &nbsp;Assets Under Management
       </p>
-      <p style="font-family:'Inter',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.40);margin:0;">
+      <p style="font-family:'Inter',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.50);margin:0;">
         <span style="color:#C49A5A;font-weight:700;font-size:1.05rem;">190+</span> &nbsp;Affiliated Advisors
       </p>
-      <p style="font-family:'Inter',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.40);margin:0;">
+      <p style="font-family:'Inter',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.50);margin:0;">
         <span style="color:#C49A5A;font-weight:700;font-size:1.05rem;">32%</span> &nbsp;AUM Growth in 2025
       </p>
     </div>
@@ -1392,7 +1402,7 @@
                width="72" height="72"
                style="height:72px;width:auto;object-fit:contain;" loading="lazy" decoding="async" />
         </div>
-        <p style="font-size:0.875rem;line-height:1.65;color:rgba(255,255,255,0.40);font-weight:300;">
+        <p style="font-size:0.875rem;line-height:1.65;color:rgba(255,255,255,0.50);font-weight:300;">
           Independent, fee-based financial advisory for entrepreneurs, business owners,
           and ultra-high-net-worth families.
         </p>
@@ -1460,11 +1470,11 @@
       <details style="max-width:72rem;">
         <summary style="list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0.75rem;
                         font-size:0.7rem;color:rgba(255,255,255,0.25);font-weight:300;line-height:1.7;
-                        user-select:none;" onmouseover="this.style.color='rgba(255,255,255,0.45)'"
+                        user-select:none;" onmouseover="this.style.color='rgba(255,255,255,0.55)'"
                         onmouseout="this.style.color='rgba(255,255,255,0.25)'">
           <span>Rubiq Financial Partners is an independent advisory firm. Advisory services offered through Wealthcare. Investing involves risk; past performance is not indicative of future results. Information on this site is for informational purposes only.</span>
           <span style="flex-shrink:0;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;
-                       color:rgba(255,255,255,0.35);white-space:nowrap;border-bottom:1px solid rgba(255,255,255,0.20);
+                       color:rgba(255,255,255,0.45);white-space:nowrap;border-bottom:1px solid rgba(255,255,255,0.20);
                        padding-bottom:1px;">View full disclosures ↓</span>
         </summary>
         <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.875rem;">
@@ -1472,19 +1482,19 @@
             Rubiq Financial Partners ("Rubiq") is an independent investment advisory firm. Advisory services are offered through Wealthcare Capital Management LLC, Wealthcare Advisory Partners LLC, and/or Wealthcare Capital Partners LLC (collectively, "Wealthcare"), each of which is a registered investment adviser with the U.S. Securities and Exchange Commission ("SEC"). Rubiq Financial is also affiliated with LPL Financial LLC ("LPL Financial"), a registered investment adviser and broker-dealer, Member FINRA/SIPC. Registration with the SEC does not imply a certain level of skill or training, nor does it constitute an endorsement of the firm by any regulatory authority.
           </p>
           <p style="font-size:0.7rem;color:rgba(255,255,255,0.22);line-height:1.7;font-weight:300;">
-            <span style="color:rgba(255,255,255,0.35);font-weight:500;">Custody of Assets.</span> Client assets are held in custody by one or more of the following qualified custodians: Charles Schwab &amp; Co., Inc. ("Schwab") and Fidelity Investments. Rubiq Financial is not affiliated with Schwab or Fidelity. Clients are encouraged to review account statements provided directly by their custodian.
+            <span style="color:rgba(255,255,255,0.45);font-weight:500;">Custody of Assets.</span> Client assets are held in custody by one or more of the following qualified custodians: Charles Schwab &amp; Co., Inc. ("Schwab") and Fidelity Investments. Rubiq Financial is not affiliated with Schwab or Fidelity. Clients are encouraged to review account statements provided directly by their custodian.
           </p>
           <p style="font-size:0.7rem;color:rgba(255,255,255,0.22);line-height:1.7;font-weight:300;">
-            <span style="color:rgba(255,255,255,0.35);font-weight:500;">No Guarantee of Results.</span> Investing involves risk, including the possible loss of principal. Past performance is not indicative of future results. No investment strategy can guarantee a profit or protect against loss in periods of declining markets.
+            <span style="color:rgba(255,255,255,0.45);font-weight:500;">No Guarantee of Results.</span> Investing involves risk, including the possible loss of principal. Past performance is not indicative of future results. No investment strategy can guarantee a profit or protect against loss in periods of declining markets.
           </p>
           <p style="font-size:0.7rem;color:rgba(255,255,255,0.22);line-height:1.7;font-weight:300;">
-            <span style="color:rgba(255,255,255,0.35);font-weight:500;">Information on This Website.</span> The information on this site is provided for informational purposes only and does not constitute investment, legal, tax, or accounting advice. Visitors should consult qualified professionals regarding their specific circumstances.
+            <span style="color:rgba(255,255,255,0.45);font-weight:500;">Information on This Website.</span> The information on this site is provided for informational purposes only and does not constitute investment, legal, tax, or accounting advice. Visitors should consult qualified professionals regarding their specific circumstances.
           </p>
           <p style="font-size:0.7rem;color:rgba(255,255,255,0.22);line-height:1.7;font-weight:300;">
-            <span style="color:rgba(255,255,255,0.35);font-weight:500;">BrokerCheck.</span> You may check the background of Rubiq Financial and its associated professionals through FINRA's BrokerCheck at <a href="https://brokercheck.finra.org" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.38);text-decoration:underline;">brokercheck.finra.org</a>.
+            <span style="color:rgba(255,255,255,0.45);font-weight:500;">BrokerCheck.</span> You may check the background of Rubiq Financial and its associated professionals through FINRA's BrokerCheck at <a href="https://brokercheck.finra.org" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.38);text-decoration:underline;">brokercheck.finra.org</a>.
           </p>
           <p style="font-size:0.7rem;color:rgba(255,255,255,0.22);line-height:1.7;font-weight:300;">
-            <span style="color:rgba(255,255,255,0.35);font-weight:500;">* Rankings &amp; Awards.</span> Rankings and awards are not indicative of future performance and do not represent the experience of any individual client. Barron's Top 100 RIA Firms ranking is based on assets under management, revenue, compliance record, and other factors; firms do not pay to be considered. FA Magazine RIA Survey &amp; Ranking is based on assets under management and other quantitative criteria. Advisors to Watch Top 250 RIAs is based on AUM, growth, and other factors. Wealth Exemplar Awards are determined by an independent panel; no compensation was paid for nomination or selection. These rankings should not be construed as an endorsement of Rubiq Financial Partners or Wealthcare Advisory Partners.
+            <span style="color:rgba(255,255,255,0.45);font-weight:500;">* Rankings &amp; Awards.</span> Rankings and awards are not indicative of future performance and do not represent the experience of any individual client. Barron's Top 100 RIA Firms ranking is based on assets under management, revenue, compliance record, and other factors; firms do not pay to be considered. FA Magazine RIA Survey &amp; Ranking is based on assets under management and other quantitative criteria. Advisors to Watch Top 250 RIAs is based on AUM, growth, and other factors. Wealth Exemplar Awards are determined by an independent panel; no compensation was paid for nomination or selection. These rankings should not be construed as an endorsement of Rubiq Financial Partners or Wealthcare Advisory Partners.
           </p>
           <p style="font-size:0.7rem;color:rgba(255,255,255,0.18);line-height:1.7;font-weight:300;">
             This disclosure is subject to change without notice. Please contact us with any questions.

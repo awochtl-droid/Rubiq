@@ -183,6 +183,16 @@
 </script>
 </head>
 <body>
+<!-- Skip to main content (visible only on keyboard focus) -->
+<a href="#main-content" class="skip-nav"
+   style="position:absolute;top:-100%;left:1rem;z-index:9999;
+          background:#C49A5A;color:#0F1724;padding:0.75rem 1.5rem;
+          font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:600;
+          letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;
+          border-radius:0 0 4px 4px;transition:top 0.18s ease;"
+   onfocus="this.style.top='0'" onblur="this.style.top='-100%'">
+  Skip to main content
+</a>
 
 <!-- ─── NAV ─── -->
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-blur"
@@ -257,7 +267,7 @@
     </div>
 
     <!-- Fallback link -->
-    <p class="mt-12 text-sm" style="color:rgba(255,255,255,0.35);">
+    <p class="mt-12 text-sm" style="color:rgba(255,255,255,0.45);">
       Not redirecting? <a href="https://www.gdx360.com/login/securelogin/loginbase.aspx"
         class="underline transition-colors duration-200" style="color:#C49A5A;"
         onmouseover="this.style.color='#D4AE6A'" onmouseout="this.style.color='#C49A5A'">
