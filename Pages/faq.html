@@ -126,14 +126,6 @@
       },
       {
         "@type": "Question",
-        "name": "What is the difference between fee-based and fee-only?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Fee-only advisors are compensated exclusively by client fees. Fee-based advisors primarily charge fees but may also earn commissions on certain products. Rubiq operates on a fee-based model and is always transparent about how we are compensated."
-        }
-      },
-      {
-        "@type": "Question",
         "name": "What is the minimum portfolio size to work with Rubiq?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -166,14 +158,6 @@
       },
       {
         "@type": "Question",
-        "name": "What does AUM-based pricing mean?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "AUM stands for Assets Under Management. AUM-based pricing means the advisor charges a percentage of the portfolio they manage on your behalf — typically billed quarterly based on the average account value. This model aligns the advisor's revenue with your portfolio growth, since their fee rises as your wealth grows. It also means your fee drops automatically if markets fall. The key questions to ask: what assets are included in the fee base, and what's excluded? Some advisors charge only on investable assets; others include held-away accounts in their planning but not their billing."
-        }
-      },
-      {
-        "@type": "Question",
         "name": "Is 1% a reasonable fee for a financial advisor?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -202,14 +186,6 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "This varies widely by firm and advisor. At a minimum, expect portfolio management, performance reporting, and periodic reviews. At the wealth management level, fees should also cover comprehensive financial planning — retirement income modeling, tax planning coordination, estate and insurance analysis, Social Security optimization, and goal-based scenario planning. Ask for a written scope of services. If your advisor cannot clearly articulate what is and isn't included, that is itself useful information. The best advisors will proactively reach out when tax law changes, market events, or life transitions create planning opportunities — not wait for you to call them."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is tiered AUM pricing and why is it better for clients?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Tiered AUM pricing means the advisory fee percentage decreases as your portfolio grows. For example: a firm might charge 1.00% on the first $1M, 0.80% on the next $1M, and 0.65% above $2M — so only the assets in each bracket are charged at that tier's rate, not the entire balance. This matters because it makes the fee structure transparent, fair, and aligned with the economics of serving larger accounts. The complexity of advising a $5M portfolio is not five times greater than a $1M portfolio — tiered pricing reflects that reality. It also prevents the fee from quietly compounding alongside your portfolio as a fixed percentage would."
         }
       },
       {
@@ -250,6 +226,30 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Multigenerational wealth transfer is the process of structuring assets, trusts, and financial plans to preserve family wealth across two or more generations. Effective planning goes beyond basic estate documents — it involves dynasty trust structures that can protect assets from estate taxes for multiple generations, generation-skipping transfer tax (GSTT) planning to avoid double taxation, family governance frameworks that prepare heirs to manage inherited wealth responsibly, and coordinated gifting programs that use annual exclusions and lifetime exemptions strategically. At Rubiq, we integrate these elements with your investment strategy and tax planning so that wealth transfer is not an afterthought but a core part of how we manage your financial life."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where will my money be held? Do I have to use a specific bank?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your assets are held at an independent, third-party custodian — not with us. We primarily use Charles Schwab for investment custody and Flourish for cash management, but we also work alongside your existing banking relationships. You don't have to move everything to one place. If you have a private banking relationship you value, we coordinate around it. Our role is to manage and advise — your bank or custodian holds the assets, and you always retain direct access to your accounts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you replace my existing financial advisor, CPA, or attorney?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not necessarily. We're designed to be the central coordinator of your financial life, but that doesn't mean we replace every professional you already work with. If you have a CPA, estate attorney, or insurance specialist you trust, we collaborate with them directly — sharing tax projections, reviewing estate documents, and making sure everyone is working from the same playbook. Where there are gaps or where existing relationships aren't serving your interests, we'll tell you. The goal is a connected team, not a forced consolidation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I have to use your recommended professionals, or can I keep my own?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You're never required to use anyone we recommend. We have a network of estate attorneys, CPAs, and insurance professionals we trust and work with regularly, and we're happy to make introductions when clients need them. But if you already have professionals you're comfortable with, we work with your team. What matters to us is that everyone involved in your financial picture is communicating and aligned — not that they carry our stamp of approval."
         }
       }
     ]
@@ -484,33 +484,6 @@
                        display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;">
           <span style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;
                        color:#0F1724;line-height:1.35;flex:1;">
-            What is the difference between fee-based and fee-only?
-          </span>
-          <span class="faq-icon" style="flex-shrink:0;margin-top:2px;transition:transform 0.22s ease;
-                                        width:20px;height:20px;display:flex;align-items:center;justify-content:center;">
-            <svg width="16" height="16" fill="none" stroke="#1A5EA8" stroke-width="2.5" viewBox="0 0 24 24">
-              <path d="M6 9l6 6 6-6"/>
-            </svg>
-          </span>
-        </button>
-        <div class="faq-body" style="overflow:hidden;max-height:0;transition:max-height 0.30s ease;">
-          <p style="font-size:0.9rem;line-height:1.75;color:#4A5568;font-weight:300;
-                    padding-bottom:1.5rem;margin:0;">
-            Fee-only advisors are compensated exclusively by client fees. Fee-based advisors primarily
-            charge fees but may also earn commissions on certain products. Rubiq operates on a fee-based
-            model and is always transparent about how we are compensated.
-          </p>
-        </div>
-      </div>
-
-      <!-- FAQ Item -->
-      <div class="faq-item" style="border-top:1px solid rgba(26,94,168,0.12);">
-        <button class="faq-trigger"
-                onclick="toggleFaq(this)"
-                style="width:100%;text-align:left;padding:1.5rem 0;background:none;border:none;cursor:pointer;
-                       display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;">
-          <span style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;
-                       color:#0F1724;line-height:1.35;flex:1;">
             What is the minimum portfolio size to work with Rubiq?
           </span>
           <span class="faq-icon" style="flex-shrink:0;margin-top:2px;transition:transform 0.22s ease;
@@ -611,37 +584,6 @@
             transparent about every form of compensation tend to deliver more direct value because
             clients can clearly see all costs and evaluate recommendations accordingly. Always ask
             for the all-in cost, including any underlying fund expense ratios and platform fees.
-          </p>
-        </div>
-      </div>
-
-      <!-- FAQ Item -->
-      <div class="faq-item" style="border-top:1px solid rgba(26,94,168,0.12);">
-        <button class="faq-trigger"
-                onclick="toggleFaq(this)"
-                style="width:100%;text-align:left;padding:1.5rem 0;background:none;border:none;cursor:pointer;
-                       display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;">
-          <span style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;
-                       color:#0F1724;line-height:1.35;flex:1;">
-            What does AUM-based pricing mean?
-          </span>
-          <span class="faq-icon" style="flex-shrink:0;margin-top:2px;transition:transform 0.22s ease;
-                                        width:20px;height:20px;display:flex;align-items:center;justify-content:center;">
-            <svg width="16" height="16" fill="none" stroke="#1A5EA8" stroke-width="2.5" viewBox="0 0 24 24">
-              <path d="M6 9l6 6 6-6"/>
-            </svg>
-          </span>
-        </button>
-        <div class="faq-body" style="overflow:hidden;max-height:0;transition:max-height 0.30s ease;">
-          <p style="font-size:0.9rem;line-height:1.75;color:#4A5568;font-weight:300;
-                    padding-bottom:1.5rem;margin:0;">
-            AUM stands for Assets Under Management. AUM-based pricing means the advisor charges a
-            percentage of the portfolio they manage on your behalf — typically billed quarterly based
-            on the average account value. This model aligns the advisor's revenue with your portfolio
-            growth, since their fee rises as your wealth grows. It also means your fee drops
-            automatically if markets fall. The key questions to ask: what assets are included in
-            the fee base, and what's excluded? Some advisors charge only on investable assets;
-            others include held-away accounts in their planning but not their billing.
           </p>
         </div>
       </div>
@@ -771,38 +713,6 @@
             cannot clearly articulate what is and isn't included, that is itself useful information.
             The best advisors will proactively reach out when tax law changes, market events,
             or life transitions create planning opportunities — not wait for you to call them.
-          </p>
-        </div>
-      </div>
-
-      <!-- FAQ Item -->
-      <div class="faq-item" style="border-top:1px solid rgba(26,94,168,0.12);">
-        <button class="faq-trigger"
-                onclick="toggleFaq(this)"
-                style="width:100%;text-align:left;padding:1.5rem 0;background:none;border:none;cursor:pointer;
-                       display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;">
-          <span style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;
-                       color:#0F1724;line-height:1.35;flex:1;">
-            What is tiered AUM pricing and why is it better for clients?
-          </span>
-          <span class="faq-icon" style="flex-shrink:0;margin-top:2px;transition:transform 0.22s ease;
-                                        width:20px;height:20px;display:flex;align-items:center;justify-content:center;">
-            <svg width="16" height="16" fill="none" stroke="#1A5EA8" stroke-width="2.5" viewBox="0 0 24 24">
-              <path d="M6 9l6 6 6-6"/>
-            </svg>
-          </span>
-        </button>
-        <div class="faq-body" style="overflow:hidden;max-height:0;transition:max-height 0.30s ease;">
-          <p style="font-size:0.9rem;line-height:1.75;color:#4A5568;font-weight:300;
-                    padding-bottom:1.5rem;margin:0;">
-            Tiered AUM pricing means the advisory fee percentage decreases as your portfolio grows.
-            For example: a firm might charge 1.00% on the first $1M, 0.80% on the next $1M, and
-            0.65% above $2M — so only the assets in each bracket are charged at that tier's rate,
-            not the entire balance. This matters because it makes the fee structure transparent,
-            fair, and aligned with the economics of serving larger accounts. The complexity of
-            advising a $5M portfolio is not five times greater than a $1M portfolio — tiered pricing
-            reflects that reality. It also prevents the fee from quietly compounding alongside your
-            portfolio as a fixed percentage would.
           </p>
         </div>
       </div>
