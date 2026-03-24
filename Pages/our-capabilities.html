@@ -257,7 +257,11 @@
         "url": "https://www.rubiqfinancial.com/Pages/our-capabilities.html",
         "name": "Wealth Advisory Services | Rubiq Financial Partners",
         "description": "Fee-based advisory for investment management, tax strategy, estate planning, and retirement. Fiduciary guidance for entrepreneurs and investors nationwide.",
-        "publisher": { "@id": "https://www.rubiqfinancial.com/#organization" }
+        "publisher": { "@id": "https://www.rubiqfinancial.com/#organization" },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": ["#speakable-headline", "#speakable-summary"]
+        }
       },
       {
         "@type": "Service",
@@ -627,13 +631,13 @@
           </span>
         </div>
 
-        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.25rem);
+        <h1 id="speakable-headline" style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.25rem);
                    font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
           Wealth Management<br />
           <em style="font-style:italic;color:#D4AE6A;">Built Around You.</em>
         </h1>
 
-        <p style="font-size:1.125rem;line-height:1.7;color:rgba(255,255,255,0.75);
+        <p id="speakable-summary" style="font-size:1.125rem;line-height:1.7;color:rgba(255,255,255,0.75);
                   font-weight:300;max-width:500px;">
           We bring clarity to complex capital—integrating tax, investments, and structure into a single, coordinated strategy so every decision compounds with intention.
         </p>
