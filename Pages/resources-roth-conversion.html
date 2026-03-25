@@ -213,7 +213,11 @@
     "dateModified": "2026-03-17",
     "author": { "@type": "Person", "name": "Andreas Wochtl, CFP®", "url": "https://www.rubiqfinancial.com/Pages/our-team.html" },
     "publisher": { "@id": "https://www.rubiqfinancial.com/#organization" },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.rubiqfinancial.com/Pages/resources-roth-conversion.html" }
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.rubiqfinancial.com/Pages/resources-roth-conversion.html" },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["#speakable-headline", "#speakable-summary"]
+    }
   }
   </script>
   <script type="application/ld+json">
@@ -395,7 +399,7 @@
       <div style="width:5px;height:5px;border-radius:50%;background:#2A74C8;flex-shrink:0;"></div>
       <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#7BB3E8;">Tax Strategy</span>
     </div>
-    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.875rem,4.5vw,3.25rem);font-weight:700;line-height:1.12;letter-spacing:-0.03em;color:white;margin-bottom:1rem;">
+    <h1 id="speakable-headline" style="font-family:'Playfair Display',serif;font-size:clamp(1.875rem,4.5vw,3.25rem);font-weight:700;line-height:1.12;letter-spacing:-0.03em;color:white;margin-bottom:1rem;">
       Roth Conversion Conversations:<br />A Guide for Every Stage of Life
     </h1>
     <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
@@ -417,7 +421,7 @@
       <!-- Main Content -->
       <div class="lg:col-span-2 article-body">
 
-        <p style="font-size:1.175rem;line-height:1.80;color:#1C2D44;font-weight:400;border-left:3px solid #C49A5A;padding-left:1.5rem;margin-bottom:2.5rem;">
+        <p id="speakable-summary" style="font-size:1.175rem;line-height:1.80;color:#1C2D44;font-weight:400;border-left:3px solid #C49A5A;padding-left:1.5rem;margin-bottom:2.5rem;">
           The Roth IRA is one of the most powerful tools in the American tax code. The ability to grow investments tax-free — and withdraw them tax-free in retirement — is a genuine structural advantage. But converting existing traditional IRA or 401(k) assets to Roth is a complex decision that depends heavily on your current tax rate, your expected future rate, your time horizon, and your liquidity position.
         </p>
 
@@ -725,6 +729,24 @@
         </div>
       </a>
 
+      <a href="resources-tax-loss-harvesting.html" style="text-decoration:none;display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;border:1px solid rgba(26,94,168,0.10);border-radius:10px;background:#FAF8F4;transition:box-shadow 0.22s ease,transform 0.22s ease;"
+         onmouseover="this.style.boxShadow='0 8px 32px rgba(26,94,168,0.12)';this.style.transform='translateY(-2px)'"
+         onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+        <div>
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2A74C8;margin-bottom:0.4rem;">Tax Strategy</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#0F1724;line-height:1.35;">Tax-Loss Harvesting &amp; Direct Indexing</div>
+        </div>
+      </a>
+
+      <a href="resources-annuities.html" style="text-decoration:none;display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;border:1px solid rgba(26,94,168,0.10);border-radius:10px;background:#FAF8F4;transition:box-shadow 0.22s ease,transform 0.22s ease;"
+         onmouseover="this.style.boxShadow='0 8px 32px rgba(26,94,168,0.12)';this.style.transform='translateY(-2px)'"
+         onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+        <div>
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2A74C8;margin-bottom:0.4rem;">Income Planning</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#0F1724;line-height:1.35;">Annuities: When Guaranteed Income Makes Sense</div>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
@@ -791,7 +813,7 @@
         &copy; 2026 Rubiq Financial Partners LLC. All rights reserved.
       </p>
       <p style="font-size:0.7rem;color:rgba(255,255,255,0.18);margin:0 0 0.5rem;line-height:1.6;font-weight:300;">
-        Advisory services offered through Wealthcare Advisory Partners.
+        Advisory services offered through Wealthcare Advisory Partners. Not a solicitation in any jurisdiction where not registered or exempt.
       </p>
       <div style="display:flex;justify-content:center;gap:1.5rem;">
         <a href="privacy-policy.html" style="font-size:0.7rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s ease;"
