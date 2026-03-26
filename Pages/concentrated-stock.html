@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concentrated Stock Positions: Strategies for Reducing Single-Stock Risk | Rubiq Financial Partners</title>
+  <meta name="description" content="When a single stock becomes an outsized share of your portfolio, it introduces risk most investors underestimate. Learn seven strategies to reduce concentration — from systematic selling to exchange funds, collars, and charitable structures." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/concentrated-stock.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rubiq: {
+              blue:      '#1A5EA8',
+              bluedark:  '#133F73',
+              bluelight: '#2A74C8',
+              gold:      '#C49A5A',
+              goldlight: '#D4AE6A',
+              golddark:  '#9E7A32',
+              ink:       '#0F1724',
+              inksoft:   '#1C2D44',
+              slate:     '#2C3E55',
+              mist:      '#F4F6F9',
+              parchment: '#FAF8F4',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
+
+    /* ── Nav ── */
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
+      text-decoration: none; position: relative; padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1.5px; background: #C49A5A; transition: width 0.22s ease;
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: white; }
+    .nav-link.active::after { width: 100%; }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-gold {
+      background: linear-gradient(135deg, #C49A5A 0%, #D4AE6A 100%);
+      color: #0F1724; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.875rem 2.25rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .btn-gold:hover {
+      opacity: 0.92; transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(196,154,74,0.40);
+    }
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); transform: translateY(-1px); }
+
+    /* ── Section rule ── */
+    .section-rule {
+      width: 48px; height: 3px;
+      background: linear-gradient(90deg, #1A5EA8, #C49A5A);
+      border-radius: 2px; margin-bottom: 1.5rem;
+    }
+
+    /* ── Strategy cards ── */
+    .strategy-card {
+      background: white;
+      border: 1px solid rgba(26,94,168,0.10);
+      border-radius: 10px;
+      padding: 2rem 1.75rem;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .strategy-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(26,94,168,0.08);
+    }
+
+    /* ── Conversation cards ── */
+    .convo-card {
+      background: linear-gradient(135deg, rgba(26,94,168,0.04) 0%, rgba(196,154,74,0.03) 100%);
+      border: 1px solid rgba(26,94,168,0.12);
+      border-left: 3px solid #C49A5A;
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── Threshold bar ── */
+    .threshold-bar {
+      display: flex;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 10px;
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    /* ── Cite link ── */
+    .cite-link {
+      font-size: 0.78rem;
+      color: #1A5EA8;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(26,94,168,0.35);
+      transition: border-color 0.18s ease;
+    }
+    .cite-link:hover { border-color: #1A5EA8; }
+
+    /* ── Mobile menu ── */
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+    @media (max-width: 767px) {
+      #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+      footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
+    }
+  </style>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32" />
+
+  <!-- Social / AEO -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="Rubiq Financial Partners" />
+  <meta property="og:title"       content="Concentrated Stock Positions: Strategies for Reducing Single-Stock Risk | Rubiq Financial Partners" />
+  <meta property="og:description" content="When a single stock becomes an outsized share of your portfolio, it introduces risk most investors underestimate. Learn strategies to reduce concentration without triggering unnecessary taxes." />
+  <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/concentrated-stock.html" />
+  <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Concentrated Stock Positions: Strategies for Reducing Single-Stock Risk | Rubiq Financial Partners" />
+  <meta name="twitter:description" content="When a single stock becomes an outsized share of your portfolio, it introduces risk most investors underestimate. Learn strategies to reduce concentration without triggering unnecessary taxes." />
+  <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://www.rubiqfinancial.com/Pages/concentrated-stock.html#article",
+        "headline": "Concentrated Stock Positions: When Your Best Investment Becomes Your Biggest Risk",
+        "description": "An educational guide to understanding and managing concentrated stock positions, including systematic selling, exchange funds, collars, prepaid forwards, charitable strategies, and wealth transfer techniques.",
+        "author": { "@id": "https://www.rubiqfinancial.com/#organization" },
+        "publisher": { "@id": "https://www.rubiqfinancial.com/#organization" },
+        "datePublished": "2026-03-26",
+        "dateModified": "2026-03-26"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.rubiqfinancial.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.rubiqfinancial.com/Pages/insights.html" },
+          { "@type": "ListItem", "position": 3, "name": "Concentrated Stock Positions", "item": "https://www.rubiqfinancial.com/Pages/concentrated-stock.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a concentrated stock position?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A concentrated stock position is a single equity holding that represents a disproportionate share of an investor's portfolio — typically 10% or more of liquid net worth. While concentration often reflects a successful investment, it introduces outsized volatility, tax complexity, and sequence-of-returns risk that can undermine long-term financial outcomes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much concentration in one stock is too much?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most financial planning research flags positions above 10% of liquid net worth as concentrated. At 20-25%, research from major wealth managers considers the risk meaningfully elevated. Academic research by Meulbroek (2001) and Statman (2004) suggests that holding 40% or more in a single stock can reduce risk-adjusted returns by 2-4% annually compared to a diversified portfolio."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I diversify a concentrated stock position without paying taxes immediately?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Several strategies allow diversification while deferring capital gains, including exchange funds (Section 351 pooled vehicles), equity collars, prepaid variable forward contracts, and charitable strategies like donor-advised funds or charitable remainder trusts. Each has trade-offs around liquidity, complexity, and cost. Most investors benefit from combining two or three strategies rather than relying on a single approach."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is an exchange fund for concentrated stock?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An exchange fund is a pooled investment vehicle structured under Section 351 of the Internal Revenue Code. Investors contribute concentrated stock positions into a diversified fund, receiving a proportional interest without triggering a taxable event at contribution. Exchange funds typically require a minimum investment of $1 million or more and a seven-year holding period before redemption."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["#speakable-headline", "#speakable-summary"]
+    },
+    "url": "https://www.rubiqfinancial.com/Pages/concentrated-stock.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "Rubiq Financial Partners",
+    "url": "https://www.rubiqfinancial.com",
+    "logo": "https://www.rubiqfinancial.com/Brand_assets/Rubiq%20Financial%20Partners%20Logo%20-%20FINAL2-Horizontal.png",
+    "image": "https://www.rubiqfinancial.com/Media/og-social.png",
+    "description": "Independent fiduciary wealth management for ultra-high-net-worth families, entrepreneurs, and real estate investors.",
+    "telephone": "+1-610-215-9499",
+    "email": "clientservice@rubiqfinancial.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1065 Andrew Drive",
+      "addressLocality": "West Chester",
+      "addressRegion": "PA",
+      "postalCode": "19380",
+      "addressCountry": "US"
+    },
+    "areaServed": [{"@type": "Country", "name": "United States"}],
+    "founder": {"@type": "Person", "name": "Andreas M. Wochtl", "jobTitle": "Private Wealth Advisor"},
+    "sameAs": ["https://www.linkedin.com/company/rubiq-financial-partners"],
+    "priceRange": "$$$$"
+  }
+  </script>
+</head>
+<body>
+<!-- Skip to main content -->
+<a href="#main-content" class="skip-nav"
+   style="position:absolute;top:-100%;left:1rem;z-index:9999;
+          background:#C49A5A;color:#0F1724;padding:0.75rem 1.5rem;
+          font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:600;
+          letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;
+          border-radius:0 0 4px 4px;transition:top 0.18s ease;"
+   onfocus="this.style.top='0'" onblur="this.style.top='-100%'">
+  Skip to main content
+</a>
+
+<!-- ══════════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════════════ -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur"
+     style="background:rgba(15,23,36,0.90);border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex-shrink-0 flex items-center">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Vertical -White.png"
+             alt="Rubiq Financial Partners" width="240" height="44"
+             style="height:44px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="our-clients.html" class="nav-link">Our Clients</a>
+        <a href="our-capabilities.html" class="nav-link">Our Capabilities</a>
+        <a href="our-team.html" class="nav-link">Our Team</a>
+        <a href="insights.html" class="nav-link active">Insights</a>
+        <a href="fee-structure.html" class="nav-link">Fee Structure</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="client-portal.html"><button class="btn-ghost">Client Access</button></a>
+        <a href="schedule.html"><button class="btn-primary">Schedule a Call</button></a>
+      </div>
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('open')"
+              class="md:hidden p-2" style="color:white;" aria-label="Open navigation menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu"
+       style="background:rgba(15,23,36,0.97);border-top:1px solid rgba(255,255,255,0.07);
+              flex-direction:column;padding:1.5rem 1.5rem 2rem;">
+    <a href="our-clients.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Clients</a>
+    <a href="our-capabilities.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Capabilities</a>
+    <a href="our-team.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Team</a>
+    <a href="insights.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Insights</a>
+    <a href="fee-structure.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Fee Structure</a>
+    <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.75rem;">
+      <a href="schedule.html"><button class="btn-gold" style="width:100%;">Schedule a Call</button></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════ -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 50%,#1A5EA8 100%);
+                padding:7rem 0 5rem;position:relative;overflow:hidden;min-height:480px;">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.025;pointer-events:none;" aria-hidden="true">
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+  <div style="position:absolute;top:-10%;right:-5%;width:55%;height:110%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.12) 0%,transparent 60%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-20%;left:-5%;width:45%;height:90%;
+              background:radial-gradient(ellipse,rgba(42,116,200,0.15) 0%,transparent 65%);pointer-events:none;"></div>
+
+  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
+    <a href="insights.html" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:2rem;
+      font-size:0.75rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(255,255,255,0.55);
+      text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+      &larr; Insights
+    </a>
+    <div style="display:inline-flex;align-items:center;gap:8px;
+                background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.25);
+                border-radius:100px;padding:0.35rem 1rem;margin-bottom:2rem;">
+      <div style="width:6px;height:6px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">
+        Wealth Planning
+      </span>
+    </div>
+
+    <h1 id="speakable-headline" style="font-family:'Playfair Display',serif;font-size:clamp(2.25rem,4.5vw,3.75rem);
+               font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
+      When Your Best Investment<br />Becomes Your <em style="font-style:italic;color:#D4AE6A;">Biggest Risk</em>
+    </h1>
+
+    <p id="speakable-summary" style="font-size:1.125rem;line-height:1.7;color:rgba(255,255,255,0.75);
+              font-weight:300;max-width:600px;">
+      A concentrated stock position is a single equity holding that represents a disproportionate share of an investor's portfolio &mdash; typically 10% or more of liquid net worth. While concentration often reflects a great investment decision, it introduces volatility, tax complexity, and sequence-of-returns risk that can quietly undermine everything else in your financial plan.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════════════════════ -->
+<main id="main-content">
+
+
+<!-- ── CONVERSATIONS THAT START THE PROCESS ── -->
+<section style="padding:5rem 0 4rem;background:white;">
+  <div class="max-w-3xl mx-auto px-6 lg:px-10">
+    <div class="section-rule"></div>
+    <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+              color:rgba(44,62,85,0.50);margin-bottom:1rem;">How it usually starts</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.25rem);
+               font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:#0F1724;margin-bottom:2rem;">
+      Three conversations we hear <em style="font-style:italic;color:#C49A5A;">all the time</em>
+    </h2>
+
+    <div class="convo-card">
+      <p style="font-size:0.9375rem;line-height:1.7;color:#2C3E55;font-weight:400;margin:0 0 0.5rem;">
+        <em style="color:#C49A5A;font-weight:600;">"I bought Apple in 2010. It's done incredibly well &mdash; but now it's 45% of my portfolio and I can't sleep before earnings calls."</em>
+      </p>
+      <p style="font-size:0.8125rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">
+        The stock did exactly what you hoped. But the portfolio around it didn't keep up, and now one position controls your financial future.
+      </p>
+    </div>
+
+    <div class="convo-card">
+      <p style="font-size:0.9375rem;line-height:1.7;color:#2C3E55;font-weight:400;margin:0 0 0.5rem;">
+        <em style="color:#C49A5A;font-weight:600;">"I know I should diversify, but I'd owe over $400,000 in capital gains taxes if I sell. So I just &hellip; don't."</em>
+      </p>
+      <p style="font-size:0.8125rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">
+        The tax bill feels like a reason to hold forever. But there are strategies that reduce concentration without triggering all of that gain at once &mdash; or in some cases, without triggering it at all.
+      </p>
+    </div>
+
+    <div class="convo-card">
+      <p style="font-size:0.9375rem;line-height:1.7;color:#2C3E55;font-weight:400;margin:0 0 0.5rem;">
+        <em style="color:#C49A5A;font-weight:600;">"My advisor says it's fine because it's a 'quality name.' But quality companies still drop 40% in a bad year."</em>
+      </p>
+      <p style="font-size:0.8125rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">
+        Even the best companies have drawdowns. Meta lost 77% from peak to trough in 2022. Quality doesn't mean immunity &mdash; and concentration means the drawdown hits your entire plan, not just one line item.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── HOW MUCH IS TOO MUCH ── -->
+<section style="padding:4rem 0 5rem;background:#FAF8F4;">
+  <div class="max-w-3xl mx-auto px-6 lg:px-10">
+    <div class="section-rule"></div>
+    <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+              color:rgba(44,62,85,0.50);margin-bottom:1rem;">Industry research</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.25rem);
+               font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:#0F1724;margin-bottom:1rem;">
+      How much concentration is <em style="font-style:italic;color:#C49A5A;">too much?</em>
+    </h2>
+    <p style="font-size:0.9375rem;line-height:1.75;color:#4A5568;font-weight:300;margin-bottom:2rem;">
+      There's no single magic number, but decades of research point to clear thresholds where risk begins to compound.
+    </p>
+
+    <!-- Threshold visual -->
+    <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:2rem 1.75rem;margin-bottom:2.5rem;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.25rem;">
+        <span style="font-size:0.75rem;font-weight:600;color:#4A5568;text-transform:uppercase;letter-spacing:0.08em;">Concentration level</span>
+        <span style="font-size:0.75rem;font-weight:600;color:#4A5568;text-transform:uppercase;letter-spacing:0.08em;">Risk</span>
+      </div>
+      <div class="threshold-bar">
+        <div style="flex:1;background:linear-gradient(90deg,#2A74C8,#1A5EA8);" title="0-10%"></div>
+        <div style="flex:1.5;background:linear-gradient(90deg,#C49A5A,#D4AE6A);" title="10-25%"></div>
+        <div style="flex:1.5;background:linear-gradient(90deg,#D4AE6A,#e8a640);" title="25-40%"></div>
+        <div style="flex:1;background:linear-gradient(90deg,#c0392b,#a93226);" title="40%+"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:#4A5568;font-weight:500;">
+        <span>0%</span><span>10%</span><span>25%</span><span>40%+</span>
+      </div>
+
+      <div style="margin-top:2rem;display:grid;gap:1.25rem;">
+        <!-- 10% -->
+        <div style="display:flex;gap:1rem;align-items:flex-start;">
+          <div style="width:42px;height:42px;border-radius:8px;background:rgba(26,94,168,0.10);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:0.875rem;font-weight:700;color:#1A5EA8;">10%</span>
+          </div>
+          <div>
+            <p style="font-size:0.875rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">The monitoring threshold</p>
+            <p style="font-size:0.8125rem;line-height:1.65;color:#4A5568;font-weight:300;margin:0;">
+              Most financial planning standards flag any single position above 10% of liquid net worth as "concentrated." At this level, the position warrants active monitoring and a plan for reduction.
+            </p>
+            <div style="margin-top:0.5rem;">
+              <a href="https://www.cfp.net/ethics/code-of-ethics-and-standards-of-conduct" target="_blank" rel="noopener" class="cite-link">CFP Board Standards of Conduct</a>
+              <span style="color:rgba(44,62,85,0.30);margin:0 0.35rem;">&middot;</span>
+              <a href="https://corporate.vanguard.com/content/corporatesite/us/en/corp/articles/investment-concentration-risk.html" target="_blank" rel="noopener" class="cite-link">Vanguard: Concentration Risk</a>
+            </div>
+          </div>
+        </div>
+        <!-- 20-25% -->
+        <div style="display:flex;gap:1rem;align-items:flex-start;">
+          <div style="width:42px;height:42px;border-radius:8px;background:rgba(196,154,90,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:0.8rem;font-weight:700;color:#C49A5A;">25%</span>
+          </div>
+          <div>
+            <p style="font-size:0.875rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">Meaningfully concentrated</p>
+            <p style="font-size:0.8125rem;line-height:1.65;color:#4A5568;font-weight:300;margin:0;">
+              At this level, a single bad earnings report or sector rotation can materially alter retirement timelines, estate values, and charitable capacity. Major private wealth practices &mdash; including JP Morgan Private Bank and Goldman Sachs &mdash; categorize this range as requiring active diversification planning.
+            </p>
+          </div>
+        </div>
+        <!-- 40%+ -->
+        <div style="display:flex;gap:1rem;align-items:flex-start;">
+          <div style="width:42px;height:42px;border-radius:8px;background:rgba(192,57,43,0.10);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:0.8rem;font-weight:700;color:#c0392b;">40%</span>
+          </div>
+          <div>
+            <p style="font-size:0.875rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">Significant drag on risk-adjusted returns</p>
+            <p style="font-size:0.8125rem;line-height:1.65;color:#4A5568;font-weight:300;margin:0;">
+              Academic research suggests that holding 40% or more in a single stock can reduce risk-adjusted returns by 2&ndash;4% annually compared to a diversified portfolio. The concentrated investor takes on substantially more volatility without a proportional increase in expected return &mdash; a penalty that compounds over decades.
+            </p>
+            <div style="margin-top:0.5rem;">
+              <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=267655" target="_blank" rel="noopener" class="cite-link">Meulbroek (2001): The Efficiency of Equity-Linked Compensation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The emotional dimension -->
+    <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:1.75rem 1.75rem;">
+      <p style="font-size:0.875rem;font-weight:600;color:#0F1724;margin:0 0 0.5rem;">The behavioral dimension</p>
+      <p style="font-size:0.8125rem;line-height:1.7;color:#4A5568;font-weight:300;margin:0;">
+        Investors anchor to a stock's past performance &mdash; <em>"it got me here, it'll keep going"</em> &mdash; and feel that selling a winner is somehow disloyal to a thesis that worked. This isn't irrational; it's deeply human. Behavioral finance research on
+        <strong>loss aversion</strong> and the <strong>endowment effect</strong> explains why people hold concentrated positions far longer than the math supports. The longer the gain grows, the harder it becomes psychologically to act &mdash; a compounding inertia problem that only gets worse with time.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── WHY THIS MATTERS AT $1M+ ── -->
+<section style="padding:4rem 0;background:white;">
+  <div class="max-w-3xl mx-auto px-6 lg:px-10">
+    <div class="section-rule"></div>
+    <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+              color:rgba(44,62,85,0.50);margin-bottom:1rem;">Scale matters</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.25rem);
+               font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:#0F1724;margin-bottom:1.5rem;">
+      Why this matters at <em style="font-style:italic;color:#C49A5A;">$1 million+</em>
+    </h2>
+
+    <div style="display:grid;gap:1rem;">
+      <div style="display:flex;gap:1rem;align-items:flex-start;">
+        <div style="width:8px;height:8px;border-radius:50%;background:#c0392b;flex-shrink:0;margin-top:8px;"></div>
+        <p style="font-size:0.9375rem;line-height:1.75;color:#2C3E55;font-weight:300;margin:0;">
+          <strong style="font-weight:500;">A 30% drawdown isn't abstract.</strong> At $1M+ in a single holding, that's $300,000 or more evaporating from your plan &mdash; enough to change retirement dates, charitable commitments, and estate projections.
+        </p>
+      </div>
+      <div style="display:flex;gap:1rem;align-items:flex-start;">
+        <div style="width:8px;height:8px;border-radius:50%;background:#C49A5A;flex-shrink:0;margin-top:8px;"></div>
+        <p style="font-size:0.9375rem;line-height:1.75;color:#2C3E55;font-weight:300;margin:0;">
+          <strong style="font-weight:500;">The tax trap grows with time.</strong> Large unrealized gains create a feeling that selling is punitive &mdash; federal capital gains up to 20%, plus the 3.8% Net Investment Income Tax, plus state taxes. The longer you wait, the larger the gain, the harder it is to act.
+        </p>
+      </div>
+      <div style="display:flex;gap:1rem;align-items:flex-start;">
+        <div style="width:8px;height:8px;border-radius:50%;background:#1A5EA8;flex-shrink:0;margin-top:8px;"></div>
+        <p style="font-size:0.9375rem;line-height:1.75;color:#2C3E55;font-weight:300;margin:0;">
+          <strong style="font-weight:500;">Concentration distorts everything.</strong> Your retirement projections, estate values, charitable capacity, and liquidity assumptions all hinge on one ticker. The risk isn't one bad quarter &mdash; it's that your entire financial plan has a single point of failure.
+        </p>
+      </div>
+      <div style="display:flex;gap:1rem;align-items:flex-start;">
+        <div style="width:8px;height:8px;border-radius:50%;background:#133F73;flex-shrink:0;margin-top:8px;"></div>
+        <p style="font-size:0.9375rem;line-height:1.75;color:#2C3E55;font-weight:300;margin:0;">
+          <strong style="font-weight:500;">The math is asymmetric.</strong> A stock that's gained 500% needs to drop only 50% to erase more wealth than your next-best holding likely gained in total. Concentration amplifies both upside and downside &mdash; but you only need the downside to happen once.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     STRATEGIES
+══════════════════════════════════════════════════════ -->
+<section style="padding:5rem 0;background:#FAF8F4;">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <div class="section-rule"></div>
+    <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+              color:rgba(44,62,85,0.50);margin-bottom:1rem;">Strategies</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.25rem);
+               font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:#0F1724;margin-bottom:0.75rem;">
+      Six ways to reduce concentration
+    </h2>
+    <p style="font-size:0.9375rem;line-height:1.75;color:#4A5568;font-weight:300;margin-bottom:3rem;max-width:620px;">
+      No two situations are the same. The right approach depends on your tax basis, time horizon, liquidity needs, philanthropic goals, and estate plan.
+    </p>
+
+    <div style="display:grid;grid-template-columns:1fr;gap:1.5rem;">
+
+      <!-- 1. Systematic Diversification -->
+      <div class="strategy-card">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <div style="width:36px;height:36px;border-radius:8px;background:rgba(26,94,168,0.10);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:0.875rem;font-weight:700;color:#1A5EA8;">1</span>
+          </div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:600;color:#0F1724;margin:0;">Systematic Diversification</h3>
+        </div>
+        <p style="font-size:0.875rem;line-height:1.7;color:#4A5568;font-weight:300;margin:0 0 1rem;">
+          The simplest approach: sell a fixed percentage each quarter or year and reinvest into a diversified portfolio. Use tax-loss harvesting in other positions to offset realized gains. Spreading sales across multiple tax years can manage the bracket impact.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+          <span style="font-size:0.75rem;font-weight:500;color:#1A5EA8;background:rgba(26,94,168,0.08);padding:0.3rem 0.75rem;border-radius:100px;">Best for: Moderate gains, no urgency</span>
+          <span style="font-size:0.75rem;font-weight:500;color:#9E7A32;background:rgba(196,154,90,0.10);padding:0.3rem 0.75rem;border-radius:100px;">Trade-off: Triggers capital gains tax</span>
+        </div>
+      </div>
+
+      <!-- 2. Exchange Funds -->
+      <div class="strategy-card">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <div style="width:36px;height:36px;border-radius:8px;background:rgba(26,94,168,0.10);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:0.875rem;font-weight:700;color:#1A5EA8;">2</span>
+          </div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:600;color:#0F1724;margin:0;">Exchange Funds (Section 351)</h3>
+        </div>
+        <p style="font-size:0.875rem;line-height:1.7;color:#4A5568;font-weight:300;margin:0 0 1rem;">
+          Pool your concentrated shares with other investors holding different concentrated positions. Each participant receives a diversified interest in the fund without triggering capital gains at contribution. Structured under Section 351 of the Internal Revenue Code.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+          <span style="font-size:0.75rem;font-weight:500;color:#1A5EA8;background:rgba(26,94,168,0.08);padding:0.3rem 0.75rem;border-radius:100px;">Best for: Patient investors, $1M+ positions</span>
+          <span style="font-size:0.75rem;font-weight:500;color:#9E7A32;background:rgba(196,154,90,0.10);padding:0.3rem 0.75rem;border-radius:100px;">Trade-off: 7-year lock-up, limited availability</span>
+        </div>
+      </div>
+
+      <!-- 3. Prepaid Variable Forward -->
+      <div class="strategy-card">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <div style="width:36px;height:36px;border-radius:8px;background:rgba(26,94,168,0.10);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:0.875rem;font-weight:700;color:#1A5EA8;">3</span>
+          </div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:600;color:#0F1724;margin:0;">Prepaid Variable Forward Contracts</h3>
+        </div>
+        <p style="font-size:0.875rem;line-height:1.7;color:#4A5568;font-weight:300;margin:0 0 1rem;">
+          Receive a cash advance &mdash; typically 75&ndash;90% of current share value &mdash; in exchange for delivering shares at a future date. The tax event is deferred to the delivery date, and you retain some upside participation through a variable collar structure. Commonly used by investors who need liquidity today but want to defer the tax event.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+          <span style="font-size:0.75rem;font-weight:500;color:#1A5EA8;background:rgba(26,94,168,0.08);padding:0.3rem 0.75rem;border-radius:100px;">Best for: Liquidity now, tax deferral</span>
+          <span style="font-size:0.75rem;font-weight:500;color:#9E7A32;background:rgba(196,154,90,0.10);padding:0.3rem 0.75rem;border-radius:100px;">Trade-off: Complex, counterparty risk</span>
+        </div>
+      </div>
+
+      <!-- 4. Equity Collars -->
+      <div class="strategy-card">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <div style="width:36px;height:36px;border-radius:8px;background:rgba(26,94,168,0.10);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:0.875rem;font-weight:700;color:#1A5EA8;">4</span>
+          </div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:600;color:#0F1724;margin:0;">Equity Collars</h3>
+        </div>
+        <p style="font-size:0.875rem;line-height:1.7;color:#4A5568;font-weight:300;margin:0 0 1rem;">
+          Buy a protective put (limits downside) and sell a covered call (caps upside) &mdash; often structured at zero net premium cost. Creates a defined price range with no immediate tax event. Useful during periods of elevated uncertainty while you plan a longer-term exit strategy. If the collar is too narrow, the IRS may treat it as a constructive sale under IRC &sect;1259.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+          <span style="font-size:0.75rem;font-weight:500;color:#1A5EA8;background:rgba(26,94,168,0.08);padding:0.3rem 0.75rem;border-radius:100px;">Best for: Near-term risk management</span>
+          <span style="font-size:0.75rem;font-weight:500;color:#9E7A32;background:rgba(196,154,90,0.10);padding:0.3rem 0.75rem;border-radius:100px;">Trade-off: Caps upside, constructive sale risk</span>
+        </div>
+      </div>
+
+      <!-- 5. Charitable Strategies -->
+      <div class="strategy-card">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <div style="width:36px;height:36px;border-radius:8px;background:rgba(26,94,168,0.10);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:0.875rem;font-weight:700;color:#1A5EA8;">5</span>
+          </div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:600;color:#0F1724;margin:0;">Charitable Strategies</h3>
+        </div>
+        <p style="font-size:0.875rem;line-height:1.7;color:#4A5568;font-weight:300;margin:0 0 1rem;">
+          Contributing appreciated shares directly to charity avoids capital gains entirely. Two common structures:
+        </p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+          <div style="background:#FAF8F4;border-radius:6px;padding:1rem;">
+            <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.35rem;">Donor-Advised Fund</p>
+            <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">Contribute shares, receive an immediate deduction at fair market value, grant to charities over time. No capital gains triggered.</p>
+          </div>
+          <div style="background:#FAF8F4;border-radius:6px;padding:1rem;">
+            <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.35rem;">Charitable Remainder Trust</p>
+            <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">Contribute shares, receive an income stream for a term of years, remainder goes to charity. Diversification + income + partial deduction.</p>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+          <span style="font-size:0.75rem;font-weight:500;color:#1A5EA8;background:rgba(26,94,168,0.08);padding:0.3rem 0.75rem;border-radius:100px;">Best for: Philanthropic intent + tax efficiency</span>
+          <span style="font-size:0.75rem;font-weight:500;color:#9E7A32;background:rgba(196,154,90,0.10);padding:0.3rem 0.75rem;border-radius:100px;">Trade-off: Assets permanently leave your estate</span>
+        </div>
+      </div>
+
+      <!-- 6. Gifting & GRATs -->
+      <div class="strategy-card">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <div style="width:36px;height:36px;border-radius:8px;background:rgba(26,94,168,0.10);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:0.875rem;font-weight:700;color:#1A5EA8;">6</span>
+          </div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:600;color:#0F1724;margin:0;">Gifting &amp; Wealth Transfer (GRATs)</h3>
+        </div>
+        <p style="font-size:0.875rem;line-height:1.7;color:#4A5568;font-weight:300;margin:0 0 1rem;">
+          Gift appreciated shares to family members using the annual exclusion ($19,000 per person in 2025) or fund a Grantor Retained Annuity Trust (GRAT) with concentrated stock. If the stock outperforms the IRS hurdle rate (Section 7520), excess appreciation passes to heirs with minimal or no gift tax. A GRAT funded with a volatile, appreciated stock can be a powerful transfer tool &mdash; the same volatility that makes the position risky to hold makes it an effective candidate for a GRAT.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+          <span style="font-size:0.75rem;font-weight:500;color:#1A5EA8;background:rgba(26,94,168,0.08);padding:0.3rem 0.75rem;border-radius:100px;">Best for: Multigenerational transfer + estate reduction</span>
+          <span style="font-size:0.75rem;font-weight:500;color:#9E7A32;background:rgba(196,154,90,0.10);padding:0.3rem 0.75rem;border-radius:100px;">Trade-off: Permanent gift, GRAT performance uncertainty</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     PULL QUOTE
+══════════════════════════════════════════════════════ -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 55%,#1A5EA8 100%);padding:4rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-30%;right:-10%;width:50%;height:150%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.15) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-3xl mx-auto px-6 lg:px-10 text-center" style="position:relative;z-index:2;">
+    <div style="width:48px;height:3px;background:linear-gradient(90deg,#C49A5A,#D4AE6A);border-radius:2px;margin:0 auto 2rem;"></div>
+    <blockquote style="margin:0;">
+      <p style="font-family:'Playfair Display',serif;font-size:clamp(1.25rem,2.5vw,1.75rem);
+                font-weight:500;line-height:1.45;letter-spacing:-0.01em;color:white;font-style:italic;">
+        &ldquo;It&rsquo;s never one strategy alone that acts as a silver bullet and solves all problems.
+        It&rsquo;s a combination of strategies &mdash; layered and coordinated &mdash;
+        that creates <span style="color:#D4AE6A;">meaningful change.</span>&rdquo;
+      </p>
+    </blockquote>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     DECISION FRAMEWORK
+══════════════════════════════════════════════════════ -->
+<section style="padding:5rem 0;background:white;">
+  <div class="max-w-3xl mx-auto px-6 lg:px-10">
+    <div class="section-rule"></div>
+    <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+              color:rgba(44,62,85,0.50);margin-bottom:1rem;">Decision framework</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.25rem);
+               font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:#0F1724;margin-bottom:2rem;">
+      Which strategy fits <em style="font-style:italic;color:#C49A5A;">your situation?</em>
+    </h2>
+
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.8125rem;">
+        <thead>
+          <tr style="border-bottom:2px solid rgba(26,94,168,0.15);">
+            <th style="text-align:left;padding:0.75rem 1rem;font-weight:600;color:#0F1724;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;">Your Priority</th>
+            <th style="text-align:left;padding:0.75rem 1rem;font-weight:600;color:#0F1724;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;">Consider</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(44,62,85,0.08);">
+            <td style="padding:0.875rem 1rem;color:#2C3E55;font-weight:400;">Simplicity &mdash; just get diversified</td>
+            <td style="padding:0.875rem 1rem;color:#1A5EA8;font-weight:500;">Systematic selling + tax-loss harvesting</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(44,62,85,0.08);background:rgba(250,248,244,0.5);">
+            <td style="padding:0.875rem 1rem;color:#2C3E55;font-weight:400;">Defer taxes as long as possible</td>
+            <td style="padding:0.875rem 1rem;color:#1A5EA8;font-weight:500;">Exchange fund or prepaid variable forward</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(44,62,85,0.08);">
+            <td style="padding:0.875rem 1rem;color:#2C3E55;font-weight:400;">Protect against a near-term drop</td>
+            <td style="padding:0.875rem 1rem;color:#1A5EA8;font-weight:500;">Equity collar</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(44,62,85,0.08);">
+            <td style="padding:0.875rem 1rem;color:#2C3E55;font-weight:400;">Philanthropic goals</td>
+            <td style="padding:0.875rem 1rem;color:#1A5EA8;font-weight:500;">Donor-advised fund or charitable remainder trust</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(44,62,85,0.08);background:rgba(250,248,244,0.5);">
+            <td style="padding:0.875rem 1rem;color:#2C3E55;font-weight:400;">Transfer wealth to next generation</td>
+            <td style="padding:0.875rem 1rem;color:#1A5EA8;font-weight:500;">Gifting + GRAT</td>
+          </tr>
+          <tr>
+            <td style="padding:0.875rem 1rem;color:#2C3E55;font-weight:500;">Multiple goals at once</td>
+            <td style="padding:0.875rem 1rem;color:#C49A5A;font-weight:600;">Layered approach &mdash; most clients use 2&ndash;3 strategies together</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     WHY THIS REQUIRES A TEAM
+══════════════════════════════════════════════════════ -->
+<section style="padding:4rem 0 5rem;background:#FAF8F4;">
+  <div class="max-w-3xl mx-auto px-6 lg:px-10">
+    <div class="section-rule"></div>
+    <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+              color:rgba(44,62,85,0.50);margin-bottom:1rem;">Coordination</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.25rem);
+               font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:#0F1724;margin-bottom:1.5rem;">
+      Why this requires a <em style="font-style:italic;color:#C49A5A;">team</em>
+    </h2>
+    <p style="font-size:0.9375rem;line-height:1.75;color:#4A5568;font-weight:300;margin-bottom:2rem;">
+      A concentrated position sits at the intersection of tax, investment, estate, and behavioral planning. No single professional has all the answers &mdash; but someone needs to connect them.
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:2rem;">
+      <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:8px;padding:1.25rem 1.5rem;">
+        <p style="font-size:0.8125rem;font-weight:600;color:#1A5EA8;margin:0 0 0.35rem;">Your CPA</p>
+        <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">Gain calculations, bracket modeling, NIIT planning, multi-year tax projections</p>
+      </div>
+      <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:8px;padding:1.25rem 1.5rem;">
+        <p style="font-size:0.8125rem;font-weight:600;color:#1A5EA8;margin:0 0 0.35rem;">Your Estate Attorney</p>
+        <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">Trust structures, gifting mechanics, charitable vehicle setup, constructive sale analysis</p>
+      </div>
+      <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:8px;padding:1.25rem 1.5rem;">
+        <p style="font-size:0.8125rem;font-weight:600;color:#1A5EA8;margin:0 0 0.35rem;">Your Financial Advisor</p>
+        <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">Portfolio construction, risk analysis, execution sequencing, behavioral coaching</p>
+      </div>
+    </div>
+
+    <div style="background:linear-gradient(135deg,rgba(26,94,168,0.06) 0%,rgba(196,154,74,0.05) 100%);
+                border:1px solid rgba(26,94,168,0.18);border-left:3px solid #1A5EA8;border-radius:0 8px 8px 0;
+                padding:1.5rem 1.75rem;">
+      <p style="font-size:0.9375rem;line-height:1.7;color:#2C3E55;font-weight:300;margin:0;">
+        Most investors don't need all six strategies. They need someone to identify which two or three fit their situation &mdash; and coordinate the execution across their professional team. <strong style="font-weight:500;">That's what we do.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     ESTATE TAX ESTIMATOR CALLOUT
+══════════════════════════════════════════════════════ -->
+<section style="background:white;padding:3rem 0;">
+  <div class="max-w-3xl mx-auto px-6 lg:px-10">
+    <a href="estate-tax-estimator.html" style="text-decoration:none;display:block;background:linear-gradient(135deg,#0F1724 0%,#133F73 100%);border-radius:10px;padding:2rem 2.25rem;position:relative;overflow:hidden;transition:transform 0.22s ease,box-shadow 0.22s ease;"
+       onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(15,23,36,0.25)'"
+       onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+      <div style="position:absolute;top:-40%;right:-10%;width:45%;height:180%;background:radial-gradient(ellipse,rgba(196,154,74,0.15) 0%,transparent 60%);pointer-events:none;"></div>
+      <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap;position:relative;z-index:2;">
+        <div style="flex:1;min-width:260px;">
+          <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C49A5A;margin-bottom:0.4rem;">Related Tool</p>
+          <p style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;color:white;margin:0 0 0.35rem;line-height:1.25;">
+            Concentrated stock often means estate tax exposure
+          </p>
+          <p style="font-size:0.8125rem;line-height:1.6;color:rgba(255,255,255,0.60);font-weight:300;margin:0;">
+            If your concentrated position is a significant part of your net worth, it may also be driving estate tax liability. See where you stand.
+          </p>
+        </div>
+        <div style="flex-shrink:0;">
+          <span style="display:inline-block;padding:0.65rem 1.5rem;background:#C49A5A;color:white;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;border-radius:5px;letter-spacing:0.02em;white-space:nowrap;">
+            Estate Tax Estimator →
+          </span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     RELATED CONTENT
+══════════════════════════════════════════════════════ -->
+<section style="background:#FAF8F4;padding:3rem 0;">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+              color:rgba(44,62,85,0.45);margin-bottom:1.25rem;text-align:center;">Related</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <a href="estate-planning.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;
+                border:1px solid rgba(26,94,168,0.10);background:white;text-decoration:none;
+                transition:border-color 0.18s ease, transform 0.18s ease;
+                box-shadow:0 1px 4px rgba(26,94,168,0.06);"
+         onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'"
+         onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1A5EA8;margin-bottom:0.35rem;">Advisory</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">Estate Planning</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">GRATs, SLATs, dynasty trusts, and multigenerational transfer.</div>
+      </a>
+      <a href="case-study-uhnw.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;
+                border:1px solid rgba(26,94,168,0.10);background:white;text-decoration:none;
+                transition:border-color 0.18s ease, transform 0.18s ease;
+                box-shadow:0 1px 4px rgba(26,94,168,0.06);"
+         onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'"
+         onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1A5EA8;margin-bottom:0.35rem;">Case Study</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">UHNW Client Profile</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">Unifying a complex balance sheet across generations.</div>
+      </a>
+      <a href="tax-planning.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;
+                border:1px solid rgba(26,94,168,0.10);background:white;text-decoration:none;
+                transition:border-color 0.18s ease, transform 0.18s ease;
+                box-shadow:0 1px 4px rgba(26,94,168,0.06);"
+         onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'"
+         onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1A5EA8;margin-bottom:0.35rem;">Service</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">Tax Planning</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">Tax-loss harvesting, Roth conversions, and income tax strategy.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ══════════════════════════════════════════════════
+     DISCLAIMER
+══════════════════════════════════════════════════════ -->
+<section style="padding:2rem 0;background:#F4F6F9;border-top:1px solid rgba(44,62,85,0.08);">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <p style="font-size:0.75rem;line-height:1.7;color:rgba(44,62,85,0.50);font-weight:300;margin:0;">
+      <strong style="font-weight:600;color:rgba(44,62,85,0.65);">Important Disclosure:</strong>
+      This page is for educational and informational purposes only and does not constitute tax, legal, or financial advice.
+      <strong style="font-weight:600;">Rubiq Financial Partners is not a tax advisor, CPA, or attorney, and does not provide tax preparation, legal, or accounting services.</strong>
+      All strategies described involve risk and may not be suitable for all investors. Tax treatment depends on individual circumstances and is subject to change. Exchange funds, prepaid variable forwards, equity collars, and charitable remainder trusts are complex instruments with significant legal, tax, and liquidity implications. Past performance of any individual security does not guarantee future results. The concentration thresholds and academic research cited are general guidelines and may not apply to every investor's situation. The examples used (Apple, Meta) are for illustrative purposes only and do not constitute a recommendation to buy, sell, or hold any specific security. Diversification and asset allocation do not ensure a profit or guarantee against loss. There is no assurance that any strategy discussed will achieve its intended objective. Always consult with a qualified estate attorney, CPA, and financial advisor before implementing any strategy discussed on this page.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     CTA BANNER
+══════════════════════════════════════════════════════ -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 55%,#1A5EA8 100%);
+                padding:3.5rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-30%;right:-10%;width:50%;height:150%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.18) 0%,transparent 60%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-20%;left:-5%;width:40%;height:100%;
+              background:radial-gradient(ellipse,rgba(255,255,255,0.06) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center" style="position:relative;z-index:2;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);
+               font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
+      Ready to build a plan around<br />
+      <em style="font-style:italic;color:#D4AE6A;">your concentrated position?</em>
+    </h2>
+
+    <div style="display:flex;flex-direction:column;gap:0.75rem;align-items:center;margin-bottom:2rem;">
+      <a href="tel:6102159499"
+         style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;
+                font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);
+                transition:color 0.18s ease;"
+         onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="15" height="15" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24" style="flex-shrink:0;">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.36C1.21 2.18 2.12 1 3.3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.76-.76a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.28 16z"/>
+        </svg>
+        610-215-9499
+      </a>
+      <a href="mailto:clientservice@rubiqfinancial.com"
+         style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;
+                font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);
+                transition:color 0.18s ease;"
+         onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="15" height="15" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24" style="flex-shrink:0;">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        clientservice@rubiqfinancial.com
+      </a>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="schedule.html">
+        <button class="btn-gold" style="background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);color:#0F1724;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;letter-spacing:0.04em;text-transform:uppercase;padding:0.875rem 2.25rem;border-radius:4px;border:none;cursor:pointer;">Schedule a Call</button>
+      </a>
+      <a href="our-team.html">
+        <button class="btn-ghost" style="background:transparent;color:white;font-family:'Inter',sans-serif;font-weight:500;font-size:0.875rem;letter-spacing:0.04em;text-transform:uppercase;padding:0.75rem 1.75rem;border-radius:4px;border:1.5px solid rgba(255,255,255,0.35);cursor:pointer;">Meet Our Advisors</button>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════ -->
+<footer style="background:#0F1724;padding:2rem 0;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+         alt="Rubiq Financial Partners logo" width="120" height="26" style="height:26px;width:auto;opacity:0.70;" loading="lazy" decoding="async" />
+    <div style="text-align:center;">
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.28);margin:0 0 0.35rem;">
+        &copy; 2026 Rubiq Financial Partners LLC. All rights reserved.
+      </p>
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.18);margin:0 0 0.5rem;line-height:1.6;font-weight:300;">
+        Advisory services offered through Wealthcare Advisory Partners. Not a solicitation in any jurisdiction where not registered or exempt.
+      </p>
+      <p style="font-size:0.65rem;color:rgba(255,255,255,0.30);margin:0 0 0.75rem;line-height:1.6;font-weight:300;">
+        <a href="../Media/FormCRS_WCAP_20240325 (Updated - use this one).pdf" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35);text-decoration:underline;text-underline-offset:2px;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.60)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Form CRS</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://adviserinfo.sec.gov/firm/summary/171976" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35);text-decoration:underline;text-underline-offset:2px;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.60)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Form ADV Part 2A</a>
+      </p>
+      <div style="display:flex;justify-content:center;gap:1.5rem;">
+        <a href="privacy-policy.html" style="font-size:0.7rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Privacy Policy</a>
+        <a href="terms-of-use.html" style="font-size:0.7rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Terms of Use</a>
+        <a href="faq.html" style="font-size:0.7rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">FAQ</a>
+        <a href="sitemap.html" style="font-size:0.7rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky Mobile CTA -->
+<a id="sticky-mobile-cta" href="schedule.html"
+   style="display:none;position:fixed;bottom:-60px;left:1rem;right:1rem;z-index:9998;
+          background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);
+          color:#0F1724;text-align:center;
+          font-family:'Inter',sans-serif;font-size:0.9375rem;font-weight:600;
+          letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;
+          padding:1rem;border-radius:6px;
+          box-shadow:0 -2px 16px rgba(0,0,0,0.25),0 4px 12px rgba(196,154,74,0.35);
+          transition:bottom 0.3s cubic-bezier(0.4,0,0.2,1);">
+  Schedule a Call
+</a>
+<style>
+  @media(min-width:768px){ #sticky-mobile-cta{display:none!important;} }
+</style>
+<script>
+(function(){
+  var cta=document.getElementById('sticky-mobile-cta');
+  if(!cta)return;
+  if(window.innerWidth<768) cta.style.display='block';
+  window.addEventListener('scroll',function(){
+    if(window.innerWidth>=768)return;
+    cta.style.display='block';
+    cta.style.bottom=window.scrollY>100?'1rem':'-60px';
+  },{passive:true});
+  window.addEventListener('resize',function(){
+    cta.style.display=window.innerWidth<768?'block':'none';
+  });
+})();
+</script>
+</body>
+</html>
