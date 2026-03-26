@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1031 DST vs. Sell & Realize Gain Calculator | Rubiq Financial Partners</title>
+  <meta name="description" content="Compare the after-tax outcome of selling investment property outright versus exchanging into a Delaware Statutory Trust (DST) via a 1031 exchange. Free calculator from Rubiq Financial Partners." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/dst-calculator.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rubiq: {
+              blue:      '#1A5EA8',
+              bluedark:  '#133F73',
+              bluelight: '#2A74C8',
+              gold:      '#C49A5A',
+              goldlight: '#D4AE6A',
+              golddark:  '#9E7A32',
+              ink:       '#0F1724',
+              inksoft:   '#1C2D44',
+              slate:     '#2C3E55',
+              mist:      '#F4F6F9',
+              parchment: '#FAF8F4',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
+
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
+      text-decoration: none; position: relative; padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1.5px; background: #C49A5A; transition: width 0.22s ease;
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-gold {
+      background: linear-gradient(135deg, #C49A5A 0%, #D4AE6A 100%);
+      color: #0F1724; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.875rem 2.25rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .btn-gold:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(196,154,74,0.40); }
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); transform: translateY(-1px); }
+
+    .section-rule { width: 48px; height: 3px; background: linear-gradient(90deg, #1A5EA8, #C49A5A); border-radius: 2px; margin-bottom: 1.5rem; }
+
+    /* ── Calculator styles ── */
+    .calc-input-group { margin-bottom: 1.25rem; }
+    .calc-label {
+      display: block; font-size: 0.78rem; font-weight: 600; color: #2C3E55;
+      letter-spacing: 0.02em; margin-bottom: 0.4rem;
+    }
+    .calc-input {
+      width: 100%; padding: 0.625rem 0.875rem; border: 1px solid rgba(26,94,168,0.20);
+      border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 0.9rem;
+      color: #0F1724; background: white; transition: border-color 0.18s ease;
+      outline: none;
+    }
+    .calc-input:focus { border-color: #1A5EA8; box-shadow: 0 0 0 3px rgba(26,94,168,0.08); }
+    .calc-slider {
+      width: 100%; height: 6px; -webkit-appearance: none; appearance: none;
+      background: linear-gradient(90deg, #1A5EA8 0%, #C49A5A 100%);
+      border-radius: 3px; outline: none; margin-top: 0.5rem;
+    }
+    .calc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;
+      background: white; border: 2px solid #1A5EA8; cursor: pointer;
+      box-shadow: 0 2px 6px rgba(26,94,168,0.25);
+    }
+    .calc-slider::-moz-range-thumb {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: white; border: 2px solid #1A5EA8; cursor: pointer;
+    }
+
+    .result-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 0.5rem 0; border-bottom: 1px solid rgba(44,62,85,0.08);
+    }
+    .result-row:last-child { border-bottom: none; }
+    .result-label { font-size: 0.8125rem; color: #4A5568; font-weight: 400; }
+    .result-value { font-size: 0.9rem; font-weight: 600; color: #0F1724; font-variant-numeric: tabular-nums; }
+    .result-value.negative { color: #c0392b; }
+    .result-value.positive { color: #1A5EA8; }
+    .result-value.gold { color: #9E7A32; }
+
+    .comparison-card {
+      background: white; border: 1px solid rgba(26,94,168,0.10);
+      border-radius: 10px; padding: 1.75rem; flex: 1; min-width: 280px;
+    }
+
+    /* ── Mobile ── */
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+    @media (max-width: 767px) {
+      #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+      footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
+    }
+  </style>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32" />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="Rubiq Financial Partners" />
+  <meta property="og:title"       content="1031 DST vs. Sell: Tax Comparison Calculator | Rubiq Financial Partners" />
+  <meta property="og:description" content="Compare the after-tax outcome of selling investment property outright versus exchanging into a DST via a 1031 exchange." />
+  <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/dst-calculator.html" />
+  <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="1031 DST vs. Sell: Tax Comparison Calculator | Rubiq Financial Partners" />
+  <meta name="twitter:description" content="Compare the after-tax outcome of selling investment property outright versus exchanging into a DST via a 1031 exchange." />
+  <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "1031 DST vs. Sell Calculator",
+        "description": "Compare the after-tax outcome of selling investment property outright versus exchanging into a Delaware Statutory Trust (DST) via a 1031 exchange.",
+        "url": "https://www.rubiqfinancial.com/Pages/dst-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://www.rubiqfinancial.com/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.rubiqfinancial.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.rubiqfinancial.com/Pages/insights.html" },
+          { "@type": "ListItem", "position": 3, "name": "DST vs. Sell Calculator", "item": "https://www.rubiqfinancial.com/Pages/dst-calculator.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a Delaware Statutory Trust (DST)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A Delaware Statutory Trust (DST) is a legal entity that holds title to investment real estate and allows multiple investors to own fractional interests. DSTs qualify as replacement property in a 1031 exchange, enabling investors to defer capital gains taxes when selling investment real estate by reinvesting the proceeds into professionally managed real estate without the responsibilities of active property management."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does a 1031 exchange into a DST defer taxes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under Section 1031 of the Internal Revenue Code, an investor can defer capital gains taxes by exchanging one investment property for another of like-kind within specific time limits (45 days to identify, 180 days to close). A DST qualifies as like-kind replacement property. The investor's full equity — including the amount that would have gone to taxes — continues working in the new investment, potentially generating income and appreciation on a larger base."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What taxes apply when selling investment property outright?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When selling investment property, investors may owe federal long-term capital gains tax (up to 20%), the 3.8% Net Investment Income Tax (NIIT), depreciation recapture tax (25% on accumulated depreciation), and applicable state income taxes. Combined, the total tax rate on a property sale can exceed 35-40% of the total gain, significantly reducing the net proceeds available for reinvestment."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "Rubiq Financial Partners",
+    "url": "https://www.rubiqfinancial.com",
+    "logo": "https://www.rubiqfinancial.com/Brand_assets/Rubiq%20Financial%20Partners%20Logo%20-%20FINAL2-Horizontal.png",
+    "description": "Independent fiduciary wealth management for ultra-high-net-worth families, entrepreneurs, and real estate investors.",
+    "telephone": "+1-610-215-9499",
+    "email": "clientservice@rubiqfinancial.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1065 Andrew Drive",
+      "addressLocality": "West Chester",
+      "addressRegion": "PA",
+      "postalCode": "19380",
+      "addressCountry": "US"
+    },
+    "areaServed": [{"@type": "Country", "name": "United States"}],
+    "founder": {"@type": "Person", "name": "Andreas M. Wochtl", "jobTitle": "Private Wealth Advisor"},
+    "priceRange": "$$$$"
+  }
+  </script>
+</head>
+<body>
+
+<!-- Skip nav -->
+<a href="#main-content" style="position:absolute;top:-100%;left:1rem;z-index:9999;background:#C49A5A;color:#0F1724;padding:0.75rem 1.5rem;font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;border-radius:0 0 4px 4px;transition:top 0.18s ease;" onfocus="this.style.top='0'" onblur="this.style.top='-100%'">Skip to main content</a>
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur" style="background:rgba(15,23,36,0.90);border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex-shrink-0 flex items-center">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Vertical -White.png" alt="Rubiq Financial Partners" width="240" height="44" style="height:44px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="our-clients.html" class="nav-link">Our Clients</a>
+        <a href="our-capabilities.html" class="nav-link">Our Capabilities</a>
+        <a href="our-team.html" class="nav-link">Our Team</a>
+        <a href="insights.html" class="nav-link active">Insights</a>
+        <a href="fee-structure.html" class="nav-link">Fee Structure</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="client-portal.html"><button class="btn-ghost">Client Access</button></a>
+        <a href="schedule.html"><button class="btn-primary">Schedule a Call</button></a>
+      </div>
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('open')" class="md:hidden p-2" style="color:white;" aria-label="Open navigation menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" style="background:rgba(15,23,36,0.97);border-top:1px solid rgba(255,255,255,0.07);flex-direction:column;padding:1.5rem 1.5rem 2rem;">
+    <a href="our-clients.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Clients</a>
+    <a href="our-capabilities.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Capabilities</a>
+    <a href="our-team.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Team</a>
+    <a href="insights.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Insights</a>
+    <a href="fee-structure.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Fee Structure</a>
+    <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.75rem;">
+      <a href="schedule.html"><button class="btn-gold" style="width:100%;">Schedule a Call</button></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 50%,#1A5EA8 100%);padding:7rem 0 4rem;position:relative;overflow:hidden;">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.025;pointer-events:none;" aria-hidden="true">
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+  <div style="position:absolute;top:-10%;right:-5%;width:55%;height:110%;background:radial-gradient(ellipse,rgba(196,154,74,0.12) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
+    <a href="insights.html" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:2rem;font-size:0.75rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&larr; Insights</a>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.25);border-radius:100px;padding:0.35rem 1rem;margin-bottom:2rem;">
+      <div style="width:6px;height:6px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">Interactive Tool</span>
+    </div>
+    <h1 id="speakable-headline" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:white;margin-bottom:1.25rem;">
+      1031 DST vs. Sell &amp; Realize Gain
+    </h1>
+    <p id="speakable-summary" style="font-size:1.0625rem;line-height:1.7;color:rgba(255,255,255,0.72);font-weight:300;max-width:600px;">
+      How much does the tax bill actually cost you when you sell investment property outright instead of exchanging into a Delaware Statutory Trust? Enter your numbers and see the side-by-side comparison.
+    </p>
+  </div>
+</section>
+
+
+<!-- MAIN CONTENT -->
+<main id="main-content">
+<section style="padding:3.5rem 0 4rem;background:#FAF8F4;">
+  <div class="max-w-5xl mx-auto px-6 lg:px-10">
+
+    <!-- Input Panel -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2.5rem;" class="calc-grid">
+
+      <!-- Left: Property Details -->
+      <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:1.75rem;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:1.25rem;">Your Property</p>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Sale Price / Current Value</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="font-size:0.875rem;font-weight:600;color:#2C3E55;">$</span>
+            <input type="text" id="sale-price" class="calc-input" value="2,000,000" oninput="formatAndCalc(this)">
+          </div>
+          <input type="range" class="calc-slider" id="sale-price-slider" min="500000" max="20000000" step="50000" value="2000000" oninput="syncSlider('sale-price',this.value)">
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Original Purchase Price (Cost Basis)</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="font-size:0.875rem;font-weight:600;color:#2C3E55;">$</span>
+            <input type="text" id="cost-basis" class="calc-input" value="800,000" oninput="formatAndCalc(this)">
+          </div>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Accumulated Depreciation</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="font-size:0.875rem;font-weight:600;color:#2C3E55;">$</span>
+            <input type="text" id="depreciation" class="calc-input" value="350,000" oninput="formatAndCalc(this)">
+          </div>
+          <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Total depreciation taken during ownership. Recaptured at 25% federal rate.</p>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Outstanding Mortgage Balance</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="font-size:0.875rem;font-weight:600;color:#2C3E55;">$</span>
+            <input type="text" id="mortgage" class="calc-input" value="400,000" oninput="formatAndCalc(this)">
+          </div>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Selling Costs (broker, closing, etc.)</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="font-size:0.875rem;font-weight:600;color:#2C3E55;">%</span>
+            <input type="text" id="selling-costs" class="calc-input" value="6" oninput="calc()" style="max-width:100px;">
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Tax & DST Assumptions -->
+      <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:1.75rem;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:1.25rem;">Tax Rates &amp; DST Assumptions</p>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Federal Capital Gains Rate</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="fed-cg-rate" class="calc-input" value="20" oninput="calc()" style="max-width:80px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+          </div>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Net Investment Income Tax (NIIT)</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="niit-rate" class="calc-input" value="3.8" oninput="calc()" style="max-width:80px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+          </div>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">State Income Tax Rate</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="state-rate" class="calc-input" value="3.07" oninput="calc()" style="max-width:80px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+            <span style="font-size:0.72rem;color:#9CA3AF;margin-left:0.25rem;">(PA default)</span>
+          </div>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Depreciation Recapture Rate</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="recap-rate" class="calc-input" value="25" oninput="calc()" style="max-width:80px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid rgba(44,62,85,0.10);padding-top:1.25rem;margin-top:0.5rem;">
+          <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:#C49A5A;margin-bottom:1rem;">DST Assumptions</p>
+
+          <div class="calc-input-group">
+            <label class="calc-label">Projected Annual DST Distribution</label>
+            <div style="display:flex;align-items:center;gap:0.5rem;">
+              <input type="text" id="dst-yield" class="calc-input" value="5.5" oninput="calc()" style="max-width:80px;">
+              <span style="font-size:0.8rem;color:#4A5568;">%</span>
+            </div>
+            <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Typical DST cash-on-cash distributions range from 4.5%&ndash;6.5%. Not guaranteed.</p>
+          </div>
+
+          <div class="calc-input-group" style="margin-bottom:0;">
+            <label class="calc-label">Comparison Period</label>
+            <div style="display:flex;align-items:center;gap:0.5rem;">
+              <input type="text" id="hold-years" class="calc-input" value="10" oninput="calc()" style="max-width:80px;">
+              <span style="font-size:0.8rem;color:#4A5568;">years</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Responsive grid override -->
+    <style>
+      @media(max-width:768px){
+        .calc-grid { grid-template-columns: 1fr !important; }
+      }
+    </style>
+
+    <!-- Results -->
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem;">
+
+      <!-- Sell Scenario -->
+      <div class="comparison-card" style="border-top:3px solid #c0392b;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#c0392b;margin-bottom:1rem;">Scenario A: Sell &amp; Realize Gain</p>
+
+        <div class="result-row">
+          <span class="result-label">Sale Price</span>
+          <span class="result-value" id="r-sale-price">$2,000,000</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Less: Selling Costs</span>
+          <span class="result-value negative" id="r-selling-costs">($120,000)</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Net Sale Proceeds</span>
+          <span class="result-value" id="r-net-proceeds">$1,880,000</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Less: Mortgage Payoff</span>
+          <span class="result-value negative" id="r-mortgage">($400,000)</span>
+        </div>
+        <div class="result-row" style="border-bottom:2px solid rgba(44,62,85,0.12);">
+          <span class="result-label" style="font-weight:500;">Equity Before Tax</span>
+          <span class="result-value" id="r-equity-before-tax">$1,480,000</span>
+        </div>
+
+        <div style="margin:1rem 0 0.5rem;">
+          <p style="font-size:0.72rem;font-weight:600;color:#c0392b;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;">Tax Breakdown</p>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Capital Gain (excl. depreciation)</span>
+          <span class="result-value" id="r-cap-gain">$850,000</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Federal CG Tax (<span id="r-fed-pct">20</span>%)</span>
+          <span class="result-value negative" id="r-fed-cg-tax">($170,000)</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">NIIT (<span id="r-niit-pct">3.8</span>%)</span>
+          <span class="result-value negative" id="r-niit-tax">($32,300)</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">State Tax (<span id="r-state-pct">3.07</span>%)</span>
+          <span class="result-value negative" id="r-state-tax">($26,095)</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Depreciation Recapture (25%)</span>
+          <span class="result-value negative" id="r-recap-tax">($87,500)</span>
+        </div>
+        <div class="result-row" style="border-bottom:2px solid rgba(192,57,43,0.25);padding-bottom:0.75rem;">
+          <span class="result-label" style="font-weight:600;color:#c0392b;">Total Tax Bill</span>
+          <span class="result-value negative" style="font-size:1rem;" id="r-total-tax">($315,895)</span>
+        </div>
+
+        <div style="margin-top:1rem;">
+          <div class="result-row" style="border-bottom:none;">
+            <span class="result-label" style="font-weight:600;color:#0F1724;">Net After-Tax Equity</span>
+            <span class="result-value" style="font-size:1.125rem;" id="r-net-equity-sell">$1,164,105</span>
+          </div>
+          <div class="result-row" style="border-bottom:none;">
+            <span class="result-label">Effective Tax Rate on Gain</span>
+            <span class="result-value negative" id="r-eff-tax-rate">26.3%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DST Scenario -->
+      <div class="comparison-card" style="border-top:3px solid #1A5EA8;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#1A5EA8;margin-bottom:1rem;">Scenario B: 1031 Exchange into DST</p>
+
+        <div class="result-row">
+          <span class="result-label">Sale Price</span>
+          <span class="result-value" id="r2-sale-price">$2,000,000</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Less: Selling Costs</span>
+          <span class="result-value negative" id="r2-selling-costs">($120,000)</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Net Sale Proceeds</span>
+          <span class="result-value" id="r2-net-proceeds">$1,880,000</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Less: Mortgage Payoff</span>
+          <span class="result-value negative" id="r2-mortgage">($400,000)</span>
+        </div>
+        <div class="result-row" style="border-bottom:2px solid rgba(26,94,168,0.15);">
+          <span class="result-label" style="font-weight:500;">Equity into DST</span>
+          <span class="result-value positive" id="r2-equity-dst">$1,480,000</span>
+        </div>
+
+        <div style="margin:1rem 0 0.5rem;">
+          <p style="font-size:0.72rem;font-weight:600;color:#1A5EA8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;">Tax Deferred</p>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Taxes Deferred via 1031</span>
+          <span class="result-value positive" id="r2-tax-deferred">$315,895</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Additional Equity Working for You</span>
+          <span class="result-value positive" id="r2-extra-equity">$315,895</span>
+        </div>
+
+        <div style="margin:1.25rem 0 0.5rem;border-top:1px solid rgba(44,62,85,0.10);padding-top:1rem;">
+          <p style="font-size:0.72rem;font-weight:600;color:#C49A5A;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;">Projected Income Comparison (<span id="r2-years">10</span> Years)</p>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Annual DST Distribution (<span id="r2-yield-pct">5.5</span>%)</span>
+          <span class="result-value gold" id="r2-annual-income">$81,400</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Cumulative Income (DST)</span>
+          <span class="result-value gold" id="r2-cum-income-dst">$814,000</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Cumulative Income (if sold &amp; reinvested at same rate)</span>
+          <span class="result-value" id="r2-cum-income-sell">$640,259</span>
+        </div>
+        <div class="result-row" style="border-bottom:none;padding-top:0.75rem;">
+          <span class="result-label" style="font-weight:600;color:#1A5EA8;">Additional Income from Tax Deferral</span>
+          <span class="result-value positive" style="font-size:1.125rem;" id="r2-income-diff">$173,741</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary callout -->
+    <div id="summary-callout" style="background:linear-gradient(135deg,#0F1724 0%,#133F73 100%);border-radius:10px;padding:2rem 2.25rem;position:relative;overflow:hidden;margin-bottom:2rem;">
+      <div style="position:absolute;top:-40%;right:-10%;width:45%;height:180%;background:radial-gradient(ellipse,rgba(196,154,74,0.15) 0%,transparent 60%);pointer-events:none;"></div>
+      <div style="position:relative;z-index:2;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C49A5A;margin-bottom:0.75rem;">The Bottom Line</p>
+        <p style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;color:white;margin-bottom:0.75rem;line-height:1.35;" id="summary-headline">
+          By exchanging into a DST, you keep an additional <span style="color:#D4AE6A;" id="summary-tax-saved">$315,895</span> working for you.
+        </p>
+        <p style="font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.65);font-weight:300;margin:0;" id="summary-detail">
+          Over 10 years at a 5.5% distribution, that deferred tax generates approximately <span style="color:#D4AE6A;font-weight:500;" id="summary-extra-income">$173,741</span> in additional income compared to selling, realizing the gain, and reinvesting the smaller after-tax amount at the same rate.
+        </p>
+      </div>
+    </div>
+
+    <!-- What a DST Is callout -->
+    <div style="background:white;border:1px solid rgba(26,94,168,0.12);border-left:3px solid #1A5EA8;border-radius:0 8px 8px 0;padding:1.5rem 1.75rem;margin-bottom:2rem;">
+      <p style="font-size:0.875rem;font-weight:600;color:#1A5EA8;margin:0 0 0.5rem;">What is a DST?</p>
+      <p style="font-size:0.8125rem;line-height:1.7;color:#4A5568;font-weight:300;margin:0;">
+        A <strong>Delaware Statutory Trust (DST)</strong> is a legal entity that holds title to investment real estate, allowing multiple investors to own fractional interests. DSTs qualify as like-kind replacement property under <strong>Section 1031</strong> of the Internal Revenue Code, enabling investors to defer capital gains and depreciation recapture taxes by reinvesting sale proceeds into professionally managed real estate &mdash; without the responsibilities of active property management. DSTs are commonly used by investors looking to exit active landlording while preserving their tax-deferred equity.
+      </p>
+    </div>
+
+    <!-- Key considerations -->
+    <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:1.75rem;margin-bottom:2rem;">
+      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:1.25rem;">Key Considerations</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+        <div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">1031 Exchange Deadlines</p>
+          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">You have 45 days from sale to identify replacement property and 180 days to close. A qualified intermediary must hold the funds &mdash; you cannot take constructive receipt.</p>
+        </div>
+        <div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">DST Liquidity</p>
+          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">DST interests are illiquid &mdash; there is no public market for them. Hold periods typically range from 5&ndash;10 years. You cannot easily sell your interest before the trust disposes of the underlying property.</p>
+        </div>
+        <div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">Mortgage Boot</p>
+          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">To fully defer taxes, the replacement property must be of equal or greater value, and debt must be replaced. If the DST carries less leverage than the relinquished property, the difference (&ldquo;mortgage boot&rdquo;) may be taxable.</p>
+        </div>
+        <div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">Step-Up at Death</p>
+          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">Under current law, heirs receive a stepped-up cost basis at the owner's death, potentially eliminating the deferred gain entirely. This makes 1031 exchanges particularly powerful for estate planning.</p>
+        </div>
+      </div>
+      <style>@media(max-width:768px){ .comparison-card + .comparison-card { margin-top: 0; } div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; } }</style>
+    </div>
+
+  </div>
+</section>
+
+<!-- Related Content -->
+<section style="background:white;padding:3rem 0;">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.45);margin-bottom:1.25rem;text-align:center;">Related</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <a href="resources-dst-1031.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;border:1px solid rgba(26,94,168,0.10);background:#FAF8F4;text-decoration:none;transition:border-color 0.18s ease,transform 0.18s ease;box-shadow:0 1px 4px rgba(26,94,168,0.06);" onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1A5EA8;margin-bottom:0.35rem;">Article</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">Leveraging DSTs in a 1031 Exchange</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">How real estate investors defer capital gains and transition to passive income.</div>
+      </a>
+      <a href="estate-tax-estimator.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;border:1px solid rgba(26,94,168,0.10);background:#FAF8F4;text-decoration:none;transition:border-color 0.18s ease,transform 0.18s ease;box-shadow:0 1px 4px rgba(26,94,168,0.06);" onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#C49A5A;margin-bottom:0.35rem;">Interactive Tool</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">Estate Tax Exposure Estimator</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">See your federal estate tax liability and strategies to reduce it.</div>
+      </a>
+      <a href="case-study-real-estate.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;border:1px solid rgba(26,94,168,0.10);background:#FAF8F4;text-decoration:none;transition:border-color 0.18s ease,transform 0.18s ease;box-shadow:0 1px 4px rgba(26,94,168,0.06);" onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1A5EA8;margin-bottom:0.35rem;">Case Study</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">Real Estate Investor Profile</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">How we restructured a portfolio of rental properties for tax efficiency.</div>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+
+<!-- DISCLAIMER -->
+<section style="padding:2rem 0;background:#F4F6F9;border-top:1px solid rgba(44,62,85,0.08);">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <p style="font-size:0.75rem;line-height:1.7;color:rgba(44,62,85,0.50);font-weight:300;margin:0;">
+      <strong style="font-weight:600;color:rgba(44,62,85,0.65);">Important Disclosure:</strong>
+      This calculator provides rough estimates for educational and illustrative purposes only and does not constitute tax, legal, financial, or investment advice.
+      <strong style="font-weight:600;">Rubiq Financial Partners is not a tax advisor, CPA, or attorney, and does not provide tax preparation, legal, or accounting services.</strong>
+      Actual tax liability depends on many factors not captured here, including specific property characteristics, holding period, passive activity loss rules, state and local tax law, alternative minimum tax exposure, and individual taxpayer circumstances. Tax rates, 1031 exchange rules, and DST eligibility requirements are subject to legislative change. DST investments are securities and are subject to risks including illiquidity, loss of principal, lack of control over management decisions, and potential loss of tax-deferred status if exchange requirements are not met. Projected DST distributions are hypothetical, are not guaranteed, and may vary materially from actual results. Past performance does not guarantee future results. There is no assurance that any investment strategy will achieve its objectives. Diversification does not ensure a profit or guarantee against loss. 1031 exchanges require strict adherence to IRS timelines and procedures &mdash; failure to comply may result in full tax liability. This tool does not account for all costs associated with DST investments, including sponsor fees, offering costs, and ongoing management fees. Always consult with a qualified tax advisor, real estate attorney, and financial advisor before making any investment or tax planning decisions.
+    </p>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 55%,#1A5EA8 100%);padding:3.5rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-30%;right:-10%;width:50%;height:150%;background:radial-gradient(ellipse,rgba(196,154,74,0.18) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center" style="position:relative;z-index:2;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
+      Considering a 1031 exchange?<br /><em style="font-style:italic;color:#D4AE6A;">Let's model your specific situation.</em>
+    </h2>
+    <div style="display:flex;flex-direction:column;gap:0.75rem;align-items:center;margin-bottom:2rem;">
+      <a href="tel:6102159499" style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);transition:color 0.18s ease;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="15" height="15" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.36C1.21 2.18 2.12 1 3.3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.76-.76a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.28 16z"/></svg>
+        610-215-9499
+      </a>
+      <a href="mailto:clientservice@rubiqfinancial.com" style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);transition:color 0.18s ease;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="15" height="15" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        clientservice@rubiqfinancial.com
+      </a>
+    </div>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="schedule.html"><button class="btn-gold" style="background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);color:#0F1724;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;letter-spacing:0.04em;text-transform:uppercase;padding:0.875rem 2.25rem;border-radius:4px;border:none;cursor:pointer;">Schedule a Call</button></a>
+      <a href="our-team.html"><button class="btn-ghost" style="background:transparent;color:white;font-family:'Inter',sans-serif;font-weight:500;font-size:0.875rem;letter-spacing:0.04em;text-transform:uppercase;padding:0.75rem 1.75rem;border-radius:4px;border:1.5px solid rgba(255,255,255,0.35);cursor:pointer;">Meet Our Advisors</button></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer style="background:#0F1724;padding:2rem 0;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png" alt="Rubiq Financial Partners logo" width="120" height="26" style="height:26px;width:auto;opacity:0.70;" loading="lazy" decoding="async" />
+    <div style="text-align:center;">
+      <p style="font-size:0.8rem;color:rgba(255,255,255,0.40);margin:0 0 0.35rem;">&copy; 2026 Rubiq Financial Partners LLC. All rights reserved.</p>
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.38);margin:0 0 0.5rem;line-height:1.6;font-weight:300;">Advisory services offered through Wealthcare Advisory Partners. Not a solicitation in any jurisdiction where not registered or exempt.</p>
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.42);margin:0 0 0.75rem;line-height:1.6;font-weight:300;">
+        <a href="../Media/FormCRS_WCAP_20240325 (Updated - use this one).pdf" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35);text-decoration:underline;text-underline-offset:2px;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.60)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Form CRS</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://adviserinfo.sec.gov/firm/summary/171976" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35);text-decoration:underline;text-underline-offset:2px;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.60)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Form ADV Part 2A</a>
+      </p>
+      <div style="display:flex;justify-content:center;gap:1.5rem;">
+        <a href="privacy-policy.html" style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</a>
+        <a href="terms-of-use.html" style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Terms of Use</a>
+        <a href="faq.html" style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">FAQ</a>
+        <a href="sitemap.html" style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky Mobile CTA -->
+<a id="sticky-mobile-cta" href="schedule.html" style="display:none;position:fixed;bottom:-60px;left:1rem;right:1rem;z-index:9998;background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);color:#0F1724;text-align:center;font-family:'Inter',sans-serif;font-size:0.9375rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;padding:1rem;border-radius:6px;box-shadow:0 -2px 16px rgba(0,0,0,0.25),0 4px 12px rgba(196,154,74,0.35);transition:bottom 0.3s cubic-bezier(0.4,0,0.2,1);">Schedule a Call</a>
+<style>@media(min-width:768px){ #sticky-mobile-cta{display:none!important;} }</style>
+<script>
+(function(){
+  var cta=document.getElementById('sticky-mobile-cta');
+  if(!cta)return;
+  if(window.innerWidth<768) cta.style.display='block';
+  window.addEventListener('scroll',function(){
+    if(window.innerWidth>=768)return;
+    cta.style.display='block';
+    cta.style.bottom=window.scrollY>100?'1rem':'-60px';
+  },{passive:true});
+  window.addEventListener('resize',function(){
+    cta.style.display=window.innerWidth<768?'block':'none';
+  });
+})();
+</script>
+
+<!-- Calculator Engine -->
+<script>
+function parseNum(id) {
+  var el = document.getElementById(id);
+  return parseFloat(el.value.replace(/[^0-9.\-]/g,'')) || 0;
+}
+function fmt(n) {
+  return n.toLocaleString('en-US', {maximumFractionDigits:0});
+}
+function fmtDollar(n) {
+  if (n < 0) return '($' + fmt(Math.abs(n)) + ')';
+  return '$' + fmt(n);
+}
+function formatAndCalc(el) {
+  var raw = el.value.replace(/[^0-9]/g,'');
+  if (raw) el.value = parseInt(raw).toLocaleString('en-US');
+  calc();
+}
+function syncSlider(inputId, val) {
+  var el = document.getElementById(inputId);
+  el.value = parseInt(val).toLocaleString('en-US');
+  calc();
+}
+
+function calc() {
+  var salePrice   = parseNum('sale-price');
+  var costBasis   = parseNum('cost-basis');
+  var depreciation = parseNum('depreciation');
+  var mortgage    = parseNum('mortgage');
+  var sellingPct  = parseNum('selling-costs') / 100;
+  var fedCGRate   = parseNum('fed-cg-rate') / 100;
+  var niitRate    = parseNum('niit-rate') / 100;
+  var stateRate   = parseNum('state-rate') / 100;
+  var recapRate   = parseNum('recap-rate') / 100;
+  var dstYield    = parseNum('dst-yield') / 100;
+  var holdYears   = parseNum('hold-years');
+
+  // Sync slider
+  document.getElementById('sale-price-slider').value = salePrice;
+
+  // Selling costs
+  var sellingCosts = salePrice * sellingPct;
+  var netProceeds  = salePrice - sellingCosts;
+  var equityBeforeTax = netProceeds - mortgage;
+
+  // Gain calculation
+  var adjustedBasis = costBasis - depreciation;
+  var totalGain     = netProceeds - adjustedBasis;
+  var capGain       = totalGain - depreciation; // gain excluding depreciation
+  if (capGain < 0) capGain = 0;
+
+  // Tax on capital gain
+  var fedCGTax  = capGain * fedCGRate;
+  var niitTax   = totalGain * niitRate;  // NIIT applies to total gain
+  var stateTax  = totalGain * stateRate;
+  var recapTax  = depreciation * recapRate;
+
+  var totalTax = fedCGTax + niitTax + stateTax + recapTax;
+  if (totalTax < 0) totalTax = 0;
+
+  var netEquitySell = equityBeforeTax - totalTax;
+  var effTaxRate = totalGain > 0 ? (totalTax / totalGain * 100) : 0;
+
+  // DST scenario
+  var equityIntoDST = equityBeforeTax; // full equity, no tax
+  var extraEquity   = totalTax;        // the tax that was deferred
+
+  var annualIncomeDST  = equityIntoDST * dstYield;
+  var cumIncomeDST     = annualIncomeDST * holdYears;
+  var annualIncomeSell = netEquitySell * dstYield;
+  var cumIncomeSell    = annualIncomeSell * holdYears;
+  var incomeDiff       = cumIncomeDST - cumIncomeSell;
+
+  // Update Sell side
+  document.getElementById('r-sale-price').textContent     = fmtDollar(salePrice);
+  document.getElementById('r-selling-costs').textContent  = '(' + fmtDollar(sellingCosts) + ')';
+  document.getElementById('r-net-proceeds').textContent   = fmtDollar(netProceeds);
+  document.getElementById('r-mortgage').textContent       = '(' + fmtDollar(mortgage) + ')';
+  document.getElementById('r-equity-before-tax').textContent = fmtDollar(equityBeforeTax);
+  document.getElementById('r-cap-gain').textContent       = fmtDollar(capGain);
+  document.getElementById('r-fed-cg-tax').textContent     = '(' + fmtDollar(fedCGTax) + ')';
+  document.getElementById('r-niit-tax').textContent       = '(' + fmtDollar(niitTax) + ')';
+  document.getElementById('r-state-tax').textContent      = '(' + fmtDollar(stateTax) + ')';
+  document.getElementById('r-recap-tax').textContent      = '(' + fmtDollar(recapTax) + ')';
+  document.getElementById('r-total-tax').textContent      = '(' + fmtDollar(totalTax) + ')';
+  document.getElementById('r-net-equity-sell').textContent = fmtDollar(netEquitySell);
+  document.getElementById('r-eff-tax-rate').textContent   = effTaxRate.toFixed(1) + '%';
+  document.getElementById('r-fed-pct').textContent        = (fedCGRate * 100).toFixed(0);
+  document.getElementById('r-niit-pct').textContent       = (niitRate * 100).toFixed(1);
+  document.getElementById('r-state-pct').textContent      = (stateRate * 100).toFixed(2);
+
+  // Update DST side
+  document.getElementById('r2-sale-price').textContent     = fmtDollar(salePrice);
+  document.getElementById('r2-selling-costs').textContent  = '(' + fmtDollar(sellingCosts) + ')';
+  document.getElementById('r2-net-proceeds').textContent   = fmtDollar(netProceeds);
+  document.getElementById('r2-mortgage').textContent       = '(' + fmtDollar(mortgage) + ')';
+  document.getElementById('r2-equity-dst').textContent     = fmtDollar(equityIntoDST);
+  document.getElementById('r2-tax-deferred').textContent   = fmtDollar(totalTax);
+  document.getElementById('r2-extra-equity').textContent   = fmtDollar(extraEquity);
+  document.getElementById('r2-years').textContent          = holdYears;
+  document.getElementById('r2-yield-pct').textContent      = (dstYield * 100).toFixed(1);
+  document.getElementById('r2-annual-income').textContent  = fmtDollar(annualIncomeDST);
+  document.getElementById('r2-cum-income-dst').textContent = fmtDollar(cumIncomeDST);
+  document.getElementById('r2-cum-income-sell').textContent = fmtDollar(cumIncomeSell);
+  document.getElementById('r2-income-diff').textContent    = fmtDollar(incomeDiff);
+
+  // Update summary
+  document.getElementById('summary-tax-saved').textContent   = fmtDollar(totalTax);
+  document.getElementById('summary-extra-income').textContent = fmtDollar(incomeDiff);
+  document.getElementById('summary-headline').innerHTML =
+    'By exchanging into a DST, you keep an additional <span style="color:#D4AE6A;">' + fmtDollar(totalTax) + '</span> working for you.';
+  document.getElementById('summary-detail').innerHTML =
+    'Over ' + holdYears + ' years at a ' + (dstYield*100).toFixed(1) + '% distribution, that deferred tax generates approximately <span style="color:#D4AE6A;font-weight:500;">' + fmtDollar(incomeDiff) + '</span> in additional income compared to selling, realizing the gain, and reinvesting the smaller after-tax amount at the same rate.';
+}
+
+// Run on load
+calc();
+</script>
+</body>
+</html>
