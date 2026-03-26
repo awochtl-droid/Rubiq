@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estate Planning for UHNW Families | Rubiq Financial Partners</title>
+  <meta name="description" content="Integrated estate planning for ultra-high-net-worth families and business owners — GRATs, SLATs, dynasty trusts, charitable structures, and multigenerational wealth transfer. Fee-based fiduciary guidance from Rubiq Financial Partners." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/estate-planning.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rubiq: {
+              blue:      '#1A5EA8',
+              bluedark:  '#133F73',
+              bluelight: '#2A74C8',
+              gold:      '#C49A5A',
+              goldlight: '#D4AE6A',
+              golddark:  '#9E7A32',
+              ink:       '#0F1724',
+              inksoft:   '#1C2D44',
+              slate:     '#2C3E55',
+              mist:      '#F4F6F9',
+              parchment: '#FAF8F4',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
+
+    /* ── Nav ── */
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
+      text-decoration: none; position: relative; padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1.5px; background: #C49A5A; transition: width 0.22s ease;
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: white; }
+    .nav-link.active::after { width: 100%; }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      position: relative; overflow: hidden;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-gold {
+      background: linear-gradient(135deg, #C49A5A 0%, #D4AE6A 100%);
+      color: #0F1724; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.875rem 2.25rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .btn-gold:hover {
+      opacity: 0.92; transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(196,154,74,0.40);
+    }
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); transform: translateY(-1px); }
+
+    /* ── Section rule ── */
+    .section-rule {
+      width: 48px; height: 3px;
+      background: linear-gradient(90deg, #1A5EA8, #C49A5A);
+      border-radius: 2px; margin-bottom: 1.5rem;
+    }
+
+    /* ── Detail section ── */
+    .detail-section { padding: 6rem 0; background: #FAF8F4; }
+
+    /* ── Hero cube ── */
+    .hero-cube-scene {
+      perspective: 800px;
+      width: 200px; height: 200px;
+      margin: 0 auto;
+      filter: drop-shadow(0 30px 60px rgba(196,154,74,0.18)) drop-shadow(0 8px 20px rgba(26,94,168,0.25));
+    }
+    .hero-cube {
+      width: 200px; height: 200px;
+      position: relative;
+      transform-style: preserve-3d;
+    }
+    .hero-cube-face {
+      position: absolute;
+      width: 200px; height: 200px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 5px; padding: 5px;
+      border-radius: 5px;
+    }
+    .hero-cube-face.front  { transform: translateZ(100px); }
+    .hero-cube-face.back   { transform: rotateY(180deg) translateZ(100px); }
+    .hero-cube-face.right  { transform: rotateY(90deg)  translateZ(100px); }
+    .hero-cube-face.left   { transform: rotateY(-90deg) translateZ(100px); }
+    .hero-cube-face.top    { transform: rotateX(90deg)  translateZ(100px); }
+    .hero-cube-face.bottom { transform: rotateX(-90deg) translateZ(100px); }
+    .hc {
+      border-radius: 4px;
+      background-image: linear-gradient(145deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.04) 45%, rgba(0,0,0,0.18) 100%);
+      box-shadow:
+        inset 0 2px 2px rgba(255,255,255,0.28),
+        inset 0 -2px 2px rgba(0,0,0,0.28),
+        inset 2px 0 2px rgba(255,255,255,0.12),
+        inset -2px 0 2px rgba(0,0,0,0.18);
+    }
+    @keyframes hero-float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-22px); }
+    }
+    .cube-float { animation: hero-float 3.5s ease-in-out infinite; }
+    @media (max-width: 768px) {
+      .hero-cube-scene { width: 150px; height: 150px; }
+      .hero-cube { width: 150px; height: 150px; }
+      .hero-cube-face { width: 150px; height: 150px; }
+      .hero-cube-face.front  { transform: translateZ(75px); }
+      .hero-cube-face.back   { transform: rotateY(180deg) translateZ(75px); }
+      .hero-cube-face.right  { transform: rotateY(90deg)  translateZ(75px); }
+      .hero-cube-face.left   { transform: rotateY(-90deg) translateZ(75px); }
+      .hero-cube-face.top    { transform: rotateX(90deg)  translateZ(75px); }
+      .hero-cube-face.bottom { transform: rotateX(-90deg) translateZ(75px); }
+    }
+
+    /* ── Check list ── */
+    .check-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      margin-bottom: 0.875rem;
+    }
+    .check-icon {
+      width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; margin-top: 1px;
+      background: linear-gradient(135deg, rgba(26,94,168,0.14), rgba(196,154,74,0.12));
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ── Advisor callout ── */
+    .advisor-callout {
+      background: linear-gradient(135deg, rgba(26,94,168,0.06) 0%, rgba(196,154,74,0.05) 100%);
+      border: 1px solid rgba(26,94,168,0.18);
+      border-left: 3px solid #1A5EA8;
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem 1.75rem;
+      margin-top: 2rem;
+    }
+
+    /* ── Q&A ── */
+    .question-item {
+      border-bottom: 1px solid rgba(44,62,85,0.10);
+      padding: 1rem 0;
+    }
+    .question-item:last-child { border-bottom: none; }
+
+    /* ── Mobile menu ── */
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+
+    /* ── Mobile tap targets ── */
+    @media (max-width: 767px) {
+      #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+      footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
+    }
+  </style>
+  <!-- Favicon -->
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32" />
+
+  <!-- Social / AEO -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="Rubiq Financial Partners" />
+  <meta property="og:title"       content="Estate Planning for UHNW Families | Rubiq Financial Partners" />
+  <meta property="og:description" content="Integrated estate planning for ultra-high-net-worth families and business owners — GRATs, SLATs, dynasty trusts, charitable structures, and multigenerational wealth transfer." />
+  <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/estate-planning.html" />
+  <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Estate Planning for UHNW Families | Rubiq Financial Partners" />
+  <meta name="twitter:description" content="Integrated estate planning for ultra-high-net-worth families and business owners — GRATs, SLATs, dynasty trusts, charitable structures, and multigenerational wealth transfer." />
+  <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://www.rubiqfinancial.com/Pages/estate-planning.html#service",
+        "name": "Estate Planning",
+        "description": "Integrated estate planning for ultra-high-net-worth families and business owners — including GRATs, SLATs, dynasty trusts, charitable structures, beneficiary coordination, and multigenerational wealth transfer. Fee-based fiduciary guidance from Rubiq Financial Partners in West Chester, PA, serving clients nationwide.",
+        "provider": { "@id": "https://www.rubiqfinancial.com/#organization" },
+        "areaServed": [
+          { "@type": "City", "name": "West Chester, PA" },
+          { "@type": "AdministrativeArea", "name": "Chester County, PA" },
+          { "@type": "AdministrativeArea", "name": "Philadelphia metropolitan area" },
+          { "@type": "Country", "name": "US" }
+        ],
+        "serviceType": "Estate Planning",
+        "category": "Financial Service"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.rubiqfinancial.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Our Capabilities", "item": "https://www.rubiqfinancial.com/Pages/our-capabilities.html" },
+          { "@type": "ListItem", "position": 3, "name": "Estate Planning", "item": "https://www.rubiqfinancial.com/Pages/estate-planning.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What estate planning strategies work for ultra-high-net-worth families?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "UHNW estate planning strategies include GRATs (Grantor Retained Annuity Trusts) for transferring appreciating assets at minimal gift tax cost, SLATs and IDGTs for removing assets from taxable estates while retaining indirect access, dynasty trusts for multigenerational wealth preservation, charitable remainder trusts for income and charitable goals, and strategic use of the current elevated estate tax exemption before potential sunset. Rubiq coordinates these structures with estate attorneys and models scenarios to optimize timing and structure."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I transfer wealth to the next generation without creating dependency?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Thoughtful wealth transfer involves structuring trusts with incentive provisions, staggered distributions, and independent trustees. Strategies like dynasty trusts, family limited partnerships, and education-focused gifting help transfer wealth while maintaining accountability. Rubiq works with families to design structures that support heirs without undermining motivation — balancing financial security with personal responsibility."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between estate planning and tax planning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tax planning focuses on minimizing income tax liability during your lifetime through strategies like tax-loss harvesting, Roth conversions, and entity structuring. Estate planning focuses on how your wealth transfers at death or during life — through trusts, gifting, beneficiary designations, and charitable structures. The two are deeply interconnected: a Roth conversion is a tax decision with estate implications, and a GRAT is an estate tool with tax consequences. Rubiq integrates both into a unified plan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I use the current estate tax exemption before it sunsets?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The current federal estate tax exemption ($13.61 million per person in 2024) is scheduled to sunset at the end of 2025, potentially dropping by roughly half. For families with estates approaching or exceeding the projected lower exemption, acting before sunset can lock in the higher exemption through irrevocable trusts, GRATs, or strategic gifting. Rubiq models both current-law and sunset scenarios to help families make informed decisions about timing and structure."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["#speakable-headline", "#speakable-summary"]
+    },
+    "url": "https://www.rubiqfinancial.com/Pages/estate-planning.html"
+  }
+  </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "Rubiq Financial Partners",
+  "alternateName": "Rubiq Financial Partners",
+  "url": "https://www.rubiqfinancial.com",
+  "logo": "https://www.rubiqfinancial.com/Brand_assets/Rubiq%20Financial%20Partners%20Logo%20-%20FINAL2-Horizontal.png",
+  "image": "https://www.rubiqfinancial.com/Media/og-social.png",
+  "description": "Independent fiduciary wealth management for ultra-high-net-worth families, entrepreneurs, and real estate investors.",
+  "telephone": "+1-610-215-9499",
+  "email": "clientservice@rubiqfinancial.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1065 Andrew Drive",
+    "addressLocality": "West Chester",
+    "addressRegion": "PA",
+    "postalCode": "19380",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "39.9526",
+    "longitude": "-75.6010"
+  },
+  "areaServed": [
+    {"@type": "Country", "name": "United States"}
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Andreas M. Wochtl",
+    "jobTitle": "Private Wealth Advisor"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/rubiq-financial-partners"
+  ],
+  "priceRange": "$$$$",
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "Wire Transfer, ACH",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Wealth Management Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Investment Management"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tax Planning"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Retirement Planning"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Estate Planning"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Business Planning"}}
+    ]
+  }
+}
+</script>
+</head>
+<body>
+<!-- Skip to main content (visible only on keyboard focus) -->
+<a href="#main-content" class="skip-nav"
+   style="position:absolute;top:-100%;left:1rem;z-index:9999;
+          background:#C49A5A;color:#0F1724;padding:0.75rem 1.5rem;
+          font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:600;
+          letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;
+          border-radius:0 0 4px 4px;transition:top 0.18s ease;"
+   onfocus="this.style.top='0'" onblur="this.style.top='-100%'">
+  Skip to main content
+</a>
+
+<!-- ══════════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════════════ -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur"
+     style="background:rgba(15,23,36,0.90);border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex-shrink-0 flex items-center">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Vertical -White.png"
+             alt="Rubiq Financial Partners" width="240" height="44"
+             style="height:44px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="our-clients.html" class="nav-link">Our Clients</a>
+        <a href="our-capabilities.html" class="nav-link active">Our Capabilities</a>
+        <a href="our-team.html" class="nav-link">Our Team</a>
+        <a href="insights.html" class="nav-link">Insights</a>
+        <a href="fee-structure.html" class="nav-link">Fee Structure</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="client-portal.html">
+          <button class="btn-ghost">Client Access</button>
+        </a>
+        <a href="schedule.html">
+          <button class="btn-primary">Schedule a Call</button>
+        </a>
+      </div>
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('open')"
+              class="md:hidden p-2" style="color:white;" aria-label="Open navigation menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu"
+       style="background:rgba(15,23,36,0.97);border-top:1px solid rgba(255,255,255,0.07);
+              flex-direction:column;padding:1.5rem 1.5rem 2rem;">
+    <a href="our-clients.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Clients</a>
+    <a href="our-capabilities.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Capabilities</a>
+    <a href="our-team.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Team</a>
+    <a href="insights.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Insights</a>
+    <a href="fee-structure.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Fee Structure</a>
+    <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.75rem;">
+      <a href="schedule.html"><button class="btn-gold" style="width:100%;">Schedule a Call</button></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════ -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 50%,#1A5EA8 100%);
+                padding:7rem 0 5rem;position:relative;overflow:hidden;
+                display:flex;align-items:center;min-height:520px;">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.025;pointer-events:none;" aria-hidden="true">
+    <filter id="grain2"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain2)"/>
+  </svg>
+  <div style="position:absolute;top:-10%;right:-5%;width:55%;height:110%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.12) 0%,transparent 60%);
+              pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-20%;left:-5%;width:45%;height:90%;
+              background:radial-gradient(ellipse,rgba(42,116,200,0.15) 0%,transparent 65%);
+              pointer-events:none;"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Left: copy -->
+      <div style="position:relative;z-index:2;">
+        <a href="our-capabilities.html" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:2rem;
+          font-size:0.75rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(255,255,255,0.55);
+          text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+          ← Our Capabilities
+        </a>
+        <div style="display:inline-flex;align-items:center;gap:8px;
+                    background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.25);
+                    border-radius:100px;padding:0.35rem 1rem;margin-bottom:2rem;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
+          <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">
+            Rubiq Financial Partners - Estate Planning
+          </span>
+        </div>
+
+        <h1 id="speakable-headline" style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.25rem);
+                   font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
+          Estate &amp; Legacy<br /><em style="font-style:italic;color:#D4AE6A;">Planning</em>
+        </h1>
+
+        <p id="speakable-summary" style="font-size:1.125rem;line-height:1.7;color:rgba(255,255,255,0.75);
+                  font-weight:300;max-width:500px;">
+          Estate planning is about more than documents — it's about making sure the wealth you've built passes to the right people, in the right way, at the right time. We integrate estate strategy into your financial plan so nothing falls through the cracks.
+        </p>
+      </div>
+
+      <!-- Right: Animated cube -->
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3rem;
+                  position:relative;z-index:2;">
+        <div class="cube-float">
+        <div class="hero-cube-scene">
+          <div class="hero-cube" id="page-cube-el">
+            <div class="hero-cube-face front">
+              <div class="hc" style="background:#D4AE6A;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#D4AE6A;"></div>
+              <div class="hc" style="background:#1A5EA8;"></div>
+              <div class="hc" style="background:#D4AE6A;"></div>
+              <div class="hc" style="background:#1A5EA8;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#1A5EA8;"></div>
+              <div class="hc" style="background:#D4AE6A;"></div>
+            </div>
+            <div class="hero-cube-face back">
+              <div class="hc" style="background:#133F73;"></div>
+              <div class="hc" style="background:#133F73;"></div>
+              <div class="hc" style="background:#2A74C8;"></div>
+              <div class="hc" style="background:#133F73;"></div>
+              <div class="hc" style="background:#133F73;"></div>
+              <div class="hc" style="background:#133F73;"></div>
+              <div class="hc" style="background:#133F73;"></div>
+              <div class="hc" style="background:#1A5EA8;"></div>
+              <div class="hc" style="background:#133F73;"></div>
+            </div>
+            <div class="hero-cube-face right">
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#1A5EA8;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#D4AE6A;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+            </div>
+            <div class="hero-cube-face left">
+              <div class="hc" style="background:#2C3E55;"></div>
+              <div class="hc" style="background:#2C3E55;"></div>
+              <div class="hc" style="background:#C49A5A;"></div>
+              <div class="hc" style="background:#2C3E55;"></div>
+              <div class="hc" style="background:#2C3E55;"></div>
+              <div class="hc" style="background:#2C3E55;"></div>
+              <div class="hc" style="background:#9E7A32;"></div>
+              <div class="hc" style="background:#2C3E55;"></div>
+              <div class="hc" style="background:#2C3E55;"></div>
+            </div>
+            <div class="hero-cube-face top">
+              <div class="hc" style="background:#2A74C8;"></div>
+              <div class="hc" style="background:#2A74C8;"></div>
+              <div class="hc" style="background:#2A74C8;"></div>
+              <div class="hc" style="background:#2A74C8;"></div>
+              <div class="hc" style="background:#D4AE6A;"></div>
+              <div class="hc" style="background:#2A74C8;"></div>
+              <div class="hc" style="background:#2A74C8;"></div>
+              <div class="hc" style="background:#2A74C8;"></div>
+              <div class="hc" style="background:#1A5EA8;"></div>
+            </div>
+            <div class="hero-cube-face bottom">
+              <div class="hc" style="background:#1C2D44;"></div>
+              <div class="hc" style="background:#0F1724;"></div>
+              <div class="hc" style="background:#1C2D44;"></div>
+              <div class="hc" style="background:#0F1724;"></div>
+              <div class="hc" style="background:#1C2D44;"></div>
+              <div class="hc" style="background:#0F1724;"></div>
+              <div class="hc" style="background:#1C2D44;"></div>
+              <div class="hc" style="background:#0F1724;"></div>
+              <div class="hc" style="background:#1C2D44;"></div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- AEO Definition -->
+<div id="main-content" style="background:#FAF8F4;border-bottom:1px solid rgba(26,94,168,0.08);padding:1.5rem 0;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <p id="aeo-definition" style="font-size:0.9375rem;line-height:1.7;color:#2C3E55;font-weight:300;max-width:820px;margin:0;">
+      <strong style="color:#0F1724;font-weight:600;">What is estate planning?</strong> Estate planning is the strategic coordination of trusts, beneficiary designations, gifting strategies, and wealth transfer structures to ensure assets pass to the right people, in the right way, at the right time — minimizing estate and transfer taxes while preserving family wealth across generations.
+    </p>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════
+     ESTATE & LEGACY CONTENT
+══════════════════════════════════════════════════════ -->
+<section id="estate-legacy" class="detail-section" style="background:#F0EBE1;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:8px;
+                    background:rgba(212,174,106,0.12);border:1px solid rgba(212,174,106,0.25);
+                    border-radius:100px;padding:0.3rem 1rem;margin-bottom:1.75rem;">
+          <div style="width:8px;height:8px;border-radius:2px;background:#D4AE6A;flex-shrink:0;"></div>
+          <span style="font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9E7A32;">
+            Estate &amp; Legacy
+          </span>
+        </div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3vw,2.5rem);
+                   font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:#0F1724;margin-bottom:1.5rem;">
+          Protecting What You Build.<br />
+          <em style="font-style:italic;color:#D4AE6A;">For the People You Love.</em>
+        </h2>
+        <p style="font-size:1rem;line-height:1.75;color:#2C3E55;font-weight:300;margin-bottom:1rem;">
+          Estate planning is about more than documents — it's about making sure the wealth you've
+          built passes to the right people, in the right way, at the right time. We integrate estate
+          strategy into your financial plan so nothing falls through the cracks.
+        </p>
+        <p style="font-size:0.9375rem;line-height:1.75;color:#4A5568;font-weight:300;">
+          From beneficiary designations to charitable structures, from GRATs and SLATs to dynasty trusts, we look at your estate holistically —
+          how it intersects with your investments, your tax situation, and your family's multigenerational goals.
+        </p>
+
+        <!-- Advisor collaboration callout -->
+        <div class="advisor-callout">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(26,94,168,0.10);
+                        display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+              <svg width="18" height="18" fill="none" stroke="#1A5EA8" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div>
+              <p style="font-size:0.875rem;font-weight:600;color:#1A5EA8;margin-bottom:0.5rem;">
+                We work alongside your team — or build one for you.
+              </p>
+              <p style="font-size:0.8125rem;line-height:1.65;color:#2C3E55;font-weight:300;margin:0;">
+                Estate planning requires close coordination with estate attorneys and CPAs.
+                We work seamlessly alongside your existing advisors, providing the financial
+                context they need to do their best work. If you don't have an estate attorney or
+                tax professional you trust, we can connect you with experienced practitioners
+                in our network who are well-suited to your situation.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:1.5rem;background:rgba(196,154,74,0.06);border-radius:8px;
+                    border:1px solid rgba(196,154,74,0.18);padding:1.25rem 1.5rem;">
+          <p style="font-size:0.8125rem;font-weight:500;color:#C49A5A;margin-bottom:0.35rem;">
+            How this face connects to the others
+          </p>
+          <p style="font-size:0.875rem;line-height:1.65;color:#4A5568;font-weight:300;margin:0;">
+            Changing a beneficiary designation can affect your estate tax exposure. A trust structure
+            can unlock new gifting strategies. We coordinate these decisions across your entire plan.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+                  color:rgba(44,62,85,0.50);margin-bottom:1.25rem;">What's included</p>
+
+        <div class="check-item">
+          <div class="check-icon">
+            <svg width="10" height="10" fill="none" stroke="#9E7A32" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div>
+            <div style="font-size:0.9rem;font-weight:500;color:#0F1724;margin-bottom:0.2rem;">Beneficiary Designation Review</div>
+            <div style="font-size:0.8125rem;line-height:1.6;color:#4A5568;font-weight:300;">Systematic review of all accounts to ensure designations align with your current wishes and estate plan.</div>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">
+            <svg width="10" height="10" fill="none" stroke="#9E7A32" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div>
+            <div style="font-size:0.9rem;font-weight:500;color:#0F1724;margin-bottom:0.2rem;">Trust &amp; Will Coordination</div>
+            <div style="font-size:0.8125rem;line-height:1.6;color:#4A5568;font-weight:300;">Coordinating with your estate attorney on revocable and irrevocable trust structures, asset titling, and pour-over provisions.</div>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">
+            <svg width="10" height="10" fill="none" stroke="#9E7A32" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div>
+            <div style="font-size:0.9rem;font-weight:500;color:#0F1724;margin-bottom:0.2rem;">Gifting &amp; Advanced Trust Structures</div>
+            <div style="font-size:0.8125rem;line-height:1.6;color:#4A5568;font-weight:300;">Annual exclusion gifting, 529 superfunding, GRATs, SLATs, IDGTs, and dynasty trusts — coordinated to maximize lifetime exemptions and minimize generation-skipping transfer tax (GSTT) exposure.</div>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">
+            <svg width="10" height="10" fill="none" stroke="#9E7A32" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div>
+            <div style="font-size:0.9rem;font-weight:500;color:#0F1724;margin-bottom:0.2rem;">Charitable Giving Structures</div>
+            <div style="font-size:0.8125rem;line-height:1.6;color:#4A5568;font-weight:300;">Donor-advised funds, charitable remainder trusts, qualified charitable distributions, and legacy giving strategies.</div>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">
+            <svg width="10" height="10" fill="none" stroke="#9E7A32" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div>
+            <div style="font-size:0.9rem;font-weight:500;color:#0F1724;margin-bottom:0.2rem;">Business Succession Planning</div>
+            <div style="font-size:0.8125rem;line-height:1.6;color:#4A5568;font-weight:300;">Structuring the transfer of business ownership in a way that protects family wealth and minimizes transfer taxes.</div>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">
+            <svg width="10" height="10" fill="none" stroke="#9E7A32" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div>
+            <div style="font-size:0.9rem;font-weight:500;color:#0F1724;margin-bottom:0.2rem;">Estate &amp; Transfer Tax Exposure Analysis</div>
+            <div style="font-size:0.8125rem;line-height:1.6;color:#4A5568;font-weight:300;">Modeling estate tax, gift tax, and generation-skipping transfer tax liability under current and projected law — including sunset scenarios for the 2025 exemption levels — to identify multigenerational planning opportunities now.</div>
+          </div>
+        </div>
+
+        <div style="margin-top:2rem;border-top:1px solid rgba(44,62,85,0.10);padding-top:1.75rem;">
+          <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+                    color:rgba(44,62,85,0.45);margin-bottom:1rem;">Questions we help you answer</p>
+          <div class="question-item">
+            <p style="font-size:0.875rem;color:#2C3E55;margin:0;line-height:1.6;">Do I have the right estate documents in place — and are they up to date?</p>
+          </div>
+          <div class="question-item">
+            <p style="font-size:0.875rem;color:#2C3E55;margin:0;line-height:1.6;">How do I transfer wealth to my children in a way that supports them without creating dependency?</p>
+          </div>
+          <div class="question-item">
+            <p style="font-size:0.875rem;color:#2C3E55;margin:0;line-height:1.6;">Can I give more to charity in a way that also reduces my estate tax?</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     RELATED SERVICES
+══════════════════════════════════════════════════════ -->
+<section style="background:#FAF8F4;padding:4rem 0;">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+              color:rgba(44,62,85,0.45);margin-bottom:1.25rem;text-align:center;">Related services</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <a href="tax-planning.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;
+                border:1px solid rgba(26,94,168,0.10);background:white;text-decoration:none;
+                transition:border-color 0.18s ease, transform 0.18s ease;
+                box-shadow:0 1px 4px rgba(26,94,168,0.06);"
+         onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'"
+         onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1A5EA8;margin-bottom:0.35rem;">Service</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">Tax Planning</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">Income tax strategy, Roth conversions, and tax-loss harvesting.</div>
+      </a>
+      <a href="business-planning.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;
+                border:1px solid rgba(26,94,168,0.10);background:white;text-decoration:none;
+                transition:border-color 0.18s ease, transform 0.18s ease;
+                box-shadow:0 1px 4px rgba(26,94,168,0.06);"
+         onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'"
+         onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1A5EA8;margin-bottom:0.35rem;">Service</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">Business Planning</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">Succession planning, buy-sell agreements, and exit strategy.</div>
+      </a>
+      <a href="insurance.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;
+                border:1px solid rgba(26,94,168,0.10);background:white;text-decoration:none;
+                transition:border-color 0.18s ease, transform 0.18s ease;
+                box-shadow:0 1px 4px rgba(26,94,168,0.06);"
+         onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'"
+         onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1A5EA8;margin-bottom:0.35rem;">Service</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">Insurance Solutions</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">ILIT strategies, key-person coverage, and estate liquidity planning.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     CTA BANNER
+══════════════════════════════════════════════════════ -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 55%,#1A5EA8 100%);
+                padding:3.5rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-30%;right:-10%;width:50%;height:150%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.18) 0%,transparent 60%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-20%;left:-5%;width:40%;height:100%;
+              background:radial-gradient(ellipse,rgba(255,255,255,0.06) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center" style="position:relative;z-index:2;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);
+               font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
+      Relationships begin with<br />
+      <em style="font-style:italic;color:#D4AE6A;">a conversation.</em>
+    </h2>
+
+    <div style="display:flex;flex-direction:column;gap:0.75rem;align-items:center;margin-bottom:2rem;">
+      <a href="tel:6102159499"
+         style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;
+                font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);
+                transition:color 0.18s ease;"
+         onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="15" height="15" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24" style="flex-shrink:0;">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.36C1.21 2.18 2.12 1 3.3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.76-.76a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.28 16z"/>
+        </svg>
+        610-215-9499
+      </a>
+      <a href="mailto:clientservice@rubiqfinancial.com"
+         style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;
+                font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);
+                transition:color 0.18s ease;"
+         onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="15" height="15" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24" style="flex-shrink:0;">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        clientservice@rubiqfinancial.com
+      </a>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="schedule.html">
+        <button class="btn-gold" style="background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);color:#0F1724;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;letter-spacing:0.04em;text-transform:uppercase;padding:0.875rem 2.25rem;border-radius:4px;border:none;cursor:pointer;transition:opacity 0.18s ease,transform 0.18s ease;">Schedule a Call</button>
+      </a>
+      <a href="our-team.html">
+        <button class="btn-ghost" style="background:transparent;color:white;font-family:'Inter',sans-serif;font-weight:500;font-size:0.875rem;letter-spacing:0.04em;text-transform:uppercase;padding:0.75rem 1.75rem;border-radius:4px;border:1.5px solid rgba(255,255,255,0.35);cursor:pointer;transition:background 0.18s ease,border-color 0.18s ease;">Meet Our Advisors</button>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════ -->
+<footer style="background:#0F1724;padding:2rem 0;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+         alt="Rubiq Financial Partners logo" width="120" height="26" style="height:26px;width:auto;opacity:0.70;" loading="lazy" decoding="async" />
+    <div style="text-align:center;">
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.28);margin:0 0 0.35rem;">
+        &copy; 2026 Rubiq Financial Partners LLC. All rights reserved.
+      </p>
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.18);margin:0 0 0.5rem;line-height:1.6;font-weight:300;">
+        Advisory services offered through Wealthcare Advisory Partners. Not a solicitation in any jurisdiction where not registered or exempt.
+      </p>
+      <p style="font-size:0.65rem;color:rgba(255,255,255,0.30);margin:0 0 0.75rem;line-height:1.6;font-weight:300;">
+        <a href="../Media/FormCRS_WCAP_20240325 (Updated - use this one).pdf" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35);text-decoration:underline;text-underline-offset:2px;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.60)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Form CRS</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://adviserinfo.sec.gov/firm/summary/171976" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35);text-decoration:underline;text-underline-offset:2px;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.60)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Form ADV Part 2A</a>
+      </p>
+      <div style="display:flex;justify-content:center;gap:1.5rem;">
+        <a href="privacy-policy.html" style="font-size:0.7rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Privacy Policy</a>
+        <a href="terms-of-use.html" style="font-size:0.7rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Terms of Use</a>
+        <a href="faq.html" style="font-size:0.7rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">FAQ</a>
+        <a href="sitemap.html" style="font-size:0.7rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Hero cube: random tumble ──
+  (function() {
+    const cube = document.getElementById('page-cube-el');
+    if (!cube) return;
+    let rx = -18, ry = 20, rz = 3;
+    let vx = 0.04, vy = 0.18, vz = 0.01;
+    function tick() {
+      if (Math.random() < 0.03) vx += (Math.random() - 0.5) * 0.18;
+      if (Math.random() < 0.03) vy += (Math.random() - 0.5) * 0.22;
+      if (Math.random() < 0.02) vz += (Math.random() - 0.5) * 0.10;
+      vx *= 0.994; vy *= 0.994; vz *= 0.994;
+      const clamp = (v, mn, mx) => Math.max(mn, Math.min(mx, v));
+      vx = clamp(vx, -0.35, 0.35);
+      vy = clamp(vy, -0.55, 0.55);
+      vz = clamp(vz, -0.18, 0.18);
+      if (Math.abs(vy) < 0.06) vy += (Math.random() - 0.5) * 0.12;
+      rx += vx; ry += vy; rz += vz;
+      cube.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg)`;
+      requestAnimationFrame(tick);
+    }
+    tick();
+  })();
+</script>
+
+<!-- Sticky Mobile CTA -->
+<a id="sticky-mobile-cta" href="schedule.html"
+   style="display:none;position:fixed;bottom:-60px;left:1rem;right:1rem;z-index:9998;
+          background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);
+          color:#0F1724;text-align:center;
+          font-family:'Inter',sans-serif;font-size:0.9375rem;font-weight:600;
+          letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;
+          padding:1rem;border-radius:6px;
+          box-shadow:0 -2px 16px rgba(0,0,0,0.25),0 4px 12px rgba(196,154,74,0.35);
+          transition:bottom 0.3s cubic-bezier(0.4,0,0.2,1);">
+  Schedule a Call
+</a>
+<style>
+  @media(min-width:768px){ #sticky-mobile-cta{display:none!important;} }
+</style>
+<script>
+(function(){
+  var cta=document.getElementById('sticky-mobile-cta');
+  if(!cta)return;
+  if(window.innerWidth<768) cta.style.display='block';
+  window.addEventListener('scroll',function(){
+    if(window.innerWidth>=768)return;
+    cta.style.display='block';
+    cta.style.bottom=window.scrollY>100?'1rem':'-60px';
+  },{passive:true});
+  window.addEventListener('resize',function(){
+    cta.style.display=window.innerWidth<768?'block':'none';
+  });
+})();
+</script>
+</body>
+</html>
