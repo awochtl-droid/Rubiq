@@ -1,0 +1,1 @@
+- [Doug Grom removed](project_doug_grom_removed.md) — Full HTML blocks stored for all 3 pages, ready to restore
