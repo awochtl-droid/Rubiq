@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QOZ Fund vs. Realize Gain Calculator | Rubiq Financial Partners</title>
+  <meta name="description" content="Compare the after-tax outcome of realizing a capital gain immediately versus deferring it into a Qualified Opportunity Zone (QOZ) fund under proposed 2027 rules. Free calculator from Rubiq Financial Partners." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/qoz-calculator.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rubiq: {
+              blue:      '#1A5EA8',
+              bluedark:  '#133F73',
+              bluelight: '#2A74C8',
+              gold:      '#C49A5A',
+              goldlight: '#D4AE6A',
+              golddark:  '#9E7A32',
+              ink:       '#0F1724',
+              inksoft:   '#1C2D44',
+              slate:     '#2C3E55',
+              mist:      '#F4F6F9',
+              parchment: '#FAF8F4',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
+
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
+      text-decoration: none; position: relative; padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1.5px; background: #C49A5A; transition: width 0.22s ease;
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-gold {
+      background: linear-gradient(135deg, #C49A5A 0%, #D4AE6A 100%);
+      color: #0F1724; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.875rem 2.25rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .btn-gold:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(196,154,74,0.40); }
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); transform: translateY(-1px); }
+
+    .section-rule { width: 48px; height: 3px; background: linear-gradient(90deg, #1A5EA8, #C49A5A); border-radius: 2px; margin-bottom: 1.5rem; }
+
+    /* ── Calculator styles ── */
+    .calc-input-group { margin-bottom: 1.25rem; }
+    .calc-label {
+      display: block; font-size: 0.78rem; font-weight: 600; color: #2C3E55;
+      letter-spacing: 0.02em; margin-bottom: 0.4rem;
+    }
+    .calc-input {
+      width: 100%; padding: 0.625rem 0.875rem; border: 1px solid rgba(26,94,168,0.20);
+      border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 0.9rem;
+      color: #0F1724; background: white; transition: border-color 0.18s ease;
+      outline: none;
+    }
+    .calc-input:focus { border-color: #1A5EA8; box-shadow: 0 0 0 3px rgba(26,94,168,0.08); }
+    .calc-slider {
+      width: 100%; height: 6px; -webkit-appearance: none; appearance: none;
+      background: linear-gradient(90deg, #1A5EA8 0%, #C49A5A 100%);
+      border-radius: 3px; outline: none; margin-top: 0.5rem;
+    }
+    .calc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;
+      background: white; border: 2px solid #1A5EA8; cursor: pointer;
+      box-shadow: 0 2px 6px rgba(26,94,168,0.25);
+    }
+    .calc-slider::-moz-range-thumb {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: white; border: 2px solid #1A5EA8; cursor: pointer;
+    }
+
+    .result-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 0.5rem 0; border-bottom: 1px solid rgba(44,62,85,0.08);
+    }
+    .result-row:last-child { border-bottom: none; }
+    .result-label { font-size: 0.8125rem; color: #4A5568; font-weight: 400; }
+    .result-value { font-size: 0.9rem; font-weight: 600; color: #0F1724; font-variant-numeric: tabular-nums; }
+    .result-value.negative { color: #c0392b; }
+    .result-value.positive { color: #1A5EA8; }
+    .result-value.gold { color: #9E7A32; }
+
+    .comparison-card {
+      background: white; border: 1px solid rgba(26,94,168,0.10);
+      border-radius: 10px; padding: 1.75rem; flex: 1; min-width: 280px;
+    }
+
+    /* ── Mobile ── */
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+    @media (max-width: 767px) {
+      #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+      footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
+    }
+  </style>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32" />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="Rubiq Financial Partners" />
+  <meta property="og:title"       content="QOZ Fund vs. Realize Gain Calculator | Rubiq Financial Partners" />
+  <meta property="og:description" content="Compare the after-tax outcome of realizing a capital gain immediately versus deferring into a Qualified Opportunity Zone fund." />
+  <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/qoz-calculator.html" />
+  <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="QOZ Fund vs. Realize Gain Calculator | Rubiq Financial Partners" />
+  <meta name="twitter:description" content="Compare the after-tax outcome of realizing a capital gain immediately versus deferring into a Qualified Opportunity Zone fund." />
+  <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "QOZ Fund vs. Realize Gain Calculator",
+        "description": "Compare the after-tax outcome of realizing a capital gain immediately versus deferring it into a Qualified Opportunity Zone (QOZ) fund under proposed 2027 legislative rules.",
+        "url": "https://www.rubiqfinancial.com/Pages/qoz-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://www.rubiqfinancial.com/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.rubiqfinancial.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.rubiqfinancial.com/Pages/insights.html" },
+          { "@type": "ListItem", "position": 3, "name": "QOZ Calculator", "item": "https://www.rubiqfinancial.com/Pages/qoz-calculator.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a Qualified Opportunity Zone (QOZ) fund?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A Qualified Opportunity Zone fund is an investment vehicle organized as a corporation or partnership that invests at least 90% of its assets in qualified opportunity zone property. Opportunity zones are economically distressed communities designated by the U.S. Treasury where new investments may be eligible for preferential tax treatment under the Tax Cuts and Jobs Act of 2017, as potentially extended by proposed 2027 legislation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the tax benefits of investing in a QOZ fund?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under proposed 2027 legislative rules, QOZ fund investors may receive three primary tax benefits: (1) temporary deferral of the original capital gain for up to five years, (2) a 10% step-up in basis after five years, reducing the taxable portion of the deferred gain, and (3) permanent exclusion of any appreciation on the QOZ investment from federal income tax if held for at least ten years."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long must I hold a QOZ investment for tax-free gains?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under proposed 2027 rules, you must hold the QOZ fund investment for at least ten years to qualify for the permanent exclusion of capital gains on the QOZ investment appreciation. The original deferred gain is recognized after five years (with a 10% basis step-up), but the appreciation earned inside the QOZ fund becomes tax-free at the ten-year mark."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "Rubiq Financial Partners",
+    "url": "https://www.rubiqfinancial.com",
+    "logo": "https://www.rubiqfinancial.com/Brand_assets/Rubiq%20Financial%20Partners%20Logo%20-%20FINAL2-Horizontal.png",
+    "description": "Independent fiduciary wealth management for ultra-high-net-worth families, entrepreneurs, and real estate investors.",
+    "telephone": "+1-610-215-9499",
+    "email": "clientservice@rubiqfinancial.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1065 Andrew Drive",
+      "addressLocality": "West Chester",
+      "addressRegion": "PA",
+      "postalCode": "19380",
+      "addressCountry": "US"
+    },
+    "areaServed": [{"@type": "Country", "name": "United States"}],
+    "founder": {"@type": "Person", "name": "Andreas M. Wochtl", "jobTitle": "Private Wealth Advisor"},
+    "priceRange": "$$$$"
+  }
+  </script>
+</head>
+<body>
+
+<!-- Skip nav -->
+<a href="#main-content" style="position:absolute;top:-100%;left:1rem;z-index:9999;background:#C49A5A;color:#0F1724;padding:0.75rem 1.5rem;font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;border-radius:0 0 4px 4px;transition:top 0.18s ease;" onfocus="this.style.top='0'" onblur="this.style.top='-100%'">Skip to main content</a>
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur" style="background:rgba(15,23,36,0.90);border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex-shrink-0 flex items-center">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Vertical -White.png" alt="Rubiq Financial Partners" width="240" height="44" style="height:44px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="our-clients.html" class="nav-link">Our Clients</a>
+        <a href="our-capabilities.html" class="nav-link">Our Capabilities</a>
+        <a href="our-team.html" class="nav-link">Our Team</a>
+        <a href="insights.html" class="nav-link active">Insights</a>
+        <a href="fee-structure.html" class="nav-link">Fee Structure</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="client-portal.html"><button class="btn-ghost">Client Access</button></a>
+        <a href="schedule.html"><button class="btn-primary">Schedule a Call</button></a>
+      </div>
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('open')" class="md:hidden p-2" style="color:white;" aria-label="Open navigation menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" style="background:rgba(15,23,36,0.97);border-top:1px solid rgba(255,255,255,0.07);flex-direction:column;padding:1.5rem 1.5rem 2rem;">
+    <a href="our-clients.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Clients</a>
+    <a href="our-capabilities.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Capabilities</a>
+    <a href="our-team.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Team</a>
+    <a href="insights.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Insights</a>
+    <a href="fee-structure.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Fee Structure</a>
+    <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.75rem;">
+      <a href="schedule.html"><button class="btn-gold" style="width:100%;">Schedule a Call</button></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 50%,#1A5EA8 100%);padding:7rem 0 4rem;position:relative;overflow:hidden;">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.025;pointer-events:none;" aria-hidden="true">
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+  <div style="position:absolute;top:-10%;right:-5%;width:55%;height:110%;background:radial-gradient(ellipse,rgba(196,154,74,0.12) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
+    <a href="insights.html" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:2rem;font-size:0.75rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&larr; Insights</a>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.25);border-radius:100px;padding:0.35rem 1rem;margin-bottom:2rem;">
+      <div style="width:6px;height:6px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">Interactive Tool</span>
+    </div>
+    <h1 id="speakable-headline" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:white;margin-bottom:1.25rem;">
+      QOZ Fund vs. Realize Gain
+    </h1>
+    <p id="speakable-summary" style="font-size:1.0625rem;line-height:1.7;color:rgba(255,255,255,0.72);font-weight:300;max-width:620px;">
+      What if you could defer your capital gains tax, reduce what you owe, and eliminate taxes on future growth? Compare realizing a gain today versus investing through a Qualified Opportunity Zone fund under proposed 2027 rules.
+    </p>
+  </div>
+</section>
+
+
+<!-- MAIN CONTENT -->
+<main id="main-content">
+<section style="padding:3.5rem 0 4rem;background:#FAF8F4;">
+  <div class="max-w-5xl mx-auto px-6 lg:px-10">
+
+    <!-- Legislative Context Banner -->
+    <div style="background:linear-gradient(135deg,rgba(26,94,168,0.06) 0%,rgba(196,154,74,0.06) 100%);border:1px solid rgba(26,94,168,0.15);border-left:3px solid #C49A5A;border-radius:0 8px 8px 0;padding:1rem 1.5rem;margin-bottom:2rem;">
+      <p style="font-size:0.78rem;line-height:1.65;color:#2C3E55;font-weight:400;margin:0;">
+        <strong style="font-weight:600;color:#1A5EA8;">Based on proposed 2027 QOZ rules:</strong>
+        5-year deferral of original capital gain &bull; 10% step-up in basis at year 5 &bull; Tax-free exit on QOZ appreciation after 10+ years. These assumptions reflect <a href="https://tax.thomsonreuters.com/news/tax-experts-on-obbba-changes-to-opportunity-zones/" target="_blank" rel="noopener" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:500;">proposed legislative changes</a> to the original <a href="https://www.irs.gov/newsroom/opportunity-zones" target="_blank" rel="noopener" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:500;">IRS Opportunity Zones program</a> and are subject to change. Consult a qualified tax advisor for current law.
+      </p>
+    </div>
+
+    <!-- Input Panel -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2.5rem;" class="calc-grid">
+
+      <!-- Left: Capital Gain Details -->
+      <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:1.75rem;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:1.25rem;">Your Capital Gain</p>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Capital Gain Amount</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="font-size:0.875rem;font-weight:600;color:#2C3E55;">$</span>
+            <input type="text" id="gain-amount" class="calc-input" value="1,000,000" oninput="formatAndCalc(this)">
+          </div>
+          <input type="range" class="calc-slider" id="gain-slider" min="100000" max="10000000" step="50000" value="1000000" oninput="syncSlider('gain-amount',this.value)">
+          <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">The realized capital gain eligible for QOZ deferral. Must be invested within 180 days.</p>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Federal Capital Gains Rate</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="fed-cg-rate" class="calc-input" value="20" oninput="calc()" style="max-width:80px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+          </div>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Net Investment Income Tax (NIIT)</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="niit-rate" class="calc-input" value="3.8" oninput="calc()" style="max-width:80px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+          </div>
+        </div>
+
+        <div class="calc-input-group" style="margin-bottom:0;">
+          <label class="calc-label">State Income Tax Rate</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="state-rate" class="calc-input" value="3.07" oninput="calc()" style="max-width:80px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+            <span style="font-size:0.72rem;color:#9CA3AF;margin-left:0.25rem;">(PA default)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Investment Assumptions -->
+      <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:1.75rem;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:1.25rem;">Investment Assumptions</p>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Annual Return (Both Vehicles)</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="annual-return" class="calc-input" value="6" oninput="calc()" style="max-width:80px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+          </div>
+          <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Same assumed return for both scenarios to isolate the tax advantage. Not a projection or guarantee.</p>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Total Hold Period</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="hold-years" class="calc-input" value="10" oninput="calc()" style="max-width:80px;">
+            <span style="font-size:0.8rem;color:#4A5568;">years</span>
+          </div>
+          <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Minimum 10 years required for tax-free exit on QOZ appreciation.</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(44,62,85,0.10);padding-top:1.25rem;margin-top:0.5rem;">
+          <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:#C49A5A;margin-bottom:1rem;">QOZ Benefits (<a href="https://tax.thomsonreuters.com/news/tax-experts-on-obbba-changes-to-opportunity-zones/" target="_blank" rel="noopener" style="color:#C49A5A;text-decoration:underline;text-underline-offset:2px;">Proposed 2027</a>)</p>
+
+          <div class="calc-input-group">
+            <label class="calc-label">Basis Step-Up at Year 5</label>
+            <div style="display:flex;align-items:center;gap:0.5rem;">
+              <input type="text" id="step-up-pct" class="calc-input" value="10" oninput="calc()" style="max-width:80px;">
+              <span style="font-size:0.8rem;color:#4A5568;">%</span>
+            </div>
+            <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Reduces the taxable portion of the deferred gain at recognition.</p>
+          </div>
+
+          <div class="calc-input-group" style="margin-bottom:0;">
+            <label class="calc-label">Deferral Period</label>
+            <div style="display:flex;align-items:center;gap:0.5rem;">
+              <input type="text" id="deferral-years" class="calc-input" value="5" oninput="calc()" style="max-width:80px;">
+              <span style="font-size:0.8rem;color:#4A5568;">years</span>
+            </div>
+            <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Original gain is recognized after this period. Tax paid from the investment balance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Responsive grid override -->
+    <style>
+      @media(max-width:768px){
+        .calc-grid { grid-template-columns: 1fr !important; }
+      }
+    </style>
+
+    <!-- Results -->
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem;">
+
+      <!-- Scenario A: Realize Gain -->
+      <div class="comparison-card" style="border-top:3px solid #c0392b;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#c0392b;margin-bottom:1rem;">Scenario A: Realize Gain &amp; Reinvest</p>
+
+        <div class="result-row">
+          <span class="result-label">Capital Gain</span>
+          <span class="result-value" id="r-gain">$1,000,000</span>
+        </div>
+
+        <div style="margin:0.75rem 0 0.5rem;">
+          <p style="font-size:0.72rem;font-weight:600;color:#c0392b;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.25rem;">Taxes Paid Immediately</p>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Federal CG Tax (<span id="r-fed-pct">20</span>%)</span>
+          <span class="result-value negative" id="r-fed-tax">($200,000)</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">NIIT (<span id="r-niit-pct">3.8</span>%)</span>
+          <span class="result-value negative" id="r-niit-tax">($38,000)</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">State Tax (<span id="r-state-pct">3.07</span>%)</span>
+          <span class="result-value negative" id="r-state-tax">($30,700)</span>
+        </div>
+        <div class="result-row" style="border-bottom:2px solid rgba(192,57,43,0.20);padding-bottom:0.75rem;">
+          <span class="result-label" style="font-weight:600;color:#c0392b;">Total Tax Paid</span>
+          <span class="result-value negative" style="font-size:1rem;" id="r-total-tax">($268,700)</span>
+        </div>
+
+        <div class="result-row">
+          <span class="result-label">After-Tax Amount Invested</span>
+          <span class="result-value" id="r-after-tax">$731,300</span>
+        </div>
+
+        <div style="margin:1rem 0 0.5rem;">
+          <p style="font-size:0.72rem;font-weight:600;color:rgba(44,62,85,0.50);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.25rem;">After <span id="r-years">10</span> Years at <span id="r-return-pct">6</span>%</p>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Portfolio Value (Pre-Exit Tax)</span>
+          <span class="result-value" id="r-portfolio-gross">$1,309,413</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Growth</span>
+          <span class="result-value" id="r-growth">$578,113</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Tax on Growth at Exit</span>
+          <span class="result-value negative" id="r-exit-tax">($155,237)</span>
+        </div>
+        <div class="result-row" style="border-bottom:none;padding-top:0.75rem;border-top:2px solid rgba(44,62,85,0.12);">
+          <span class="result-label" style="font-weight:600;color:#0F1724;">Net After-Tax Value</span>
+          <span class="result-value" style="font-size:1.125rem;" id="r-net-final">$1,154,176</span>
+        </div>
+      </div>
+
+      <!-- Scenario B: QOZ Fund -->
+      <div class="comparison-card" style="border-top:3px solid #1A5EA8;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#1A5EA8;margin-bottom:1rem;">Scenario B: Qualified Opportunity Zone Fund</p>
+
+        <div class="result-row">
+          <span class="result-label">Capital Gain Invested (Full Amount)</span>
+          <span class="result-value positive" id="r2-invested">$1,000,000</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Additional Capital Working for You</span>
+          <span class="result-value positive" id="r2-extra-capital">$268,700</span>
+        </div>
+
+        <div style="margin:1rem 0 0.5rem;">
+          <p style="font-size:0.72rem;font-weight:600;color:#C49A5A;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.25rem;">At Year <span id="r2-deferral-yr">5</span>: Deferred Gain Recognized</p>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Portfolio Value at Year <span id="r2-deferral-yr2">5</span></span>
+          <span class="result-value" id="r2-value-at-deferral">$1,338,226</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Original Gain</span>
+          <span class="result-value" id="r2-orig-gain">$1,000,000</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Basis Step-Up (<span id="r2-stepup-pct">10</span>%)</span>
+          <span class="result-value positive" id="r2-stepup-amount">$100,000</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Taxable Gain After Step-Up</span>
+          <span class="result-value" id="r2-taxable-gain">$900,000</span>
+        </div>
+        <div class="result-row" style="border-bottom:2px solid rgba(26,94,168,0.15);">
+          <span class="result-label" style="font-weight:500;">Tax Paid (from Investment)</span>
+          <span class="result-value negative" id="r2-deferred-tax">($241,830)</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Portfolio After Tax Payment</span>
+          <span class="result-value" id="r2-value-after-tax">$1,096,396</span>
+        </div>
+
+        <div style="margin:1rem 0 0.5rem;">
+          <p style="font-size:0.72rem;font-weight:600;color:#1A5EA8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.25rem;">At Year <span id="r2-total-yr">10</span>: Tax-Free Exit</p>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Portfolio Value at Exit</span>
+          <span class="result-value" id="r2-final-value">$1,467,579</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Tax on QOZ Appreciation</span>
+          <span class="result-value positive">$0 (tax-free)</span>
+        </div>
+        <div class="result-row" style="border-bottom:none;padding-top:0.75rem;border-top:2px solid rgba(26,94,168,0.20);">
+          <span class="result-label" style="font-weight:600;color:#1A5EA8;">Net After-Tax Value</span>
+          <span class="result-value positive" style="font-size:1.125rem;" id="r2-net-final">$1,467,579</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary callout -->
+    <div id="summary-callout" style="background:linear-gradient(135deg,#0F1724 0%,#133F73 100%);border-radius:10px;padding:2rem 2.25rem;position:relative;overflow:hidden;margin-bottom:2rem;">
+      <div style="position:absolute;top:-40%;right:-10%;width:45%;height:180%;background:radial-gradient(ellipse,rgba(196,154,74,0.15) 0%,transparent 60%);pointer-events:none;"></div>
+      <div style="position:relative;z-index:2;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C49A5A;margin-bottom:0.75rem;">The Bottom Line</p>
+        <p style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;color:white;margin-bottom:0.75rem;line-height:1.35;" id="summary-headline">
+          The QOZ route produces <span style="color:#D4AE6A;" id="summary-advantage">$313,403</span> more in after-tax wealth over <span id="summary-years">10</span> years.
+        </p>
+        <p style="font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.65);font-weight:300;margin:0;" id="summary-detail">
+          By deferring the gain, receiving a 10% basis step-up, and exiting tax-free after 10 years, the QOZ investor retains significantly more capital &mdash; even after paying tax on the deferred gain at year 5.
+        </p>
+      </div>
+    </div>
+
+    <!-- How the Three Benefits Stack -->
+    <div style="background:white;border:1px solid rgba(26,94,168,0.12);border-radius:10px;padding:1.75rem;margin-bottom:2rem;">
+      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:1.5rem;">How the Three QOZ Benefits Stack</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;">
+        <div style="text-align:center;padding:1.25rem;background:rgba(26,94,168,0.03);border-radius:8px;">
+          <div style="font-size:1.75rem;font-weight:700;color:#1A5EA8;margin-bottom:0.5rem;">1</div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.35rem;">Deferral</p>
+          <p style="font-size:0.78rem;color:#4A5568;font-weight:300;line-height:1.6;margin:0;">Your full pre-tax gain compounds for <span id="benefit-defer-years">5</span> years before any tax is owed.</p>
+        </div>
+        <div style="text-align:center;padding:1.25rem;background:rgba(196,154,74,0.04);border-radius:8px;">
+          <div style="font-size:1.75rem;font-weight:700;color:#C49A5A;margin-bottom:0.5rem;">2</div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.35rem;">Basis Step-Up</p>
+          <p style="font-size:0.78rem;color:#4A5568;font-weight:300;line-height:1.6;margin:0;">A <span id="benefit-stepup-pct">10</span>% step-up reduces your taxable gain, saving <span style="font-weight:500;color:#9E7A32;" id="benefit-stepup-savings">$26,870</span> in taxes.</p>
+        </div>
+        <div style="text-align:center;padding:1.25rem;background:rgba(26,94,168,0.03);border-radius:8px;">
+          <div style="font-size:1.75rem;font-weight:700;color:#1A5EA8;margin-bottom:0.5rem;">3</div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.35rem;">Tax-Free Exit</p>
+          <p style="font-size:0.78rem;color:#4A5568;font-weight:300;line-height:1.6;margin:0;">All appreciation on the QOZ investment is permanently excluded from federal income tax after 10 years.</p>
+        </div>
+      </div>
+      <style>@media(max-width:768px){ div[style*="grid-template-columns:1fr 1fr 1fr"] { grid-template-columns: 1fr !important; } }</style>
+    </div>
+
+    <!-- What is a QOZ callout -->
+    <div style="background:white;border:1px solid rgba(26,94,168,0.12);border-left:3px solid #1A5EA8;border-radius:0 8px 8px 0;padding:1.5rem 1.75rem;margin-bottom:2rem;">
+      <p style="font-size:0.875rem;font-weight:600;color:#1A5EA8;margin:0 0 0.5rem;">What is a Qualified Opportunity Zone Fund?</p>
+      <p style="font-size:0.8125rem;line-height:1.7;color:#4A5568;font-weight:300;margin:0;">
+        A <strong>Qualified Opportunity Zone (QOZ) fund</strong> is an investment vehicle organized as a corporation or partnership that deploys at least 90% of its assets into designated economically distressed communities. Created under the <strong>Tax Cuts and Jobs Act of 2017</strong>, the program incentivizes long-term investment in these areas by offering tax benefits: deferral of existing capital gains, a partial reduction in the deferred gain through basis step-up, and &mdash; most powerfully &mdash; permanent exclusion from tax on any new appreciation if the investment is held for at least 10 years. For the full overview of how the program works, see the <a href="https://www.irs.gov/newsroom/opportunity-zones" target="_blank" rel="noopener" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:500;">IRS Opportunity Zones resource page</a>.
+      </p>
+    </div>
+
+    <!-- Key considerations -->
+    <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:1.75rem;margin-bottom:2rem;">
+      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:1.25rem;">Key Considerations</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;" class="considerations-grid">
+        <div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">180-Day Investment Window</p>
+          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">Capital gains must be invested in a QOZ fund within 180 days of the sale that generated the gain. The clock starts on the date of the sale, not the date you receive proceeds. See <a href="https://www.irs.gov/newsroom/opportunity-zones" target="_blank" rel="noopener" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;">IRS Opportunity Zones</a> for full eligibility and timing rules.</p>
+        </div>
+        <div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">Illiquidity &amp; Long Hold</p>
+          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">QOZ investments are illiquid with no public secondary market. To receive the tax-free exit benefit, you must hold for at least 10 years. Early exit forfeits the exclusion on appreciation.</p>
+        </div>
+        <div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">Legislative Risk</p>
+          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">The tax benefits shown are based on <a href="https://tax.thomsonreuters.com/news/tax-experts-on-obbba-changes-to-opportunity-zones/" target="_blank" rel="noopener" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;">proposed 2027 legislation</a> and are not guaranteed. The QOZ program rules, including deferral periods, step-up percentages, and eligibility criteria, may change as legislation evolves.</p>
+        </div>
+        <div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">Investment Risk</p>
+          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">QOZ funds invest in economically distressed areas, which may carry higher investment risk. Tax benefits do not eliminate the risk of loss. Past performance does not guarantee future results.</p>
+        </div>
+        <div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">Only Capital Gains Qualify</p>
+          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">Only capital gains (not ordinary income) are eligible for QOZ deferral. Both short-term and long-term capital gains may qualify, but the tax rates differ.</p>
+        </div>
+        <div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">Tax Due at Year 5</p>
+          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">The deferred gain is recognized after 5 years. This calculator assumes the tax is paid from the investment balance. If paid from outside funds, the QOZ advantage would be even larger.</p>
+        </div>
+      </div>
+      <style>@media(max-width:768px){ .considerations-grid { grid-template-columns: 1fr !important; } }</style>
+    </div>
+
+  </div>
+</section>
+
+<!-- Related Content -->
+<section style="background:white;padding:3rem 0;">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.45);margin-bottom:1.25rem;text-align:center;">Related</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <a href="resources-opportunity-zones.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;border:1px solid rgba(26,94,168,0.10);background:#FAF8F4;text-decoration:none;transition:border-color 0.18s ease,transform 0.18s ease;box-shadow:0 1px 4px rgba(26,94,168,0.06);" onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1A5EA8;margin-bottom:0.35rem;">Article</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">Opportunity Zones Explained</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">How QOZ funds work and what investors should know before committing capital.</div>
+      </a>
+      <a href="estate-tax-estimator.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;border:1px solid rgba(26,94,168,0.10);background:#FAF8F4;text-decoration:none;transition:border-color 0.18s ease,transform 0.18s ease;box-shadow:0 1px 4px rgba(26,94,168,0.06);" onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#C49A5A;margin-bottom:0.35rem;">Interactive Tool</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">Estate Tax Exposure Estimator</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">See your federal estate tax liability and strategies to reduce it.</div>
+      </a>
+      <a href="tax-planning.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;border:1px solid rgba(26,94,168,0.10);background:#FAF8F4;text-decoration:none;transition:border-color 0.18s ease,transform 0.18s ease;box-shadow:0 1px 4px rgba(26,94,168,0.06);" onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1A5EA8;margin-bottom:0.35rem;">Service</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">Tax Planning</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">Proactive tax strategies to minimize your lifetime tax burden.</div>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+
+<!-- DISCLAIMER -->
+<section style="padding:2rem 0;background:#F4F6F9;border-top:1px solid rgba(44,62,85,0.08);">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <p style="font-size:0.75rem;line-height:1.7;color:rgba(44,62,85,0.50);font-weight:300;margin:0;">
+      <strong style="font-weight:600;color:rgba(44,62,85,0.65);">Important Disclosure:</strong>
+      This calculator provides rough estimates for educational and illustrative purposes only and does not constitute tax, legal, financial, or investment advice.
+      <strong style="font-weight:600;">Rubiq Financial Partners is not a tax advisor, CPA, or attorney, and does not provide tax preparation, legal, or accounting services.</strong>
+      The QOZ tax benefits illustrated in this tool are based on <a href="https://tax.thomsonreuters.com/news/tax-experts-on-obbba-changes-to-opportunity-zones/" target="_blank" rel="noopener" style="color:rgba(44,62,85,0.65);text-decoration:underline;text-underline-offset:2px;">proposed 2027 legislative rules</a> that have not yet been enacted into law. For the current IRS program overview, see <a href="https://www.irs.gov/newsroom/opportunity-zones" target="_blank" rel="noopener" style="color:rgba(44,62,85,0.65);text-decoration:underline;text-underline-offset:2px;">IRS.gov &mdash; Opportunity Zones</a>. Actual legislation may differ materially from the assumptions used here, including deferral periods, step-up percentages, holding period requirements, and eligibility criteria. Tax rates, QOZ program rules, and qualifying investment requirements are subject to legislative change at any time.
+      QOZ fund investments are speculative, illiquid, and involve a high degree of risk, including the potential loss of the entire investment. There is no public secondary market for QOZ fund interests. QOZ funds invest in economically distressed areas that may carry elevated risk compared to other real estate or business investments.
+      The assumed annual return is hypothetical and is used solely for comparison purposes. It is not a projection, guarantee, or indication of future results. Actual returns will vary and may be negative. Past performance does not guarantee future results. Diversification does not ensure a profit or guarantee against loss.
+      This tool assumes the tax on the deferred gain at year 5 is paid from the investment balance. If paid from outside funds, outcomes would differ. State tax treatment of QOZ investments varies by jurisdiction; some states do not conform to federal QOZ provisions.
+      Always consult with a qualified tax advisor, attorney, and financial advisor before making any investment or tax planning decisions.
+    </p>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 55%,#1A5EA8 100%);padding:3.5rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-30%;right:-10%;width:50%;height:150%;background:radial-gradient(ellipse,rgba(196,154,74,0.18) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center" style="position:relative;z-index:2;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
+      Have a capital gain you&rsquo;d like to defer?<br /><em style="font-style:italic;color:#D4AE6A;">Let&rsquo;s explore your options.</em>
+    </h2>
+    <div style="display:flex;flex-direction:column;gap:0.75rem;align-items:center;margin-bottom:2rem;">
+      <a href="tel:6102159499" style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);transition:color 0.18s ease;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="15" height="15" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.36C1.21 2.18 2.12 1 3.3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.76-.76a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.28 16z"/></svg>
+        610-215-9499
+      </a>
+      <a href="mailto:clientservice@rubiqfinancial.com" style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);transition:color 0.18s ease;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="15" height="15" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        clientservice@rubiqfinancial.com
+      </a>
+    </div>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="schedule.html"><button class="btn-gold" style="background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);color:#0F1724;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;letter-spacing:0.04em;text-transform:uppercase;padding:0.875rem 2.25rem;border-radius:4px;border:none;cursor:pointer;">Schedule a Call</button></a>
+      <a href="our-team.html"><button class="btn-ghost" style="background:transparent;color:white;font-family:'Inter',sans-serif;font-weight:500;font-size:0.875rem;letter-spacing:0.04em;text-transform:uppercase;padding:0.75rem 1.75rem;border-radius:4px;border:1.5px solid rgba(255,255,255,0.35);cursor:pointer;">Meet Our Advisors</button></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer style="background:#0F1724;padding:2rem 0;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png" alt="Rubiq Financial Partners logo" width="120" height="26" style="height:26px;width:auto;opacity:0.70;" loading="lazy" decoding="async" />
+    <div style="text-align:center;">
+      <p style="font-size:0.8rem;color:rgba(255,255,255,0.40);margin:0 0 0.35rem;">&copy; 2026 Rubiq Financial Partners LLC. All rights reserved.</p>
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.38);margin:0 0 0.5rem;line-height:1.6;font-weight:300;">Advisory services offered through Wealthcare Advisory Partners. Not a solicitation in any jurisdiction where not registered or exempt.</p>
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.42);margin:0 0 0.75rem;line-height:1.6;font-weight:300;">
+        <a href="../Media/FormCRS_WCAP_20240325 (Updated - use this one).pdf" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35);text-decoration:underline;text-underline-offset:2px;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.60)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Form CRS</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://adviserinfo.sec.gov/firm/summary/171976" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35);text-decoration:underline;text-underline-offset:2px;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.60)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Form ADV Part 2A</a>
+      </p>
+      <div style="display:flex;justify-content:center;gap:1.5rem;">
+        <a href="privacy-policy.html" style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</a>
+        <a href="terms-of-use.html" style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Terms of Use</a>
+        <a href="faq.html" style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">FAQ</a>
+        <a href="sitemap.html" style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky Mobile CTA -->
+<a id="sticky-mobile-cta" href="schedule.html" style="display:none;position:fixed;bottom:-60px;left:1rem;right:1rem;z-index:9998;background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);color:#0F1724;text-align:center;font-family:'Inter',sans-serif;font-size:0.9375rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;padding:1rem;border-radius:6px;box-shadow:0 -2px 16px rgba(0,0,0,0.25),0 4px 12px rgba(196,154,74,0.35);transition:bottom 0.3s cubic-bezier(0.4,0,0.2,1);">Schedule a Call</a>
+<style>@media(min-width:768px){ #sticky-mobile-cta{display:none!important;} }</style>
+<script>
+(function(){
+  var cta=document.getElementById('sticky-mobile-cta');
+  if(!cta)return;
+  if(window.innerWidth<768) cta.style.display='block';
+  window.addEventListener('scroll',function(){
+    if(window.innerWidth>=768)return;
+    cta.style.display='block';
+    cta.style.bottom=window.scrollY>100?'1rem':'-60px';
+  },{passive:true});
+  window.addEventListener('resize',function(){
+    cta.style.display=window.innerWidth<768?'block':'none';
+  });
+})();
+</script>
+
+<!-- Calculator Engine -->
+<script>
+function parseNum(id) {
+  var el = document.getElementById(id);
+  return parseFloat(el.value.replace(/[^0-9.\-]/g,'')) || 0;
+}
+function fmt(n) {
+  return n.toLocaleString('en-US', {maximumFractionDigits:0});
+}
+function fmtDollar(n) {
+  if (n < 0) return '($' + fmt(Math.abs(n)) + ')';
+  return '$' + fmt(n);
+}
+function formatAndCalc(el) {
+  var raw = el.value.replace(/[^0-9]/g,'');
+  if (raw) el.value = parseInt(raw).toLocaleString('en-US');
+  calc();
+}
+function syncSlider(inputId, val) {
+  var el = document.getElementById(inputId);
+  el.value = parseInt(val).toLocaleString('en-US');
+  calc();
+}
+
+function calc() {
+  var gain        = parseNum('gain-amount');
+  var fedRate     = parseNum('fed-cg-rate') / 100;
+  var niitRate    = parseNum('niit-rate') / 100;
+  var stateRate   = parseNum('state-rate') / 100;
+  var annualReturn = parseNum('annual-return') / 100;
+  var holdYears   = Math.max(parseNum('hold-years'), 1);
+  var stepUpPct   = parseNum('step-up-pct') / 100;
+  var deferYears  = Math.max(parseNum('deferral-years'), 1);
+
+  var combinedRate = fedRate + niitRate + stateRate;
+
+  // Sync slider
+  document.getElementById('gain-slider').value = gain;
+
+  // ── SCENARIO A: Realize Gain & Reinvest ──
+  var fedTax   = gain * fedRate;
+  var niitTax  = gain * niitRate;
+  var stateTax = gain * stateRate;
+  var totalTaxA = fedTax + niitTax + stateTax;
+
+  var afterTaxInvested = gain - totalTaxA;
+  var portfolioGrossA  = afterTaxInvested * Math.pow(1 + annualReturn, holdYears);
+  var growthA          = portfolioGrossA - afterTaxInvested;
+  var exitTaxA         = growthA * combinedRate;
+  var netFinalA        = portfolioGrossA - exitTaxA;
+
+  // ── SCENARIO B: QOZ Fund ──
+  // Full gain invested, grows for deferral period
+  var valueAtDeferral = gain * Math.pow(1 + annualReturn, deferYears);
+
+  // At deferral year: recognize gain with step-up
+  var stepUpAmount  = gain * stepUpPct;
+  var taxableGain   = gain - stepUpAmount;
+  var deferredTax   = taxableGain * combinedRate;
+  var stepUpSavings = stepUpAmount * combinedRate;
+
+  // Tax paid from investment
+  var valueAfterTax = valueAtDeferral - deferredTax;
+
+  // Remaining years of growth
+  var remainingYears = Math.max(holdYears - deferYears, 0);
+  var finalValueB    = valueAfterTax * Math.pow(1 + annualReturn, remainingYears);
+
+  // Tax-free exit (all QOZ appreciation excluded)
+  var netFinalB = finalValueB;
+
+  var advantage = netFinalB - netFinalA;
+
+  // ── UPDATE SCENARIO A ──
+  document.getElementById('r-gain').textContent        = fmtDollar(gain);
+  document.getElementById('r-fed-pct').textContent      = (fedRate * 100).toFixed(0);
+  document.getElementById('r-niit-pct').textContent     = (niitRate * 100).toFixed(1);
+  document.getElementById('r-state-pct').textContent    = (stateRate * 100).toFixed(2);
+  document.getElementById('r-fed-tax').textContent      = '(' + fmtDollar(fedTax) + ')';
+  document.getElementById('r-niit-tax').textContent     = '(' + fmtDollar(niitTax) + ')';
+  document.getElementById('r-state-tax').textContent    = '(' + fmtDollar(stateTax) + ')';
+  document.getElementById('r-total-tax').textContent    = '(' + fmtDollar(totalTaxA) + ')';
+  document.getElementById('r-after-tax').textContent    = fmtDollar(afterTaxInvested);
+  document.getElementById('r-years').textContent        = holdYears;
+  document.getElementById('r-return-pct').textContent   = (annualReturn * 100).toFixed(0);
+  document.getElementById('r-portfolio-gross').textContent = fmtDollar(portfolioGrossA);
+  document.getElementById('r-growth').textContent       = fmtDollar(growthA);
+  document.getElementById('r-exit-tax').textContent     = '(' + fmtDollar(exitTaxA) + ')';
+  document.getElementById('r-net-final').textContent    = fmtDollar(netFinalA);
+
+  // ── UPDATE SCENARIO B ──
+  document.getElementById('r2-invested').textContent         = fmtDollar(gain);
+  document.getElementById('r2-extra-capital').textContent     = fmtDollar(totalTaxA);
+  document.getElementById('r2-deferral-yr').textContent       = deferYears;
+  document.getElementById('r2-deferral-yr2').textContent      = deferYears;
+  document.getElementById('r2-value-at-deferral').textContent = fmtDollar(valueAtDeferral);
+  document.getElementById('r2-orig-gain').textContent         = fmtDollar(gain);
+  document.getElementById('r2-stepup-pct').textContent        = (stepUpPct * 100).toFixed(0);
+  document.getElementById('r2-stepup-amount').textContent     = fmtDollar(stepUpAmount);
+  document.getElementById('r2-taxable-gain').textContent      = fmtDollar(taxableGain);
+  document.getElementById('r2-deferred-tax').textContent      = '(' + fmtDollar(deferredTax) + ')';
+  document.getElementById('r2-value-after-tax').textContent   = fmtDollar(valueAfterTax);
+  document.getElementById('r2-total-yr').textContent          = holdYears;
+  document.getElementById('r2-final-value').textContent       = fmtDollar(finalValueB);
+  document.getElementById('r2-net-final').textContent         = fmtDollar(netFinalB);
+
+  // ── BENEFITS SECTION ──
+  document.getElementById('benefit-defer-years').textContent    = deferYears;
+  document.getElementById('benefit-stepup-pct').textContent     = (stepUpPct * 100).toFixed(0);
+  document.getElementById('benefit-stepup-savings').textContent = fmtDollar(stepUpSavings);
+
+  // ── SUMMARY ──
+  document.getElementById('summary-years').textContent     = holdYears;
+  document.getElementById('summary-advantage').textContent = fmtDollar(advantage);
+  document.getElementById('summary-headline').innerHTML =
+    'The QOZ route produces <span style="color:#D4AE6A;">' + fmtDollar(advantage) + '</span> more in after-tax wealth over ' + holdYears + ' years.';
+  document.getElementById('summary-detail').innerHTML =
+    'By deferring the gain, receiving a ' + (stepUpPct*100).toFixed(0) + '% basis step-up, and exiting tax-free after ' + holdYears + ' years, the QOZ investor retains significantly more capital &mdash; even after paying tax on the deferred gain at year ' + deferYears + '.';
+}
+
+// Run on load
+calc();
+</script>
+</body>
+</html>
