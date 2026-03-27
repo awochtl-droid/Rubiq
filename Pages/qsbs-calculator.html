@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QSBS 1202 vs. S-Corp/LLC Sale Calculator | Rubiq Financial Partners</title>
+  <meta name="description" content="Compare selling a business as an S-Corp or LLC versus converting to a C-Corp and qualifying for the Section 1202 QSBS exclusion. Calculate your breakeven conversion timeline." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/qsbs-calculator.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rubiq: {
+              blue:      '#1A5EA8',
+              bluedark:  '#133F73',
+              bluelight: '#2A74C8',
+              gold:      '#C49A5A',
+              goldlight: '#D4AE6A',
+              golddark:  '#9E7A32',
+              ink:       '#0F1724',
+              inksoft:   '#1C2D44',
+              slate:     '#2C3E55',
+              mist:      '#F4F6F9',
+              parchment: '#FAF8F4',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
+
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
+      text-decoration: none; position: relative; padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1.5px; background: #C49A5A; transition: width 0.22s ease;
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-gold {
+      background: linear-gradient(135deg, #C49A5A 0%, #D4AE6A 100%);
+      color: #0F1724; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.875rem 2.25rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .btn-gold:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(196,154,74,0.40); }
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); transform: translateY(-1px); }
+
+    .calc-input-group { margin-bottom: 1.25rem; }
+    .calc-label {
+      display: block; font-size: 0.78rem; font-weight: 600; color: #2C3E55;
+      letter-spacing: 0.02em; margin-bottom: 0.4rem;
+    }
+    .calc-input {
+      width: 100%; padding: 0.625rem 0.875rem; border: 1px solid rgba(26,94,168,0.20);
+      border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 0.9rem;
+      color: #0F1724; background: white; transition: border-color 0.18s ease;
+      outline: none;
+    }
+    .calc-input:focus { border-color: #1A5EA8; box-shadow: 0 0 0 3px rgba(26,94,168,0.08); }
+    .calc-slider {
+      width: 100%; height: 6px; -webkit-appearance: none; appearance: none;
+      background: linear-gradient(90deg, #1A5EA8 0%, #C49A5A 100%);
+      border-radius: 3px; outline: none; margin-top: 0.5rem;
+    }
+    .calc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;
+      background: white; border: 2px solid #1A5EA8; cursor: pointer;
+      box-shadow: 0 2px 6px rgba(26,94,168,0.25);
+    }
+    .calc-slider::-moz-range-thumb {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: white; border: 2px solid #1A5EA8; cursor: pointer;
+    }
+
+    .result-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 0.5rem 0; border-bottom: 1px solid rgba(44,62,85,0.08);
+    }
+    .result-row:last-child { border-bottom: none; }
+    .result-label { font-size: 0.8125rem; color: #4A5568; font-weight: 400; }
+    .result-value { font-size: 0.9rem; font-weight: 600; color: #0F1724; font-variant-numeric: tabular-nums; }
+    .result-value.negative { color: #c0392b; }
+    .result-value.positive { color: #1A5EA8; }
+    .result-value.gold { color: #9E7A32; }
+
+    .comparison-card {
+      background: white; border: 1px solid rgba(26,94,168,0.10);
+      border-radius: 10px; padding: 1.75rem; flex: 1; min-width: 280px;
+    }
+
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+    @media (max-width: 767px) {
+      #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+      footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
+    }
+  </style>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32" />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="Rubiq Financial Partners" />
+  <meta property="og:title"       content="QSBS 1202 vs. S-Corp/LLC Sale Calculator | Rubiq Financial Partners" />
+  <meta property="og:description" content="Compare selling a business as an S-Corp/LLC versus converting to a C-Corp for the QSBS Section 1202 exclusion." />
+  <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/qsbs-calculator.html" />
+  <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="QSBS 1202 vs. S-Corp/LLC Sale Calculator | Rubiq Financial Partners" />
+  <meta name="twitter:description" content="Compare selling a business as an S-Corp/LLC versus converting to a C-Corp for the QSBS Section 1202 exclusion." />
+  <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "QSBS 1202 vs. S-Corp/LLC Sale Calculator",
+        "description": "Compare selling a business as an S-Corp or LLC versus converting to a C-Corp and qualifying for the Section 1202 QSBS exclusion. Includes breakeven conversion timeline.",
+        "url": "https://www.rubiqfinancial.com/Pages/qsbs-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@id": "https://www.rubiqfinancial.com/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.rubiqfinancial.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.rubiqfinancial.com/Pages/insights.html" },
+          { "@type": "ListItem", "position": 3, "name": "QSBS Calculator", "item": "https://www.rubiqfinancial.com/Pages/qsbs-calculator.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the Section 1202 QSBS exclusion?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Section 1202 of the Internal Revenue Code allows shareholders of qualified small business stock (QSBS) to exclude up to 100% of their capital gain from federal income tax when they sell the stock, provided the stock was held for at least five years. The exclusion is capped at the greater of $15 million or 10 times the adjusted basis in the stock. The business must be a domestic C-corporation with gross assets under $50 million at the time the stock was issued, and it must be an active qualified trade or business."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I convert my S-Corp or LLC to a C-Corp to qualify for QSBS?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, it is possible to convert an S-Corp or LLC to a C-Corp and have the newly issued C-Corp stock qualify as QSBS, but the conversion must be structured carefully. The five-year holding period begins when the C-Corp stock is issued, not when the original entity was formed. Additionally, the C-Corp must meet all Section 1202 requirements including gross asset limits and active business tests. The tradeoff is that operating as a C-Corp subjects the business to corporate-level income tax (currently 21%), which reduces after-tax operating cash flow compared to a pass-through entity."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the C-Corp tax drag and why does it matter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The C-Corp tax drag refers to the entity-level federal income tax (currently 21%) that a C-Corp pays on its operating income. S-Corps and LLCs are pass-through entities that do not pay entity-level federal income tax — instead, income passes through to owners. When evaluating a conversion to C-Corp for QSBS purposes, the cumulative corporate tax paid during the holding period must be weighed against the tax savings from the Section 1202 exclusion at sale. If the business operates as a C-Corp for too many years before sale, the accumulated tax drag can exceed the QSBS benefit."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "Rubiq Financial Partners",
+    "url": "https://www.rubiqfinancial.com",
+    "logo": "https://www.rubiqfinancial.com/Brand_assets/Rubiq%20Financial%20Partners%20Logo%20-%20FINAL2-Horizontal.png",
+    "description": "Independent fiduciary wealth management for ultra-high-net-worth families, entrepreneurs, and real estate investors.",
+    "telephone": "+1-610-215-9499",
+    "email": "clientservice@rubiqfinancial.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1065 Andrew Drive",
+      "addressLocality": "West Chester",
+      "addressRegion": "PA",
+      "postalCode": "19380",
+      "addressCountry": "US"
+    },
+    "areaServed": [{"@type": "Country", "name": "United States"}],
+    "founder": {"@type": "Person", "name": "Andreas M. Wochtl", "jobTitle": "Private Wealth Advisor"},
+    "priceRange": "$$$$"
+  }
+  </script>
+</head>
+<body>
+
+<!-- Skip nav -->
+<a href="#main-content" style="position:absolute;top:-100%;left:1rem;z-index:9999;background:#C49A5A;color:#0F1724;padding:0.75rem 1.5rem;font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;border-radius:0 0 4px 4px;transition:top 0.18s ease;" onfocus="this.style.top='0'" onblur="this.style.top='-100%'">Skip to main content</a>
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur" style="background:rgba(15,23,36,0.90);border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex-shrink-0 flex items-center">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Vertical -White.png" alt="Rubiq Financial Partners" width="240" height="44" style="height:44px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="our-clients.html" class="nav-link">Our Clients</a>
+        <a href="our-capabilities.html" class="nav-link">Our Capabilities</a>
+        <a href="our-team.html" class="nav-link">Our Team</a>
+        <a href="insights.html" class="nav-link active">Insights</a>
+        <a href="fee-structure.html" class="nav-link">Fee Structure</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="client-portal.html"><button class="btn-ghost">Client Access</button></a>
+        <a href="schedule.html"><button class="btn-primary">Schedule a Call</button></a>
+      </div>
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('open')" class="md:hidden p-2" style="color:white;" aria-label="Open navigation menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" style="background:rgba(15,23,36,0.97);border-top:1px solid rgba(255,255,255,0.07);flex-direction:column;padding:1.5rem 1.5rem 2rem;">
+    <a href="our-clients.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Clients</a>
+    <a href="our-capabilities.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Capabilities</a>
+    <a href="our-team.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Team</a>
+    <a href="insights.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Insights</a>
+    <a href="fee-structure.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Fee Structure</a>
+    <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.75rem;">
+      <a href="schedule.html"><button class="btn-gold" style="width:100%;">Schedule a Call</button></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 50%,#1A5EA8 100%);padding:7rem 0 4rem;position:relative;overflow:hidden;">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.025;pointer-events:none;" aria-hidden="true">
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+  <div style="position:absolute;top:-10%;right:-5%;width:55%;height:110%;background:radial-gradient(ellipse,rgba(196,154,74,0.12) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
+    <a href="insights.html" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:2rem;font-size:0.75rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&larr; Insights</a>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.25);border-radius:100px;padding:0.35rem 1rem;margin-bottom:2rem;">
+      <div style="width:6px;height:6px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">Interactive Tool</span>
+    </div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:white;margin-bottom:1.25rem;">
+      QSBS &sect;1202 vs. S-Corp/LLC Sale
+    </h1>
+    <p style="font-size:1.0625rem;line-height:1.7;color:rgba(255,255,255,0.72);font-weight:300;max-width:620px;">
+      Should you convert to a C-Corp for the Section 1202 exclusion, or sell as a pass-through entity? This tool compares the total tax burden of each path &mdash; including the C-Corp tax drag during operations &mdash; and calculates how many years before the conversion stops making sense.
+    </p>
+  </div>
+</section>
+
+
+<!-- MAIN CONTENT -->
+<main id="main-content">
+<section style="padding:3.5rem 0 4rem;background:#FAF8F4;">
+  <div class="max-w-5xl mx-auto px-6 lg:px-10">
+
+    <!-- 1202 Context Banner -->
+    <div style="background:linear-gradient(135deg,rgba(26,94,168,0.06) 0%,rgba(196,154,74,0.06) 100%);border:1px solid rgba(26,94,168,0.15);border-left:3px solid #C49A5A;border-radius:0 8px 8px 0;padding:1rem 1.5rem;margin-bottom:2rem;">
+      <p style="font-size:0.78rem;line-height:1.65;color:#2C3E55;font-weight:400;margin:0;">
+        <strong style="font-weight:600;color:#1A5EA8;"><a href="https://www.law.cornell.edu/uscode/text/26/1202" target="_blank" rel="noopener" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;">Section 1202</a> QSBS requirements:</strong>
+        C-Corporation &bull; Stock held &ge;5 years &bull; Gross assets &lt;$50M at issuance &bull; Active qualified trade or business &bull; Exclusion capped at the greater of $15M or 10&times; adjusted basis. See <a href="https://www.irs.gov/pub/irs-pdf/p550.pdf" target="_blank" rel="noopener" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;">IRS Publication 550</a> for full eligibility criteria.
+      </p>
+    </div>
+
+    <!-- Input Panel -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2.5rem;" class="calc-grid">
+
+      <!-- Left: Business Details -->
+      <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:1.75rem;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:1.25rem;">Business &amp; Sale Details</p>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Expected Sale Price</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="font-size:0.875rem;font-weight:600;color:#2C3E55;">$</span>
+            <input type="text" id="sale-price" class="calc-input" value="5,000,000" oninput="formatAndCalc(this)">
+          </div>
+          <input type="range" class="calc-slider" id="sale-slider" min="500000" max="50000000" step="100000" value="5000000" oninput="syncSlider('sale-price',this.value)">
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Cost Basis (Original Investment / Capitalization)</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="font-size:0.875rem;font-weight:600;color:#2C3E55;">$</span>
+            <input type="text" id="cost-basis" class="calc-input" value="500,000" oninput="formatAndCalc(this)">
+          </div>
+          <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Your original investment or capitalized cost in the business.</p>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Annual Pre-Tax Operating Income</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="font-size:0.875rem;font-weight:600;color:#2C3E55;">$</span>
+            <input type="text" id="annual-income" class="calc-input" value="750,000" oninput="formatAndCalc(this)">
+          </div>
+          <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Annual taxable income at the entity level. As an S-Corp this has no entity tax; as a C-Corp it is taxed at the corporate rate.</p>
+        </div>
+
+        <div class="calc-input-group" style="margin-bottom:0;">
+          <label class="calc-label">Years Until Sale</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="years-ccorp" class="calc-input" value="5" oninput="calc()" style="max-width:80px;">
+            <span style="font-size:0.8rem;color:#4A5568;">years</span>
+            <span style="font-size:0.72rem;color:#9CA3AF;margin-left:0.25rem;">(minimum 5 for QSBS)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Tax Rates & QSBS -->
+      <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:1.75rem;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:1.25rem;">Tax Rates</p>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Federal Capital Gains + NIIT</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="cg-rate" class="calc-input" value="23.8" oninput="calc()" style="max-width:80px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+          </div>
+          <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">20% federal long-term capital gains + 3.8% NIIT = 23.8%</p>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">State Capital Gains Tax Rate</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="state-rate" class="calc-input" value="3.07" oninput="calc()" style="max-width:80px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+            <span style="font-size:0.72rem;color:#9CA3AF;margin-left:0.25rem;">(PA default)</span>
+          </div>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Federal Corporate Tax Rate (C-Corp)</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="corp-rate" class="calc-input" value="21" oninput="calc()" style="max-width:80px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid rgba(44,62,85,0.10);padding-top:1.25rem;margin-top:0.5rem;">
+          <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:#C49A5A;margin-bottom:1rem;">QSBS &sect;1202 Parameters</p>
+
+          <div class="calc-input-group">
+            <label class="calc-label">QSBS Exclusion Cap</label>
+            <div style="display:flex;align-items:center;gap:0.5rem;">
+              <span style="font-size:0.875rem;font-weight:600;color:#2C3E55;">$</span>
+              <input type="text" id="qsbs-cap" class="calc-input" value="15,000,000" oninput="formatAndCalc(this)">
+            </div>
+            <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">The greater of $15M or 10&times; your adjusted basis. This tool calculates the effective cap automatically.</p>
+          </div>
+
+          <div class="calc-input-group" style="margin-bottom:0;">
+            <label class="calc-label">QSBS Exclusion Percentage</label>
+            <div style="display:flex;align-items:center;gap:0.5rem;">
+              <input type="text" id="qsbs-pct" class="calc-input" value="100" oninput="calc()" style="max-width:80px;">
+              <span style="font-size:0.8rem;color:#4A5568;">%</span>
+            </div>
+            <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">100% for stock acquired after 9/27/2010. Earlier vintages may be 50% or 75%.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      @media(max-width:768px){
+        .calc-grid { grid-template-columns: 1fr !important; }
+      }
+    </style>
+
+    <!-- Results -->
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem;">
+
+      <!-- S-Corp Scenario -->
+      <div class="comparison-card" style="border-top:3px solid #c0392b;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#c0392b;margin-bottom:1rem;">Scenario A: Sell as S-Corp / LLC</p>
+
+        <div class="result-row">
+          <span class="result-label">Sale Price</span>
+          <span class="result-value" id="rA-sale">$5,000,000</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Cost Basis</span>
+          <span class="result-value" id="rA-basis">$500,000</span>
+        </div>
+        <div class="result-row" style="border-bottom:2px solid rgba(44,62,85,0.12);">
+          <span class="result-label" style="font-weight:500;">Capital Gain</span>
+          <span class="result-value" id="rA-gain">$4,500,000</span>
+        </div>
+
+        <div style="margin:1rem 0 0.5rem;">
+          <p style="font-size:0.72rem;font-weight:600;color:rgba(44,62,85,0.50);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.25rem;">Entity-Level Tax During Operations</p>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Corporate tax paid (S-Corp = pass-through)</span>
+          <span class="result-value positive">$0</span>
+        </div>
+
+        <div style="margin:1rem 0 0.5rem;">
+          <p style="font-size:0.72rem;font-weight:600;color:#c0392b;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.25rem;">Exit Tax</p>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Federal CG + NIIT (<span id="rA-cg-pct">23.8</span>%)</span>
+          <span class="result-value negative" id="rA-fed-tax">($1,071,000)</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">State Tax (<span id="rA-state-pct">3.07</span>%)</span>
+          <span class="result-value negative" id="rA-state-tax">($138,150)</span>
+        </div>
+        <div class="result-row" style="border-bottom:2px solid rgba(192,57,43,0.20);padding-bottom:0.75rem;">
+          <span class="result-label" style="font-weight:600;color:#c0392b;">Total Tax Burden</span>
+          <span class="result-value negative" style="font-size:1rem;" id="rA-total-tax">($1,209,150)</span>
+        </div>
+
+        <div class="result-row" style="border-bottom:none;padding-top:0.75rem;">
+          <span class="result-label" style="font-weight:600;color:#0F1724;">Net After-Tax Proceeds</span>
+          <span class="result-value" style="font-size:1.125rem;" id="rA-net">$3,790,850</span>
+        </div>
+      </div>
+
+      <!-- QSBS Scenario -->
+      <div class="comparison-card" style="border-top:3px solid #1A5EA8;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#1A5EA8;margin-bottom:1rem;">Scenario B: Convert to C-Corp &amp; QSBS Exit</p>
+
+        <div class="result-row">
+          <span class="result-label">Sale Price</span>
+          <span class="result-value" id="rB-sale">$5,000,000</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Cost Basis</span>
+          <span class="result-value" id="rB-basis">$500,000</span>
+        </div>
+        <div class="result-row" style="border-bottom:2px solid rgba(26,94,168,0.15);">
+          <span class="result-label" style="font-weight:500;">Capital Gain</span>
+          <span class="result-value" id="rB-gain">$4,500,000</span>
+        </div>
+
+        <div style="margin:1rem 0 0.5rem;">
+          <p style="font-size:0.72rem;font-weight:600;color:#C49A5A;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.25rem;">C-Corp Tax Drag (<span id="rB-years">5</span> Years)</p>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Annual Corporate Tax (<span id="rB-corp-pct">21</span>% &times; <span id="rB-ann-income">$750,000</span>)</span>
+          <span class="result-value negative" id="rB-annual-drag">($157,500)</span>
+        </div>
+        <div class="result-row" style="border-bottom:2px solid rgba(196,154,74,0.20);">
+          <span class="result-label" style="font-weight:600;color:#9E7A32;">Cumulative C-Corp Tax Drag</span>
+          <span class="result-value negative" style="font-size:1rem;" id="rB-total-drag">($787,500)</span>
+        </div>
+
+        <div style="margin:1rem 0 0.5rem;">
+          <p style="font-size:0.72rem;font-weight:600;color:#1A5EA8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.25rem;">&sect;1202 QSBS Exclusion at Exit</p>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Effective Exclusion Cap</span>
+          <span class="result-value positive" id="rB-eff-cap">$15,000,000</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Gain Excluded (<span id="rB-excl-pct">100</span>%)</span>
+          <span class="result-value positive" id="rB-excluded">$4,500,000</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Remaining Taxable Gain</span>
+          <span class="result-value" id="rB-taxable">$0</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Federal + State Tax on Remaining Gain</span>
+          <span class="result-value" id="rB-exit-tax">$0</span>
+        </div>
+
+        <div class="result-row" style="border-bottom:2px solid rgba(26,94,168,0.20);padding-bottom:0.75rem;margin-top:0.5rem;">
+          <span class="result-label" style="font-weight:600;color:#1A5EA8;">Total Tax Burden (Drag + Exit)</span>
+          <span class="result-value" style="font-size:1rem;" id="rB-total-tax">($787,500)</span>
+        </div>
+
+        <div class="result-row" style="border-bottom:none;padding-top:0.75rem;">
+          <span class="result-label" style="font-weight:600;color:#0F1724;">Net After-Tax Proceeds</span>
+          <span class="result-value positive" style="font-size:1.125rem;" id="rB-net">$4,212,500</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary callout -->
+    <div id="summary-callout" style="background:linear-gradient(135deg,#0F1724 0%,#133F73 100%);border-radius:10px;padding:2rem 2.25rem;position:relative;overflow:hidden;margin-bottom:2rem;">
+      <div style="position:absolute;top:-40%;right:-10%;width:45%;height:180%;background:radial-gradient(ellipse,rgba(196,154,74,0.15) 0%,transparent 60%);pointer-events:none;"></div>
+      <div style="position:relative;z-index:2;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C49A5A;margin-bottom:0.75rem;">The Bottom Line</p>
+        <p style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;color:white;margin-bottom:0.75rem;line-height:1.35;" id="summary-headline">
+          The QSBS path saves <span style="color:#D4AE6A;">$421,650</span> after accounting for the C-Corp tax drag.
+        </p>
+        <p style="font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.65);font-weight:300;margin:0;" id="summary-detail">
+          Even after paying $787,500 in cumulative corporate tax over 5 years, the Section 1202 exclusion saves $1,209,150 at exit &mdash; a net benefit of $421,650.
+        </p>
+      </div>
+    </div>
+
+    <!-- Breakeven callout -->
+    <div style="background:white;border:1px solid rgba(196,154,74,0.20);border-left:3px solid #C49A5A;border-radius:0 8px 8px 0;padding:1.5rem 1.75rem;margin-bottom:2rem;">
+      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C49A5A;margin-bottom:0.5rem;">Breakeven Analysis</p>
+      <p style="font-size:1.125rem;font-weight:600;color:#0F1724;margin:0 0 0.5rem;" id="breakeven-headline">
+        Breakeven: 7.7 years
+      </p>
+      <p style="font-size:0.8125rem;line-height:1.7;color:#4A5568;font-weight:300;margin:0;" id="breakeven-detail">
+        If you operate as a C-Corp for more than 7.7 years before sale, the cumulative corporate tax drag will exceed the QSBS exit tax savings. The conversion is most beneficial when the sale occurs as close to the 5-year minimum as possible.
+      </p>
+    </div>
+
+    <!-- Accountant's Note -->
+    <div style="background:linear-gradient(135deg,rgba(196,154,74,0.08) 0%,rgba(26,94,168,0.06) 100%);border:1px solid rgba(196,154,74,0.20);border-left:3px solid #C49A5A;border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin-bottom:2rem;">
+      <p style="font-size:0.78rem;font-weight:600;color:#9E7A32;margin:0 0 0.35rem;letter-spacing:0.03em;">Accountant&rsquo;s Note</p>
+      <p style="font-size:0.8125rem;line-height:1.7;color:#4A5568;font-weight:300;margin:0;">
+        Businesses can &mdash; and routinely do &mdash; maintain two sets of books: one prepared under GAAP (or managerial accounting standards) for internal control, performance evaluation, and lender reporting, and a second prepared under the Internal Revenue Code for tax purposes. The two will often diverge on items like depreciation schedules, revenue recognition timing, and inventory valuation. When modeling a C-Corp conversion, it is the <em>tax</em> books that determine the corporate tax liability shown above. A qualified CPA can help you understand how your specific book-to-tax differences would affect the actual drag.
+      </p>
+    </div>
+
+    <!-- What is QSBS callout -->
+    <div style="background:white;border:1px solid rgba(26,94,168,0.12);border-left:3px solid #1A5EA8;border-radius:0 8px 8px 0;padding:1.5rem 1.75rem;margin-bottom:2rem;">
+      <p style="font-size:0.875rem;font-weight:600;color:#1A5EA8;margin:0 0 0.5rem;">What is Section 1202 QSBS?</p>
+      <p style="font-size:0.8125rem;line-height:1.7;color:#4A5568;font-weight:300;margin:0;">
+        <a href="https://www.law.cornell.edu/uscode/text/26/1202" target="_blank" rel="noopener" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:500;">Section 1202</a> of the Internal Revenue Code provides a powerful incentive for investors in qualified small businesses: up to 100% of the capital gain from the sale of <strong>Qualified Small Business Stock (QSBS)</strong> can be excluded from federal income tax. To qualify, the stock must be in a domestic C-Corporation with gross assets under $50 million at the time of issuance, the corporation must be engaged in an active qualified trade or business, and the stock must be held for at least five years. The exclusion is capped at the greater of <strong>$15 million</strong> or <strong>10 times the adjusted basis</strong> in the stock. For business owners currently operating as S-Corps or LLCs, converting to a C-Corp can unlock this benefit &mdash; but at the cost of entity-level taxation during the holding period.
+      </p>
+    </div>
+
+    <!-- Key considerations -->
+    <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:1.75rem;margin-bottom:2rem;">
+      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:1.25rem;">Key Considerations</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;" class="considerations-grid">
+        <div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">5-Year Holding Period</p>
+          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">The QSBS 5-year clock starts when the C-Corp stock is issued, not when the original entity was formed. A conversion from S-Corp or LLC resets the clock. Planning the conversion well in advance of a potential sale is essential.</p>
+        </div>
+        <div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">$50 Million Gross Asset Limit</p>
+          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">The corporation&rsquo;s aggregate gross assets must not exceed $50 million at the time the stock is issued and immediately after. If your business is growing rapidly, timing the conversion before this threshold is critical.</p>
+        </div>
+        <div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">State Tax Conformity Varies</p>
+          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">Not all states conform to the federal Section 1202 exclusion. Some states (like California) do not recognize the exclusion and will tax the gain at the full state rate regardless. Check your state&rsquo;s conformity before relying on this strategy.</p>
+        </div>
+        <div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">Qualified Trade or Business</p>
+          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">Certain industries are excluded from QSBS treatment, including professional services (law, accounting, consulting, financial services, medicine), banking, insurance, farming, and hospitality. The business must be an <a href="https://www.irs.gov/pub/irs-pdf/p550.pdf" target="_blank" rel="noopener" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;">active qualified trade or business</a>.</p>
+        </div>
+        <div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">C-Corp Tax Drag Is Real</p>
+          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">Unlike an S-Corp or LLC, a C-Corp pays 21% federal tax on all operating income before distributions. This is cash that would otherwise be available to the owner. The longer you operate as a C-Corp, the more drag accumulates &mdash; eventually eliminating the QSBS benefit entirely.</p>
+        </div>
+        <div>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">Basis Stacking for Spouses</p>
+          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">Each taxpayer can claim the $15M (or 10&times; basis) exclusion separately. For married co-founders or shareholders, this can effectively double the exclusion to $30 million. Proper planning with a qualified tax advisor is essential to structure ownership correctly.</p>
+        </div>
+      </div>
+      <style>@media(max-width:768px){ .considerations-grid { grid-template-columns: 1fr !important; } }</style>
+    </div>
+
+  </div>
+</section>
+
+<!-- Related Content -->
+<section style="background:white;padding:3rem 0;">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.45);margin-bottom:1.25rem;text-align:center;">Related</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <a href="resources-section-351.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;border:1px solid rgba(26,94,168,0.10);background:#FAF8F4;text-decoration:none;transition:border-color 0.18s ease,transform 0.18s ease;box-shadow:0 1px 4px rgba(26,94,168,0.06);" onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1A5EA8;margin-bottom:0.35rem;">Article</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">Section 351 Exchanges</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">Tax-free transfers of appreciated assets into a corporate structure.</div>
+      </a>
+      <a href="business-planning.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;border:1px solid rgba(26,94,168,0.10);background:#FAF8F4;text-decoration:none;transition:border-color 0.18s ease,transform 0.18s ease;box-shadow:0 1px 4px rgba(26,94,168,0.06);" onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1A5EA8;margin-bottom:0.35rem;">Service</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">Business Planning</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">Entity structuring, succession planning, and exit strategy for business owners.</div>
+      </a>
+      <a href="case-study-entrepreneur.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;border:1px solid rgba(26,94,168,0.10);background:#FAF8F4;text-decoration:none;transition:border-color 0.18s ease,transform 0.18s ease;box-shadow:0 1px 4px rgba(26,94,168,0.06);" onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1A5EA8;margin-bottom:0.35rem;">Case Study</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">Entrepreneur Profile</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">How we helped a founder navigate a business sale and liquidity event.</div>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+
+<!-- DISCLAIMER -->
+<section style="padding:2rem 0;background:#F4F6F9;border-top:1px solid rgba(44,62,85,0.08);">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <p style="font-size:0.75rem;line-height:1.7;color:rgba(44,62,85,0.50);font-weight:300;margin:0;">
+      <strong style="font-weight:600;color:rgba(44,62,85,0.65);">Important Disclosure:</strong>
+      This calculator provides rough estimates for educational and illustrative purposes only and does not constitute tax, legal, financial, or investment advice.
+      <strong style="font-weight:600;">Rubiq Financial Partners is not a tax advisor, CPA, or attorney, and does not provide tax preparation, legal, or accounting services.</strong>
+      The Section 1202 QSBS exclusion is subject to complex eligibility requirements including entity type, holding period, gross asset tests, active business tests, and industry exclusions that are not fully modeled in this tool. Actual tax outcomes depend on many factors not captured here, including entity-specific tax attributes, state tax conformity, AMT considerations, accumulated earnings tax exposure, and individual taxpayer circumstances. Tax law is subject to legislative change. This tool assumes a simplified comparison and does not account for the time value of money, differences in entity-level state taxes, personal income tax on pass-through income, compensation structuring, or potential double taxation of C-Corp distributions. The C-Corp tax drag calculation is simplified and assumes constant annual operating income.
+      Always consult with a qualified tax advisor, corporate attorney, and financial advisor before making any entity conversion or tax planning decisions. Improper QSBS structuring can result in loss of the exclusion entirely.
+    </p>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 55%,#1A5EA8 100%);padding:3.5rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-30%;right:-10%;width:50%;height:150%;background:radial-gradient(ellipse,rgba(196,154,74,0.18) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center" style="position:relative;z-index:2;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
+      Considering a QSBS conversion?<br /><em style="font-style:italic;color:#D4AE6A;">Let&rsquo;s model it with your real numbers.</em>
+    </h2>
+    <div style="display:flex;flex-direction:column;gap:0.75rem;align-items:center;margin-bottom:2rem;">
+      <a href="tel:6102159499" style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);transition:color 0.18s ease;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="15" height="15" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.36C1.21 2.18 2.12 1 3.3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.76-.76a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.28 16z"/></svg>
+        610-215-9499
+      </a>
+      <a href="mailto:clientservice@rubiqfinancial.com" style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);transition:color 0.18s ease;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="15" height="15" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        clientservice@rubiqfinancial.com
+      </a>
+    </div>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="schedule.html"><button class="btn-gold">Schedule a Call</button></a>
+      <a href="our-team.html"><button class="btn-ghost">Meet Our Advisors</button></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer style="background:#0F1724;padding:2rem 0;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png" alt="Rubiq Financial Partners logo" width="120" height="26" style="height:26px;width:auto;opacity:0.70;" loading="lazy" decoding="async" />
+    <div style="text-align:center;">
+      <p style="font-size:0.8rem;color:rgba(255,255,255,0.40);margin:0 0 0.35rem;">&copy; 2026 Rubiq Financial Partners LLC. All rights reserved.</p>
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.38);margin:0 0 0.5rem;line-height:1.6;font-weight:300;">Advisory services offered through Wealthcare Advisory Partners. Not a solicitation in any jurisdiction where not registered or exempt.</p>
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.42);margin:0 0 0.75rem;line-height:1.6;font-weight:300;">
+        <a href="../Media/FormCRS_WCAP_20240325 (Updated - use this one).pdf" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35);text-decoration:underline;text-underline-offset:2px;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.60)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Form CRS</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://adviserinfo.sec.gov/firm/summary/171976" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35);text-decoration:underline;text-underline-offset:2px;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.60)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Form ADV Part 2A</a>
+      </p>
+      <div style="display:flex;justify-content:center;gap:1.5rem;">
+        <a href="privacy-policy.html" style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</a>
+        <a href="terms-of-use.html" style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Terms of Use</a>
+        <a href="faq.html" style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">FAQ</a>
+        <a href="sitemap.html" style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky Mobile CTA -->
+<a id="sticky-mobile-cta" href="schedule.html" style="display:none;position:fixed;bottom:-60px;left:1rem;right:1rem;z-index:9998;background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);color:#0F1724;text-align:center;font-family:'Inter',sans-serif;font-size:0.9375rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;padding:1rem;border-radius:6px;box-shadow:0 -2px 16px rgba(0,0,0,0.25),0 4px 12px rgba(196,154,74,0.35);transition:bottom 0.3s cubic-bezier(0.4,0,0.2,1);">Schedule a Call</a>
+<style>@media(min-width:768px){ #sticky-mobile-cta{display:none!important;} }</style>
+<script>
+(function(){
+  var cta=document.getElementById('sticky-mobile-cta');
+  if(!cta)return;
+  if(window.innerWidth<768) cta.style.display='block';
+  window.addEventListener('scroll',function(){
+    if(window.innerWidth>=768)return;
+    cta.style.display='block';
+    cta.style.bottom=window.scrollY>100?'1rem':'-60px';
+  },{passive:true});
+  window.addEventListener('resize',function(){
+    cta.style.display=window.innerWidth<768?'block':'none';
+  });
+})();
+</script>
+
+<!-- Calculator Engine -->
+<script>
+function parseNum(id) {
+  var el = document.getElementById(id);
+  return parseFloat(el.value.replace(/[^0-9.\-]/g,'')) || 0;
+}
+function fmt(n) {
+  return n.toLocaleString('en-US', {maximumFractionDigits:0});
+}
+function fmtDollar(n) {
+  if (n < 0) return '($' + fmt(Math.abs(n)) + ')';
+  return '$' + fmt(n);
+}
+function formatAndCalc(el) {
+  var raw = el.value.replace(/[^0-9]/g,'');
+  if (raw) el.value = parseInt(raw).toLocaleString('en-US');
+  calc();
+}
+function syncSlider(inputId, val) {
+  var el = document.getElementById(inputId);
+  el.value = parseInt(val).toLocaleString('en-US');
+  calc();
+}
+
+function calc() {
+  var salePrice    = parseNum('sale-price');
+  var costBasis    = parseNum('cost-basis');
+  var annualIncome = parseNum('annual-income');
+  var yearsCCorp   = Math.max(parseNum('years-ccorp'), 1);
+  var cgRate       = parseNum('cg-rate') / 100;
+  var stateRate    = parseNum('state-rate') / 100;
+  var corpRate     = parseNum('corp-rate') / 100;
+  var qsbsCapInput = parseNum('qsbs-cap');
+  var qsbsPct      = parseNum('qsbs-pct') / 100;
+
+  var combinedCGRate = cgRate + stateRate;
+  var gain = Math.max(salePrice - costBasis, 0);
+
+  // Sync slider
+  document.getElementById('sale-slider').value = salePrice;
+
+  // ── SCENARIO A: S-Corp / LLC ──
+  var fedTaxA   = gain * cgRate;
+  var stateTaxA = gain * stateRate;
+  var totalTaxA = fedTaxA + stateTaxA;
+  var netA      = salePrice - totalTaxA;
+
+  // ── SCENARIO B: C-Corp + QSBS ──
+  // C-Corp tax drag
+  var annualDrag = annualIncome * corpRate;
+  var totalDrag  = annualDrag * yearsCCorp;
+
+  // QSBS exclusion
+  var effectiveCap    = Math.max(qsbsCapInput, 10 * costBasis);
+  var excludableGain  = Math.min(gain, effectiveCap) * qsbsPct;
+  var taxableGainB    = Math.max(gain - excludableGain, 0);
+  var exitTaxB        = taxableGainB * combinedCGRate;
+  var totalTaxB       = totalDrag + exitTaxB;
+  var netB            = salePrice - totalTaxB;
+
+  var advantage = netB - netA;
+
+  // ── BREAKEVEN ──
+  // Breakeven years: when totalDrag = exit tax savings from QSBS
+  // Exit tax savings = totalTaxA - exitTaxB (the tax saved at exit by QSBS)
+  var exitTaxSavings = totalTaxA - exitTaxB;
+  var breakeven = 0;
+  if (annualDrag > 0 && exitTaxSavings > 0) {
+    breakeven = exitTaxSavings / annualDrag;
+  }
+
+  // ── UPDATE SCENARIO A ──
+  document.getElementById('rA-sale').textContent      = fmtDollar(salePrice);
+  document.getElementById('rA-basis').textContent     = fmtDollar(costBasis);
+  document.getElementById('rA-gain').textContent      = fmtDollar(gain);
+  document.getElementById('rA-cg-pct').textContent    = (cgRate * 100).toFixed(1);
+  document.getElementById('rA-state-pct').textContent = (stateRate * 100).toFixed(2);
+  document.getElementById('rA-fed-tax').textContent   = '(' + fmtDollar(fedTaxA) + ')';
+  document.getElementById('rA-state-tax').textContent = '(' + fmtDollar(stateTaxA) + ')';
+  document.getElementById('rA-total-tax').textContent = '(' + fmtDollar(totalTaxA) + ')';
+  document.getElementById('rA-net').textContent       = fmtDollar(netA);
+
+  // ── UPDATE SCENARIO B ──
+  document.getElementById('rB-sale').textContent       = fmtDollar(salePrice);
+  document.getElementById('rB-basis').textContent      = fmtDollar(costBasis);
+  document.getElementById('rB-gain').textContent       = fmtDollar(gain);
+  document.getElementById('rB-years').textContent      = yearsCCorp;
+  document.getElementById('rB-corp-pct').textContent   = (corpRate * 100).toFixed(0);
+  document.getElementById('rB-ann-income').textContent = fmtDollar(annualIncome);
+  document.getElementById('rB-annual-drag').textContent = '(' + fmtDollar(annualDrag) + ')';
+  document.getElementById('rB-total-drag').textContent  = '(' + fmtDollar(totalDrag) + ')';
+  document.getElementById('rB-eff-cap').textContent     = fmtDollar(effectiveCap);
+  document.getElementById('rB-excl-pct').textContent    = (qsbsPct * 100).toFixed(0);
+  document.getElementById('rB-excluded').textContent    = fmtDollar(excludableGain);
+  document.getElementById('rB-taxable').textContent     = fmtDollar(taxableGainB);
+  document.getElementById('rB-exit-tax').textContent    = exitTaxB > 0 ? '(' + fmtDollar(exitTaxB) + ')' : '$0';
+  document.getElementById('rB-total-tax').textContent   = '(' + fmtDollar(totalTaxB) + ')';
+  document.getElementById('rB-net').textContent         = fmtDollar(netB);
+
+  // ── SUMMARY ──
+  if (advantage > 0) {
+    document.getElementById('summary-headline').innerHTML =
+      'The QSBS path saves <span style="color:#D4AE6A;">' + fmtDollar(advantage) + '</span> after accounting for the C-Corp tax drag.';
+    document.getElementById('summary-detail').innerHTML =
+      'Even after paying ' + fmtDollar(totalDrag) + ' in cumulative corporate tax over ' + yearsCCorp + ' years, the Section 1202 exclusion saves ' + fmtDollar(totalTaxA) + ' at exit &mdash; a net benefit of ' + fmtDollar(advantage) + '.';
+  } else if (advantage < 0) {
+    document.getElementById('summary-headline').innerHTML =
+      'Staying as an S-Corp saves <span style="color:#D4AE6A;">' + fmtDollar(Math.abs(advantage)) + '</span> compared to the QSBS path.';
+    document.getElementById('summary-detail').innerHTML =
+      'The cumulative C-Corp tax drag of ' + fmtDollar(totalDrag) + ' over ' + yearsCCorp + ' years exceeds the QSBS exit tax savings. The pass-through structure is more tax-efficient in this scenario.';
+  } else {
+    document.getElementById('summary-headline').innerHTML =
+      'Both paths produce the <span style="color:#D4AE6A;">same after-tax result</span>.';
+    document.getElementById('summary-detail').innerHTML =
+      'The C-Corp tax drag exactly offsets the QSBS exclusion benefit. You are at the breakeven point.';
+  }
+
+  // ── BREAKEVEN ──
+  if (breakeven > 0 && exitTaxSavings > 0) {
+    document.getElementById('breakeven-headline').textContent =
+      'Breakeven: ' + breakeven.toFixed(1) + ' years';
+    document.getElementById('breakeven-detail').innerHTML =
+      'If you operate as a C-Corp for more than <strong>' + breakeven.toFixed(1) + ' years</strong> before sale, the cumulative corporate tax drag will exceed the QSBS exit tax savings. The conversion is most beneficial when the sale occurs as close to the 5-year minimum as possible.';
+  } else if (exitTaxSavings <= 0) {
+    document.getElementById('breakeven-headline').textContent =
+      'No QSBS benefit at this sale price';
+    document.getElementById('breakeven-detail').innerHTML =
+      'The gain exceeds the QSBS exclusion cap, so the exit tax savings are insufficient to offset any C-Corp tax drag. The S-Corp/LLC structure is more tax-efficient.';
+  } else {
+    document.getElementById('breakeven-headline').textContent =
+      'Breakeven: N/A';
+    document.getElementById('breakeven-detail').innerHTML =
+      'Unable to calculate a breakeven with the current inputs. Adjust the operating income or sale price to see the breakeven analysis.';
+  }
+}
+
+// Run on load
+calc();
+</script>
+</body>
+</html>
