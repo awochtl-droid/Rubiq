@@ -152,6 +152,13 @@
     .tax-est-header p { font-size: 0.82rem; color: rgba(143,163,191,0.8); }
     .tax-est-body { display: grid; grid-template-columns: 1fr 1fr; }
     @media (max-width: 800px) { .tax-est-body { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) {
+      .tax-est-header { padding: 20px; }
+      .tax-est-inputs { padding: 20px; }
+      .tax-est-outputs { padding: 20px; }
+      .te-presets { padding: 16px 20px; }
+      .te-disclaimer { padding: 12px 20px; }
+    }
     .tax-est-inputs { padding: 24px 32px; border-right: 1px solid rgba(196,154,74,0.15); }
     @media (max-width: 800px) { .tax-est-inputs { border-right: none; border-bottom: 1px solid rgba(196,154,74,0.15); } }
     .tax-est-outputs { padding: 24px 32px; }
@@ -186,6 +193,7 @@
     .te-faq-a { font-size: 0.82rem; line-height: 1.7; color: #4A5568; font-weight: 300; }
     .te-faq-a strong { color: #1A5EA8; font-weight: 600; }
     .te-cta-strip { margin-top: 2.5rem; background: linear-gradient(135deg, #0F1724 0%, #133F73 60%, #1A5EA8 100%); border-radius: 8px; padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; position: relative; overflow: hidden; }
+    @media (max-width: 640px) { .te-cta-strip { padding: 28px 20px; } }
     .te-cta-strip::before { content: ''; position: absolute; top: -40%; right: -5%; width: 45%; height: 180%; background: radial-gradient(ellipse, rgba(196,154,74,0.15) 0%, transparent 65%); pointer-events: none; }
     .te-cta-text { position: relative; z-index: 1; }
     .te-cta-text p { font-size: 0.82rem; color: rgba(255,255,255,0.60); margin-top: 6px; max-width: 480px; line-height: 1.65; font-weight: 300; }
@@ -1249,7 +1257,7 @@
          alt="Rubiq Financial Partners logo" width="120" height="26" style="height:26px;width:auto;opacity:0.70;" loading="lazy" decoding="async" />
     <div style="text-align:center;">
       <p style="font-size:0.8rem;color:rgba(255,255,255,0.40);margin:0 0 0.35rem;">
-        &copy; 2026 Rubiq Financial Partners LLC. All rights reserved.
+        &copy; 2026 Rubiq Financial Partners. All rights reserved.
       </p>
       <p style="font-size:0.75rem;color:rgba(255,255,255,0.38);margin:0 0 0.5rem;line-height:1.6;font-weight:300;">
         Advisory services offered through Wealthcare Advisory Partners. Not a solicitation in any jurisdiction where not registered or exempt.
