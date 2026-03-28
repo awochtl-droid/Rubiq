@@ -531,7 +531,7 @@
 <!-- ══════════════════════════════════════════════════
      TEAM CARDS
 ══════════════════════════════════════════════════════ -->
-<section id="our-team" style="background:#FFFFFF;padding:5rem 0 6rem;">
+<section id="our-team" class="reveal" style="background:#FFFFFF;padding:5rem 0 6rem;">
   <div class="max-w-5xl mx-auto px-6 lg:px-10">
     <div class="grid grid-cols-1 gap-8 max-w-xl mx-auto">
 
@@ -693,7 +693,7 @@
 <!-- ══════════════════════════════════════════════════
      PARTNERS / WHO WE WORK WITH
 ══════════════════════════════════════════════════════ -->
-<section id="our-partners" style="background:#F0EBE1;padding:5rem 0 6rem;">
+<section id="our-partners" class="reveal" style="background:#F0EBE1;padding:5rem 0 6rem;">
   <div class="max-w-5xl mx-auto px-6 lg:px-10">
 
     <div style="margin-bottom:2.5rem;">
@@ -932,7 +932,7 @@
 <!-- ══════════════════════════════════════════════════
      CTA
 ══════════════════════════════════════════════════════ -->
-<section style="background:#FFFFFF;padding:3rem 0 4rem;" id="faq-cta-placeholder">
+<section class="reveal" style="background:#FFFFFF;padding:3rem 0 4rem;" id="faq-cta-placeholder">
   <div class="max-w-3xl mx-auto px-6 lg:px-10 text-center">
     <p style="font-size:1rem;line-height:1.7;color:#6B7280;font-weight:300;">
       Have questions about how we work, our fees, or what to expect?
@@ -948,7 +948,7 @@
 <!-- ══════════════════════════════════════════════════
      OUR TOOLS
 ══════════════════════════════════════════════════════ -->
-<section id="our-tools" style="background:#F0EBE1;padding:5rem 0 6rem;">
+<section id="our-tools" class="reveal" style="background:#F0EBE1;padding:5rem 0 6rem;">
   <div class="max-w-6xl mx-auto px-6 lg:px-10">
 
     <div style="margin-bottom:2.5rem;">
@@ -1117,7 +1117,7 @@
 <!-- ══════════════════════════════════════════════════
      CTA
 ══════════════════════════════════════════════════════ -->
-<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 55%,#1A5EA8 100%);
+<section class="reveal" style="background:linear-gradient(160deg,#0F1724 0%,#133F73 55%,#1A5EA8 100%);
                 padding:3.5rem 0;position:relative;overflow:hidden;">
   <div style="position:absolute;top:-30%;right:-10%;width:50%;height:150%;
               background:radial-gradient(ellipse,rgba(196,154,74,0.18) 0%,transparent 60%);pointer-events:none;"></div>
@@ -1263,6 +1263,23 @@
   window.addEventListener('resize',function(){
     cta.style.display=window.innerWidth<768?'block':'none';
   });
+})();
+</script>
+<!-- Scroll reveal -->
+<style>
+  .reveal{opacity:0;transform:translateY(40px);transition:opacity 1.5s cubic-bezier(0.25,0.1,0.25,1),transform 1.5s cubic-bezier(0.25,0.1,0.25,1);}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!els.length)return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
+    });
+  },{threshold:0.12});
+  els.forEach(function(el){io.observe(el);});
 })();
 </script>
 </body>

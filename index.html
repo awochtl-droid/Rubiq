@@ -842,7 +842,7 @@
 <!-- ══════════════════════════════════════════════════
      WHO WE SERVE
 ══════════════════════════════════════════════════════ -->
-<section id="who-we-serve" style="background:#FFFFFF;padding:4rem 0;">
+<section id="who-we-serve" class="reveal" style="background:#FFFFFF;padding:4rem 0;">
   <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
     <div class="mb-14">
@@ -984,7 +984,7 @@
 <!-- ══════════════════════════════════════════════════
      ABOUT / PHILOSOPHY
 ══════════════════════════════════════════════════════ -->
-<section id="about" style="background:#F0EBE1;padding:4rem 0;overflow:hidden;position:relative;">
+<section id="about" class="reveal" style="background:#F0EBE1;padding:4rem 0;overflow:hidden;position:relative;">
 
   <div class="max-w-7xl mx-auto px-6 lg:px-10">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -1049,7 +1049,7 @@
 <!-- ══════════════════════════════════════════════════
      RESOURCES
 ══════════════════════════════════════════════════════ -->
-<section id="resources" style="background:#FFFFFF;padding:4rem 0;">
+<section id="resources" class="reveal" style="background:#FFFFFF;padding:4rem 0;">
   <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
     <div class="mb-14">
@@ -1149,7 +1149,7 @@
 <!-- ══════════════════════════════════════════════════
      WHO WE ARE
 ══════════════════════════════════════════════════════ -->
-<section id="who-we-are" style="background:#1C2D44;padding:4rem 0;position:relative;overflow:hidden;">
+<section id="who-we-are" class="reveal" style="background:#1C2D44;padding:4rem 0;position:relative;overflow:hidden;">
   <div style="position:absolute;top:-20%;right:-8%;width:50%;height:140%;
               background:radial-gradient(ellipse,rgba(196,154,74,0.08) 0%,transparent 60%);pointer-events:none;"></div>
   <div class="max-w-7xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
@@ -1240,7 +1240,7 @@
 <!-- ══════════════════════════════════════════════════
      TRANSPARENT PRICING
 ══════════════════════════════════════════════════════ -->
-<section id="pricing" style="background:#F0EBE1;padding:4rem 0;position:relative;overflow:hidden;">
+<section id="pricing" class="reveal" style="background:#F0EBE1;padding:4rem 0;position:relative;overflow:hidden;">
   <div class="max-w-7xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
     <div style="max-width:36rem;">
       <div class="section-rule"></div>
@@ -1272,7 +1272,7 @@
 <!-- ══════════════════════════════════════════════════
      CONTACT
 ══════════════════════════════════════════════════════ -->
-<section id="contact" style="background:#FFFFFF;padding:4rem 0 5rem;position:relative;overflow:hidden;">
+<section id="contact" class="reveal" style="background:#FFFFFF;padding:4rem 0 5rem;position:relative;overflow:hidden;">
 
   <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
@@ -1703,5 +1703,22 @@
 })();
 </script>
 
+<!-- Scroll reveal -->
+<style>
+  .reveal{opacity:0;transform:translateY(40px);transition:opacity 1.5s cubic-bezier(0.25,0.1,0.25,1),transform 1.5s cubic-bezier(0.25,0.1,0.25,1);}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!els.length)return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
+    });
+  },{threshold:0.12});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
 </body>
 </html>
