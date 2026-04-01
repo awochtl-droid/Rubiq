@@ -312,8 +312,8 @@
              alt="Rubiq Financial Partners logo" width="240" height="44" style="height:44px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
       </a>
       <div class="hidden md:flex items-center gap-8">
-        <a href="our-clients.html"    class="nav-link">Our Clients</a>
         <a href="our-capabilities.html"      class="nav-link">Our Capabilities</a>
+        <a href="our-clients.html"    class="nav-link">Our Clients</a>
         <a href="our-team.html"            class="nav-link">Our Team</a>
         <a href="insights.html"       class="nav-link active">Insights</a>
         <a href="fee-structure.html"   class="nav-link">Fee Structure</a>
@@ -335,8 +335,8 @@
   <div id="mobile-menu"
        style="background:rgba(15,23,36,0.97);border-top:1px solid rgba(255,255,255,0.07);
               flex-direction:column;padding:1.5rem 1.5rem 2rem;">
-    <a href="our-clients.html"  class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Clients</a>
     <a href="our-capabilities.html"    class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Capabilities</a>
+    <a href="our-clients.html"  class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Clients</a>
     <a href="our-team.html"          class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Team</a>
     <a href="insights.html"     class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Insights</a>
     <a href="fee-structure.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Fee Structure</a>
@@ -737,6 +737,18 @@
   window.addEventListener('resize',function(){
     cta.style.display=window.innerWidth<768?'block':'none';
   });
+})();
+</script>
+<!-- Reading progress bar -->
+<div id="reading-progress" style="position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,#C49A5A,#D4AE6A);z-index:9999;transition:width 0.1s linear;pointer-events:none;"></div>
+<script>
+(function(){
+  var bar=document.getElementById('reading-progress');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    if(h>0)bar.style.width=(window.scrollY/h*100)+'%';
+  },{passive:true});
 })();
 </script>
 </body>
