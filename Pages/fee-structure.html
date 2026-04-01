@@ -533,13 +533,13 @@
     </div>
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 2.5rem;margin-top:1rem;">
       <p style="font-family:'Inter',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.50);margin:0;">
-        <span style="color:#C49A5A;font-weight:700;font-size:1.05rem;">$10B+</span> &nbsp;Assets Under Management
+        <span class="counter-stat" data-prefix="$" data-target="10" data-suffix="B+" style="color:#C49A5A;font-weight:700;font-size:1.05rem;">$0B+</span> &nbsp;Assets Under Management
       </p>
       <p style="font-family:'Inter',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.50);margin:0;">
-        <span style="color:#C49A5A;font-weight:700;font-size:1.05rem;">190+</span> &nbsp;Affiliated Advisors
+        <span class="counter-stat" data-target="190" data-suffix="+" style="color:#C49A5A;font-weight:700;font-size:1.05rem;">0+</span> &nbsp;Affiliated Advisors
       </p>
       <p style="font-family:'Inter',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.50);margin:0;">
-        <span style="color:#C49A5A;font-weight:700;font-size:1.05rem;">32%</span> &nbsp;AUM Growth in 2025
+        <span class="counter-stat" data-target="32" data-suffix="%" style="color:#C49A5A;font-weight:700;font-size:1.05rem;">0%</span> &nbsp;AUM Growth in 2025
       </p>
     </div>
     <p style="font-family:'Inter',sans-serif;font-size:0.6rem;color:rgba(255,255,255,0.28);margin:0.6rem 0 0;text-align:center;font-weight:300;">
@@ -1119,6 +1119,42 @@ function toggleDark(){
   localStorage.setItem('rubiq-dark',document.documentElement.classList.contains('dark-mode')?'1':'0');
 }
 if(localStorage.getItem('rubiq-dark')==='1')document.documentElement.classList.add('dark-mode');
+</script>
+
+<!-- Counter animation -->
+<script>
+(function(){
+  var counters = document.querySelectorAll('.counter-stat');
+  if(!counters.length) return;
+
+  function animateCounter(el){
+    if(el.dataset.animated) return;
+    el.dataset.animated = '1';
+    var target = parseFloat(el.dataset.target);
+    var prefix = el.dataset.prefix || '';
+    var suffix = el.dataset.suffix || '';
+    var duration = 1800;
+    var start = performance.now();
+
+    function step(now){
+      var elapsed = now - start;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.round(eased * target);
+      el.textContent = prefix + current + suffix;
+      if(progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting) animateCounter(entry.target);
+    });
+  }, {threshold: 0.5});
+
+  counters.forEach(function(el){ io.observe(el); });
+})();
 </script>
 </body>
 </html>
