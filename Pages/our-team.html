@@ -197,8 +197,9 @@
     .dark-toggle .sun { display:none; }
     .dark-mode .dark-toggle .moon { display:none; }
     .dark-mode .dark-toggle .sun { display:block; }
-    #our-partners .grid > a { display:flex; width:100%; }
-    #our-partners .grid > a > div { width:100%; }
+    #our-partners .grid { align-items:stretch; }
+    #our-partners .grid > a { display:flex; }
+    #our-partners .grid > a > div { flex:1; display:flex; flex-direction:column; }
   </style>
   <script type="application/ld+json">
   {
@@ -946,7 +947,7 @@
 
       <!-- Wealthcare Advisory Partners -->
       <a href="https://www.wealthcaregdx.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;height:100%;
+        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;
                     border:1px solid rgba(26,94,168,0.08);
                     box-shadow:0 2px 8px rgba(26,94,168,0.06),0 6px 24px rgba(26,94,168,0.04);
                     transition:transform 0.20s ease,box-shadow 0.20s ease;"
@@ -969,7 +970,7 @@
 
       <!-- LPL Financial -->
       <a href="https://www.lpl.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;height:100%;
+        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;
                     border:1px solid rgba(26,94,168,0.08);
                     box-shadow:0 2px 8px rgba(26,94,168,0.06),0 6px 24px rgba(26,94,168,0.04);
                     transition:transform 0.20s ease,box-shadow 0.20s ease;"
@@ -991,7 +992,7 @@
 
       <!-- Charles Schwab -->
       <a href="https://www.schwab.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;height:100%;
+        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;
                     border:1px solid rgba(26,94,168,0.08);
                     box-shadow:0 2px 8px rgba(26,94,168,0.06),0 6px 24px rgba(26,94,168,0.04);
                     transition:transform 0.20s ease,box-shadow 0.20s ease;"
@@ -1013,7 +1014,7 @@
 
       <!-- Fidelity -->
       <a href="https://www.fidelity.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;height:100%;
+        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;
                     border:1px solid rgba(26,94,168,0.08);
                     box-shadow:0 2px 8px rgba(26,94,168,0.06),0 6px 24px rgba(26,94,168,0.04);
                     transition:transform 0.20s ease,box-shadow 0.20s ease;"
@@ -1035,7 +1036,7 @@
 
       <!-- SD Associates -->
       <a href="https://www.sdaccounting.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;height:100%;
+        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;
                     border:1px solid rgba(26,94,168,0.08);
                     box-shadow:0 2px 8px rgba(26,94,168,0.06),0 6px 24px rgba(26,94,168,0.04);
                     transition:transform 0.20s ease,box-shadow 0.20s ease;"
@@ -1057,7 +1058,7 @@
 
       <!-- Fox Rothschild -->
       <a href="https://www.foxrothschild.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;height:100%;
+        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;
                     border:1px solid rgba(26,94,168,0.08);
                     box-shadow:0 2px 8px rgba(26,94,168,0.06),0 6px 24px rgba(26,94,168,0.04);
                     transition:transform 0.20s ease,box-shadow 0.20s ease;"
@@ -1079,7 +1080,7 @@
 
       <!-- Capstan Tax Strategies -->
       <a href="https://capstantax.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;height:100%;
+        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;
                     border:1px solid rgba(26,94,168,0.08);
                     box-shadow:0 2px 8px rgba(26,94,168,0.06),0 6px 24px rgba(26,94,168,0.04);
                     transition:transform 0.20s ease,box-shadow 0.20s ease;"
@@ -1101,7 +1102,7 @@
 
       <!-- CamaPlan -->
       <a href="https://www.camaplan.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;height:100%;
+        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;
                     border:1px solid rgba(26,94,168,0.08);
                     box-shadow:0 2px 8px rgba(26,94,168,0.06),0 6px 24px rgba(26,94,168,0.04);
                     transition:transform 0.20s ease,box-shadow 0.20s ease;"
@@ -1123,7 +1124,7 @@
 
       <!-- Innovative Financing Solutions -->
       <a href="https://innovativefinancingsolutions.net/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;height:100%;
+        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;
                     border:1px solid rgba(26,94,168,0.08);
                     box-shadow:0 2px 8px rgba(26,94,168,0.06),0 6px 24px rgba(26,94,168,0.04);
                     transition:transform 0.20s ease,box-shadow 0.20s ease;"
@@ -1145,7 +1146,7 @@
 
       <!-- MMD Law — Real Estate Law -->
       <a href="https://mmdlawfirm.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;height:100%;
+        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;
                     border:1px solid rgba(26,94,168,0.08);
                     box-shadow:0 2px 8px rgba(26,94,168,0.06),0 6px 24px rgba(26,94,168,0.04);
                     transition:transform 0.20s ease,box-shadow 0.20s ease;"
@@ -1167,7 +1168,7 @@
 
       <!-- VRA Realty — Commercial Real Estate -->
       <a href="https://vrarealty.com/commercial" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;height:100%;
+        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;
                     border:1px solid rgba(26,94,168,0.08);
                     box-shadow:0 2px 8px rgba(26,94,168,0.06),0 6px 24px rgba(26,94,168,0.04);
                     transition:transform 0.20s ease,box-shadow 0.20s ease;"
@@ -1189,7 +1190,7 @@
 
       <!-- Rocket Mortgage -->
       <a href="https://www.rocketmortgage.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;height:100%;
+        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;
                     border:1px solid rgba(26,94,168,0.08);
                     box-shadow:0 2px 8px rgba(26,94,168,0.06),0 6px 24px rgba(26,94,168,0.04);
                     transition:transform 0.20s ease,box-shadow 0.20s ease;"
@@ -1211,7 +1212,7 @@
 
       <!-- Gannon Risk Group -->
       <a href="https://www.gannonriskgroup.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;height:100%;
+        <div style="background:white;border-radius:10px;padding:1.75rem 1.5rem;
                     border:1px solid rgba(26,94,168,0.08);
                     box-shadow:0 2px 8px rgba(26,94,168,0.06),0 6px 24px rgba(26,94,168,0.04);
                     transition:transform 0.20s ease,box-shadow 0.20s ease;"
