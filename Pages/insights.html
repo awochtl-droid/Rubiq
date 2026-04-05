@@ -1156,32 +1156,121 @@
 
 
 <!-- ══════════════════════════════════════════════════
-     ESTATE TAX ESTIMATOR CALLOUT
+     CALCULATORS
 ══════════════════════════════════════════════════════ -->
-<section class="reveal" style="background:linear-gradient(160deg,#0F1724 0%,#133F73 55%,#1A5EA8 100%);padding:4rem 0;">
-  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center">
-    <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
-              color:#C49A5A;margin-bottom:1rem;">Interactive Tool</p>
-    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);
-               font-weight:700;line-height:1.2;letter-spacing:-0.02em;color:white;margin-bottom:1rem;">
-      What's your estate tax exposure?
-    </h2>
-    <p style="font-family:'Inter',sans-serif;font-size:1rem;line-height:1.7;color:rgba(255,255,255,0.7);
-              max-width:600px;margin:0 auto 2rem;">
-      At current exemption levels, estates above $13.99M face a 40% federal estate tax on every dollar over the threshold.
-      Use our calculator to see where you stand — and which strategies may help.
-    </p>
-    <a href="estate-tax-estimator.html"
-       style="display:inline-block;padding:0.875rem 2.25rem;background:#C49A5A;color:white;
-              font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:600;
-              border-radius:6px;text-decoration:none;letter-spacing:0.02em;
-              transition:transform 0.18s ease,opacity 0.18s ease;"
-       onmouseover="this.style.transform='translateY(-1px)';this.style.opacity='0.92'"
-       onmouseout="this.style.transform='translateY(0)';this.style.opacity='1'">
-      Open Estate Tax Estimator →
-    </a>
+<section class="reveal" style="background:linear-gradient(160deg,#0F1724 0%,#133F73 55%,#1A5EA8 100%);padding:5rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-20%;right:-10%;width:50%;height:140%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.10) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-6xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
+    <div style="margin-bottom:2.5rem;">
+      <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+                color:#C49A5A;margin-bottom:0.75rem;">Interactive Tools</p>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3vw,2.4rem);
+                 font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:white;">
+        Calculators
+      </h2>
+      <p style="font-size:1rem;line-height:1.7;color:rgba(255,255,255,0.60);font-weight:300;max-width:560px;margin-top:0.75rem;">
+        Model real scenarios before making a decision. Each calculator is built around the strategies we use with clients every day.
+      </p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;" class="calc-grid">
+
+      <!-- Estate Tax Estimator -->
+      <a href="estate-tax-estimator.html" style="text-decoration:none;">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);border-radius:10px;
+                    padding:1.75rem 1.5rem;transition:transform 0.18s ease,border-color 0.18s ease;height:100%;
+                    display:flex;flex-direction:column;"
+             onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(196,154,74,0.35)'"
+             onmouseout="this.style.transform='';this.style.borderColor='rgba(255,255,255,0.10)'">
+          <div style="width:36px;height:36px;border-radius:8px;background:rgba(196,154,74,0.12);
+                      display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+            <svg width="18" height="18" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M3 3h18v18H3z"/><path d="M9 3v18M3 9h18M3 15h18"/>
+            </svg>
+          </div>
+          <p style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:white;margin-bottom:0.4rem;">
+            Estate Tax Estimator
+          </p>
+          <p style="font-size:0.8rem;line-height:1.6;color:rgba(255,255,255,0.50);font-weight:300;margin:0;">
+            Estimate your federal estate tax exposure at current exemption levels and explore how gifting, trusts, and other strategies can reduce the bill.
+          </p>
+        </div>
+      </a>
+
+      <!-- 1031 DST Calculator -->
+      <a href="dst-calculator.html" style="text-decoration:none;">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);border-radius:10px;
+                    padding:1.75rem 1.5rem;transition:transform 0.18s ease,border-color 0.18s ease;height:100%;
+                    display:flex;flex-direction:column;"
+             onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(196,154,74,0.35)'"
+             onmouseout="this.style.transform='';this.style.borderColor='rgba(255,255,255,0.10)'">
+          <div style="width:36px;height:36px;border-radius:8px;background:rgba(196,154,74,0.12);
+                      display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+            <svg width="18" height="18" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <p style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:white;margin-bottom:0.4rem;">
+            1031 DST vs. Sell &amp; Realize Gain
+          </p>
+          <p style="font-size:0.8rem;line-height:1.6;color:rgba(255,255,255,0.50);font-weight:300;margin:0;">
+            Compare selling outright versus exchanging into a Delaware Statutory Trust — see the tax deferral and long-term income difference.
+          </p>
+        </div>
+      </a>
+
+      <!-- QOZ Calculator -->
+      <a href="qoz-calculator.html" style="text-decoration:none;">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);border-radius:10px;
+                    padding:1.75rem 1.5rem;transition:transform 0.18s ease,border-color 0.18s ease;height:100%;
+                    display:flex;flex-direction:column;"
+             onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(196,154,74,0.35)'"
+             onmouseout="this.style.transform='';this.style.borderColor='rgba(255,255,255,0.10)'">
+          <div style="width:36px;height:36px;border-radius:8px;background:rgba(196,154,74,0.12);
+                      display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+            <svg width="18" height="18" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:white;margin-bottom:0.4rem;">
+            QOZ Fund vs. Realize Gain
+          </p>
+          <p style="font-size:0.8rem;line-height:1.6;color:rgba(255,255,255,0.50);font-weight:300;margin:0;">
+            Model the tax impact of investing capital gains into a Qualified Opportunity Zone fund versus paying tax now and reinvesting.
+          </p>
+        </div>
+      </a>
+
+      <!-- QSBS Calculator -->
+      <a href="qsbs-calculator.html" style="text-decoration:none;">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);border-radius:10px;
+                    padding:1.75rem 1.5rem;transition:transform 0.18s ease,border-color 0.18s ease;height:100%;
+                    display:flex;flex-direction:column;"
+             onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(196,154,74,0.35)'"
+             onmouseout="this.style.transform='';this.style.borderColor='rgba(255,255,255,0.10)'">
+          <div style="width:36px;height:36px;border-radius:8px;background:rgba(196,154,74,0.12);
+                      display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+            <svg width="18" height="18" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <p style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:white;margin-bottom:0.4rem;">
+            §1202 QSBS vs. Standard Sale
+          </p>
+          <p style="font-size:0.8rem;line-height:1.6;color:rgba(255,255,255,0.50);font-weight:300;margin:0;">
+            See how much you could save by qualifying for the Section 1202 exclusion on a C-Corp sale versus a standard S-Corp or LLC exit.
+          </p>
+        </div>
+      </a>
+
+    </div>
   </div>
 </section>
+
+<style>
+  @media (max-width:767px) { .calc-grid { grid-template-columns:1fr !important; } }
+</style>
 
 
 <!-- ══════════════════════════════════════════════════
