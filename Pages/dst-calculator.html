@@ -559,10 +559,10 @@
       <div style="position:relative;z-index:2;">
         <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C49A5A;margin-bottom:0.75rem;">The Bottom Line</p>
         <p style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;color:white;margin-bottom:0.75rem;line-height:1.35;" id="summary-headline">
-          By exchanging into a DST, you keep an additional <span style="color:#D4AE6A;" id="summary-tax-saved">$315,895</span> working for you.
+          Over the next <span style="color:#D4AE6A;" id="summary-years">10</span> years, exchanging into a DST could put roughly <span style="color:#D4AE6A;" id="summary-total-benefit">$489,636</span> more in your pocket than selling outright.
         </p>
         <p style="font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.65);font-weight:300;margin-bottom:1.5rem;" id="summary-detail">
-          Over 10 years at a 5.5% distribution, that deferred tax generates approximately <span style="color:#D4AE6A;font-weight:500;" id="summary-extra-income">$173,741</span> in additional income compared to selling, realizing the gain, and reinvesting the smaller after-tax amount at the same rate.
+          That's roughly <span style="color:#D4AE6A;font-weight:500;" id="summary-extra-income">$173,741</span> in additional cash distributions on top of the <span style="color:#D4AE6A;font-weight:500;" id="summary-tax-saved">$315,895</span> in capital-gains and recapture taxes you'd otherwise hand to the IRS at closing — taxes that stay invested and keep working for you instead. To match that result by selling and reinvesting the after-tax proceeds, you'd need to earn <span style="color:#D4AE6A;font-weight:500;" id="summary-required-yield">8.4%</span> a year, every year, just to break even.
         </p>
         <a href="schedule.html"
            style="display:inline-flex;align-items:center;gap:8px;font-size:0.85rem;font-weight:600;
@@ -824,12 +824,12 @@ function calc() {
   document.getElementById('r2-income-diff').textContent    = fmtDollar(incomeDiff);
 
   // Update summary
-  document.getElementById('summary-tax-saved').textContent   = fmtDollar(totalTax);
-  document.getElementById('summary-extra-income').textContent = fmtDollar(incomeDiff);
-  document.getElementById('summary-headline').innerHTML =
-    'By exchanging into a DST, you keep an additional <span style="color:#D4AE6A;">' + fmtDollar(totalTax) + '</span> working for you.';
-  document.getElementById('summary-detail').innerHTML =
-    'Over ' + holdYears + ' years at a ' + (dstYield*100).toFixed(1) + '% distribution, that deferred tax generates approximately <span style="color:#D4AE6A;font-weight:500;">' + fmtDollar(incomeDiff) + '</span> in additional income compared to selling, realizing the gain, and reinvesting the smaller after-tax amount at the same rate.';
+  var totalBenefit = incomeDiff + totalTax;
+  document.getElementById('summary-years').textContent          = holdYears;
+  document.getElementById('summary-total-benefit').textContent  = fmtDollar(totalBenefit);
+  document.getElementById('summary-extra-income').textContent   = fmtDollar(incomeDiff);
+  document.getElementById('summary-tax-saved').textContent      = fmtDollar(totalTax);
+  document.getElementById('summary-required-yield').textContent = requiredYield.toFixed(2) + '%';
 }
 
 // Run on load
