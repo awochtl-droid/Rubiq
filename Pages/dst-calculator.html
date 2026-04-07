@@ -351,7 +351,7 @@
           <label class="calc-label">Selling Costs (broker, closing, etc.)</label>
           <div style="display:flex;align-items:center;gap:0.5rem;">
             <span style="font-size:0.875rem;font-weight:600;color:#2C3E55;">%</span>
-            <input type="text" id="selling-costs" class="calc-input" value="6" oninput="calc()" style="max-width:100px;">
+            <input type="text" id="selling-costs" class="calc-input" value="6" style="max-width:100px;">
           </div>
         </div>
       </div>
@@ -363,7 +363,7 @@
         <div class="calc-input-group">
           <label class="calc-label">Federal Capital Gains Rate</label>
           <div style="display:flex;align-items:center;gap:0.5rem;">
-            <input type="text" id="fed-cg-rate" class="calc-input" value="20" oninput="calc()" style="max-width:80px;">
+            <input type="text" id="fed-cg-rate" class="calc-input" value="20" style="max-width:80px;">
             <span style="font-size:0.8rem;color:#4A5568;">%</span>
           </div>
         </div>
@@ -371,24 +371,25 @@
         <div class="calc-input-group">
           <label class="calc-label">Net Investment Income Tax (NIIT)</label>
           <div style="display:flex;align-items:center;gap:0.5rem;">
-            <input type="text" id="niit-rate" class="calc-input" value="3.8" oninput="calc()" style="max-width:80px;">
-            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+            <label style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#4A5568;cursor:pointer;">
+              <input type="checkbox" id="niit-apply" checked style="width:16px;height:16px;cursor:pointer;accent-color:#1A5EA8;">
+              Apply 3.8% NIIT
+            </label>
           </div>
         </div>
 
         <div class="calc-input-group">
           <label class="calc-label">State Income Tax Rate</label>
           <div style="display:flex;align-items:center;gap:0.5rem;">
-            <input type="text" id="state-rate" class="calc-input" value="3.07" oninput="calc()" style="max-width:80px;">
+            <input type="text" id="state-rate" class="calc-input" value="0.0" style="max-width:80px;">
             <span style="font-size:0.8rem;color:#4A5568;">%</span>
-            <span style="font-size:0.72rem;color:#9CA3AF;margin-left:0.25rem;">(PA default)</span>
           </div>
         </div>
 
         <div class="calc-input-group">
           <label class="calc-label">Depreciation Recapture Rate</label>
           <div style="display:flex;align-items:center;gap:0.5rem;">
-            <input type="text" id="recap-rate" class="calc-input" value="25" oninput="calc()" style="max-width:80px;">
+            <input type="text" id="recap-rate" class="calc-input" value="25" style="max-width:80px;">
             <span style="font-size:0.8rem;color:#4A5568;">%</span>
           </div>
         </div>
@@ -399,7 +400,7 @@
           <div class="calc-input-group">
             <label class="calc-label">Projected Annual DST Distribution</label>
             <div style="display:flex;align-items:center;gap:0.5rem;">
-              <input type="text" id="dst-yield" class="calc-input" value="5.5" oninput="calc()" style="max-width:80px;">
+              <input type="text" id="dst-yield" class="calc-input" value="4.5" style="max-width:80px;">
               <span style="font-size:0.8rem;color:#4A5568;">%</span>
             </div>
             <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Typical DST cash-on-cash distributions range from 4.5%&ndash;6.5%. Not guaranteed.</p>
@@ -408,12 +409,18 @@
           <div class="calc-input-group" style="margin-bottom:0;">
             <label class="calc-label">Comparison Period</label>
             <div style="display:flex;align-items:center;gap:0.5rem;">
-              <input type="text" id="hold-years" class="calc-input" value="10" oninput="calc()" style="max-width:80px;">
+              <input type="text" id="hold-years" class="calc-input" value="10" style="max-width:80px;">
               <span style="font-size:0.8rem;color:#4A5568;">years</span>
             </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <div style="display:flex;justify-content:center;margin:0.5rem 0 2rem;">
+      <button type="button" onclick="calc()" style="background:#1A5EA8;color:white;border:none;border-radius:8px;padding:0.95rem 2.5rem;font-size:0.95rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;box-shadow:0 4px 14px rgba(26,94,168,0.25);transition:transform 0.18s ease,box-shadow 0.18s ease,background 0.18s ease;" onmouseover="this.style.background='#164E8C';this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 18px rgba(26,94,168,0.32)'" onmouseout="this.style.background='#1A5EA8';this.style.transform='translateY(0)';this.style.boxShadow='0 4px 14px rgba(26,94,168,0.25)'">
+        Calculate
+      </button>
     </div>
 
     <!-- Responsive grid override -->
@@ -728,12 +735,10 @@ function fmtDollar(n) {
 function formatAndCalc(el) {
   var raw = el.value.replace(/[^0-9]/g,'');
   if (raw) el.value = parseInt(raw).toLocaleString('en-US');
-  calc();
 }
 function syncSlider(inputId, val) {
   var el = document.getElementById(inputId);
   el.value = parseInt(val).toLocaleString('en-US');
-  calc();
 }
 
 function calc() {
@@ -743,7 +748,7 @@ function calc() {
   var mortgage    = parseNum('mortgage');
   var sellingPct  = parseNum('selling-costs') / 100;
   var fedCGRate   = parseNum('fed-cg-rate') / 100;
-  var niitRate    = parseNum('niit-rate') / 100;
+  var niitRate    = document.getElementById('niit-apply').checked ? 0.038 : 0;
   var stateRate   = parseNum('state-rate') / 100;
   var recapRate   = parseNum('recap-rate') / 100;
   var dstYield    = parseNum('dst-yield') / 100;
