@@ -543,7 +543,7 @@
           <span class="result-value gold" id="r2-cum-income-dst">$814,000</span>
         </div>
         <div class="result-row">
-          <span class="result-label">What you would need to earn from sale after paying taxes</span>
+          <span class="result-label">Required yield to break even</span>
           <span class="result-value" id="r2-required-yield">5.7%</span>
         </div>
         <div class="result-row" style="border-bottom:none;padding-top:0.75rem;">
@@ -816,7 +816,9 @@ function calc() {
   document.getElementById('r2-yield-pct').textContent      = (dstYield * 100).toFixed(1);
   document.getElementById('r2-annual-income').textContent  = fmtDollar(annualIncomeDST);
   document.getElementById('r2-cum-income-dst').textContent = fmtDollar(cumIncomeDST);
-  var requiredYield = netEquitySell > 0 ? (annualIncomeDST / netEquitySell * 100) : 0;
+  // To break even, after-tax pile must produce DST cumulative income AND recover the tax haircut over the period
+  var requiredAnnual = holdYears > 0 ? (cumIncomeDST + totalTax) / holdYears : 0;
+  var requiredYield = netEquitySell > 0 ? (requiredAnnual / netEquitySell * 100) : 0;
   document.getElementById('r2-required-yield').textContent = requiredYield.toFixed(2) + '%';
   document.getElementById('r2-income-diff').textContent    = fmtDollar(incomeDiff);
 
