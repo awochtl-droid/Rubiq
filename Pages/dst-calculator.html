@@ -547,7 +547,7 @@
           <span class="result-value" id="r2-required-yield">5.7%</span>
         </div>
         <div class="result-row" style="border-bottom:none;padding-top:0.75rem;">
-          <span class="result-label" style="font-weight:600;color:#1A5EA8;">Additional Income from Tax Deferral</span>
+          <span class="result-label" style="font-weight:600;color:#1A5EA8;">Additional Income from Tax Deferral (<span id="r2-years-3">10</span> Yr)</span>
           <span class="result-value positive" style="font-size:1.125rem;" id="r2-income-diff">$173,741</span>
         </div>
       </div>
@@ -813,6 +813,7 @@ function calc() {
   document.getElementById('r2-tax-deferred').textContent   = fmtDollar(totalTax);
   document.getElementById('r2-years').textContent          = holdYears;
   document.getElementById('r2-years-2').textContent        = holdYears;
+  document.getElementById('r2-years-3').textContent        = holdYears;
   document.getElementById('r2-yield-pct').textContent      = (dstYield * 100).toFixed(1);
   document.getElementById('r2-annual-income').textContent  = fmtDollar(annualIncomeDST);
   document.getElementById('r2-cum-income-dst').textContent = fmtDollar(cumIncomeDST);
