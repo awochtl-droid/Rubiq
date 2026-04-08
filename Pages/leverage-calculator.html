@@ -289,8 +289,8 @@
           <span class="result-value" id="r-cash-interest">$0</span>
         </div>
         <div class="result-row">
-          <span class="result-label" style="font-weight:600;color:#0F1724;">Total Wealth at Exit</span>
-          <span class="result-value" style="font-size:1.125rem;" id="r-cash-wealth">$1,828,039</span>
+          <span class="result-label" style="font-weight:600;color:#0F1724;">Total Wealth Gained</span>
+          <span class="result-value" style="font-size:1.125rem;" id="r-cash-wealth">$828,039</span>
         </div>
         <div class="result-row" style="border-bottom:none;">
           <span class="result-label" style="font-weight:600;color:#0F1724;">IRR on Capital Contributed</span>
@@ -339,8 +339,8 @@
           <span class="result-value negative" id="r-lev-interest">($490,000)</span>
         </div>
         <div class="result-row">
-          <span class="result-label" style="font-weight:600;color:#1A5EA8;">Total Wealth at Exit</span>
-          <span class="result-value positive" style="font-size:1.125rem;" id="r-lev-wealth">$1,698,901</span>
+          <span class="result-label" style="font-weight:600;color:#1A5EA8;">Total Wealth Gained</span>
+          <span class="result-value positive" style="font-size:1.125rem;" id="r-lev-wealth">$698,901</span>
         </div>
         <div class="result-row" style="border-bottom:none;">
           <span class="result-label" style="font-weight:600;color:#1A5EA8;">IRR on Capital Contributed</span>
@@ -636,31 +636,7 @@ function calc() {
   // Min liquid alt yield: rAlt where (1+rAlt)^N − 1 = rBeff*N
   var rAltMin = N > 0 ? Math.pow(1 + rBeff * N, 1 / N) - 1 : 0;
 
-  // ── Update Cash side ──
-  document.getElementById('r-cash-out').textContent      = '(' + fmtDollar(I) + ')';
-  document.getElementById('r-cash-liquid').textContent   = '$0';
-  document.getElementById('r-cash-loan').textContent     = '$0';
-  document.getElementById('r-cash-years').textContent    = Nlabel;
-  document.getElementById('r-cash-terminal').textContent = fmtDollar(terminal);
-  document.getElementById('r-cash-alt').textContent      = '$0';
-  document.getElementById('r-cash-interest').textContent = '$0';
-  document.getElementById('r-cash-wealth').textContent   = fmtDollar(cashWealth);
-  document.getElementById('r-cash-irr').textContent      = cashIRR !== null ? (cashIRR * 100).toFixed(2) + '%' : '—';
-
-  // ── Update Leverage side ──
-  document.getElementById('r-lev-out').textContent       = '$0';
-  document.getElementById('r-lev-liquid').textContent    = fmtDollar(L);
-  document.getElementById('r-lev-loan').textContent      = fmtDollar(L);
-  document.getElementById('r-lev-aftax-rate').textContent = (rBeff * 100).toFixed(2) + '%';
-  document.getElementById('r-lev-years').textContent     = Nlabel;
-  document.getElementById('r-lev-terminal').textContent  = fmtDollar(terminal);
-  document.getElementById('r-lev-alt').textContent       = fmtDollar(liquidEnd);
-  document.getElementById('r-lev-loan-repay').textContent = '(' + fmtDollar(L) + ')';
-  document.getElementById('r-lev-interest').textContent  = '(' + fmtDollar(cumInterest) + ')';
-  document.getElementById('r-lev-wealth').textContent    = fmtDollar(levWealth);
-  document.getElementById('r-lev-irr').textContent       = levIRR !== null ? (levIRR * 100).toFixed(2) + '%' : '—';
-
-  // ── IRR on capital contributed ──
+  // ── IRR on capital contributed (must run before display) ──
   // Cash: -I at t=0, +terminal at t=N
   var cashIRR = irr([-I, terminal], [0, N]);
 
@@ -675,14 +651,40 @@ function calc() {
     levTimes.push(y);
   }
   if (frac > 0) {
-    // partial-year interest at exit, combined with terminal flow
     levFlows.push(-annualInt * frac + (terminal - L));
     levTimes.push(N);
   } else {
-    // terminal flow at exit (year-N interest already pushed above)
     levFlows[levFlows.length - 1] += (terminal - L);
   }
   var levIRR = irr(levFlows, levTimes);
+
+  // Wealth gained vs. starting capital I
+  var cashGain = cashWealth - I;
+  var levGain  = levWealth - I;
+
+  // ── Update Cash side ──
+  document.getElementById('r-cash-out').textContent      = '(' + fmtDollar(I) + ')';
+  document.getElementById('r-cash-liquid').textContent   = '$0';
+  document.getElementById('r-cash-loan').textContent     = '$0';
+  document.getElementById('r-cash-years').textContent    = Nlabel;
+  document.getElementById('r-cash-terminal').textContent = fmtDollar(terminal);
+  document.getElementById('r-cash-alt').textContent      = '$0';
+  document.getElementById('r-cash-interest').textContent = '$0';
+  document.getElementById('r-cash-wealth').textContent   = fmtDollar(cashGain);
+  document.getElementById('r-cash-irr').textContent      = (cashIRR !== null && isFinite(cashIRR)) ? (cashIRR * 100).toFixed(2) + '%' : '—';
+
+  // ── Update Leverage side ──
+  document.getElementById('r-lev-out').textContent       = '$0';
+  document.getElementById('r-lev-liquid').textContent    = fmtDollar(L);
+  document.getElementById('r-lev-loan').textContent      = fmtDollar(L);
+  document.getElementById('r-lev-aftax-rate').textContent = (rBeff * 100).toFixed(2) + '%';
+  document.getElementById('r-lev-years').textContent     = Nlabel;
+  document.getElementById('r-lev-terminal').textContent  = fmtDollar(terminal);
+  document.getElementById('r-lev-alt').textContent       = fmtDollar(liquidEnd);
+  document.getElementById('r-lev-loan-repay').textContent = '(' + fmtDollar(L) + ')';
+  document.getElementById('r-lev-interest').textContent  = '(' + fmtDollar(cumInterest) + ')';
+  document.getElementById('r-lev-wealth').textContent    = fmtDollar(levGain);
+  document.getElementById('r-lev-irr').textContent       = (levIRR !== null && isFinite(levIRR)) ? (levIRR * 100).toFixed(2) + '%' : '—';
 
   // ── Break-evens ──
   document.getElementById('be-years').textContent = beYears !== null ? beYears.toFixed(1) + ' yrs' : 'Never';
