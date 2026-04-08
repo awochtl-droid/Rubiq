@@ -354,9 +354,9 @@
       <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:1.25rem;">Break-Even Analysis</p>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;" class="breakeven-grid">
         <div style="background:#FAF8F4;border:1px solid rgba(26,94,168,0.10);border-radius:8px;padding:1.25rem;">
-          <p style="font-size:0.7rem;font-weight:600;color:#1A5EA8;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">Min Hold Period</p>
+          <p style="font-size:0.7rem;font-weight:600;color:#1A5EA8;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">Max Hold Period</p>
           <p style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#0F1724;margin:0;" id="be-years">9.4 yrs</p>
-          <p style="font-size:0.72rem;color:#4A5568;line-height:1.55;font-weight:300;margin:0.4rem 0 0;">Smallest hold period at which leverage IRR matches the cash (deal) IRR.</p>
+          <p style="font-size:0.72rem;color:#4A5568;line-height:1.55;font-weight:300;margin:0.4rem 0 0;">Longest hold at which leverage IRR still meets or beats the cash (deal) IRR. Past this point the interest drag overtakes the compounding gains.</p>
         </div>
         <div style="background:#FAF8F4;border:1px solid rgba(26,94,168,0.10);border-radius:8px;padding:1.25rem;">
           <p style="font-size:0.7rem;font-weight:600;color:#1A5EA8;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">Max Borrow Rate</p>
@@ -610,26 +610,28 @@ function calc() {
   // Break-evens — leverage IRR meets/beats cash IRR (the deal return)
   // levIRR ≥ r  ⇔  ((1+r)^N − 1) + ((1+rAlt)^N − 1) ≥ rBeff*N*(1+r)^N
   // f(N) = (1+r)^N + (1+rAlt)^N − 2 − rBeff*N*(1+r)^N
+  // f starts at 0 (N=0), grows positive, then turns negative as the rBeff*N*(1+r)^N
+  // term overtakes the compounding gains. We're looking for the *max* hold where leverage still wins.
   function feval(Nv) {
     var dealComp = Math.pow(1 + r, Nv);
     return dealComp + Math.pow(1 + rAlt, Nv) - 2 - rBeff * Nv * dealComp;
   }
-  // Min hold period: smallest N where f(N) ≥ 0
+  // Max hold period: largest N where f(N) ≥ 0
   var beYears = null;
-  if (rBeff > 0) {
-    if (feval(0.01) >= 0) {
-      beYears = 0; // leverage already winning at near-zero hold
-    } else {
-      var nLo2 = 0.01, nHi2 = 100, found2 = null;
-      for (var i = 0; i < 80; i++) {
-        var nMid2 = (nLo2 + nHi2) / 2;
-        if (feval(nMid2) >= 0) { nHi2 = nMid2; found2 = nMid2; }
-        else { nLo2 = nMid2; }
-      }
-      if (found2 !== null && found2 < 99) beYears = found2;
-    }
+  if (rBeff <= 0) {
+    beYears = Infinity;
+  } else if (feval(0.05) < 0) {
+    beYears = 0; // leverage already losing at near-zero hold
+  } else if (feval(100) >= 0) {
+    beYears = Infinity;
   } else {
-    beYears = 0;
+    var nLo3 = 0.05, nHi3 = 100;
+    for (var i = 0; i < 80; i++) {
+      var nMid3 = (nLo3 + nHi3) / 2;
+      if (feval(nMid3) >= 0) nLo3 = nMid3;
+      else nHi3 = nMid3;
+    }
+    beYears = nLo3;
   }
 
   // Max borrow rate (pre-tax) at current N: solve rBeff such that f(N) = 0
@@ -696,7 +698,11 @@ function calc() {
   document.getElementById('r-lev-irr').textContent       = (levIRR !== null && isFinite(levIRR)) ? (levIRR * 100).toFixed(2) + '%' : '—';
 
   // ── Break-evens ──
-  document.getElementById('be-years').textContent = beYears === null ? 'Never' : (beYears <= 0.05 ? 'Immediate' : beYears.toFixed(1) + ' yrs');
+  document.getElementById('be-years').textContent =
+    beYears === null      ? 'Never' :
+    beYears === Infinity  ? 'Always' :
+    beYears <= 0.05       ? 'Never' :
+                            beYears.toFixed(1) + ' yrs';
   document.getElementById('be-rate').textContent  = (rBMax * 100).toFixed(2) + '%';
   document.getElementById('be-alt').textContent   = (rAltMin * 100).toFixed(2) + '%';
 
