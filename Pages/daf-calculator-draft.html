@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- WORKING DRAFT — NOT LINKED, NOT PUBLISHED -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-15PBEWL3XZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-15PBEWL3XZ');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donor-Advised Fund Calculator (DRAFT) | Rubiq Financial Partners</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Compare the tax benefit of giving cash, donating appreciated stock, or selling first and donating the proceeds to a donor-advised fund." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
+
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
+      text-decoration: none; position: relative; padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+    .nav-link::after { content: ''; position: absolute; left: 0; bottom: -2px; width: 0; height: 1.5px; background: #C49A5A; transition: width 0.22s ease; }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+
+    .btn-primary { background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%); color: white; font-weight: 600; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer; transition: opacity 0.18s ease, transform 0.18s ease; }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-gold { background: linear-gradient(135deg, #C49A5A 0%, #D4AE6A 100%); color: #0F1724; font-weight: 600; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.875rem 2.25rem; border-radius: 4px; border: none; cursor: pointer; transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease; }
+    .btn-gold:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(196,154,74,0.40); }
+    .btn-ghost { background: transparent; color: white; font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35); cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease; }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); transform: translateY(-1px); }
+
+    .calc-input-group { margin-bottom: 1.25rem; }
+    .calc-label { display: block; font-size: 0.78rem; font-weight: 600; color: #2C3E55; letter-spacing: 0.02em; margin-bottom: 0.4rem; }
+    .calc-input { width: 100%; padding: 0.625rem 0.875rem; border: 1px solid rgba(26,94,168,0.20); border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #0F1724; background: white; transition: border-color 0.18s ease; outline: none; }
+    .calc-input:focus { border-color: #1A5EA8; box-shadow: 0 0 0 3px rgba(26,94,168,0.08); }
+    .calc-select { width: 100%; padding: 0.625rem 0.875rem; border: 1px solid rgba(26,94,168,0.20); border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #0F1724; background: white; outline: none; }
+
+    .result-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid rgba(44,62,85,0.08); }
+    .result-row:last-child { border-bottom: none; }
+    .result-label { font-size: 0.8125rem; color: #4A5568; font-weight: 400; }
+    .result-value { font-size: 0.9rem; font-weight: 600; color: #0F1724; font-variant-numeric: tabular-nums; }
+    .result-value.negative { color: #c0392b; }
+    .result-value.positive { color: #1A5EA8; }
+    .result-value.gold { color: #9E7A32; }
+
+    .comparison-card { background: white; border: 1px solid rgba(26,94,168,0.10); border-radius: 10px; padding: 1.75rem; flex: 1; min-width: 280px; }
+
+    .draft-banner { background:#9E7A32; color:white; text-align:center; font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:0.5rem; }
+  </style>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+
+<div class="draft-banner">Working Draft &mdash; Internal Review Only &mdash; Not Linked / Not Published</div>
+
+<!-- HERO -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 50%,#1A5EA8 100%);padding:5rem 0 4rem;position:relative;overflow:hidden;">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.025;pointer-events:none;" aria-hidden="true">
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+  <div style="position:absolute;top:-10%;right:-5%;width:55%;height:110%;background:radial-gradient(ellipse,rgba(196,154,74,0.12) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.25);border-radius:100px;padding:0.35rem 1rem;margin-bottom:2rem;">
+      <div style="width:6px;height:6px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">Interactive Tool</span>
+    </div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:white;margin-bottom:1.25rem;">
+      Donor-Advised <em style="font-style:italic;color:#D4AE6A;">Fund</em> Calculator
+    </h1>
+    <p style="font-size:1.0625rem;line-height:1.7;color:rgba(255,255,255,0.72);font-weight:300;max-width:660px;">
+      A donor-advised fund (DAF) lets you make a single, deductible charitable contribution today, then grant the money to charities of your choice over time. Compare giving cash versus donating appreciated stock &mdash; and see why <em>what</em> you give often matters as much as <em>how much</em>.
+    </p>
+  </div>
+</section>
+
+
+<main id="main-content">
+
+<!-- OVERVIEW -->
+<section style="padding:3rem 0 1rem;background:#FAF8F4;">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;" class="overview-grid">
+      <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:8px;padding:1.5rem;">
+        <p style="font-size:0.7rem;font-weight:600;color:#1A5EA8;letter-spacing:0.10em;text-transform:uppercase;margin:0 0 0.5rem;">What it is</p>
+        <p style="font-size:0.85rem;line-height:1.65;color:#2C3E55;font-weight:300;margin:0;">A charitable investment account at a sponsor (Fidelity Charitable, Schwab Charitable, NPT, community foundations). Contributions are <em>irrevocable</em> charitable gifts &mdash; you take the deduction now, then recommend grants to qualified 501(c)(3) charities later.</p>
+      </div>
+      <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:8px;padding:1.5rem;">
+        <p style="font-size:0.7rem;font-weight:600;color:#1A5EA8;letter-spacing:0.10em;text-transform:uppercase;margin:0 0 0.5rem;">How it works</p>
+        <p style="font-size:0.85rem;line-height:1.65;color:#2C3E55;font-weight:300;margin:0;">Contribute cash, appreciated securities, or other assets. Take an income-tax deduction for the year of contribution (subject to AGI limits). Assets grow tax-free inside the DAF. Recommend grants on your timeline &mdash; this year, next year, or over decades.</p>
+      </div>
+      <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:8px;padding:1.5rem;">
+        <p style="font-size:0.7rem;font-weight:600;color:#1A5EA8;letter-spacing:0.10em;text-transform:uppercase;margin:0 0 0.5rem;">Where it fits</p>
+        <p style="font-size:0.85rem;line-height:1.65;color:#2C3E55;font-weight:300;margin:0;">High-income years (liquidity event, big bonus, Roth conversion). "Bunching" several years of giving into one to clear the standard deduction. Donating low-basis stock to wipe out an embedded gain. Building a multi-generational giving vehicle without the cost of a private foundation.</p>
+      </div>
+    </div>
+    <style>@media(max-width:768px){.overview-grid{grid-template-columns:1fr !important;}}</style>
+  </div>
+</section>
+
+
+<!-- CALCULATOR -->
+<section style="padding:2rem 0 4rem;background:#FAF8F4;">
+  <div class="max-w-5xl mx-auto px-6 lg:px-10">
+
+    <!-- Inputs -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:1.5rem;" class="calc-grid">
+
+      <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:1.75rem;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:1.25rem;">The Gift</p>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Asset Fair Market Value</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="font-size:0.875rem;font-weight:600;color:#2C3E55;">$</span>
+            <input type="text" id="fmv" class="calc-input" value="100,000" oninput="formatNum(this)">
+          </div>
+          <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">The amount you intend to give to charity.</p>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Cost Basis (if appreciated stock)</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="font-size:0.875rem;font-weight:600;color:#2C3E55;">$</span>
+            <input type="text" id="basis" class="calc-input" value="20,000" oninput="formatNum(this)">
+          </div>
+          <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Original purchase price. Assumes long-term holding (&gt; 1 year).</p>
+        </div>
+
+        <div class="calc-input-group" style="margin-bottom:0;">
+          <label class="calc-label">Adjusted Gross Income (AGI)</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="font-size:0.875rem;font-weight:600;color:#2C3E55;">$</span>
+            <input type="text" id="agi" class="calc-input" value="500,000" oninput="formatNum(this)">
+          </div>
+          <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Used to check the AGI deduction limit (60% cash / 30% appreciated stock to a DAF). Excess carries forward 5 years.</p>
+        </div>
+      </div>
+
+      <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:1.75rem;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:1.25rem;">Your Tax Profile</p>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Federal Marginal Income Tax Rate</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="ord-rate" class="calc-input" value="37" style="max-width:100px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+          </div>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Long-Term Capital Gains Rate</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="ltcg-rate" class="calc-input" value="20" style="max-width:100px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+          </div>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Net Investment Income Tax</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="niit-rate" class="calc-input" value="3.8" style="max-width:100px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+          </div>
+        </div>
+
+        <div class="calc-input-group" style="margin-bottom:0;">
+          <label class="calc-label">State Income Tax Rate</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="state-rate" class="calc-input" value="3.07" style="max-width:100px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+          </div>
+          <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Applied to both the income deduction and the avoided capital gain. Adjust if your state doesn't conform.</p>
+        </div>
+      </div>
+    </div>
+
+    <style>@media(max-width:768px){.calc-grid{grid-template-columns:1fr !important;}}</style>
+
+    <div style="display:flex;justify-content:center;margin:0.5rem 0 2rem;">
+      <button type="button" onclick="calc()" style="background:#1A5EA8;color:white;border:none;border-radius:8px;padding:0.95rem 2.5rem;font-size:0.95rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;box-shadow:0 4px 14px rgba(26,94,168,0.25);transition:transform 0.18s ease,box-shadow 0.18s ease,background 0.18s ease;" onmouseover="this.style.background='#164E8C';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#1A5EA8';this.style.transform='translateY(0)'">
+        Calculate
+      </button>
+    </div>
+
+    <!-- Results: 3 scenarios -->
+    <div style="display:flex;gap:1.25rem;flex-wrap:wrap;margin-bottom:2rem;">
+
+      <!-- A: Cash to DAF -->
+      <div class="comparison-card" style="border-top:3px solid #4A5568;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#4A5568;margin-bottom:1rem;">A &middot; Donate Cash</p>
+        <div class="result-row"><span class="result-label">Gift to charity</span><span class="result-value" id="a-gift">$100,000</span></div>
+        <div class="result-row"><span class="result-label">Income-tax deduction</span><span class="result-value" id="a-ded">$100,000</span></div>
+        <div class="result-row"><span class="result-label">Capital gains tax avoided</span><span class="result-value" id="a-cgavoid">$0</span></div>
+        <div class="result-row"><span class="result-label">Total tax savings</span><span class="result-value positive" id="a-savings">$43,870</span></div>
+        <div class="result-row" style="border-bottom:none;"><span class="result-label" style="font-weight:600;color:#0F1724;">Net out-of-pocket cost</span><span class="result-value gold" style="font-size:1.05rem;" id="a-net">$56,130</span></div>
+      </div>
+
+      <!-- B: Sell stock then donate cash -->
+      <div class="comparison-card" style="border-top:3px solid #c0392b;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#c0392b;margin-bottom:1rem;">B &middot; Sell Stock, Donate Proceeds</p>
+        <div class="result-row"><span class="result-label">Stock FMV sold</span><span class="result-value" id="b-fmv">$100,000</span></div>
+        <div class="result-row"><span class="result-label">Capital gains tax owed</span><span class="result-value negative" id="b-cgtax">($21,508)</span></div>
+        <div class="result-row"><span class="result-label">Net cash to donate</span><span class="result-value" id="b-netcash">$78,492</span></div>
+        <div class="result-row"><span class="result-label">Income-tax deduction</span><span class="result-value" id="b-ded">$78,492</span></div>
+        <div class="result-row"><span class="result-label">Total tax savings</span><span class="result-value positive" id="b-savings">$13,929</span></div>
+        <div class="result-row" style="border-bottom:none;"><span class="result-label" style="font-weight:600;color:#0F1724;">Net cost (FMV given up)</span><span class="result-value gold" style="font-size:1.05rem;" id="b-net">$86,071</span></div>
+      </div>
+
+      <!-- C: Donate stock in-kind -->
+      <div class="comparison-card" style="border-top:3px solid #1A5EA8;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#1A5EA8;margin-bottom:1rem;">C &middot; Donate Appreciated Stock In-Kind</p>
+        <div class="result-row"><span class="result-label">Gift to charity (FMV)</span><span class="result-value" id="c-gift">$100,000</span></div>
+        <div class="result-row"><span class="result-label">Income-tax deduction</span><span class="result-value" id="c-ded">$100,000</span></div>
+        <div class="result-row"><span class="result-label">Capital gains tax avoided</span><span class="result-value positive" id="c-cgavoid">$21,508</span></div>
+        <div class="result-row"><span class="result-label">Total tax savings</span><span class="result-value positive" id="c-savings">$65,378</span></div>
+        <div class="result-row" style="border-bottom:none;"><span class="result-label" style="font-weight:600;color:#0F1724;">Net out-of-pocket cost</span><span class="result-value gold" style="font-size:1.05rem;" id="c-net">$34,622</span></div>
+      </div>
+    </div>
+
+    <!-- AGI limit warning -->
+    <div id="agi-warn" style="display:none;background:#FEF6E4;border:1px solid #C49A5A;border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:0.82rem;color:#5C4419;line-height:1.6;"></div>
+
+    <!-- Bottom line -->
+    <div style="background:linear-gradient(135deg,#0F1724 0%,#133F73 100%);border-radius:10px;padding:2rem 2.25rem;position:relative;overflow:hidden;margin-bottom:2rem;">
+      <div style="position:absolute;top:-40%;right:-10%;width:45%;height:180%;background:radial-gradient(ellipse,rgba(196,154,74,0.15) 0%,transparent 60%);pointer-events:none;"></div>
+      <div style="position:relative;z-index:2;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C49A5A;margin-bottom:0.75rem;">The Bottom Line</p>
+        <p style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;color:white;margin-bottom:0.75rem;line-height:1.4;" id="bl-headline">Donating appreciated stock in-kind delivers the same gift to charity at the lowest after-tax cost.</p>
+        <p style="font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.65);font-weight:300;margin-bottom:1.5rem;" id="bl-detail"></p>
+        <a href="schedule.html" style="display:inline-flex;align-items:center;gap:8px;font-size:0.85rem;font-weight:600;color:#0F1724;background:#C49A5A;text-decoration:none;padding:0.7rem 1.5rem;border-radius:6px;transition:background 0.18s ease;" onmouseover="this.style.background='#D4AE6A'" onmouseout="this.style.background='#C49A5A'">
+          Talk through your giving plan
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- What assets to consider -->
+    <div style="background:white;border:1px solid rgba(26,94,168,0.12);border-left:3px solid #1A5EA8;border-radius:0 8px 8px 0;padding:1.5rem 1.75rem;margin-bottom:1.5rem;">
+      <p style="font-size:0.875rem;font-weight:600;color:#1A5EA8;margin:0 0 0.75rem;">What assets to consider giving</p>
+      <ul style="font-size:0.825rem;line-height:1.75;color:#4A5568;font-weight:300;margin:0;padding-left:1.1rem;">
+        <li><strong style="color:#0F1724;">Long-term appreciated public stock or ETFs</strong> &mdash; the cleanest win. Deduct FMV, skip the gain entirely.</li>
+        <li><strong style="color:#0F1724;">Concentrated low-basis positions</strong> &mdash; trim risk and capture full FMV deduction in one move.</li>
+        <li><strong style="color:#0F1724;">RSU/ISO stock held &gt; 1 year</strong> &mdash; same treatment as any LTCG security.</li>
+        <li><strong style="color:#0F1724;">Pre-IPO or restricted shares</strong> &mdash; possible but requires a qualified appraisal and sponsor acceptance.</li>
+        <li><strong style="color:#0F1724;">Privately-held business interests, real estate, crypto</strong> &mdash; many DAF sponsors accept these; appraisal and timing rules apply.</li>
+        <li><strong style="color:#0F1724;">Cash</strong> &mdash; simplest and gets the highest AGI limit (60%). Use when you have no embedded gains worth harvesting.</li>
+        <li><strong style="color:#c0392b;">Avoid donating losers.</strong> Sell first, claim the loss, then donate the cash &mdash; you get both tax breaks.</li>
+        <li><strong style="color:#c0392b;">Avoid short-term holdings.</strong> Deduction is limited to basis, not FMV.</li>
+      </ul>
+    </div>
+
+    <!-- How this works -->
+    <div style="background:white;border:1px solid rgba(26,94,168,0.12);border-left:3px solid #1A5EA8;border-radius:0 8px 8px 0;padding:1.5rem 1.75rem;margin-bottom:2rem;">
+      <p style="font-size:0.875rem;font-weight:600;color:#1A5EA8;margin:0 0 0.5rem;">How this works</p>
+      <p style="font-size:0.8125rem;line-height:1.7;color:#4A5568;font-weight:300;margin:0 0 0.6rem;">
+        <strong>Cash donation</strong> generates a deduction equal to the gift, valued at your combined federal + state marginal rate. <strong>Selling stock first</strong> triggers capital gains tax (LTCG + NIIT + state) on the appreciation, leaving less to donate and a smaller deduction. <strong>Donating stock in-kind</strong> to a public-charity DAF lets you deduct full FMV <em>and</em> permanently avoid the embedded gain &mdash; the charity inherits your zero-cost basis but pays no tax when it sells.
+      </p>
+      <p style="font-size:0.8125rem;line-height:1.7;color:#4A5568;font-weight:300;margin:0;">
+        AGI limits for gifts to a DAF: <strong>60% of AGI</strong> for cash, <strong>30% of AGI</strong> for long-term appreciated securities at FMV. Anything above the limit carries forward up to 5 years. The deduction only matters if you itemize &mdash; "bunching" several years of gifts into one DAF contribution is a common way to clear the standard deduction.
+      </p>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<!-- DISCLAIMER -->
+<section style="padding:2rem 0;background:#F4F6F9;border-top:1px solid rgba(44,62,85,0.08);">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <p style="font-size:0.75rem;line-height:1.7;color:rgba(44,62,85,0.50);font-weight:300;margin:0;">
+      <strong style="font-weight:600;color:rgba(44,62,85,0.65);">Important Disclosure:</strong>
+      Educational illustration only. Not tax, legal, or investment advice. <strong>Rubiq Financial Partners is not a tax advisor, CPA, or attorney.</strong> The model assumes long-term holding, full itemization, that the entire deduction is usable in the contribution year (subject to the displayed AGI check), state conformity to federal charitable rules, and ignores AMT, Pease-style limits, phase-outs, and the alternative minimum tax. Actual outcomes depend on your specific tax facts. Always consult a qualified CPA before executing a charitable strategy.
+    </p>
+  </div>
+</section>
+
+<script>
+function parseNum(id){var el=document.getElementById(id);return parseFloat(el.value.replace(/[^0-9.\-]/g,''))||0;}
+function fmt(n){return Math.round(n).toLocaleString('en-US');}
+function fmtDollar(n){if(n<0)return '($'+fmt(Math.abs(n))+')';return '$'+fmt(n);}
+function formatNum(el){var raw=el.value.replace(/[^0-9]/g,'');if(raw)el.value=parseInt(raw).toLocaleString('en-US');}
+
+function calc(){
+  var FMV   = parseNum('fmv');
+  var basis = parseNum('basis');
+  var AGI   = parseNum('agi');
+  var ord   = parseNum('ord-rate')/100;
+  var ltcg  = parseNum('ltcg-rate')/100;
+  var niit  = parseNum('niit-rate')/100;
+  var st    = parseNum('state-rate')/100;
+
+  if (basis > FMV) basis = FMV;
+  var gain      = FMV - basis;
+  var cgRate    = ltcg + niit + st;       // total cap-gain rate
+  var incRate   = ord + st;               // total income tax benefit rate
+  var cgOnSale  = gain * cgRate;
+
+  // ── Scenario A: donate cash ──
+  var aDed     = FMV;
+  var aSavings = aDed * incRate;
+  var aNet     = FMV - aSavings;
+
+  // ── Scenario B: sell stock then donate proceeds ──
+  var bNetCash  = FMV - cgOnSale;
+  var bDed      = bNetCash;
+  var bSavings  = bDed * incRate;          // income deduction value
+  var bNetCost  = FMV - bSavings;          // measured against the FMV you "gave up"
+  // (charity receives bNetCash, not FMV)
+
+  // ── Scenario C: donate appreciated stock in-kind ──
+  var cDed      = FMV;
+  var cIncSav   = cDed * incRate;
+  var cCgAvoid  = cgOnSale;
+  var cSavings  = cIncSav + cCgAvoid;
+  var cNet      = FMV - cSavings;
+
+  // AGI limits
+  var cashLimit = 0.60 * AGI;
+  var stockLimit = 0.30 * AGI;
+
+  // ── Render ──
+  document.getElementById('a-gift').textContent     = fmtDollar(FMV);
+  document.getElementById('a-ded').textContent      = fmtDollar(aDed);
+  document.getElementById('a-cgavoid').textContent  = '$0';
+  document.getElementById('a-savings').textContent  = fmtDollar(aSavings);
+  document.getElementById('a-net').textContent      = fmtDollar(aNet);
+
+  document.getElementById('b-fmv').textContent      = fmtDollar(FMV);
+  document.getElementById('b-cgtax').textContent    = '(' + fmtDollar(cgOnSale) + ')';
+  document.getElementById('b-netcash').textContent  = fmtDollar(bNetCash);
+  document.getElementById('b-ded').textContent      = fmtDollar(bDed);
+  document.getElementById('b-savings').textContent  = fmtDollar(bSavings);
+  document.getElementById('b-net').textContent      = fmtDollar(bNetCost);
+
+  document.getElementById('c-gift').textContent     = fmtDollar(FMV);
+  document.getElementById('c-ded').textContent      = fmtDollar(cDed);
+  document.getElementById('c-cgavoid').textContent  = fmtDollar(cCgAvoid);
+  document.getElementById('c-savings').textContent  = fmtDollar(cSavings);
+  document.getElementById('c-net').textContent      = fmtDollar(cNet);
+
+  // AGI limit warning
+  var warnEl = document.getElementById('agi-warn');
+  var warns = [];
+  if (FMV > cashLimit) warns.push('Cash gift of '+fmtDollar(FMV)+' exceeds the 60% AGI cash limit ('+fmtDollar(cashLimit)+'). Excess deduction carries forward up to 5 years.');
+  if (FMV > stockLimit) warns.push('Stock gift of '+fmtDollar(FMV)+' exceeds the 30% AGI appreciated-securities limit ('+fmtDollar(stockLimit)+'). Excess carries forward up to 5 years.');
+  if (warns.length){
+    warnEl.style.display = 'block';
+    warnEl.innerHTML = '<strong>AGI deduction limit:</strong> ' + warns.join(' &nbsp;&middot;&nbsp; ');
+  } else {
+    warnEl.style.display = 'none';
+  }
+
+  // Bottom line
+  var savedVsCash  = cSavings - aSavings;     // extra savings from giving stock vs cash
+  var savedVsSell  = cNet - bNetCost;          // negative means C is cheaper than B (it should be)
+  var diffVsSell   = bNetCost - cNet;         // positive = stock-in-kind cheaper
+
+  var headline, detail;
+  if (gain <= 0) {
+    headline = 'With no embedded gain, donating cash and donating the stock are economically identical.';
+    detail   = 'There is no capital-gains tax to avoid, so all three scenarios produce the same '+fmtDollar(aSavings)+' tax benefit. If the position is at a loss, sell first, harvest the loss, then donate the cash &mdash; you capture two tax breaks instead of one.';
+  } else {
+    headline = 'Donating the '+fmtDollar(FMV)+' appreciated stock in-kind costs you '+fmtDollar(diffVsSell)+' less than selling first and '+fmtDollar(aNet - cNet)+' less than writing a check for the same amount.';
+    detail   = 'Giving cash saves '+fmtDollar(aSavings)+' in income tax. Selling first triggers '+fmtDollar(cgOnSale)+' of capital-gains tax, shrinks the gift to '+fmtDollar(bNetCash)+', and only saves '+fmtDollar(bSavings)+'. Donating the shares directly to the DAF lets you deduct the full '+fmtDollar(FMV)+' <em>and</em> permanently sidestep the '+fmtDollar(cgOnSale)+' embedded gain &mdash; a combined benefit of '+fmtDollar(cSavings)+'. Same gift to charity, lowest after-tax cost.';
+  }
+  document.getElementById('bl-headline').textContent = headline;
+  document.getElementById('bl-detail').innerHTML     = detail;
+}
+
+calc();
+</script>
+</body>
+</html>

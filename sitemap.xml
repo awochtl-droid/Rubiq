@@ -251,6 +251,14 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Calculators -->
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/daf-calculator.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Legal & Compliance -->
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/faq.html</loc>
