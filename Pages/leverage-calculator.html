@@ -288,9 +288,13 @@
           <span class="result-label">Cumulative Interest Paid</span>
           <span class="result-value" id="r-cash-interest">$0</span>
         </div>
-        <div class="result-row" style="border-bottom:none;padding-top:0.75rem;">
+        <div class="result-row">
           <span class="result-label" style="font-weight:600;color:#0F1724;">Total Wealth at Exit</span>
           <span class="result-value" style="font-size:1.125rem;" id="r-cash-wealth">$1,828,039</span>
+        </div>
+        <div class="result-row" style="border-bottom:none;">
+          <span class="result-label" style="font-weight:600;color:#0F1724;">IRR on Capital Contributed</span>
+          <span class="result-value gold" style="font-size:1.125rem;" id="r-cash-irr">9.00%</span>
         </div>
       </div>
 
@@ -334,9 +338,13 @@
           <span class="result-label">Less: Cumulative Interest</span>
           <span class="result-value negative" id="r-lev-interest">($490,000)</span>
         </div>
-        <div class="result-row" style="border-bottom:none;padding-top:0.75rem;">
+        <div class="result-row">
           <span class="result-label" style="font-weight:600;color:#1A5EA8;">Total Wealth at Exit</span>
           <span class="result-value positive" style="font-size:1.125rem;" id="r-lev-wealth">$1,698,901</span>
+        </div>
+        <div class="result-row" style="border-bottom:none;">
+          <span class="result-label" style="font-weight:600;color:#1A5EA8;">IRR on Capital Contributed</span>
+          <span class="result-value gold" style="font-size:1.125rem;" id="r-lev-irr">&mdash;</span>
         </div>
       </div>
     </div>
@@ -528,6 +536,30 @@ function formatNum(el) {
   if (raw) el.value = parseInt(raw).toLocaleString('en-US');
 }
 
+// NPV at rate i for an array of cash flows where flows[k] occurs at time times[k] (in years)
+function npv(i, flows, times) {
+  var s = 0;
+  for (var k = 0; k < flows.length; k++) {
+    s += flows[k] / Math.pow(1 + i, times[k]);
+  }
+  return s;
+}
+// Solve IRR by bisection between -0.99 and 10 (1000%/yr)
+function irr(flows, times) {
+  var lo = -0.9999, hi = 10;
+  var fLo = npv(lo, flows, times);
+  var fHi = npv(hi, flows, times);
+  if (fLo * fHi > 0) return null; // no sign change → no solution in range
+  for (var k = 0; k < 200; k++) {
+    var mid = (lo + hi) / 2;
+    var fMid = npv(mid, flows, times);
+    if (Math.abs(fMid) < 1e-6) return mid;
+    if (fLo * fMid < 0) { hi = mid; fHi = fMid; }
+    else { lo = mid; fLo = fMid; }
+  }
+  return (lo + hi) / 2;
+}
+
 function calc() {
   var I        = parseNum('deal-amount');
   var yrs      = parseNum('hold-years');
@@ -595,6 +627,7 @@ function calc() {
   document.getElementById('r-cash-alt').textContent      = '$0';
   document.getElementById('r-cash-interest').textContent = '$0';
   document.getElementById('r-cash-wealth').textContent   = fmtDollar(cashWealth);
+  document.getElementById('r-cash-irr').textContent      = cashIRR !== null ? (cashIRR * 100).toFixed(2) + '%' : '—';
 
   // ── Update Leverage side ──
   document.getElementById('r-lev-out').textContent       = '$0';
@@ -607,6 +640,31 @@ function calc() {
   document.getElementById('r-lev-loan-repay').textContent = '(' + fmtDollar(L) + ')';
   document.getElementById('r-lev-interest').textContent  = '(' + fmtDollar(cumInterest) + ')';
   document.getElementById('r-lev-wealth').textContent    = fmtDollar(levWealth);
+  document.getElementById('r-lev-irr').textContent       = levIRR !== null ? (levIRR * 100).toFixed(2) + '%' : '—';
+
+  // ── IRR on capital contributed ──
+  // Cash: -I at t=0, +terminal at t=N
+  var cashIRR = irr([-I, terminal], [0, N]);
+
+  // Leverage: $0 at t=0, after-tax interest paid each period, terminal − L returned at t=N
+  var levFlows = [0];
+  var levTimes = [0];
+  var fullYears = Math.floor(N);
+  var frac = N - fullYears;
+  var annualInt = rBeff * L;
+  for (var y = 1; y <= fullYears; y++) {
+    levFlows.push(-annualInt);
+    levTimes.push(y);
+  }
+  if (frac > 0) {
+    // partial-year interest at exit, combined with terminal flow
+    levFlows.push(-annualInt * frac + (terminal - L));
+    levTimes.push(N);
+  } else {
+    // terminal flow at exit (year-N interest already pushed above)
+    levFlows[levFlows.length - 1] += (terminal - L);
+  }
+  var levIRR = irr(levFlows, levTimes);
 
   // ── Break-evens ──
   document.getElementById('be-years').textContent = beYears !== null ? beYears.toFixed(1) + ' yrs' : 'Never';
