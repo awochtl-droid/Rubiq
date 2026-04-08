@@ -173,8 +173,10 @@
         <div class="calc-input-group">
           <label class="calc-label">Hold Period</label>
           <div style="display:flex;align-items:center;gap:0.5rem;">
-            <input type="text" id="hold-years" class="calc-input" value="7" style="max-width:100px;">
-            <span style="font-size:0.8rem;color:#4A5568;">years</span>
+            <input type="text" id="hold-years" class="calc-input" value="7" style="max-width:80px;">
+            <span style="font-size:0.8rem;color:#4A5568;">yrs</span>
+            <input type="text" id="hold-months" class="calc-input" value="0" style="max-width:80px;margin-left:0.5rem;">
+            <span style="font-size:0.8rem;color:#4A5568;">mos</span>
           </div>
         </div>
 
@@ -204,7 +206,7 @@
         <div class="calc-input-group">
           <label class="calc-label">Liquid Alternative Yield</label>
           <div style="display:flex;align-items:center;gap:0.5rem;">
-            <input type="text" id="alt-yield" class="calc-input" value="4.5" style="max-width:100px;">
+            <input type="text" id="alt-yield" class="calc-input" value="3.0" style="max-width:100px;">
             <span style="font-size:0.8rem;color:#4A5568;">%</span>
           </div>
           <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">What your cash earns if it stays liquid (T-bills, money market, short bonds).</p>
@@ -213,7 +215,7 @@
         <div class="calc-input-group">
           <label class="calc-label">Borrow Rate</label>
           <div style="display:flex;align-items:center;gap:0.5rem;">
-            <input type="text" id="borrow-rate" class="calc-input" value="7.0" style="max-width:100px;">
+            <input type="text" id="borrow-rate" class="calc-input" value="10.0" style="max-width:100px;">
             <span style="font-size:0.8rem;color:#4A5568;">%</span>
           </div>
           <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Interest-only; principal repaid at exit.</p>
@@ -528,7 +530,11 @@ function formatNum(el) {
 
 function calc() {
   var I        = parseNum('deal-amount');
-  var N        = parseNum('hold-years');
+  var yrs      = parseNum('hold-years');
+  var mos      = parseNum('hold-months');
+  var N        = yrs + mos / 12;
+  if (N <= 0) N = 0.0001;
+  var Nlabel   = (mos > 0) ? (yrs + ' yr ' + mos + ' mo') : (yrs + ' yr');
   var r        = parseNum('deal-return') / 100;
   var rAlt     = parseNum('alt-yield') / 100;
   var rB       = parseNum('borrow-rate') / 100;
@@ -584,7 +590,7 @@ function calc() {
   document.getElementById('r-cash-out').textContent      = '(' + fmtDollar(I) + ')';
   document.getElementById('r-cash-liquid').textContent   = '$0';
   document.getElementById('r-cash-loan').textContent     = '$0';
-  document.getElementById('r-cash-years').textContent    = N;
+  document.getElementById('r-cash-years').textContent    = Nlabel;
   document.getElementById('r-cash-terminal').textContent = fmtDollar(terminal);
   document.getElementById('r-cash-alt').textContent      = '$0';
   document.getElementById('r-cash-interest').textContent = '$0';
@@ -595,7 +601,7 @@ function calc() {
   document.getElementById('r-lev-liquid').textContent    = fmtDollar(L);
   document.getElementById('r-lev-loan').textContent      = fmtDollar(L);
   document.getElementById('r-lev-aftax-rate').textContent = (rBeff * 100).toFixed(2) + '%';
-  document.getElementById('r-lev-years').textContent     = N;
+  document.getElementById('r-lev-years').textContent     = Nlabel;
   document.getElementById('r-lev-terminal').textContent  = fmtDollar(terminal);
   document.getElementById('r-lev-alt').textContent       = fmtDollar(liquidEnd);
   document.getElementById('r-lev-loan-repay').textContent = '(' + fmtDollar(L) + ')';
@@ -610,10 +616,10 @@ function calc() {
   // ── Bottom line ──
   var winner = delta >= 0 ? 'borrowing' : 'paying cash';
   var loser  = delta >= 0 ? 'paying cash' : 'borrowing';
-  document.getElementById('summary-years').textContent      = N;
+  document.getElementById('summary-years').textContent      = Nlabel;
   document.getElementById('summary-delta-abs').textContent  = fmtDollar(deltaAbs);
   document.getElementById('summary-headline').innerHTML =
-    'Over <span style="color:#D4AE6A;">' + N + '</span> years, ' + winner +
+    'Over <span style="color:#D4AE6A;">' + Nlabel + '</span>, ' + winner +
     ' leaves you roughly <span style="color:#D4AE6A;">' + fmtDollar(deltaAbs) +
     '</span> ahead of ' + loser + '.';
 
