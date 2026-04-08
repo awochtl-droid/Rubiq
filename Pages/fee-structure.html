@@ -590,7 +590,7 @@
         </div>
 
         <div style="margin:1.75rem 0 0.5rem;">
-          <input id="aum-slider" type="range" min="0" max="28" step="1" value="9" />
+          <input id="aum-slider" type="range" min="0" max="34" step="1" value="9" />
           <div style="display:flex;justify-content:space-between;margin-top:8px;">
             <span style="font-size:0.68rem;color:rgba(255,255,255,0.30);">$500K</span>
             <span style="font-size:0.68rem;color:rgba(255,255,255,0.30);">$50M+</span>
@@ -848,7 +848,7 @@
       2500000,3000000,3500000,4000000,4500000,5000000,
       6000000,7000000,8000000,9000000,10000000,
       12500000,15000000,17500000,20000000,
-      25000000,30000000,35000000,40000000,45000000,50000000
+      22500000,25000000,27500000,30000000,32500000,35000000,37500000,40000000,42500000,45000000,47500000,50000000
     ];
     const TIERS = [
       { min:0,        max:1000000,  rate:0.0125, id:1 },
@@ -874,7 +874,7 @@
       const aum=AUM_VALUES[idx]; const isNeg=aum>=50000000;
       document.getElementById('aum-display').textContent='$'+aum.toLocaleString('en-US');
       document.getElementById('aum-label').textContent=formatMoney(aum);
-      const pct=(idx/28*100).toFixed(1);
+      const pct=(idx/34*100).toFixed(1);
       document.getElementById('aum-slider').style.background=
         `linear-gradient(to right,#C49A5A 0%,#C49A5A ${pct}%,rgba(255,255,255,0.12) ${pct}%,rgba(255,255,255,0.12) 100%)`;
       if(isNeg){
