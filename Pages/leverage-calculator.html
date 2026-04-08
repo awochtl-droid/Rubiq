@@ -640,22 +640,20 @@ function calc() {
   // Cash: -I at t=0, +terminal at t=N
   var cashIRR = irr([-I, terminal], [0, N]);
 
-  // Leverage: $0 at t=0, after-tax interest paid each period, terminal − L returned at t=N
-  var levFlows = [0];
-  var levTimes = [0];
-  var fullYears = Math.floor(N);
-  var frac = N - fullYears;
-  var annualInt = rBeff * L;
-  for (var y = 1; y <= fullYears; y++) {
-    levFlows.push(-annualInt);
-    levTimes.push(y);
+  // Leverage: monthly interest payments (pre-paid at the start of each month so
+  // there's a real outflow at t=0), with terminal − L returned at exit. Using monthly
+  // periods makes the IRR meaningful even for sub-1-year holds.
+  var totalMonths = Math.max(1, Math.round(N * 12));
+  var monthlyInt  = (rBeff * L) / 12;
+  var levFlows = [];
+  var levTimes = [];
+  for (var m = 0; m < totalMonths; m++) {
+    levFlows.push(-monthlyInt);
+    levTimes.push(m / 12);
   }
-  if (frac > 0) {
-    levFlows.push(-annualInt * frac + (terminal - L));
-    levTimes.push(N);
-  } else {
-    levFlows[levFlows.length - 1] += (terminal - L);
-  }
+  // Terminal flow at exit
+  levFlows.push(terminal - L);
+  levTimes.push(totalMonths / 12);
   var levIRR = irr(levFlows, levTimes);
 
   // Wealth gained vs. starting capital I
