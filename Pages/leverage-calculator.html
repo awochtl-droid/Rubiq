@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-15PBEWL3XZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-15PBEWL3XZ');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cash vs. Leverage Investment Calculator | Rubiq Financial Partners</title>
+  <meta name="description" content="Should you fund an investment with cash or borrow and keep your liquidity working? Compare scenarios, see the after-tax cost of leverage, and find break-even time horizons. Free calculator from Rubiq Financial Partners." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/leverage-calculator.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
+
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
+      text-decoration: none; position: relative; padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+    .nav-link::after { content: ''; position: absolute; left: 0; bottom: -2px; width: 0; height: 1.5px; background: #C49A5A; transition: width 0.22s ease; }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-gold {
+      background: linear-gradient(135deg, #C49A5A 0%, #D4AE6A 100%);
+      color: #0F1724; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.875rem 2.25rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .btn-gold:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(196,154,74,0.40); }
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); transform: translateY(-1px); }
+
+    /* Calculator styles */
+    .calc-input-group { margin-bottom: 1.25rem; }
+    .calc-label { display: block; font-size: 0.78rem; font-weight: 600; color: #2C3E55; letter-spacing: 0.02em; margin-bottom: 0.4rem; }
+    .calc-input { width: 100%; padding: 0.625rem 0.875rem; border: 1px solid rgba(26,94,168,0.20); border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #0F1724; background: white; transition: border-color 0.18s ease; outline: none; }
+    .calc-input:focus { border-color: #1A5EA8; box-shadow: 0 0 0 3px rgba(26,94,168,0.08); }
+    .calc-select { width: 100%; padding: 0.625rem 0.875rem; border: 1px solid rgba(26,94,168,0.20); border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #0F1724; background: white; outline: none; }
+
+    .result-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid rgba(44,62,85,0.08); }
+    .result-row:last-child { border-bottom: none; }
+    .result-label { font-size: 0.8125rem; color: #4A5568; font-weight: 400; }
+    .result-value { font-size: 0.9rem; font-weight: 600; color: #0F1724; font-variant-numeric: tabular-nums; }
+    .result-value.negative { color: #c0392b; }
+    .result-value.positive { color: #1A5EA8; }
+    .result-value.gold { color: #9E7A32; }
+
+    .comparison-card { background: white; border: 1px solid rgba(26,94,168,0.10); border-radius: 10px; padding: 1.75rem; flex: 1; min-width: 280px; }
+
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+    @media (max-width: 767px) {
+      #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+      footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
+    }
+  </style>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32" />
+</head>
+<body>
+
+<a href="#main-content" style="position:absolute;top:-100%;left:1rem;z-index:9999;background:#C49A5A;color:#0F1724;padding:0.75rem 1.5rem;font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;border-radius:0 0 4px 4px;transition:top 0.18s ease;" onfocus="this.style.top='0'" onblur="this.style.top='-100%'">Skip to main content</a>
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur" style="background:rgba(15,23,36,0.90);border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex-shrink-0 flex items-center">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Vertical -White.png" alt="Rubiq Financial Partners" width="240" height="44" style="height:44px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="our-capabilities.html" class="nav-link">Our Capabilities</a>
+        <a href="our-clients.html" class="nav-link">Our Clients</a>
+        <a href="our-team.html" class="nav-link">Our Team</a>
+        <a href="insights.html" class="nav-link active">Insights</a>
+        <a href="fee-structure.html" class="nav-link">Fee Structure</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="client-portal.html"><button class="btn-ghost">Client Access</button></a>
+        <a href="schedule.html"><button class="btn-primary">Schedule a Call</button></a>
+      </div>
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('open')" class="md:hidden p-2" style="color:white;" aria-label="Open navigation menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" style="background:rgba(15,23,36,0.97);border-top:1px solid rgba(255,255,255,0.07);flex-direction:column;padding:1.5rem 1.5rem 2rem;">
+    <a href="our-capabilities.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Capabilities</a>
+    <a href="our-clients.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Clients</a>
+    <a href="our-team.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Our Team</a>
+    <a href="insights.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Insights</a>
+    <a href="fee-structure.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Fee Structure</a>
+    <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.75rem;">
+      <a href="schedule.html"><button class="btn-gold" style="width:100%;">Schedule a Call</button></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 50%,#1A5EA8 100%);padding:7rem 0 4rem;position:relative;overflow:hidden;">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.025;pointer-events:none;" aria-hidden="true">
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+  <div style="position:absolute;top:-10%;right:-5%;width:55%;height:110%;background:radial-gradient(ellipse,rgba(196,154,74,0.12) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
+    <a href="insights.html" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:2rem;font-size:0.75rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&larr; Insights</a>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.25);border-radius:100px;padding:0.35rem 1rem;margin-bottom:2rem;">
+      <div style="width:6px;height:6px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">Interactive Tool</span>
+    </div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:white;margin-bottom:1.25rem;">
+      Cash vs. Leverage
+    </h1>
+    <p style="font-size:1.0625rem;line-height:1.7;color:rgba(255,255,255,0.72);font-weight:300;max-width:640px;">
+      You found a deal worth doing. Should you write a check, or borrow and keep your cash working elsewhere? Build your scenario, see the break-even hold period, and find the borrowing rate where leverage stops paying.
+    </p>
+  </div>
+</section>
+
+
+<!-- MAIN CONTENT -->
+<main id="main-content">
+<section style="padding:3.5rem 0 4rem;background:#FAF8F4;">
+  <div class="max-w-5xl mx-auto px-6 lg:px-10">
+
+    <!-- Input Panel -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:1.5rem;" class="calc-grid">
+
+      <!-- Left: The Deal -->
+      <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:1.75rem;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:1.25rem;">The Deal</p>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Investment Amount</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="font-size:0.875rem;font-weight:600;color:#2C3E55;">$</span>
+            <input type="text" id="deal-amount" class="calc-input" value="1,000,000" oninput="formatNum(this)">
+          </div>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Hold Period</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="hold-years" class="calc-input" value="7" style="max-width:100px;">
+            <span style="font-size:0.8rem;color:#4A5568;">years</span>
+          </div>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Expected Annual Return</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="deal-return" class="calc-input" value="9.0" style="max-width:100px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+          </div>
+        </div>
+
+        <div class="calc-input-group" style="margin-bottom:0;">
+          <label class="calc-label">Return Treatment</label>
+          <select id="return-type" class="calc-select">
+            <option value="capgain">Capital Gain (taxed at exit)</option>
+            <option value="interest">Interest / Ordinary Income</option>
+            <option value="mixed">Mixed</option>
+          </select>
+          <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Provided for context. This calculator ignores investment-level taxes &mdash; the leverage decision is taken pre-tax.</p>
+        </div>
+      </div>
+
+      <!-- Right: Financing & Liquidity -->
+      <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:1.75rem;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:1.25rem;">Financing &amp; Liquidity</p>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Liquid Alternative Yield</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="alt-yield" class="calc-input" value="4.5" style="max-width:100px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+          </div>
+          <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">What your cash earns if it stays liquid (T-bills, money market, short bonds).</p>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Borrow Rate</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="borrow-rate" class="calc-input" value="7.0" style="max-width:100px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+          </div>
+          <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Interest-only; principal repaid at exit.</p>
+        </div>
+
+        <div class="calc-input-group">
+          <label class="calc-label">Interest Deductible?</label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <label style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#4A5568;cursor:pointer;">
+              <input type="checkbox" id="deduct-apply" style="width:16px;height:16px;cursor:pointer;accent-color:#1A5EA8;">
+              Treat interest as tax-deductible
+            </label>
+          </div>
+        </div>
+
+        <div class="calc-input-group" style="margin-bottom:0;">
+          <label class="calc-label">Marginal Tax Rate <span style="font-weight:400;color:#9CA3AF;">(only used if deductible)</span></label>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <input type="text" id="marginal-rate" class="calc-input" value="37" style="max-width:100px;">
+            <span style="font-size:0.8rem;color:#4A5568;">%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      @media(max-width:768px){
+        .calc-grid { grid-template-columns: 1fr !important; }
+      }
+    </style>
+
+    <div style="display:flex;justify-content:center;margin:0.5rem 0 2rem;">
+      <button type="button" onclick="calc()" style="background:#1A5EA8;color:white;border:none;border-radius:8px;padding:0.95rem 2.5rem;font-size:0.95rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;box-shadow:0 4px 14px rgba(26,94,168,0.25);transition:transform 0.18s ease,box-shadow 0.18s ease,background 0.18s ease;" onmouseover="this.style.background='#164E8C';this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 18px rgba(26,94,168,0.32)'" onmouseout="this.style.background='#1A5EA8';this.style.transform='translateY(0)';this.style.boxShadow='0 4px 14px rgba(26,94,168,0.25)'">
+        Calculate
+      </button>
+    </div>
+
+    <!-- Results -->
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem;">
+
+      <!-- Cash Scenario -->
+      <div class="comparison-card" style="border-top:3px solid #c0392b;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#c0392b;margin-bottom:1rem;">Scenario A: Pay Cash</p>
+
+        <div class="result-row">
+          <span class="result-label">Cash Out of Pocket Today</span>
+          <span class="result-value negative" id="r-cash-out">($1,000,000)</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Cash Kept Liquid</span>
+          <span class="result-value" id="r-cash-liquid">$0</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Loan Balance</span>
+          <span class="result-value" id="r-cash-loan">$0</span>
+        </div>
+
+        <div style="margin:1rem 0 0.5rem;">
+          <p style="font-size:0.72rem;font-weight:600;color:#c0392b;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;">At End of Hold (<span id="r-cash-years">7</span> Years)</p>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Investment Terminal Value</span>
+          <span class="result-value" id="r-cash-terminal">$1,828,039</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Liquid Alternative Account</span>
+          <span class="result-value" id="r-cash-alt">$0</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Cumulative Interest Paid</span>
+          <span class="result-value" id="r-cash-interest">$0</span>
+        </div>
+        <div class="result-row" style="border-bottom:none;padding-top:0.75rem;">
+          <span class="result-label" style="font-weight:600;color:#0F1724;">Total Wealth at Exit</span>
+          <span class="result-value" style="font-size:1.125rem;" id="r-cash-wealth">$1,828,039</span>
+        </div>
+      </div>
+
+      <!-- Leverage Scenario -->
+      <div class="comparison-card" style="border-top:3px solid #1A5EA8;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#1A5EA8;margin-bottom:1rem;">Scenario B: Borrow &amp; Stay Liquid</p>
+
+        <div class="result-row">
+          <span class="result-label">Cash Out of Pocket Today</span>
+          <span class="result-value negative" id="r-lev-out">$0</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Cash Kept Liquid</span>
+          <span class="result-value positive" id="r-lev-liquid">$1,000,000</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Loan Balance</span>
+          <span class="result-value" id="r-lev-loan">$1,000,000</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">After-Tax Borrow Cost</span>
+          <span class="result-value" id="r-lev-aftax-rate">7.00%</span>
+        </div>
+
+        <div style="margin:1rem 0 0.5rem;">
+          <p style="font-size:0.72rem;font-weight:600;color:#1A5EA8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;">At End of Hold (<span id="r-lev-years">7</span> Years)</p>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Investment Terminal Value</span>
+          <span class="result-value" id="r-lev-terminal">$1,828,039</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Liquid Alternative Account</span>
+          <span class="result-value gold" id="r-lev-alt">$1,360,862</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Less: Loan Repayment</span>
+          <span class="result-value negative" id="r-lev-loan-repay">($1,000,000)</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Less: Cumulative Interest</span>
+          <span class="result-value negative" id="r-lev-interest">($490,000)</span>
+        </div>
+        <div class="result-row" style="border-bottom:none;padding-top:0.75rem;">
+          <span class="result-label" style="font-weight:600;color:#1A5EA8;">Total Wealth at Exit</span>
+          <span class="result-value positive" style="font-size:1.125rem;" id="r-lev-wealth">$1,698,901</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Break-evens -->
+    <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:1.75rem;margin-bottom:2rem;">
+      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:1.25rem;">Break-Even Analysis</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;" class="breakeven-grid">
+        <div style="background:#FAF8F4;border:1px solid rgba(26,94,168,0.10);border-radius:8px;padding:1.25rem;">
+          <p style="font-size:0.7rem;font-weight:600;color:#1A5EA8;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">Min Hold Period</p>
+          <p style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#0F1724;margin:0;" id="be-years">9.4 yrs</p>
+          <p style="font-size:0.72rem;color:#4A5568;line-height:1.55;font-weight:300;margin:0.4rem 0 0;">For leverage to break even at the current borrow and alt rates.</p>
+        </div>
+        <div style="background:#FAF8F4;border:1px solid rgba(26,94,168,0.10);border-radius:8px;padding:1.25rem;">
+          <p style="font-size:0.7rem;font-weight:600;color:#1A5EA8;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">Max Borrow Rate</p>
+          <p style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#0F1724;margin:0;" id="be-rate">5.16%</p>
+          <p style="font-size:0.72rem;color:#4A5568;line-height:1.55;font-weight:300;margin:0.4rem 0 0;">Pre-tax borrow rate at which leverage stops paying for the chosen hold period.</p>
+        </div>
+        <div style="background:#FAF8F4;border:1px solid rgba(26,94,168,0.10);border-radius:8px;padding:1.25rem;">
+          <p style="font-size:0.7rem;font-weight:600;color:#1A5EA8;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">Min Liquid Yield</p>
+          <p style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#0F1724;margin:0;" id="be-alt">6.07%</p>
+          <p style="font-size:0.72rem;color:#4A5568;line-height:1.55;font-weight:300;margin:0.4rem 0 0;">Yield your liquid cash must compound at to overcome the after-tax interest drag.</p>
+        </div>
+      </div>
+      <style>
+        @media(max-width:768px){
+          .breakeven-grid { grid-template-columns: 1fr !important; }
+        }
+      </style>
+    </div>
+
+    <!-- Summary callout -->
+    <div style="background:linear-gradient(135deg,#0F1724 0%,#133F73 100%);border-radius:10px;padding:2rem 2.25rem;position:relative;overflow:hidden;margin-bottom:2rem;">
+      <div style="position:absolute;top:-40%;right:-10%;width:45%;height:180%;background:radial-gradient(ellipse,rgba(196,154,74,0.15) 0%,transparent 60%);pointer-events:none;"></div>
+      <div style="position:relative;z-index:2;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C49A5A;margin-bottom:0.75rem;">The Bottom Line</p>
+        <p style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;color:white;margin-bottom:0.75rem;line-height:1.35;" id="summary-headline">
+          Over <span style="color:#D4AE6A;" id="summary-years">7</span> years, paying cash leaves you roughly <span style="color:#D4AE6A;" id="summary-delta-abs">$129,138</span> ahead of borrowing.
+        </p>
+        <p style="font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.65);font-weight:300;margin-bottom:1.5rem;" id="summary-detail">
+          Your liquid alternative compounds to roughly $1,360,862 over the period, but the cumulative interest cost of $490,000 outweighs it. Leverage would need either a longer runway (about 9.4 years), a cheaper borrow rate (under 5.16%), or a higher liquid yield (above 6.07%) to come out ahead.
+        </p>
+        <a href="schedule.html"
+           style="display:inline-flex;align-items:center;gap:8px;font-size:0.85rem;font-weight:600;
+                  color:#0F1724;background:#C49A5A;text-decoration:none;padding:0.7rem 1.5rem;
+                  border-radius:6px;transition:background 0.18s ease;"
+           onmouseover="this.style.background='#D4AE6A'" onmouseout="this.style.background='#C49A5A'">
+          Let's pressure-test your deal together
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- How this works -->
+    <div style="background:white;border:1px solid rgba(26,94,168,0.12);border-left:3px solid #1A5EA8;border-radius:0 8px 8px 0;padding:1.5rem 1.75rem;margin-bottom:2rem;">
+      <p style="font-size:0.875rem;font-weight:600;color:#1A5EA8;margin:0 0 0.5rem;">How this works</p>
+      <p style="font-size:0.8125rem;line-height:1.7;color:#4A5568;font-weight:300;margin:0 0 0.6rem;">
+        Both scenarios make the same investment, so the deal's return cancels out of the comparison &mdash; what really matters is whether your liquid alternative compounds faster than your borrowing costs accumulate. <strong>Cash</strong> drains your liquidity entirely. <strong>Leverage</strong> keeps your cash compounding in a liquid alternative (T-bills, money market, short bonds) while you pay interest-only on the loan and repay the principal at exit.
+      </p>
+      <p style="font-size:0.8125rem;line-height:1.7;color:#4A5568;font-weight:300;margin:0;">
+        If interest is deductible, the after-tax borrow cost drops to <em>rate &times; (1 &minus; marginal tax rate)</em>. Section 163(d) limits investment-interest deductions to net investment income, and business-interest rules differ &mdash; this tool assumes the deduction is fully usable, so confirm with your CPA before relying on it.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Related Content -->
+<section style="background:white;padding:3rem 0;">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.45);margin-bottom:1.25rem;text-align:center;">Related</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <a href="edge-leverage.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;border:1px solid rgba(26,94,168,0.10);background:#FAF8F4;text-decoration:none;transition:border-color 0.18s ease,transform 0.18s ease;box-shadow:0 1px 4px rgba(26,94,168,0.06);" onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1A5EA8;margin-bottom:0.35rem;">Capability</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">Strategic Leverage</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">How we use borrowing as a portfolio tool, not an emergency lever.</div>
+      </a>
+      <a href="dst-calculator.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;border:1px solid rgba(26,94,168,0.10);background:#FAF8F4;text-decoration:none;transition:border-color 0.18s ease,transform 0.18s ease;box-shadow:0 1px 4px rgba(26,94,168,0.06);" onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#C49A5A;margin-bottom:0.35rem;">Interactive Tool</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">1031 DST vs. Sell Calculator</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">See the after-tax impact of exchanging into a DST instead of selling outright.</div>
+      </a>
+      <a href="case-study-real-estate.html" style="display:block;padding:1.25rem 1.5rem;border-radius:8px;border:1px solid rgba(26,94,168,0.10);background:#FAF8F4;text-decoration:none;transition:border-color 0.18s ease,transform 0.18s ease;box-shadow:0 1px 4px rgba(26,94,168,0.06);" onmouseover="this.style.borderColor='rgba(26,94,168,0.30)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='rgba(26,94,168,0.10)';this.style.transform='translateY(0)'">
+        <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1A5EA8;margin-bottom:0.35rem;">Case Study</div>
+        <div style="font-size:0.9rem;font-weight:500;color:#0F1724;">Real Estate Investor Profile</div>
+        <div style="font-size:0.8rem;color:#4A5568;font-weight:300;margin-top:0.25rem;line-height:1.5;">How we restructured a portfolio of rental properties for tax efficiency.</div>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+
+<!-- DISCLAIMER -->
+<section style="padding:2rem 0;background:#F4F6F9;border-top:1px solid rgba(44,62,85,0.08);">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <p style="font-size:0.75rem;line-height:1.7;color:rgba(44,62,85,0.50);font-weight:300;margin:0;">
+      <strong style="font-weight:600;color:rgba(44,62,85,0.65);">Important Disclosure:</strong>
+      This calculator provides rough estimates for educational and illustrative purposes only and does not constitute tax, legal, financial, or investment advice.
+      <strong style="font-weight:600;">Rubiq Financial Partners is not a tax advisor, CPA, or attorney, and does not provide tax preparation, legal, or accounting services.</strong>
+      The model assumes interest-only financing with principal repayment at exit, ignores all investment-level taxes (capital gains, ordinary income, NIIT, recapture, state and local), and assumes the deductibility checkbox produces a fully usable tax benefit. Actual borrowing costs, deductibility under IRC &sect;163(d) or business-interest rules, margin call risk, lender covenants, prepayment terms, and the real-world performance of both the deal and the liquid alternative may differ materially. Borrowing to invest amplifies losses as well as gains and can result in losses greater than your original capital. Always consult a qualified tax advisor and financial advisor before financing an investment.
+    </p>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 55%,#1A5EA8 100%);padding:3.5rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-30%;right:-10%;width:50%;height:150%;background:radial-gradient(ellipse,rgba(196,154,74,0.18) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center" style="position:relative;z-index:2;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:white;margin-bottom:1rem;">
+      Got a real deal in front of you?<br /><em style="font-style:italic;color:#D4AE6A;">Let's run your numbers together.</em>
+    </h2>
+    <p style="font-size:1rem;line-height:1.7;color:rgba(255,255,255,0.72);font-weight:300;max-width:620px;margin:0 auto 2rem;">
+      Borrow rates, deductibility rules, and the right liquid alternative all turn on your specific situation. Bring us the deal &mdash; we'll model it against your balance sheet and your tax picture and tell you whether leverage actually makes you money.
+    </p>
+    <div style="display:flex;flex-direction:column;gap:0.75rem;align-items:center;margin-bottom:2rem;">
+      <a href="tel:6102159499" style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);transition:color 0.18s ease;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="15" height="15" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.36C1.21 2.18 2.12 1 3.3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.76-.76a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.28 16z"/></svg>
+        610-215-9499
+      </a>
+      <a href="mailto:clientservice@rubiqfinancial.com" style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);transition:color 0.18s ease;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="15" height="15" fill="none" stroke="#C49A5A" stroke-width="1.8" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        clientservice@rubiqfinancial.com
+      </a>
+    </div>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="schedule.html"><button class="btn-gold">Schedule a Call</button></a>
+      <a href="our-team.html"><button class="btn-ghost">Meet Our Advisors</button></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer style="background:#0F1724;padding:2rem 0;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png" alt="Rubiq Financial Partners logo" width="120" height="26" style="height:26px;width:auto;opacity:0.70;" loading="lazy" decoding="async" />
+    <div style="text-align:center;">
+      <p style="font-size:0.8rem;color:rgba(255,255,255,0.40);margin:0 0 0.35rem;">&copy; 2026 Rubiq Financial Partners. All rights reserved.</p>
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.38);margin:0 0 0.5rem;line-height:1.6;font-weight:300;">Advisory services offered through Wealthcare Advisory Partners. Brokerage products offered through LPL Financial, Member FINRA/SIPC. Not a solicitation in any jurisdiction where not registered or exempt.</p>
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.42);margin:0 0 0.75rem;line-height:1.6;font-weight:300;">
+        <a href="../Media/FormCRS_WCAP_20240325 (Updated - use this one).pdf" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35);text-decoration:underline;text-underline-offset:2px;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.60)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Form CRS</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://adviserinfo.sec.gov/firm/summary/171976" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35);text-decoration:underline;text-underline-offset:2px;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.60)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Form ADV Part 2A</a>
+      </p>
+      <div style="display:flex;justify-content:center;gap:1.5rem;">
+        <a href="privacy-policy.html" style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</a>
+        <a href="terms-of-use.html" style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Terms of Use</a>
+        <a href="faq.html" style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">FAQ</a>
+        <a href="https://brokercheck.finra.org" target="_blank" rel="noopener noreferrer" style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">FINRA BrokerCheck</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky Mobile CTA -->
+<a id="sticky-mobile-cta" href="schedule.html" style="display:none;position:fixed;bottom:-60px;left:1rem;right:1rem;z-index:9998;background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);color:#0F1724;text-align:center;font-family:'Inter',sans-serif;font-size:0.9375rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;padding:1rem;border-radius:6px;box-shadow:0 -2px 16px rgba(0,0,0,0.25),0 4px 12px rgba(196,154,74,0.35);transition:bottom 0.3s cubic-bezier(0.4,0,0.2,1);">Schedule a Call</a>
+<style>@media(min-width:768px){ #sticky-mobile-cta{display:none!important;} }</style>
+<script>
+(function(){
+  var cta=document.getElementById('sticky-mobile-cta');
+  if(!cta)return;
+  if(window.innerWidth<768) cta.style.display='block';
+  window.addEventListener('scroll',function(){
+    if(window.innerWidth>=768)return;
+    cta.style.display='block';
+    cta.style.bottom=window.scrollY>100?'1rem':'-60px';
+  },{passive:true});
+  window.addEventListener('resize',function(){
+    cta.style.display=window.innerWidth<768?'block':'none';
+  });
+})();
+</script>
+
+<!-- Calculator Engine -->
+<script>
+function parseNum(id) {
+  var el = document.getElementById(id);
+  return parseFloat(el.value.replace(/[^0-9.\-]/g,'')) || 0;
+}
+function fmt(n) { return Math.round(n).toLocaleString('en-US'); }
+function fmtDollar(n) {
+  if (n < 0) return '($' + fmt(Math.abs(n)) + ')';
+  return '$' + fmt(n);
+}
+function formatNum(el) {
+  var raw = el.value.replace(/[^0-9]/g,'');
+  if (raw) el.value = parseInt(raw).toLocaleString('en-US');
+}
+
+function calc() {
+  var I        = parseNum('deal-amount');
+  var N        = parseNum('hold-years');
+  var r        = parseNum('deal-return') / 100;
+  var rAlt     = parseNum('alt-yield') / 100;
+  var rB       = parseNum('borrow-rate') / 100;
+  var deduct   = document.getElementById('deduct-apply').checked;
+  var t        = parseNum('marginal-rate') / 100;
+  var rBeff    = deduct ? rB * (1 - t) : rB;
+
+  // Deal terminal value (same in both scenarios)
+  var terminal = I * Math.pow(1 + r, N);
+
+  // Cash scenario
+  var cashWealth = terminal;
+
+  // Leverage scenario: borrow full amount, keep cash liquid, pay interest-only, repay at exit
+  var L            = I;
+  var liquidEnd    = L * Math.pow(1 + rAlt, N);
+  var cumInterest  = L * rBeff * N;
+  var levWealth    = terminal + liquidEnd - L - cumInterest;
+
+  var delta = levWealth - cashWealth; // positive = leverage wins
+  var deltaAbs = Math.abs(delta);
+
+  // Break-evens
+  // ΔW = L * [(1+rAlt)^N − 1 − rBeff*N]; set to 0
+  // Min hold years (numeric search): smallest N where (1+rAlt)^N − 1 ≥ rBeff*N
+  var beYears = null;
+  if (rAlt > 0 && rBeff > 0) {
+    var nLo = 0.1, nHi = 100, found = null;
+    for (var i = 0; i < 60; i++) {
+      var nMid = (nLo + nHi) / 2;
+      var lhs = Math.pow(1 + rAlt, nMid) - 1;
+      var rhs = rBeff * nMid;
+      if (lhs >= rhs) { nHi = nMid; found = nMid; }
+      else { nLo = nMid; }
+    }
+    // verify it actually breaks even within range
+    if (found !== null && found < 99 && Math.pow(1+rAlt, found) - 1 >= rBeff*found - 1e-6) {
+      beYears = found;
+    }
+  } else if (rAlt > 0 && rBeff <= 0) {
+    beYears = 0;
+  }
+
+  // Max borrow rate (pre-tax) at current N
+  // rBeff_max = ((1+rAlt)^N − 1) / N → rB_max = rBeff_max / (1−t) if deductible
+  var rBeffMax = N > 0 ? (Math.pow(1 + rAlt, N) - 1) / N : 0;
+  var rBMax    = deduct ? (1 - t > 0 ? rBeffMax / (1 - t) : rBeffMax) : rBeffMax;
+
+  // Min liquid alt yield: rAlt where (1+rAlt)^N − 1 = rBeff*N
+  var rAltMin = N > 0 ? Math.pow(1 + rBeff * N, 1 / N) - 1 : 0;
+
+  // ── Update Cash side ──
+  document.getElementById('r-cash-out').textContent      = '(' + fmtDollar(I) + ')';
+  document.getElementById('r-cash-liquid').textContent   = '$0';
+  document.getElementById('r-cash-loan').textContent     = '$0';
+  document.getElementById('r-cash-years').textContent    = N;
+  document.getElementById('r-cash-terminal').textContent = fmtDollar(terminal);
+  document.getElementById('r-cash-alt').textContent      = '$0';
+  document.getElementById('r-cash-interest').textContent = '$0';
+  document.getElementById('r-cash-wealth').textContent   = fmtDollar(cashWealth);
+
+  // ── Update Leverage side ──
+  document.getElementById('r-lev-out').textContent       = '$0';
+  document.getElementById('r-lev-liquid').textContent    = fmtDollar(L);
+  document.getElementById('r-lev-loan').textContent      = fmtDollar(L);
+  document.getElementById('r-lev-aftax-rate').textContent = (rBeff * 100).toFixed(2) + '%';
+  document.getElementById('r-lev-years').textContent     = N;
+  document.getElementById('r-lev-terminal').textContent  = fmtDollar(terminal);
+  document.getElementById('r-lev-alt').textContent       = fmtDollar(liquidEnd);
+  document.getElementById('r-lev-loan-repay').textContent = '(' + fmtDollar(L) + ')';
+  document.getElementById('r-lev-interest').textContent  = '(' + fmtDollar(cumInterest) + ')';
+  document.getElementById('r-lev-wealth').textContent    = fmtDollar(levWealth);
+
+  // ── Break-evens ──
+  document.getElementById('be-years').textContent = beYears !== null ? beYears.toFixed(1) + ' yrs' : 'Never';
+  document.getElementById('be-rate').textContent  = (rBMax * 100).toFixed(2) + '%';
+  document.getElementById('be-alt').textContent   = (rAltMin * 100).toFixed(2) + '%';
+
+  // ── Bottom line ──
+  var winner = delta >= 0 ? 'borrowing' : 'paying cash';
+  var loser  = delta >= 0 ? 'paying cash' : 'borrowing';
+  document.getElementById('summary-years').textContent      = N;
+  document.getElementById('summary-delta-abs').textContent  = fmtDollar(deltaAbs);
+  document.getElementById('summary-headline').innerHTML =
+    'Over <span style="color:#D4AE6A;">' + N + '</span> years, ' + winner +
+    ' leaves you roughly <span style="color:#D4AE6A;">' + fmtDollar(deltaAbs) +
+    '</span> ahead of ' + loser + '.';
+
+  var detailHtml;
+  if (delta >= 0) {
+    detailHtml = 'Your liquid alternative compounds to roughly <strong style="color:white;">' + fmtDollar(liquidEnd) +
+      '</strong>, which more than covers the <strong style="color:white;">' + fmtDollar(cumInterest) +
+      '</strong> in cumulative interest you\'d pay. The deal itself contributes the same return either way &mdash; the win comes from keeping your cash compounding instead of writing it into the deal.';
+  } else {
+    var beYearsTxt = beYears !== null ? 'about ' + beYears.toFixed(1) + ' years' : 'a longer runway';
+    detailHtml = 'Your liquid alternative compounds to roughly <strong style="color:white;">' + fmtDollar(liquidEnd) +
+      '</strong>, but the cumulative interest cost of <strong style="color:white;">' + fmtDollar(cumInterest) +
+      '</strong> outweighs it. Leverage would need either ' + beYearsTxt +
+      ', a cheaper borrow rate (under <strong style="color:white;">' + (rBMax*100).toFixed(2) +
+      '%</strong>), or a higher liquid yield (above <strong style="color:white;">' + (rAltMin*100).toFixed(2) +
+      '%</strong>) to come out ahead.';
+  }
+  document.getElementById('summary-detail').innerHTML = detailHtml;
+}
+
+// Initial render
+calc();
+</script>
+</body>
+</html>
