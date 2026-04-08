@@ -544,16 +544,34 @@ function npv(i, flows, times) {
   }
   return s;
 }
-// Solve IRR by bisection between -0.99 and 10 (1000%/yr)
+// Solve IRR by bisection. Widens the upper bracket if a sign change isn't found.
 function irr(flows, times) {
-  var lo = -0.9999, hi = 10;
+  // Need at least one positive and one negative flow
+  var hasPos = false, hasNeg = false;
+  for (var j = 0; j < flows.length; j++) {
+    if (flows[j] > 0) hasPos = true;
+    if (flows[j] < 0) hasNeg = true;
+  }
+  if (!hasPos || !hasNeg) return null;
+
+  var lo = -0.9999;
   var fLo = npv(lo, flows, times);
-  var fHi = npv(hi, flows, times);
-  if (fLo * fHi > 0) return null; // no sign change → no solution in range
+  if (!isFinite(fLo)) return null;
+
+  var hiCandidates = [1, 5, 10, 25, 100];
+  var hi = null, fHi = null;
+  for (var c = 0; c < hiCandidates.length; c++) {
+    var h = hiCandidates[c];
+    var f = npv(h, flows, times);
+    if (isFinite(f) && f * fLo < 0) { hi = h; fHi = f; break; }
+  }
+  if (hi === null) return null;
+
   for (var k = 0; k < 200; k++) {
     var mid = (lo + hi) / 2;
     var fMid = npv(mid, flows, times);
-    if (Math.abs(fMid) < 1e-6) return mid;
+    if (!isFinite(fMid)) return null;
+    if (Math.abs(fMid) < 1e-7) return mid;
     if (fLo * fMid < 0) { hi = mid; fHi = fMid; }
     else { lo = mid; fLo = fMid; }
   }
