@@ -699,20 +699,47 @@ function calc() {
   document.getElementById('be-alt').textContent   = (rAltMin * 100).toFixed(2) + '%';
 
   // ── Bottom line ──
-  var winner = delta >= 0 ? 'borrowing' : 'paying cash';
-  var loser  = delta >= 0 ? 'paying cash' : 'borrowing';
+  var cashIrrPct = (cashIRR !== null && isFinite(cashIRR)) ? cashIRR * 100 : null;
+  var levIrrPct  = (levIRR  !== null && isFinite(levIRR))  ? levIRR  * 100 : null;
+  var irrDiff    = (cashIrrPct !== null && levIrrPct !== null) ? (levIrrPct - cashIrrPct) : null;
+  var levWins    = irrDiff !== null ? irrDiff > 0 : (delta > 0);
+  var winnerName = levWins ? 'borrowing' : 'paying cash';
+  var loserName  = levWins ? 'paying cash' : 'borrowing';
+  var winnerIRR  = levWins ? levIrrPct : cashIrrPct;
+  var loserIRR   = levWins ? cashIrrPct : levIrrPct;
+  var spread     = irrDiff !== null ? Math.abs(irrDiff) : null;
+
   document.getElementById('summary-years').textContent      = Nlabel;
   document.getElementById('summary-delta-abs').textContent  = fmtDollar(deltaAbs);
-  document.getElementById('summary-headline').innerHTML =
-    'Over <span style="color:#D4AE6A;">' + Nlabel + '</span>, ' + winner +
-    ' leaves you roughly <span style="color:#D4AE6A;">' + fmtDollar(deltaAbs) +
-    '</span> ahead of ' + loser + '.';
+
+  var headline;
+  if (spread !== null) {
+    headline = 'Over <span style="color:#D4AE6A;">' + Nlabel + '</span>, ' + winnerName +
+      ' delivers an IRR <span style="color:#D4AE6A;">' + spread.toFixed(2) +
+      ' percentage points</span> higher on the capital you actually contribute.';
+  } else {
+    headline = 'Over <span style="color:#D4AE6A;">' + Nlabel + '</span>, ' + winnerName +
+      ' leaves you roughly <span style="color:#D4AE6A;">' + fmtDollar(deltaAbs) + '</span> ahead.';
+  }
+  document.getElementById('summary-headline').innerHTML = headline;
 
   var detailHtml;
-  if (delta >= 0) {
-    detailHtml = 'Your liquid alternative compounds to roughly <strong style="color:white;">' + fmtDollar(liquidEnd) +
-      '</strong>, which more than covers the <strong style="color:white;">' + fmtDollar(cumInterest) +
-      '</strong> in cumulative interest you\'d pay. The deal itself contributes the same return either way &mdash; the win comes from keeping your cash compounding instead of writing it into the deal.';
+  if (spread !== null) {
+    var winIrrStr  = winnerIRR.toFixed(2) + '%';
+    var loseIrrStr = loserIRR.toFixed(2) + '%';
+    var gainNote;
+    if (levWins && levGain >= cashGain) {
+      gainNote = 'Total wealth gained also favors leverage (<strong style="color:white;">' + fmtDollar(levGain) + '</strong> vs. <strong style="color:white;">' + fmtDollar(cashGain) + '</strong>).';
+    } else if (levWins && levGain < cashGain) {
+      gainNote = 'Interesting wrinkle: cash actually generates more total wealth (<strong style="color:white;">' + fmtDollar(cashGain) + '</strong> vs. <strong style="color:white;">' + fmtDollar(levGain) + '</strong>) because the deal itself is doing the heavy lifting &mdash; but borrowing wins on a per-dollar-contributed basis because you tied up far less of your own capital.';
+    } else if (!levWins && cashGain >= levGain) {
+      gainNote = 'Cash also wins on total wealth gained (<strong style="color:white;">' + fmtDollar(cashGain) + '</strong> vs. <strong style="color:white;">' + fmtDollar(levGain) + '</strong>).';
+    } else {
+      gainNote = 'Even though leverage produces more total dollars (<strong style="color:white;">' + fmtDollar(levGain) + '</strong> vs. <strong style="color:white;">' + fmtDollar(cashGain) + '</strong>), the after-tax interest drag pulls its IRR below cash on the capital you actually contributed.';
+    }
+    detailHtml = 'Your contributed capital earns <strong style="color:white;">' + winIrrStr +
+      '</strong> under ' + winnerName + ' versus <strong style="color:white;">' + loseIrrStr +
+      '</strong> under ' + loserName + '. ' + gainNote;
   } else {
     var beYearsTxt = beYears !== null ? 'about ' + beYears.toFixed(1) + ' years' : 'a longer runway';
     detailHtml = 'Your liquid alternative compounds to roughly <strong style="color:white;">' + fmtDollar(liquidEnd) +
@@ -823,7 +850,11 @@ function drawBreakevenChart(rAlt, deduct, t, currentN, currentRb) {
     s += '<text x="' + dx + '" y="' + (dy - 14) + '" font-size="11" font-weight="600" fill="#0F1724" text-anchor="middle">Your scenario</text>';
   }
 
-  svg.innerHTML = s;
+  // Replace contents using DOMParser so SVG children are correctly namespaced
+  var wrapped = '<svg xmlns="http://www.w3.org/2000/svg">' + s + '</svg>';
+  var parsed  = new DOMParser().parseFromString(wrapped, 'image/svg+xml').documentElement;
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+  while (parsed.firstChild) svg.appendChild(parsed.firstChild);
 }
 
 // Initial render
