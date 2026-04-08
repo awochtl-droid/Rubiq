@@ -640,21 +640,19 @@ function calc() {
   // Cash: -I at t=0, +terminal at t=N
   var cashIRR = irr([-I, terminal], [0, N]);
 
-  // Leverage: monthly interest payments (pre-paid at the start of each month so
-  // there's a real outflow at t=0), with terminal − L returned at exit. Using monthly
-  // periods makes the IRR meaningful even for sub-1-year holds.
-  var totalMonths = Math.max(1, Math.round(N * 12));
-  var monthlyInt  = (rBeff * L) / 12;
-  var levFlows = [];
-  var levTimes = [];
-  for (var m = 0; m < totalMonths; m++) {
-    levFlows.push(-monthlyInt);
-    levTimes.push(m / 12);
+  // Leverage: contributed capital = total interest cost (paid as a lump sum at t=0
+  // for IRR purposes — this makes the metric interpretable as the annualized return
+  // each dollar of interest "buys" you). Inflow at exit = deal profit + alt profit
+  // (both gains are produced at the cost of the interest payments).
+  var levOutflow = cumInterest;
+  var levInflow  = (terminal - L) + (liquidEnd - L);
+  var levIRR;
+  if (levOutflow > 0 && N > 0) {
+    var ratio = levInflow / levOutflow;
+    levIRR = ratio > 0 ? Math.pow(ratio, 1 / N) - 1 : null;
+  } else {
+    levIRR = null;
   }
-  // Terminal flow at exit
-  levFlows.push(terminal - L);
-  levTimes.push(totalMonths / 12);
-  var levIRR = irr(levFlows, levTimes);
 
   // Wealth gained vs. starting capital I
   var cashGain = cashWealth - I;
@@ -694,8 +692,8 @@ function calc() {
   var levIrrPct  = (levIRR  !== null && isFinite(levIRR))  ? levIRR  * 100 : null;
   var irrDiff    = (cashIrrPct !== null && levIrrPct !== null) ? (levIrrPct - cashIrrPct) : null;
   var levWins    = irrDiff !== null ? irrDiff > 0 : (delta > 0);
-  var winnerName = levWins ? 'borrowing' : 'paying cash';
-  var loserName  = levWins ? 'paying cash' : 'borrowing';
+  var winnerName = levWins ? 'leverage' : 'paying cash';
+  var loserName  = levWins ? 'paying cash' : 'leverage';
   var winnerIRR  = levWins ? levIrrPct : cashIrrPct;
   var loserIRR   = levWins ? cashIrrPct : levIrrPct;
   var spread     = irrDiff !== null ? Math.abs(irrDiff) : null;
@@ -707,7 +705,7 @@ function calc() {
   if (spread !== null) {
     headline = 'Over <span style="color:#D4AE6A;">' + Nlabel + '</span>, ' + winnerName +
       ' delivers an IRR <span style="color:#D4AE6A;">' + spread.toFixed(2) +
-      ' percentage points</span> higher on the capital you actually contribute.';
+      '%</span> higher on the capital you actually contribute.';
   } else {
     headline = 'Over <span style="color:#D4AE6A;">' + Nlabel + '</span>, ' + winnerName +
       ' leaves you roughly <span style="color:#D4AE6A;">' + fmtDollar(deltaAbs) + '</span> ahead.';
