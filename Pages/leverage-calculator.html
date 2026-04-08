@@ -378,8 +378,8 @@
 
     <!-- Break-even chart -->
     <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:1.75rem;margin-bottom:2rem;">
-      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:0.5rem;">Break-Even Frontier</p>
-      <p style="font-size:0.8125rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0 0 1.25rem;">Borrow rate (y) versus hold period (x). The curve is the break-even line at your current liquid alt yield &mdash; below the line, leverage wins. Your scenario is plotted as a dot.</p>
+      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:0.5rem;">IRR vs. Hold Period</p>
+      <p style="font-size:0.8125rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0 0 1.25rem;">IRR on capital contributed (y) versus hold period (x). Cash IRR is flat at the deal return; leverage IRR rises with time as the deal&rsquo;s compounding outpaces the after-tax interest drag. The crossover is the break-even hold period.</p>
       <div style="position:relative;width:100%;max-width:680px;margin:0 auto;">
         <svg id="be-chart" viewBox="0 0 680 380" style="width:100%;height:auto;display:block;font-family:'Inter',sans-serif;"></svg>
       </div>
@@ -751,10 +751,27 @@ function calc() {
   }
   document.getElementById('summary-detail').innerHTML = detailHtml;
 
-  drawBreakevenChart(rAlt, deduct, t, N, rB);
+  drawBreakevenChart({ I: I, r: r, rAlt: rAlt, rBeff: rBeff, currentN: N, cashIRR: cashIRR, levIRR: levIRR });
 }
 
-function drawBreakevenChart(rAlt, deduct, t, currentN, currentRb) {
+// Helper: leverage IRR as a function of hold period (months-based, like the main calc)
+function levIrrAt(N, I, r, rBeff) {
+  var L = I;
+  var terminal = I * Math.pow(1 + r, N);
+  var totalMonths = Math.max(1, Math.round(N * 12));
+  var monthlyInt  = (rBeff * L) / 12;
+  var flows = [];
+  var times = [];
+  for (var m = 0; m < totalMonths; m++) {
+    flows.push(-monthlyInt);
+    times.push(m / 12);
+  }
+  flows.push(terminal - L);
+  times.push(totalMonths / 12);
+  return irr(flows, times);
+}
+
+function drawBreakevenChart(opts) {
   var svg = document.getElementById('be-chart');
   if (!svg) return;
   var W = 680, H = 380;
@@ -762,92 +779,122 @@ function drawBreakevenChart(rAlt, deduct, t, currentN, currentRb) {
   var plotW = W - pad.l - pad.r;
   var plotH = H - pad.t - pad.b;
 
-  // Domain: x = 0..20 years, y = 0..25% borrow rate (or auto-extend if user is outside)
+  var I = opts.I, r = opts.r, rBeff = opts.rBeff, currentN = opts.currentN;
+  var cashIrrNow = opts.cashIRR, levIrrNow = opts.levIRR;
+
+  // X axis: hold period in years, default 0..20, extend to fit current scenario
   var xMax = Math.max(20, Math.ceil(currentN + 2));
-  var yMax = Math.max(0.25, Math.ceil((currentRb + 0.05) * 20) / 20); // round to nearest 5%
+
+  // Build cash + leverage IRR curves
+  var cashPts = [];
+  var levPts  = [];
+  var steps = 120;
+  var minN = 1 / 12; // start at 1 month so monthly IRR is well-defined
+  for (var i = 0; i <= steps; i++) {
+    var nv = minN + (i / steps) * (xMax - minN);
+    var cashIrrV = r; // cash IRR is just the deal return (single in/out, any N)
+    var levIrrV  = levIrrAt(nv, I, r, rBeff);
+    cashPts.push({ x: nv, y: cashIrrV });
+    if (levIrrV !== null && isFinite(levIrrV)) levPts.push({ x: nv, y: levIrrV });
+  }
+
+  // Y axis bounds — fit both curves and current values
+  var yLo = 0, yHi = r;
+  function bump(v) { if (v !== null && isFinite(v)) { if (v < yLo) yLo = v; if (v > yHi) yHi = v; } }
+  for (var p = 0; p < levPts.length; p++) bump(levPts[p].y);
+  bump(cashIrrNow); bump(levIrrNow);
+  // round to clean 5% intervals, add a little headroom
+  yHi = Math.ceil((yHi + 0.02) * 20) / 20;
+  yLo = Math.floor((yLo - 0.02) * 20) / 20;
+  if (yHi - yLo < 0.1) yHi = yLo + 0.1;
 
   var x2px = function(x) { return pad.l + (x / xMax) * plotW; };
-  var y2px = function(y) { return pad.t + plotH - (y / yMax) * plotH; };
+  var y2px = function(y) { return pad.t + plotH - ((y - yLo) / (yHi - yLo)) * plotH; };
 
-  // Break-even rB(N) = ((1+rAlt)^N − 1) / N, divided by (1−t) if deductible
-  var deductFactor = deduct ? (1 - t) : 1;
-  function beRb(N) {
-    if (N <= 0 || deductFactor <= 0) return 0;
-    return ((Math.pow(1 + rAlt, N) - 1) / N) / deductFactor;
-  }
-
-  // Build curve points
-  var pts = [];
-  var steps = 200;
-  for (var i = 0; i <= steps; i++) {
-    var nv = (i / steps) * xMax;
-    if (nv < 0.05) nv = 0.05;
-    var rv = beRb(nv);
-    pts.push({ x: nv, y: rv });
-  }
-
-  // Build SVG
   var s = '';
   // Background
   s += '<rect x="' + pad.l + '" y="' + pad.t + '" width="' + plotW + '" height="' + plotH + '" fill="#FAF8F4" stroke="rgba(44,62,85,0.15)" stroke-width="1"/>';
 
-  // Shade leverage-wins region (below curve) — gold tint
-  var winPath = 'M ' + x2px(0) + ' ' + y2px(0);
-  for (var p = 0; p < pts.length; p++) {
-    var px = x2px(pts[p].x);
-    var py = y2px(Math.min(pts[p].y, yMax));
-    winPath += ' L ' + px + ' ' + py;
-  }
-  winPath += ' L ' + x2px(xMax) + ' ' + y2px(0) + ' Z';
-  s += '<path d="' + winPath + '" fill="rgba(196,154,74,0.18)" stroke="none"/>';
-
-  // Shade leverage-loses region (above curve) — red tint
-  var loseTopPath = 'M ' + x2px(0) + ' ' + y2px(yMax);
-  for (var p2 = 0; p2 < pts.length; p2++) {
-    var px2 = x2px(pts[p2].x);
-    var py2 = y2px(Math.min(pts[p2].y, yMax));
-    loseTopPath += ' L ' + px2 + ' ' + py2;
-  }
-  loseTopPath += ' L ' + x2px(xMax) + ' ' + y2px(yMax) + ' Z';
-  s += '<path d="' + loseTopPath + '" fill="rgba(192,57,43,0.10)" stroke="none"/>';
-
-  // Gridlines (horizontal at every 5%)
-  for (var gy = 0; gy <= yMax + 0.0001; gy += 0.05) {
+  // Gridlines + Y labels at 5% intervals
+  var yStep = (yHi - yLo) > 0.6 ? 0.10 : 0.05;
+  for (var gy = Math.ceil(yLo / yStep) * yStep; gy <= yHi + 1e-6; gy += yStep) {
     var ypx = y2px(gy);
     s += '<line x1="' + pad.l + '" y1="' + ypx + '" x2="' + (pad.l + plotW) + '" y2="' + ypx + '" stroke="rgba(44,62,85,0.08)" stroke-width="1"/>';
     s += '<text x="' + (pad.l - 8) + '" y="' + (ypx + 4) + '" font-size="11" fill="#4A5568" text-anchor="end">' + (gy * 100).toFixed(0) + '%</text>';
   }
-  // Gridlines (vertical every 5y)
+  // Zero line emphasis (if visible)
+  if (yLo < 0 && yHi > 0) {
+    var zpx = y2px(0);
+    s += '<line x1="' + pad.l + '" y1="' + zpx + '" x2="' + (pad.l + plotW) + '" y2="' + zpx + '" stroke="rgba(44,62,85,0.30)" stroke-width="1" stroke-dasharray="3,3"/>';
+  }
+  // Gridlines (vertical)
   var xStep = xMax <= 10 ? 1 : (xMax <= 20 ? 2 : 5);
-  for (var gx = 0; gx <= xMax + 0.0001; gx += xStep) {
+  for (var gx = 0; gx <= xMax + 1e-6; gx += xStep) {
     var xpx = x2px(gx);
     s += '<line x1="' + xpx + '" y1="' + pad.t + '" x2="' + xpx + '" y2="' + (pad.t + plotH) + '" stroke="rgba(44,62,85,0.08)" stroke-width="1"/>';
     s += '<text x="' + xpx + '" y="' + (pad.t + plotH + 18) + '" font-size="11" fill="#4A5568" text-anchor="middle">' + gx + 'y</text>';
   }
 
-  // Break-even curve
-  var curvePath = '';
-  for (var c = 0; c < pts.length; c++) {
-    var cx = x2px(pts[c].x);
-    var cy = y2px(Math.min(pts[c].y, yMax * 1.05));
-    curvePath += (c === 0 ? 'M ' : ' L ') + cx + ' ' + cy;
+  // Cash IRR curve (red, flat line at r)
+  var cashPath = '';
+  for (var c = 0; c < cashPts.length; c++) {
+    cashPath += (c === 0 ? 'M ' : ' L ') + x2px(cashPts[c].x) + ' ' + y2px(cashPts[c].y);
   }
-  s += '<path d="' + curvePath + '" fill="none" stroke="#1A5EA8" stroke-width="2.25"/>';
+  s += '<path d="' + cashPath + '" fill="none" stroke="#c0392b" stroke-width="2.25"/>';
+
+  // Leverage IRR curve (gold)
+  if (levPts.length > 1) {
+    var levPath = '';
+    for (var l = 0; l < levPts.length; l++) {
+      var ly = Math.max(yLo, Math.min(yHi, levPts[l].y));
+      levPath += (l === 0 ? 'M ' : ' L ') + x2px(levPts[l].x) + ' ' + y2px(ly);
+    }
+    s += '<path d="' + levPath + '" fill="none" stroke="#C49A5A" stroke-width="2.5"/>';
+  }
+
+  // Find break-even crossover (smallest N where lev IRR ≥ cash IRR)
+  var crossN = null;
+  for (var k = 1; k < levPts.length; k++) {
+    var a = levPts[k - 1], b = levPts[k];
+    if ((a.y - r) * (b.y - r) <= 0 && a.y !== b.y) {
+      // linear interp
+      crossN = a.x + (r - a.y) * (b.x - a.x) / (b.y - a.y);
+      break;
+    }
+  }
+  if (crossN !== null && crossN > 0 && crossN < xMax) {
+    var cxp = x2px(crossN);
+    s += '<line x1="' + cxp + '" y1="' + pad.t + '" x2="' + cxp + '" y2="' + (pad.t + plotH) + '" stroke="rgba(15,23,36,0.45)" stroke-width="1" stroke-dasharray="4,4"/>';
+    s += '<text x="' + cxp + '" y="' + (pad.t + 14) + '" font-size="10" font-weight="600" fill="#0F1724" text-anchor="middle">Break-even &asymp; ' + crossN.toFixed(1) + 'y</text>';
+  }
 
   // Axis labels
   s += '<text x="' + (pad.l + plotW / 2) + '" y="' + (H - 12) + '" font-size="12" font-weight="600" fill="#2C3E55" text-anchor="middle">Hold Period (years)</text>';
-  s += '<text x="15" y="' + (pad.t + plotH / 2) + '" font-size="12" font-weight="600" fill="#2C3E55" text-anchor="middle" transform="rotate(-90 15 ' + (pad.t + plotH / 2) + ')">Borrow Rate</text>';
+  s += '<text x="15" y="' + (pad.t + plotH / 2) + '" font-size="12" font-weight="600" fill="#2C3E55" text-anchor="middle" transform="rotate(-90 15 ' + (pad.t + plotH / 2) + ')">IRR on Capital Contributed</text>';
 
-  // Region labels
-  s += '<text x="' + x2px(xMax * 0.78) + '" y="' + y2px(yMax * 0.18) + '" font-size="11" font-weight="600" fill="#9E7A32" text-anchor="middle">Leverage Wins</text>';
-  s += '<text x="' + x2px(xMax * 0.22) + '" y="' + y2px(yMax * 0.85) + '" font-size="11" font-weight="600" fill="#c0392b" text-anchor="middle">Cash Wins</text>';
+  // Legend (top-right inside plot)
+  var lgX = pad.l + plotW - 150, lgY = pad.t + 12;
+  s += '<rect x="' + lgX + '" y="' + lgY + '" width="142" height="42" fill="white" stroke="rgba(44,62,85,0.15)" rx="4"/>';
+  s += '<line x1="' + (lgX + 10) + '" y1="' + (lgY + 14) + '" x2="' + (lgX + 28) + '" y2="' + (lgY + 14) + '" stroke="#c0392b" stroke-width="2.5"/>';
+  s += '<text x="' + (lgX + 34) + '" y="' + (lgY + 18) + '" font-size="11" fill="#2C3E55">Cash IRR</text>';
+  s += '<line x1="' + (lgX + 10) + '" y1="' + (lgY + 31) + '" x2="' + (lgX + 28) + '" y2="' + (lgY + 31) + '" stroke="#C49A5A" stroke-width="2.5"/>';
+  s += '<text x="' + (lgX + 34) + '" y="' + (lgY + 35) + '" font-size="11" fill="#2C3E55">Leverage IRR</text>';
 
-  // Current scenario dot
-  if (currentN > 0 && currentN <= xMax && currentRb >= 0 && currentRb <= yMax) {
-    var dx = x2px(currentN);
-    var dy = y2px(currentRb);
-    s += '<circle cx="' + dx + '" cy="' + dy + '" r="7" fill="#0F1724" stroke="white" stroke-width="2"/>';
-    s += '<text x="' + dx + '" y="' + (dy - 14) + '" font-size="11" font-weight="600" fill="#0F1724" text-anchor="middle">Your scenario</text>';
+  // Current scenario dots
+  function drawDot(xv, yv, color, label) {
+    if (yv === null || !isFinite(yv)) return;
+    if (xv < 0 || xv > xMax) return;
+    var dx = x2px(xv);
+    var dy = y2px(Math.max(yLo, Math.min(yHi, yv)));
+    s += '<circle cx="' + dx + '" cy="' + dy + '" r="6" fill="' + color + '" stroke="white" stroke-width="2"/>';
+  }
+  drawDot(currentN, cashIrrNow, '#c0392b');
+  drawDot(currentN, levIrrNow,  '#9E7A32');
+
+  // "Your scenario" annotation at the current N
+  if (currentN > 0 && currentN <= xMax) {
+    var ax = x2px(currentN);
+    s += '<text x="' + ax + '" y="' + (pad.t + plotH - 6) + '" font-size="10" font-weight="600" fill="#0F1724" text-anchor="middle">Your N</text>';
   }
 
   // Replace contents using DOMParser so SVG children are correctly namespaced
