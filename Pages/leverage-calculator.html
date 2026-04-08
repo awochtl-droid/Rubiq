@@ -141,7 +141,7 @@
       <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">Interactive Tool</span>
     </div>
     <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:white;margin-bottom:1.25rem;">
-      Cash vs. Leverage
+      Cash vs. <em style="font-style:italic;color:#D4AE6A;">Leverage</em>
     </h1>
     <p style="font-size:1.0625rem;line-height:1.7;color:rgba(255,255,255,0.72);font-weight:300;max-width:640px;">
       You found a deal worth doing. Should you write a check, or borrow and keep your cash working elsewhere? Build your scenario, see the break-even hold period, and find the borrowing rate where leverage stops paying.
@@ -374,6 +374,15 @@
           .breakeven-grid { grid-template-columns: 1fr !important; }
         }
       </style>
+    </div>
+
+    <!-- Break-even chart -->
+    <div style="background:white;border:1px solid rgba(26,94,168,0.10);border-radius:10px;padding:1.75rem;margin-bottom:2rem;">
+      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,62,85,0.50);margin-bottom:0.5rem;">Break-Even Frontier</p>
+      <p style="font-size:0.8125rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0 0 1.25rem;">Borrow rate (y) versus hold period (x). The curve is the break-even line at your current liquid alt yield &mdash; below the line, leverage wins. Your scenario is plotted as a dot.</p>
+      <div style="position:relative;width:100%;max-width:680px;margin:0 auto;">
+        <svg id="be-chart" viewBox="0 0 680 380" style="width:100%;height:auto;display:block;font-family:'Inter',sans-serif;"></svg>
+      </div>
     </div>
 
     <!-- Summary callout -->
@@ -714,6 +723,107 @@ function calc() {
       '%</strong>) to come out ahead.';
   }
   document.getElementById('summary-detail').innerHTML = detailHtml;
+
+  drawBreakevenChart(rAlt, deduct, t, N, rB);
+}
+
+function drawBreakevenChart(rAlt, deduct, t, currentN, currentRb) {
+  var svg = document.getElementById('be-chart');
+  if (!svg) return;
+  var W = 680, H = 380;
+  var pad = { l: 60, r: 20, t: 20, b: 50 };
+  var plotW = W - pad.l - pad.r;
+  var plotH = H - pad.t - pad.b;
+
+  // Domain: x = 0..20 years, y = 0..25% borrow rate (or auto-extend if user is outside)
+  var xMax = Math.max(20, Math.ceil(currentN + 2));
+  var yMax = Math.max(0.25, Math.ceil((currentRb + 0.05) * 20) / 20); // round to nearest 5%
+
+  var x2px = function(x) { return pad.l + (x / xMax) * plotW; };
+  var y2px = function(y) { return pad.t + plotH - (y / yMax) * plotH; };
+
+  // Break-even rB(N) = ((1+rAlt)^N − 1) / N, divided by (1−t) if deductible
+  var deductFactor = deduct ? (1 - t) : 1;
+  function beRb(N) {
+    if (N <= 0 || deductFactor <= 0) return 0;
+    return ((Math.pow(1 + rAlt, N) - 1) / N) / deductFactor;
+  }
+
+  // Build curve points
+  var pts = [];
+  var steps = 200;
+  for (var i = 0; i <= steps; i++) {
+    var nv = (i / steps) * xMax;
+    if (nv < 0.05) nv = 0.05;
+    var rv = beRb(nv);
+    pts.push({ x: nv, y: rv });
+  }
+
+  // Build SVG
+  var s = '';
+  // Background
+  s += '<rect x="' + pad.l + '" y="' + pad.t + '" width="' + plotW + '" height="' + plotH + '" fill="#FAF8F4" stroke="rgba(44,62,85,0.15)" stroke-width="1"/>';
+
+  // Shade leverage-wins region (below curve) — gold tint
+  var winPath = 'M ' + x2px(0) + ' ' + y2px(0);
+  for (var p = 0; p < pts.length; p++) {
+    var px = x2px(pts[p].x);
+    var py = y2px(Math.min(pts[p].y, yMax));
+    winPath += ' L ' + px + ' ' + py;
+  }
+  winPath += ' L ' + x2px(xMax) + ' ' + y2px(0) + ' Z';
+  s += '<path d="' + winPath + '" fill="rgba(196,154,74,0.18)" stroke="none"/>';
+
+  // Shade leverage-loses region (above curve) — red tint
+  var loseTopPath = 'M ' + x2px(0) + ' ' + y2px(yMax);
+  for (var p2 = 0; p2 < pts.length; p2++) {
+    var px2 = x2px(pts[p2].x);
+    var py2 = y2px(Math.min(pts[p2].y, yMax));
+    loseTopPath += ' L ' + px2 + ' ' + py2;
+  }
+  loseTopPath += ' L ' + x2px(xMax) + ' ' + y2px(yMax) + ' Z';
+  s += '<path d="' + loseTopPath + '" fill="rgba(192,57,43,0.10)" stroke="none"/>';
+
+  // Gridlines (horizontal at every 5%)
+  for (var gy = 0; gy <= yMax + 0.0001; gy += 0.05) {
+    var ypx = y2px(gy);
+    s += '<line x1="' + pad.l + '" y1="' + ypx + '" x2="' + (pad.l + plotW) + '" y2="' + ypx + '" stroke="rgba(44,62,85,0.08)" stroke-width="1"/>';
+    s += '<text x="' + (pad.l - 8) + '" y="' + (ypx + 4) + '" font-size="11" fill="#4A5568" text-anchor="end">' + (gy * 100).toFixed(0) + '%</text>';
+  }
+  // Gridlines (vertical every 5y)
+  var xStep = xMax <= 10 ? 1 : (xMax <= 20 ? 2 : 5);
+  for (var gx = 0; gx <= xMax + 0.0001; gx += xStep) {
+    var xpx = x2px(gx);
+    s += '<line x1="' + xpx + '" y1="' + pad.t + '" x2="' + xpx + '" y2="' + (pad.t + plotH) + '" stroke="rgba(44,62,85,0.08)" stroke-width="1"/>';
+    s += '<text x="' + xpx + '" y="' + (pad.t + plotH + 18) + '" font-size="11" fill="#4A5568" text-anchor="middle">' + gx + 'y</text>';
+  }
+
+  // Break-even curve
+  var curvePath = '';
+  for (var c = 0; c < pts.length; c++) {
+    var cx = x2px(pts[c].x);
+    var cy = y2px(Math.min(pts[c].y, yMax * 1.05));
+    curvePath += (c === 0 ? 'M ' : ' L ') + cx + ' ' + cy;
+  }
+  s += '<path d="' + curvePath + '" fill="none" stroke="#1A5EA8" stroke-width="2.25"/>';
+
+  // Axis labels
+  s += '<text x="' + (pad.l + plotW / 2) + '" y="' + (H - 12) + '" font-size="12" font-weight="600" fill="#2C3E55" text-anchor="middle">Hold Period (years)</text>';
+  s += '<text x="15" y="' + (pad.t + plotH / 2) + '" font-size="12" font-weight="600" fill="#2C3E55" text-anchor="middle" transform="rotate(-90 15 ' + (pad.t + plotH / 2) + ')">Borrow Rate</text>';
+
+  // Region labels
+  s += '<text x="' + x2px(xMax * 0.78) + '" y="' + y2px(yMax * 0.18) + '" font-size="11" font-weight="600" fill="#9E7A32" text-anchor="middle">Leverage Wins</text>';
+  s += '<text x="' + x2px(xMax * 0.22) + '" y="' + y2px(yMax * 0.85) + '" font-size="11" font-weight="600" fill="#c0392b" text-anchor="middle">Cash Wins</text>';
+
+  // Current scenario dot
+  if (currentN > 0 && currentN <= xMax && currentRb >= 0 && currentRb <= yMax) {
+    var dx = x2px(currentN);
+    var dy = y2px(currentRb);
+    s += '<circle cx="' + dx + '" cy="' + dy + '" r="7" fill="#0F1724" stroke="white" stroke-width="2"/>';
+    s += '<text x="' + dx + '" y="' + (dy - 14) + '" font-size="11" font-weight="600" fill="#0F1724" text-anchor="middle">Your scenario</text>';
+  }
+
+  svg.innerHTML = s;
 }
 
 // Initial render
