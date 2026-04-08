@@ -720,7 +720,7 @@ function calc() {
     if (levWins && levGain >= cashGain) {
       gainNote = 'Total wealth gained also favors leverage (<strong style="color:white;">' + fmtDollar(levGain) + '</strong> vs. <strong style="color:white;">' + fmtDollar(cashGain) + '</strong>).';
     } else if (levWins && levGain < cashGain) {
-      gainNote = 'Interesting wrinkle: cash actually generates more total wealth (<strong style="color:white;">' + fmtDollar(cashGain) + '</strong> vs. <strong style="color:white;">' + fmtDollar(levGain) + '</strong>) because the deal itself is doing the heavy lifting &mdash; but borrowing wins on a per-dollar-contributed basis because you tied up far less of your own capital.';
+      gainNote = 'Interesting wrinkle: cash actually generates more total wealth (<strong style="color:white;">' + fmtDollar(cashGain) + '</strong> vs. <strong style="color:white;">' + fmtDollar(levGain) + '</strong>) because the deal itself is doing the heavy lifting &mdash; but leverage wins on a per-dollar-contributed basis because you tied up far less of your own capital.';
     } else if (!levWins && cashGain >= levGain) {
       gainNote = 'Cash also wins on total wealth gained (<strong style="color:white;">' + fmtDollar(cashGain) + '</strong> vs. <strong style="color:white;">' + fmtDollar(levGain) + '</strong>).';
     } else {
