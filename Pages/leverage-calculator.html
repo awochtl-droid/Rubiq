@@ -356,17 +356,17 @@
         <div style="background:#FAF8F4;border:1px solid rgba(26,94,168,0.10);border-radius:8px;padding:1.25rem;">
           <p style="font-size:0.7rem;font-weight:600;color:#1A5EA8;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">Min Hold Period</p>
           <p style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#0F1724;margin:0;" id="be-years">9.4 yrs</p>
-          <p style="font-size:0.72rem;color:#4A5568;line-height:1.55;font-weight:300;margin:0.4rem 0 0;">For leverage to break even at the current borrow and alt rates.</p>
+          <p style="font-size:0.72rem;color:#4A5568;line-height:1.55;font-weight:300;margin:0.4rem 0 0;">Smallest hold period at which leverage IRR matches the cash (deal) IRR.</p>
         </div>
         <div style="background:#FAF8F4;border:1px solid rgba(26,94,168,0.10);border-radius:8px;padding:1.25rem;">
           <p style="font-size:0.7rem;font-weight:600;color:#1A5EA8;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">Max Borrow Rate</p>
           <p style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#0F1724;margin:0;" id="be-rate">5.16%</p>
-          <p style="font-size:0.72rem;color:#4A5568;line-height:1.55;font-weight:300;margin:0.4rem 0 0;">Pre-tax borrow rate at which leverage stops paying for the chosen hold period.</p>
+          <p style="font-size:0.72rem;color:#4A5568;line-height:1.55;font-weight:300;margin:0.4rem 0 0;">Highest pre-tax borrow rate at which leverage IRR still matches the cash IRR for the chosen hold period.</p>
         </div>
         <div style="background:#FAF8F4;border:1px solid rgba(26,94,168,0.10);border-radius:8px;padding:1.25rem;">
           <p style="font-size:0.7rem;font-weight:600;color:#1A5EA8;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.5rem;">Min Liquid Yield</p>
           <p style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#0F1724;margin:0;" id="be-alt">6.07%</p>
-          <p style="font-size:0.72rem;color:#4A5568;line-height:1.55;font-weight:300;margin:0.4rem 0 0;">Yield your liquid cash must compound at to overcome the after-tax interest drag.</p>
+          <p style="font-size:0.72rem;color:#4A5568;line-height:1.55;font-weight:300;margin:0.4rem 0 0;">Lowest liquid alt yield at which leverage IRR still matches the cash IRR for the chosen hold period.</p>
         </div>
       </div>
       <style>
@@ -607,34 +607,47 @@ function calc() {
   var delta = levWealth - cashWealth; // positive = leverage wins
   var deltaAbs = Math.abs(delta);
 
-  // Break-evens
-  // ΔW = L * [(1+rAlt)^N − 1 − rBeff*N]; set to 0
-  // Min hold years (numeric search): smallest N where (1+rAlt)^N − 1 ≥ rBeff*N
+  // Break-evens — leverage IRR meets/beats cash IRR (the deal return)
+  // levIRR ≥ r  ⇔  ((1+r)^N − 1) + ((1+rAlt)^N − 1) ≥ rBeff*N*(1+r)^N
+  // f(N) = (1+r)^N + (1+rAlt)^N − 2 − rBeff*N*(1+r)^N
+  function feval(Nv) {
+    var dealComp = Math.pow(1 + r, Nv);
+    return dealComp + Math.pow(1 + rAlt, Nv) - 2 - rBeff * Nv * dealComp;
+  }
+  // Min hold period: smallest N where f(N) ≥ 0
   var beYears = null;
-  if (rAlt > 0 && rBeff > 0) {
-    var nLo = 0.1, nHi = 100, found = null;
-    for (var i = 0; i < 60; i++) {
-      var nMid = (nLo + nHi) / 2;
-      var lhs = Math.pow(1 + rAlt, nMid) - 1;
-      var rhs = rBeff * nMid;
-      if (lhs >= rhs) { nHi = nMid; found = nMid; }
-      else { nLo = nMid; }
+  if (rBeff > 0) {
+    if (feval(0.01) >= 0) {
+      beYears = 0; // leverage already winning at near-zero hold
+    } else {
+      var nLo2 = 0.01, nHi2 = 100, found2 = null;
+      for (var i = 0; i < 80; i++) {
+        var nMid2 = (nLo2 + nHi2) / 2;
+        if (feval(nMid2) >= 0) { nHi2 = nMid2; found2 = nMid2; }
+        else { nLo2 = nMid2; }
+      }
+      if (found2 !== null && found2 < 99) beYears = found2;
     }
-    // verify it actually breaks even within range
-    if (found !== null && found < 99 && Math.pow(1+rAlt, found) - 1 >= rBeff*found - 1e-6) {
-      beYears = found;
-    }
-  } else if (rAlt > 0 && rBeff <= 0) {
+  } else {
     beYears = 0;
   }
 
-  // Max borrow rate (pre-tax) at current N
-  // rBeff_max = ((1+rAlt)^N − 1) / N → rB_max = rBeff_max / (1−t) if deductible
-  var rBeffMax = N > 0 ? (Math.pow(1 + rAlt, N) - 1) / N : 0;
+  // Max borrow rate (pre-tax) at current N: solve rBeff such that f(N) = 0
+  // rBeff_max = [((1+r)^N − 1) + ((1+rAlt)^N − 1)] / [N * (1+r)^N]
+  var dealCompN = Math.pow(1 + r, N);
+  var rBeffMax = N > 0 ? ((dealCompN - 1) + (Math.pow(1 + rAlt, N) - 1)) / (N * dealCompN) : 0;
   var rBMax    = deduct ? (1 - t > 0 ? rBeffMax / (1 - t) : rBeffMax) : rBeffMax;
 
-  // Min liquid alt yield: rAlt where (1+rAlt)^N − 1 = rBeff*N
-  var rAltMin = N > 0 ? Math.pow(1 + rBeff * N, 1 / N) - 1 : 0;
+  // Min liquid alt yield at current N: solve rAlt such that f(N) = 0
+  // (1+rAlt)^N = 1 + rBeff*N*(1+r)^N − ((1+r)^N − 1)
+  var rAltMin;
+  if (N > 0) {
+    var rhs = 1 + rBeff * N * dealCompN - (dealCompN - 1);
+    rAltMin = rhs > 0 ? Math.pow(rhs, 1 / N) - 1 : 0;
+    if (rAltMin < 0) rAltMin = 0;
+  } else {
+    rAltMin = 0;
+  }
 
   // ── IRR on capital contributed (must run before display) ──
   // Cash: -I at t=0, +terminal at t=N
@@ -683,7 +696,7 @@ function calc() {
   document.getElementById('r-lev-irr').textContent       = (levIRR !== null && isFinite(levIRR)) ? (levIRR * 100).toFixed(2) + '%' : '—';
 
   // ── Break-evens ──
-  document.getElementById('be-years').textContent = beYears !== null ? beYears.toFixed(1) + ' yrs' : 'Never';
+  document.getElementById('be-years').textContent = beYears === null ? 'Never' : (beYears <= 0.05 ? 'Immediate' : beYears.toFixed(1) + ' yrs');
   document.getElementById('be-rate').textContent  = (rBMax * 100).toFixed(2) + '%';
   document.getElementById('be-alt').textContent   = (rAltMin * 100).toFixed(2) + '%';
 
