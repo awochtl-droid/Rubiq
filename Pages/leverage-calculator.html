@@ -698,9 +698,6 @@ function calc() {
   var loserIRR   = levWins ? cashIrrPct : levIrrPct;
   var spread     = irrDiff !== null ? Math.abs(irrDiff) : null;
 
-  document.getElementById('summary-years').textContent      = Nlabel;
-  document.getElementById('summary-delta-abs').textContent  = fmtDollar(deltaAbs);
-
   var headline;
   if (spread !== null) {
     headline = 'Over <span style="color:#D4AE6A;">' + Nlabel + '</span>, ' + winnerName +
