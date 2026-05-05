@@ -11,6 +11,23 @@
   gtag('config', 'G-15PBEWL3XZ');
   gtag('config', 'AW-18023805978');
 </script>
+<!-- Event snippet for Book Now Click conversion page -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18023805978/PYr9CKmg9qccEJrotZJD',
+      'value': 1.0,
+      'currency': 'USD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fee Structure | Rubiq Financial Partners</title>
@@ -379,7 +396,7 @@
         <a href="client-portal.html">
           <button class="btn-ghost">Client Access</button>
         </a>
-        <a href="schedule.html">
+        <a href="schedule.html" onclick="return gtag_report_conversion(this.href)">
           <button class="btn-primary">Schedule a Call</button>
         </a>
       </div>
@@ -405,7 +422,7 @@
     <a href="insights.html"     class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Insights</a>
     <a href="fee-structure.html" class="nav-link active" style="padding:1rem 0;font-size:0.9375rem;">Fee Structure</a>
     <div style="margin-top:1.25rem;">
-      <a href="schedule.html"><button class="btn-gold" style="width:100%;">Schedule a Call</button></a>
+      <a href="schedule.html" onclick="return gtag_report_conversion(this.href)"><button class="btn-gold" style="width:100%;">Schedule a Call</button></a>
     </div>
   </div>
 </nav>
@@ -635,7 +652,7 @@
             For portfolios above $50M we structure a custom fee arrangement tailored to the
             scope and complexity of your engagement.
           </p>
-          <a href="schedule.html">
+          <a href="schedule.html" onclick="return gtag_report_conversion(this.href)">
             <button class="btn-gold ihb" style="font-size:0.8125rem;padding:0.65rem 1.75rem;">
               <span class="ihb-label">Contact Us</span>
               <span class="ihb-hover">Contact Us <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
@@ -830,7 +847,7 @@
               Tell us about your situation — we'll tell you whether we're the right fit.
             </div>
           </div>
-          <a href="schedule.html">
+          <a href="schedule.html" onclick="return gtag_report_conversion(this.href)">
             <button class="btn-gold ihb" style="font-size:0.8125rem;padding:0.75rem 1.75rem;white-space:nowrap;">
               <span class="ihb-label">Schedule a Call</span>
               <span class="ihb-hover">Schedule a Call <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
@@ -1081,7 +1098,7 @@
     </div>
 
     <div class="flex flex-wrap justify-center gap-4">
-      <a href="schedule.html">
+      <a href="schedule.html" onclick="return gtag_report_conversion(this.href)">
         <button class="btn-gold" style="background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);color:#0F1724;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;letter-spacing:0.04em;text-transform:uppercase;padding:0.875rem 2.25rem;border-radius:4px;border:none;cursor:pointer;transition:opacity 0.18s ease,transform 0.18s ease;">Schedule a Call</button>
       </a>
       <a href="our-team.html">
@@ -1212,7 +1229,7 @@
           letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;
           padding:1rem;border-radius:6px;
           box-shadow:0 -2px 16px rgba(0,0,0,0.25),0 4px 12px rgba(196,154,74,0.35);
-          transition:bottom 0.3s cubic-bezier(0.4,0,0.2,1);">
+          transition:bottom 0.3s cubic-bezier(0.4,0,0.2,1);" onclick="return gtag_report_conversion(this.href)">
   Schedule a Call
 </a>
 <style>

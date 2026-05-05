@@ -11,6 +11,23 @@
   gtag('config', 'G-15PBEWL3XZ');
   gtag('config', 'AW-18023805978');
 </script>
+<!-- Event snippet for Book Now Click conversion page -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18023805978/PYr9CKmg9qccEJrotZJD',
+      'value': 1.0,
+      'currency': 'USD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Donor-Advised Fund Calculator (DRAFT) | Rubiq Financial Partners</title>
@@ -243,7 +260,7 @@
         <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C49A5A;margin-bottom:0.75rem;">The Bottom Line</p>
         <p style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;color:white;margin-bottom:0.75rem;line-height:1.4;" id="bl-headline">Donating appreciated stock in-kind delivers the same gift to charity at the lowest after-tax cost.</p>
         <p style="font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.65);font-weight:300;margin-bottom:1.5rem;" id="bl-detail"></p>
-        <a href="schedule.html" style="display:inline-flex;align-items:center;gap:8px;font-size:0.85rem;font-weight:600;color:#0F1724;background:#C49A5A;text-decoration:none;padding:0.7rem 1.5rem;border-radius:6px;transition:background 0.18s ease;" onmouseover="this.style.background='#D4AE6A'" onmouseout="this.style.background='#C49A5A'">
+        <a href="schedule.html" style="display:inline-flex;align-items:center;gap:8px;font-size:0.85rem;font-weight:600;color:#0F1724;background:#C49A5A;text-decoration:none;padding:0.7rem 1.5rem;border-radius:6px;transition:background 0.18s ease;" onmouseover="this.style.background='#D4AE6A'" onmouseout="this.style.background='#C49A5A'" onclick="return gtag_report_conversion(this.href)">
           Talk through your giving plan
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>

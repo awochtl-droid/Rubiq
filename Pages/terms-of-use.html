@@ -11,6 +11,23 @@
   gtag('config', 'G-15PBEWL3XZ');
   gtag('config', 'AW-18023805978');
 </script>
+<!-- Event snippet for Book Now Click conversion page -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18023805978/PYr9CKmg9qccEJrotZJD',
+      'value': 1.0,
+      'currency': 'USD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terms of Use & Legal Disclosures | Rubiq Financial Partners</title>
@@ -253,7 +270,7 @@
         <a href="client-portal.html">
           <button class="btn-ghost">Client Access</button>
         </a>
-        <a href="schedule.html">
+        <a href="schedule.html" onclick="return gtag_report_conversion(this.href)">
           <button class="btn-primary">Schedule a Call</button>
         </a>
       </div>
@@ -273,7 +290,7 @@
     <a href="insights.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Insights</a>
     <a href="fee-structure.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Fee Structure</a>
     <div style="margin-top:1.25rem;">
-      <a href="schedule.html"><button class="btn-gold" style="width:100%;">Schedule a Call</button></a>
+      <a href="schedule.html" onclick="return gtag_report_conversion(this.href)"><button class="btn-gold" style="width:100%;">Schedule a Call</button></a>
     </div>
   </div>
 </nav>
@@ -437,7 +454,7 @@
     <h2>Contact Us</h2>
     <p>
       If you have questions about these Terms of Use, please contact us via our
-      <a href="schedule.html" style="color:#1A5EA8;text-decoration:underline;">Contact page</a> or at:
+      <a href="schedule.html" style="color:#1A5EA8;text-decoration:underline;" onclick="return gtag_report_conversion(this.href)">Contact page</a> or at:
     </p>
     <p>
       <strong>Rubiq Financial Partners</strong><br />
@@ -518,7 +535,7 @@
           letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;
           padding:1rem;border-radius:6px;
           box-shadow:0 -2px 16px rgba(0,0,0,0.25),0 4px 12px rgba(196,154,74,0.35);
-          transition:bottom 0.3s cubic-bezier(0.4,0,0.2,1);">
+          transition:bottom 0.3s cubic-bezier(0.4,0,0.2,1);" onclick="return gtag_report_conversion(this.href)">
   Schedule a Call
 </a>
 <style>
