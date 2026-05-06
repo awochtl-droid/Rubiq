@@ -11,7 +11,7 @@
   gtag('config', 'G-15PBEWL3XZ');
   gtag('config', 'AW-18023805978');
 </script>
-<!-- Event snippet for Book Now Click conversion page -->
+<!-- Event snippet for Book Now Click + Book Appointment conversions -->
 <script>
 function gtag_report_conversion(url) {
   var callback = function () {
@@ -23,6 +23,10 @@ function gtag_report_conversion(url) {
       'send_to': 'AW-18023805978/PYr9CKmg9qccEJrotZJD',
       'value': 1.0,
       'currency': 'USD',
+      'event_callback': callback
+  });
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18023805978/sQ2MCNuQ0agcEJrotZJD',
       'event_callback': callback
   });
   return false;
