@@ -418,7 +418,7 @@ function gtag_report_conversion(url) {
             <input type="text" id="ord-rate" class="calc-input" value="37" style="max-width:80px;">
             <span style="font-size:0.8rem;color:#4A5568;">%</span>
           </div>
-          <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Used to tax cash-side distributions and Traditional-SDIRA withdrawals.</p>
+          <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Used to tax cash-side annual cash flow (rental, distributions, dividends). Distribution tax for a Traditional SDIRA is set separately below.</p>
         </div>
 
         <div class="calc-input-group">
@@ -446,7 +446,7 @@ function gtag_report_conversion(url) {
         </div>
 
         <div style="border-top:1px solid rgba(44,62,85,0.10);padding-top:1.25rem;margin-top:0.5rem;">
-          <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:#C49A5A;margin-bottom:1rem;">SDIRA Setup</p>
+          <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:#C49A5A;margin-bottom:1rem;">Self-Directed IRA Option</p>
 
           <div class="calc-input-group">
             <label class="calc-label">Account Type</label>
@@ -455,6 +455,15 @@ function gtag_report_conversion(url) {
               <label class="radio-pill" id="pill-roth"><input type="radio" name="ira-type" value="roth" onchange="updateIraType()">Roth</label>
             </div>
             <p style="font-size:0.72rem;color:#9CA3AF;margin:0.5rem 0 0;line-height:1.5;">Traditional: distribution taxed as ordinary income. Roth: tax-free distribution if age 59½+ and 5-year rule met.</p>
+          </div>
+
+          <div class="calc-input-group" id="dist-tax-field">
+            <label class="calc-label">Tax Rate at Distribution (Traditional only)</label>
+            <div style="display:flex;align-items:center;gap:0.5rem;">
+              <input type="text" id="dist-tax-rate" class="calc-input" value="20" style="max-width:80px;">
+              <span style="font-size:0.8rem;color:#4A5568;">%</span>
+            </div>
+            <p style="font-size:0.72rem;color:#9CA3AF;margin:0.35rem 0 0;line-height:1.5;">Your expected marginal rate when you take the distribution &mdash; usually lower than your current ordinary rate. Default 20%.</p>
           </div>
 
           <div class="calc-input-group">
@@ -841,6 +850,7 @@ function updateIraType() {
   document.getElementById('pill-traditional').classList.toggle('active', traditional);
   document.getElementById('pill-roth').classList.toggle('active', !traditional);
   document.getElementById('rs-label').textContent = traditional ? 'Traditional' : 'Roth';
+  document.getElementById('dist-tax-field').style.display = traditional ? 'block' : 'none';
   calc();
 }
 
@@ -854,6 +864,7 @@ function calc() {
   var ltv      = useLev ? Math.max(0, Math.min(0.95, parseNum('ltv') / 100)) : 0;
   var loanRate = useLev ? parseNum('loan-rate') / 100 : 0;
   var ordRate  = parseNum('ord-rate') / 100;
+  var distTaxRate = parseNum('dist-tax-rate') / 100;
   var ltcgRate = parseNum('ltcg-rate') / 100;
   var niitOn   = document.getElementById('niit-apply').checked;
   var ubitRate = parseNum('ubit-rate') / 100;
@@ -922,7 +933,7 @@ function calc() {
   var distTax = 0;
   var penalty = 0;
   if (iraType === 'traditional') {
-    distTax = iraBalanceAtSale * ordRate;
+    distTax = iraBalanceAtSale * distTaxRate;
   }
   if (distAge < 59.5) {
     // 10% federal penalty: applies to full Traditional distribution; Roth penalty
