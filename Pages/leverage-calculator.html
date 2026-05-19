@@ -313,9 +313,13 @@ function gtag_report_conversion(url) {
           <span class="result-label" style="font-weight:600;color:#0F1724;">Total Wealth Gained</span>
           <span class="result-value" style="font-size:1.125rem;" id="r-cash-wealth">$828,039</span>
         </div>
-        <div class="result-row" style="border-bottom:none;">
+        <div class="result-row">
           <span class="result-label" style="font-weight:600;color:#0F1724;">IRR on Capital Contributed</span>
           <span class="result-value gold" style="font-size:1.125rem;" id="r-cash-irr">9.00%</span>
+        </div>
+        <div class="result-row" style="border-bottom:none;margin-top:1rem;padding-top:0.75rem;border-top:1px dashed rgba(44,62,85,0.18);">
+          <span class="result-label" style="font-weight:600;color:#0F1724;">Net of Tax <span style="font-weight:400;color:#9CA3AF;" id="r-cash-tax-rate">(23.8%)</span></span>
+          <span class="result-value" style="font-size:1.125rem;" id="r-cash-aftertax">$802,892</span>
         </div>
       </div>
 
@@ -363,9 +367,13 @@ function gtag_report_conversion(url) {
           <span class="result-label" style="font-weight:600;color:#1A5EA8;">Total Wealth Gained</span>
           <span class="result-value positive" style="font-size:1.125rem;" id="r-lev-wealth">$698,901</span>
         </div>
-        <div class="result-row" style="border-bottom:none;">
+        <div class="result-row">
           <span class="result-label" style="font-weight:600;color:#1A5EA8;">IRR on Capital Contributed</span>
           <span class="result-value gold" style="font-size:1.125rem;" id="r-lev-irr">&mdash;</span>
+        </div>
+        <div class="result-row" style="border-bottom:none;margin-top:1rem;padding-top:0.75rem;border-top:1px dashed rgba(26,94,168,0.20);">
+          <span class="result-label" style="font-weight:600;color:#1A5EA8;">Net of Tax <span style="font-weight:400;color:#9CA3AF;" id="r-lev-tax-rate">(23.8%)</span></span>
+          <span class="result-value positive" style="font-size:1.125rem;" id="r-lev-aftertax">$676,592</span>
         </div>
       </div>
     </div>
@@ -694,6 +702,21 @@ function calc() {
   var cashGain = cashWealth - I;
   var levGain  = levWealth - I;
 
+  // Net-of-tax: apply the appropriate rate to the gain based on return treatment.
+  // LTCG hardcoded at 23.8% (20% federal + 3.8% NIIT); ordinary uses the marginal
+  // rate from the input; mixed is a simple 50/50 blend.
+  var returnType   = document.getElementById('return-type').value;
+  var ltcgRate     = 0.238;
+  var ordRate      = t;  // already parsed = marginal-rate / 100
+  var taxRateGain  = returnType === 'capgain'  ? ltcgRate
+                   : returnType === 'interest' ? ordRate
+                   :                              (ltcgRate + ordRate) / 2;
+  // After-tax gain — same basis as "Total Wealth Gained" above so the user can
+  // read them in the same units (delta over starting capital, post-tax).
+  var cashAfterTax = cashGain * (1 - taxRateGain);
+  var levAfterTax  = levGain  * (1 - taxRateGain);
+  var taxRateLabel = '(' + (taxRateGain * 100).toFixed(1) + '%)';
+
   // ── Update Cash side ──
   document.getElementById('r-cash-out').textContent      = '(' + fmtDollar(I) + ')';
   document.getElementById('r-cash-liquid').textContent   = '$0';
@@ -704,6 +727,8 @@ function calc() {
   document.getElementById('r-cash-interest').textContent = '$0';
   document.getElementById('r-cash-wealth').textContent   = fmtDollar(cashGain);
   document.getElementById('r-cash-irr').textContent      = (cashIRR !== null && isFinite(cashIRR)) ? (cashIRR * 100).toFixed(2) + '%' : '—';
+  document.getElementById('r-cash-aftertax').textContent = fmtDollar(cashAfterTax);
+  document.getElementById('r-cash-tax-rate').textContent = taxRateLabel;
 
   // ── Update Leverage side ──
   document.getElementById('r-lev-out').textContent       = '$0';
@@ -717,6 +742,8 @@ function calc() {
   document.getElementById('r-lev-interest').textContent  = '(' + fmtDollar(cumInterest) + ')';
   document.getElementById('r-lev-wealth').textContent    = fmtDollar(levGain);
   document.getElementById('r-lev-irr').textContent       = (levIRR !== null && isFinite(levIRR)) ? (levIRR * 100).toFixed(2) + '%' : '—';
+  document.getElementById('r-lev-aftertax').textContent  = fmtDollar(levAfterTax);
+  document.getElementById('r-lev-tax-rate').textContent  = taxRateLabel;
 
   // ── Break-evens ──
   document.getElementById('be-years').textContent =
