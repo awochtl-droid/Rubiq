@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-15PBEWL3XZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-15PBEWL3XZ');
+  gtag('config', 'AW-18023805978');
+</script>
+<!-- Event snippet for Book Now Click + Book Appointment conversions -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18023805978/PYr9CKmg9qccEJrotZJD',
+      'value': 1.0,
+      'currency': 'USD',
+      'event_callback': callback
+  });
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18023805978/sQ2MCNuQ0agcEJrotZJD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study: Pre-Retiree Income &amp; Medicare Planning | Rubiq</title>
+  <meta name="description" content="How Rubiq Financial Partners helped a pre-retiree couple bridge health coverage to Medicare, manage IRMAA surcharge risk, build a multi-year Roth conversion plan, and coordinate Social Security with portfolio withdrawals ahead of retirement." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/case-study-retirees.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rubiq: {
+              blue:      '#1A5EA8',
+              bluedark:  '#133F73',
+              bluelight: '#2A74C8',
+              gold:      '#C49A5A',
+              goldlight: '#D4AE6A',
+              golddark:  '#9E7A32',
+              ink:       '#0F1724',
+              inksoft:   '#1C2D44',
+              slate:     '#2C3E55',
+              mist:      '#F4F6F9',
+              parchment: '#FAF8F4',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C2D44; margin: 0; }
+
+    .nav-blur { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); }
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.80);
+      text-decoration: none; position: relative; padding-bottom: 2px;
+      transition: color 0.18s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1.5px; background: #C49A5A; transition: width 0.22s ease;
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1A5EA8 0%, #2A74C8 100%);
+      color: white; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-gold {
+      background: linear-gradient(135deg, #C49A5A 0%, #D4AE6A 100%);
+      color: #0F1724; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.875rem 2.25rem; border-radius: 4px; border: none; cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .btn-gold:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(196,154,74,0.40); }
+    .btn-ghost {
+      background: transparent; color: white; font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 0.875rem; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.75rem; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); }
+
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+    @media (max-width: 767px) {
+      #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
+      footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
+    }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.625rem; font-weight: 700; color: #0F1724;
+      line-height: 1.25; letter-spacing: -0.02em;
+      margin: 2.75rem 0 1rem;
+    }
+    .article-body h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.0625rem; font-weight: 600; color: #1C2D44;
+      margin: 2rem 0 0.625rem;
+    }
+    .article-body p {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin: 0 0 1.35rem;
+    }
+    .article-body ul {
+      margin: 0 0 1.35rem 1.25rem; padding: 0;
+    }
+    .article-body ul li {
+      font-size: 1.0625rem; line-height: 1.80; color: #2C3E55;
+      font-weight: 300; margin-bottom: 0.5rem;
+      list-style: none; position: relative; padding-left: 1.25rem;
+    }
+    .article-body ul li::before {
+      content: ''; position: absolute; left: 0; top: 0.65em;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: linear-gradient(135deg, #1A5EA8, #C49A5A);
+    }
+
+    .pull-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-style: italic; font-weight: 500;
+      color: #133F73; line-height: 1.55;
+      border-left: 3px solid #C49A5A;
+      padding: 1rem 1.75rem;
+      margin: 2.5rem 0;
+    }
+  </style>
+  <!-- Favicon -->
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32" />
+
+  <!-- Social / AEO -->
+  <meta property="og:type"        content="article" />
+  <meta property="og:site_name"   content="Rubiq Financial Partners" />
+  <meta property="og:title"       content="Case Study: Pre-Retiree Income &amp; Medicare Planning | Rubiq" />
+  <meta property="og:description" content="How Rubiq helped a pre-retiree couple bridge health coverage to Medicare, manage IRMAA risk, build a Roth conversion plan, and coordinate Social Security with portfolio withdrawals." />
+  <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/case-study-retirees.html" />
+  <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Case Study: Pre-Retiree Income &amp; Medicare Planning | Rubiq" />
+  <meta name="twitter:description" content="How Rubiq helped a pre-retiree couple bridge health coverage to Medicare, manage IRMAA risk, build a Roth conversion plan, and coordinate Social Security with portfolio withdrawals." />
+  <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Building the Bridge: Income Planning for a Couple Five Years From Retirement",
+    "description": "How Rubiq Financial Partners helped a pre-retiree couple bridge health coverage to Medicare, manage IRMAA surcharge risk, build a multi-year Roth conversion plan, and coordinate Social Security with portfolio withdrawals ahead of retirement.",
+    "datePublished": "2026-09-29",
+    "dateModified": "2026-09-29",
+    "author": { "@type": "Person", "name": "Andreas Wochtl, CFP®", "url": "https://www.rubiqfinancial.com/Pages/our-team.html" },
+    "publisher": { "@id": "https://www.rubiqfinancial.com/#organization" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.rubiqfinancial.com/Pages/case-study-retirees.html" },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["#speakable-headline", "#speakable-summary"]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home",      "item": "https://www.rubiqfinancial.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Our Clients", "item": "https://www.rubiqfinancial.com/Pages/our-clients.html" },
+      { "@type": "ListItem", "position": 3, "name": "Pre-Retiree Case Study", "item": "https://www.rubiqfinancial.com/Pages/case-study-retirees.html" }
+    ]
+  }
+  </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "Rubiq Financial Partners",
+  "alternateName": "Rubiq Financial Partners",
+  "url": "https://www.rubiqfinancial.com",
+  "logo": "https://www.rubiqfinancial.com/Brand_assets/Rubiq%20Financial%20Partners%20Logo%20-%20FINAL2-Horizontal.png",
+  "image": "https://www.rubiqfinancial.com/Media/og-social.png",
+  "description": "Independent fiduciary wealth management for ultra-high-net-worth families, entrepreneurs, and pre-retirees.",
+  "telephone": "+1-610-215-9499",
+  "email": "clientservice@rubiqfinancial.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1065 Andrew Drive",
+    "addressLocality": "West Chester",
+    "addressRegion": "PA",
+    "postalCode": "19380",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "39.9526",
+    "longitude": "-75.6010"
+  },
+  "areaServed": [
+    {"@type": "Country", "name": "United States"}
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Andreas M. Wochtl",
+    "jobTitle": "Private Wealth Advisor"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/rubiq-financial-partners"
+  ],
+  "priceRange": "$$$$",
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "Wire Transfer, ACH",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Wealth Management Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Investment Management"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tax Planning"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Retirement Planning"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Estate Planning"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Business Planning"}}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I bridge health insurance if I retire before age 65?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Retiring before Medicare eligibility at 65 means covering the gap through COBRA, a spouse's employer plan, or an ACA marketplace policy. The right choice depends on cost, coverage quality, and — critically — how the income reported on your tax return that year affects ACA premium subsidies. Managing modified adjusted gross income during this bridge period is often the difference between a subsidized plan and full-price premiums."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is IRMAA and how can retirees avoid triggering it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IRMAA (Income-Related Monthly Adjustment Amount) is a surcharge added to Medicare Part B and Part D premiums for higher-income beneficiaries, based on a two-year lookback at your tax return. A one-time income spike — a large Roth conversion, a home sale, or a pension lump sum — can push you into a higher IRMAA bracket two years later. Coordinating the timing and size of taxable events against the IRMAA thresholds is a core part of pre-retirement income planning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When is the best window for Roth conversions before retirement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The years after leaving full-time work but before Social Security and required minimum distributions begin are often the lowest-income years of a retiree's life — and the best window for Roth conversions. Converting pre-tax assets during these years fills up lower tax brackets deliberately, reduces future RMDs, and needs to be balanced each year against IRMAA thresholds and ACA subsidy cliffs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I claim Social Security at 62, at full retirement age, or wait until 70?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claiming Social Security is a household decision, not a single-year decision. Delaying from full retirement age to 70 increases the benefit by roughly 8% per year, but the right timing depends on portfolio withdrawal sequencing, spousal benefits, health and longevity expectations, and how claiming interacts with Roth conversion room in the years before benefits begin."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Skip to main content (visible only on keyboard focus) -->
+<a href="#main-content" class="skip-nav"
+   style="position:absolute;top:-100%;left:1rem;z-index:9999;
+          background:#C49A5A;color:#0F1724;padding:0.75rem 1.5rem;
+          font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:600;
+          letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;
+          border-radius:0 0 4px 4px;transition:top 0.18s ease;"
+   onfocus="this.style.top='0'" onblur="this.style.top='-100%'">
+  Skip to main content
+</a>
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur"
+     style="background:rgba(15,23,36,0.92);border-bottom:1px solid rgba(255,255,255,0.07);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between" style="height:72px;">
+      <a href="../index.html" class="flex-shrink-0 flex items-center">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Vertical -White.png"
+             alt="Rubiq Financial Partners" width="240" height="44"
+             style="height:44px;width:auto;object-fit:contain;" loading="eager" decoding="async" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="our-capabilities.html" class="nav-link">Capabilities</a>
+        <a href="our-clients.html" class="nav-link">Clients</a>
+        <a href="our-team.html" class="nav-link">Team</a>
+        <a href="insights.html" class="nav-link">Resources</a>
+        <a href="fee-structure.html" class="nav-link">Fees</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://www.gdx360.com/login/securelogin/loginbase.aspx" target="_blank" rel="noopener noreferrer">
+          <button class="btn-ghost">Client Access</button>
+        </a>
+        <a href="schedule.html" onclick="return gtag_report_conversion(this.href)"><button class="btn-primary">Schedule a Call</button></a>
+      </div>
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('open')"
+              class="md:hidden p-2" style="color:white;" aria-label="Open navigation menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu"
+       style="background:rgba(15,23,36,0.97);border-top:1px solid rgba(255,255,255,0.07);
+              flex-direction:column;padding:1.5rem 1.5rem 2rem;">
+    <a href="our-capabilities.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Capabilities</a>
+    <a href="our-clients.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Clients</a>
+    <a href="our-team.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Team</a>
+    <a href="insights.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Resources</a>
+    <a href="fee-structure.html" class="nav-link" style="padding:1rem 0;font-size:0.9375rem;">Fees</a>
+    <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.75rem;">
+      <a href="schedule.html" onclick="return gtag_report_conversion(this.href)"><button class="btn-gold" style="width:100%;">Schedule a Call</button></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 50%,#1A5EA8 100%);
+                padding:7.5rem 0 4rem;position:relative;overflow:hidden;min-height:420px;">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.025;pointer-events:none;" aria-hidden="true">
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+  <div style="position:absolute;top:-10%;right:-5%;width:55%;height:110%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.12) 0%,transparent 60%);pointer-events:none;"></div>
+
+  <div class="max-w-4xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
+    <a href="our-clients.html" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:2rem;
+      font-size:0.75rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(255,255,255,0.55);
+      text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+      ← Our Clients
+    </a>
+
+    <div style="display:inline-flex;align-items:center;gap:8px;
+                background:rgba(196,154,74,0.10);border:1px solid rgba(196,154,74,0.25);
+                border-radius:100px;padding:0.35rem 1rem;margin-bottom:1.5rem;">
+      <div style="width:6px;height:6px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">
+        Case Study
+      </span>
+    </div>
+
+    <h1 id="speakable-headline" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;line-height:1.12;letter-spacing:-0.03em;color:white;margin-bottom:1rem;">
+      Building the Bridge<br />
+      <em style="font-style:italic;color:#D4AE6A;">to Retirement Income</em>
+    </h1>
+
+    <div style="display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;margin-top:1.25rem;">
+      <span style="font-size:0.875rem;color:rgba(255,255,255,0.58);">7 min read</span>
+      <span style="font-size:0.875rem;color:rgba(255,255,255,0.58);">Pre-Retiree Couple, Ages 58 &amp; 63</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ARTICLE -->
+<section style="background:#FAF8F4;padding:4rem 0;">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <div class="article-body">
+
+      <!-- Lead -->
+      <div style="border-left:3px solid #C49A5A;padding-left:1.75rem;margin-bottom:2.5rem;">
+        <p id="speakable-summary" style="font-size:1.125rem;line-height:1.75;color:#2C3E55;font-weight:400;">
+          A couple came to Rubiq three years before their planned retirement — she at 62, still working; he at 63, already scaling back his hours. They had done the hard part: saving consistently for thirty years into 401(k)s, taxable brokerage accounts, and a small pension. What they hadn't done was figure out the sequence — what to draw down first, when to enroll in Medicare, when to claim Social Security, and how to avoid a tax surprise the first time it mattered most.
+        </p>
+      </div>
+
+      <div style="background:rgba(26,94,168,0.06);border:1px solid rgba(26,94,168,0.15);border-radius:0.5rem;padding:1rem 1.25rem;margin-bottom:1.5rem;">
+        <p style="font-size:0.78rem;line-height:1.6;color:rgba(44,62,85,0.60);margin:0;">
+          <strong style="color:rgba(44,62,85,0.75);">Important Disclosure:</strong> This case study is a hypothetical illustration based on a composite of client experiences. Details have been modified to protect confidentiality. The results depicted are not guaranteed, may not be representative of all client experiences, and should not be interpreted as indicative of future performance. Individual outcomes will vary based on market conditions, tax situations, and other factors.
+        </p>
+      </div>
+
+      <h2>The Situation</h2>
+
+      <p>
+        The five years surrounding a retirement date carry more financial consequence than almost any other stretch of a working life. A decision made once — when to stop working, when to enroll in Medicare, how large a Roth conversion to run — can echo for the next twenty-five years in the form of taxes, premiums, and portfolio longevity. This couple was standing at the edge of that window with no coordinated plan.
+      </p>
+
+      <p>
+        Several pieces needed to fit together at once:
+      </p>
+
+      <ul>
+        <li>She planned to retire at 63, two years before Medicare eligibility — meaning health coverage had to be bridged through COBRA or an ACA marketplace plan without derailing their budget</li>
+        <li>Roughly $2.1M sat in pre-tax 401(k) and IRA accounts, building toward required minimum distributions at 73 that would eventually push them into a higher tax bracket than they'd ever seen while working</li>
+        <li>A small pension and Social Security would eventually cover their baseline expenses, but the gap years between retirement and those income sources starting needed to be funded from savings without derailing the long-term plan</li>
+        <li>Neither had ever heard of IRMAA, and had no idea that a large one-time withdrawal could raise their Medicare premiums two years later</li>
+        <li>They wanted to help their daughter with a down payment in the next few years — a goal that had to be weighed against their own income plan, not funded reflexively</li>
+      </ul>
+
+      <h2>The Health Insurance Bridge</h2>
+
+      <p>
+        With her retiring at 63, the first order of business was closing the two-year gap before Medicare eligibility. We compared COBRA continuation coverage against ACA marketplace plans, and the marketplace won — but only because we could manage their reported income to qualify for a meaningful premium subsidy. That meant being deliberate about which accounts funded their spending during those two years: pulling from taxable brokerage and Roth balances kept their modified adjusted gross income low enough to preserve the subsidy, while pulling from pre-tax accounts would have both raised their premiums and reduced the subsidy in the same stroke.
+      </p>
+
+      <p>
+        This is where sequencing decisions start to compound. The account you draw from isn't just a tax question — it's a health insurance question, an IRMAA question, and a Roth conversion question, all determined by the same number: taxable income for the year.
+      </p>
+
+      <div class="pull-quote">
+        "They'd spent thirty years accumulating. Nobody had ever shown them that the order you spend it in matters almost as much as how much you saved."
+        <span style="display:block;margin-top:0.75rem;font-size:0.75rem;font-style:normal;font-weight:500;color:#1A5EA8;letter-spacing:0.03em;">— Rubiq Advisory Team</span>
+      </div>
+
+      <h2>Managing IRMAA While Building Income</h2>
+
+      <p>
+        Medicare Part B and Part D premiums step up sharply above certain income thresholds — and the surcharge, known as IRMAA, is based on a tax return from two years earlier. That lookback catches people off guard constantly: a large withdrawal, a Roth conversion, or a one-time capital gain in one year can raise Medicare premiums for a full year two years later, often by thousands of dollars per couple.
+      </p>
+
+      <p>
+        We built their income plan around the IRMAA brackets from the start rather than discovering the problem after the fact. Every projected withdrawal, conversion, and pension start date was mapped against those thresholds for both the bridge years before Medicare and the years after, so a good decision in one column of the plan didn't become an expensive surprise in another two years later.
+      </p>
+
+      <h2>The Roth Conversion Window</h2>
+
+      <p>
+        Once she retired and before Social Security and RMDs began, the couple entered the lowest-income years of their adult lives — precisely the window where Roth conversions do the most good. We used IncomeLabs' Roth conversion modeling tool to test conversion amounts year by year, filling up their current tax bracket deliberately without spilling into the next one, and without tripping the IRMAA and ACA subsidy thresholds we'd already mapped out.
+      </p>
+
+      <p>
+        The resulting plan converted a portion of their pre-tax balances every year for six years — moving assets into tax-free growth, shrinking the account balance that would otherwise generate outsized RMDs starting at 73, and doing it all at a lower effective tax rate than they were likely to pay later.
+      </p>
+
+      <h2>Coordinating Social Security and Withdrawals</h2>
+
+      <p>
+        Rather than defaulting to "claim at 70," we modeled several claiming ages for both spouses against their full balance sheet — factoring in the pension, the shrinking pre-tax balances from the Roth conversion plan, and their own health and family longevity. The analysis weighed the guaranteed increase from delaying against the flexibility of claiming earlier and drawing down the portfolio less aggressively during the bridge years. The chosen strategy staggered their claiming ages, balancing lifetime income against the portfolio withdrawal rate needed in the interim.
+      </p>
+
+      <p>
+        With claiming ages set, portfolio withdrawals, pension income, and Roth conversions were coordinated on a single year-by-year timeline — so every dollar of income had a reason for existing that year, and no single year created an unnecessary tax or premium consequence.
+      </p>
+
+      <h2>The Outcome</h2>
+
+      <p>
+        In this hypothetical scenario, the strategies described produced the following illustrative outcomes. Within the first year of the engagement, the couple had:
+      </p>
+
+      <ul>
+        <li>A health insurance bridge plan using ACA marketplace coverage, with withdrawal sourcing designed to preserve their premium subsidy through Medicare eligibility</li>
+        <li>An income and withdrawal sequence mapped year-by-year through retirement, coordinating taxable, Roth, and pre-tax accounts against IRMAA thresholds</li>
+        <li>A six-year Roth conversion plan designed to shrink future RMDs while filling up current, lower tax brackets</li>
+        <li>A staggered Social Security claiming strategy balancing lifetime benefit growth against near-term withdrawal needs</li>
+        <li>A Medicare enrollment plan timed to her 65th birthday with no coverage gap or late-enrollment penalty</li>
+        <li>A clear framework for evaluating the daughter's down payment gift against their own income plan, rather than an ad hoc decision</li>
+      </ul>
+
+      <p>
+        For the first time since they'd started saving, the couple had a plan that connected every account, every premium, and every claiming decision into a single timeline — one built around the years that mattered most, not just the decades they'd already gotten right.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Disclaimer -->
+<div style="max-width:820px;margin:0 auto;padding:0 1.5rem 2rem;">
+  <p style="font-size:0.75rem;line-height:1.6;color:rgba(44,62,85,0.45);font-style:italic;border-top:1px solid rgba(26,94,168,0.10);padding-top:1.25rem;margin:0;">
+    <strong>Disclosures:</strong> This case study is hypothetical and for illustrative purposes only. It is based on a composite of client situations and does not represent the experience of any single client. Client details have been modified to protect confidentiality. The outcomes described are not guaranteed, are not representative of all client experiences, and should not be construed as a promise or guarantee of similar results. Past results do not guarantee future outcomes. Not all clients will achieve similar results. Individual circumstances, market conditions, tax situations, and regulatory changes may produce materially different outcomes. Roth conversions are taxable events and may not be suitable for all investors — consult a tax professional. ACA marketplace subsidy eligibility depends on household income, family size, and annually updated federal poverty guidelines. Medicare IRMAA thresholds are set annually by CMS and subject to change. Rubiq Financial Partners does not provide legal or tax preparation services. Always consult your own tax, legal, and financial advisors before making investment decisions.
+  </p>
+</div>
+
+<!-- Related Reading -->
+<div style="max-width:820px;margin:0 auto;padding:0 1.5rem 2rem;">
+  <div style="width:36px;height:2px;background:linear-gradient(90deg,#1A5EA8,#C49A5A);border-radius:2px;margin-bottom:0.75rem;"></div>
+  <p style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;color:#0F1724;margin-bottom:1.25rem;">Related Reading</p>
+  <div style="display:grid;grid-template-columns:1fr;gap:0.75rem;">
+
+    <a href="resources-roth-conversion.html" style="text-decoration:none;display:flex;gap:1rem;align-items:center;padding:1rem 1.25rem;border:1px solid rgba(26,94,168,0.10);border-radius:8px;background:#FAF8F4;transition:box-shadow 0.22s ease,transform 0.22s ease;"
+       onmouseover="this.style.boxShadow='0 4px 16px rgba(26,94,168,0.10)';this.style.transform='translateY(-1px)'"
+       onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+      <div style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2A74C8;white-space:nowrap;">Income Planning</div>
+      <div style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:600;color:#0F1724;line-height:1.3;">Roth Conversions: Timing, Strategy &amp; Tax-Free Growth</div>
+    </a>
+
+    <a href="resources-annuities.html" style="text-decoration:none;display:flex;gap:1rem;align-items:center;padding:1rem 1.25rem;border:1px solid rgba(26,94,168,0.10);border-radius:8px;background:#FAF8F4;transition:box-shadow 0.22s ease,transform 0.22s ease;"
+       onmouseover="this.style.boxShadow='0 4px 16px rgba(26,94,168,0.10)';this.style.transform='translateY(-1px)'"
+       onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+      <div style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2A74C8;white-space:nowrap;">Income Planning</div>
+      <div style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:600;color:#0F1724;line-height:1.3;">Annuities: When Guaranteed Income Makes Sense</div>
+    </a>
+
+    <a href="retirement-planning.html" style="text-decoration:none;display:flex;gap:1rem;align-items:center;padding:1rem 1.25rem;border:1px solid rgba(26,94,168,0.10);border-radius:8px;background:#FAF8F4;transition:box-shadow 0.22s ease,transform 0.22s ease;"
+       onmouseover="this.style.boxShadow='0 4px 16px rgba(26,94,168,0.10)';this.style.transform='translateY(-1px)'"
+       onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+      <div style="font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2A74C8;white-space:nowrap;">Service</div>
+      <div style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:600;color:#0F1724;line-height:1.3;">Retirement Planning at Rubiq Financial Partners</div>
+    </a>
+
+  </div>
+</div>
+
+<!-- Related Services -->
+<div style="max-width:820px;margin:0 auto;padding:0 1.5rem 2rem;">
+  <p style="font-family:'Inter',sans-serif;font-size:0.72rem;letter-spacing:0.10em;text-transform:uppercase;color:rgba(44,62,85,0.45);font-weight:600;margin-bottom:0.75rem;">Related Services</p>
+  <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+    <a href="retirement-planning.html" style="font-family:'Inter',sans-serif;font-size:0.78rem;color:#1A5EA8;text-decoration:none;padding:0.4rem 0.875rem;border:1px solid rgba(26,94,168,0.20);border-radius:100px;transition:background 0.18s ease;" onmouseover="this.style.background='rgba(26,94,168,0.06)'" onmouseout="this.style.background='transparent'">Retirement Planning</a>
+    <a href="tax-planning.html" style="font-family:'Inter',sans-serif;font-size:0.78rem;color:#1A5EA8;text-decoration:none;padding:0.4rem 0.875rem;border:1px solid rgba(26,94,168,0.20);border-radius:100px;transition:background 0.18s ease;" onmouseover="this.style.background='rgba(26,94,168,0.06)'" onmouseout="this.style.background='transparent'">Tax Planning</a>
+    <a href="investment-management.html" style="font-family:'Inter',sans-serif;font-size:0.78rem;color:#1A5EA8;text-decoration:none;padding:0.4rem 0.875rem;border:1px solid rgba(26,94,168,0.20);border-radius:100px;transition:background 0.18s ease;" onmouseover="this.style.background='rgba(26,94,168,0.06)'" onmouseout="this.style.background='transparent'">Investment Management</a>
+    <a href="resources-roth-conversion.html" style="font-family:'Inter',sans-serif;font-size:0.78rem;color:#1A5EA8;text-decoration:none;padding:0.4rem 0.875rem;border:1px solid rgba(26,94,168,0.20);border-radius:100px;transition:background 0.18s ease;" onmouseover="this.style.background='rgba(26,94,168,0.06)'" onmouseout="this.style.background='transparent'">Resources: Roth Conversions</a>
+  </div>
+</div>
+
+<!-- CTA -->
+<section style="background:linear-gradient(160deg,#0F1724 0%,#133F73 55%,#1A5EA8 100%);
+                padding:3.5rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-30%;right:-10%;width:50%;height:150%;
+              background:radial-gradient(ellipse,rgba(196,154,74,0.18) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center" style="position:relative;z-index:2;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);
+               font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:white;margin-bottom:1.5rem;">
+      Five to ten years from retirement<br />
+      <em style="font-style:italic;color:#D4AE6A;">without a bridge plan?</em>
+    </h2>
+
+    <div style="display:flex;flex-direction:column;gap:0.75rem;align-items:center;margin-bottom:2rem;">
+      <a href="tel:6102159499"
+         style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;
+                font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);
+                transition:color 0.18s ease;"
+         onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        (610) 215-9499
+      </a>
+      <a href="mailto:info@rubiqfinancial.com"
+         style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;
+                font-size:1rem;font-weight:300;color:rgba(255,255,255,0.75);
+                transition:color 0.18s ease;"
+         onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        info@rubiqfinancial.com
+      </a>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+      <a href="schedule.html" onclick="return gtag_report_conversion(this.href)"><button class="btn-gold">Schedule a Call</button></a>
+      <a href="our-team.html"><button class="btn-ghost">Meet Our Advisors</button></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer style="background:#0F1724;padding:3rem 0 2rem;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;margin-bottom:2rem;">
+      <div style="max-width:320px;">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png"
+             alt="Rubiq Financial Partners" style="height:28px;width:auto;margin-bottom:1rem;object-fit:contain;" loading="lazy" decoding="async" />
+        <p style="font-size:0.8125rem;line-height:1.6;color:rgba(255,255,255,0.50);font-weight:300;">
+          Independent, fee-based financial advisory for entrepreneurs, business owners,
+          and ultra-high-net-worth families.
+        </p>
+      </div>
+      <div style="display:flex;gap:2.5rem;flex-wrap:wrap;">
+        <a href="our-clients.html" style="font-size:0.875rem;color:rgba(255,255,255,0.58);text-decoration:none;transition:color 0.18s;"
+           onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Our Clients</a>
+        <a href="schedule.html" style="font-size:0.875rem;color:rgba(255,255,255,0.58);text-decoration:none;transition:color 0.18s;"
+           onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.50)'" onclick="return gtag_report_conversion(this.href)">Contact</a>
+        <a href="privacy-policy.html" style="font-size:0.875rem;color:rgba(255,255,255,0.58);text-decoration:none;transition:color 0.18s;"
+           onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.50)'">Privacy Policy</a>
+        <a href="https://brokercheck.finra.org" target="_blank" rel="noopener noreferrer"
+           style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;"
+           onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.50)'"
+        >FINRA BrokerCheck</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:1.5rem;">
+      <p style="font-size:0.75rem;line-height:1.6;color:rgba(255,255,255,0.38);max-width:720px;">
+        Advisory services offered through Wealthcare Advisory Partners. Brokerage products offered through LPL Financial, Member FINRA/SIPC. Not a solicitation in any jurisdiction where not registered or exempt.
+        Rubiq Financial Partners is a separate entity. This site is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security.
+      </p>
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.42);margin:0 0 0.75rem;line-height:1.6;font-weight:300;">
+        <a href="../Media/FormCRS_WCAP_20240325 (Updated - use this one).pdf" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35);text-decoration:underline;text-underline-offset:2px;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.60)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Form CRS</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://adviserinfo.sec.gov/firm/summary/171976" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.35);text-decoration:underline;text-underline-offset:2px;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.60)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Form ADV Part 2A</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky Mobile CTA -->
+<a id="sticky-mobile-cta" href="schedule.html"
+   style="display:none;position:fixed;bottom:-60px;left:1rem;right:1rem;z-index:9998;
+          background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);
+          color:#0F1724;text-align:center;
+          font-family:'Inter',sans-serif;font-size:0.9375rem;font-weight:600;
+          letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;
+          padding:1rem;border-radius:6px;
+          box-shadow:0 -2px 16px rgba(0,0,0,0.25),0 4px 12px rgba(196,154,74,0.35);
+          transition:bottom 0.3s cubic-bezier(0.4,0,0.2,1);" onclick="return gtag_report_conversion(this.href)">
+  Schedule a Call
+</a>
+<style>
+  @media(min-width:768px){ #sticky-mobile-cta{display:none!important;} }
+</style>
+<script>
+(function(){
+  var cta=document.getElementById('sticky-mobile-cta');
+  if(!cta)return;
+  if(window.innerWidth<768) cta.style.display='block';
+  window.addEventListener('scroll',function(){
+    if(window.innerWidth>=768)return;
+    cta.style.display='block';
+    cta.style.bottom=window.scrollY>100?'1rem':'-60px';
+  },{passive:true});
+  window.addEventListener('resize',function(){
+    cta.style.display=window.innerWidth<768?'block':'none';
+  });
+})();
+</script>
+</body>
+</html>
