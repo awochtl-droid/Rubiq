@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tax-Equivalent Yield Calculator | Rubiq Financial Partners</title>
+  <meta name="description" content="Estimate the taxable-equivalent yield of a municipal bond using your state, bond source, and your own federal and state marginal tax rate estimates." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/tax-equivalent-yield-calculator.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Rubiq Financial Partners" />
+  <meta property="og:title" content="Tax-Equivalent Yield Calculator | Rubiq Financial Partners" />
+  <meta property="og:description" content="Compare a municipal bond's tax-free yield with the approximate yield a taxable bond would need to provide." />
+  <meta property="og:url" content="https://www.rubiqfinancial.com/Pages/tax-equivalent-yield-calculator.html" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: light;
+      --blue: #1A5EA8;
+      --blue-dark: #133F73;
+      --gold: #C49A5A;
+      --gold-light: #D4AE6A;
+      --ink: #0F1724;
+      --body: #1C2D44;
+      --slate: #2C3E55;
+      --mist: #F4F6F9;
+      --parchment: #FAF8F4;
+      --line: rgba(26,94,168,0.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--body); background: var(--parchment); font-family: 'Inter', system-ui, sans-serif; }
+    a { color: inherit; }
+    .skip-link { position: absolute; top: -100%; left: 1rem; z-index: 100; padding: 0.75rem 1rem; color: var(--ink); background: var(--gold-light); font-weight: 600; }
+    .skip-link:focus { top: 0; }
+    .nav { position: fixed; inset: 0 0 auto; z-index: 10; color: white; background: rgba(15,23,36,0.94); border-bottom: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px) saturate(160%); }
+    .nav-inner { width: min(1160px, calc(100% - 48px)); height: 72px; margin: auto; display: flex; align-items: center; justify-content: space-between; }
+    .brand img { display: block; height: 43px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a, .mobile-menu a { color: rgba(255,255,255,0.78); text-decoration: none; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.18s ease; }
+    .nav-links a:hover, .mobile-menu a:hover { color: var(--gold-light); }
+    .nav-links a:focus-visible, .mobile-menu a:focus-visible, .menu-toggle:focus-visible, .button:focus-visible, .inline-link:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 4px; }
+    .nav-actions { display: flex; gap: 10px; align-items: center; }
+    .button { display: inline-flex; align-items: center; justify-content: center; border: 1px solid transparent; border-radius: 4px; padding: 0.75rem 1.1rem; font: 600 0.73rem 'Inter', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: transform 0.18s ease, opacity 0.18s ease, box-shadow 0.18s ease; }
+    .button:hover { transform: translateY(-1px); }
+    .button:active { transform: translateY(0); }
+    .button-outline { color: white; border-color: rgba(255,255,255,0.34); background: transparent; }
+    .button-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.06); }
+    .button-gold { color: var(--ink); background: linear-gradient(135deg,var(--gold),var(--gold-light)); box-shadow: 0 3px 12px rgba(196,154,90,0.20); }
+    .button-gold:hover { box-shadow: 0 6px 18px rgba(196,154,90,0.28); }
+    .menu-toggle { display: none; border: 1px solid rgba(255,255,255,0.28); border-radius: 4px; background: transparent; color: white; padding: 0.55rem; cursor: pointer; }
+    .mobile-menu { display: none; padding: 10px 24px 22px; background: rgba(15,23,36,0.98); }
+    .mobile-menu.open { display: flex; flex-direction: column; gap: 18px; }
+    .hero { padding: 132px 24px 66px; color: white; background: radial-gradient(ellipse at 83% 12%, rgba(196,154,90,0.19), transparent 35%), radial-gradient(ellipse at 10% 100%, rgba(42,116,200,0.22), transparent 42%), linear-gradient(145deg,#0F1724 0%,#133F73 58%,#1A5EA8 100%); }
+    .hero-inner { width: min(1060px,100%); margin: auto; text-align: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin: 0 0 20px; color: var(--gold-light); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; }
+    .eyebrow::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+    h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; }
+    h1 { margin: 0 auto 16px; font-size: clamp(2.2rem,5vw,3.7rem); line-height: 1.08; letter-spacing: -0.035em; }
+    h1 em { color: var(--gold-light); font-weight: 500; }
+    .hero p { max-width: 690px; margin: 0 auto; color: rgba(255,255,255,0.74); font-size: 1rem; line-height: 1.75; font-weight: 300; }
+    .calc-section { padding: 48px 24px 60px; background: var(--mist); }
+    .calc-wrap { width: min(1060px,100%); margin: auto; display: grid; grid-template-columns: minmax(0,1.05fr) minmax(320px,0.95fr); gap: 24px; align-items: stretch; }
+    .panel { border: 1px solid var(--line); border-radius: 12px; background: white; box-shadow: 0 3px 12px rgba(26,94,168,0.05), 0 16px 42px rgba(26,94,168,0.04); }
+    .inputs { padding: clamp(22px,4vw,36px); }
+    .panel-title { margin: 0 0 6px; color: var(--ink); font-size: 1.5rem; line-height: 1.2; }
+    .panel-intro { margin: 0 0 27px; color: #566477; font-size: 0.86rem; line-height: 1.65; }
+    .field { margin: 0 0 21px; }
+    .field:last-child { margin-bottom: 0; }
+    .field label, .field legend { display: block; margin-bottom: 7px; color: var(--ink); font-size: 0.81rem; font-weight: 600; }
+    .helper { margin: 6px 0 0; color: #687587; font-size: 0.73rem; line-height: 1.55; }
+    .control, .select-control { width: 100%; min-height: 46px; padding: 11px 13px; border: 1px solid rgba(26,94,168,0.2); border-radius: 5px; color: var(--ink); background: #fff; font: 400 0.92rem 'Inter',sans-serif; }
+    .control:focus, .select-control:focus { outline: 0; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(26,94,168,0.12); }
+    .input-suffix { position: relative; }
+    .input-suffix .control { padding-right: 40px; }
+    .suffix { position: absolute; top: 50%; right: 14px; transform: translateY(-50%); color: #687587; font-size: 0.88rem; pointer-events: none; }
+    fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+    .segmented { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .segment { position: relative; }
+    .segment input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .segment label { display: flex; align-items: center; justify-content: center; min-height: 45px; margin: 0; padding: 9px 12px; border: 1px solid rgba(26,94,168,0.2); border-radius: 5px; color: var(--slate); background: white; font-size: 0.8rem; font-weight: 500; text-align: center; cursor: pointer; transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease; }
+    .segment label:hover { border-color: rgba(26,94,168,0.52); background: #f7faff; }
+    .segment input:checked + label { border-color: var(--blue); color: var(--blue-dark); background: rgba(26,94,168,0.07); box-shadow: inset 0 0 0 1px var(--blue); }
+    .segment input:focus-visible + label { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .rate-row { display: grid; grid-template-columns: minmax(0,1fr) 104px; gap: 12px; align-items: center; }
+    input[type="range"] { width: 100%; accent-color: var(--blue); cursor: pointer; }
+    .rate-number { min-height: 42px; padding: 8px 28px 8px 10px; font-size: 0.85rem; }
+    .result-panel { display: flex; flex-direction: column; align-self: start; overflow: hidden; }
+    .result-top { padding: 32px clamp(22px,4vw,36px) 28px; color: white; background: radial-gradient(ellipse at 95% 0%,rgba(196,154,90,0.2),transparent 48%),linear-gradient(145deg,#0F1724,#133F73); }
+    .result-kicker { margin: 0 0 9px; color: var(--gold-light); font-size: 0.69rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+    .result-value { margin: 0; color: white; font-size: clamp(3rem,7vw,4.5rem); font-weight: 500; letter-spacing: -0.055em; line-height: 1; font-variant-numeric: tabular-nums; }
+    .result-label { margin: 10px 0 0; color: rgba(255,255,255,0.73); font-size: 0.86rem; line-height: 1.5; }
+    .comparison { padding: 25px clamp(22px,4vw,36px); }
+    .comparison h2 { margin: 0 0 17px; color: var(--ink); font-size: 1.25rem; }
+    .compare-row { display: flex; justify-content: space-between; gap: 14px; padding: 12px 0; border-bottom: 1px solid rgba(44,62,85,0.09); font-size: 0.84rem; }
+    .compare-row span:first-child { color: #5C6878; }
+    .compare-row strong { color: var(--ink); font-variant-numeric: tabular-nums; text-align: right; }
+    .result-note { margin: 16px 0 0; padding: 12px 13px; border-left: 3px solid var(--gold); border-radius: 0 5px 5px 0; color: #556276; background: #FAF8F4; font-size: 0.74rem; line-height: 1.6; }
+    .method { padding: 52px 24px 58px; background: var(--parchment); }
+    .method-inner { width: min(900px,100%); margin: auto; }
+    .section-eyebrow { margin: 0 0 10px; color: #9E7A32; font-size: 0.69rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; }
+    .method h2 { margin: 0 0 14px; color: var(--ink); font-size: clamp(1.7rem,3vw,2.25rem); letter-spacing: -0.025em; }
+    .method p { margin: 0 0 15px; color: #445367; font-size: 0.91rem; line-height: 1.75; }
+    .formula { margin: 24px 0; padding: 18px 20px; border: 1px solid rgba(26,94,168,0.12); border-left: 3px solid var(--gold); border-radius: 6px; background: white; color: var(--ink); font: 500 0.9rem 'Inter',sans-serif; line-height: 1.7; }
+    .formula small { display: block; margin-top: 5px; color: #637184; font-size: 0.76rem; font-weight: 400; }
+    .disclosure { padding: 21px 24px; border-top: 1px solid rgba(44,62,85,0.08); background: #f2f4f7; }
+    .disclosure p { width: min(1060px,100%); margin: auto; color: #657184; font-size: 0.72rem; line-height: 1.7; }
+    .disclosure strong { color: #455366; }
+    footer { padding: 25px 24px; border-top: 1px solid rgba(255,255,255,0.06); background: var(--ink); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; width: min(1160px,100%); margin: auto; }
+    .footer-inner img { display: block; width: auto; height: 25px; opacity: 0.76; }
+    .footer-copy { color: rgba(255,255,255,0.42); font-size: 0.72rem; line-height: 1.6; text-align: right; }
+    .footer-copy a { color: rgba(255,255,255,0.58); text-underline-offset: 3px; }
+    .inline-link { color: var(--blue); font-weight: 600; text-decoration-color: rgba(26,94,168,0.35); text-underline-offset: 3px; transition: color 0.18s ease; }
+    .inline-link:hover { color: var(--blue-dark); }
+    @media (max-width: 900px) {
+      .nav-links, .nav-actions { display: none; }
+      .menu-toggle { display: inline-flex; }
+      .calc-wrap { grid-template-columns: 1fr; max-width: 700px; }
+    }
+    @media (max-width: 600px) {
+      .nav-inner { width: calc(100% - 32px); height: 64px; }
+      .brand img { height: 38px; }
+      .hero { padding: 112px 20px 48px; }
+      .calc-section { padding: 28px 15px 38px; }
+      .inputs { padding: 23px 19px; }
+      .result-top { padding: 26px 22px 24px; }
+      .comparison { padding: 22px; }
+      .method { padding: 40px 20px; }
+      .disclosure { padding: 19px 20px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-copy { text-align: left; }
+      .rate-row { grid-template-columns: minmax(0,1fr) 92px; gap: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to calculator</a>
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="brand" href="../index.html" aria-label="Rubiq Financial Partners home">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Vertical -White.png" alt="Rubiq Financial Partners" width="240" height="44" />
+      </a>
+      <div class="nav-links">
+        <a href="our-capabilities.html">Capabilities</a>
+        <a href="our-clients.html">Clients</a>
+        <a href="our-team.html">Team</a>
+        <a href="insights.html">Resources</a>
+        <a href="fee-structure.html">Fees</a>
+      </div>
+      <div class="nav-actions">
+        <a class="button button-outline" href="client-portal.html">Client Access</a>
+        <a class="button button-gold" href="schedule.html">Schedule a Call</a>
+      </div>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="our-capabilities.html">Capabilities</a>
+      <a href="our-clients.html">Clients</a>
+      <a href="our-team.html">Team</a>
+      <a href="insights.html">Resources</a>
+      <a href="fee-structure.html">Fees</a>
+      <a href="schedule.html">Schedule a Call</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Interactive tool · Fixed income</p>
+      <h1>Tax-Equivalent <em>Yield Calculator</em></h1>
+      <p>See what a municipal bond’s tax-free yield could look like on a taxable bond basis. Add a bond yield, your state, and rough marginal tax rates for a quick estimate.</p>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="calc-section" aria-label="Tax-equivalent yield calculator">
+      <div class="calc-wrap">
+        <form class="panel inputs" id="yield-form" novalidate>
+          <h2 class="panel-title">Your estimate</h2>
+          <p class="panel-intro">Enter your own marginal tax rates. This tool will not look up or fill in rates based on your state or income.</p>
+
+          <div class="field">
+            <label for="muni-yield">Municipal bond yield</label>
+            <div class="input-suffix">
+              <input class="control" id="muni-yield" name="muniYield" type="number" min="0.01" max="20" step="0.01" value="4.00" inputmode="decimal" />
+              <span class="suffix" aria-hidden="true">%</span>
+            </div>
+            <p class="helper">Enter the bond’s annual yield, as a percentage.</p>
+          </div>
+
+          <div class="field">
+            <label for="state">State of residence</label>
+            <select class="select-control" id="state" name="state" required>
+              <option value="" selected disabled>Select your state</option>
+              <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
+              <option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option>
+              <option>District of Columbia</option><option>Florida</option><option>Georgia</option><option>Hawaii</option>
+              <option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option>
+              <option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option>
+              <option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option>
+              <option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option>
+              <option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option>
+              <option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option>
+              <option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option>
+              <option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option>
+              <option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option>
+              <option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+            </select>
+            <p class="helper">Choose your state of residence and whether the bond is in-state or out-of-state.</p>
+          </div>
+
+          <fieldset class="field">
+            <legend>Where is the bond issued?</legend>
+            <div class="segmented">
+              <div class="segment">
+                <input type="radio" id="in-state" name="bondSource" value="in" />
+                <label for="in-state">In my state</label>
+              </div>
+              <div class="segment">
+                <input type="radio" id="out-of-state" name="bondSource" value="out" />
+                <label for="out-of-state">Outside my state</label>
+              </div>
+            </div>
+            <p class="helper">Many states exempt qualifying in-state municipal interest from state tax, while out-of-state interest may be taxable.</p>
+          </fieldset>
+
+          <div class="field">
+            <label for="federal-rate">Your federal marginal tax rate</label>
+            <div class="input-suffix">
+              <input class="control" id="federal-rate" name="federalRate" type="number" min="0" max="50" step="0.01" placeholder="Enter your rate" inputmode="decimal" required />
+              <span class="suffix" aria-hidden="true">%</span>
+            </div>
+            <p class="helper">Enter your own estimate. Use a marginal rate, not your average tax rate.</p>
+          </div>
+
+          <div class="field">
+            <label for="state-rate">Your state marginal tax rate</label>
+            <div class="input-suffix">
+              <input class="control" id="state-rate" name="stateRate" type="number" min="0" max="15" step="0.01" placeholder="Enter your rate" inputmode="decimal" required />
+              <span class="suffix" aria-hidden="true">%</span>
+            </div>
+            <p class="helper">Enter your own estimate; the state selection does not look up or fill in a tax rate. Enter 0% if no state income tax applies.</p>
+          </div>
+        </form>
+
+        <section class="panel result-panel" aria-labelledby="result-heading">
+          <div class="result-top">
+            <p class="result-kicker" id="result-heading">Estimated taxable-equivalent yield</p>
+            <p class="result-value" id="tey-result" aria-live="polite">—</p>
+            <p class="result-label" id="result-description">Enter your bond yield, state, bond location, and tax rates to see an estimate.</p>
+          </div>
+          <div class="comparison">
+            <h2>At a glance</h2>
+            <div class="compare-row"><span>Municipal bond yield</span><strong id="comparison-muni">—</strong></div>
+            <div class="compare-row"><span>Taxable-equivalent yield</span><strong id="comparison-tey">—</strong></div>
+            <div class="compare-row"><span>Estimated yield advantage</span><strong id="comparison-gap">—</strong></div>
+            <p class="result-note" id="tax-treatment-note">Choose your state and bond location to see the tax assumptions used.</p>
+            <p class="helper" id="calculation-error" role="alert" hidden>Please enter a valid bond yield, choose your state and bond location, and enter both of your marginal tax rates.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="method">
+      <div class="method-inner">
+        <p class="section-eyebrow">Understanding the result</p>
+        <h2>What is tax-equivalent yield?</h2>
+        <p>Tax-equivalent yield estimates the taxable bond yield needed to match the after-tax income of a tax-exempt municipal bond. It can be a useful starting point when comparing yields, but it is not a complete measure of investment value or risk.</p>
+        <div class="formula">
+          In-state municipal bond: yield ÷ (1 − federal rate) ÷ (1 − state rate)
+          <small>Out-of-state municipal bond: yield ÷ (1 − federal rate). This simplified comparison assumes out-of-state muni interest is taxed by your state.</small>
+        </div>
+        <p>The estimate uses the federal and state marginal tax rates you enter; it does not look up tax brackets or infer a rate from your state. It assumes qualifying in-state municipal interest is exempt from both federal and state income tax. Out-of-state municipal interest is assumed to be federally exempt and subject to state tax. Actual treatment depends on the issuer, your residence, and state and local rules. The estimate does not account for federal deductibility of state taxes, local income taxes, the alternative minimum tax, the 3.8% net investment income tax, or other individual circumstances.</p>
+        <p>For a more complete comparison, consider credit quality, call features, maturity, liquidity, fees, and the effect of taxes on your specific holdings. <a class="inline-link" href="resources-bond-investing.html">Learn more about bond investing</a> or <a class="inline-link" href="tax-planning.html">explore our tax planning approach</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <section class="disclosure" aria-label="Important disclosure">
+    <p><strong>Important disclosure:</strong> This calculator is for educational purposes only and provides a rough estimate based on the information entered. It is not tax, legal, investment, or financial advice, and should not be relied on as the sole basis for an investment decision. Tax treatment varies by investor, bond, state, and account type; the calculation does not model all relevant taxes or exceptions. Consult a qualified tax professional and investment advisor about your circumstances. Municipal bonds may lose value and are subject to credit, interest-rate, call, and liquidity risks.</p>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Vertical -White.png" alt="Rubiq Financial Partners" width="240" height="44" loading="lazy" />
+      <div class="footer-copy">
+        <div>&copy; 2026 Rubiq Financial Partners. All rights reserved.</div>
+        <div>Advisory services offered through Wealthcare Advisory Partners. Brokerage products offered through LPL Financial, Member FINRA/SIPC.</div>
+        <div><a href="privacy-policy.html">Privacy Policy</a> · <a href="terms-of-use.html">Terms of Use</a> · <a href="sitemap.html">Sitemap</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const form = document.getElementById('yield-form');
+      const muniYield = document.getElementById('muni-yield');
+      const state = document.getElementById('state');
+      const federalRate = document.getElementById('federal-rate');
+      const stateRate = document.getElementById('state-rate');
+      let hasEditedInput = false;
+
+      function formatPercent(value) {
+        return value.toFixed(2) + '%';
+      }
+
+      function calculate() {
+        const inputs = [muniYield, state, federalRate, stateRate];
+        const invalidInputs = inputs.filter(function (input) {
+          return input.value.trim() === '' || !input.checkValidity();
+        });
+        inputs.forEach(function (input) {
+          input.setAttribute('aria-invalid', String(invalidInputs.includes(input)));
+        });
+        const source = form.elements.bondSource.value;
+        if (invalidInputs.length > 0 || !source) {
+          document.getElementById('tey-result').textContent = '—';
+          document.getElementById('result-description').textContent = 'Enter your bond yield, state, bond location, and tax rates to see an estimate.';
+          document.getElementById('comparison-muni').textContent = invalidInputs.includes(muniYield) ? '—' : formatPercent(Number(muniYield.value));
+          document.getElementById('comparison-tey').textContent = '—';
+          document.getElementById('comparison-gap').textContent = '—';
+          document.getElementById('calculation-error').hidden = !hasEditedInput;
+          return;
+        }
+        document.getElementById('calculation-error').hidden = true;
+        const yieldValue = Number(muniYield.value);
+        const federal = Number(federalRate.value) / 100;
+        const stateTax = Number(stateRate.value) / 100;
+        const taxableKeepRate = (1 - federal) * (1 - stateTax);
+        const muniKeepRate = source === 'in' ? 1 : (1 - stateTax);
+        const equivalent = yieldValue * muniKeepRate / taxableKeepRate;
+        const gap = equivalent - yieldValue;
+
+        document.getElementById('tey-result').textContent = formatPercent(equivalent);
+        document.getElementById('result-description').textContent =
+          'A ' + formatPercent(yieldValue) + ' municipal yield is roughly comparable to this taxable yield under your assumptions.';
+        document.getElementById('comparison-muni').textContent = formatPercent(yieldValue);
+        document.getElementById('comparison-tey').textContent = formatPercent(equivalent);
+        document.getElementById('comparison-gap').textContent =
+          (gap >= 0 ? '+' : '') + gap.toFixed(2) + ' percentage points';
+
+        const bondDescription = source === 'in' ? 'issued in ' + state.value : 'issued outside ' + state.value;
+        const taxAssumption = source === 'in'
+          ? 'this estimate assumes the interest is exempt from state income tax.'
+          : 'this estimate assumes the interest is subject to state income tax.';
+        document.getElementById('tax-treatment-note').textContent =
+          'For a municipal bond ' + bondDescription + ', ' + taxAssumption + ' State-specific rules and bond eligibility can differ.';
+      }
+
+      [muniYield, federalRate, stateRate].forEach(function (input) {
+        input.addEventListener('input', function () {
+          hasEditedInput = true;
+          calculate();
+        });
+      });
+      state.addEventListener('change', calculate);
+      form.addEventListener('change', calculate);
+
+      const menuToggle = document.querySelector('.menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      menuToggle.addEventListener('click', function () {
+        const isOpen = menu.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      });
+
+      calculate();
+    }());
+  </script>
+</body>
+</html>
