@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tax-Equivalent Yield Calculator | Rubiq Financial Partners</title>
-  <meta name="description" content="Estimate the taxable-equivalent yield of a municipal bond using your state, bond source, and your own federal and state marginal tax rate estimates." />
+  <meta name="description" content="Estimate your 2026 marginal federal and state tax rates from filing status, taxable income, and state to compare municipal bond yields." />
   <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/tax-equivalent-yield-calculator.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Rubiq Financial Partners" />
   <meta property="og:title" content="Tax-Equivalent Yield Calculator | Rubiq Financial Partners" />
-  <meta property="og:description" content="Compare a municipal bond's tax-free yield with the approximate yield a taxable bond would need to provide." />
+  <meta property="og:description" content="Estimate your marginal federal and state tax rates from filing status, taxable income, and state to compare municipal bond yields." />
   <meta property="og:url" content="https://www.rubiqfinancial.com/Pages/tax-equivalent-yield-calculator.html" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       color-scheme: light;
@@ -42,7 +42,7 @@
     .nav-links { display: flex; align-items: center; gap: 30px; }
     .nav-links a, .mobile-menu a { color: rgba(255,255,255,0.78); text-decoration: none; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.18s ease; }
     .nav-links a:hover, .mobile-menu a:hover { color: var(--gold-light); }
-    .nav-links a:focus-visible, .mobile-menu a:focus-visible, .menu-toggle:focus-visible, .button:focus-visible, .inline-link:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 4px; }
+    .nav-links a:focus-visible, .mobile-menu a:focus-visible, .menu-toggle:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 4px; }
     .nav-actions { display: flex; gap: 10px; align-items: center; }
     .button { display: inline-flex; align-items: center; justify-content: center; border: 1px solid transparent; border-radius: 4px; padding: 0.75rem 1.1rem; font: 600 0.73rem 'Inter', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: transform 0.18s ease, opacity 0.18s ease, box-shadow 0.18s ease; }
     .button:hover { transform: translateY(-1px); }
@@ -69,13 +69,12 @@
     .panel-title { margin: 0 0 6px; color: var(--ink); font-size: 1.5rem; line-height: 1.2; }
     .panel-intro { margin: 0 0 27px; color: #566477; font-size: 0.86rem; line-height: 1.65; }
     .field { margin: 0 0 21px; }
-    .field:last-child { margin-bottom: 0; }
     .field label, .field legend { display: block; margin-bottom: 7px; color: var(--ink); font-size: 0.81rem; font-weight: 600; }
     .helper { margin: 6px 0 0; color: #687587; font-size: 0.73rem; line-height: 1.55; }
     .control, .select-control { width: 100%; min-height: 46px; padding: 11px 13px; border: 1px solid rgba(26,94,168,0.2); border-radius: 5px; color: var(--ink); background: #fff; font: 400 0.92rem 'Inter',sans-serif; }
     .control:focus, .select-control:focus { outline: 0; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(26,94,168,0.12); }
     .input-suffix { position: relative; }
-    .input-suffix .control { padding-right: 40px; }
+    .input-suffix .control { padding-right: 42px; }
     .suffix { position: absolute; top: 50%; right: 14px; transform: translateY(-50%); color: #687587; font-size: 0.88rem; pointer-events: none; }
     fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
     .segmented { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -85,9 +84,6 @@
     .segment label:hover { border-color: rgba(26,94,168,0.52); background: #f7faff; }
     .segment input:checked + label { border-color: var(--blue); color: var(--blue-dark); background: rgba(26,94,168,0.07); box-shadow: inset 0 0 0 1px var(--blue); }
     .segment input:focus-visible + label { outline: 2px solid var(--gold); outline-offset: 2px; }
-    .rate-row { display: grid; grid-template-columns: minmax(0,1fr) 104px; gap: 12px; align-items: center; }
-    input[type="range"] { width: 100%; accent-color: var(--blue); cursor: pointer; }
-    .rate-number { min-height: 42px; padding: 8px 28px 8px 10px; font-size: 0.85rem; }
     .result-panel { display: flex; flex-direction: column; align-self: start; overflow: hidden; }
     .result-top { padding: 32px clamp(22px,4vw,36px) 28px; color: white; background: radial-gradient(ellipse at 95% 0%,rgba(196,154,90,0.2),transparent 48%),linear-gradient(145deg,#0F1724,#133F73); }
     .result-kicker { margin: 0 0 9px; color: var(--gold-light); font-size: 0.69rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
@@ -98,7 +94,12 @@
     .compare-row { display: flex; justify-content: space-between; gap: 14px; padding: 12px 0; border-bottom: 1px solid rgba(44,62,85,0.09); font-size: 0.84rem; }
     .compare-row span:first-child { color: #5C6878; }
     .compare-row strong { color: var(--ink); font-variant-numeric: tabular-nums; text-align: right; }
+    .rate-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 0 15px; }
+    .rate-card { padding: 12px; border: 1px solid rgba(26,94,168,0.11); border-radius: 6px; background: #f8fafd; }
+    .rate-card span { display: block; color: #5C6878; font-size: 0.72rem; }
+    .rate-card strong { display: block; margin-top: 4px; color: var(--blue-dark); font-size: 1.2rem; font-variant-numeric: tabular-nums; }
     .result-note { margin: 16px 0 0; padding: 12px 13px; border-left: 3px solid var(--gold); border-radius: 0 5px 5px 0; color: #556276; background: #FAF8F4; font-size: 0.74rem; line-height: 1.6; }
+    .calculation-error { margin: 12px 0 0; color: #9f3328; font-size: 0.76rem; line-height: 1.5; }
     .method { padding: 52px 24px 58px; background: var(--parchment); }
     .method-inner { width: min(900px,100%); margin: auto; }
     .section-eyebrow { margin: 0 0 10px; color: #9E7A32; font-size: 0.69rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; }
@@ -114,7 +115,7 @@
     .footer-inner img { display: block; width: auto; height: 25px; opacity: 0.76; }
     .footer-copy { color: rgba(255,255,255,0.42); font-size: 0.72rem; line-height: 1.6; text-align: right; }
     .footer-copy a { color: rgba(255,255,255,0.58); text-underline-offset: 3px; }
-    .inline-link { color: var(--blue); font-weight: 600; text-decoration-color: rgba(26,94,168,0.35); text-underline-offset: 3px; transition: color 0.18s ease; }
+    .inline-link { color: var(--blue); font-weight: 600; text-decoration-color: rgba(26,94,168,0.35); text-underline-offset: 3px; }
     .inline-link:hover { color: var(--blue-dark); }
     @media (max-width: 900px) {
       .nav-links, .nav-actions { display: none; }
@@ -133,7 +134,6 @@
       .disclosure { padding: 19px 20px; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
       .footer-copy { text-align: left; }
-      .rate-row { grid-template-columns: minmax(0,1fr) 92px; gap: 8px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
@@ -174,23 +174,23 @@
 
   <header class="hero">
     <div class="hero-inner">
-      <p class="eyebrow">Interactive tool · Fixed income</p>
-      <h1>Tax-Equivalent <em>Yield Calculator</em></h1>
-      <p>See what a municipal bond’s tax-free yield could look like on a taxable bond basis. Add a bond yield, your state, and rough marginal tax rates for a quick estimate.</p>
+      <p class="eyebrow">Income-based estimate · 2026 brackets</p>
+      <h1>Tax-Equivalent <em>Yield Estimator</em></h1>
+      <p>Enter your state, filing status, and estimated taxable income to estimate your marginal tax rates and compare municipal bond yields.</p>
     </div>
   </header>
 
   <main id="main-content">
-    <section class="calc-section" aria-label="Tax-equivalent yield calculator">
+    <section class="calc-section" aria-label="Income-based tax-equivalent yield estimator">
       <div class="calc-wrap">
         <form class="panel inputs" id="yield-form" novalidate>
           <h2 class="panel-title">Your estimate</h2>
-          <p class="panel-intro">Enter your own marginal tax rates. This tool will not look up or fill in rates based on your state or income.</p>
+          <p class="panel-intro">The rates are estimated from 2026 federal and state income-tax brackets. Your actual tax situation may differ.</p>
 
           <div class="field">
             <label for="muni-yield">Municipal bond yield</label>
             <div class="input-suffix">
-              <input class="control" id="muni-yield" name="muniYield" type="number" min="0.01" max="20" step="0.01" value="4.00" inputmode="decimal" />
+              <input class="control" id="muni-yield" name="muniYield" type="number" min="0.01" max="20" step="0.01" value="4.00" inputmode="decimal" required />
               <span class="suffix" aria-hidden="true">%</span>
             </div>
             <p class="helper">Enter the bond’s annual yield, as a percentage.</p>
@@ -214,7 +214,26 @@
               <option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option>
               <option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
             </select>
-            <p class="helper">Choose your state of residence and whether the bond is in-state or out-of-state.</p>
+          </div>
+
+          <div class="field">
+            <label for="filing-status">Federal filing status</label>
+            <select class="select-control" id="filing-status" name="filingStatus" required>
+              <option value="" selected disabled>Select your filing status</option>
+              <option value="single">Single</option>
+              <option value="marriedJoint">Married filing jointly</option>
+              <option value="marriedSeparate">Married filing separately</option>
+              <option value="headHousehold">Head of household</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="taxable-income">Estimated taxable income</label>
+            <div class="input-suffix">
+              <input class="control" id="taxable-income" name="taxableIncome" type="number" min="0" max="100000000" step="1" placeholder="e.g., 125000" inputmode="numeric" required />
+              <span class="suffix" aria-hidden="true">$</span>
+            </div>
+            <p class="helper">Use an estimate after deductions, not gross income. This same amount is used as a rough proxy for both federal and state taxable income.</p>
           </div>
 
           <fieldset class="field">
@@ -229,41 +248,28 @@
                 <label for="out-of-state">Outside my state</label>
               </div>
             </div>
-            <p class="helper">Many states exempt qualifying in-state municipal interest from state tax, while out-of-state interest may be taxable.</p>
+            <p class="helper">State tax treatment of municipal interest depends on the issuer and state rules.</p>
           </fieldset>
-
-          <div class="field">
-            <label for="federal-rate">Your federal marginal tax rate</label>
-            <div class="input-suffix">
-              <input class="control" id="federal-rate" name="federalRate" type="number" min="0" max="50" step="0.01" placeholder="Enter your rate" inputmode="decimal" required />
-              <span class="suffix" aria-hidden="true">%</span>
-            </div>
-            <p class="helper">Enter your own estimate. Use a marginal rate, not your average tax rate.</p>
-          </div>
-
-          <div class="field">
-            <label for="state-rate">Your state marginal tax rate</label>
-            <div class="input-suffix">
-              <input class="control" id="state-rate" name="stateRate" type="number" min="0" max="15" step="0.01" placeholder="Enter your rate" inputmode="decimal" required />
-              <span class="suffix" aria-hidden="true">%</span>
-            </div>
-            <p class="helper">Enter your own estimate; the state selection does not look up or fill in a tax rate. Enter 0% if no state income tax applies.</p>
-          </div>
         </form>
 
         <section class="panel result-panel" aria-labelledby="result-heading">
           <div class="result-top">
             <p class="result-kicker" id="result-heading">Estimated taxable-equivalent yield</p>
             <p class="result-value" id="tey-result" aria-live="polite">—</p>
-            <p class="result-label" id="result-description">Enter your bond yield, state, bond location, and tax rates to see an estimate.</p>
+            <p class="result-label" id="result-description">Enter your state, filing status, income, and bond location to see an estimate.</p>
           </div>
           <div class="comparison">
+            <h2>Estimated marginal rates</h2>
+            <div class="rate-grid">
+              <div class="rate-card"><span>Federal</span><strong id="federal-rate" aria-live="polite">—</strong></div>
+              <div class="rate-card"><span>State</span><strong id="state-rate" aria-live="polite">—</strong></div>
+            </div>
             <h2>At a glance</h2>
             <div class="compare-row"><span>Municipal bond yield</span><strong id="comparison-muni">—</strong></div>
             <div class="compare-row"><span>Taxable-equivalent yield</span><strong id="comparison-tey">—</strong></div>
             <div class="compare-row"><span>Estimated yield advantage</span><strong id="comparison-gap">—</strong></div>
-            <p class="result-note" id="tax-treatment-note">Choose your state and bond location to see the tax assumptions used.</p>
-            <p class="helper" id="calculation-error" role="alert" hidden>Please enter a valid bond yield, choose your state and bond location, and enter both of your marginal tax rates.</p>
+            <p class="result-note" id="tax-treatment-note">Enter your state and income to see the estimated marginal rates used.</p>
+            <p class="calculation-error" id="calculation-error" role="alert" hidden>Please complete each required field and select where the bond is issued.</p>
           </div>
         </section>
       </div>
@@ -272,20 +278,22 @@
     <section class="method">
       <div class="method-inner">
         <p class="section-eyebrow">Understanding the result</p>
-        <h2>What is tax-equivalent yield?</h2>
-        <p>Tax-equivalent yield estimates the taxable bond yield needed to match the after-tax income of a tax-exempt municipal bond. It can be a useful starting point when comparing yields, but it is not a complete measure of investment value or risk.</p>
+        <h2>How this estimate works</h2>
+        <p>The estimator looks up the federal and state marginal tax brackets that correspond to the taxable income you enter. It then compares the municipal yield with the taxable yield needed to provide a similar after-tax return.</p>
         <div class="formula">
-          In-state municipal bond: yield ÷ (1 − federal rate) ÷ (1 − state rate)
-          <small>Out-of-state municipal bond: yield ÷ (1 − federal rate). This simplified comparison assumes out-of-state muni interest is taxed by your state.</small>
+          In-state municipal bond: yield ÷ ((1 − federal rate) × (1 − state rate))
+          <small>Out-of-state municipal bond: yield ÷ (1 − federal rate), assuming the muni interest is taxed by your state.</small>
         </div>
-        <p>The estimate uses the federal and state marginal tax rates you enter; it does not look up tax brackets or infer a rate from your state. It assumes qualifying in-state municipal interest is exempt from both federal and state income tax. Out-of-state municipal interest is assumed to be federally exempt and subject to state tax. Actual treatment depends on the issuer, your residence, and state and local rules. The estimate does not account for federal deductibility of state taxes, local income taxes, the alternative minimum tax, the 3.8% net investment income tax, or other individual circumstances.</p>
-        <p>For a more complete comparison, consider credit quality, call features, maturity, liquidity, fees, and the effect of taxes on your specific holdings. <a class="inline-link" href="resources-bond-investing.html">Learn more about bond investing</a> or <a class="inline-link" href="tax-planning.html">explore our tax planning approach</a>.</p>
+        <p>Federal brackets are for tax year 2026. State brackets are the latest schedules compiled by the Tax Foundation as of January 1, 2026; certain inflation-indexed state thresholds may reflect 2025 amounts where 2026 amounts were not yet available. The state source provides single and married-filing-jointly schedules only, so the single schedule is used for head-of-household and married-filing-separately estimates. No local income taxes are included.</p>
+        <p>The single income estimate is applied to both federal and state schedules, even though state taxable income can differ. This estimate does not account for deductions, credits, federal deductibility of state taxes, tax recapture, local taxes, the alternative minimum tax, the 3.8% net investment income tax, or every state-specific exception. Washington's capital-gains tax is not applied to bond interest.</p>
+        <p>For a more complete comparison, consider credit quality, call features, maturity, liquidity, fees, and the tax treatment of your specific holdings. <a class="inline-link" href="tax-planning.html">Explore our tax planning approach</a>.</p>
+        <p>Bracket sources: <a class="inline-link" href="https://www.irs.gov/pub/irs-drop/rp-25-32.pdf">IRS Revenue Procedure 2025-32</a> and the <a class="inline-link" href="https://taxfoundation.org/data/all/state/state-income-tax-rates-2026/">Tax Foundation’s 2026 state income tax tables</a>.</p>
       </div>
     </section>
   </main>
 
   <section class="disclosure" aria-label="Important disclosure">
-    <p><strong>Important disclosure:</strong> This calculator is for educational purposes only and provides a rough estimate based on the information entered. It is not tax, legal, investment, or financial advice, and should not be relied on as the sole basis for an investment decision. Tax treatment varies by investor, bond, state, and account type; the calculation does not model all relevant taxes or exceptions. Consult a qualified tax professional and investment advisor about your circumstances. Municipal bonds may lose value and are subject to credit, interest-rate, call, and liquidity risks.</p>
+    <p><strong>Important disclosure:</strong> This estimator is a draft educational tool and provides a rough estimate based on the information entered and the cited 2026 bracket schedules. It is not tax, legal, investment, or financial advice, and should not be relied on as the sole basis for an investment decision. Tax treatment varies by investor, bond, state, and account type; consult a qualified tax professional and investment advisor about your circumstances. Municipal bonds may lose value and are subject to credit, interest-rate, call, and liquidity risks.</p>
   </section>
 
   <footer>
@@ -299,41 +307,85 @@
     </div>
   </footer>
 
+  <script src="tax-estimate-brackets.js"></script>
   <script>
     (function () {
       const form = document.getElementById('yield-form');
       const muniYield = document.getElementById('muni-yield');
       const state = document.getElementById('state');
-      const federalRate = document.getElementById('federal-rate');
-      const stateRate = document.getElementById('state-rate');
+      const filingStatus = document.getElementById('filing-status');
+      const taxableIncome = document.getElementById('taxable-income');
+      const federalBrackets = {
+        single: [[0, 0.10], [12400, 0.12], [50400, 0.22], [105700, 0.24], [201775, 0.32], [256225, 0.35], [640600, 0.37]],
+        marriedJoint: [[0, 0.10], [24800, 0.12], [100800, 0.22], [211400, 0.24], [403550, 0.32], [512450, 0.35], [768700, 0.37]],
+        marriedSeparate: [[0, 0.10], [12400, 0.12], [50400, 0.22], [105700, 0.24], [201775, 0.32], [256225, 0.35], [384350, 0.37]],
+        headHousehold: [[0, 0.10], [17700, 0.12], [67450, 0.22], [105700, 0.24], [201750, 0.32], [256200, 0.35], [640600, 0.37]]
+      };
       let hasEditedInput = false;
 
       function formatPercent(value) {
         return value.toFixed(2) + '%';
       }
 
+      function marginalRate(brackets, income) {
+        let rate = brackets[0][0] === 0 ? brackets[0][1] : 0;
+        brackets.slice(1).forEach(function (bracket) {
+          if (income > bracket[0]) rate = bracket[1];
+        });
+        return rate;
+      }
+
+      function clearResult() {
+        document.getElementById('tey-result').textContent = '—';
+        document.getElementById('result-description').textContent = 'Enter your state, filing status, income, and bond location to see an estimate.';
+        document.getElementById('comparison-muni').textContent = '—';
+        document.getElementById('comparison-tey').textContent = '—';
+        document.getElementById('comparison-gap').textContent = '—';
+      }
+
       function calculate() {
-        const inputs = [muniYield, state, federalRate, stateRate];
-        const invalidInputs = inputs.filter(function (input) {
-          return input.value.trim() === '' || !input.checkValidity();
-        });
-        inputs.forEach(function (input) {
-          input.setAttribute('aria-invalid', String(invalidInputs.includes(input)));
-        });
+        const yieldValue = Number(muniYield.value);
+        const income = Number(taxableIncome.value);
+        const hasIncome = taxableIncome.value.trim() !== '' && taxableIncome.checkValidity();
+        const hasState = Boolean(state.value);
+        const hasStatus = Boolean(filingStatus.value);
         const source = form.elements.bondSource.value;
-        if (invalidInputs.length > 0 || !source) {
-          document.getElementById('tey-result').textContent = '—';
-          document.getElementById('result-description').textContent = 'Enter your bond yield, state, bond location, and tax rates to see an estimate.';
-          document.getElementById('comparison-muni').textContent = invalidInputs.includes(muniYield) ? '—' : formatPercent(Number(muniYield.value));
-          document.getElementById('comparison-tey').textContent = '—';
-          document.getElementById('comparison-gap').textContent = '—';
+        const validYield = muniYield.value.trim() !== '' && muniYield.checkValidity();
+        const validInputs = [muniYield, state, filingStatus, taxableIncome];
+
+        validInputs.forEach(function (input) {
+          input.setAttribute('aria-invalid', String(input.value.trim() === '' || !input.checkValidity()));
+        });
+
+        let federal = null;
+        let stateTax = null;
+        if (hasIncome && hasState && hasStatus) {
+          const stateBrackets = window.RUBIQ_TAX_BRACKETS && window.RUBIQ_TAX_BRACKETS[state.value];
+          if (!stateBrackets) {
+            document.getElementById('calculation-error').hidden = false;
+            document.getElementById('calculation-error').textContent = 'Tax bracket data is unavailable for the selected state. Please check back later.';
+            clearResult();
+            return;
+          }
+          const stateFilingKey = filingStatus.value === 'marriedJoint' ? 'joint' : 'single';
+          federal = marginalRate(federalBrackets[filingStatus.value], income);
+          stateTax = marginalRate(stateBrackets[stateFilingKey], income);
+          document.getElementById('federal-rate').textContent = formatPercent(federal * 100);
+          document.getElementById('state-rate').textContent = formatPercent(stateTax * 100);
+        } else {
+          document.getElementById('federal-rate').textContent = '—';
+          document.getElementById('state-rate').textContent = '—';
+        }
+
+        if (!validYield || !hasIncome || !hasState || !hasStatus || !source) {
+          clearResult();
+          document.getElementById('comparison-muni').textContent = validYield ? formatPercent(yieldValue) : '—';
           document.getElementById('calculation-error').hidden = !hasEditedInput;
+          document.getElementById('calculation-error').textContent = 'Please complete each required field and select where the bond is issued.';
           return;
         }
+
         document.getElementById('calculation-error').hidden = true;
-        const yieldValue = Number(muniYield.value);
-        const federal = Number(federalRate.value) / 100;
-        const stateTax = Number(stateRate.value) / 100;
         const taxableKeepRate = (1 - federal) * (1 - stateTax);
         const muniKeepRate = source === 'in' ? 1 : (1 - stateTax);
         const equivalent = yieldValue * muniKeepRate / taxableKeepRate;
@@ -350,19 +402,34 @@
         const bondDescription = source === 'in' ? 'issued in ' + state.value : 'issued outside ' + state.value;
         const taxAssumption = source === 'in'
           ? 'this estimate assumes the interest is exempt from state income tax.'
-          : 'this estimate assumes the interest is subject to state income tax.';
+          : stateTax === 0
+            ? 'this estimate applies no state income tax to the interest at the selected income level.'
+            : 'this estimate assumes the interest is subject to state income tax.';
+        const stateNote = state.value === 'Washington'
+          ? ' Washington’s capital-gains tax is not applied to bond interest.'
+          : '';
         document.getElementById('tax-treatment-note').textContent =
-          'For a municipal bond ' + bondDescription + ', ' + taxAssumption + ' State-specific rules and bond eligibility can differ.';
+          'Estimated rates: ' + formatPercent(federal * 100) + ' federal and ' + formatPercent(stateTax * 100) +
+          ' state. For a municipal bond ' + bondDescription + ', ' + taxAssumption + stateNote +
+          ' State-specific bond eligibility and local taxes are not modeled.';
       }
 
-      [muniYield, federalRate, stateRate].forEach(function (input) {
+      [muniYield, taxableIncome].forEach(function (input) {
         input.addEventListener('input', function () {
           hasEditedInput = true;
           calculate();
         });
       });
-      state.addEventListener('change', calculate);
-      form.addEventListener('change', calculate);
+      [state, filingStatus].forEach(function (input) {
+        input.addEventListener('change', function () {
+          hasEditedInput = true;
+          calculate();
+        });
+      });
+      form.addEventListener('change', function () {
+        hasEditedInput = true;
+        calculate();
+      });
 
       const menuToggle = document.querySelector('.menu-toggle');
       const menu = document.getElementById('mobile-menu');
