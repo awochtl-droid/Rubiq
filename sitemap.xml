@@ -40,7 +40,7 @@
 
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/insights.html</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -124,7 +124,13 @@
 
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/concentrated-stock.html</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/grat-concentrated-stock.html</loc>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -343,7 +349,7 @@
 
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/sitemap.html</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
