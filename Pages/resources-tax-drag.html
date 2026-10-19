@@ -41,8 +41,8 @@ function gtag_report_conversion(url) {
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tax Drag: It's Not What You Make, It's What You Keep | Rubiq Financial</title>
-  <meta name="description" content="A 7.8% gross return with 1.5% of annual tax drag is a 6.3% portfolio. Here's where tax drag actually comes from, what reduces it, and why your advisor should have read your tax return." />
+  <title>What Is Tax Drag? Definition, Example &amp; How to Reduce It | Rubiq</title>
+  <meta name="description" content="Tax drag is the part of your investment return lost to taxes each year. See the definition, a worked example on a $1M portfolio, where drag comes from, and what reduces it." />
   <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/resources-tax-drag" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -158,6 +158,41 @@ function gtag_report_conversion(url) {
     .article-body a:hover { color: #133F73; }
     .article-body a:focus-visible { outline: 2px solid #1A5EA8; outline-offset: 2px; border-radius: 2px; }
 
+    .definition-box {
+      background: white; border: 1px solid rgba(26,94,168,0.14); border-radius: 10px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 0 0 2.5rem;
+      box-shadow: 0 8px 24px rgba(15,23,36,0.04);
+    }
+    .definition-box .db-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #9E7A32; margin: 0 0 0.5rem;
+    }
+    .definition-box .db-formula {
+      font-size: 0.95rem; font-weight: 500; color: #0F1724; background: rgba(26,94,168,0.05);
+      border-radius: 6px; padding: 0.75rem 1rem; margin: 0 0 1.35rem;
+    }
+    .article-body .rule-table {
+      width: 100%; border-collapse: collapse; margin: 0 0 1rem;
+      font-size: 0.9rem; color: #2C3E55;
+    }
+    .article-body .rule-table th,
+    .article-body .rule-table td {
+      text-align: left; padding: 0.6rem 0.75rem; line-height: 1.5;
+      border-bottom: 1px solid rgba(26,94,168,0.08); vertical-align: top;
+    }
+    .article-body .rule-table th { font-weight: 600; color: #0F1724; background: rgba(26,94,168,0.04); }
+    .article-body .rule-table td { font-weight: 300; }
+    .article-body .rule-table td.num, .article-body .rule-table th.num { text-align: right; white-space: nowrap; }
+    .article-body .rule-table tr.total td { font-weight: 600; color: #0F1724; border-bottom: none; }
+    .article-body .table-note { font-size: 0.8125rem; line-height: 1.6; color: #4A5568; margin: 0; }
+    @media (max-width: 639px) {
+      .definition-box { padding: 1.25rem 1rem 1rem; }
+      .definition-box .db-formula { font-size: 0.85rem; padding: 0.65rem 0.75rem; }
+      .article-body .rule-table th,
+      .article-body .rule-table td { padding: 0.5rem 0.4rem; font-size: 0.8125rem; }
+      .article-body .rule-table .rate { display: none; }
+    }
+
     .stat-callout {
       border-left: 3px solid #C49A5A;
       background: linear-gradient(135deg, rgba(196,154,74,0.06), rgba(26,94,168,0.04));
@@ -245,23 +280,23 @@ function gtag_report_conversion(url) {
   <!-- Social / AEO -->
   <meta property="og:type"        content="article" />
   <meta property="og:site_name"   content="Rubiq Financial Partners" />
-  <meta property="og:title"       content="Tax Drag: It's Not What You Make, It's What You Keep | Rubiq Financial" />
+  <meta property="og:title"       content="What Is Tax Drag? Definition, Example &amp; How to Reduce It | Rubiq" />
   <meta property="og:description" content="A 7.8% gross return with 1.5% of annual tax drag is a 6.3% portfolio. Here's where tax drag actually comes from, and what actually reduces it." />
   <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/resources-tax-drag" />
   <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Tax Drag: It's Not What You Make, It's What You Keep | Rubiq Financial" />
+  <meta name="twitter:title"       content="What Is Tax Drag? Definition, Example &amp; How to Reduce It | Rubiq" />
   <meta name="twitter:description" content="A 7.8% gross return with 1.5% of annual tax drag is a 6.3% portfolio. Here's where tax drag actually comes from, and what actually reduces it." />
   <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Tax Drag: It's Not What You Make, It's What You Keep",
+    "headline": "What Is Tax Drag? It's Not What You Make, It's What You Keep",
     "description": "A 7.8% gross return with 1.5% of annual tax drag is a 6.3% portfolio. Here's where tax drag actually comes from, and what actually reduces it.",
     "url": "https://www.rubiqfinancial.com/Pages/resources-tax-drag",
     "datePublished": "2026-09-12",
-    "dateModified": "2026-09-18",
+    "dateModified": "2026-10-19",
     "author": { "@type": "Person", "name": "Andreas Wochtl, CFP®", "url": "https://www.rubiqfinancial.com/Pages/our-team" },
     "publisher": { "@id": "https://www.rubiqfinancial.com/#organization" },
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.rubiqfinancial.com/Pages/resources-tax-drag" },
@@ -292,7 +327,15 @@ function gtag_report_conversion(url) {
         "name": "What is tax drag?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Tax drag is the reduction in an investment portfolio's gross return caused by taxation. A 7.8% gross return with 1.5% of annual drag becomes a 6.3% net return. Drag comes from capital gains distributions, non-qualified dividends, taxable interest, K-1 income, realized gains, the 3.8% Net Investment Income Tax, state income tax, and foreign withholding, among other sources."
+          "text": "Tax drag is the part of an investment's return lost to taxes each year: the gap between a portfolio's gross (pre-tax) return and its after-tax return. A 7.8% gross return with 1.5% of annual drag becomes a 6.3% net return. Drag comes from capital gains distributions, non-qualified dividends, taxable interest, K-1 income, realized gains, the 3.8% Net Investment Income Tax, state income tax, and foreign withholding, among other sources."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate tax drag?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide the taxes your investments generated in a year by the portfolio's value, or subtract the after-tax return from the gross return. Example: a $1,000,000 taxable portfolio earning 7.8% that generates about $15,000 of federal, NIIT, and state tax has tax drag of 1.5%, leaving a 6.3% after-tax return. Compounded over 20 years, that gap is worth roughly $1.1 million on the same starting balance."
         }
       },
       {
@@ -451,10 +494,10 @@ function gtag_report_conversion(url) {
       <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#7BB3E8;">Tax Strategy</span>
     </div>
     <h1 id="speakable-headline" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.85rem);font-weight:700;line-height:1.16;letter-spacing:-0.03em;color:white;margin-bottom:0.5rem;">
-      Tax Drag: It's Not What You Make,<br />It's What You <em style="font-style:italic;color:#D4AE6A;">Keep</em>
+      What Is Tax Drag? It's Not What You Make,<br />It's What You <em style="font-style:italic;color:#D4AE6A;">Keep</em>
     </h1>
     <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
-      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">September 2026</span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">Updated October 2026</span>
       <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);"></span>
       <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">9 min read</span>
       <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);"></span>
@@ -472,12 +515,36 @@ function gtag_report_conversion(url) {
       <!-- Main Content -->
       <div class="lg:col-span-2 article-body">
 
-        <p id="speakable-summary" style="font-size:1.175rem;line-height:1.80;color:#1C2D44;font-weight:400;border-left:3px solid #1A5EA8;padding-left:1.5rem;margin-bottom:2.5rem;">
+        <div class="definition-box">
+          <p class="db-label">Definition</p>
+          <p id="speakable-summary" style="font-size:1.125rem;line-height:1.75;color:#1C2D44;font-weight:400;">
+            <strong style="font-weight:600;">Tax drag</strong> is the part of your investment return lost to taxes each year. It is the gap between what a portfolio earns before tax and what you keep after tax. A portfolio earning 7.8% with 1.5% of tax drag delivers a 6.3% after-tax return.
+          </p>
+          <p class="db-formula">Tax drag = gross return &minus; after-tax return &nbsp;&middot;&nbsp; or &nbsp;&middot;&nbsp; annual taxes from the portfolio &divide; portfolio value</p>
+
+          <p class="db-label">Worked example: a $1 million taxable portfolio</p>
+          <p style="font-size:0.95rem;">A Pennsylvania couple in the top federal bracket earns 7.8%, or $78,000, in one year. Here is the tax the portfolio itself generated, before they sold anything:</p>
+          <table class="rule-table">
+            <thead>
+              <tr><th>Income the portfolio produced</th><th class="num">Amount</th><th class="num rate">Tax rate*</th><th class="num">Tax</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Qualified dividends &amp; long-term gain distributions</td><td class="num">$25,000</td><td class="num rate">26.87%</td><td class="num">$6,718</td></tr>
+              <tr><td>Taxable interest &amp; non-qualified dividends</td><td class="num">$12,000</td><td class="num rate">43.87%</td><td class="num">$5,264</td></tr>
+              <tr><td>Short-term gain distributions from funds</td><td class="num">$7,000</td><td class="num rate">43.87%</td><td class="num">$3,071</td></tr>
+              <tr class="total"><td>Total tax</td><td class="num"></td><td class="num rate"></td><td class="num">$15,053</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:0.95rem;">$15,053 &divide; $1,000,000 = <strong style="font-weight:600;">1.5% tax drag</strong>, so the 7.8% gross return becomes about 6.3% after tax. Repeat that for 20 years and the same $1 million grows to about $3.39 million instead of $4.49 million: a gap of roughly <strong style="font-weight:600;">$1.1 million</strong>.</p>
+          <p class="table-note">*Federal rate (20% long-term or 37% ordinary) plus the 3.8% Net Investment Income Tax plus Pennsylvania&rsquo;s flat 3.07%. Hypothetical and simplified for illustration: it assumes a constant return and the same drag every year, and ignores tax on unrealized gains at the end. Not a projection of any investment&rsquo;s results.</p>
+        </div>
+
+        <p>
           Every investor knows their gross return. It's printed on the statement, quoted in the fund fact sheet, and argued about at dinner parties. Almost nobody knows their net return.
         </p>
 
         <p>
-          We define it as tax drag: a reduction in gross return caused by taxation. A 7.8% gross return with 1.5% of annual drag is a 6.3% portfolio. Over twenty years on a $2 million account, that gap isn't a rounding error. It's a materially different retirement. Sometimes investors notice it, but most often they do not.
+          The difference between the two is tax drag. Over twenty years on a $2 million account, that gap isn't a rounding error. It's a materially different retirement. Sometimes investors notice it, but most often they do not.
         </p>
 
         <p>
@@ -836,7 +903,7 @@ function gtag_report_conversion(url) {
     The tax drag illustration referenced in the opening (a 7.8% gross return reduced by 1.5% of annual drag) is hypothetical and for illustrative purposes only. It does not reflect the deduction of advisory fees or transaction costs, does not represent the actual results of any client, and is not indicative of future results. Individual outcomes will vary based on filing status, income, state of residence, cost basis, holding period, account type, and applicable law.
   </p>
   <p style="font-size:0.75rem;line-height:1.6;color:rgba(44,62,85,0.45);font-style:italic;margin:0 0 0.9rem;">
-    Tax rates, thresholds, and rules cited reflect our understanding of federal and Pennsylvania law as of September 2026 and are subject to change.
+    Tax rates, thresholds, and rules cited reflect our understanding of federal and Pennsylvania law as of October 2026 and are subject to change.
   </p>
   <p style="font-size:0.75rem;line-height:1.6;color:rgba(44,62,85,0.45);font-style:italic;margin:0;">
     Advisory services offered through Wealthcare Advisory Partners. Brokerage products offered through LPL Financial, Member FINRA/SIPC.
