@@ -288,7 +288,7 @@ function gtag_report_conversion(url) {
             "name": "Who needs to worry about federal estate tax?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Individuals with a net worth approaching or exceeding the federal estate tax exemption ($15 million per person in 2025) should consider estate tax planning. For married couples, the combined exemption is approximately $30 million. However, the exemption amount is subject to legislative change, and families with significant growth potential in their assets may find themselves exposed even if currently below the threshold. Proactive planning is most valuable for families with $10 million or more in total assets."
+              "text": "Individuals with a net worth approaching or exceeding the federal estate tax exemption ($15 million per person in 2026) should consider estate tax planning. For married couples, the combined exemption is approximately $30 million. However, the exemption amount is subject to legislative change, and families with significant growth potential in their assets may find themselves exposed even if currently below the threshold. Proactive planning is most valuable for families with $10 million or more in total assets."
             }
           }
         ]
@@ -506,7 +506,7 @@ function gtag_report_conversion(url) {
               <input type="text" id="lifetimeGifts" class="calc-input" value="0" style="padding-left:1.75rem;"
                      oninput="this.value=formatInput(this.value);calculate()" />
             </div>
-            <p class="calc-sublabel">Cumulative taxable gifts above the annual exclusion ($18,000 per recipient in 2024). This reduces your remaining lifetime exemption.</p>
+            <p class="calc-sublabel">Cumulative taxable gifts above the annual exclusion ($19,000 per recipient in 2026). This reduces your remaining lifetime exemption.</p>
           </div>
         </div>
       </div>
@@ -517,7 +517,7 @@ function gtag_report_conversion(url) {
           <h2 style="font-family:'Playfair Display',serif;font-size:1.375rem;font-weight:600;
                      color:#0F1724;margin-bottom:0.25rem;letter-spacing:-0.01em;">Your Estimated Exposure</h2>
           <p style="font-size:0.75rem;color:#4A5568;font-weight:300;margin-bottom:1.5rem;">
-            Based on 2025 federal estate tax law. Does not include state-level estate or inheritance taxes.
+            Based on 2026 federal estate tax law. Does not include state-level estate or inheritance taxes.
           </p>
 
           <!-- Gauge -->
@@ -579,7 +579,7 @@ function gtag_report_conversion(url) {
         <div style="margin-top:1rem;padding:1rem 1.25rem;border-radius:8px;
                     background:rgba(26,94,168,0.04);border:1px solid rgba(26,94,168,0.10);">
           <p style="font-size:0.8125rem;line-height:1.6;color:#2C3E55;font-weight:300;margin:0;">
-            <strong style="font-weight:600;">State taxes not shown.</strong> Twelve states and the District of Columbia impose their own estate taxes, often with lower exemptions than the federal level. Several states also impose inheritance taxes.
+            <strong style="font-weight:600;">State taxes not shown.</strong> Twelve states and the District of Columbia impose their own estate taxes, often with lower exemptions than the federal level. Several states also impose inheritance taxes, including Pennsylvania (see our <a href="pennsylvania-inheritance-tax.html" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;">Pennsylvania inheritance tax guide</a>).
             <a href="https://taxfoundation.org/data/all/state/estate-inheritance-taxes/" target="_blank" rel="noopener"
                style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:500;transition:opacity 0.18s ease;"
                onmouseover="this.style.opacity='0.70'" onmouseout="this.style.opacity='1'">
@@ -769,7 +769,7 @@ function gtag_report_conversion(url) {
 (function() {
   // 2026 federal exemption
   const EXEMPTION_SINGLE = 15000000;
-  const EXEMPTION_MARRIED = 27980000;
+  const EXEMPTION_MARRIED = 30000000;
   const TAX_RATE = 0.40;
 
   let filingStatus = 'single';
