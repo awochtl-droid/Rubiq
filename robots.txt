@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 
 Disallow: /node_modules/
+Disallow: /cdn-cgi/
 
 Sitemap: https://www.rubiqfinancial.com/sitemap.xml
