@@ -231,45 +231,76 @@ function gtag_report_conversion(url) {
     #our-partners .grid > a > div { flex:1; display:flex; flex-direction:column; }
   </style>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "ProfilePage",
-        "@id": "https://www.rubiqfinancial.com/Pages/our-team",
-        "url": "https://www.rubiqfinancial.com/Pages/our-team",
-        "name": "Meet Our Wealth Advisors | Rubiq Financial Partners",
-        "publisher": { "@id": "https://www.rubiqfinancial.com/#organization" }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://www.rubiqfinancial.com/Pages/our-team",
+      "url": "https://www.rubiqfinancial.com/Pages/our-team",
+      "name": "Meet Our Wealth Advisors | Rubiq Financial Partners",
+      "description": "Meet the wealth advisors of Rubiq Financial Partners, an independent advisory firm in West Chester, Pennsylvania.",
+      "publisher": {
+        "@id": "https://www.rubiqfinancial.com/#organization"
       },
-      {
-        "@type": "Person",
-        "@id": "https://www.rubiqfinancial.com/#andreas-wochtl",
-        "name": "Andreas Wochtl",
-        "jobTitle": "Founder & Private Wealth Advisor",
-        "worksFor": { "@id": "https://www.rubiqfinancial.com/#organization" },
-        "description": "Founder of Rubiq Financial Partners. Specializes in serving ultra-high-net-worth families, entrepreneurs, and real estate investors with independent, fee-based fiduciary wealth advisory.",
-        "sameAs": [
-          "https://www.linkedin.com/in/andreaswochtl/",
-          "https://adviserinfo.sec.gov/individual/summary/5223906"
-        ],
-        "image": "https://www.rubiqfinancial.com/Media/andreas_headshot.jpg"
+      "about": {
+        "@id": "https://www.rubiqfinancial.com/#organization"
       },
-      {
-        "@type": "Person",
-        "@id": "https://www.rubiqfinancial.com/#doug-grom",
-        "name": "Doug Grom",
-        "jobTitle": "Senior Financial Advisor",
-        "worksFor": { "@id": "https://www.rubiqfinancial.com/#organization" },
-        "description": "Senior Financial Advisor at Rubiq Financial Partners. Specializes in serving corporate executives and their families with estate planning and executive compensation strategies.",
-        "sameAs": [
-          "https://www.linkedin.com/in/ejadvisordouggrom/",
-          "https://brokercheck.finra.org/individual/summary/4914277",
-          "https://adviserinfo.sec.gov/individual/summary/4914277"
-        ],
-        "image": "https://www.rubiqfinancial.com/Media/doug_headshot.jpg"
+      "mainEntity": {
+        "@id": "https://www.rubiqfinancial.com/#organization"
       }
-    ]
-  }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.rubiqfinancial.com/#organization",
+      "name": "Rubiq Financial Partners",
+      "url": "https://www.rubiqfinancial.com/",
+      "logo": "https://www.rubiqfinancial.com/Brand_assets/Rubiq%20Financial%20Partners%20Logo%20-%20FINAL2-Horizontal.png",
+      "founder": {
+        "@id": "https://www.rubiqfinancial.com/#andreas-wochtl"
+      },
+      "employee": [
+        {
+          "@id": "https://www.rubiqfinancial.com/#andreas-wochtl"
+        },
+        {
+          "@id": "https://www.rubiqfinancial.com/#doug-grom"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.rubiqfinancial.com/#andreas-wochtl",
+      "name": "Andreas Wochtl",
+      "jobTitle": "Founder & Private Wealth Advisor",
+      "worksFor": {
+        "@id": "https://www.rubiqfinancial.com/#organization"
+      },
+      "description": "Founder of Rubiq Financial Partners. Specializes in serving ultra-high-net-worth families, entrepreneurs, and real estate investors with independent, fee-based fiduciary wealth advisory.",
+      "sameAs": [
+        "https://www.linkedin.com/in/andreaswochtl/",
+        "https://adviserinfo.sec.gov/individual/summary/5223906"
+      ],
+      "image": "https://www.rubiqfinancial.com/Media/andreas_headshot.jpg"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.rubiqfinancial.com/#doug-grom",
+      "name": "Doug Grom",
+      "jobTitle": "Senior Financial Advisor",
+      "worksFor": {
+        "@id": "https://www.rubiqfinancial.com/#organization"
+      },
+      "description": "Senior Financial Advisor at Rubiq Financial Partners. Specializes in serving corporate executives and their families with estate planning and executive compensation strategies.",
+      "sameAs": [
+        "https://www.linkedin.com/in/ejadvisordouggrom/",
+        "https://brokercheck.finra.org/individual/summary/4914277",
+        "https://adviserinfo.sec.gov/individual/summary/4914277"
+      ],
+      "image": "https://www.rubiqfinancial.com/Media/doug_headshot.jpg"
+    }
+  ]
+}
   </script>
   <!-- Favicon -->
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
@@ -354,12 +385,13 @@ function gtag_report_conversion(url) {
     "longitude": "-75.6010"
   },
   "areaServed": [
-    {"@type": "Country", "name": "United States"}
+    {
+      "@type": "Country",
+      "name": "United States"
+    }
   ],
   "founder": {
-    "@type": "Person",
-    "name": "Andreas M. Wochtl",
-    "jobTitle": "Private Wealth Advisor"
+    "@id": "https://www.rubiqfinancial.com/#andreas-wochtl"
   },
   "sameAs": [
     "https://www.linkedin.com/company/rubiq-financial-partners"
@@ -371,15 +403,45 @@ function gtag_report_conversion(url) {
     "@type": "OfferCatalog",
     "name": "Wealth Management Services",
     "itemListElement": [
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Investment Management"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tax Planning"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Retirement Planning"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Estate Planning"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Business Planning"}}
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Investment Management"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Tax Planning"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Retirement Planning"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Estate Planning"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Business Planning"
+        }
+      }
     ]
   }
 }
-</script>
+  </script>
 </head>
 <body>
 <!-- Skip to main content (visible only on keyboard focus) -->
