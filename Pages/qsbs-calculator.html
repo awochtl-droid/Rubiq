@@ -41,8 +41,8 @@ function gtag_report_conversion(url) {
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QSBS 1202 vs. S-Corp/LLC Sale Calculator | Rubiq Financial Partners</title>
-  <meta name="description" content="Compare selling a business as an S-Corp or LLC versus converting to a C-Corp and qualifying for the Section 1202 QSBS exclusion. Calculate your breakeven conversion timeline." />
+  <title>QSBS Calculator: Section 1202 Exclusion vs. S-Corp Sale | Rubiq</title>
+  <meta name="description" content="How the Section 1202 QSBS exclusion works after the 2025 tax law (<meta name="description" content="5M cap, $75M asset test, 3-, 4-, and 5-year tiers), and a calculator comparing a C-Corp conversion with an S-Corp or LLC sale." />
   <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/qsbs-calculator" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -174,68 +174,105 @@ function gtag_report_conversion(url) {
 
   <meta property="og:type"        content="website" />
   <meta property="og:site_name"   content="Rubiq Financial Partners" />
-  <meta property="og:title"       content="QSBS 1202 vs. S-Corp/LLC Sale Calculator | Rubiq Financial Partners" />
-  <meta property="og:description" content="Compare selling a business as an S-Corp/LLC versus converting to a C-Corp for the QSBS Section 1202 exclusion." />
+  <meta property="og:title"       content="QSBS Calculator: Section 1202 Exclusion vs. S-Corp Sale | Rubiq" />
+  <meta property="og:description" content="How the Section 1202 QSBS exclusion works after the 2025 tax law (<meta property="og:description" content="5M cap, $75M asset test, 3-, 4-, and 5-year tiers), and a calculator comparing a C-Corp conversion with an S-Corp or LLC sale." />
   <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/qsbs-calculator" />
   <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="QSBS 1202 vs. S-Corp/LLC Sale Calculator | Rubiq Financial Partners" />
-  <meta name="twitter:description" content="Compare selling a business as an S-Corp/LLC versus converting to a C-Corp for the QSBS Section 1202 exclusion." />
+  <meta name="twitter:title"       content="QSBS Calculator: Section 1202 Exclusion vs. S-Corp Sale | Rubiq" />
+  <meta name="twitter:description" content="How the Section 1202 QSBS exclusion works after the 2025 tax law (<meta name="twitter:description" content="5M cap, $75M asset test, 3-, 4-, and 5-year tiers), and a calculator comparing a C-Corp conversion with an S-Corp or LLC sale." />
   <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebApplication",
-        "name": "QSBS 1202 vs. S-Corp/LLC Sale Calculator",
-        "description": "Compare selling a business as an S-Corp or LLC versus converting to a C-Corp and qualifying for the Section 1202 QSBS exclusion. Includes breakeven conversion timeline.",
-        "url": "https://www.rubiqfinancial.com/Pages/qsbs-calculator",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "provider": { "@id": "https://www.rubiqfinancial.com/#organization" }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "QSBS 1202 vs. S-Corp/LLC Sale Calculator",
+      "description": "Compare selling a business as an S-Corp or LLC versus converting to a C-Corp and qualifying for the Section 1202 QSBS exclusion. Includes breakeven conversion timeline.",
+      "url": "https://www.rubiqfinancial.com/Pages/qsbs-calculator",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
       },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.rubiqfinancial.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.rubiqfinancial.com/Pages/insights" },
-          { "@type": "ListItem", "position": 3, "name": "QSBS Calculator", "item": "https://www.rubiqfinancial.com/Pages/qsbs-calculator" }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is the Section 1202 QSBS exclusion?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Section 1202 of the Internal Revenue Code allows shareholders of qualified small business stock (QSBS) to exclude up to 100% of their capital gain from federal income tax when they sell the stock, provided the stock was held for at least five years. The exclusion is capped at the greater of $15 million or 10 times the adjusted basis in the stock. The business must be a domestic C-corporation with gross assets under $50 million at the time the stock was issued, and it must be an active qualified trade or business."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I convert my S-Corp or LLC to a C-Corp to qualify for QSBS?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, it is possible to convert an S-Corp or LLC to a C-Corp and have the newly issued C-Corp stock qualify as QSBS, but the conversion must be structured carefully. The five-year holding period begins when the C-Corp stock is issued, not when the original entity was formed. Additionally, the C-Corp must meet all Section 1202 requirements including gross asset limits and active business tests. The tradeoff is that operating as a C-Corp subjects the business to corporate-level income tax (currently 21%), which reduces after-tax operating cash flow compared to a pass-through entity."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the C-Corp tax drag and why does it matter?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The C-Corp tax drag refers to the entity-level federal income tax (currently 21%) that a C-Corp pays on its operating income. S-Corps and LLCs are pass-through entities that do not pay entity-level federal income tax — instead, income passes through to owners. When evaluating a conversion to C-Corp for QSBS purposes, the cumulative corporate tax paid during the holding period must be weighed against the tax savings from the Section 1202 exclusion at sale. If the business operates as a C-Corp for too many years before sale, the accumulated tax drag can exceed the QSBS benefit."
-            }
-          }
-        ]
+      "provider": {
+        "@id": "https://www.rubiqfinancial.com/#organization"
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.rubiqfinancial.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://www.rubiqfinancial.com/Pages/insights"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "QSBS Calculator",
+          "item": "https://www.rubiqfinancial.com/Pages/qsbs-calculator"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Section 1202 QSBS exclusion?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Section 1202 of the Internal Revenue Code allows shareholders of qualified small business stock (QSBS) to exclude up to 100% of their capital gain from federal income tax when they sell the stock, provided the stock was held for at least five years (stock issued after July 4, 2025 can qualify for a 50% exclusion after three years or 75% after four). The exclusion is capped at the greater of $15 million or 10 times the adjusted basis in the stock. The business must be a domestic C-corporation with gross assets of no more than $75 million ($50 million for stock issued on or before July 4, 2025) at the time the stock was issued, and it must be an active qualified trade or business."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert my S-Corp or LLC to a C-Corp to qualify for QSBS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, it is possible to convert an S-Corp or LLC to a C-Corp and have the newly issued C-Corp stock qualify as QSBS, but the conversion must be structured carefully. The five-year holding period begins when the C-Corp stock is issued, not when the original entity was formed. Additionally, the C-Corp must meet all Section 1202 requirements including gross asset limits and active business tests. The tradeoff is that operating as a C-Corp subjects the business to corporate-level income tax (currently 21%), which reduces after-tax operating cash flow compared to a pass-through entity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the C-Corp tax drag and why does it matter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The C-Corp tax drag refers to the entity-level federal income tax (currently 21%) that a C-Corp pays on its operating income. S-Corps and LLCs are pass-through entities that do not pay entity-level federal income tax — instead, income passes through to owners. When evaluating a conversion to C-Corp for QSBS purposes, the cumulative corporate tax paid during the holding period must be weighed against the tax savings from the Section 1202 exclusion at sale. If the business operates as a C-Corp for too many years before sale, the accumulated tax drag can exceed the QSBS benefit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How did the 2025 tax law change QSBS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For stock issued after July 4, 2025, the gross asset limit rose from $50 million to $75 million, the per-company exclusion cap rose from $10 million to $15 million (or 10 times basis, if greater), and partial exclusions became available before five years: 50% after three years, 75% after four years, and 100% after five years. Stock issued on or before July 4, 2025 remains under the prior rules."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Pennsylvania follow the federal QSBS exclusion?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Pennsylvania does not conform to the federal Section 1202 exclusion, so Pennsylvania residents generally still owe the state’s 3.07% personal income tax on a gain that is excluded federally. Several other states also do not conform."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
   <script type="application/ld+json">
   {
@@ -334,7 +371,7 @@ function gtag_report_conversion(url) {
     <div style="background:linear-gradient(135deg,rgba(26,94,168,0.06) 0%,rgba(196,154,74,0.06) 100%);border:1px solid rgba(26,94,168,0.15);border-left:3px solid #C49A5A;border-radius:0 8px 8px 0;padding:1rem 1.5rem;margin-bottom:2rem;">
       <p style="font-size:0.78rem;line-height:1.65;color:#2C3E55;font-weight:400;margin:0;">
         <strong style="font-weight:600;color:#1A5EA8;"><a href="https://www.law.cornell.edu/uscode/text/26/1202" target="_blank" rel="noopener" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;">Section 1202</a> QSBS requirements:</strong>
-        C-Corporation &bull; Stock held &ge;5 years &bull; Gross assets &lt;$50M at issuance &bull; Active qualified trade or business &bull; Exclusion capped at the greater of $15M or 10&times; adjusted basis. See <a href="https://www.irs.gov/pub/irs-pdf/p550.pdf" target="_blank" rel="noopener" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;">IRS Publication 550</a> for full eligibility criteria.
+        C-Corporation &bull; Stock held &ge;5 years for a 100% exclusion (50% at 3, 75% at 4 for stock issued after July 4, 2025) &bull; Gross assets &le;$75M at issuance &bull; Active qualified trade or business &bull; Exclusion capped at the greater of $15M or 10&times; adjusted basis. See <a href="https://www.irs.gov/pub/irs-pdf/p550.pdf" target="_blank" rel="noopener" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;">IRS Publication 550</a> for full eligibility criteria.
       </p>
     </div>
 
@@ -590,7 +627,7 @@ function gtag_report_conversion(url) {
     <div style="background:white;border:1px solid rgba(26,94,168,0.12);border-left:3px solid #1A5EA8;border-radius:0 8px 8px 0;padding:1.5rem 1.75rem;margin-bottom:2rem;">
       <p style="font-size:0.875rem;font-weight:600;color:#1A5EA8;margin:0 0 0.5rem;">What is Section 1202 QSBS?</p>
       <p style="font-size:0.8125rem;line-height:1.7;color:#4A5568;font-weight:300;margin:0;">
-        <a href="https://www.law.cornell.edu/uscode/text/26/1202" target="_blank" rel="noopener" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:500;">Section 1202</a> of the Internal Revenue Code provides a powerful incentive for investors in qualified small businesses: up to 100% of the capital gain from the sale of <strong>Qualified Small Business Stock (QSBS)</strong> can be excluded from federal income tax. To qualify, the stock must be in a domestic C-Corporation with gross assets under $50 million at the time of issuance, the corporation must be engaged in an active qualified trade or business, and the stock must be held for at least five years. The exclusion is capped at the greater of <strong>$15 million</strong> or <strong>10 times the adjusted basis</strong> in the stock. For business owners currently operating as S-Corps or LLCs, converting to a C-Corp can unlock this benefit &mdash; but at the cost of entity-level taxation during the holding period.
+        <a href="https://www.law.cornell.edu/uscode/text/26/1202" target="_blank" rel="noopener" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:500;">Section 1202</a> of the Internal Revenue Code provides a powerful incentive for investors in qualified small businesses: up to 100% of the capital gain from the sale of <strong>Qualified Small Business Stock (QSBS)</strong> can be excluded from federal income tax. To qualify, the stock must be in a domestic C-Corporation with gross assets of no more than $75 million ($50 million for stock issued on or before July 4, 2025) at the time of issuance, the corporation must be engaged in an active qualified trade or business, and the stock must be held for at least five years. The exclusion is capped at the greater of <strong>$15 million</strong> or <strong>10 times the adjusted basis</strong> in the stock. For business owners currently operating as S-Corps or LLCs, converting to a C-Corp can unlock this benefit &mdash; but at the cost of entity-level taxation during the holding period.
       </p>
     </div>
 
@@ -603,8 +640,8 @@ function gtag_report_conversion(url) {
           <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">The QSBS 5-year clock starts when the C-Corp stock is issued, not when the original entity was formed. A conversion from S-Corp or LLC resets the clock. Planning the conversion well in advance of a potential sale is essential.</p>
         </div>
         <div>
-          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">$50 Million Gross Asset Limit</p>
-          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">The corporation&rsquo;s aggregate gross assets must not exceed $50 million at the time the stock is issued and immediately after. If your business is growing rapidly, timing the conversion before this threshold is critical.</p>
+          <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">$75 Million Gross Asset Limit</p>
+          <p style="font-size:0.78rem;line-height:1.6;color:#4A5568;font-weight:300;margin:0;">The corporation&rsquo;s aggregate gross assets must not exceed $75 million ($50 million for stock issued on or before July 4, 2025) at the time the stock is issued and immediately after. If your business is growing rapidly, timing the conversion before this threshold is critical.</p>
         </div>
         <div>
           <p style="font-size:0.8125rem;font-weight:600;color:#0F1724;margin:0 0 0.25rem;">State Tax Conformity Varies</p>
@@ -654,6 +691,58 @@ function gtag_report_conversion(url) {
 </section>
 </main>
 
+
+<!-- EXPLAINER + FAQ (visible copy of FAQ schema) -->
+<section style="background:#FAF8F4;padding:4rem 0;">
+  <style>
+  .calc-explainer h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.45rem,3vw,1.9rem);line-height:1.2;color:#0F1724;margin:2.5rem 0 .9rem;letter-spacing:-.02em;font-weight:700}
+  .calc-explainer h2:first-child{margin-top:0}
+  .calc-explainer h3{font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;line-height:1.35;color:#0F1724;margin:0 0 .45rem;font-weight:600}
+  .calc-explainer p,.calc-explainer li{font-size:.95rem;line-height:1.8;color:#405168;font-weight:300}
+  .calc-explainer p{margin:0 0 1rem}
+  .calc-explainer ul{list-style:disc;padding-left:1.25rem;margin:.25rem 0 1.25rem}
+  .calc-explainer li{margin:.3rem 0}
+  .calc-explainer strong{font-weight:600;color:#1C2D44}
+  .calc-explainer a{color:#1A5EA8;text-decoration:underline;text-underline-offset:3px}
+  .calc-explainer table{width:100%;border-collapse:collapse;margin:.5rem 0 1.25rem;background:white;border:1px solid rgba(26,94,168,.12);border-radius:8px}
+  .calc-explainer th,.calc-explainer td{text-align:left;vertical-align:top;padding:.6rem .75rem;border-bottom:1px solid rgba(26,94,168,.08);font-size:.875rem;line-height:1.55}
+  .calc-explainer th{background:rgba(26,94,168,.04);color:#0F1724;font-weight:600}
+  .calc-explainer td{color:#405168;font-weight:300}
+  .calc-explainer .faq-q{padding:1.1rem 0;border-bottom:1px solid rgba(44,62,85,.12)}
+  .calc-explainer .faq-q p{margin:0}
+  @media(max-width:639px){.calc-explainer th,.calc-explainer td{padding:.5rem .45rem;font-size:.82rem}}
+</style>
+  <div class="calc-explainer" style="max-width:780px;margin:0 auto;padding:0 1.5rem;">
+    <h2>What is qualified small business stock (QSBS)?</h2>
+    <p><strong>Section 1202</strong> of the tax code lets founders, employees, and investors exclude some or all of their federal capital gain when they sell <strong>qualified small business stock</strong>: original-issue stock of a domestic C-corporation that runs an active, qualifying business and met the gross asset test when the stock was issued. For a successful company, the exclusion can be worth millions of dollars per shareholder.</p>
+    <h2>QSBS rules before and after the 2025 tax law</h2>
+    <table>
+      <thead><tr><th>&nbsp;</th><th>Stock issued on or before July 4, 2025</th><th>Stock issued after July 4, 2025</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Gross asset limit</strong></td><td>$50 million</td><td>$75 million</td></tr>
+        <tr><td><strong>Exclusion cap per company</strong></td><td>Greater of $10 million or 10&times; basis</td><td>Greater of $15 million or 10&times; basis</td></tr>
+        <tr><td><strong>Holding period</strong></td><td>5 years for 100%</td><td>50% at 3 years, 75% at 4 years, 100% at 5 years</td></tr>
+      </tbody>
+    </table>
+    <p>The calculator above models converting an S-corporation or LLC to a C-corporation today, so newly issued stock falls under the post-July 4, 2025 rules. The five-year clock starts when the C-corporation stock is issued, not when the original business was formed.</p>
+    <h2>What to weigh before converting</h2>
+    <ul>
+      <li><strong>Corporate tax in the meantime.</strong> A C-corporation pays 21% federal tax on its profits, and dividends are taxed again to shareholders. The calculator estimates this drag against the exclusion at exit.</li>
+      <li><strong>Excluded businesses.</strong> Many service businesses, including health, law, accounting, consulting, financial services, and others whose principal asset is the skill of employees, do not qualify.</li>
+      <li><strong>Deal structure.</strong> Buyers often prefer asset purchases, which do not use QSBS. The exclusion applies to a sale of stock.</li>
+      <li><strong>State tax.</strong> Pennsylvania and several other states do not follow Section 1202, so state tax may still apply.</li>
+      <li><strong>Stacking.</strong> Because the cap applies per taxpayer, gifts of stock to family members or certain trusts can multiply the total exclusion, with careful planning.</li>
+    </ul>
+    <p>Business owners planning a sale should also read our <a href="business-planning.html">business planning</a> overview.</p>
+
+    <h2>Frequently asked questions</h2>
+      <div class="faq-q"><h3>What is the Section 1202 QSBS exclusion?</h3><p>Section 1202 of the Internal Revenue Code allows shareholders of qualified small business stock (QSBS) to exclude up to 100% of their capital gain from federal income tax when they sell the stock, provided the stock was held for at least five years (stock issued after July 4, 2025 can qualify for a 50% exclusion after three years or 75% after four). The exclusion is capped at the greater of $15 million or 10 times the adjusted basis in the stock. The business must be a domestic C-corporation with gross assets of no more than $75 million ($50 million for stock issued on or before July 4, 2025) at the time the stock was issued, and it must be an active qualified trade or business.</p></div>
+      <div class="faq-q"><h3>Can I convert my S-Corp or LLC to a C-Corp to qualify for QSBS?</h3><p>Yes, it is possible to convert an S-Corp or LLC to a C-Corp and have the newly issued C-Corp stock qualify as QSBS, but the conversion must be structured carefully. The five-year holding period begins when the C-Corp stock is issued, not when the original entity was formed. Additionally, the C-Corp must meet all Section 1202 requirements including gross asset limits and active business tests. The tradeoff is that operating as a C-Corp subjects the business to corporate-level income tax (currently 21%), which reduces after-tax operating cash flow compared to a pass-through entity.</p></div>
+      <div class="faq-q"><h3>What is the C-Corp tax drag and why does it matter?</h3><p>The C-Corp tax drag refers to the entity-level federal income tax (currently 21%) that a C-Corp pays on its operating income. S-Corps and LLCs are pass-through entities that do not pay entity-level federal income tax — instead, income passes through to owners. When evaluating a conversion to C-Corp for QSBS purposes, the cumulative corporate tax paid during the holding period must be weighed against the tax savings from the Section 1202 exclusion at sale. If the business operates as a C-Corp for too many years before sale, the accumulated tax drag can exceed the QSBS benefit.</p></div>
+      <div class="faq-q"><h3>How did the 2025 tax law change QSBS?</h3><p>For stock issued after July 4, 2025, the gross asset limit rose from $50 million to $75 million, the per-company exclusion cap rose from $10 million to $15 million (or 10 times basis, if greater), and partial exclusions became available before five years: 50% after three years, 75% after four years, and 100% after five years. Stock issued on or before July 4, 2025 remains under the prior rules.</p></div>
+      <div class="faq-q"><h3>Does Pennsylvania follow the federal QSBS exclusion?</h3><p>No. Pennsylvania does not conform to the federal Section 1202 exclusion, so Pennsylvania residents generally still owe the state’s 3.07% personal income tax on a gain that is excluded federally. Several other states also do not conform.</p></div>
+  </div>
+</section>
 
 <!-- DISCLAIMER -->
 <section style="padding:2rem 0;background:#F4F6F9;border-top:1px solid rgba(44,62,85,0.08);">

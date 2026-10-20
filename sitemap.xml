@@ -117,7 +117,7 @@
   </url>
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/tax-equivalent-yield-calculator</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -286,7 +286,7 @@
 
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/tax-drag-quick-check</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -350,13 +350,13 @@
   <!-- Calculators -->
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/daf-calculator</loc>
-    <lastmod>2026-04-08</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/sdira-vs-cash-calculator</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -390,4 +390,28 @@
     <priority>0.3</priority>
   </url>
 
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/qsbs-calculator</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/qoz-calculator</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/dst-calculator</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/leverage-calculator</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

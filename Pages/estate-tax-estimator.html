@@ -833,7 +833,7 @@ function gtag_report_conversion(url) {
 
     // Narrative
     var percentStr = Math.round(effectiveRate) + '%';
-    document.getElementById('resPercent').textContent = percentStr;
+    // resPercent lives inside resNarrative, which is rebuilt below, so it is not updated separately.
 
     var narrative = document.getElementById('resNarrative');
     if (estateTax === 0) {

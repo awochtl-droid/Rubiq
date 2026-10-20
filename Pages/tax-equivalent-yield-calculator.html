@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tax-Equivalent Yield Calculator | Rubiq Financial Partners</title>
-  <meta name="description" content="Estimate your 2026 marginal federal and state tax rates from filing status, taxable income, and state to compare municipal bond yields." />
+  <title>Tax-Equivalent Yield Calculator for Municipal Bonds (2026) | Rubiq</title>
+  <meta name="description" content="Calculate the tax-equivalent yield of a municipal bond using your 2026 federal and state tax rates. See the formula, a Pennsylvania example, and when munis beat taxable bonds." />
   <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/tax-equivalent-yield-calculator" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Rubiq Financial Partners" />
-  <meta property="og:title" content="Tax-Equivalent Yield Calculator | Rubiq Financial Partners" />
-  <meta property="og:description" content="Estimate your marginal federal and state tax rates from filing status, taxable income, and state to compare municipal bond yields." />
+  <meta property="og:title" content="Tax-Equivalent Yield Calculator for Municipal Bonds (2026) | Rubiq" />
+  <meta property="og:description" content="Calculate the tax-equivalent yield of a municipal bond using your 2026 federal and state tax rates. See the formula, a Pennsylvania example, and when munis beat taxable bonds." />
   <meta property="og:url" content="https://www.rubiqfinancial.com/Pages/tax-equivalent-yield-calculator" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32" />
@@ -139,6 +139,38 @@
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
     }
   </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you calculate tax-equivalent yield?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide the tax-free yield by one minus your marginal tax rate: tax-equivalent yield = municipal yield / (1 - tax rate). For an in-state bond that is exempt from both federal and state tax, use your combined marginal rate, including the 3.8% Net Investment Income Tax if it applies to you. For example, a 3.5% Pennsylvania municipal bond for an investor with a combined 43.87% rate has a tax-equivalent yield of about 6.24%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are municipal bonds exempt from Pennsylvania income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Interest on bonds issued by Pennsylvania and its municipalities is generally exempt from Pennsylvania personal income tax, while interest on out-of-state municipal bonds is generally taxable in Pennsylvania at 3.07%. Most municipal bond interest is exempt from federal income tax and the Net Investment Income Tax, although some private-activity bonds can be subject to the alternative minimum tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When are municipal bonds better than taxable bonds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Municipal bonds tend to be most attractive for investors in higher tax brackets holding bonds in taxable accounts. Compare the tax-equivalent yield with the yield on a taxable bond of similar credit quality and maturity. In IRAs and other tax-deferred accounts, the tax exemption is wasted, so taxable bonds are usually the better fit there."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to calculator</a>
@@ -292,7 +324,56 @@
     </section>
   </main>
 
-  <section class="disclosure" aria-label="Important disclosure">
+  <!-- EXPLAINER + FAQ (visible copy of FAQ schema) -->
+<section style="background:#FAF8F4;padding:4rem 0;">
+  <style>
+  .calc-explainer h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.45rem,3vw,1.9rem);line-height:1.2;color:#0F1724;margin:2.5rem 0 .9rem;letter-spacing:-.02em;font-weight:700}
+  .calc-explainer h2:first-child{margin-top:0}
+  .calc-explainer h3{font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;line-height:1.35;color:#0F1724;margin:0 0 .45rem;font-weight:600}
+  .calc-explainer p,.calc-explainer li{font-size:.95rem;line-height:1.8;color:#405168;font-weight:300}
+  .calc-explainer p{margin:0 0 1rem}
+  .calc-explainer ul{list-style:disc;padding-left:1.25rem;margin:.25rem 0 1.25rem}
+  .calc-explainer li{margin:.3rem 0}
+  .calc-explainer strong{font-weight:600;color:#1C2D44}
+  .calc-explainer a{color:#1A5EA8;text-decoration:underline;text-underline-offset:3px}
+  .calc-explainer table{width:100%;border-collapse:collapse;margin:.5rem 0 1.25rem;background:white;border:1px solid rgba(26,94,168,.12);border-radius:8px}
+  .calc-explainer th,.calc-explainer td{text-align:left;vertical-align:top;padding:.6rem .75rem;border-bottom:1px solid rgba(26,94,168,.08);font-size:.875rem;line-height:1.55}
+  .calc-explainer th{background:rgba(26,94,168,.04);color:#0F1724;font-weight:600}
+  .calc-explainer td{color:#405168;font-weight:300}
+  .calc-explainer .faq-q{padding:1.1rem 0;border-bottom:1px solid rgba(44,62,85,.12)}
+  .calc-explainer .faq-q p{margin:0}
+  @media(max-width:639px){.calc-explainer th,.calc-explainer td{padding:.5rem .45rem;font-size:.82rem}}
+</style>
+  <div class="calc-explainer" style="max-width:780px;margin:0 auto;padding:0 1.5rem;">
+    <h2>What is tax-equivalent yield?</h2>
+    <p><strong>Tax-equivalent yield</strong> is the yield a taxable bond would need to pay to match a tax-free municipal bond after taxes. It lets you compare a municipal bond with a Treasury, corporate bond, or CD on an apples-to-apples basis.</p>
+    <p><strong>Tax-equivalent yield = municipal bond yield &divide; (1 &minus; your marginal tax rate)</strong></p>
+    <h2>A Pennsylvania example</h2>
+    <p>A Pennsylvania investor in the top federal bracket buys a Pennsylvania municipal bond yielding 3.50%. Its interest is exempt from the 37% federal rate, the 3.8% Net Investment Income Tax, and Pennsylvania&rsquo;s 3.07% income tax, a combined 43.87%.</p>
+    <table>
+      <tbody>
+        <tr><td>Municipal yield</td><td>3.50%</td></tr>
+        <tr><td>Combined marginal rate (37% + 3.8% + 3.07%)</td><td>43.87%</td></tr>
+        <tr><td><strong>Tax-equivalent yield</strong> (3.50% &divide; 0.5613)</td><td><strong>6.24%</strong></td></tr>
+      </tbody>
+    </table>
+    <p>A taxable bond of similar quality would need to yield about 6.24% to leave this investor with the same income after tax. The calculator above estimates your own marginal rates from your income, filing status, and state. Hypothetical example for illustration only.</p>
+    <h2>Things the simple formula leaves out</h2>
+    <ul>
+      <li><strong>State treatment.</strong> Out-of-state municipal bonds are usually taxable in your home state, which lowers their advantage.</li>
+      <li><strong>Credit and call risk.</strong> Compare bonds of similar quality and maturity, and check call provisions.</li>
+      <li><strong>Account type.</strong> Municipal bonds belong in taxable accounts; their exemption adds nothing inside an IRA. Our guide to <a href="resources-asset-location.html">asset location</a> explains why.</li>
+    </ul>
+    <p>For more on building a bond portfolio, see our <a href="resources-bond-investing.html">bond investing guide</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+      <div class="faq-q"><h3>How do you calculate tax-equivalent yield?</h3><p>Divide the tax-free yield by one minus your marginal tax rate: tax-equivalent yield = municipal yield / (1 - tax rate). For an in-state bond that is exempt from both federal and state tax, use your combined marginal rate, including the 3.8% Net Investment Income Tax if it applies to you. For example, a 3.5% Pennsylvania municipal bond for an investor with a combined 43.87% rate has a tax-equivalent yield of about 6.24%.</p></div>
+      <div class="faq-q"><h3>Are municipal bonds exempt from Pennsylvania income tax?</h3><p>Interest on bonds issued by Pennsylvania and its municipalities is generally exempt from Pennsylvania personal income tax, while interest on out-of-state municipal bonds is generally taxable in Pennsylvania at 3.07%. Most municipal bond interest is exempt from federal income tax and the Net Investment Income Tax, although some private-activity bonds can be subject to the alternative minimum tax.</p></div>
+      <div class="faq-q"><h3>When are municipal bonds better than taxable bonds?</h3><p>Municipal bonds tend to be most attractive for investors in higher tax brackets holding bonds in taxable accounts. Compare the tax-equivalent yield with the yield on a taxable bond of similar credit quality and maturity. In IRAs and other tax-deferred accounts, the tax exemption is wasted, so taxable bonds are usually the better fit there.</p></div>
+  </div>
+</section>
+
+<section class="disclosure" aria-label="Important disclosure">
     <p><strong>Important disclosure:</strong> This estimator is a draft educational tool and provides a rough estimate based on the information entered and the cited 2026 bracket schedules. It is not tax, legal, investment, or financial advice, and should not be relied on as the sole basis for an investment decision. Tax treatment varies by investor, bond, state, and account type; consult a qualified tax professional and investment advisor about your circumstances. Municipal bonds may lose value and are subject to credit, interest-rate, call, and liquidity risks.</p>
   </section>
 
