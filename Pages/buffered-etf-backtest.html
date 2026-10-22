@@ -146,6 +146,11 @@
     .sens-grid .tbl-wrap{margin:0}
     .data-table.sens caption{caption-side:top;text-align:left;font-weight:600;color:#0F1724;font-size:.875rem;padding:0 0 .5rem}
     .data-table.sens tbody th{min-width:0}
+    .stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1.5rem 0 .6rem;max-width:none}
+    .stat{background:white;border:1px solid rgba(26,94,168,.12);border-radius:10px;padding:1.1rem 1.2rem;box-shadow:0 8px 24px rgba(15,23,36,.04)}
+    .content .stat-num{font-family:"Playfair Display",Georgia,serif;font-size:2.2rem;line-height:1;color:#133F73;margin:0 0 .45rem;font-weight:600;letter-spacing:-.02em;font-variant-numeric:lining-nums}
+    .content .stat-lab{font-size:.85rem;line-height:1.5;color:#405168;margin:0}
+    .answer-box{margin-top:2.5rem}
 
   </style>
   <script type="application/ld+json">
@@ -251,7 +256,7 @@
       <a href="insights.html" class="focus-link" style="display:inline-block;color:rgba(255,255,255,.65);font-size:.75rem;text-decoration:none;margin-bottom:1.6rem">&larr; All Resources</a>
       <p style="font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#D4AE6A;margin:0 0 1rem">Portfolio Management</p>
       <h1 style="max-width:900px;font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.35rem,5vw,4.25rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 1.25rem">Are Buffer ETFs Worth the Hype?</h1>
-      <p style="max-width:740px;color:rgba(255,255,255,.77);font-size:1.08rem;font-weight:300;line-height:1.8;margin:0">Buffered ETFs limit how much you can lose in a year, and in exchange limit how much you can gain. We tested three common designs in every 12-month period since 1871, after fees, and compared them with simply owning the S&amp;P 500 or holding Treasury bills. The full data is at the bottom of the page so you can check our work.</p>
+      <p style="max-width:740px;color:rgba(255,255,255,.77);font-size:1.08rem;font-weight:300;line-height:1.8;margin:0">Buffered ETFs didn&rsquo;t exist before 2018. By the end of 2025 they held $78 billion across 420 funds, driven largely by investors nearing or in retirement. We tested three common designs in every 12-month period since 1871, after fees, against simply owning the S&amp;P 500 or holding Treasury bills. The full data is at the bottom of the page so you can check our work.</p>
     </div>
   </header>
 
@@ -260,9 +265,28 @@
       <div class="max-w-6xl mx-auto px-6 lg:px-10">
         <article class="article">
 
+          <h2 style="margin-top:0">From zero to $78 billion in seven years</h2>
+          <p>The first buffered ETFs launched in 2018. Here is where the category stood at the end of 2025:</p>
+          <div class="stat-row">
+            <div class="stat"><p class="stat-num">$78B</p><p class="stat-lab">in buffered and other defined-outcome ETFs at the end of 2025</p></div>
+            <div class="stat"><p class="stat-num">420</p><p class="stat-lab">funds, up from a handful in 2018</p></div>
+            <div class="stat"><p class="stat-num">$57B</p><p class="stat-lab">of new money since 2020</p></div>
+            <div class="stat"><p class="stat-num">39%</p><p class="stat-lab">average yearly growth from new money, 2023&ndash;2025</p></div>
+          </div>
+          <p class="table-note">Source: <a href="https://www.morningstar.com/content/cs-assets/v3/assets/blt9415ea4cc4157833/blt2d885fde2895d23f/698cb7d6664b36cdfb8426c5/Defined_Outcome_ETF_Landscape.pdf" target="_blank" rel="noopener noreferrer">Morningstar, Defined Outcome ETF Landscape</a>, data as of December 31, 2025. Includes funds of funds.</p>
+          <ul>
+            <li><strong>2010: the idea starts in annuities.</strong> Equitable launched the first buffered annuity, now called a registered index-linked annuity, in October 2010, when low interest rates had made traditional guaranteed products less generous (<a href="https://soa.org/sections/product-dev/product-dev-newsletter/2022/august/pm-2022-08-carbo" target="_blank" rel="noopener noreferrer">Society of Actuaries</a>).</li>
+            <li><strong>2018: the first buffered ETFs.</strong> Innovator Capital Management brought the same idea to a fund that trades daily, has no surrender charges, and costs less than most annuities (<a href="https://www.etf.com/sections/news/buffered-etfs-growing-quickly-hedges-losses" target="_blank" rel="noopener noreferrer">etf.com</a>).</li>
+            <li><strong>2022: the breakout year.</strong> When stocks and bonds fell together, money poured in. The category held about $17 billion across roughly 150 funds by September 2022 (<a href="https://www.etf.com/sections/news/buffered-etfs-growing-quickly-hedges-losses" target="_blank" rel="noopener noreferrer">etf.com</a>).</li>
+            <li><strong>2025 and beyond.</strong> Assets more than quadrupled from 2022 to the end of 2025. In its optimistic scenario, Cerulli Associates projects the category could quadruple again by 2030 (<a href="https://www.cerulli.com/press-releases/defined-outcome-etf-industry-could-quadruple-in-assets-by-2030" target="_blank" rel="noopener noreferrer">Cerulli, November 2025</a>).</li>
+          </ul>
+          <h3>Who&rsquo;s buying</h3>
+          <p>According to Cerulli, much of the demand comes from advisors serving clients near or in retirement, as baby boomers retire and near-retirees look for predictability. A large loss right before or early in retirement is hard to recover from, because withdrawals continue while the portfolio is down. Many of these investors want to stay in stocks for growth but can&rsquo;t afford a 2008-style drawdown.</p>
+          <p>So is the protection worth what it costs? That&rsquo;s what the rest of this page tests.</p>
+
           <div class="answer-box answer-grid">
             <div>
-            <p class="option-label" style="margin:0 0 .5rem">The short answer</p>
+            <p class="option-label" style="margin:0 0 .5rem">Are they worth it? The short answer</p>
             <ul class="answer-list">
               <li><strong>Returns landed between cash and stocks.</strong> Over the last 50 years the three designs earned 3.5% to 7.5% a year after fees, against 4.3% for T-bills and 11.8% for the S&amp;P 500.</li>
               <li><strong>The standard 15% buffer earned the most</strong> (7.5%) because its 15% cap kept more of the strong years.</li>
@@ -281,15 +305,6 @@
               </table>
             </div>
           </div>
-
-          <h2 style="margin-top:0">Why buffered ETFs exist</h2>
-          <p>Buffered products were built for people who are close to retirement or already in it. A large loss right before or early in retirement is hard to recover from, because withdrawals continue while the portfolio is down. Many of these investors want to stay in stocks for growth but can&rsquo;t afford a 2008-style drawdown.</p>
-          <ul>
-            <li><strong>2010: buffered annuities.</strong> Insurers first offered this design inside annuities. Equitable launched the first buffered annuity, now called a registered index-linked annuity, in October 2010, when low interest rates had made traditional guaranteed products less generous (<a href="https://soa.org/sections/product-dev/product-dev-newsletter/2022/august/pm-2022-08-carbo" target="_blank" rel="noopener noreferrer">Society of Actuaries</a>).</li>
-            <li><strong>2018: buffered ETFs.</strong> Innovator Capital Management launched the first buffered ETFs, bringing the same idea to a fund that trades daily, has no surrender charges, and costs less than most annuities (<a href="https://www.etf.com/sections/news/buffered-etfs-growing-quickly-hedges-losses" target="_blank" rel="noopener noreferrer">etf.com</a>).</li>
-            <li><strong>2022 onward: rapid growth.</strong> Buffered ETFs held about $17 billion by September 2022, with inflows rising as stocks and bonds fell together that year (<a href="https://www.etf.com/sections/news/buffered-etfs-growing-quickly-hedges-losses" target="_blank" rel="noopener noreferrer">etf.com</a>). In its optimistic scenario, Cerulli Associates projects the category could quadruple by 2030, driven largely by baby boomers moving into retirement and near-retirees looking for predictability (<a href="https://www.cerulli.com/press-releases/defined-outcome-etf-industry-could-quadruple-in-assets-by-2030" target="_blank" rel="noopener noreferrer">Cerulli, November 2025</a>).</li>
-          </ul>
-          <p>The question for that investor is whether the protection is worth what it costs. That&rsquo;s what the rest of this page tests.</p>
 
           <h2>How a buffered ETF works</h2>
           <p>A buffered ETF, also called a defined-outcome ETF, uses options on an index, usually the S&amp;P 500, to reshape its return over a fixed <strong>outcome period</strong>, typically 12 months. At the start of each period the fund sets two terms:</p>
