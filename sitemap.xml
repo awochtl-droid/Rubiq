@@ -77,7 +77,7 @@
 
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/retirement-planning</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -251,7 +251,7 @@
 
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/resources-alternative-investments</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -342,7 +342,7 @@
 
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/resources-secondaries</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -423,6 +423,12 @@
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/how-to-fund-a-trust</loc>
     <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/rule-of-55</loc>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
