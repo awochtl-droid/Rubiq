@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-15PBEWL3XZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-15PBEWL3XZ');
+    gtag('config', 'AW-18023805978');
+    function gtag_report_conversion(url) {
+      var callback = function () { if (typeof url !== 'undefined') window.location = url; };
+      gtag('event', 'conversion', {'send_to':'AW-18023805978/PYr9CKmg9qccEJrotZJD','value':1.0,'currency':'USD','event_callback':callback});
+      gtag('event', 'conversion', {'send_to':'AW-18023805978/sQ2MCNuQ0agcEJrotZJD','event_callback':callback});
+      return false;
+    }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NUA: Net Unrealized Appreciation on Company Stock | Rubiq</title>
+  <meta name="description" content="How net unrealized appreciation (NUA) works for company stock in a 401(k): who qualifies, lump-sum rules, the tax math, and when NUA beats an IRA rollover." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/net-unrealized-appreciation" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Rubiq Financial Partners" />
+  <meta property="og:title" content="NUA: Net Unrealized Appreciation on Company Stock | Rubiq" />
+  <meta property="og:description" content="How net unrealized appreciation (NUA) can turn company stock in a 401(k) from ordinary income into long-term capital gains, with the rules and a worked example." />
+  <meta property="og:url" content="https://www.rubiqfinancial.com/Pages/net-unrealized-appreciation" />
+  <meta property="og:image" content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NUA: Net Unrealized Appreciation on Company Stock | Rubiq" />
+  <meta name="twitter:description" content="How net unrealized appreciation (NUA) can turn company stock in a 401(k) from ordinary income into long-term capital gains, with the rules and a worked example." />
+  <meta name="twitter:image" content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,sans-serif;color:#1C2D44}
+    .nav-blur{backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%)}
+    .nav-link{font-size:.8125rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.8);text-decoration:none}
+    .nav-link:hover,.nav-link:focus-visible{color:#D4AE6A}
+    a:focus-visible,button:focus-visible{outline:3px solid #D4AE6A;outline-offset:3px}
+    .focus-link{transition:color .18s ease,filter .18s ease,transform .18s ease}
+    .focus-link:hover{filter:brightness(.96)}
+    .focus-link:active{transform:translateY(1px)}
+    .content h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(1.5rem,3vw,2rem);line-height:1.2;color:#0F1724;margin:3rem 0 1rem;letter-spacing:-.02em}
+    .content h3{font-family:"Playfair Display",Georgia,serif;font-size:1.2rem;line-height:1.3;color:#0F1724;margin:1.75rem 0 .6rem}
+    .content p,.content li{font-size:.975rem;line-height:1.8;color:#405168;font-weight:300}
+    .content p{margin:0 0 1.1rem}
+    .content ul,.content ol{padding-left:1.25rem;margin:.5rem 0 1.5rem}
+    .content ul{list-style:disc}
+    .content ol{list-style:decimal}
+    .content li{padding-left:.25rem;margin:.35rem 0}
+    .content a{color:#1A5EA8;text-decoration:underline;text-underline-offset:3px}
+    .content a:hover{color:#133F73;text-decoration-thickness:2px}
+    .option-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9E7A32}
+    .faq-item{padding:1.25rem 0;border-bottom:1px solid rgba(44,62,85,.12)}
+    .faq-item h3{margin:0 0 .5rem}
+    .answer-box{background:white;border:1px solid rgba(26,94,168,.14);border-radius:10px;padding:1.6rem 1.6rem 1.2rem;margin:0 0 2.25rem;box-shadow:0 8px 24px rgba(15,23,36,.04)}
+    .warn-box{background:white;border:1px solid rgba(196,154,90,.35);border-left:3px solid #C49A5A;border-radius:0 10px 10px 0;padding:1.3rem 1.5rem;margin:1.25rem 0 1.75rem}
+    .data-table{width:100%;border-collapse:collapse;margin:0 0 1rem;background:white;border:1px solid rgba(26,94,168,.12)}
+    .data-table th,.data-table td{text-align:left;vertical-align:top;padding:.65rem .8rem;border-bottom:1px solid rgba(26,94,168,.08);font-size:.9rem;line-height:1.55}
+    .data-table thead th{background:rgba(26,94,168,.04);color:#0F1724;font-weight:600}
+    .data-table td{color:#405168;font-weight:300}
+    .data-table td.num,.data-table th.num{text-align:right;white-space:nowrap}
+    .data-table tr:last-child td{border-bottom:none}
+    .table-note{font-size:.8125rem!important;line-height:1.6!important;color:#5A6B82!important}
+    .compare-wrap{margin:1.25rem 0 1rem;border:1px solid rgba(26,94,168,.12);border-radius:10px;background:white;overflow:hidden}
+    .compare{width:100%;border-collapse:collapse}
+    .compare th,.compare td{text-align:left;vertical-align:top;padding:.75rem .85rem;border-bottom:1px solid rgba(26,94,168,.08);font-size:.875rem;line-height:1.55}
+    .compare thead th{background:rgba(26,94,168,.04);color:#0F1724;font-weight:600}
+    .compare tbody th{color:#0F1724;font-weight:600;width:26%}
+    .compare td{color:#405168;font-weight:300}
+    .compare tr:last-child th,.compare tr:last-child td{border-bottom:none}
+    @media(max-width:639px){
+      .answer-box{padding:1.2rem 1rem 1rem}
+      .data-table th,.data-table td{padding:.55rem .45rem;font-size:.84rem}
+      .compare thead{display:none}
+      .compare tbody tr{display:block;padding:.9rem 1rem;border-bottom:1px solid rgba(26,94,168,.08)}
+      .compare tbody tr:last-child{border-bottom:none}
+      .compare tbody th,.compare tbody td{display:block;width:auto;border:0;padding:.15rem 0}
+      .compare tbody th{margin-bottom:.35rem}
+      .compare td::before{content:attr(data-label);display:block;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9E7A32;margin-top:.35rem}
+    }
+    .focus-link:focus-visible{outline:3px solid #D4AE6A;outline-offset:3px}
+    #mobile-menu{display:none}
+    @media(max-width:767px){#mobile-menu.open{display:flex}}
+    .skip-link:focus-visible{top:0!important}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Net Unrealized Appreciation (NUA): How Company Stock in a 401(k) Can Be Taxed at Capital Gains Rates",
+    "description": "An educational guide to the net unrealized appreciation (NUA) strategy for employer stock in a 401(k) or other qualified plan: triggering events, lump-sum distribution rules, how the tax is calculated, partial NUA, estate and NIIT treatment, and a worked example.",
+    "url": "https://www.rubiqfinancial.com/Pages/net-unrealized-appreciation",
+    "datePublished": "2026-10-27",
+    "dateModified": "2026-10-27",
+    "author": {"@type": "Organization", "name": "Rubiq Financial Partners"},
+    "publisher": {"@id": "https://www.rubiqfinancial.com/#organization"},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.rubiqfinancial.com/Pages/net-unrealized-appreciation"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.rubiqfinancial.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.rubiqfinancial.com/Pages/insights"},
+      {"@type": "ListItem", "position": 3, "name": "Net Unrealized Appreciation (NUA)", "item": "https://www.rubiqfinancial.com/Pages/net-unrealized-appreciation"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is net unrealized appreciation (NUA)?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Net unrealized appreciation is the increase in value of your employer's stock while it was held inside your 401(k) or other qualified plan: the difference between the stock's market value when it is distributed and your cost basis in the plan. If you take the shares out in kind as part of a qualifying lump-sum distribution, the NUA is taxed at long-term capital gains rates when you sell, instead of as ordinary income."}
+      },
+      {
+        "@type": "Question",
+        "name": "Who qualifies for NUA treatment?",
+        "acceptedAnswer": {"@type": "Answer", "text": "You need employer stock in a qualified plan such as a 401(k) or ESOP, a triggering event (separation from service, reaching age 59 1/2, death, or disability for the self-employed), and a lump-sum distribution of your entire balance from all of that employer's plans of the same type within one calendar year. The shares must be distributed in kind to a taxable account, not sold inside the plan or rolled to an IRA."}
+      },
+      {
+        "@type": "Question",
+        "name": "How is NUA taxed?",
+        "acceptedAnswer": {"@type": "Answer", "text": "In the year of distribution, you pay ordinary income tax on the stock's cost basis in the plan, plus the 10% penalty on that amount if you are under 59 1/2 and no exception applies. When you later sell, the NUA is taxed as a long-term capital gain no matter how long you held the shares. Any growth after the distribution is long-term or short-term depending on how long you hold the shares after leaving the plan."}
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use NUA for only some of my company stock?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes. You can take some shares out in kind for NUA treatment and roll the rest, including higher-cost shares, into an IRA, as long as the whole account is distributed within the same calendar year. Shares with a low cost basis relative to their value usually benefit most."}
+      },
+      {
+        "@type": "Question",
+        "name": "Is NUA subject to the 3.8% net investment income tax?",
+        "acceptedAnswer": {"@type": "Answer", "text": "The NUA portion of the gain is generally not subject to the 3.8% net investment income tax, because it is treated as a retirement plan distribution. Appreciation after the shares leave the plan can be subject to it."}
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to NUA stock at death?",
+        "acceptedAnswer": {"@type": "Answer", "text": "NUA does not receive a step-up in basis at death. Heirs who sell pay long-term capital gains tax on the NUA, although appreciation after the distribution may receive a step-up. That is one reason some people sell NUA shares during their lifetime."}
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="focus-link skip-link" style="position:absolute;top:-100px;left:1rem;z-index:100;background:#C49A5A;color:#0F1724;padding:.75rem 1rem;font-weight:600">Skip to content</a>
+  <nav class="fixed top-0 left-0 right-0 z-50 nav-blur" style="background:rgba(15,23,36,.94);border-bottom:1px solid rgba(255,255,255,.08)">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between" style="height:72px">
+      <a href="../index.html" aria-label="Rubiq Financial Partners home"><img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Vertical -White.png" alt="Rubiq Financial Partners" width="240" height="44" style="height:44px;width:auto" /></a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="our-capabilities.html" class="nav-link">Capabilities</a><a href="our-clients.html" class="nav-link">Clients</a><a href="our-team.html" class="nav-link">Team</a><a href="insights.html" class="nav-link">Resources</a><a href="fee-structure.html" class="nav-link">Fees</a>
+      </div>
+      <a class="hidden md:inline-flex focus-link" href="schedule.html" onclick="return gtag_report_conversion(this.href)" style="background:#C49A5A;color:#0F1724;padding:.7rem 1.1rem;border-radius:4px;text-decoration:none;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Schedule a Call</a>
+      <button class="md:hidden focus-link" type="button" aria-label="Toggle navigation" aria-expanded="false" onclick="var m=document.getElementById('mobile-menu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))" style="color:white;background:none;border:0;padding:.6rem;font-size:1.35rem">☰</button>
+    </div>
+    <div id="mobile-menu" style="background:#0F1724;padding:0 1.5rem 1.25rem;flex-direction:column">
+      <a href="our-capabilities.html" class="nav-link" style="padding:.8rem 0">Capabilities</a><a href="our-clients.html" class="nav-link" style="padding:.8rem 0">Clients</a><a href="our-team.html" class="nav-link" style="padding:.8rem 0">Team</a><a href="insights.html" class="nav-link" style="padding:.8rem 0">Resources</a><a href="fee-structure.html" class="nav-link" style="padding:.8rem 0">Fees</a>
+    </div>
+  </nav>
+
+  <header style="margin-top:72px;padding:5.5rem 0 4.5rem;background:radial-gradient(ellipse at 82% 5%,rgba(196,154,90,.18),transparent 38%),linear-gradient(150deg,#0F1724 0%,#133F73 62%,#1A5EA8 100%);color:white">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10">
+      <a href="insights.html" class="focus-link" style="display:inline-block;color:rgba(255,255,255,.65);font-size:.75rem;text-decoration:none;margin-bottom:1.6rem">← All Resources</a>
+      <p style="font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#D4AE6A;margin:0 0 1rem">Retirement &amp; Concentrated Stock</p>
+      <h1 style="max-width:880px;font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.35rem,5vw,4.25rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 1.25rem">Net Unrealized Appreciation (NUA): A Tax Break for Company Stock in Your 401(k)</h1>
+      <p style="max-width:720px;color:rgba(255,255,255,.77);font-size:1.08rem;font-weight:300;line-height:1.8;margin:0">If your 401(k) holds your employer&rsquo;s stock that has grown in value, rolling it into an IRA with everything else could turn a capital gain into ordinary income. The NUA rules offer another path, but only if you follow them before you roll anything over.</p>
+    </div>
+  </header>
+
+  <main id="main-content" class="content">
+    <section style="background:#FAF8F4;padding:3.5rem 0">
+      <div class="max-w-6xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <article class="lg:col-span-2">
+
+          <div class="answer-box">
+            <p class="option-label" style="margin:0 0 .5rem">The short answer</p>
+            <p style="font-size:1.05rem;line-height:1.75;color:#1C2D44;font-weight:400">If you take your employer&rsquo;s stock out of your 401(k) <strong style="font-weight:600">in kind</strong>, as part of a qualifying lump-sum distribution, you pay ordinary income tax only on what the shares <strong style="font-weight:600">originally cost</strong> in the plan. The growth, the NUA, is taxed later at <strong style="font-weight:600">long-term capital gains</strong> rates. Roll the same shares into an IRA and every dollar is eventually taxed as ordinary income.</p>
+            <table class="data-table">
+              <thead><tr><th>Piece of the stock&rsquo;s value</th><th>How it is taxed under NUA</th></tr></thead>
+              <tbody>
+                <tr><td>Cost basis in the plan</td><td>Ordinary income in the year of distribution</td></tr>
+                <tr><td>Net unrealized appreciation</td><td>Long-term capital gain when sold, at any holding period</td></tr>
+                <tr><td>Growth after the distribution</td><td>Capital gain, long- or short-term by holding period</td></tr>
+              </tbody>
+            </table>
+            <p class="table-note" style="margin:0">Based on IRC section 402(e)(4). Simplified; consult a tax professional before acting.</p>
+          </div>
+
+          <h2 style="margin-top:0">The rules you must meet</h2>
+          <ul>
+            <li><strong>Employer stock in a qualified plan</strong>, such as a 401(k), profit-sharing plan, or ESOP. IRAs do not qualify.</li>
+            <li><strong>A triggering event:</strong> separation from service (for employees), reaching age 59&frac12;, death, or disability (for the self-employed).</li>
+            <li><strong>A lump-sum distribution:</strong> your entire balance in all of that employer&rsquo;s plans of the same type must be distributed within a single calendar year. The non-stock assets can go to an IRA by direct rollover; the stock must come out in kind.</li>
+            <li><strong>In kind to a taxable account.</strong> Selling the shares inside the plan first, or rolling them to an IRA, ends the opportunity for those shares.</li>
+          </ul>
+          <div class="warn-box">
+            <p class="option-label" style="margin:0 0 .4rem">Watch the order of operations</p>
+            <p style="margin:0">Taking a partial withdrawal after a triggering event, for example a single withdrawal after you retire, can use up that triggering event. You may then have to wait for the next one, such as reaching 59&frac12;, before NUA is available. Plan the full distribution before you take any money out.</p>
+          </div>
+
+          <h2>A worked example</h2>
+          <p>Mark, 60, is retiring. His $1,500,000 401(k) includes employer stock worth <strong>$600,000</strong> with a cost basis in the plan of <strong>$100,000</strong>. For simplicity, assume a 35% ordinary income rate and a 20% long-term capital gains rate.</p>
+          <table class="data-table">
+            <thead><tr><th>Approach to the company stock</th><th class="num">Federal tax</th></tr></thead>
+            <tbody>
+              <tr><td>Roll everything to an IRA; later withdraw the $600,000 as ordinary income</td><td class="num">$210,000</td></tr>
+              <tr><td>NUA: pay ordinary tax on the $100,000 basis now</td><td class="num">$35,000</td></tr>
+              <tr><td>NUA: later sell, $500,000 taxed as a long-term gain</td><td class="num">$100,000</td></tr>
+              <tr class="total"><td><strong>NUA total</strong></td><td class="num"><strong>$135,000</strong></td></tr>
+            </tbody>
+          </table>
+          <p class="table-note">Hypothetical and simplified for illustration; ignores the timing of taxes, investment growth, state taxes, and how the income would actually fall across brackets.</p>
+          <p>In this example NUA saves about <strong style="font-weight:600;color:#0F1724">$75,000</strong> of federal tax. Mark rolls the other $900,000 into an IRA by direct rollover in the same year. Because the NUA is taxed as a long-term gain whenever he sells, he can also sell some shares right away to reduce his concentration in one stock without losing the benefit.</p>
+
+<div class="booking-offer" style="background:linear-gradient(135deg,#0F1724 0%,#133F73 100%);border-radius:10px;padding:1.5rem 1.6rem;margin:2.25rem 0 2.5rem;box-shadow:0 10px 28px rgba(15,23,36,.18);">
+            <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;font-weight:600;line-height:1.3;color:white;margin:0 0 .45rem;">Do you hold company stock in your 401(k)?</p>
+            <p style="font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.78);font-weight:300;margin:0 0 1.1rem;">Before you roll anything over, we&rsquo;ll run the NUA math on your actual cost basis, coordinate the distribution with your rollover, and plan how to diversify the shares.</p>
+            <a class="focus-link" href="schedule.html" onclick="return gtag_report_conversion(this.href)" style="display:inline-block;background:#C49A5A;color:#0F1724;padding:.8rem 1.3rem;border-radius:4px;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;">Schedule a call &rarr;</a>
+          </div>
+
+          <h2>When NUA may not be worth it</h2>
+          <ul>
+            <li><strong>High cost basis.</strong> If the shares cost nearly what they are worth today, the up-front tax on the basis may outweigh the capital gains savings.</li>
+            <li><strong>You are under 55 or 59&frac12;.</strong> The 10% penalty can apply to the taxable basis portion unless an exception, such as the <a href="rule-of-55.html">Rule of 55</a>, applies.</li>
+            <li><strong>You value tax deferral.</strong> NUA requires paying tax on the basis now. Leaving everything in an IRA defers all tax, which can matter if you are in a high bracket this year.</li>
+            <li><strong>Concentration risk.</strong> Holding a large amount of one company&rsquo;s stock is risky regardless of tax treatment. NUA does not require you to keep the shares. See our <a href="concentrated-stock.html">concentrated stock guide</a> for diversification strategies.</li>
+          </ul>
+          <p>You do not have to choose all or nothing. Taking only the lowest-basis shares out for NUA and rolling the rest is often the best balance.</p>
+
+          <h2>Estate planning and NUA</h2>
+          <p>NUA shares do not receive a step-up in basis at death for the NUA portion; heirs who sell pay long-term capital gains tax on it. Appreciation after the distribution may receive a step-up. The NUA portion is also generally not subject to the 3.8% net investment income tax. If charitable giving is part of the plan, NUA shares can be a tax-efficient asset to give, since a qualified charity pays no tax on the gain. See our <a href="estate-planning.html">estate planning</a> approach.</p>
+
+          <h2>NUA and the rest of your retirement plan</h2>
+          <p>NUA is one piece of a bigger set of decisions you face when you leave a job: whether to roll your 401(k) to an IRA at all, how to bridge to 59&frac12;, and when to do Roth conversions. Our guides to <a href="401k-rollover-options.html">401(k) rollover options at retirement</a> and the <a href="rule-of-55.html">Rule of 55</a> cover those choices.</p>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-item"><h3>What is net unrealized appreciation (NUA)?</h3><p>Net unrealized appreciation is the increase in value of your employer&rsquo;s stock while it was held inside your 401(k) or other qualified plan: the difference between the stock&rsquo;s market value when it is distributed and your cost basis in the plan. If you take the shares out in kind as part of a qualifying lump-sum distribution, the NUA is taxed at long-term capital gains rates when you sell, instead of as ordinary income.</p></div>
+          <div class="faq-item"><h3>Who qualifies for NUA treatment?</h3><p>You need employer stock in a qualified plan such as a 401(k) or ESOP, a triggering event (separation from service, reaching age 59&frac12;, death, or disability for the self-employed), and a lump-sum distribution of your entire balance from all of that employer&rsquo;s plans of the same type within one calendar year. The shares must be distributed in kind to a taxable account, not sold inside the plan or rolled to an IRA.</p></div>
+          <div class="faq-item"><h3>How is NUA taxed?</h3><p>In the year of distribution, you pay ordinary income tax on the stock&rsquo;s cost basis in the plan, plus the 10% penalty on that amount if you are under 59&frac12; and no exception applies. When you later sell, the NUA is taxed as a long-term capital gain no matter how long you held the shares. Any growth after the distribution is long-term or short-term depending on how long you hold the shares after leaving the plan.</p></div>
+          <div class="faq-item"><h3>Can I use NUA for only some of my company stock?</h3><p>Yes. You can take some shares out in kind for NUA treatment and roll the rest, including higher-cost shares, into an IRA, as long as the whole account is distributed within the same calendar year. Shares with a low cost basis relative to their value usually benefit most.</p></div>
+          <div class="faq-item"><h3>Is NUA subject to the 3.8% net investment income tax?</h3><p>The NUA portion of the gain is generally not subject to the 3.8% net investment income tax, because it is treated as a retirement plan distribution. Appreciation after the shares leave the plan can be subject to it.</p></div>
+          <div class="faq-item"><h3>What happens to NUA stock at death?</h3><p>NUA does not receive a step-up in basis at death. Heirs who sell pay long-term capital gains tax on the NUA, although appreciation after the distribution may receive a step-up. That is one reason some people sell NUA shares during their lifetime.</p></div>
+        </article>
+
+        <aside style="align-self:start;background:white;border:1px solid rgba(26,94,168,.12);border-radius:10px;padding:1.5rem;box-shadow:0 8px 24px rgba(15,23,36,.04)">
+          <p class="option-label">Before you roll over a 401(k) with company stock</p>
+          <h2 style="font-size:1.4rem;margin:0 0 1rem">NUA checklist</h2>
+          <ol style="padding-left:1.2rem;margin:0;list-style:decimal">
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Ask the plan for your cost basis in the employer stock, by lot if available.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Confirm you have had a triggering event and have not used it.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Plan to distribute the entire balance in one calendar year.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Open a taxable brokerage account for the shares and an IRA for the rest.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Request the stock in kind; do not let the plan sell it.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Estimate this year&rsquo;s tax on the basis, and plan for diversification.</li>
+          </ol>
+          <p style="font-size:.8rem;line-height:1.65;margin:1rem 0 0;color:#65748A">Educational information only; not tax or legal advice. NUA rules are technical; coordinate with your CPA and plan administrator before requesting a distribution.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section style="padding:3.25rem 0;background:white">
+      <div class="max-w-4xl mx-auto px-6 lg:px-10">
+        <h2 style="margin-top:0">Learn more</h2>
+        <ul>
+          <li><a href="https://www.irs.gov/taxtopics/tc412" target="_blank" rel="noopener noreferrer">IRS Topic 412: Lump-sum distributions</a></li>
+          <li><a href="concentrated-stock.html">Concentrated stock strategies</a></li>
+          <li><a href="rule-of-55.html">The Rule of 55</a></li>
+          <li><a href="401k-rollover-options.html">401(k) rollover options at retirement</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="padding:3.5rem 0;background:linear-gradient(155deg,#0F1724 0%,#133F73 60%,#1A5EA8 100%);text-align:center">
+      <div class="max-w-3xl mx-auto px-6 lg:px-10">
+        <p style="font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#D4AE6A;margin:0 0 .75rem">Company stock in your 401(k)?</p>
+        <h2 style="font-family:'Playfair Display',Georgia,serif;color:white;font-size:clamp(1.7rem,3.8vw,2.5rem);margin:0 0 1rem">Run the NUA numbers before you roll it over.</h2>
+        <p style="font-size:.95rem;line-height:1.75;color:rgba(255,255,255,.75);font-weight:300;margin:0 auto 1.5rem;max-width:620px">We review your cost basis, compare NUA with a full IRA rollover, and coordinate the distribution, diversification, and tax plan with your CPA.</p>
+        <a class="focus-link" href="schedule.html" onclick="return gtag_report_conversion(this.href)" style="display:inline-block;background:#C49A5A;color:#0F1724;padding:.85rem 1.4rem;border-radius:4px;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Schedule a call</a>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:#0F1724;padding:1.5rem 0;color:rgba(255,255,255,.55)">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <a href="../index.html"><img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png" alt="Rubiq Financial Partners" width="180" height="40" style="width:180px;height:auto" loading="lazy" /></a>
+      <p style="font-size:.72rem;text-align:center;line-height:1.6;margin:0">© 2026 Rubiq Financial Partners. Advisory services offered through Wealthcare Advisory Partners.<br />This page is for educational purposes and is not tax, legal, or investment advice.</p>
+      <a class="nav-link focus-link" href="insights.html">All Resources</a>
+    </div>
+  </footer>
+<!-- Sticky Mobile CTA -->
+<a id="sticky-mobile-cta" href="schedule.html"
+   style="display:none;position:fixed;bottom:-60px;left:1rem;right:1rem;z-index:9998;
+          background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);
+          color:#0F1724;text-align:center;
+          font-family:'Inter',sans-serif;font-size:0.9375rem;font-weight:600;
+          letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;
+          padding:1rem;border-radius:6px;
+          box-shadow:0 -2px 16px rgba(0,0,0,0.25),0 4px 12px rgba(196,154,74,0.35);
+          transition:bottom 0.3s cubic-bezier(0.4,0,0.2,1);" onclick="return gtag_report_conversion(this.href)">
+  Schedule a Call
+</a>
+<style>
+  @media(min-width:768px){ #sticky-mobile-cta{display:none!important;} }
+</style>
+<script>
+(function(){
+  var cta=document.getElementById('sticky-mobile-cta');
+  if(!cta)return;
+  if(window.innerWidth<768) cta.style.display='block';
+  window.addEventListener('scroll',function(){
+    if(window.innerWidth>=768)return;
+    cta.style.display='block';
+    cta.style.bottom=window.scrollY>100?'1rem':'-60px';
+  },{passive:true});
+  window.addEventListener('resize',function(){
+    cta.style.display=window.innerWidth<768?'block':'none';
+  });
+})();
+</script>
+</body>
+</html>
