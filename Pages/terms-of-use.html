@@ -8,12 +8,17 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-15PBEWL3XZ');
-  gtag('config', 'AW-18023805978');
+  // Don't count automated browsers (scanners, crawlers) or preview/test hosts.
+  window.__rqNoTrack = navigator.webdriver === true || !/(^|\.)rubiqfinancial\.com$/.test(location.hostname);
+  if (!window.__rqNoTrack) {
+    gtag('config', 'G-15PBEWL3XZ');
+    gtag('config', 'AW-18023805978');
+  }
 </script>
 <!-- Event snippet for Book Now Click + Book Appointment conversions -->
 <script>
 function gtag_report_conversion(url) {
+    if (window.__rqNoTrack) { if (typeof url !== 'undefined') window.location = url; return false; }
   var callback = function () {
     if (typeof(url) != 'undefined') {
       window.location = url;

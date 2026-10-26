@@ -7,9 +7,14 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-15PBEWL3XZ');
-    gtag('config', 'AW-18023805978');
+    // Don't count automated browsers (scanners, crawlers) or preview/test hosts.
+    window.__rqNoTrack = navigator.webdriver === true || !/(^|\.)rubiqfinancial\.com$/.test(location.hostname);
+    if (!window.__rqNoTrack) {
+      gtag('config', 'G-15PBEWL3XZ');
+      gtag('config', 'AW-18023805978');
+    }
     function gtag_report_conversion(url) {
+      if (window.__rqNoTrack) { if (typeof url !== 'undefined') window.location = url; return false; }
       var callback = function () { if (typeof url !== 'undefined') window.location = url; };
       gtag('event', 'conversion', {'send_to':'AW-18023805978/PYr9CKmg9qccEJrotZJD','value':1.0,'currency':'USD','event_callback':callback});
       gtag('event', 'conversion', {'send_to':'AW-18023805978/sQ2MCNuQ0agcEJrotZJD','event_callback':callback});
