@@ -46,8 +46,8 @@ function gtag_report_conversion(url) {
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Delaware Statutory Trust (DST): 1031 Rules &amp; Risks | Rubiq</title>
-  <meta name="description" content="What a Delaware Statutory Trust (DST) is, how it works in a 1031 exchange, the IRS rules, and the pros, cons, fees, and risks." />
+  <title>DST 1031 Exchange Guide: Delaware Statutory Trusts | Rubiq</title>
+  <meta name="description" content="How a DST 1031 exchange works: what a Delaware Statutory Trust is, the 45- and 180-day rules, DST properties, who can invest, fees, and the risks to weigh." />
   <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/resources-dst-1031" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -217,6 +217,12 @@ function gtag_report_conversion(url) {
       .comparison-row {
         grid-template-columns: 1fr 1fr;
       }
+      .comparison-row.comparison-head { display: none; }
+      .comparison-row .comparison-cell:first-child { grid-column: 1 / -1; background: rgba(26,94,168,0.05); }
+      .comparison-cell[data-label]:not(:first-child)::before {
+        content: attr(data-label); display: block; font-size: .66rem; font-weight: 700;
+        letter-spacing: .08em; text-transform: uppercase; color: #65748A; margin-bottom: .2rem;
+      }
       .comparison-row.five-col-header {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         overflow-x: auto;
@@ -230,23 +236,23 @@ function gtag_report_conversion(url) {
   <!-- Social / AEO -->
   <meta property="og:type"        content="article" />
   <meta property="og:site_name"   content="Rubiq Financial Partners" />
-  <meta property="og:title"       content="Delaware Statutory Trust (DST): 1031 Rules &amp; Risks | Rubiq" />
-  <meta property="og:description" content="Learn how a DST may fit a 1031 exchange, including deadlines, adjusted basis, potential tax deferral, risks, and alternatives. Use our calculator for an illustration." />
+  <meta property="og:title"       content="DST 1031 Exchange Guide: Delaware Statutory Trusts | Rubiq" />
+  <meta property="og:description" content="What a Delaware Statutory Trust is, how a DST 1031 exchange works, the property types and who can invest, plus the fees, risks, and due diligence to weigh." />
   <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/resources-dst-1031" />
   <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Delaware Statutory Trust (DST): 1031 Rules &amp; Risks | Rubiq" />
-  <meta name="twitter:description" content="Learn how a DST may fit a 1031 exchange, including deadlines, adjusted basis, potential tax deferral, risks, and alternatives. Use our calculator for an illustration." />
+  <meta name="twitter:title"       content="DST 1031 Exchange Guide: Delaware Statutory Trusts | Rubiq" />
+  <meta name="twitter:description" content="What a Delaware Statutory Trust is, how a DST 1031 exchange works, the property types and who can invest, plus the fees, risks, and due diligence to weigh." />
   <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Delaware Statutory Trusts (DSTs): How They Work in a 1031 Exchange, Pros, Cons, and Risks",
+    "headline": "DST 1031 Exchange: How Delaware Statutory Trusts Work, Pros, Cons, and Risks",
     "description": "Learn how a DST may fit a 1031 exchange, including deadlines, adjusted basis, potential tax deferral, risks, and alternatives. Use the calculator for an illustration.",
     "url": "https://www.rubiqfinancial.com/Pages/resources-dst-1031",
     "datePublished": "2024-10-08",
-    "dateModified": "2026-10-19",
+    "dateModified": "2026-10-27",
     "author": { "@type": "Person", "name": "Andreas Wochtl, CFP\u00ae", "url": "https://www.rubiqfinancial.com/Pages/our-team" },
     "publisher": { "@id": "https://www.rubiqfinancial.com/#organization" },
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.rubiqfinancial.com/Pages/resources-dst-1031" },
@@ -290,11 +296,16 @@ function gtag_report_conversion(url) {
       },
       {
         "@type": "Question",
-        "name": "What is a DST in a 1031 exchange?",
+        "name": "What is a DST 1031 exchange?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "A Delaware Statutory Trust is a legal entity that may hold investment real estate for multiple beneficial owners. Under IRS Revenue Ruling 2004-86, an interest in certain DSTs may qualify as replacement real property for a Section 1031 exchange when the trust and transaction meet applicable requirements. Eligibility is not automatic."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Who can invest in a DST 1031 property?",
+        "acceptedAnswer": {"@type": "Answer", "text": "DST interests are private securities offerings generally limited to accredited investors, such as individuals with a net worth over $1 million excluding their primary residence, or income over $200,000 ($300,000 jointly) in each of the last two years. Each offering sets its own minimum investment, often around $100,000 for 1031 exchange investors."}
       },
       {
         "@type": "Question",
@@ -468,7 +479,7 @@ function gtag_report_conversion(url) {
       <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#D4AE6A;">Real Estate Strategy</span>
     </div>
     <h1 id="speakable-headline" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;line-height:1.12;letter-spacing:-0.03em;color:white;margin-bottom:0.5rem;">
-      What Is a Delaware Statutory Trust (DST)?<br />1031 Rules, Pros, Cons &amp; Risks
+      DST 1031 Exchange: How a Delaware Statutory Trust Works<br />Rules, Properties, Pros, Cons &amp; Risks
     </h1>
     <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
       <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">Updated October 2026</span>
@@ -536,7 +547,7 @@ function gtag_report_conversion(url) {
           The trust is managed by a sponsor under the terms of the trust and offering documents. Investors generally do not manage the property or make day-to-day operating decisions, and distributions, if any, depend on property performance and are not guaranteed.
         </p>
 
-        <h2>How DSTs Fit Into a 1031 Exchange</h2>
+        <h2>How a DST 1031 Exchange Works</h2>
         <p>
           The mechanics of using a DST within a 1031 exchange follow the same fundamental timeline as other deferred exchanges. A DST may provide a passive replacement-property option, but does not remove the exchange's timing, identification, or tax requirements.
         </p>
@@ -560,7 +571,7 @@ function gtag_report_conversion(url) {
 
         <!-- Comparison Table -->
         <div style="border:1px solid rgba(26,94,168,0.12);border-radius:10px;overflow:hidden;margin:1.5rem 0 2rem;overflow-x:auto;">
-          <div class="comparison-row">
+          <div class="comparison-row comparison-head">
             <div class="comparison-header">Strategy</div>
             <div class="comparison-header">Management</div>
             <div class="comparison-header">Min Investment</div>
@@ -568,36 +579,65 @@ function gtag_report_conversion(url) {
             <div class="comparison-header">Liquidity</div>
           </div>
           <div class="comparison-row">
-            <div class="comparison-cell" style="font-weight:600;color:#0F1724;">Direct Property</div>
-            <div class="comparison-cell">Active (you manage)</div>
-            <div class="comparison-cell">Varies</div>
-            <div class="comparison-cell">Yes</div>
-            <div class="comparison-cell">Low (months to sell)</div>
+            <div class="comparison-cell" data-label="Strategy" style="font-weight:600;color:#0F1724;">Direct Property</div>
+            <div class="comparison-cell" data-label="Management">Active (you manage)</div>
+            <div class="comparison-cell" data-label="Min Investment">Varies</div>
+            <div class="comparison-cell" data-label="Potential 1031 Eligibility">Yes</div>
+            <div class="comparison-cell" data-label="Liquidity">Low (months to sell)</div>
           </div>
           <div class="comparison-row">
-            <div class="comparison-cell" style="font-weight:600;color:#0F1724;">DST Interest</div>
-            <div class="comparison-cell">Passive (sponsor manages)</div>
-            <div class="comparison-cell">Varies by offering</div>
-            <div class="comparison-cell">May qualify</div>
-            <div class="comparison-cell">Very Low (hold to disposition)</div>
+            <div class="comparison-cell" data-label="Strategy" style="font-weight:600;color:#0F1724;">DST Interest</div>
+            <div class="comparison-cell" data-label="Management">Passive (sponsor manages)</div>
+            <div class="comparison-cell" data-label="Min Investment">Varies by offering</div>
+            <div class="comparison-cell" data-label="Potential 1031 Eligibility">May qualify</div>
+            <div class="comparison-cell" data-label="Liquidity">Very Low (hold to disposition)</div>
           </div>
           <div class="comparison-row">
-            <div class="comparison-cell" style="font-weight:600;color:#0F1724;">REIT</div>
-            <div class="comparison-cell">Passive</div>
-            <div class="comparison-cell">Low ($)</div>
-            <div class="comparison-cell">No</div>
-            <div class="comparison-cell">High (publicly traded)</div>
+            <div class="comparison-cell" data-label="Strategy" style="font-weight:600;color:#0F1724;">REIT</div>
+            <div class="comparison-cell" data-label="Management">Passive</div>
+            <div class="comparison-cell" data-label="Min Investment">Low ($)</div>
+            <div class="comparison-cell" data-label="Potential 1031 Eligibility">No</div>
+            <div class="comparison-cell" data-label="Liquidity">High (publicly traded)</div>
           </div>
           <div class="comparison-row" style="border-bottom:none;">
-            <div class="comparison-cell" style="font-weight:600;color:#0F1724;">TIC (Tenants in Common)</div>
-            <div class="comparison-cell">Semi-active</div>
-            <div class="comparison-cell">$100K+</div>
-            <div class="comparison-cell">Yes</div>
-            <div class="comparison-cell">Low</div>
+            <div class="comparison-cell" data-label="Strategy" style="font-weight:600;color:#0F1724;">TIC (Tenants in Common)</div>
+            <div class="comparison-cell" data-label="Management">Semi-active</div>
+            <div class="comparison-cell" data-label="Min Investment">$100K+</div>
+            <div class="comparison-cell" data-label="Potential 1031 Eligibility">Yes</div>
+            <div class="comparison-cell" data-label="Liquidity">Low</div>
           </div>
         </div>
         <p>
           For a deeper side-by-side on control, financing, liquidity, and the 721 UPREIT route, see <a href="dst-vs-tic-vs-reit.html" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;">DST vs. TIC vs. REIT vs. direct ownership</a>.
+        </p>
+
+        <h2>DST 1031 Properties: What You Can Buy</h2>
+        <p>
+          DST sponsors package institutional-quality real estate into offerings sold through broker-dealers and advisors. Common property types include:
+        </p>
+        <ul>
+          <li><strong>Multifamily.</strong> Apartment communities, including student and senior housing. Leases are short, so income can adjust quickly in either direction.</li>
+          <li><strong>Industrial and distribution.</strong> Warehouses and logistics buildings, often leased to a single tenant.</li>
+          <li><strong>Net-lease retail.</strong> Pharmacies, grocery stores, and other single-tenant buildings where the tenant pays most expenses. Income depends heavily on that tenant&rsquo;s credit.</li>
+          <li><strong>Medical office and self-storage.</strong> Niche property types with their own demand drivers and risks.</li>
+          <li><strong>Portfolios.</strong> Some DSTs hold several properties, which spreads tenant and location risk across one investment.</li>
+        </ul>
+        <p>
+          <strong>Who can invest.</strong> DST interests are private securities offerings, generally limited to accredited investors: broadly, a net worth above $1 million excluding your home, or income above $200,000 ($300,000 with a spouse) in each of the last two years. Each offering sets its own minimum, often around $100,000 for 1031 investors.
+        </p>
+        <p>
+          <strong>Timing.</strong> Offerings close once they are fully subscribed, so an interest available on day 10 of your 45-day window may be gone by day 40. Investors often line up a first choice and a backup before the sale closes, within the identification rules above.
+        </p>
+        <p>
+          <strong>Replacing debt.</strong> To defer all of the gain, the replacement generally needs to be worth at least as much as what you sold, including any mortgage paid off at closing. A DST that already carries financing can help replace that debt without a new personal loan, while debt-free DSTs suit sellers with little or no mortgage.
+        </p>
+
+        <h3>State taxes: Pennsylvania and California</h3>
+        <p>
+          <strong>Pennsylvania</strong> did not recognize 1031 exchanges for personal income tax until Act 53 of 2022. For exchanges from tax year 2023 onward, Pennsylvania generally follows the federal deferral, so a qualifying DST exchange can defer state tax as well. See our <a href="pennsylvania-retirement-taxes.html">Pennsylvania retirement tax guide</a> for how the state treats other income.
+        </p>
+        <p>
+          <strong>California</strong> tracks gain deferred when California property is exchanged into property elsewhere, including an out-of-state DST. The investor files Form FTB 3840 each year until that gain is recognized, and California can tax it when the replacement property is eventually sold in a taxable sale.
         </p>
 
         <h2>Benefits for Real Estate Investors</h2>
@@ -684,8 +724,11 @@ function gtag_report_conversion(url) {
           <h3>What are the pros and cons of a DST?</h3>
           <p>Potential advantages include passive ownership with no landlord duties, eligibility as 1031 replacement property, access to larger institutional-quality properties, the ability to split proceeds across several DSTs, and existing financing that can help replace debt. Disadvantages include illiquidity for typically 5 to 10 years, no investor control over operations or sale timing, upfront and ongoing fees, sponsor risk, distributions that are not guaranteed, and IRS restrictions that prevent the trust from refinancing, raising new capital, or entering new leases.</p>
 
-          <h3>What is a DST in a 1031 exchange?</h3>
+          <h3>What is a DST 1031 exchange?</h3>
           <p>A Delaware Statutory Trust is a legal entity that may hold investment real estate for multiple beneficial owners. Under IRS Revenue Ruling 2004-86, an interest in certain DSTs may qualify as replacement real property for a Section 1031 exchange when the trust and transaction meet applicable requirements. Eligibility is not automatic.</p>
+
+          <h3>Who can invest in a DST 1031 property?</h3>
+          <p>DST interests are private securities offerings generally limited to accredited investors, such as individuals with a net worth over $1 million excluding their primary residence, or income over $200,000 ($300,000 jointly) in each of the last two years. Each offering sets its own minimum investment, often around $100,000 for 1031 exchange investors.</p>
 
           <h3>What are the 45-day and 180-day deadlines?</h3>
           <p>Replacement property generally must be identified in writing within 45 days after the relinquished property is transferred. The exchange generally must be completed by the earlier of 180 days after transfer or the due date of the taxpayer's return, including extensions. A qualified intermediary and strict procedures are generally required; ask a qualified tax professional about the rules that apply to your transaction.</p>
