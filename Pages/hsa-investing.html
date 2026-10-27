@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-15PBEWL3XZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // Don't count automated browsers (scanners, crawlers) or preview/test hosts.
+    window.__rqNoTrack = navigator.webdriver === true || !/(^|\.)rubiqfinancial\.com$/.test(location.hostname);
+    if (!window.__rqNoTrack) {
+      gtag('config', 'G-15PBEWL3XZ');
+      gtag('config', 'AW-18023805978');
+    }
+    function gtag_report_conversion(url) {
+      if (window.__rqNoTrack) { if (typeof url !== 'undefined') window.location = url; return false; }
+      var callback = function () { if (typeof url !== 'undefined') window.location = url; };
+      gtag('event', 'conversion', {'send_to':'AW-18023805978/PYr9CKmg9qccEJrotZJD','value':1.0,'currency':'USD','event_callback':callback});
+      gtag('event', 'conversion', {'send_to':'AW-18023805978/sQ2MCNuQ0agcEJrotZJD','event_callback':callback});
+      return false;
+    }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HSA Investing and the Triple Tax Advantage | Rubiq</title>
+  <meta name="description" content="How to invest your HSA as a retirement account: the triple tax advantage, 2026 and 2027 limits, the receipts strategy, Medicare timing, and heirs." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/hsa-investing" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Rubiq Financial Partners" />
+  <meta property="og:title" content="HSA Investing and the Triple Tax Advantage | Rubiq" />
+  <meta property="og:description" content="Why an invested HSA can beat a 401(k) or Roth for medical costs in retirement: the triple tax advantage, 2026–2027 limits, Medicare timing, and a worked example." />
+  <meta property="og:url" content="https://www.rubiqfinancial.com/Pages/hsa-investing" />
+  <meta property="og:image" content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="HSA Investing and the Triple Tax Advantage | Rubiq" />
+  <meta name="twitter:description" content="Why an invested HSA can beat a 401(k) or Roth for medical costs in retirement: the triple tax advantage, 2026–2027 limits, Medicare timing, and a worked example." />
+  <meta name="twitter:image" content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,sans-serif;color:#1C2D44}
+    .nav-blur{backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%)}
+    .nav-link{font-size:.8125rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.8);text-decoration:none}
+    .nav-link:hover,.nav-link:focus-visible{color:#D4AE6A}
+    a:focus-visible,button:focus-visible{outline:3px solid #D4AE6A;outline-offset:3px}
+    .focus-link{transition:color .18s ease,filter .18s ease,transform .18s ease}
+    .focus-link:hover{filter:brightness(.96)}
+    .focus-link:active{transform:translateY(1px)}
+    .content h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(1.5rem,3vw,2rem);line-height:1.2;color:#0F1724;margin:3rem 0 1rem;letter-spacing:-.02em}
+    .content h3{font-family:"Playfair Display",Georgia,serif;font-size:1.2rem;line-height:1.3;color:#0F1724;margin:1.75rem 0 .6rem}
+    .content p,.content li{font-size:.975rem;line-height:1.8;color:#405168;font-weight:300}
+    .content p{margin:0 0 1.1rem}
+    .content ul,.content ol{padding-left:1.25rem;margin:.5rem 0 1.5rem}
+    .content ul{list-style:disc}
+    .content ol{list-style:decimal}
+    .content li{padding-left:.25rem;margin:.35rem 0}
+    .content a{color:#1A5EA8;text-decoration:underline;text-underline-offset:3px}
+    .content a:hover{color:#133F73;text-decoration-thickness:2px}
+    .option-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9E7A32}
+    .faq-item{padding:1.25rem 0;border-bottom:1px solid rgba(44,62,85,.12)}
+    .faq-item h3{margin:0 0 .5rem}
+    .answer-box{background:white;border:1px solid rgba(26,94,168,.14);border-radius:10px;padding:1.6rem 1.6rem 1.2rem;margin:0 0 2.25rem;box-shadow:0 8px 24px rgba(15,23,36,.04)}
+    .warn-box{background:white;border:1px solid rgba(196,154,90,.35);border-left:3px solid #C49A5A;border-radius:0 10px 10px 0;padding:1.3rem 1.5rem;margin:1.25rem 0 1.75rem}
+    .data-table{width:100%;border-collapse:collapse;margin:0 0 1rem;background:white;border:1px solid rgba(26,94,168,.12)}
+    .data-table th,.data-table td{text-align:left;vertical-align:top;padding:.65rem .8rem;border-bottom:1px solid rgba(26,94,168,.08);font-size:.9rem;line-height:1.55}
+    .data-table thead th{background:rgba(26,94,168,.04);color:#0F1724;font-weight:600}
+    .data-table td{color:#405168;font-weight:300}
+    .data-table td.num,.data-table th.num{text-align:right;white-space:nowrap}
+    .data-table tr:last-child td{border-bottom:none}
+    .table-note{font-size:.8125rem!important;line-height:1.6!important;color:#5A6B82!important}
+    .compare-wrap{margin:1.25rem 0 1rem;border:1px solid rgba(26,94,168,.12);border-radius:10px;background:white;overflow:hidden}
+    .compare{width:100%;border-collapse:collapse}
+    .compare th,.compare td{text-align:left;vertical-align:top;padding:.75rem .85rem;border-bottom:1px solid rgba(26,94,168,.08);font-size:.875rem;line-height:1.55}
+    .compare thead th{background:rgba(26,94,168,.04);color:#0F1724;font-weight:600}
+    .compare tbody th{color:#0F1724;font-weight:600;width:26%}
+    .compare td{color:#405168;font-weight:300}
+    .compare tr:last-child th,.compare tr:last-child td{border-bottom:none}
+    @media(max-width:639px){
+      .answer-box{padding:1.2rem 1rem 1rem}
+      .data-table th,.data-table td{padding:.55rem .45rem;font-size:.84rem}
+      .compare thead{display:none}
+      .compare tbody tr{display:block;padding:.9rem 1rem;border-bottom:1px solid rgba(26,94,168,.08)}
+      .compare tbody tr:last-child{border-bottom:none}
+      .compare tbody th,.compare tbody td{display:block;width:auto;border:0;padding:.15rem 0}
+      .compare tbody th{margin-bottom:.35rem}
+      .compare td::before{content:attr(data-label);display:block;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9E7A32;margin-top:.35rem}
+    }
+    .focus-link:focus-visible{outline:3px solid #D4AE6A;outline-offset:3px}
+    #mobile-menu{display:none}
+    @media(max-width:767px){#mobile-menu.open{display:flex}}
+    .skip-link:focus-visible{top:0!important}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "HSA Investing: How to Use the Triple Tax Advantage for Retirement",
+    "description": "An educational guide to investing a health savings account (HSA) for retirement: the triple tax advantage, 2026 and 2027 contribution limits, eligibility changes from 2026, the pay-now-reimburse-later strategy, Medicare enrollment timing, what happens to an HSA at death, Pennsylvania and New Jersey tax treatment, and a worked example compared with traditional and Roth accounts.",
+    "url": "https://www.rubiqfinancial.com/Pages/hsa-investing",
+    "datePublished": "2026-10-27",
+    "dateModified": "2026-10-27",
+    "author": {"@type": "Organization", "name": "Rubiq Financial Partners"},
+    "publisher": {"@id": "https://www.rubiqfinancial.com/#organization"},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.rubiqfinancial.com/Pages/hsa-investing"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.rubiqfinancial.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.rubiqfinancial.com/Pages/insights"},
+      {"@type": "ListItem", "position": 3, "name": "HSA Investing", "item": "https://www.rubiqfinancial.com/Pages/hsa-investing"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the HSA triple tax advantage?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Contributions are made pre-tax or are tax-deductible, the money grows without tax on interest, dividends, or gains, and withdrawals are tax-free when used for qualified medical expenses. Contributions made through payroll also avoid Social Security and Medicare taxes. No other account gets all three."}
+      },
+      {
+        "@type": "Question",
+        "name": "Can you invest money in an HSA?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes. Most HSA providers let you invest in mutual funds or ETFs once your cash balance passes a set minimum, often $1,000 to $2,000. If your employer's HSA has limited or expensive investment choices, you can usually move money to another HSA provider through a trustee-to-trustee transfer while still contributing through payroll."}
+      },
+      {
+        "@type": "Question",
+        "name": "What are the HSA contribution limits for 2026 and 2027?",
+        "acceptedAnswer": {"@type": "Answer", "text": "For 2026 the limit is $4,400 for self-only coverage and $8,750 for family coverage. For 2027 it rises to $4,500 and $9,000. People age 55 or older can add a $1,000 catch-up contribution each year. Employer contributions count toward the limit."}
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to an HSA after age 65?",
+        "acceptedAnswer": {"@type": "Answer", "text": "You can still use it tax-free for qualified medical expenses, including Medicare Part B, Part D, and Medicare Advantage premiums. Withdrawals for anything else are taxed as ordinary income, like a traditional IRA, but the 20% penalty that applies before 65 no longer does. HSAs have no required minimum distributions."}
+      },
+      {
+        "@type": "Question",
+        "name": "Can I contribute to an HSA while on Medicare?",
+        "acceptedAnswer": {"@type": "Answer", "text": "No. Once you enroll in any part of Medicare, you can no longer contribute, although you can keep spending and investing the balance. If you enroll in Medicare after 65, Part A coverage can be backdated up to six months, so stop HSA contributions six months before you apply to avoid an excess contribution."}
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a deadline to reimburse myself from an HSA?",
+        "acceptedAnswer": {"@type": "Answer", "text": "No. You can reimburse yourself tax-free years later for qualified expenses incurred after the HSA was established, as long as you were not reimbursed elsewhere and did not deduct them. Keep receipts and records that show the expense, the date, and that it was paid out of pocket."}
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to an HSA when you die?",
+        "acceptedAnswer": {"@type": "Answer", "text": "If your spouse is the beneficiary, the account becomes your spouse's HSA with the same tax benefits. Any other beneficiary must include the full value in taxable income for the year of death, reduced by your qualified medical expenses they pay within one year. For that reason, many families plan to spend the HSA during their own lifetimes."}
+      },
+      {
+        "@type": "Question",
+        "name": "Does Pennsylvania tax HSA contributions?",
+        "acceptedAnswer": {"@type": "Answer", "text": "No. Pennsylvania follows the federal treatment: deductible contributions can be deducted on PA Schedule O, and withdrawals that are tax-free federally are not taxed by Pennsylvania. New Jersey and California do not follow the federal rules, so residents there pay state income tax on contributions and account earnings."}
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="focus-link skip-link" style="position:absolute;top:-100px;left:1rem;z-index:100;background:#C49A5A;color:#0F1724;padding:.75rem 1rem;font-weight:600">Skip to content</a>
+  <nav class="fixed top-0 left-0 right-0 z-50 nav-blur" style="background:rgba(15,23,36,.94);border-bottom:1px solid rgba(255,255,255,.08)">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between" style="height:72px">
+      <a href="../index.html" aria-label="Rubiq Financial Partners home"><img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Vertical -White.png" alt="Rubiq Financial Partners" width="240" height="44" style="height:44px;width:auto" /></a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="our-capabilities.html" class="nav-link">Capabilities</a><a href="our-clients.html" class="nav-link">Clients</a><a href="our-team.html" class="nav-link">Team</a><a href="insights.html" class="nav-link">Resources</a><a href="fee-structure.html" class="nav-link">Fees</a>
+      </div>
+      <a class="hidden md:inline-flex focus-link" href="schedule.html" onclick="return gtag_report_conversion(this.href)" style="background:#C49A5A;color:#0F1724;padding:.7rem 1.1rem;border-radius:4px;text-decoration:none;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Schedule a Call</a>
+      <button class="md:hidden focus-link" type="button" aria-label="Toggle navigation" aria-expanded="false" onclick="var m=document.getElementById('mobile-menu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))" style="color:white;background:none;border:0;padding:.6rem;font-size:1.35rem">☰</button>
+    </div>
+    <div id="mobile-menu" style="background:#0F1724;padding:0 1.5rem 1.25rem;flex-direction:column">
+      <a href="our-capabilities.html" class="nav-link" style="padding:.8rem 0">Capabilities</a><a href="our-clients.html" class="nav-link" style="padding:.8rem 0">Clients</a><a href="our-team.html" class="nav-link" style="padding:.8rem 0">Team</a><a href="insights.html" class="nav-link" style="padding:.8rem 0">Resources</a><a href="fee-structure.html" class="nav-link" style="padding:.8rem 0">Fees</a>
+    </div>
+  </nav>
+
+  <header style="margin-top:72px;padding:5.5rem 0 4.5rem;background:radial-gradient(ellipse at 82% 5%,rgba(196,154,90,.18),transparent 38%),linear-gradient(150deg,#0F1724 0%,#133F73 62%,#1A5EA8 100%);color:white">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10">
+      <a href="insights.html" class="focus-link" style="display:inline-block;color:rgba(255,255,255,.65);font-size:.75rem;text-decoration:none;margin-bottom:1.6rem">← All Resources</a>
+      <p style="font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#D4AE6A;margin:0 0 1rem">Retirement Planning &middot; Tax</p>
+      <h1 style="max-width:880px;font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.35rem,5vw,4.25rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 1.25rem">HSA Investing: How to Use the Triple Tax Advantage for Retirement</h1>
+      <p style="max-width:720px;color:rgba(255,255,255,.77);font-size:1.08rem;font-weight:300;line-height:1.8;margin:0">A health savings account is the only account in the tax code that is deductible going in, grows tax-free, and comes out tax-free for medical costs. Most people spend it each year. Investing it instead, and paying today&rsquo;s bills another way, can turn it into one of the most valuable accounts you own in retirement.</p>
+    </div>
+  </header>
+
+  <main id="main-content" class="content">
+    <section style="background:#FAF8F4;padding:3.5rem 0">
+      <div class="max-w-6xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <article class="lg:col-span-2">
+
+          <div class="answer-box">
+            <p class="option-label" style="margin:0 0 .5rem">The short answer</p>
+            <p style="font-size:1.05rem;line-height:1.75;color:#1C2D44;font-weight:400">An HSA gets a <strong style="font-weight:600">triple tax advantage</strong>: money goes in pre-tax, grows tax-free, and comes out tax-free for medical costs at any age. If you can pay current medical bills from your paycheck or savings, investing the HSA and letting it grow for retirement gives you a tax-free fund for what is often one of the largest costs in retirement.</p>
+            <table class="data-table">
+              <thead><tr><th>&nbsp;</th><th>HSA</th><th>Pre-tax 401(k)</th><th>Roth</th></tr></thead>
+              <tbody>
+                <tr><td>Money going in</td><td><strong>Pre-tax</strong></td><td>Pre-tax</td><td>After-tax</td></tr>
+                <tr><td>Growth</td><td><strong>Tax-free</strong></td><td>Tax-deferred</td><td>Tax-free</td></tr>
+                <tr><td>Withdrawals for medical costs</td><td><strong>Tax-free</strong></td><td>Taxed</td><td>Tax-free*</td></tr>
+                <tr><td>Other withdrawals after 65</td><td>Taxed, no penalty</td><td>Taxed</td><td>Tax-free*</td></tr>
+                <tr><td>Required distributions</td><td>None</td><td>From 73 or 75</td><td>None</td></tr>
+              </tbody>
+            </table>
+            <p class="table-note" style="margin:0">*Qualified Roth withdrawals. HSA withdrawals for non-medical costs before 65 are taxed plus a 20% penalty. Payroll HSA contributions also skip Social Security and Medicare taxes.</p>
+          </div>
+
+          <h2 style="margin-top:0">HSA limits for 2026 and 2027</h2>
+          <table class="data-table">
+            <thead><tr><th>&nbsp;</th><th style="text-align:right">2026</th><th style="text-align:right">2027</th></tr></thead>
+            <tbody>
+              <tr><td>Contribution limit, self-only</td><td class="num">$4,400</td><td class="num">$4,500</td></tr>
+              <tr><td>Contribution limit, family</td><td class="num">$8,750</td><td class="num">$9,000</td></tr>
+              <tr><td>Catch-up, age 55+</td><td class="num">$1,000</td><td class="num">$1,000</td></tr>
+              <tr><td>Minimum plan deductible (self / family)</td><td class="num">$1,700 / $3,400</td><td class="num">$1,750 / $3,500</td></tr>
+              <tr><td>Out-of-pocket maximum (self / family)</td><td class="num">$8,500 / $17,000</td><td class="num">$8,700 / $17,400</td></tr>
+            </tbody>
+          </table>
+          <p class="table-note">Sources: IRS Rev. Proc. 2025-19 (2026) and Rev. Proc. 2026-24 (2027). Employer contributions count toward the limit. Married couples with family coverage share the family limit; each spouse 55+ can add a catch-up to their own HSA.</p>
+
+          <h2>Who can contribute</h2>
+          <p>You need to be covered by a qualifying high-deductible health plan (HDHP) and have no other disqualifying health coverage, such as a spouse&rsquo;s general-purpose FSA or Medicare, and not be claimed as someone else&rsquo;s dependent. Starting in 2026, the 2025 tax law made more people eligible:</p>
+          <ul>
+            <li><strong>Bronze and catastrophic marketplace plans</strong> now count as HSA-eligible, which matters for early retirees and the self-employed buying their own coverage.</li>
+            <li><strong>Direct primary care</strong> memberships of up to $150 a month ($300 for a family) no longer block contributions, and the fees can be paid from the HSA.</li>
+            <li><strong>Telehealth before the deductible</strong> is permanently allowed without losing eligibility.</li>
+          </ul>
+
+          <h2>How to invest an HSA for retirement</h2>
+          <ol>
+            <li><strong>Contribute the maximum through payroll</strong> if your employer offers it. Payroll contributions avoid the 7.65% Social Security and Medicare tax, which direct contributions do not.</li>
+            <li><strong>Keep a cash cushion</strong> equal to your deductible, or whatever minimum your provider requires before you can invest.</li>
+            <li><strong>Invest the rest for the long term.</strong> Money you won&rsquo;t touch for 15 or 20 years can usually be invested much like the rest of your retirement savings, in low-cost diversified funds.</li>
+            <li><strong>Pay today&rsquo;s medical bills out of pocket</strong> when you can, and save every receipt.</li>
+            <li><strong>Reimburse yourself later.</strong> There is no deadline: you can withdraw tax-free for qualified expenses from years ago, as long as they were incurred after the HSA was opened.</li>
+            <li><strong>Move to a better provider</strong> if your employer&rsquo;s HSA has high fees or few funds. A trustee-to-trustee transfer is not taxed and doesn&rsquo;t count against your limit.</li>
+          </ol>
+
+          <h2>A worked example</h2>
+          <p>A married couple, both age 50, has family HDHP coverage and puts <strong>$8,750 a year</strong> into an HSA through payroll until 65. They pay their medical bills from cash flow and invest the HSA, earning a hypothetical 6% a year. They are in the 35% federal bracket now and expect 24% in retirement. Compare the same pre-tax dollars in three accounts:</p>
+          <table class="data-table">
+            <thead><tr><th>&nbsp;</th><th style="text-align:right">HSA</th><th style="text-align:right">Pre-tax 401(k)</th><th style="text-align:right">Roth</th></tr></thead>
+            <tbody>
+              <tr><td>Invested each year</td><td class="num">$8,750</td><td class="num">$8,750</td><td class="num">$5,688</td></tr>
+              <tr><td>Balance at 65</td><td class="num">$203,665</td><td class="num">$203,665</td><td class="num">$132,394</td></tr>
+              <tr><td>Tax when spent on medical costs</td><td class="num">$0</td><td class="num">$48,880</td><td class="num">$0</td></tr>
+              <tr class="total"><td>Available for medical costs</td><td class="num">$203,665</td><td class="num">$154,785</td><td class="num">$132,394</td></tr>
+            </tbody>
+          </table>
+          <p class="table-note">Hypothetical illustration only; not a projection of any investment. Assumes level contributions, a 6% annual return, no fees, 35% tax on Roth contributions and 24% on pre-tax withdrawals. Ignores state tax, catch-up contributions, and payroll tax savings, which would add to the HSA&rsquo;s lead.</p>
+          <p>That $203,665 would not go unused. Fidelity&rsquo;s 2026 estimate is that a 65-year-old retiring this year will spend about <strong>$185,500</strong> on health care in retirement, or <strong>$371,000</strong> for a couple, not counting long-term care.</p>
+
+<div class="booking-offer" style="background:linear-gradient(135deg,#0F1724 0%,#133F73 100%);border-radius:10px;padding:1.5rem 1.6rem;margin:2.25rem 0 2.5rem;box-shadow:0 10px 28px rgba(15,23,36,.18);">
+            <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;font-weight:600;line-height:1.3;color:white;margin:0 0 .45rem;">Is your HSA sitting in cash?</p>
+            <p style="font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.78);font-weight:300;margin:0 0 1.1rem;">We&rsquo;ll look at your HSA, 401(k), and Roth together, decide how much to invest and where, and plan which account pays which retirement costs.</p>
+            <a class="focus-link" href="schedule.html" onclick="return gtag_report_conversion(this.href)" style="display:inline-block;background:#C49A5A;color:#0F1724;padding:.8rem 1.3rem;border-radius:4px;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;">Plan my HSA &rarr;</a>
+          </div>
+
+          <h2>HSAs and Medicare: the six-month rule</h2>
+          <p>You can&rsquo;t contribute to an HSA once you are enrolled in any part of Medicare. If you start Social Security at or after 65, you are enrolled in Part A automatically. If you keep working past 65 and enroll in Medicare later, <strong>Part A coverage is backdated up to six months</strong> (but not before the month you turned 65). Contributions made during those months become excess contributions, subject to a 6% penalty each year until they are removed.</p>
+          <div class="warn-box">
+            <p class="option-label" style="margin:0 0 .4rem">Plan the last contribution</p>
+            <p style="margin:0">Stop HSA contributions, including your employer&rsquo;s, six months before you apply for Medicare or Social Security. In the year Medicare starts, your limit is prorated by the months you were eligible.</p>
+          </div>
+          <p>Once on Medicare, the HSA keeps working. You can use it tax-free for Part B, Part D, and Medicare Advantage premiums, deductibles, copays, dental, vision, hearing aids, and long-term care insurance premiums up to IRS age-based limits. Medicare supplement (Medigap) premiums are not eligible.</p>
+
+          <h2>What happens to an HSA when you die</h2>
+          <p>A <strong>spouse</strong> named as beneficiary simply takes over the HSA with the same tax benefits. <strong>Anyone else</strong>, including children, must report the entire balance as taxable income in the year you die, reduced only by your medical bills they pay within a year. Unlike an <a href="inherited-ira-rules.html">inherited IRA</a>, there is no 10-year window to spread the tax out.</p>
+          <p>The practical result: an HSA is best spent during your lifetime, ideally by the surviving spouse. When you plan which accounts to draw down first, use the HSA for medical costs and leave Roth accounts, which heirs inherit tax-free, for last.</p>
+
+          <h2>Using an IRA to fund an HSA, once</h2>
+          <p>Once in your lifetime, you can move money from a traditional IRA directly into your HSA, up to that year&rsquo;s contribution limit. It counts against that year&rsquo;s limit, and you must stay HSA-eligible for the following 12 months. It turns taxable IRA dollars into tax-free medical dollars without a deduction, so it helps most when you can&rsquo;t fund the HSA from cash.</p>
+
+          <h2>Pennsylvania vs. New Jersey</h2>
+          <p><strong>Pennsylvania</strong> follows the federal rules. Contributions can be deducted on PA Schedule O, payroll contributions are excluded from PA wages, and withdrawals that are tax-free federally aren&rsquo;t taxed by the state. See our <a href="pennsylvania-retirement-taxes.html">Pennsylvania retirement tax guide</a> for how PA treats other accounts.</p>
+          <p><strong>New Jersey</strong> (like California) does not recognize HSAs. Contributions are included in New Jersey income, and interest, dividends, and gains in the account are taxed by the state each year. The federal advantage still applies, and for most families it far outweighs the state tax.</p>
+
+          <h2>How Rubiq helps</h2>
+          <p>An HSA works best as part of a whole retirement plan. We look at your HSA alongside your <a href="401k-rollover-options.html">401(k)</a>, IRAs, and <a href="resources-roth-conversion.html">Roth conversion</a> plans, decide how to invest it, plan the last contribution before Medicare, and set a withdrawal order that keeps taxes and Medicare premiums low. See <a href="retirement-planning.html">retirement planning at Rubiq</a>, and our guide to the <a href="rule-of-55.html">Rule of 55</a> if you plan to retire early.</p>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-item"><h3>What is the HSA triple tax advantage?</h3><p>Contributions are made pre-tax or are tax-deductible, the money grows without tax on interest, dividends, or gains, and withdrawals are tax-free when used for qualified medical expenses. Contributions made through payroll also avoid Social Security and Medicare taxes. No other account gets all three.</p></div>
+          <div class="faq-item"><h3>Can you invest money in an HSA?</h3><p>Yes. Most HSA providers let you invest in mutual funds or ETFs once your cash balance passes a set minimum, often $1,000 to $2,000. If your employer&rsquo;s HSA has limited or expensive investment choices, you can usually move money to another HSA provider through a trustee-to-trustee transfer while still contributing through payroll.</p></div>
+          <div class="faq-item"><h3>What are the HSA contribution limits for 2026 and 2027?</h3><p>For 2026 the limit is $4,400 for self-only coverage and $8,750 for family coverage. For 2027 it rises to $4,500 and $9,000. People age 55 or older can add a $1,000 catch-up contribution each year. Employer contributions count toward the limit.</p></div>
+          <div class="faq-item"><h3>What happens to an HSA after age 65?</h3><p>You can still use it tax-free for qualified medical expenses, including Medicare Part B, Part D, and Medicare Advantage premiums. Withdrawals for anything else are taxed as ordinary income, like a traditional IRA, but the 20% penalty that applies before 65 no longer does. HSAs have no required minimum distributions.</p></div>
+          <div class="faq-item"><h3>Can I contribute to an HSA while on Medicare?</h3><p>No. Once you enroll in any part of Medicare, you can no longer contribute, although you can keep spending and investing the balance. If you enroll in Medicare after 65, Part A coverage can be backdated up to six months, so stop HSA contributions six months before you apply to avoid an excess contribution.</p></div>
+          <div class="faq-item"><h3>Is there a deadline to reimburse myself from an HSA?</h3><p>No. You can reimburse yourself tax-free years later for qualified expenses incurred after the HSA was established, as long as you were not reimbursed elsewhere and did not deduct them. Keep receipts and records that show the expense, the date, and that it was paid out of pocket.</p></div>
+          <div class="faq-item"><h3>What happens to an HSA when you die?</h3><p>If your spouse is the beneficiary, the account becomes your spouse&rsquo;s HSA with the same tax benefits. Any other beneficiary must include the full value in taxable income for the year of death, reduced by your qualified medical expenses they pay within one year. For that reason, many families plan to spend the HSA during their own lifetimes.</p></div>
+          <div class="faq-item"><h3>Does Pennsylvania tax HSA contributions?</h3><p>No. Pennsylvania follows the federal treatment: deductible contributions can be deducted on PA Schedule O, and withdrawals that are tax-free federally are not taxed by Pennsylvania. New Jersey and California do not follow the federal rules, so residents there pay state income tax on contributions and account earnings.</p></div>
+        </article>
+
+        <aside style="align-self:start;background:white;border:1px solid rgba(26,94,168,.12);border-radius:10px;padding:1.5rem;box-shadow:0 8px 24px rgba(15,23,36,.04)">
+          <p class="option-label">Turn your HSA into a retirement account</p>
+          <h2 style="font-size:1.4rem;margin:0 0 1rem">HSA checklist</h2>
+          <ol style="padding-left:1.2rem;margin:0;list-style:decimal">
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Confirm your health plan is HSA-eligible for 2026 and 2027.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Contribute the maximum, through payroll if possible.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Add the $1,000 catch-up from age 55.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Invest everything above your cash cushion.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Pay current bills out of pocket and save receipts.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Stop contributions six months before Medicare.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Name your spouse as beneficiary where it fits your plan.</li>
+          </ol>
+          <p style="font-size:.8rem;line-height:1.65;margin:1rem 0 0;color:#65748A">Educational information only; not tax or legal advice. Investing involves risk, including loss of principal. Hypothetical examples do not represent any specific investment.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section style="padding:3.25rem 0;background:white">
+      <div class="max-w-4xl mx-auto px-6 lg:px-10">
+        <h2 style="margin-top:0">Learn more</h2>
+        <ul>
+          <li><a href="https://www.irs.gov/publications/p969" target="_blank" rel="noopener noreferrer">IRS Publication 969: Health Savings Accounts</a></li>
+          <li><a href="retirement-planning.html">Retirement planning at Rubiq Financial Partners</a></li>
+          <li><a href="resources-roth-conversion.html">Roth conversion guide</a></li>
+          <li><a href="pennsylvania-retirement-taxes.html">Pennsylvania retirement taxes</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="padding:3.5rem 0;background:linear-gradient(155deg,#0F1724 0%,#133F73 60%,#1A5EA8 100%);text-align:center">
+      <div class="max-w-3xl mx-auto px-6 lg:px-10">
+        <p style="font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#D4AE6A;margin:0 0 .75rem">Retirement health costs</p>
+        <h2 style="font-family:'Playfair Display',Georgia,serif;color:white;font-size:clamp(1.7rem,3.8vw,2.5rem);margin:0 0 1rem">Make your HSA pull its weight in retirement.</h2>
+        <p style="font-size:.95rem;line-height:1.75;color:rgba(255,255,255,.75);font-weight:300;margin:0 auto 1.5rem;max-width:620px">We coordinate your HSA with your 401(k), IRAs, and Roth accounts, plan around Medicare, and decide which account pays for what.</p>
+        <a class="focus-link" href="schedule.html" onclick="return gtag_report_conversion(this.href)" style="display:inline-block;background:#C49A5A;color:#0F1724;padding:.85rem 1.4rem;border-radius:4px;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Schedule a call</a>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:#0F1724;padding:1.5rem 0;color:rgba(255,255,255,.55)">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <a href="../index.html"><img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png" alt="Rubiq Financial Partners" width="180" height="40" style="width:180px;height:auto" loading="lazy" /></a>
+      <p style="font-size:.72rem;text-align:center;line-height:1.6;margin:0">© 2026 Rubiq Financial Partners. Advisory services offered through Wealthcare Advisory Partners.<br />This page is for educational purposes and is not tax, legal, or investment advice.</p>
+      <a class="nav-link focus-link" href="insights.html">All Resources</a>
+    </div>
+  </footer>
+<!-- Sticky Mobile CTA -->
+<a id="sticky-mobile-cta" href="schedule.html"
+   style="display:none;position:fixed;bottom:-60px;left:1rem;right:1rem;z-index:9998;
+          background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);
+          color:#0F1724;text-align:center;
+          font-family:'Inter',sans-serif;font-size:0.9375rem;font-weight:600;
+          letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;
+          padding:1rem;border-radius:6px;
+          box-shadow:0 -2px 16px rgba(0,0,0,0.25),0 4px 12px rgba(196,154,74,0.35);
+          transition:bottom 0.3s cubic-bezier(0.4,0,0.2,1);" onclick="return gtag_report_conversion(this.href)">
+  Schedule a Call
+</a>
+<style>
+  @media(min-width:768px){ #sticky-mobile-cta{display:none!important;} }
+</style>
+<script>
+(function(){
+  var cta=document.getElementById('sticky-mobile-cta');
+  if(!cta)return;
+  if(window.innerWidth<768) cta.style.display='block';
+  window.addEventListener('scroll',function(){
+    if(window.innerWidth>=768)return;
+    cta.style.display='block';
+    cta.style.bottom=window.scrollY>100?'1rem':'-60px';
+  },{passive:true});
+  window.addEventListener('resize',function(){
+    cta.style.display=window.innerWidth<768?'block':'none';
+  });
+})();
+</script>
+</body>
+</html>
