@@ -149,6 +149,11 @@
       },
       {
         "@type": "Question",
+        "name": "Should I take only the minimum from an inherited IRA?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Not necessarily. Taking only the minimum can leave a large balance that must all come out, and be taxed, in the final year. Spreading withdrawals evenly helps, but the lowest-tax plan usually withdraws more in lower-income years and less in high-income years, and accounts for Medicare premiums, financial aid, and any planned move."}
+      },
+      {
+        "@type": "Question",
         "name": "What happens if I miss an inherited IRA RMD?",
         "acceptedAnswer": {"@type": "Answer", "text": "The shortfall is subject to a 25% excise tax, which drops to 10% if the missed amount is withdrawn and corrected promptly. The IRS waived the penalty for missed annual 10-year-rule distributions for 2021 through 2024, but annual RMDs are required from 2025 on."}
       },
@@ -206,6 +211,7 @@
             .rmd-wide{grid-column:1/-1}
             .rmd-hint{color:#65748A;font-size:.9rem}
             .rmd-table td,.rmd-table th{font-size:.85rem}
+            .rmd-better{background:#FFF8EC;border:1px solid rgba(196,154,90,.45);border-left:4px solid #C49A5A;border-radius:8px;padding:1.2rem 1.3rem;margin:1.25rem 0 0;font-size:.95rem;line-height:1.7;color:#1C2D44}
             @media(max-width:640px){.rmd-form{grid-template-columns:1fr;padding:1.1rem}}
           </style>
           <div id="calculator" class="rmd-form" role="group" aria-label="Inherited IRA RMD calculator">
@@ -351,6 +357,11 @@
       h += "<tr><td>" + x.year + "</td>" + (x.age !== null ? '<td class="num">' + x.age + "</td>" : "") + '<td class="num">' + (x.factor ? x.factor.toFixed(1) : "&ndash;") + '</td><td class="num">' + (x.all ? "<strong>" + money(x.req) + "</strong><br><span style='font-size:.72rem'>all remaining</span>" : money(x.req)) + '</td><td class="num">' + money(x.end) + "</td></tr>";
     });
     h += "</tbody></table></div><p class='table-note'>Total withdrawn: " + money(r.total) + ". Each year&rsquo;s minimum is the prior December 31 balance divided by the factor. Balances grow at " + o.growth + "% a year, a hypothetical rate. Estimates only; confirm with your IRA custodian and tax professional.</p>";
+    if (r.deadline || r.annual) {
+      h += '<div class="rmd-better"><p style="font-family:\'Playfair Display\',Georgia,serif;font-size:1.15rem;font-weight:600;color:#0F1724;margin:0 0 .4rem">The minimum isn&rsquo;t the plan</p>' +
+        '<p style="margin:0 0 .9rem">Taking just the minimum, or splitting it evenly, is rarely the lowest-tax path. Withdrawing more in your lower-income years and less in high-income ones' + (r.roth ? ", or letting a Roth grow tax-free until the deadline," : "") + ' can keep thousands more in the family.</p>' +
+        '<a class="focus-link" href="schedule.html" onclick="return gtag_report_conversion(this.href)" style="display:inline-block;background:#C49A5A;color:#0F1724;padding:.7rem 1.15rem;border-radius:4px;text-decoration:none;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Get a withdrawal plan &rarr;</a></div>';
+    }
     out.innerHTML = h;
   }
   ["rmd-account", "rmd-type", "rmd-owner-dob", "rmd-death", "rmd-bene-year", "rmd-balance", "rmd-growth"].forEach(function (id) {
@@ -388,11 +399,24 @@
             </tbody>
           </table>
           <p class="table-note">Hypothetical illustration only; not a projection of any investment. Minimums rise each year as the factor drops by one.</p>
-          <p>Taking only the minimums leaves almost <strong>$1 million to withdraw in a single year</strong>, most of it taxed at the top federal rate. Spreading it out keeps each year&rsquo;s income lower. The best pattern usually depends on the years ahead: withdrawing more in lower-income years, such as after retirement or before Social Security, and less in high-income years.</p>
+          <p>Taking only the minimums leaves almost <strong>$1 million to withdraw in a single year</strong>, most of it taxed at the top federal rate. Spreading it evenly keeps each year&rsquo;s income lower, but even withdrawals aren&rsquo;t automatically the best answer either.</p>
+
+          <h2>Why neither the minimum nor an even split is usually best</h2>
+          <p>The calculator shows what you <em>must</em> withdraw. What you <em>should</em> withdraw depends on the next 10 years of your own income, and those years are rarely alike. A plan built around them often beats both the minimum and an even split:</p>
+          <ul>
+            <li><strong>Lower-income years come first.</strong> A gap between retiring and starting Social Security or your own RMDs, a sabbatical, or a year with a business loss can be the cheapest time to withdraw a lot, filling up a lower bracket.</li>
+            <li><strong>High-income years now.</strong> If you are at your peak earnings, taking only the minimum for a few years and withdrawing more after you retire can save a full bracket or more, as long as you don&rsquo;t leave too much for the final year.</li>
+            <li><strong>Medicare premiums.</strong> Withdrawals count toward the income that sets Medicare Part B and D surcharges two years later, so timing matters once you are within about two years of 65.</li>
+            <li><strong>College aid and health insurance credits.</strong> Financial aid formulas and marketplace health insurance subsidies are based on income, so a big withdrawal in the wrong year can cost more than the tax itself.</li>
+            <li><strong>Use the cash to save more yourself.</strong> Raising your own 401(k) contributions and living partly on inherited IRA withdrawals moves money back into a tax-deferred account you control.</li>
+            <li><strong>Inherited Roth IRAs.</strong> With no yearly minimum, it often makes sense to leave a Roth alone until the final year so it grows tax-free as long as possible.</li>
+            <li><strong>A planned move.</strong> If you expect to move to a state with lower income tax, deferring withdrawals until after the move can cut the state tax.</li>
+          </ul>
+          <p>Getting this right means looking at your tax return, your other accounts, and your plans for the next decade together. That is the kind of planning we do every day.</p>
 
 <div class="booking-offer" style="background:linear-gradient(135deg,#0F1724 0%,#133F73 100%);border-radius:10px;padding:1.5rem 1.6rem;margin:2.25rem 0 2.5rem;box-shadow:0 10px 28px rgba(15,23,36,.18);">
-            <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;font-weight:600;line-height:1.3;color:white;margin:0 0 .45rem;">Inherited an IRA?</p>
-            <p style="font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.78);font-weight:300;margin:0 0 1.1rem;">We&rsquo;ll map a withdrawal plan across the 10 years around your income, tax brackets, and other accounts, so the inheritance isn&rsquo;t lost to one large tax bill.</p>
+            <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;font-weight:600;line-height:1.3;color:white;margin:0 0 .45rem;">Find your best withdrawal pattern</p>
+            <p style="font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.78);font-weight:300;margin:0 0 1.1rem;">Bring your inherited IRA statement and last year&rsquo;s tax return. We&rsquo;ll map withdrawals across the 10 years around your income, brackets, and Medicare timing, and show how much tax a plan can save compared with the minimum.</p>
             <a class="focus-link" href="schedule.html" onclick="return gtag_report_conversion(this.href)" style="display:inline-block;background:#C49A5A;color:#0F1724;padding:.8rem 1.3rem;border-radius:4px;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;">Plan my withdrawals &rarr;</a>
           </div>
 
@@ -410,6 +434,7 @@
           <div class="faq-item"><h3>Do I have to take annual RMDs under the 10-year rule?</h3><p>Only if the owner died on or after their required beginning date. In that case, starting in 2025, you must take a minimum each year in years one through nine and empty the account by December 31 of the tenth year after the death. If the owner died before their required beginning date, no withdrawal is required until the tenth year, but the account must still be empty by then.</p></div>
           <div class="faq-item"><h3>What is the required beginning date?</h3><p>It is April 1 of the year after the owner reaches RMD age: 73 for owners born 1951 through 1959, 75 for those born in 1960 or later, 72 for those born between July 1, 1949 and 1950, and 70 and a half for those born earlier. Roth IRA owners have no required beginning date, so inherited Roth IRAs are treated as if the owner died before it.</p></div>
           <div class="faq-item"><h3>Who can still stretch an inherited IRA over their life expectancy?</h3><p>Eligible designated beneficiaries: a surviving spouse, the owner&rsquo;s minor child until age 21, a disabled or chronically ill beneficiary, and a beneficiary not more than 10 years younger than the owner. A minor child switches to the 10-year rule at 21. Everyone else who is named as a beneficiary generally falls under the 10-year rule.</p></div>
+          <div class="faq-item"><h3>Should I take only the minimum from an inherited IRA?</h3><p>Not necessarily. Taking only the minimum can leave a large balance that must all come out, and be taxed, in the final year. Spreading withdrawals evenly helps, but the lowest-tax plan usually withdraws more in lower-income years and less in high-income years, and accounts for Medicare premiums, financial aid, and any planned move.</p></div>
           <div class="faq-item"><h3>What happens if I miss an inherited IRA RMD?</h3><p>The shortfall is subject to a 25% excise tax, which drops to 10% if the missed amount is withdrawn and corrected promptly. The IRS waived the penalty for missed annual 10-year-rule distributions for 2021 through 2024, but annual RMDs are required from 2025 on.</p></div>
           <div class="faq-item"><h3>Do inherited Roth IRAs have required distributions?</h3><p>Yes. Non-spouse beneficiaries must still empty an inherited Roth IRA within 10 years, or stretch it if they are eligible designated beneficiaries. Because Roth owners never have RMDs, there is no annual minimum under the 10-year rule. Withdrawals are generally tax-free once the Roth has been open five years.</p></div>
         </article>
