@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-15PBEWL3XZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // Don't count automated browsers (scanners, crawlers) or preview/test hosts.
+    window.__rqNoTrack = navigator.webdriver === true || !/(^|\.)rubiqfinancial\.com$/.test(location.hostname);
+    if (!window.__rqNoTrack) {
+      gtag('config', 'G-15PBEWL3XZ');
+      gtag('config', 'AW-18023805978');
+    }
+    function gtag_report_conversion(url) {
+      if (window.__rqNoTrack) { if (typeof url !== 'undefined') window.location = url; return false; }
+      var callback = function () { if (typeof url !== 'undefined') window.location = url; };
+      gtag('event', 'conversion', {'send_to':'AW-18023805978/PYr9CKmg9qccEJrotZJD','value':1.0,'currency':'USD','event_callback':callback});
+      gtag('event', 'conversion', {'send_to':'AW-18023805978/sQ2MCNuQ0agcEJrotZJD','event_callback':callback});
+      return false;
+    }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inherited IRA RMD Calculator (2026): 10-Year Rule | Rubiq</title>
+  <meta name="description" content="Free inherited IRA RMD calculator: see your required withdrawals each year under the 10-year rule or a life-expectancy stretch, using IRS life tables." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/inherited-ira-rmd-calculator" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Rubiq Financial Partners" />
+  <meta property="og:title" content="Inherited IRA RMD Calculator (2026): 10-Year Rule | Rubiq" />
+  <meta property="og:description" content="Enter the owner&rsquo;s dates, your age, and the balance to see which inherited IRA rule applies, your yearly minimum withdrawals, and the 10-year deadline." />
+  <meta property="og:url" content="https://www.rubiqfinancial.com/Pages/inherited-ira-rmd-calculator" />
+  <meta property="og:image" content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Inherited IRA RMD Calculator (2026): 10-Year Rule | Rubiq" />
+  <meta name="twitter:description" content="Enter the owner&rsquo;s dates, your age, and the balance to see which inherited IRA rule applies, your yearly minimum withdrawals, and the 10-year deadline." />
+  <meta name="twitter:image" content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,sans-serif;color:#1C2D44}
+    .nav-blur{backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%)}
+    .nav-link{font-size:.8125rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.8);text-decoration:none}
+    .nav-link:hover,.nav-link:focus-visible{color:#D4AE6A}
+    a:focus-visible,button:focus-visible{outline:3px solid #D4AE6A;outline-offset:3px}
+    .focus-link{transition:color .18s ease,filter .18s ease,transform .18s ease}
+    .focus-link:hover{filter:brightness(.96)}
+    .focus-link:active{transform:translateY(1px)}
+    .content h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(1.5rem,3vw,2rem);line-height:1.2;color:#0F1724;margin:3rem 0 1rem;letter-spacing:-.02em}
+    .content h3{font-family:"Playfair Display",Georgia,serif;font-size:1.2rem;line-height:1.3;color:#0F1724;margin:1.75rem 0 .6rem}
+    .content p,.content li{font-size:.975rem;line-height:1.8;color:#405168;font-weight:300}
+    .content p{margin:0 0 1.1rem}
+    .content ul,.content ol{padding-left:1.25rem;margin:.5rem 0 1.5rem}
+    .content ul{list-style:disc}
+    .content ol{list-style:decimal}
+    .content li{padding-left:.25rem;margin:.35rem 0}
+    .content a{color:#1A5EA8;text-decoration:underline;text-underline-offset:3px}
+    .content a:hover{color:#133F73;text-decoration-thickness:2px}
+    .option-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9E7A32}
+    .faq-item{padding:1.25rem 0;border-bottom:1px solid rgba(44,62,85,.12)}
+    .faq-item h3{margin:0 0 .5rem}
+    .answer-box{background:white;border:1px solid rgba(26,94,168,.14);border-radius:10px;padding:1.6rem 1.6rem 1.2rem;margin:0 0 2.25rem;box-shadow:0 8px 24px rgba(15,23,36,.04)}
+    .warn-box{background:white;border:1px solid rgba(196,154,90,.35);border-left:3px solid #C49A5A;border-radius:0 10px 10px 0;padding:1.3rem 1.5rem;margin:1.25rem 0 1.75rem}
+    .data-table{width:100%;border-collapse:collapse;margin:0 0 1rem;background:white;border:1px solid rgba(26,94,168,.12)}
+    .data-table th,.data-table td{text-align:left;vertical-align:top;padding:.65rem .8rem;border-bottom:1px solid rgba(26,94,168,.08);font-size:.9rem;line-height:1.55}
+    .data-table thead th{background:rgba(26,94,168,.04);color:#0F1724;font-weight:600}
+    .data-table td{color:#405168;font-weight:300}
+    .data-table td.num,.data-table th.num{text-align:right;white-space:nowrap}
+    .data-table tr:last-child td{border-bottom:none}
+    .table-note{font-size:.8125rem!important;line-height:1.6!important;color:#5A6B82!important}
+    .compare-wrap{margin:1.25rem 0 1rem;border:1px solid rgba(26,94,168,.12);border-radius:10px;background:white;overflow:hidden}
+    .compare{width:100%;border-collapse:collapse}
+    .compare th,.compare td{text-align:left;vertical-align:top;padding:.75rem .85rem;border-bottom:1px solid rgba(26,94,168,.08);font-size:.875rem;line-height:1.55}
+    .compare thead th{background:rgba(26,94,168,.04);color:#0F1724;font-weight:600}
+    .compare tbody th{color:#0F1724;font-weight:600;width:26%}
+    .compare td{color:#405168;font-weight:300}
+    .compare tr:last-child th,.compare tr:last-child td{border-bottom:none}
+    @media(max-width:639px){
+      .answer-box{padding:1.2rem 1rem 1rem}
+      .data-table th,.data-table td{padding:.55rem .45rem;font-size:.84rem}
+      .compare thead{display:none}
+      .compare tbody tr{display:block;padding:.9rem 1rem;border-bottom:1px solid rgba(26,94,168,.08)}
+      .compare tbody tr:last-child{border-bottom:none}
+      .compare tbody th,.compare tbody td{display:block;width:auto;border:0;padding:.15rem 0}
+      .compare tbody th{margin-bottom:.35rem}
+      .compare td::before{content:attr(data-label);display:block;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9E7A32;margin-top:.35rem}
+    }
+    .focus-link:focus-visible{outline:3px solid #D4AE6A;outline-offset:3px}
+    #mobile-menu{display:none}
+    @media(max-width:767px){#mobile-menu.open{display:flex}}
+    .skip-link:focus-visible{top:0!important}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Inherited IRA RMD Calculator: Required Withdrawals Under the 10-Year Rule",
+    "description": "A free inherited IRA required minimum distribution (RMD) calculator using the IRS Single Life Expectancy Table. It determines whether the 10-year rule, annual RMDs, a life-expectancy stretch, or the 5-year rule applies, projects yearly minimums and the final deadline, and compares taking minimums with spreading withdrawals evenly.",
+    "url": "https://www.rubiqfinancial.com/Pages/inherited-ira-rmd-calculator",
+    "datePublished": "2026-10-29",
+    "dateModified": "2026-10-29",
+    "author": {"@type": "Organization", "name": "Rubiq Financial Partners"},
+    "publisher": {"@id": "https://www.rubiqfinancial.com/#organization"},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.rubiqfinancial.com/Pages/inherited-ira-rmd-calculator"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.rubiqfinancial.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.rubiqfinancial.com/Pages/insights"},
+      {"@type": "ListItem", "position": 3, "name": "Inherited IRA RMD Calculator", "item": "https://www.rubiqfinancial.com/Pages/inherited-ira-rmd-calculator"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you calculate an RMD on an inherited IRA?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Divide the account balance on December 31 of the prior year by a life expectancy factor from the IRS Single Life Expectancy Table. The factor is based on your age in the year after the owner's death (or the owner's age, if that gives a longer period and the owner had started RMDs) and goes down by one each year after that."}
+      },
+      {
+        "@type": "Question",
+        "name": "Do I have to take annual RMDs under the 10-year rule?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Only if the owner died on or after their required beginning date. In that case, starting in 2025, you must take a minimum each year in years one through nine and empty the account by December 31 of the tenth year after the death. If the owner died before their required beginning date, no withdrawal is required until the tenth year, but the account must still be empty by then."}
+      },
+      {
+        "@type": "Question",
+        "name": "What is the required beginning date?",
+        "acceptedAnswer": {"@type": "Answer", "text": "It is April 1 of the year after the owner reaches RMD age: 73 for owners born 1951 through 1959, 75 for those born in 1960 or later, 72 for those born between July 1, 1949 and 1950, and 70 and a half for those born earlier. Roth IRA owners have no required beginning date, so inherited Roth IRAs are treated as if the owner died before it."}
+      },
+      {
+        "@type": "Question",
+        "name": "Who can still stretch an inherited IRA over their life expectancy?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Eligible designated beneficiaries: a surviving spouse, the owner's minor child until age 21, a disabled or chronically ill beneficiary, and a beneficiary not more than 10 years younger than the owner. A minor child switches to the 10-year rule at 21. Everyone else who is named as a beneficiary generally falls under the 10-year rule."}
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if I miss an inherited IRA RMD?",
+        "acceptedAnswer": {"@type": "Answer", "text": "The shortfall is subject to a 25% excise tax, which drops to 10% if the missed amount is withdrawn and corrected promptly. The IRS waived the penalty for missed annual 10-year-rule distributions for 2021 through 2024, but annual RMDs are required from 2025 on."}
+      },
+      {
+        "@type": "Question",
+        "name": "Do inherited Roth IRAs have required distributions?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes. Non-spouse beneficiaries must still empty an inherited Roth IRA within 10 years, or stretch it if they are eligible designated beneficiaries. Because Roth owners never have RMDs, there is no annual minimum under the 10-year rule. Withdrawals are generally tax-free once the Roth has been open five years."}
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="focus-link skip-link" style="position:absolute;top:-100px;left:1rem;z-index:100;background:#C49A5A;color:#0F1724;padding:.75rem 1rem;font-weight:600">Skip to content</a>
+  <nav class="fixed top-0 left-0 right-0 z-50 nav-blur" style="background:rgba(15,23,36,.94);border-bottom:1px solid rgba(255,255,255,.08)">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between" style="height:72px">
+      <a href="../index.html" aria-label="Rubiq Financial Partners home"><img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Vertical -White.png" alt="Rubiq Financial Partners" width="240" height="44" style="height:44px;width:auto" /></a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="our-capabilities.html" class="nav-link">Capabilities</a><a href="our-clients.html" class="nav-link">Clients</a><a href="our-team.html" class="nav-link">Team</a><a href="insights.html" class="nav-link">Resources</a><a href="fee-structure.html" class="nav-link">Fees</a>
+      </div>
+      <a class="hidden md:inline-flex focus-link" href="schedule.html" onclick="return gtag_report_conversion(this.href)" style="background:#C49A5A;color:#0F1724;padding:.7rem 1.1rem;border-radius:4px;text-decoration:none;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Schedule a Call</a>
+      <button class="md:hidden focus-link" type="button" aria-label="Toggle navigation" aria-expanded="false" onclick="var m=document.getElementById('mobile-menu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))" style="color:white;background:none;border:0;padding:.6rem;font-size:1.35rem">☰</button>
+    </div>
+    <div id="mobile-menu" style="background:#0F1724;padding:0 1.5rem 1.25rem;flex-direction:column">
+      <a href="our-capabilities.html" class="nav-link" style="padding:.8rem 0">Capabilities</a><a href="our-clients.html" class="nav-link" style="padding:.8rem 0">Clients</a><a href="our-team.html" class="nav-link" style="padding:.8rem 0">Team</a><a href="insights.html" class="nav-link" style="padding:.8rem 0">Resources</a><a href="fee-structure.html" class="nav-link" style="padding:.8rem 0">Fees</a>
+    </div>
+  </nav>
+
+  <header style="margin-top:72px;padding:5.5rem 0 4.5rem;background:radial-gradient(ellipse at 82% 5%,rgba(196,154,90,.18),transparent 38%),linear-gradient(150deg,#0F1724 0%,#133F73 62%,#1A5EA8 100%);color:white">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10">
+      <a href="insights.html" class="focus-link" style="display:inline-block;color:rgba(255,255,255,.65);font-size:.75rem;text-decoration:none;margin-bottom:1.6rem">← All Resources</a>
+      <p style="font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#D4AE6A;margin:0 0 1rem">Calculator &middot; Retirement Planning</p>
+      <h1 style="max-width:880px;font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.35rem,5vw,4.25rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 1.25rem">Inherited IRA RMD Calculator</h1>
+      <p style="max-width:720px;color:rgba(255,255,255,.77);font-size:1.08rem;font-weight:300;line-height:1.8;margin:0">Find out which rule applies to your inherited IRA, how much you must withdraw each year, and when the account has to be empty. The calculator uses the IRS Single Life Expectancy Table and the final 10-year-rule regulations that took effect in 2025.</p>
+    </div>
+  </header>
+
+  <main id="main-content" class="content">
+    <section style="background:#FAF8F4;padding:3.5rem 0">
+      <div class="max-w-6xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <article class="lg:col-span-2">
+
+          <div class="answer-box">
+            <p class="option-label" style="margin:0 0 .5rem">How it works</p>
+            <p style="font-size:1.02rem;line-height:1.75;color:#1C2D44;font-weight:400;margin:0">Enter who inherited the account, the owner&rsquo;s dates, your year of birth, and the balance. The calculator decides which rule applies, divides each prior year-end balance by the IRS life expectancy factor to get your <strong style="font-weight:600">minimum withdrawal</strong>, and shows the year the account must be <strong style="font-weight:600">fully withdrawn</strong>. For the full rules behind it, see our <a href="inherited-ira-rules.html">inherited IRA rules guide</a>.</p>
+          </div>
+
+          <h2 style="margin-top:0">Calculate your inherited IRA RMDs</h2>
+
+          <style>
+            .rmd-form{display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.25rem;background:white;border:1px solid rgba(26,94,168,.14);border-radius:10px;padding:1.4rem;margin:0 0 1.5rem;box-shadow:0 8px 24px rgba(15,23,36,.04)}
+            .rmd-field{display:flex;flex-direction:column;gap:.35rem;font-size:.82rem;font-weight:600;color:#1C2D44}
+            .rmd-field input,.rmd-field select{font:inherit;font-weight:400;font-size:.95rem;padding:.6rem .7rem;border:1px solid rgba(26,94,168,.25);border-radius:6px;background:#FAF8F4;color:#0F1724;width:100%;box-sizing:border-box}
+            .rmd-field input:focus,.rmd-field select:focus{outline:2px solid #D4AE6A;outline-offset:1px}
+            .rmd-wide{grid-column:1/-1}
+            .rmd-hint{color:#65748A;font-size:.9rem}
+            .rmd-table td,.rmd-table th{font-size:.85rem}
+            @media(max-width:640px){.rmd-form{grid-template-columns:1fr;padding:1.1rem}}
+          </style>
+          <div id="calculator" class="rmd-form" role="group" aria-label="Inherited IRA RMD calculator">
+            <label class="rmd-field rmd-wide" for="rmd-type"><span>Who inherited the IRA?</span><select id="rmd-type">
+              <option value="nonedb" selected>Adult child, other relative, or friend (most beneficiaries)</option>
+              <option value="spouse">Surviving spouse</option>
+              <option value="minor">Owner&rsquo;s minor child (under 21)</option>
+              <option value="disabled">Disabled or chronically ill beneficiary</option>
+              <option value="younger">Not more than 10 years younger than the owner</option>
+              <option value="entity">Estate, charity, or non-qualifying trust</option>
+            </select></label>
+            <label class="rmd-field" for="rmd-account"><span>Account type</span><select id="rmd-account"><option value="trad" selected>Traditional IRA (or 401(k))</option><option value="roth">Roth IRA</option></select></label>
+            <label class="rmd-field" for="rmd-owner-dob"><span>Owner&rsquo;s date of birth</span><input id="rmd-owner-dob" type="date" value="1947-06-01" /></label>
+            <label class="rmd-field" for="rmd-death"><span>Owner&rsquo;s date of death</span><input id="rmd-death" type="date" value="2025-03-15" /></label>
+            <div id="rmd-bene-row"><label class="rmd-field" for="rmd-bene-year"><span>Beneficiary&rsquo;s year of birth</span><input id="rmd-bene-year" type="number" inputmode="numeric" min="1900" max="2026" value="1973" /></label></div>
+            <label class="rmd-field" for="rmd-balance"><span id="rmd-bal-label">Inherited IRA balance</span><input id="rmd-balance" type="text" inputmode="decimal" value="800000" /></label>
+            <label class="rmd-field" for="rmd-growth"><span>Assumed annual growth (%)</span><input id="rmd-growth" type="number" step="0.5" min="0" max="15" value="5" /></label>
+            <p class="rmd-hint rmd-wide" style="margin:0">Example values are filled in. Replace them with yours; results update as you type. Nothing you enter leaves your browser.</p>
+          </div>
+          <div id="rmd-out" aria-live="polite"></div>
+          <script>(function () {
+  // IRS Single Life Expectancy Table (Pub. 590-B, Appendix B, Table I), ages 0-120.
+  var SLT = {"0":84.6,"1":83.7,"2":82.8,"3":81.8,"4":80.8,"5":79.8,"6":78.8,"7":77.9,"8":76.9,"9":75.9,"10":74.9,"11":73.9,"12":72.9,"13":71.9,"14":70.9,"15":69.9,"16":69,"17":68,"18":67,"19":66,"20":65,"21":64.1,"22":63.1,"23":62.1,"24":61.1,"25":60.2,"26":59.2,"27":58.2,"28":57.3,"29":56.3,"30":55.3,"31":54.4,"32":53.4,"33":52.5,"34":51.5,"35":50.5,"36":49.6,"37":48.6,"38":47.7,"39":46.7,"40":45.7,"41":44.8,"42":43.8,"43":42.9,"44":41.9,"45":41,"46":40,"47":39,"48":38.1,"49":37.1,"50":36.2,"51":35.3,"52":34.3,"53":33.4,"54":32.5,"55":31.6,"56":30.6,"57":29.8,"58":28.9,"59":28,"60":27.1,"61":26.2,"62":25.4,"63":24.5,"64":23.7,"65":22.9,"66":22,"67":21.2,"68":20.4,"69":19.6,"70":18.8,"71":18,"72":17.2,"73":16.4,"74":15.6,"75":14.8,"76":14.1,"77":13.3,"78":12.6,"79":11.9,"80":11.2,"81":10.5,"82":9.9,"83":9.3,"84":8.7,"85":8.1,"86":7.6,"87":7.1,"88":6.6,"89":6.1,"90":5.7,"91":5.3,"92":4.9,"93":4.6,"94":4.3,"95":4,"96":3.7,"97":3.4,"98":3.2,"99":3,"100":2.8,"101":2.6,"102":2.5,"103":2.3,"104":2.2,"105":2.1,"106":2.1,"107":2.1,"108":2,"109":2,"110":2,"111":2,"112":2,"113":1.9,"114":1.9,"115":1.8,"116":1.8,"117":1.6,"118":1.4,"119":1.1};
+  function le(age) { age = Math.max(0, Math.min(120, Math.floor(age))); return SLT[age]; }
+
+  // Owner's required beginning date: April 1 after reaching RMD age (SECURE and SECURE 2.0).
+  function rmdAgeFor(dob) {
+    if (dob < new Date(1949, 6, 1)) return 70.5;
+    var y = dob.getFullYear();
+    if (y <= 1950) return 72;
+    if (y <= 1959) return 73;
+    return 75;
+  }
+  function rbdFor(dob) {
+    var a = rmdAgeFor(dob);
+    if (a === 70.5) { var d = new Date(dob.getTime()); d.setMonth(d.getMonth() + 846); return new Date(d.getFullYear() + 1, 3, 1); }
+    return new Date(dob.getFullYear() + a + 1, 3, 1);
+  }
+
+  // Core schedule. Returns {error} or {rule, deadline, rows, ...}.
+  function schedule(o) {
+    var D = o.death.getFullYear();
+    if (D < 2020) return { error: "For deaths before 2020, the pre-SECURE Act rules apply and most beneficiaries could stretch over their life expectancy. Ask us to run the numbers for you." };
+    if (o.death > o.today) return { error: "Enter a date of death that has already happened." };
+    if (o.ownerDob >= o.death) return { error: "The owner&rsquo;s date of birth must be before the date of death." };
+    if (o.type === "spouse") return { spouse: true };
+    var roth = o.account === "roth";
+    var afterRBD = !roth && o.death >= rbdFor(o.ownerDob);
+    var ownerAge = D - o.ownerDob.getFullYear();
+    var entity = o.type === "entity";
+    if (!entity && !(o.beneYear > 1900)) return { error: "Enter the beneficiary&rsquo;s year of birth." };
+    var beneAge1 = entity ? 0 : (D + 1) - o.beneYear;
+    var start = Math.max(o.today.getFullYear(), D + 1);
+    var mode, deadline = null, annual = false, rule, warn = "";
+
+    if (entity) {
+      if (afterRBD) { mode = "owner"; annual = true; rule = "Owner&rsquo;s remaining life expectancy"; }
+      else { mode = "none"; deadline = D + 5; rule = "5-year rule"; }
+    } else if (o.type === "nonedb") {
+      deadline = D + 10; annual = afterRBD; mode = "bene";
+      rule = afterRBD ? "10-year rule with annual RMDs" : "10-year rule";
+    } else if (o.type === "younger" || o.type === "disabled") {
+      mode = "bene"; annual = true; rule = "Life expectancy (stretch)";
+      if (o.type === "younger" && o.beneYear > o.ownerDob.getFullYear() + 10) warn = "Based on the birth years entered, you may be more than 10 years younger than the owner. If so, you are not an eligible designated beneficiary and the 10-year rule applies instead.";
+    } else if (o.type === "minor") {
+      var majority = o.beneYear + 21;
+      if (majority <= D) return { error: "A child who was already 21 at the owner&rsquo;s death is not a minor-child beneficiary. Choose &ldquo;Adult child, other relative, or friend&rdquo; instead." };
+      mode = "bene"; annual = true; deadline = majority + 10;
+      rule = "Life expectancy until 21, then 10 more years";
+    }
+    if (deadline !== null && deadline < start) return { error: "Under these facts the account had to be fully withdrawn by December 31, " + deadline + ". Talk to a tax professional about correcting a missed distribution." };
+
+    function divisor(Y) {
+      var n = Y - (D + 1);
+      var own = le(ownerAge) - 1 - n;
+      if (mode === "owner") return Math.round(own * 10) / 10;
+      var b = le(beneAge1) - n;
+      return Math.round((afterRBD ? Math.max(b, own) : b) * 10) / 10;
+    }
+
+    var g = o.growth / 100, bal = o.balance, rows = [], total = 0;
+    for (var Y = start; Y <= start + 90 && bal > 0.5; Y++) {
+      var grown = bal * (1 + g), req = 0, d = null, all = false;
+      if (deadline !== null && Y === deadline) { req = grown; all = true; }
+      else if (annual) {
+        d = divisor(Y);
+        if (d <= 1) { req = grown; all = true; } else req = bal / d;
+      }
+      req = Math.min(req, grown);
+      var end = grown - req;
+      total += req;
+      rows.push({ year: Y, age: entity ? null : Y - o.beneYear, factor: d, req: req, all: all, end: end });
+      bal = end;
+      if (all) break;
+    }
+    var even = null;
+    if (deadline !== null) {
+      var N = deadline - start + 1;
+      even = g === 0 ? o.balance / N : o.balance * g * Math.pow(1 + g, N) / (Math.pow(1 + g, N) - 1);
+    }
+    return { rule: rule, deadline: deadline, afterRBD: afterRBD, roth: roth, annual: annual, start: start, rows: rows, total: total, even: even, warn: warn, deathYear: D, rbd: rbdFor(o.ownerDob), rmdAge: rmdAgeFor(o.ownerDob) };
+  }
+
+  if (typeof module !== "undefined") { module.exports = { schedule: schedule, rbdFor: rbdFor, le: le }; return; }
+
+  // ---- Page wiring ----
+  var $ = function (id) { return document.getElementById(id); };
+  var money = function (n) { return "$" + Math.round(n).toLocaleString("en-US"); };
+  function parseDate(v) { if (!v) return null; var p = v.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
+
+  function render() {
+    var type = $("rmd-type").value;
+    var deathDate = parseDate($("rmd-death").value);
+    $("rmd-bene-row").style.display = (type === "entity" || type === "spouse") ? "none" : "";
+    var startYear = Math.max(new Date().getFullYear(), deathDate ? deathDate.getFullYear() + 1 : 0);
+    $("rmd-bal-label").textContent = "Inherited IRA balance on Dec. 31, " + (startYear - 1) + (deathDate && deathDate.getFullYear() >= new Date().getFullYear() ? " (estimate)" : "");
+    var out = $("rmd-out");
+    var o = {
+      account: $("rmd-account").value, type: type,
+      ownerDob: parseDate($("rmd-owner-dob").value), death: deathDate,
+      beneYear: parseInt($("rmd-bene-year").value, 10),
+      balance: parseFloat(String($("rmd-balance").value).replace(/[^0-9.]/g, "")) || 0,
+      growth: parseFloat($("rmd-growth").value) || 0, today: new Date(),
+    };
+    if (!o.ownerDob || !o.death || !o.balance) { out.innerHTML = '<p class="rmd-hint">Enter the dates and balance above to see your schedule.</p>'; return; }
+    var r = schedule(o);
+    if (r.error) { out.innerHTML = '<div class="warn-box"><p style="margin:0">' + r.error + "</p></div>"; return; }
+    if (r.spouse) {
+      out.innerHTML = '<div class="answer-box"><p class="option-label" style="margin:0 0 .5rem">Surviving spouse</p><p style="margin:0 0 .6rem">As the surviving spouse you have choices no other beneficiary has, and the right one depends on your age and income needs:</p><ul style="margin:0"><li><strong>Treat it as your own IRA</strong> (or roll it into yours). RMDs start at your own RMD age and use the Uniform Lifetime Table. Withdrawals before 59&frac12; may face the 10% penalty.</li><li><strong>Remain a beneficiary.</strong> You can take penalty-free withdrawals at any age, and if the owner died before their required beginning date you can delay RMDs until the year the owner would have reached RMD age.</li></ul><p style="margin:.6rem 0 0">Many spouses stay a beneficiary until 59&frac12;, then move the account into their own name. We can model both paths for you.</p></div>';
+      return;
+    }
+    var h = '<div class="answer-box"><p class="option-label" style="margin:0 0 .4rem">Rule that applies</p><p style="font-size:1.15rem;font-weight:600;color:#0F1724;margin:0 0 .5rem">' + r.rule + "</p><ul style='margin:0'>";
+    h += "<li>The owner died " + (r.roth ? "with a Roth IRA, which is treated as dying before the required beginning date" : (r.afterRBD ? "on or after" : "before") + " their required beginning date (April 1, " + r.rbd.getFullYear() + ", at RMD age " + (r.rmdAge === 70.5 ? "70&frac12;" : r.rmdAge) + ")") + ".</li>";
+    if (r.deadline) h += "<li>The account must be <strong>fully withdrawn by December 31, " + r.deadline + "</strong>.</li>";
+    if (r.annual) h += "<li>You must take a <strong>minimum withdrawal every year</strong>; your first one shown is <strong>" + money(r.rows[0].req) + "</strong> for " + r.rows[0].year + ".</li>";
+    else if (r.deadline) h += "<li>No minimum is required before " + r.deadline + ", but you can withdraw any amount in any year.</li>";
+    if (r.even) h += "<li>Spreading withdrawals evenly would take about <strong>" + money(r.even) + " a year</strong> through " + r.deadline + " at the assumed growth, which can avoid one large, highly taxed withdrawal at the end.</li>";
+    if (r.afterRBD) h += "<li>If the owner had not taken their full " + r.deathYear + " RMD before death, the beneficiary must take the rest by December 31, " + r.deathYear + ".</li>";
+    if (r.roth) h += "<li>Inherited Roth IRA withdrawals are generally tax-free once the Roth has been open five years.</li>";
+    h += "</ul>" + (r.warn ? '<p style="margin:.6rem 0 0;color:#8A4B12">' + r.warn + "</p>" : "") + "</div>";
+    h += '<div style="overflow-x:auto"><table class="data-table rmd-table"><thead><tr><th>Year</th>' + (r.rows[0].age !== null ? '<th style="text-align:right">Age</th>' : "") + '<th style="text-align:right">Factor</th><th style="text-align:right">Minimum</th><th style="text-align:right">Balance after</th></tr></thead><tbody>';
+    r.rows.forEach(function (x) {
+      h += "<tr><td>" + x.year + "</td>" + (x.age !== null ? '<td class="num">' + x.age + "</td>" : "") + '<td class="num">' + (x.factor ? x.factor.toFixed(1) : "&ndash;") + '</td><td class="num">' + (x.all ? "<strong>" + money(x.req) + "</strong><br><span style='font-size:.72rem'>all remaining</span>" : money(x.req)) + '</td><td class="num">' + money(x.end) + "</td></tr>";
+    });
+    h += "</tbody></table></div><p class='table-note'>Total withdrawn: " + money(r.total) + ". Each year&rsquo;s minimum is the prior December 31 balance divided by the factor. Balances grow at " + o.growth + "% a year, a hypothetical rate. Estimates only; confirm with your IRA custodian and tax professional.</p>";
+    out.innerHTML = h;
+  }
+  ["rmd-account", "rmd-type", "rmd-owner-dob", "rmd-death", "rmd-bene-year", "rmd-balance", "rmd-growth"].forEach(function (id) {
+    $(id).addEventListener("input", render); $(id).addEventListener("change", render);
+  });
+  render();
+})();
+</script>
+
+          <h2>Which rule applies to you</h2>
+          <div style="overflow-x:auto">
+          <table class="data-table">
+            <thead><tr><th>Beneficiary</th><th>Owner died before starting RMDs</th><th>Owner had started RMDs</th></tr></thead>
+            <tbody>
+              <tr><td>Adult child, other relative, friend</td><td>Empty by end of year 10; no yearly minimum</td><td>Yearly minimum in years 1&ndash;9; empty by end of year 10</td></tr>
+              <tr><td>Surviving spouse</td><td colspan="2">Treat as your own IRA, or stay a beneficiary and stretch</td></tr>
+              <tr><td>Owner&rsquo;s minor child</td><td colspan="2">Stretch until 21, then empty within 10 years</td></tr>
+              <tr><td>Disabled, chronically ill, or within 10 years of the owner&rsquo;s age</td><td>Stretch over your life expectancy</td><td>Stretch over yours or the owner&rsquo;s, whichever is longer</td></tr>
+              <tr><td>Estate, charity, non-qualifying trust</td><td>Empty by end of year 5</td><td>Yearly minimum over the owner&rsquo;s remaining life expectancy</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <p class="table-note">&ldquo;Started RMDs&rdquo; means the owner died on or after their required beginning date. Trusts follow special rules; see a trust or estate attorney.</p>
+
+          <h2>A worked example: minimums vs. spreading it out</h2>
+          <p>A 53-year-old inherits a <strong>$800,000</strong> traditional IRA from her father, who died in March 2025 at 78, after his required beginning date. She falls under the 10-year rule with annual minimums and must empty the account by December 31, 2035. Assuming a hypothetical 5% annual return:</p>
+          <table class="data-table">
+            <thead><tr><th>Year</th><th style="text-align:right">Minimums only</th><th style="text-align:right">Even withdrawals</th></tr></thead>
+            <tbody>
+              <tr><td>2026 (factor 33.4)</td><td class="num">$23,952</td><td class="num">$103,604</td></tr>
+              <tr><td>2027</td><td class="num">$25,187</td><td class="num">$103,604</td></tr>
+              <tr><td>2030</td><td class="num">$29,294</td><td class="num">$103,604</td></tr>
+              <tr><td>2034</td><td class="num">$35,860</td><td class="num">$103,604</td></tr>
+              <tr class="total"><td>2035 (deadline)</td><td class="num">$966,561</td><td class="num">$103,604</td></tr>
+            </tbody>
+          </table>
+          <p class="table-note">Hypothetical illustration only; not a projection of any investment. Minimums rise each year as the factor drops by one.</p>
+          <p>Taking only the minimums leaves almost <strong>$1 million to withdraw in a single year</strong>, most of it taxed at the top federal rate. Spreading it out keeps each year&rsquo;s income lower. The best pattern usually depends on the years ahead: withdrawing more in lower-income years, such as after retirement or before Social Security, and less in high-income years.</p>
+
+<div class="booking-offer" style="background:linear-gradient(135deg,#0F1724 0%,#133F73 100%);border-radius:10px;padding:1.5rem 1.6rem;margin:2.25rem 0 2.5rem;box-shadow:0 10px 28px rgba(15,23,36,.18);">
+            <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;font-weight:600;line-height:1.3;color:white;margin:0 0 .45rem;">Inherited an IRA?</p>
+            <p style="font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.78);font-weight:300;margin:0 0 1.1rem;">We&rsquo;ll map a withdrawal plan across the 10 years around your income, tax brackets, and other accounts, so the inheritance isn&rsquo;t lost to one large tax bill.</p>
+            <a class="focus-link" href="schedule.html" onclick="return gtag_report_conversion(this.href)" style="display:inline-block;background:#C49A5A;color:#0F1724;padding:.8rem 1.3rem;border-radius:4px;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;">Plan my withdrawals &rarr;</a>
+          </div>
+
+          <h2>Before you take your first withdrawal</h2>
+          <ul>
+            <li><strong>Deadline:</strong> each year&rsquo;s minimum must come out by December 31.</li>
+            <li><strong>The year of death:</strong> if the owner hadn&rsquo;t taken their own RMD for the year they died, the beneficiary must take the rest by December 31 of that year.</li>
+            <li><strong>Missed withdrawals:</strong> the penalty is 25% of the shortfall, cut to 10% if corrected promptly. Annual 10-year-rule minimums missed for 2021&ndash;2024 were waived by the IRS; from 2025 they are required.</li>
+            <li><strong>Withholding:</strong> inherited IRA withdrawals are taxed as ordinary income. Ask the custodian to withhold, or make estimated payments, to avoid an underpayment penalty.</li>
+            <li><strong>Title the account correctly:</strong> keep it as an inherited IRA in the deceased owner&rsquo;s name for your benefit. Rolling it into your own IRA is allowed only for spouses.</li>
+          </ul>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-item"><h3>How do you calculate an RMD on an inherited IRA?</h3><p>Divide the account balance on December 31 of the prior year by a life expectancy factor from the IRS Single Life Expectancy Table. The factor is based on your age in the year after the owner&rsquo;s death (or the owner&rsquo;s age, if that gives a longer period and the owner had started RMDs) and goes down by one each year after that.</p></div>
+          <div class="faq-item"><h3>Do I have to take annual RMDs under the 10-year rule?</h3><p>Only if the owner died on or after their required beginning date. In that case, starting in 2025, you must take a minimum each year in years one through nine and empty the account by December 31 of the tenth year after the death. If the owner died before their required beginning date, no withdrawal is required until the tenth year, but the account must still be empty by then.</p></div>
+          <div class="faq-item"><h3>What is the required beginning date?</h3><p>It is April 1 of the year after the owner reaches RMD age: 73 for owners born 1951 through 1959, 75 for those born in 1960 or later, 72 for those born between July 1, 1949 and 1950, and 70 and a half for those born earlier. Roth IRA owners have no required beginning date, so inherited Roth IRAs are treated as if the owner died before it.</p></div>
+          <div class="faq-item"><h3>Who can still stretch an inherited IRA over their life expectancy?</h3><p>Eligible designated beneficiaries: a surviving spouse, the owner&rsquo;s minor child until age 21, a disabled or chronically ill beneficiary, and a beneficiary not more than 10 years younger than the owner. A minor child switches to the 10-year rule at 21. Everyone else who is named as a beneficiary generally falls under the 10-year rule.</p></div>
+          <div class="faq-item"><h3>What happens if I miss an inherited IRA RMD?</h3><p>The shortfall is subject to a 25% excise tax, which drops to 10% if the missed amount is withdrawn and corrected promptly. The IRS waived the penalty for missed annual 10-year-rule distributions for 2021 through 2024, but annual RMDs are required from 2025 on.</p></div>
+          <div class="faq-item"><h3>Do inherited Roth IRAs have required distributions?</h3><p>Yes. Non-spouse beneficiaries must still empty an inherited Roth IRA within 10 years, or stretch it if they are eligible designated beneficiaries. Because Roth owners never have RMDs, there is no annual minimum under the 10-year rule. Withdrawals are generally tax-free once the Roth has been open five years.</p></div>
+        </article>
+
+        <aside style="align-self:start;background:white;border:1px solid rgba(26,94,168,.12);border-radius:10px;padding:1.5rem;box-shadow:0 8px 24px rgba(15,23,36,.04)">
+          <p class="option-label">What you need</p>
+          <h2 style="font-size:1.4rem;margin:0 0 1rem">Inputs checklist</h2>
+          <ol style="padding-left:1.2rem;margin:0;list-style:decimal">
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Who the beneficiary is (and your relationship to the owner).</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">The owner&rsquo;s date of birth and date of death.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Your year of birth.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">The inherited account&rsquo;s December 31 balance.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Whether it is a traditional or Roth IRA.</li>
+          </ol>
+          <p style="font-size:.8rem;line-height:1.65;margin:1rem 0 0;color:#65748A">Estimates for education only; not tax or legal advice. Results depend on IRS rules, plan terms, and your facts. Confirm amounts with your IRA custodian and tax professional.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section style="padding:3.25rem 0;background:white">
+      <div class="max-w-4xl mx-auto px-6 lg:px-10">
+        <h2 style="margin-top:0">Learn more</h2>
+        <ul>
+          <li><a href="https://www.irs.gov/publications/p590b" target="_blank" rel="noopener noreferrer">IRS Publication 590-B: Distributions from IRAs</a></li>
+          <li><a href="inherited-ira-rules.html">Inherited IRA rules: the 10-year rule explained</a></li>
+          <li><a href="resources-roth-conversion.html">Roth conversion guide</a></li>
+          <li><a href="estate-planning.html">Estate planning at Rubiq Financial Partners</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="padding:3.5rem 0;background:linear-gradient(155deg,#0F1724 0%,#133F73 60%,#1A5EA8 100%);text-align:center">
+      <div class="max-w-3xl mx-auto px-6 lg:px-10">
+        <p style="font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#D4AE6A;margin:0 0 .75rem">Inherited IRA planning</p>
+        <h2 style="font-family:'Playfair Display',Georgia,serif;color:white;font-size:clamp(1.7rem,3.8vw,2.5rem);margin:0 0 1rem">Turn the 10-year rule into a plan.</h2>
+        <p style="font-size:.95rem;line-height:1.75;color:rgba(255,255,255,.75);font-weight:300;margin:0 auto 1.5rem;max-width:620px">We decide how much to withdraw each year around your income and tax brackets, and coordinate the inheritance with the rest of your plan.</p>
+        <a class="focus-link" href="schedule.html" onclick="return gtag_report_conversion(this.href)" style="display:inline-block;background:#C49A5A;color:#0F1724;padding:.85rem 1.4rem;border-radius:4px;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Schedule a call</a>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:#0F1724;padding:1.5rem 0;color:rgba(255,255,255,.55)">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <a href="../index.html"><img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png" alt="Rubiq Financial Partners" width="180" height="40" style="width:180px;height:auto" loading="lazy" /></a>
+      <p style="font-size:.72rem;text-align:center;line-height:1.6;margin:0">© 2026 Rubiq Financial Partners. Advisory services offered through Wealthcare Advisory Partners.<br />This page is for educational purposes and is not tax, legal, or investment advice.</p>
+      <a class="nav-link focus-link" href="insights.html">All Resources</a>
+    </div>
+  </footer>
+<!-- Sticky Mobile CTA -->
+<a id="sticky-mobile-cta" href="schedule.html"
+   style="display:none;position:fixed;bottom:-60px;left:1rem;right:1rem;z-index:9998;
+          background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);
+          color:#0F1724;text-align:center;
+          font-family:'Inter',sans-serif;font-size:0.9375rem;font-weight:600;
+          letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;
+          padding:1rem;border-radius:6px;
+          box-shadow:0 -2px 16px rgba(0,0,0,0.25),0 4px 12px rgba(196,154,74,0.35);
+          transition:bottom 0.3s cubic-bezier(0.4,0,0.2,1);" onclick="return gtag_report_conversion(this.href)">
+  Schedule a Call
+</a>
+<style>
+  @media(min-width:768px){ #sticky-mobile-cta{display:none!important;} }
+</style>
+<script>
+(function(){
+  var cta=document.getElementById('sticky-mobile-cta');
+  if(!cta)return;
+  if(window.innerWidth<768) cta.style.display='block';
+  window.addEventListener('scroll',function(){
+    if(window.innerWidth>=768)return;
+    cta.style.display='block';
+    cta.style.bottom=window.scrollY>100?'1rem':'-60px';
+  },{passive:true});
+  window.addEventListener('resize',function(){
+    cta.style.display=window.innerWidth<768?'block':'none';
+  });
+})();
+</script>
+</body>
+</html>
