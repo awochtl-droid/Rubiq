@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-15PBEWL3XZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // Don't count automated browsers (scanners, crawlers) or preview/test hosts.
+    window.__rqNoTrack = navigator.webdriver === true || !/(^|\.)rubiqfinancial\.com$/.test(location.hostname);
+    if (!window.__rqNoTrack) {
+      gtag('config', 'G-15PBEWL3XZ');
+      gtag('config', 'AW-18023805978');
+    }
+    function gtag_report_conversion(url) {
+      if (window.__rqNoTrack) { if (typeof url !== 'undefined') window.location = url; return false; }
+      var callback = function () { if (typeof url !== 'undefined') window.location = url; };
+      gtag('event', 'conversion', {'send_to':'AW-18023805978/PYr9CKmg9qccEJrotZJD','value':1.0,'currency':'USD','event_callback':callback});
+      gtag('event', 'conversion', {'send_to':'AW-18023805978/sQ2MCNuQ0agcEJrotZJD','event_callback':callback});
+      return false;
+    }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prepaid Variable Forward Contracts Explained | Rubiq</title>
+  <meta name="description" content="How a prepaid variable forward turns concentrated stock into cash now and defers the sale: how it works, the tax rules, the Anschutz trap and costs." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/prepaid-variable-forward" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Rubiq Financial Partners" />
+  <meta property="og:title" content="Prepaid Variable Forward Contracts Explained | Rubiq" />
+  <meta property="og:description" content="How a prepaid variable forward turns concentrated stock into cash now and defers the sale: how it works, the tax rules, the Anschutz trap and costs." />
+  <meta property="og:url" content="https://www.rubiqfinancial.com/Pages/prepaid-variable-forward" />
+  <meta property="og:image" content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prepaid Variable Forward Contracts Explained | Rubiq" />
+  <meta name="twitter:description" content="How a prepaid variable forward turns concentrated stock into cash now and defers the sale: how it works, the tax rules, the Anschutz trap and costs." />
+  <meta name="twitter:image" content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,sans-serif;color:#1C2D44}
+    .nav-blur{backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%)}
+    .nav-link{font-size:.8125rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.8);text-decoration:none}
+    .nav-link:hover,.nav-link:focus-visible{color:#D4AE6A}
+    a:focus-visible,button:focus-visible{outline:3px solid #D4AE6A;outline-offset:3px}
+    .focus-link{transition:color .18s ease,filter .18s ease,transform .18s ease}
+    .focus-link:hover{filter:brightness(.96)}
+    .focus-link:active{transform:translateY(1px)}
+    .content h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(1.5rem,3vw,2rem);line-height:1.2;color:#0F1724;margin:3rem 0 1rem;letter-spacing:-.02em}
+    .content h3{font-family:"Playfair Display",Georgia,serif;font-size:1.2rem;line-height:1.3;color:#0F1724;margin:1.75rem 0 .6rem}
+    .content p,.content li{font-size:.975rem;line-height:1.8;color:#405168;font-weight:300}
+    .content p{margin:0 0 1.1rem}
+    .content ul,.content ol{padding-left:1.25rem;margin:.5rem 0 1.5rem}
+    .content ul{list-style:disc}
+    .content ol{list-style:decimal}
+    .content li{padding-left:.25rem;margin:.35rem 0}
+    .content a{color:#1A5EA8;text-decoration:underline;text-underline-offset:3px}
+    .content a:hover{color:#133F73;text-decoration-thickness:2px}
+    .option-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9E7A32}
+    .faq-item{padding:1.25rem 0;border-bottom:1px solid rgba(44,62,85,.12)}
+    .faq-item h3{margin:0 0 .5rem}
+    .answer-box{background:white;border:1px solid rgba(26,94,168,.14);border-radius:10px;padding:1.6rem 1.6rem 1.2rem;margin:0 0 2.25rem;box-shadow:0 8px 24px rgba(15,23,36,.04)}
+    .warn-box{background:white;border:1px solid rgba(196,154,90,.35);border-left:3px solid #C49A5A;border-radius:0 10px 10px 0;padding:1.3rem 1.5rem;margin:1.25rem 0 1.75rem}
+    .data-table{width:100%;border-collapse:collapse;margin:0 0 1rem;background:white;border:1px solid rgba(26,94,168,.12)}
+    .data-table th,.data-table td{text-align:left;vertical-align:top;padding:.65rem .8rem;border-bottom:1px solid rgba(26,94,168,.08);font-size:.9rem;line-height:1.55}
+    .data-table thead th{background:rgba(26,94,168,.04);color:#0F1724;font-weight:600}
+    .data-table td{color:#405168;font-weight:300}
+    .data-table td.num,.data-table th.num{text-align:right;white-space:nowrap}
+    .data-table tr:last-child td{border-bottom:none}
+    .table-note{font-size:.8125rem!important;line-height:1.6!important;color:#5A6B82!important}
+    @media(max-width:639px){
+      .answer-box{padding:1.2rem 1rem 1rem}
+      .data-table th,.data-table td{padding:.55rem .45rem;font-size:.84rem}
+    }
+    .focus-link:focus-visible{outline:3px solid #D4AE6A;outline-offset:3px}
+    #mobile-menu{display:none}
+    @media(max-width:767px){#mobile-menu.open{display:flex}}
+    .skip-link:focus-visible{top:0!important}
+    .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 1rem}
+    .table-wrap .data-table{margin:0}
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Prepaid Variable Forwards: Cash from Concentrated Stock Without Selling Today",
+  "description": "An educational guide to prepaid variable forward contracts for concentrated stock positions, covering how they work, a worked example, federal tax treatment under Revenue Ruling 2003-7, the Anschutz case, considerations for executives, costs and risks, and alternatives.",
+  "url": "https://www.rubiqfinancial.com/Pages/prepaid-variable-forward",
+  "datePublished": "2026-11-02",
+  "dateModified": "2026-11-02",
+  "author": {
+    "@type": "Organization",
+    "name": "Rubiq Financial Partners"
+  },
+  "publisher": {
+    "@id": "https://www.rubiqfinancial.com/#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.rubiqfinancial.com/Pages/prepaid-variable-forward"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.rubiqfinancial.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Resources",
+      "item": "https://www.rubiqfinancial.com/Pages/insights"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Prepaid Variable Forwards",
+      "item": "https://www.rubiqfinancial.com/Pages/prepaid-variable-forward"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a prepaid variable forward contract?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A prepaid variable forward is a contract in which a shareholder agrees to deliver a variable number of shares, or the equivalent cash, to a bank on a future date in exchange for a cash payment today, typically about 75% to 90% of the shares’ current value. The shareholder is protected below a floor price and keeps upside only up to a cap."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a prepaid variable forward taxable when you enter it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generally not, if it is structured like the arrangement in IRS Revenue Ruling 2003-7, where the number of shares delivered varied significantly with the stock price and the shareholder could settle in cash or other shares. Gain is then recognized when the contract settles. Pairing the contract with a share-lending agreement caused immediate sale treatment in the Anschutz case."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much cash do you get from a prepaid variable forward?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Banks typically advance about 75% to 90% of the position’s current value. The exact amount depends on the floor and cap, the term, interest rates, expected dividends, and the stock’s volatility."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when a prepaid variable forward matures?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You deliver shares or cash based on the stock price. Below the floor you deliver all the shares; between the floor and the cap you deliver fewer and keep the rest; above the cap the extra gain goes to the bank. The capital gain on the shares delivered is generally taxed at settlement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can corporate executives use a prepaid variable forward?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sometimes. Many companies prohibit officers and directors from hedging or pledging company stock. Where allowed, insiders usually need to act in an open trading window or under a Rule 10b5-1 plan and report the transaction publicly."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="focus-link skip-link" style="position:absolute;top:-100px;left:1rem;z-index:100;background:#C49A5A;color:#0F1724;padding:.75rem 1rem;font-weight:600">Skip to content</a>
+  <nav class="fixed top-0 left-0 right-0 z-50 nav-blur" style="background:rgba(15,23,36,.94);border-bottom:1px solid rgba(255,255,255,.08)">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between" style="height:72px">
+      <a href="../index.html" aria-label="Rubiq Financial Partners home"><img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Vertical -White.png" alt="Rubiq Financial Partners" width="240" height="44" style="height:44px;width:auto" /></a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="our-capabilities.html" class="nav-link">Capabilities</a><a href="our-clients.html" class="nav-link">Clients</a><a href="our-team.html" class="nav-link">Team</a><a href="insights.html" class="nav-link">Resources</a><a href="fee-structure.html" class="nav-link">Fees</a>
+      </div>
+      <a class="hidden md:inline-flex focus-link" href="schedule.html" onclick="return gtag_report_conversion(this.href)" style="background:#C49A5A;color:#0F1724;padding:.7rem 1.1rem;border-radius:4px;text-decoration:none;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Schedule a Call</a>
+      <button class="md:hidden focus-link" type="button" aria-label="Toggle navigation" aria-expanded="false" onclick="var m=document.getElementById('mobile-menu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))" style="color:white;background:none;border:0;padding:.6rem;font-size:1.35rem">☰</button>
+    </div>
+    <div id="mobile-menu" style="background:#0F1724;padding:0 1.5rem 1.25rem;flex-direction:column">
+      <a href="our-capabilities.html" class="nav-link" style="padding:.8rem 0">Capabilities</a><a href="our-clients.html" class="nav-link" style="padding:.8rem 0">Clients</a><a href="our-team.html" class="nav-link" style="padding:.8rem 0">Team</a><a href="insights.html" class="nav-link" style="padding:.8rem 0">Resources</a><a href="fee-structure.html" class="nav-link" style="padding:.8rem 0">Fees</a>
+    </div>
+  </nav>
+
+  <header style="margin-top:72px;padding:5.5rem 0 4.5rem;background:radial-gradient(ellipse at 82% 5%,rgba(196,154,90,.18),transparent 38%),linear-gradient(150deg,#0F1724 0%,#133F73 62%,#1A5EA8 100%);color:white">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10">
+      <a href="insights.html" class="focus-link" style="display:inline-block;color:rgba(255,255,255,.65);font-size:.75rem;text-decoration:none;margin-bottom:1.6rem">← All Resources</a>
+      <p style="font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#D4AE6A;margin:0 0 1rem">Concentrated Stock &middot; Liquidity</p>
+      <h1 style="max-width:880px;font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.35rem,5vw,4.25rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 1.25rem">Prepaid Variable Forwards: Cash from Concentrated Stock Without Selling Today</h1>
+      <p style="max-width:720px;color:rgba(255,255,255,.77);font-size:1.08rem;font-weight:300;line-height:1.8;margin:0">A prepaid variable forward lets you receive most of a stock position&rsquo;s value in cash now, protect against a decline, and push the taxable sale years into the future. Here is how the contract works, what keeps it from being taxed as a sale, and what it costs.</p>
+    </div>
+  </header>
+
+  <main id="main-content" class="content">
+    <section style="background:#FAF8F4;padding:3.5rem 0">
+      <div class="max-w-6xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <article class="lg:col-span-2">
+
+          <div class="answer-box">
+            <p class="option-label" style="margin:0 0 .5rem">How a prepaid variable forward works</p>
+            <ol style="margin:.25rem 0 .75rem">
+              <li><strong>You sign a contract with a bank</strong> to deliver shares of a stock you own on a future date, commonly a few years out.</li>
+              <li><strong>The bank pays you cash today</strong>, typically about 75&ndash;90% of the position&rsquo;s current value.</li>
+              <li><strong>You pledge the shares</strong> as collateral, and generally keep voting rights and dividends.</li>
+              <li><strong>At maturity you deliver a variable number of shares</strong>, or the equivalent cash, depending on the stock price. That is when the sale is taxed.</li>
+            </ol>
+            <p class="table-note" style="margin:0">Terms vary by bank, stock, and market conditions. Prepaid variable forwards are executed by banks and broker-dealers, not by advisors.</p>
+          </div>
+
+          <h2 style="margin-top:0">The floor and the cap</h2>
+          <p>Every prepaid variable forward sets two prices. Below the <strong>floor</strong>, you deliver all of the shares; you have already been paid, so a decline below the floor is the bank&rsquo;s loss, not yours. Between the floor and the <strong>cap</strong>, you deliver fewer shares and keep the rest. Above the cap, your extra upside stops and the bank keeps the additional gain.</p>
+          <p>In effect, the contract combines a sale of the shares&rsquo; future value with a collar. The cash advance is priced off the floor, the cap, the term, interest rates, expected dividends, and the stock&rsquo;s volatility.</p>
+
+          <h2>A worked example</h2>
+          <p>An executive owns 100,000 shares worth $100 each, a $10 million position with a very low cost basis. She enters a three-year prepaid variable forward with a $100 floor and a $130 cap, and receives an <strong>$8.5 million</strong> cash advance today.</p>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th>Stock price at maturity</th><th class="num">Shares delivered</th><th class="num">Shares she keeps</th><th class="num">Value kept</th></tr></thead>
+            <tbody>
+              <tr><td>$80 (below the floor)</td><td class="num">100,000</td><td class="num">0</td><td class="num">$0</td></tr>
+              <tr><td>$115 (between floor and cap)</td><td class="num">86,957</td><td class="num">13,043</td><td class="num">about $1.5 million</td></tr>
+              <tr><td>$150 (above the cap)</td><td class="num">80,000</td><td class="num">20,000</td><td class="num">$3.0 million</td></tr>
+            </tbody>
+          </table></div>
+          <p>Whatever happens, she keeps the $8.5 million advance. If the stock falls, she is protected below $100. If it rises, she keeps the gain only up to $130, so the most she can retain is $3 million of additional value. The capital gain is recognized when the contract settles, not when she receives the cash.</p>
+          <p class="table-note">Hypothetical and simplified for illustration; the advance, floor, and cap are not quotes, and actual terms depend on the stock, term, and market conditions. Ignores dividends and transaction costs.</p>
+
+          <h2>Why it isn&rsquo;t taxed as a sale up front</h2>
+          <p>Receiving most of a stock&rsquo;s value in cash looks a lot like selling it. In Revenue Ruling 2003-7, the IRS concluded that a properly structured prepaid variable forward is not a current sale and is not a &ldquo;constructive sale&rdquo; under Section 1259. The arrangement in that ruling had these features:</p>
+          <ul>
+            <li>The number of shares to be delivered <strong>varied meaningfully</strong> with the stock price (from 80 to 100 shares per 100 pledged).</li>
+            <li>The shareholder had an <strong>unrestricted right to settle in cash</strong> or with other shares instead of the pledged ones.</li>
+            <li>The pledged shares were held by a third party, and the shareholder <strong>kept voting and dividend rights</strong>.</li>
+            <li>The shareholder could <strong>use the cash advance without restriction</strong>.</li>
+          </ul>
+          <div class="warn-box">
+            <p class="option-label" style="margin:0 0 .4rem">The Anschutz trap</p>
+            <p style="margin:0">In <em>Anschutz Co. v. Commissioner</em> (Tax Court 2010, affirmed by the Tenth Circuit in 2011), prepaid variable forwards were paired with share-lending agreements that let the bank use the pledged shares. The court treated the arrangements as current sales, and the taxpayer owed tax immediately. Structure and documentation matter as much as the economics.</p>
+          </div>
+          <p>Prepaid variable forwards can also be subject to the tax straddle rules, which may require interest and carrying costs to be capitalized rather than deducted. Gain is generally recognized at settlement, and the character of that gain depends on your holding period in the shares delivered.</p>
+
+<div class="booking-offer" style="background:linear-gradient(135deg,#0F1724 0%,#133F73 100%);border-radius:10px;padding:1.5rem 1.6rem;margin:2.25rem 0 2.5rem;box-shadow:0 10px 28px rgba(15,23,36,.18);">
+            <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;font-weight:600;line-height:1.3;color:white;margin:0 0 .45rem;">Sitting on a concentrated position?</p>
+            <p style="font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.78);font-weight:300;margin:0 0 1.1rem;">We&rsquo;ll compare a prepaid variable forward against selling, collars, exchange funds, and charitable strategies for your position, and coordinate with your tax counsel and the executing bank.</p>
+            <a class="focus-link" href="schedule.html" onclick="return gtag_report_conversion(this.href)" style="display:inline-block;background:#C49A5A;color:#0F1724;padding:.8rem 1.3rem;border-radius:4px;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;">Schedule a call &rarr;</a>
+          </div>
+
+          <h2>Considerations for executives and insiders</h2>
+          <ul>
+            <li><strong>Company policy first.</strong> Many public companies prohibit officers and directors from hedging or pledging company stock. Check the insider trading and hedging policy before anything else.</li>
+            <li><strong>Securities rules.</strong> Insiders typically need to trade in an open window or under a Rule 10b5-1 plan, and directors and officers generally report the transaction publicly on Form 4. Restricted or control stock may involve Rule 144.</li>
+            <li><strong>Position size.</strong> Banks generally offer these contracts only on liquid stocks and meaningful positions, often several million dollars or more.</li>
+          </ul>
+
+          <h2>Costs and risks</h2>
+          <ul>
+            <li><strong>Embedded cost.</strong> There is usually no separate fee; the bank&rsquo;s compensation is built into the advance, floor, and cap. Comparing quotes from more than one bank helps.</li>
+            <li><strong>Capped upside.</strong> Gains above the cap belong to the bank.</li>
+            <li><strong>Hard to unwind.</strong> Ending early is possible but can be expensive.</li>
+            <li><strong>Counterparty exposure.</strong> You rely on the bank to perform at maturity.</li>
+            <li><strong>Tax is deferred, not avoided.</strong> The gain is recognized at settlement. Plan where that cash and that tax bill will come from.</li>
+          </ul>
+
+          <h2>Alternatives to compare</h2>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th>Strategy</th><th>Cash now</th><th>Tax on gain</th></tr></thead>
+            <tbody>
+              <tr><td>Sell shares over time</td><td>Gradual</td><td>Paid as you sell</td></tr>
+              <tr><td>Prepaid variable forward</td><td>Most of the value</td><td>Deferred to settlement</td></tr>
+              <tr><td>Collar plus a loan against the shares</td><td>Depends on loan size</td><td>Deferred while shares are held</td></tr>
+              <tr><td>Exchange fund</td><td>None; diversifies instead</td><td>Deferred</td></tr>
+              <tr><td>Charitable remainder trust</td><td>Income stream</td><td>Spread over time; charitable deduction</td></tr>
+            </tbody>
+          </table></div>
+          <p>See our <a href="concentrated-stock.html">concentrated stock strategies</a> for a fuller comparison, and <a href="uhnw-liquidity.html">lending and liquidity strategies</a> for borrowing against a position.</p>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-item"><h3>What is a prepaid variable forward contract?</h3><p>A prepaid variable forward is a contract in which a shareholder agrees to deliver a variable number of shares, or the equivalent cash, to a bank on a future date in exchange for a cash payment today, typically about 75% to 90% of the shares&rsquo; current value. The shareholder is protected below a floor price and keeps upside only up to a cap.</p></div>
+          <div class="faq-item"><h3>Is a prepaid variable forward taxable when you enter it?</h3><p>Generally not, if it is structured like the arrangement in IRS Revenue Ruling 2003-7, where the number of shares delivered varied significantly with the stock price and the shareholder could settle in cash or other shares. Gain is then recognized when the contract settles. Pairing the contract with a share-lending agreement caused immediate sale treatment in the Anschutz case.</p></div>
+          <div class="faq-item"><h3>How much cash do you get from a prepaid variable forward?</h3><p>Banks typically advance about 75% to 90% of the position&rsquo;s current value. The exact amount depends on the floor and cap, the term, interest rates, expected dividends, and the stock&rsquo;s volatility.</p></div>
+          <div class="faq-item"><h3>What happens when a prepaid variable forward matures?</h3><p>You deliver shares or cash based on the stock price. Below the floor you deliver all the shares; between the floor and the cap you deliver fewer and keep the rest; above the cap the extra gain goes to the bank. The capital gain on the shares delivered is generally taxed at settlement.</p></div>
+          <div class="faq-item"><h3>Can corporate executives use a prepaid variable forward?</h3><p>Sometimes. Many companies prohibit officers and directors from hedging or pledging company stock. Where allowed, insiders usually need to act in an open trading window or under a Rule 10b5-1 plan and report the transaction publicly.</p></div>
+        </article>
+
+        <aside style="align-self:start;background:white;border:1px solid rgba(26,94,168,.12);border-radius:10px;padding:1.5rem;box-shadow:0 8px 24px rgba(15,23,36,.04)">
+          <p class="option-label">Before you sign</p>
+          <h2 style="font-size:1.4rem;margin:0 0 1rem">Questions to answer</h2>
+          <ol style="padding-left:1.2rem;margin:0;list-style:decimal">
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Does your company allow hedging or pledging?</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">What will you do with the cash advance?</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">How much upside are you willing to give up?</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Is any share lending involved? Avoid it.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Where will the tax at settlement come from?</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Have you compared quotes from more than one bank?</li>
+          </ol>
+          <p style="font-size:.8rem;line-height:1.65;margin:1rem 0 0;color:#65748A">Educational information only; not tax or legal advice. Confirm your situation with a CPA or attorney.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section style="padding:3.25rem 0;background:white">
+      <div class="max-w-4xl mx-auto px-6 lg:px-10">
+        <h2 style="margin-top:0">Learn more</h2>
+        <ul>
+          <li><a href="https://www.floridabar.org/the-florida-bar-journal/the-irss-derivative-treatment-of-variable-prepaid-forward-sales/" target="_blank" rel="noopener noreferrer">The Florida Bar Journal: The IRS&rsquo;s treatment of variable prepaid forward sales</a></li>
+          <li><a href="https://www.davispolk.com/index%2Ephp/insights/client-update/tax-court-rules-variable-prepaid-forwards-and-stock-lendings" target="_blank" rel="noopener noreferrer">Davis Polk: Tax Court rules on variable prepaid forwards and stock lendings (Anschutz)</a></li>
+          <li><a href="concentrated-stock.html">Concentrated stock strategies at Rubiq</a></li>
+          <li><a href="grat-concentrated-stock.html">GRATs and concentrated stock</a></li>
+          <li><a href="uhnw-liquidity.html">UHNW lending and liquidity strategies</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="padding:3.5rem 0;background:linear-gradient(155deg,#0F1724 0%,#133F73 60%,#1A5EA8 100%);text-align:center">
+      <div class="max-w-3xl mx-auto px-6 lg:px-10">
+        <p style="font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#D4AE6A;margin:0 0 .75rem">Need liquidity from one stock?</p>
+        <h2 style="font-family:'Playfair Display',Georgia,serif;color:white;font-size:clamp(1.7rem,3.8vw,2.5rem);margin:0 0 1rem">Compare every way out before choosing one.</h2>
+        <p style="font-size:.95rem;line-height:1.75;color:rgba(255,255,255,.75);font-weight:300;margin:0 auto 1.5rem;max-width:620px">We model a prepaid variable forward against selling, collars, exchange funds, and charitable strategies for your position, then work with your tax counsel and the executing bank on the details.</p>
+        <a class="focus-link" href="schedule.html" onclick="return gtag_report_conversion(this.href)" style="display:inline-block;background:#C49A5A;color:#0F1724;padding:.85rem 1.4rem;border-radius:4px;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Schedule a call</a>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:#0F1724;padding:1.5rem 0;color:rgba(255,255,255,.55)">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <a href="../index.html"><img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png" alt="Rubiq Financial Partners" width="180" height="40" style="width:180px;height:auto" loading="lazy" /></a>
+      <p style="font-size:.72rem;text-align:center;line-height:1.6;margin:0">© 2026 Rubiq Financial Partners. Advisory services offered through Wealthcare Advisory Partners.<br />This page is for educational purposes and is not tax, legal, or investment advice.</p>
+      <a class="nav-link focus-link" href="insights.html">All Resources</a>
+    </div>
+  </footer>
+<!-- Sticky Mobile CTA -->
+<a id="sticky-mobile-cta" href="schedule.html"
+   style="display:none;position:fixed;bottom:-60px;left:1rem;right:1rem;z-index:9998;
+          background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);
+          color:#0F1724;text-align:center;
+          font-family:'Inter',sans-serif;font-size:0.9375rem;font-weight:600;
+          letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;
+          padding:1rem;border-radius:6px;
+          box-shadow:0 -2px 16px rgba(0,0,0,0.25),0 4px 12px rgba(196,154,74,0.35);
+          transition:bottom 0.3s cubic-bezier(0.4,0,0.2,1);" onclick="return gtag_report_conversion(this.href)">
+  Schedule a Call
+</a>
+<style>
+  @media(min-width:768px){ #sticky-mobile-cta{display:none!important;} }
+</style>
+<script>
+(function(){
+  var cta=document.getElementById('sticky-mobile-cta');
+  if(!cta)return;
+  if(window.innerWidth<768) cta.style.display='block';
+  window.addEventListener('scroll',function(){
+    if(window.innerWidth>=768)return;
+    cta.style.display='block';
+    cta.style.bottom=window.scrollY>100?'1rem':'-60px';
+  },{passive:true});
+  window.addEventListener('resize',function(){
+    cta.style.display=window.innerWidth<768?'block':'none';
+  });
+})();
+</script>
+</body>
+</html>
