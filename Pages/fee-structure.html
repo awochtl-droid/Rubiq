@@ -46,8 +46,8 @@ function gtag_report_conversion(url) {
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fee Structure | Rubiq Financial Partners</title>
-  <meta name="description" content="Rubiq Financial Partners’ full advisory fee schedule: tiered, transparent, and scaled to the complexity of your wealth." />
+  <title>How Much Does a Financial Advisor Cost? Rubiq's Fees, Explained</title>
+  <meta name="description" content="Two clear ways to work with Rubiq Financial Partners in West Chester, PA: wealth management with a tiered fee from 1.25%, or a one-time financial plan from $5,000." />
   <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/fee-structure" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -199,8 +199,13 @@ function gtag_report_conversion(url) {
       #mobile-menu a { min-height: 44px; display: flex; align-items: center; }
       footer div > a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.25rem; }
       #fee-grid { grid-template-columns: 1fr !important; }
+      #services-grid { grid-template-columns: 1fr !important; }
     }
 
+    @media (min-width: 768px) and (max-width: 1023px) { #services-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; } }
+    .faq-link:focus-visible, #aum-slider:focus-visible { outline: 2px solid #C49A5A; outline-offset: 3px; }
+
+    .plan-ideal .service-pill::before { margin-top: 0.6em; }
     /* ── Hero cube ── */
     .cube-scene { perspective:800px; width:200px; height:200px; margin:0 auto; filter:drop-shadow(0 30px 60px rgba(196,154,74,0.18)) drop-shadow(0 8px 20px rgba(26,94,168,0.25)); }
     .cube { width:200px; height:200px; position:relative; transform-style:preserve-3d; }
@@ -255,8 +260,8 @@ function gtag_report_conversion(url) {
     "@type": "WebPage",
     "@id": "https://www.rubiqfinancial.com/Pages/fee-structure",
     "url": "https://www.rubiqfinancial.com/Pages/fee-structure",
-    "name": "Financial Advisor Fee Calculator | Rubiq Financial Partners | Philadelphia, PA",
-    "description": "Rubiq Financial Partners publishes its full advisory fee schedule — tiered, transparent, and structured around alignment. Learn how our fees scale with the complexity of your wealth.",
+    "name": "How Much Does a Financial Advisor Cost? Rubiq's Fees, Explained",
+    "description": "Two clear ways to work with Rubiq Financial Partners in West Chester, PA: wealth management with a tiered fee from 1.25%, or a one-time financial plan from $5,000.",
     "publisher": { "@id": "https://www.rubiqfinancial.com/#organization" }
   }
   </script>
@@ -267,13 +272,13 @@ function gtag_report_conversion(url) {
   <!-- Social / AEO -->
   <meta property="og:type"        content="website" />
   <meta property="og:site_name"   content="Rubiq Financial Partners" />
-  <meta property="og:title"       content="Fee Structure | Rubiq Financial Partners" />
-  <meta property="og:description" content="Rubiq Financial Partners publishes its full advisory fee schedule — tiered, transparent, and structured around alignment. Learn how our fees scale with the complexity of your wealth." />
+  <meta property="og:title"       content="How Much Does a Financial Advisor Cost? Rubiq's Fees, Explained" />
+  <meta property="og:description" content="Two clear ways to work with Rubiq Financial Partners in West Chester, PA: wealth management with a tiered fee from 1.25%, or a one-time financial plan from $5,000." />
   <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/fee-structure" />
   <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Fee Structure | Rubiq Financial Partners" />
-  <meta name="twitter:description" content="Rubiq Financial Partners publishes its full advisory fee schedule — tiered, transparent, and structured around alignment. Learn how our fees scale with the complexity of your wealth." />
+  <meta name="twitter:title"       content="How Much Does a Financial Advisor Cost? Rubiq's Fees, Explained" />
+  <meta name="twitter:description" content="Two clear ways to work with Rubiq Financial Partners in West Chester, PA: wealth management with a tiered fee from 1.25%, or a one-time financial plan from $5,000." />
   <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
   <script type="application/ld+json">
   {
@@ -286,44 +291,60 @@ function gtag_report_conversion(url) {
   }
   </script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What does a fiduciary financial advisor charge?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Fiduciary advisors typically charge either a percentage of assets under management (AUM), a flat fee, or an hourly rate. At Rubiq Financial Partners, we use a tiered AUM-based fee structure that decreases as your portfolio grows — ensuring our interests are aligned with yours. We do not earn commissions on investment products."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the difference between fee-only and fee-based financial advisors?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Fee-only advisors receive compensation exclusively from client fees and accept no commissions or third-party payments. Fee-based advisors primarily charge fees but may also receive commissions on certain products. Rubiq operates on a fee-based model through Wealthcare Advisory Partners, with full transparency on all compensation."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Are there hidden fees in wealth management?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Reputable fiduciary advisors disclose all fees upfront. Beyond advisory fees, investors should be aware of fund expense ratios, transaction costs, and custodial fees. At Rubiq, we provide a complete fee breakdown so clients understand the total cost of their investment program."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is a typical minimum investment for a UHNW wealth advisor?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Minimums vary widely among wealth advisors serving ultra-high-net-worth clients. Some require $1M or more, while others assess fit based on complexity and planning needs rather than a strict asset threshold. Contact us to discuss whether our services align with your situation."
-        }
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you earn commissions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our advice is paid for through the fees on this page. Rubiq is a fee-based firm. Rubiq provides advice on insurance products and may earn a fee from placing funds with life insurance companies, a conflict of interest we disclose."
       }
-    ]
-  }
+    },
+    {
+      "@type": "Question",
+      "name": "Are you a fiduciary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. When we provide investment advice through our advisory relationship, we are legally required to act in your best interest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the advisory fee tax-deductible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most individual investors, generally not under current federal law. Ask your tax professional about your situation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there other costs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Normal trading costs are included in our advisory fee. Funds and ETFs carry their own internal expenses, and trades you direct yourself may carry a fee. We show you all of these before you sign anything."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a minimum?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wealth management starts at $500,000 in managed assets. Planning-only engagements have no asset minimum."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I leave anytime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Either of us can end the relationship at any time with written notice, and any unearned fees you have prepaid for the quarter are refunded."
+      }
+    }
+  ]
+}
   </script>
 <script type="application/ld+json">
 {
@@ -468,20 +489,20 @@ function gtag_report_conversion(url) {
                     border-radius:100px;padding:0.35rem 1rem;margin-bottom:2rem;">
           <div style="width:6px;height:6px;border-radius:50%;background:#C49A5A;flex-shrink:0;"></div>
           <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C49A5A;">
-            Rubiq Financial Partners - Fee Structure
+            Our Fees
           </span>
         </div>
 
         <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.25rem);
                    font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:white;margin-bottom:0.75rem;">
-          Transparent, Tiered<br />
-          <em style="font-style:italic;color:#D4AE6A;">Pricing.</em>
+          What does it cost<br />
+          <em style="font-style:italic;color:#D4AE6A;">to work with Rubiq?</em>
         </h1>
 
         <p style="font-size:1.125rem;line-height:1.7;color:rgba(255,255,255,0.72);
                   font-weight:300;max-width:540px;margin-bottom:1.5rem;">
-          When your wealth grows, so does ours. That structural alignment — not a policy, not a promise —
-          is the foundation of every engagement at Rubiq.
+          You should know exactly what you’ll pay before our first meeting. We offer two ways to
+          work together — ongoing wealth management or a one-time financial plan — each with one clear fee.
         </p>
       </div>
 
@@ -598,21 +619,32 @@ function gtag_report_conversion(url) {
     <div class="mb-12">
       <div class="section-rule"></div>
       <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
-                color:#C49A5A;margin-bottom:0.75rem;">Advisory Fees</p>
+                color:#C49A5A;margin-bottom:0.75rem;">Two Ways to Work With Us</p>
       <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;">
         <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.75rem);
                    font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:white;">
-          Your fee schedule,<br /><em style="font-style:italic;color:#D4AE6A;">disclosed in full.</em>
+          One clear fee,<br /><em style="font-style:italic;color:#D4AE6A;">whichever path you choose.</em>
         </h2>
       </div>
     </div>
 
     <!-- Two-column layout -->
-    <div id="fee-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+    <div id="fee-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch;">
 
-      <!-- LEFT: Slider card -->
+      <!-- LEFT: Track 1 — wealth management slider -->
       <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
                   border-radius:10px;padding:2.25rem 2rem;">
+
+        <div style="margin-bottom:1.75rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,0.08);">
+          <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+                    color:#C49A5A;margin-bottom:0.4rem;">Track 1</p>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.625rem;font-weight:600;
+                     color:white;margin-bottom:0.5rem;line-height:1.2;letter-spacing:-0.02em;">Ongoing Wealth Management</h3>
+          <p style="font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.62);font-weight:300;margin:0;">
+            A tiered annual fee, starting at 1.25% and falling as your assets grow. We manage your
+            investments and keep your financial plan current as your life changes.
+          </p>
+        </div>
 
         <div style="margin-bottom:0.5rem;">
           <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
@@ -624,7 +656,7 @@ function gtag_report_conversion(url) {
         </div>
 
         <div style="margin:1.75rem 0 0.5rem;">
-          <input id="aum-slider" type="range" min="0" max="34" step="1" value="9" />
+          <input id="aum-slider" type="range" min="0" max="34" step="1" value="8" aria-label="Your assets under management" />
           <div style="display:flex;justify-content:space-between;margin-top:8px;">
             <span style="font-size:0.68rem;color:rgba(255,255,255,0.30);">$500K</span>
             <span style="font-size:0.68rem;color:rgba(255,255,255,0.30);">$50M+</span>
@@ -683,7 +715,7 @@ function gtag_report_conversion(url) {
 
           <div id="tier-1-row" class="fee-tier-row active">
             <div>
-              <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">$500K – $1M</span>
+              <span style="font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.90);">First $1M</span>
               <span style="font-size:0.75rem;color:rgba(255,255,255,0.50);margin-left:8px;">1.25% / yr</span>
             </div>
             <div id="tier-1-fee" style="font-size:0.8125rem;font-weight:600;color:#C49A5A;">$6,250</div>
@@ -737,8 +769,9 @@ function gtag_report_conversion(url) {
         </div>
 
         <p style="font-size:0.68rem;color:rgba(255,255,255,0.22);line-height:1.55;margin-top:1.5rem;">
-          Estimates are for illustrative purposes only. Actual fees are outlined in your advisory agreement.
-          Fees are charged on a tiered basis — each rate applies only to the portion of AUM within that tier.
+          Estimates are for illustrative purposes only, and fees may be negotiable. Actual fees are outlined in
+          your advisory agreement. Fees are charged on a tiered basis — each rate applies only to the portion of
+          AUM within that tier — and billed quarterly in advance on the managed balance only.
           Minimum account size: $500,000.
         </p>
         <div style="margin-top:1rem;">
@@ -755,17 +788,105 @@ function gtag_report_conversion(url) {
         </div>
       </div>
 
-      <!-- RIGHT: What's included -->
-      <div>
-        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
-                    border-radius:10px;padding:2.25rem 2rem;margin-bottom:2rem;">
+      <!-- RIGHT: Track 2 — planning only -->
+      <div style="background:linear-gradient(160deg,rgba(26,94,168,0.16) 0%,rgba(196,154,74,0.08) 100%);
+                  border:1px solid rgba(196,154,74,0.22);border-radius:10px;padding:2.25rem 2rem;
+                  display:flex;flex-direction:column;height:100%;">
+
+        <div style="margin-bottom:1.75rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,0.08);">
           <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
-                    color:#C49A5A;margin-bottom:0.4rem;">Every Client Engagement Includes</p>
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.375rem;font-weight:600;
-                     color:white;margin-bottom:1.5rem;line-height:1.25;">
-            Comprehensive Planning<br />Across Every Dimension
-          </h3>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem 1rem;">
+                    color:#C49A5A;margin-bottom:0.4rem;">Track 2</p>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.625rem;font-weight:600;
+                     color:white;margin-bottom:0.5rem;line-height:1.2;letter-spacing:-0.02em;">Financial Plan Only</h3>
+          <p style="font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.62);font-weight:300;margin:0;">
+            For people who want a professional plan but prefer to manage their own investments —
+            or who already work with another advisor. No assets to transfer.
+          </p>
+        </div>
+
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+                  color:rgba(255,255,255,0.45);margin-bottom:0.4rem;">One-Time Flat Fee</p>
+        <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;
+                    color:#C49A5A;letter-spacing:-0.03em;line-height:1;">From $5,000</div>
+        <p style="font-size:0.875rem;color:rgba(255,255,255,0.58);margin-top:6px;margin-bottom:1.75rem;">
+          Quoted before we start, based on the complexity of your situation.
+        </p>
+
+        <p style="font-size:0.68rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;
+                  color:rgba(255,255,255,0.30);margin-bottom:0.75rem;">What&#39;s Included</p>
+        <ul style="list-style:none;padding:0;margin:0 0 1.75rem;display:flex;flex-direction:column;gap:0.6rem;">
+            <li style="display:flex;align-items:flex-start;gap:9px;font-size:0.9rem;line-height:1.6;color:rgba(255,255,255,0.78);font-weight:300;">
+              <svg width="14" height="14" fill="none" stroke="#C49A5A" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;margin-top:5px;"><path d="M20 6L9 17l-5-5"/></svg>
+              A discovery meeting on your goals, assets and concerns
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:9px;font-size:0.9rem;line-height:1.6;color:rgba(255,255,255,0.78);font-weight:300;">
+              <svg width="14" height="14" fill="none" stroke="#C49A5A" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;margin-top:5px;"><path d="M20 6L9 17l-5-5"/></svg>
+              A written plan covering retirement, taxes, investments, insurance and estate
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:9px;font-size:0.9rem;line-height:1.6;color:rgba(255,255,255,0.78);font-weight:300;">
+              <svg width="14" height="14" fill="none" stroke="#C49A5A" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;margin-top:5px;"><path d="M20 6L9 17l-5-5"/></svg>
+              A walkthrough meeting on the recommendations
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:9px;font-size:0.9rem;line-height:1.6;color:rgba(255,255,255,0.78);font-weight:300;">
+              <svg width="14" height="14" fill="none" stroke="#C49A5A" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;margin-top:5px;"><path d="M20 6L9 17l-5-5"/></svg>
+              90 days of follow-up support
+            </li>
+        </ul>
+
+        <div style="padding:1.1rem 1.25rem;border-radius:8px;background:rgba(196,154,74,0.10);
+                    border:1px solid rgba(196,154,74,0.25);margin-bottom:1.25rem;">
+          <p style="font-size:0.9rem;line-height:1.6;color:rgba(255,255,255,0.85);margin:0;">
+            Move to ongoing wealth management later, and your planning fee is credited toward it.
+          </p>
+        </div>
+
+        <p style="font-size:0.8125rem;line-height:1.65;color:rgba(255,255,255,0.50);font-weight:300;margin-bottom:1.75rem;">
+          Business ownership, equity compensation, real estate and multi-generational estate issues add to
+          the quote. No asset minimum.
+        </p>
+
+        <p style="font-size:0.68rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;
+                  color:rgba(255,255,255,0.30);margin-bottom:0.75rem;">Ideal For</p>
+        <ul class="plan-ideal" style="list-style:none;padding:0;margin:0 0 2rem;display:flex;flex-direction:column;gap:0.55rem;">
+          <li class="service-pill" style="font-size:0.85rem;align-items:flex-start;line-height:1.55;">Self-directed investors who want a professional second opinion</li>
+          <li class="service-pill" style="font-size:0.85rem;align-items:flex-start;line-height:1.55;">Professionals approaching retirement who prefer to manage their own accounts</li>
+          <li class="service-pill" style="font-size:0.85rem;align-items:flex-start;line-height:1.55;">Families navigating a liquidity event, inheritance or major transition</li>
+          <li class="service-pill" style="font-size:0.85rem;align-items:flex-start;line-height:1.55;">Clients whose current advisor doesn&#39;t offer the analysis they need</li>
+        </ul>
+
+        <div style="margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;">
+          <a href="schedule.html" onclick="return gtag_report_conversion(this.href)">
+            <button class="btn-gold ihb" style="font-size:0.8125rem;padding:0.75rem 1.75rem;white-space:nowrap;">
+              <span class="ihb-label">Request a Planning Quote</span>
+              <span class="ihb-hover">Request a Planning Quote <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+              <span class="ihb-blob"></span>
+            </button>
+          </a>
+          <a href="Rubiq_Fee_Schedule_Planning.pdf" target="_blank" rel="noopener"
+             style="display:inline-flex;align-items:center;gap:5px;font-size:0.75rem;font-weight:500;
+                    color:rgba(196,154,74,0.70);text-decoration:none;letter-spacing:0.03em;transition:color 0.18s ease;"
+             onmouseover="this.style.color='#C49A5A'" onmouseout="this.style.color='rgba(196,154,74,0.70)'">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            Planning Fee Schedule (PDF)
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Every client engagement includes (full width, under both tracks) -->
+    <div style="margin-top:2rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
+                border-radius:10px;padding:2.25rem 2rem;">
+      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+                color:#C49A5A;margin-bottom:0.4rem;">Every Client Engagement Includes</p>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.375rem;font-weight:600;
+                 color:white;margin-bottom:1.75rem;line-height:1.25;">
+        Comprehensive Planning Across Every Dimension
+      </h3>
+      <div id="services-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.75rem 1.5rem;">
             <div>
               <div style="display:flex;align-items:center;gap:7px;margin-bottom:0.6rem;">
                 <div style="width:28px;height:28px;border-radius:6px;background:rgba(26,94,168,0.20);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -850,30 +971,28 @@ function gtag_report_conversion(url) {
                 <span class="service-pill">Buy-Sell Agreements</span>
               </div>
             </div>
-          </div>
-        </div>
+      </div>
+    </div>
 
-        <div style="background:linear-gradient(135deg,rgba(26,94,168,0.20) 0%,rgba(196,154,74,0.12) 100%);
-                    border:1px solid rgba(196,154,74,0.20);border-radius:10px;padding:1.75rem 2rem;
-                    display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
-          <div>
-            <div style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:600;
-                        color:white;margin-bottom:0.35rem;">Engagements begin with a conversation.</div>
-            <div style="font-size:0.875rem;color:rgba(255,255,255,0.50);font-weight:300;">
-              Tell us about your situation — we'll tell you whether we're the right fit.
-            </div>
-          </div>
-          <a href="schedule.html" onclick="return gtag_report_conversion(this.href)">
-            <button class="btn-gold ihb" style="font-size:0.8125rem;padding:0.75rem 1.75rem;white-space:nowrap;">
-              <span class="ihb-label">Schedule a Call</span>
-              <span class="ihb-hover">Schedule a Call <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-              <span class="ihb-blob"></span>
-            </button>
-          </a>
+    <div style="margin-top:2rem;background:linear-gradient(135deg,rgba(26,94,168,0.20) 0%,rgba(196,154,74,0.12) 100%);
+                border:1px solid rgba(196,154,74,0.20);border-radius:10px;padding:1.75rem 2rem;
+                display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:600;
+                    color:white;margin-bottom:0.35rem;">Engagements begin with a conversation.</div>
+        <div style="font-size:0.875rem;color:rgba(255,255,255,0.50);font-weight:300;">
+          Tell us about your situation — we&#39;ll tell you whether we&#39;re the right fit.
         </div>
       </div>
-
+      <a href="schedule.html" onclick="return gtag_report_conversion(this.href)">
+        <button class="btn-gold ihb" style="font-size:0.8125rem;padding:0.75rem 1.75rem;white-space:nowrap;">
+          <span class="ihb-label">Schedule a Call</span>
+          <span class="ihb-hover">Schedule a Call <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <span class="ihb-blob"></span>
+        </button>
+      </a>
     </div>
+
   </div>
 
   <script>
@@ -947,132 +1066,50 @@ function gtag_report_conversion(url) {
 
 
 <!-- ══════════════════════════════════════════════════
-     PLANNING ENGAGEMENT
+     FAQ
 ══════════════════════════════════════════════════════ -->
 <section class="reveal" style="background:#FFFFFF;padding:5rem 0 5.5rem;">
-  <div class="max-w-5xl mx-auto px-6 lg:px-10">
-
-    <!-- Section header -->
-    <div style="margin-bottom:3rem;">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <div style="margin-bottom:2rem;">
       <div style="width:36px;height:3px;background:linear-gradient(90deg,#1A5EA8,#C49A5A);
                   border-radius:2px;margin-bottom:1.25rem;"></div>
       <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
-                color:#1A5EA8;margin-bottom:0.75rem;">Planning-Only Engagements</p>
+                color:#1A5EA8;margin-bottom:0.75rem;">Common Questions</p>
       <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.5rem);
-                 font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:#0F1724;margin-bottom:1rem;">
-        Access our planning tools —<br />
-        <em style="font-style:italic;color:#1A5EA8;">without transferring assets.</em>
+                 font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:#0F1724;">
+        What clients ask <em style="font-style:italic;color:#1A5EA8;">about our fees.</em>
       </h2>
-      <p style="font-size:1.05rem;line-height:1.75;color:#4A5568;font-weight:300;max-width:640px;">
-        Already managing your own portfolio — or working with another advisor — but want access to
-        institutional-grade financial planning? We offer flat-fee planning engagements built around
-        your specific situation. You receive a comprehensive plan; you execute it on your own terms.
-      </p>
     </div>
-
-    <!-- Two examples -->
-    <div style="display:grid;grid-template-columns:minmax(0,560px);justify-content:center;gap:2rem;" class="planning-grid">
-
-      <!-- Example 1 -->
-      <div style="background:#FAF8F4;border:1px solid rgba(26,94,168,0.10);border-radius:12px;
-                  padding:2.25rem 2rem;display:flex;flex-direction:column;">
-        <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:1.25rem;">
-          <div style="width:40px;height:40px;border-radius:10px;background:rgba(26,94,168,0.08);
-                      display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="20" height="20" fill="none" stroke="#1A5EA8" stroke-width="1.8" viewBox="0 0 24 24">
-              <path d="M9 17H5a2 2 0 0 0-2 2 2 2 0 0 0 2 2h2a2 2 0 0 0 2-2zm12-2h-4a2 2 0 0 0-2 2 2 2 0 0 0 2 2h2a2 2 0 0 0 2-2z"/>
-              <circle cx="9" cy="7" r="4"/><path d="M17 3a4 4 0 0 1 0 8"/>
-            </svg>
-          </div>
-          <div>
-            <p style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;
-                      color:#0F1724;margin:0;line-height:1.3;">Comprehensive Financial Plan</p>
-          </div>
-        </div>
-        <p style="font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
-                  color:#C49A5A;margin-bottom:1rem;">Fee-Based Engagement</p>
-        <p style="font-size:0.9rem;line-height:1.7;color:#4A5568;font-weight:300;margin-bottom:1.25rem;">
-          A full financial plan covering retirement projections, tax strategy, insurance review, estate
-          planning, and portfolio allocation recommendations. Delivered as an actionable written report
-          with a walkthrough meeting and 90 days of follow-up support.
-        </p>
-        <p style="font-size:0.8rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;
-                  color:#2C3E55;margin-bottom:0.75rem;margin-top:auto;">Ideal for</p>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.5rem;">
-          <li style="display:flex;align-items:flex-start;gap:8px;font-size:0.85rem;line-height:1.6;color:#4A5568;font-weight:300;">
-            <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;margin-top:4px;"><path d="M20 6L9 17l-5-5"/></svg>
-            Self-directed investors who want a professional second opinion on their overall strategy
-          </li>
-          <li style="display:flex;align-items:flex-start;gap:8px;font-size:0.85rem;line-height:1.6;color:#4A5568;font-weight:300;">
-            <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;margin-top:4px;"><path d="M20 6L9 17l-5-5"/></svg>
-            Professionals approaching retirement who need a clear roadmap but prefer to manage their own accounts
-          </li>
-          <li style="display:flex;align-items:flex-start;gap:8px;font-size:0.85rem;line-height:1.6;color:#4A5568;font-weight:300;">
-            <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;margin-top:4px;"><path d="M20 6L9 17l-5-5"/></svg>
-            Families navigating a liquidity event, inheritance, or major financial transition
-          </li>
-          <li style="display:flex;align-items:flex-start;gap:8px;font-size:0.85rem;line-height:1.6;color:#4A5568;font-weight:300;">
-            <svg width="14" height="14" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;margin-top:4px;"><path d="M20 6L9 17l-5-5"/></svg>
-            Clients with an existing advisor who need specialized analysis their current team doesn't offer
-          </li>
-        </ul>
+    <div style="border-bottom:1px solid rgba(26,94,168,0.12);">
+      <div style="border-top:1px solid rgba(26,94,168,0.12);padding:1.5rem 0;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:#0F1724;margin-bottom:0.5rem;line-height:1.3;">Do you earn commissions?</h3>
+        <p style="font-size:0.975rem;line-height:1.75;color:#4A5568;font-weight:300;margin:0;">Our advice is paid for through the fees on this page. Rubiq is a fee-based firm. Rubiq provides advice on insurance products and may earn a fee from placing funds with life insurance companies, a conflict of interest we disclose.</p>
+        <a href="fee-only-vs-fee-based.html" class="faq-link" style="display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;font-size:0.875rem;font-weight:600;color:#1A5EA8;text-decoration:none;transition:opacity 0.18s ease;" onmouseover="this.style.opacity='0.70'" onmouseout="this.style.opacity='1'">Fee-only vs. fee-based: what’s the difference? <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
-
-    </div>
-
-    <!-- Fee schedule table -->
-    <div style="margin-top:3rem;">
-      <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
-                color:#1A5EA8;margin-bottom:1.25rem;">Planning Fee Schedule</p>
-      <div style="overflow-x:auto;">
-        <table style="width:100%;max-width:640px;border-collapse:collapse;font-family:'Inter',sans-serif;">
-          <thead>
-            <tr style="border-bottom:2px solid #1A5EA8;">
-              <th style="text-align:left;padding:0.75rem 1rem;font-size:0.8rem;font-weight:600;
-                         letter-spacing:0.04em;text-transform:uppercase;color:#0F1724;">Service</th>
-              <th style="text-align:right;padding:0.75rem 1rem;font-size:0.8rem;font-weight:600;
-                         letter-spacing:0.04em;text-transform:uppercase;color:#0F1724;">One-Time Fee</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-bottom:1px solid rgba(26,94,168,0.10);">
-              <td style="padding:0.875rem 1rem;font-size:0.9rem;color:#2C3E55;font-weight:400;">Basic Financial Plan</td>
-              <td style="padding:0.875rem 1rem;font-size:0.9rem;color:#C49A5A;font-weight:600;text-align:right;">$3,000</td>
-            </tr>
-            <tr style="border-bottom:1px solid rgba(26,94,168,0.10);">
-              <td style="padding:0.875rem 1rem;font-size:0.9rem;color:#2C3E55;font-weight:400;">Comprehensive Financial Plan</td>
-              <td style="padding:0.875rem 1rem;font-size:0.9rem;color:#C49A5A;font-weight:600;text-align:right;">$5,000+</td>
-            </tr>
-            <tr>
-              <td style="padding:0.875rem 1rem;font-size:0.9rem;color:#2C3E55;font-weight:400;">Portfolio Review &amp; Asset Allocation</td>
-              <td style="padding:0.875rem 1rem;font-size:0.9rem;color:#1A5EA8;font-weight:600;font-style:italic;text-align:right;">Complimentary</td>
-            </tr>
-          </tbody>
-        </table>
+      <div style="border-top:1px solid rgba(26,94,168,0.12);padding:1.5rem 0;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:#0F1724;margin-bottom:0.5rem;line-height:1.3;">Are you a fiduciary?</h3>
+        <p style="font-size:0.975rem;line-height:1.75;color:#4A5568;font-weight:300;margin:0;">Yes. When we provide investment advice through our advisory relationship, we are legally required to act in your best interest.</p>
+        <a href="what-is-a-fiduciary.html" class="faq-link" style="display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;font-size:0.875rem;font-weight:600;color:#1A5EA8;text-decoration:none;transition:opacity 0.18s ease;" onmouseover="this.style.opacity='0.70'" onmouseout="this.style.opacity='1'">What is a fiduciary financial advisor? <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
-
-      <!-- Download PDF link -->
-      <div style="margin-top:1.5rem;">
-        <a href="Rubiq_Fee_Schedule_Planning.pdf" target="_blank" rel="noopener"
-           style="display:inline-flex;align-items:center;gap:8px;font-size:0.85rem;font-weight:500;
-                  color:#1A5EA8;text-decoration:none;transition:opacity 0.18s ease;"
-           onmouseover="this.style.opacity='0.70'" onmouseout="this.style.opacity='1'">
-          <svg width="16" height="16" fill="none" stroke="#1A5EA8" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-          </svg>
-          Download Planning Fee Schedule (PDF)
-        </a>
+      <div style="border-top:1px solid rgba(26,94,168,0.12);padding:1.5rem 0;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:#0F1724;margin-bottom:0.5rem;line-height:1.3;">Is the advisory fee tax-deductible?</h3>
+        <p style="font-size:0.975rem;line-height:1.75;color:#4A5568;font-weight:300;margin:0;">For most individual investors, generally not under current federal law. Ask your tax professional about your situation.</p>
+      </div>
+      <div style="border-top:1px solid rgba(26,94,168,0.12);padding:1.5rem 0;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:#0F1724;margin-bottom:0.5rem;line-height:1.3;">Are there other costs?</h3>
+        <p style="font-size:0.975rem;line-height:1.75;color:#4A5568;font-weight:300;margin:0;">Normal trading costs are included in our advisory fee. Funds and ETFs carry their own internal expenses, and trades you direct yourself may carry a fee. We show you all of these before you sign anything.</p>
+      </div>
+      <div style="border-top:1px solid rgba(26,94,168,0.12);padding:1.5rem 0;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:#0F1724;margin-bottom:0.5rem;line-height:1.3;">Is there a minimum?</h3>
+        <p style="font-size:0.975rem;line-height:1.75;color:#4A5568;font-weight:300;margin:0;">Wealth management starts at $500,000 in managed assets. Planning-only engagements have no asset minimum.</p>
+      </div>
+      <div style="border-top:1px solid rgba(26,94,168,0.12);padding:1.5rem 0;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:#0F1724;margin-bottom:0.5rem;line-height:1.3;">Can I leave anytime?</h3>
+        <p style="font-size:0.975rem;line-height:1.75;color:#4A5568;font-weight:300;margin:0;">Yes. Either of us can end the relationship at any time with written notice, and any unearned fees you have prepaid for the quarter are refunded.</p>
       </div>
     </div>
-
   </div>
 </section>
-
-<style>
-  @media (max-width:767px) {
-    .planning-grid { grid-template-columns:1fr !important; }
-  }
-</style>
 
 
 <!-- ══════════════════════════════════════════════════
