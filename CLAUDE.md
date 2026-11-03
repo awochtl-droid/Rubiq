@@ -46,6 +46,11 @@
 - **Spacing:** Use intentional, consistent spacing tokens — not random Tailwind steps.
 - **Depth:** Surfaces should have a layering system (base → elevated → floating), not all sit at the same z-plane.
 
+## Internal Links
+- Link to pages without the `.html` extension: `href="our-team"`, `href="Pages/schedule"`, `href="faq#fees"`, `href="../"` for the home page. Cloudflare Pages redirects every `/page.html` to `/page`, so `.html` links cost a redirect on every click and crawler hop.
+- Files on disk still end in `.html`; only the links drop it. PDFs, images, CSS/JS and external links keep their URLs as-is.
+- Before committing, run `python3 scripts/strip-html-links.py --check index.html 404.html Pages/*.html` (exits 1 and reports a count if any `.html` link slipped in); run it without `--check` to fix them.
+
 ## Hard Rules
 - Do not add sections, features, or content not in the reference
 - Do not "improve" a reference design — match it
