@@ -8,7 +8,18 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   // Don't count automated browsers (scanners, crawlers) or preview/test hosts.
-  window.__rqNoTrack = navigator.webdriver === true || !/(^|\.)rubiqfinancial\.com$/.test(location.hostname);
+  window.__rqNoTrack = (function () {
+    try {
+      if (navigator.webdriver === true) return true;
+      if (!/(^|\.)rubiqfinancial\.com$/.test(location.hostname)) return true;
+      // Crawlers, headless browsers and page-speed testers that announce themselves
+      if (/HeadlessChrome|PhantomJS|Lighthouse|PageSpeed|GTmetrix|[a-z]bot\/|crawler|spider|Slurp/i.test(navigator.userAgent || '')) return true;
+      // Screen sizes seen only from data-center bots in our analytics
+      var r = screen.width + 'x' + screen.height;
+      if (r === '800x600' || r === '1280x1200' || r === '1024x1024' || r === '1366x1366') return true;
+      return false;
+    } catch (e) { return false; }
+  })();
   if (!window.__rqNoTrack) {
     gtag('config', 'G-15PBEWL3XZ');
     gtag('config', 'AW-18023805978');
