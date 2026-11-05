@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-15PBEWL3XZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // Don't count automated browsers (scanners, crawlers) or preview/test hosts.
+    window.__rqNoTrack = (function () {
+      try {
+        if (navigator.webdriver === true) return true;
+        if (!/(^|\.)rubiqfinancial\.com$/.test(location.hostname)) return true;
+        // Crawlers, headless browsers and page-speed testers that announce themselves
+        if (/HeadlessChrome|PhantomJS|Lighthouse|PageSpeed|GTmetrix|[a-z]bot\/|crawler|spider|Slurp/i.test(navigator.userAgent || '')) return true;
+        // Screen sizes seen only from data-center bots in our analytics
+        var r = screen.width + 'x' + screen.height;
+        if (r === '800x600' || r === '1280x1200' || r === '1024x1024' || r === '1366x1366') return true;
+        return false;
+      } catch (e) { return false; }
+    })();
+    if (!window.__rqNoTrack) {
+      gtag('config', 'G-15PBEWL3XZ');
+      gtag('config', 'AW-18023805978');
+    }
+    function gtag_report_conversion(url) {
+      if (window.__rqNoTrack) { if (typeof url !== 'undefined') window.location = url; return false; }
+      var callback = function () { if (typeof url !== 'undefined') window.location = url; };
+      gtag('event', 'conversion', {'send_to':'AW-18023805978/PYr9CKmg9qccEJrotZJD','value':1.0,'currency':'USD','event_callback':callback});
+      gtag('event', 'conversion', {'send_to':'AW-18023805978/sQ2MCNuQ0agcEJrotZJD','event_callback':callback});
+      return false;
+    }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mega Backdoor Roth (2026): Limits, Rules &amp; How It Works | Rubiq</title>
+  <meta name="description" content="How the mega backdoor Roth works in 2026: after-tax 401(k) contributions up to the $72,000 limit, converting them to Roth, plan requirements, taxes, and an example." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/mega-backdoor-roth" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Rubiq Financial Partners" />
+  <meta property="og:title" content="Mega Backdoor Roth (2026): Limits, Rules &amp; How It Works | Rubiq" />
+  <meta property="og:description" content="Put up to $47,500 more a year into Roth savings with after-tax 401(k) contributions and conversions. 2026 limits, plan requirements, tax traps, and a worked example." />
+  <meta property="og:url" content="https://www.rubiqfinancial.com/Pages/mega-backdoor-roth" />
+  <meta property="og:image" content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mega Backdoor Roth (2026): Limits, Rules &amp; How It Works | Rubiq" />
+  <meta name="twitter:description" content="Put up to $47,500 more a year into Roth savings with after-tax 401(k) contributions and conversions. 2026 limits, plan requirements, tax traps, and a worked example." />
+  <meta name="twitter:image" content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,sans-serif;color:#1C2D44}
+    .nav-blur{backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%)}
+    .nav-link{font-size:.8125rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.8);text-decoration:none}
+    .nav-link:hover,.nav-link:focus-visible{color:#D4AE6A}
+    a:focus-visible,button:focus-visible{outline:3px solid #D4AE6A;outline-offset:3px}
+    .focus-link{transition:color .18s ease,filter .18s ease,transform .18s ease}
+    .focus-link:hover{filter:brightness(.96)}
+    .focus-link:active{transform:translateY(1px)}
+    .content h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(1.5rem,3vw,2rem);line-height:1.2;color:#0F1724;margin:3rem 0 1rem;letter-spacing:-.02em}
+    .content h3{font-family:"Playfair Display",Georgia,serif;font-size:1.2rem;line-height:1.3;color:#0F1724;margin:1.75rem 0 .6rem}
+    .content p,.content li{font-size:.975rem;line-height:1.8;color:#405168;font-weight:300}
+    .content p{margin:0 0 1.1rem}
+    .content ul,.content ol{padding-left:1.25rem;margin:.5rem 0 1.5rem}
+    .content ul{list-style:disc}
+    .content ol{list-style:decimal}
+    .content li{padding-left:.25rem;margin:.35rem 0}
+    .content a{color:#1A5EA8;text-decoration:underline;text-underline-offset:3px}
+    .content a:hover{color:#133F73;text-decoration-thickness:2px}
+    .option-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9E7A32}
+    .faq-item{padding:1.25rem 0;border-bottom:1px solid rgba(44,62,85,.12)}
+    .faq-item h3{margin:0 0 .5rem}
+    .answer-box{background:white;border:1px solid rgba(26,94,168,.14);border-radius:10px;padding:1.6rem 1.6rem 1.2rem;margin:0 0 2.25rem;box-shadow:0 8px 24px rgba(15,23,36,.04)}
+    .warn-box{background:white;border:1px solid rgba(196,154,90,.35);border-left:3px solid #C49A5A;border-radius:0 10px 10px 0;padding:1.3rem 1.5rem;margin:1.25rem 0 1.75rem}
+    .data-table{width:100%;border-collapse:collapse;margin:0 0 1rem;background:white;border:1px solid rgba(26,94,168,.12)}
+    .data-table th,.data-table td{text-align:left;vertical-align:top;padding:.65rem .8rem;border-bottom:1px solid rgba(26,94,168,.08);font-size:.9rem;line-height:1.55}
+    .data-table thead th{background:rgba(26,94,168,.04);color:#0F1724;font-weight:600}
+    .data-table td{color:#405168;font-weight:300}
+    .data-table td.num,.data-table th.num{text-align:right;white-space:nowrap}
+    .data-table tr:last-child td{border-bottom:none}
+    .table-note{font-size:.8125rem!important;line-height:1.6!important;color:#5A6B82!important}
+    .compare-wrap{margin:1.25rem 0 1rem;border:1px solid rgba(26,94,168,.12);border-radius:10px;background:white;overflow:hidden}
+    .compare{width:100%;border-collapse:collapse}
+    .compare th,.compare td{text-align:left;vertical-align:top;padding:.75rem .85rem;border-bottom:1px solid rgba(26,94,168,.08);font-size:.875rem;line-height:1.55}
+    .compare thead th{background:rgba(26,94,168,.04);color:#0F1724;font-weight:600}
+    .compare tbody th{color:#0F1724;font-weight:600;width:26%}
+    .compare td{color:#405168;font-weight:300}
+    .compare tr:last-child th,.compare tr:last-child td{border-bottom:none}
+    @media(max-width:639px){
+      .answer-box{padding:1.2rem 1rem 1rem}
+      .data-table th,.data-table td{padding:.55rem .45rem;font-size:.84rem}
+      .compare thead{display:none}
+      .compare tbody tr{display:block;padding:.9rem 1rem;border-bottom:1px solid rgba(26,94,168,.08)}
+      .compare tbody tr:last-child{border-bottom:none}
+      .compare tbody th,.compare tbody td{display:block;width:auto;border:0;padding:.15rem 0}
+      .compare tbody th{margin-bottom:.35rem}
+      .compare td::before{content:attr(data-label);display:block;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9E7A32;margin-top:.35rem}
+    }
+    .focus-link:focus-visible{outline:3px solid #D4AE6A;outline-offset:3px}
+    #mobile-menu{display:none}
+    @media(max-width:767px){#mobile-menu.open{display:flex}}
+    .skip-link:focus-visible{top:0!important}
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Mega Backdoor Roth: How to Put Up to $47,500 More a Year Into Roth Savings",
+  "description": "An educational guide to the mega backdoor Roth: after-tax 401(k) contributions, the 2026 $72,000 total contribution limit, in-plan Roth conversions and in-service rollovers, plan requirements, nondiscrimination testing, taxes on earnings, IRS Notice 2014-54, Pennsylvania treatment, and a worked example.",
+  "url": "https://www.rubiqfinancial.com/Pages/mega-backdoor-roth",
+  "datePublished": "2026-11-04",
+  "dateModified": "2026-11-04",
+  "author": {
+    "@type": "Organization",
+    "name": "Rubiq Financial Partners"
+  },
+  "publisher": {
+    "@id": "https://www.rubiqfinancial.com/#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.rubiqfinancial.com/Pages/mega-backdoor-roth"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.rubiqfinancial.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Resources",
+      "item": "https://www.rubiqfinancial.com/Pages/insights"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Mega Backdoor Roth",
+      "item": "https://www.rubiqfinancial.com/Pages/mega-backdoor-roth"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a mega backdoor Roth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A mega backdoor Roth is a way to put extra money into Roth accounts by making after-tax contributions to a 401(k) above the regular deferral limit and then converting them to Roth, either inside the plan or by rolling them to a Roth IRA. It works only if your plan allows after-tax contributions and in-plan conversions or in-service withdrawals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much can I put in a mega backdoor Roth in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to $72,000 minus your own deferrals and your employer’s contributions. With the full $24,500 deferral and no employer contributions, that leaves $47,500. Catch-up contributions for people 50 and older are on top of the $72,000 limit. Your plan may also set a lower cap on after-tax contributions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there income limits for a mega backdoor Roth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Unlike direct Roth IRA contributions, after-tax 401(k) contributions and Roth conversions have no income limit. High earners can face a different constraint: if the plan fails its nondiscrimination test, highly compensated employees may have some after-tax contributions refunded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I pay tax on a mega backdoor Roth conversion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You pay no tax on the after-tax contributions themselves, since they were already taxed. Any earnings on them before you convert are taxed as ordinary income. Converting soon after each contribution keeps the taxable amount small. If you roll the money out of the plan, IRS rules let you send the contributions to a Roth IRA and the earnings to a traditional IRA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I do a mega backdoor Roth and a backdoor Roth IRA in the same year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The IRA contribution limit is separate from the 401(k) limits, so you can do both if you qualify. The backdoor Roth IRA has its own trap: pre-tax balances in any traditional, SEP, or SIMPLE IRA can make part of that conversion taxable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the 2027 mega backdoor Roth limits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The IRS had not announced 2027 limits as of early November 2026. Industry forecasts expect the deferral limit to rise to $25,500 and the total contribution limit to $75,000, which would raise the maximum after-tax room to $49,500. We will update this page when the official figures are released."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="focus-link skip-link" style="position:absolute;top:-100px;left:1rem;z-index:100;background:#C49A5A;color:#0F1724;padding:.75rem 1rem;font-weight:600">Skip to content</a>
+  <nav class="fixed top-0 left-0 right-0 z-50 nav-blur" style="background:rgba(15,23,36,.94);border-bottom:1px solid rgba(255,255,255,.08)">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between" style="height:72px">
+      <a href="../" aria-label="Rubiq Financial Partners home"><img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Vertical -White.png" alt="Rubiq Financial Partners" width="240" height="44" style="height:44px;width:auto" /></a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="our-capabilities" class="nav-link">Capabilities</a><a href="our-clients" class="nav-link">Clients</a><a href="our-team" class="nav-link">Team</a><a href="insights" class="nav-link">Resources</a><a href="fee-structure" class="nav-link">Fees</a>
+      </div>
+      <a class="hidden md:inline-flex focus-link" href="schedule" onclick="return gtag_report_conversion(this.href)" style="background:#C49A5A;color:#0F1724;padding:.7rem 1.1rem;border-radius:4px;text-decoration:none;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Schedule a Call</a>
+      <button class="md:hidden focus-link" type="button" aria-label="Toggle navigation" aria-expanded="false" onclick="var m=document.getElementById('mobile-menu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))" style="color:white;background:none;border:0;padding:.6rem;font-size:1.35rem">☰</button>
+    </div>
+    <div id="mobile-menu" style="background:#0F1724;padding:0 1.5rem 1.25rem;flex-direction:column">
+      <a href="our-capabilities" class="nav-link" style="padding:.8rem 0">Capabilities</a><a href="our-clients" class="nav-link" style="padding:.8rem 0">Clients</a><a href="our-team" class="nav-link" style="padding:.8rem 0">Team</a><a href="insights" class="nav-link" style="padding:.8rem 0">Resources</a><a href="fee-structure" class="nav-link" style="padding:.8rem 0">Fees</a>
+    </div>
+  </nav>
+
+  <header style="margin-top:72px;padding:5.5rem 0 4.5rem;background:radial-gradient(ellipse at 82% 5%,rgba(196,154,90,.18),transparent 38%),linear-gradient(150deg,#0F1724 0%,#133F73 62%,#1A5EA8 100%);color:white">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10">
+      <a href="insights" class="focus-link" style="display:inline-block;color:rgba(255,255,255,.65);font-size:.75rem;text-decoration:none;margin-bottom:1.6rem">← All Resources</a>
+      <p style="font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#D4AE6A;margin:0 0 1rem">Retirement Planning</p>
+      <h1 style="max-width:880px;font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.35rem,5vw,4.25rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 1.25rem">Mega Backdoor Roth: How to Put Up to $47,500 More a Year Into Roth Savings</h1>
+      <p style="max-width:720px;color:rgba(255,255,255,.77);font-size:1.08rem;font-weight:300;line-height:1.8;margin:0">If your 401(k) allows after-tax contributions and lets you convert them to Roth, you can save far more in Roth accounts than an IRA allows, with no income limit. Here is how the 2026 numbers work, what your plan has to offer, and where people trip up.</p>
+    </div>
+  </header>
+
+  <main id="main-content" class="content">
+    <section style="background:#FAF8F4;padding:3.5rem 0">
+      <div class="max-w-6xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <article class="lg:col-span-2">
+
+          <div class="answer-box">
+            <p class="option-label" style="margin:0 0 .5rem">The short answer</p>
+            <p style="font-size:1.05rem;line-height:1.75;color:#1C2D44;font-weight:400">A <strong style="font-weight:600">mega backdoor Roth</strong> means making <strong style="font-weight:600">after-tax (non-Roth) contributions</strong> to your 401(k) above the normal deferral limit, then promptly <strong style="font-weight:600">converting them to Roth</strong>, either inside the plan or by rolling them to a Roth IRA. In 2026, total contributions to one employer&rsquo;s plan can reach <strong style="font-weight:600">$72,000</strong>, so the room left after your own deferrals and your employer&rsquo;s contributions can go in after-tax.</p>
+            <table class="data-table">
+              <thead><tr><th>2026 limits</th><th class="num">Amount</th></tr></thead>
+              <tbody>
+                <tr><td>Your 401(k) deferrals, pre-tax or Roth</td><td class="num">$24,500</td></tr>
+                <tr><td>Total contributions to the plan from all sources, before catch-ups</td><td class="num">$72,000</td></tr>
+                <tr><td>Maximum after-tax room if your employer contributes nothing</td><td class="num">$47,500</td></tr>
+                <tr><td>Catch-up, age 50+ (on top of the $72,000)</td><td class="num">$8,000</td></tr>
+                <tr><td>Catch-up, ages 60&ndash;63 (instead of $8,000)</td><td class="num">$11,250</td></tr>
+              </tbody>
+            </table>
+            <p class="table-note" style="margin:0">Source: IRS Notice 2025-67. 2027 limits have not been announced yet; industry forecasts expect $25,500 and $75,000.</p>
+          </div>
+
+          <h2 style="margin-top:0">How the mega backdoor Roth works</h2>
+          <p>Most people know two kinds of 401(k) contributions: pre-tax and Roth. Some plans offer a third, <strong>after-tax</strong> contributions. They don&rsquo;t reduce your taxable income today, and on their own they aren&rsquo;t especially useful, because the growth is taxed as ordinary income when it comes out. The value comes from converting them to Roth quickly, so future growth is tax-free.</p>
+          <ol>
+            <li><strong>Max out your regular deferral</strong> ($24,500 in 2026), pre-tax or Roth.</li>
+            <li><strong>Find your room.</strong> Subtract your deferrals and your employer&rsquo;s match or profit-sharing from $72,000. What&rsquo;s left can go in as after-tax contributions.</li>
+            <li><strong>Contribute after-tax</strong> through payroll, up to that room and whatever your plan&rsquo;s own cap allows.</li>
+            <li><strong>Convert to Roth</strong>, either with an in-plan Roth conversion to your Roth 401(k) or with an in-service withdrawal rolled to a Roth IRA. The sooner you convert, the less taxable growth builds up first.</li>
+          </ol>
+          <p>There is no income limit, which is why the strategy appeals to executives and business owners who earn too much to contribute to a Roth IRA directly.</p>
+
+          <h2>Does your plan allow it?</h2>
+          <p>The strategy depends entirely on plan features. Check your summary plan description or ask HR for three things:</p>
+          <ul>
+            <li><strong>After-tax contributions.</strong> Not the same as Roth 401(k) contributions. Many plans don&rsquo;t offer them.</li>
+            <li><strong>A way to convert.</strong> Either in-plan Roth conversions or in-service withdrawals of after-tax money that you can roll to a Roth IRA. Some plans convert automatically after each paycheck, which keeps taxable earnings near zero.</li>
+            <li><strong>The plan&rsquo;s own cap.</strong> Some plans limit after-tax contributions to a percentage of pay, which can leave you short of the full IRS room.</li>
+          </ul>
+          <div class="warn-box">
+            <p class="option-label" style="margin:0 0 .4rem">Highly compensated employees, read this</p>
+            <p style="margin:0">After-tax contributions are included in the plan&rsquo;s nondiscrimination test for matching and after-tax contributions (the ACP test), even in many safe harbor plans. If lower-paid employees don&rsquo;t contribute enough, the plan may refund part of what highly compensated employees put in after-tax. Ask the plan whether that has happened in prior years.</p>
+          </div>
+
+          <h2>A worked example</h2>
+          <p>Michael is 45, earns $300,000, and his employer matches 6% of pay. His plan allows after-tax contributions and automatic in-plan Roth conversions.</p>
+          <table class="data-table">
+            <thead><tr><th>2026 contributions</th><th class="num">Amount</th></tr></thead>
+            <tbody>
+              <tr><td>Michael&rsquo;s 401(k) deferral</td><td class="num">$24,500</td></tr>
+              <tr><td>Employer match (6% &times; $300,000)</td><td class="num">$18,000</td></tr>
+              <tr><td>After-tax contributions, converted to Roth</td><td class="num"><strong>$29,500</strong></td></tr>
+              <tr><td>Total, at the $72,000 limit</td><td class="num">$72,000</td></tr>
+            </tbody>
+          </table>
+          <p>If Michael adds $29,500 a year for 10 years and it earns 6% a year, he would have about <strong>$388,800 in Roth savings</strong>, including about $93,800 of growth that can come out tax-free in retirement once he is 59&frac12; and meets the five-year rule. Without the conversion, that growth would eventually be taxed as ordinary income.</p>
+          <p class="table-note">Hypothetical and simplified for illustration, assuming contributions at the end of each year and a constant 6% return. Actual returns vary and are not guaranteed. Michael&rsquo;s match counts toward the $72,000 limit even though it goes into his pre-tax account.</p>
+
+<div class="booking-offer" style="background:linear-gradient(135deg,#0F1724 0%,#133F73 100%);border-radius:10px;padding:1.5rem 1.6rem;margin:2.25rem 0 2.5rem;box-shadow:0 10px 28px rgba(15,23,36,.18);">
+            <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;font-weight:600;line-height:1.3;color:white;margin:0 0 .45rem;">Not sure your plan supports it?</p>
+            <p style="font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.78);font-weight:300;margin:0 0 1.1rem;">Send us your summary plan description. We&rsquo;ll confirm what it allows, work out your after-tax room, and fit it alongside the rest of your tax plan.</p>
+            <a class="focus-link" href="schedule" onclick="return gtag_report_conversion(this.href)" style="display:inline-block;background:#C49A5A;color:#0F1724;padding:.8rem 1.3rem;border-radius:4px;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;">Schedule a call &rarr;</a>
+          </div>
+
+          <h2>Taxes to watch</h2>
+          <ul>
+            <li><strong>Earnings before conversion are taxable.</strong> Your after-tax contributions have already been taxed, but any growth before you convert is taxed as ordinary income when converted. Converting each paycheck, or at least often, keeps that small.</li>
+            <li><strong>Splitting a rollover.</strong> If you take after-tax money out of the plan, IRS Notice 2014-54 lets you send the contributions to a Roth IRA and the pre-tax earnings to a traditional IRA in the same distribution, so you don&rsquo;t have to pay tax on the earnings now.</li>
+            <li><strong>Pre-tax money in the plan.</strong> Withdrawals generally come out pro rata from your account, so check whether your plan tracks after-tax money as a separate source you can withdraw on its own.</li>
+            <li><strong>No IRA pro-rata problem.</strong> Unlike the regular backdoor Roth IRA, pre-tax balances in your IRAs don&rsquo;t make an in-plan conversion taxable.</li>
+          </ul>
+
+          <h2>Mega backdoor Roth vs. backdoor Roth IRA</h2>
+          <div class="compare-wrap">
+            <table class="compare">
+              <thead><tr><th scope="col">&nbsp;</th><th scope="col">Mega backdoor Roth</th><th scope="col">Backdoor Roth IRA</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">2026 amount</th><td data-label="Mega backdoor Roth">Up to $47,500, less employer contributions</td><td data-label="Backdoor Roth IRA">$7,500 ($8,600 at 50+)</td></tr>
+                <tr><th scope="row">Needs</th><td data-label="Mega backdoor Roth">A 401(k) with after-tax contributions and a way to convert</td><td data-label="Backdoor Roth IRA">Any earned income; no plan needed</td></tr>
+                <tr><th scope="row">Main trap</th><td data-label="Mega backdoor Roth">Taxable earnings before conversion; HCE refunds</td><td data-label="Backdoor Roth IRA">Pre-tax IRA balances make the conversion partly taxable</td></tr>
+                <tr><th scope="row">Income limit</th><td data-label="Mega backdoor Roth">None</td><td data-label="Backdoor Roth IRA">None for the conversion</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>If you qualify for both, you can do both in the same year. The IRA limit is separate from the 401(k) limits.</p>
+
+          <h2>Is it worth it?</h2>
+          <p>It usually makes sense once you are already maxing out your deferral, have cash flow to spare, and expect to hold the money for years. Roth 401(k) balances no longer have required minimum distributions during your lifetime, and Roth money can be a strong asset to leave to heirs. It may be less useful if you need the money soon, if your plan&rsquo;s investment options are weak, or if your plan keeps refunding after-tax contributions. Self-employed owners can sometimes use it too, through a solo 401(k) whose plan document allows after-tax contributions and conversions.</p>
+
+          <h2>Pennsylvania residents</h2>
+          <p>Pennsylvania doesn&rsquo;t follow the federal treatment of 401(k) contributions: it taxes your employee contributions when you make them, whether they are pre-tax or after-tax for federal purposes. So the state picture for this strategy differs from the federal one. Confirm how your conversions should be reported with your CPA, and see our <a href="pennsylvania-retirement-taxes">Pennsylvania retirement tax guide</a>.</p>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-item"><h3>What is a mega backdoor Roth?</h3><p>A mega backdoor Roth is a way to put extra money into Roth accounts by making after-tax contributions to a 401(k) above the regular deferral limit and then converting them to Roth, either inside the plan or by rolling them to a Roth IRA. It works only if your plan allows after-tax contributions and in-plan conversions or in-service withdrawals.</p></div>
+          <div class="faq-item"><h3>How much can I put in a mega backdoor Roth in 2026?</h3><p>Up to $72,000 minus your own deferrals and your employer&rsquo;s contributions. With the full $24,500 deferral and no employer contributions, that leaves $47,500. Catch-up contributions for people 50 and older are on top of the $72,000 limit. Your plan may also set a lower cap on after-tax contributions.</p></div>
+          <div class="faq-item"><h3>Are there income limits for a mega backdoor Roth?</h3><p>No. Unlike direct Roth IRA contributions, after-tax 401(k) contributions and Roth conversions have no income limit. High earners can face a different constraint: if the plan fails its nondiscrimination test, highly compensated employees may have some after-tax contributions refunded.</p></div>
+          <div class="faq-item"><h3>Do I pay tax on a mega backdoor Roth conversion?</h3><p>You pay no tax on the after-tax contributions themselves, since they were already taxed. Any earnings on them before you convert are taxed as ordinary income. Converting soon after each contribution keeps the taxable amount small. If you roll the money out of the plan, IRS rules let you send the contributions to a Roth IRA and the earnings to a traditional IRA.</p></div>
+          <div class="faq-item"><h3>Can I do a mega backdoor Roth and a backdoor Roth IRA in the same year?</h3><p>Yes. The IRA contribution limit is separate from the 401(k) limits, so you can do both if you qualify. The backdoor Roth IRA has its own trap: pre-tax balances in any traditional, SEP, or SIMPLE IRA can make part of that conversion taxable.</p></div>
+          <div class="faq-item"><h3>What are the 2027 mega backdoor Roth limits?</h3><p>The IRS had not announced 2027 limits as of early November 2026. Industry forecasts expect the deferral limit to rise to $25,500 and the total contribution limit to $75,000, which would raise the maximum after-tax room to $49,500. We will update this page when the official figures are released.</p></div>
+        </article>
+
+        <aside style="align-self:start;background:white;border:1px solid rgba(26,94,168,.12);border-radius:10px;padding:1.5rem;box-shadow:0 8px 24px rgba(15,23,36,.04)">
+          <p class="option-label">Before you start</p>
+          <h2 style="font-size:1.4rem;margin:0 0 1rem">Mega backdoor Roth checklist</h2>
+          <ol style="padding-left:1.2rem;margin:0;list-style:decimal">
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Confirm the plan allows after-tax (non-Roth) contributions.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Confirm in-plan Roth conversions or in-service withdrawals of after-tax money.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Ask whether conversions can happen automatically.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Work out your room: $72,000 minus deferrals and employer contributions.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Ask whether HCE after-tax contributions have been refunded before.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Keep the Form 1099-R and conversion records for your CPA.</li>
+          </ol>
+          <p style="font-size:.8rem;line-height:1.65;margin:1rem 0 0;color:#65748A">Educational information only; not tax or legal advice. Plan rules vary; confirm with your plan administrator and a tax professional.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section style="padding:3.25rem 0;background:white">
+      <div class="max-w-4xl mx-auto px-6 lg:px-10">
+        <h2 style="margin-top:0">Learn more</h2>
+        <ul>
+          <li><a href="https://www.irs.gov/retirement-plans/rollovers-of-after-tax-contributions-in-retirement-plans" target="_blank" rel="noopener noreferrer">IRS: Rollovers of after-tax contributions in retirement plans</a></li>
+          <li><a href="https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits" target="_blank" rel="noopener noreferrer">IRS: 401(k) contribution limits</a></li>
+          <li><a href="resources-roth-conversion">Roth conversion guide</a></li>
+          <li><a href="resources-tax-drag">Tax drag: what taxes cost your portfolio</a></li>
+          <li><a href="rule-of-55">Rule of 55: penalty-free 401(k) withdrawals</a></li>
+          <li><a href="pennsylvania-retirement-taxes">Does Pennsylvania tax retirement income?</a></li>
+          <li><a href="retirement-planning">Retirement planning at Rubiq Financial Partners</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="padding:3.5rem 0;background:linear-gradient(155deg,#0F1724 0%,#133F73 60%,#1A5EA8 100%);text-align:center">
+      <div class="max-w-3xl mx-auto px-6 lg:px-10">
+        <p style="font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#D4AE6A;margin:0 0 .75rem">Already maxing out your 401(k)?</p>
+        <h2 style="font-family:'Playfair Display',Georgia,serif;color:white;font-size:clamp(1.7rem,3.8vw,2.5rem);margin:0 0 1rem">Find out how much more you can move into Roth.</h2>
+        <p style="font-size:.95rem;line-height:1.75;color:rgba(255,255,255,.75);font-weight:300;margin:0 auto 1.5rem;max-width:620px">We review your plan&rsquo;s features, set up the contributions and conversions, and coordinate them with your Roth conversion and tax plan alongside your CPA.</p>
+        <a class="focus-link" href="schedule" onclick="return gtag_report_conversion(this.href)" style="display:inline-block;background:#C49A5A;color:#0F1724;padding:.85rem 1.4rem;border-radius:4px;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Schedule a call</a>
+      </div>
+    </section>
+  </main>
+
+
+  <footer style="background:#0F1724;padding:1.5rem 0;color:rgba(255,255,255,.55)">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <a href="../"><img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png" alt="Rubiq Financial Partners" width="180" height="40" style="width:180px;height:auto" loading="lazy" /></a>
+      <p style="font-size:.72rem;text-align:center;line-height:1.6;margin:0">© 2026 Rubiq Financial Partners. Investment advisory services offered through Wealthcare Capital Partners, LLC, dba Rubiq Financial Partners, an SEC-registered investment adviser. Securities offered through LPL Financial, Member FINRA/SIPC. Wealthcare and Rubiq Financial Partners are separate entities from LPL Financial.<br />This page is for educational purposes and is not tax, legal, or investment advice.</p>
+      <a class="nav-link focus-link" href="insights">All Resources</a>
+    </div>
+  </footer>
+<!-- Sticky Mobile CTA -->
+<a id="sticky-mobile-cta" href="schedule"
+   style="display:none;position:fixed;bottom:-60px;left:1rem;right:1rem;z-index:9998;
+          background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);
+          color:#0F1724;text-align:center;
+          font-family:'Inter',sans-serif;font-size:0.9375rem;font-weight:600;
+          letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;
+          padding:1rem;border-radius:6px;
+          box-shadow:0 -2px 16px rgba(0,0,0,0.25),0 4px 12px rgba(196,154,74,0.35);
+          transition:bottom 0.3s cubic-bezier(0.4,0,0.2,1);" onclick="return gtag_report_conversion(this.href)">
+  Schedule a Call
+</a>
+<style>
+  @media(min-width:768px){ #sticky-mobile-cta{display:none!important;} }
+</style>
+<script>
+(function(){
+  var cta=document.getElementById('sticky-mobile-cta');
+  if(!cta)return;
+  if(window.innerWidth<768) cta.style.display='block';
+  window.addEventListener('scroll',function(){
+    if(window.innerWidth>=768)return;
+    cta.style.display='block';
+    cta.style.bottom=window.scrollY>100?'1rem':'-60px';
+  },{passive:true});
+  window.addEventListener('resize',function(){
+    cta.style.display=window.innerWidth<768?'block':'none';
+  });
+})();
+</script>
+</body>
+</html>
