@@ -57,8 +57,8 @@ function gtag_report_conversion(url) {
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tax Loss Harvesting & Direct Indexing | Rubiq</title>
-  <meta name="description" content="How tax-loss harvesting and direct indexing work, a Pennsylvania worked example, and why PA’s no-carryforward rule matters." />
+  <title>Tax-Loss Harvesting: Rules, Year-End Deadline &amp; Direct Indexing | Rubiq</title>
+  <meta name="description" content="How tax-loss harvesting works: the wash-sale rule, the $3,000 limit, the December 31 deadline, when to harvest gains instead, and how direct indexing scales it." />
   <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/resources-tax-loss-harvesting" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -226,6 +226,10 @@ function gtag_report_conversion(url) {
       transform: translateY(-1px);
     }
 
+    .article-body .faq-item { padding: 1.1rem 0; border-bottom: 1px solid rgba(44,62,85,0.12); }
+    .article-body .faq-item h3 { margin: 0 0 0.5rem; }
+    .article-body .faq-item p { margin: 0; }
+
     .comparison-row {
       display: grid; grid-template-columns: 1.75fr 1fr 1fr 1fr;
       border-bottom: 1px solid rgba(26,94,168,0.08);
@@ -248,23 +252,23 @@ function gtag_report_conversion(url) {
   <!-- Social / AEO -->
   <meta property="og:type"        content="article" />
   <meta property="og:site_name"   content="Rubiq Financial Partners" />
-  <meta property="og:title"       content="Tax Loss Harvesting &amp; Direct Indexing | Rubiq" />
-  <meta property="og:description" content="Tax loss harvesting turns market volatility into a tax advantage. Learn how direct indexing and long/short strategies unlock significantly more harvesting potential than traditional funds." />
+  <meta property="og:title"       content="Tax-Loss Harvesting: Rules, Year-End Deadline &amp; Direct Indexing | Rubiq" />
+  <meta property="og:description" content="How tax-loss harvesting works: the wash-sale rule, the $3,000 limit, the December 31 deadline, when to harvest gains instead, and how direct indexing scales it." />
   <meta property="og:url"         content="https://www.rubiqfinancial.com/Pages/resources-tax-loss-harvesting" />
   <meta property="og:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Tax Loss Harvesting &amp; Direct Indexing | Rubiq" />
-  <meta name="twitter:description" content="Tax loss harvesting turns market volatility into a tax advantage. Learn how direct indexing and long/short strategies unlock significantly more harvesting potential than traditional funds." />
+  <meta name="twitter:title"       content="Tax-Loss Harvesting: Rules, Year-End Deadline &amp; Direct Indexing | Rubiq" />
+  <meta name="twitter:description" content="How tax-loss harvesting works: the wash-sale rule, the $3,000 limit, the December 31 deadline, when to harvest gains instead, and how direct indexing scales it." />
   <meta name="twitter:image"       content="https://www.rubiqfinancial.com/Media/og-social.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Tax Loss Harvesting & Direct Indexing: A Complete Guide",
-    "description": "Tax loss harvesting turns market volatility into a tax advantage. Learn how direct indexing and long/short strategies unlock significantly more harvesting potential than traditional funds.",
+    "headline": "Tax-Loss Harvesting: Rules, Year-End Timing & Direct Indexing",
+    "description": "How tax-loss harvesting works: the wash-sale rule, the $3,000 limit, the December 31 deadline, when to harvest gains instead, and how direct indexing scales it.",
     "url": "https://www.rubiqfinancial.com/Pages/resources-tax-loss-harvesting",
     "datePublished": "2026-03-18",
-    "dateModified": "2026-03-18",
+    "dateModified": "2026-11-06",
     "author": { "@type": "Person", "name": "Andreas Wochtl, CFP®", "url": "https://www.rubiqfinancial.com/Pages/our-team" },
     "publisher": { "@id": "https://www.rubiqfinancial.com/#organization" },
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.rubiqfinancial.com/Pages/resources-tax-loss-harvesting" },
@@ -281,49 +285,97 @@ function gtag_report_conversion(url) {
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home",                   "item": "https://www.rubiqfinancial.com/" },
       { "@type": "ListItem", "position": 2, "name": "Insight",              "item": "https://www.rubiqfinancial.com/Pages/insights" },
-      { "@type": "ListItem", "position": 3, "name": "Tax Loss Harvesting",    "item": "https://www.rubiqfinancial.com/Pages/resources-tax-loss-harvesting" }
+      { "@type": "ListItem", "position": 3, "name": "Tax-Loss Harvesting",    "item": "https://www.rubiqfinancial.com/Pages/resources-tax-loss-harvesting" }
     ]
   }
   </script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is tax-loss harvesting and how does it work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Tax-loss harvesting is the practice of selling investments at a loss to offset realized capital gains elsewhere in your portfolio, reducing your current-year tax bill. Harvested losses offset gains dollar for dollar, with up to $3,000 per year deductible against ordinary income and unlimited carryforward of unused losses to future years. To maintain market exposure, investors typically purchase a similar (but not substantially identical) security immediately after selling, avoiding the 30-day wash-sale rule."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is direct indexing and how does it improve tax-loss harvesting?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Direct indexing replicates a market index by purchasing individual stocks rather than a single index fund. This provides visibility into each security's cost basis, enabling systematic daily harvesting at the individual stock level — far more opportunities than a fund-based approach. Research suggests long-only direct indexing can generate 0.5–1.5% in annual after-tax alpha compared to holding a traditional index fund, because individual securities frequently diverge from the index even when the overall market is rising."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is long/short direct indexing?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Long/short direct indexing is an advanced strategy that adds a short portfolio on top of a long direct index portfolio, creating additional opportunities to harvest losses from both sides. While long-only direct indexing typically generates 0.5–1.5% in annual tax alpha, long/short strategies can potentially produce significantly higher harvesting yields — though results are highly variable and depend on market conditions, portfolio turnover, and implementation costs. This strategy is best suited for ultra-high-net-worth investors in the highest tax brackets."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Why is fund-based tax-loss harvesting less effective than direct indexing?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "With a traditional index fund or ETF, you can only harvest a loss when the entire fund is down — you have no visibility into the gains and losses of individual holdings. Funds may also distribute capital gains to shareholders even in years when the fund's share price has declined. Direct indexing solves both problems by giving you individual security-level control, enabling harvesting opportunities that exist even in rising markets because individual stocks routinely decline even when the broad index does not."
-        }
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the deadline for tax-loss harvesting in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A loss counts in the year the sale executes, not when it settles. For 2026, the trade must execute by the close of trading on Thursday, December 31, 2026. Leave a few days of cushion for less liquid positions."
       }
-    ]
-  }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I buy the same stock back after harvesting a loss?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if you wait at least 31 days. Buying the same or a substantially identical security within 30 days before or after the sale triggers the wash-sale rule and disallows the loss. To stay invested in the meantime, buy a similar but not identical holding, such as another company in the same industry or a fund that tracks a different index."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the wash-sale rule apply to my IRA or my spouse's account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A purchase of the same security in your IRA or Roth IRA, or by your spouse, within the 61-day window counts as a wash sale. When the replacement is bought inside an IRA, the loss is disallowed permanently rather than added to the new shares' basis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much of a capital loss can I deduct in one year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Capital losses offset capital gains without limit. If losses exceed gains, up to $3,000 of the net loss ($1,500 if married filing separately) can offset ordinary income each year, and the remainder carries forward to future years for federal purposes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do capital loss carryforwards expire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Federal capital loss carryforwards do not expire during your lifetime, but any loss still unused at death can be used only on the final income tax return and does not pass to heirs. Pennsylvania does not allow capital losses to carry forward at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do heirs get a step-up in basis on every lot in a direct-indexing account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generally yes. At death, each lot in a taxable account generally steps up to its market value, which erases the deferred gain built up by years of harvesting. Unused capital loss carryforwards, however, die with the account owner."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is specific-lot identification and why does it matter for harvesting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Specific-lot identification lets you choose which purchase lots you sell, typically the ones with the highest cost basis, to realize the largest loss or smallest gain. You have to designate the lots at the time of the trade. Many custodians otherwise default to first-in, first-out, which often sells the lowest-basis shares."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I harvest gains instead of losses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In a year when your taxable income falls within the 0% long-term capital gains bracket (up to $98,900 for married couples filing jointly in 2026), selling appreciated positions and buying them back resets your cost basis higher with no federal tax. Harvesting losses that year can waste them, since they would offset gains taxed at 0%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is direct indexing and how does it improve tax-loss harvesting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Direct indexing owns the individual stocks in an index instead of a fund that holds them. Because each stock has its own cost basis, losses can be harvested on individual positions even when the overall index is up. The benefit is largest in the early years and for investors with recurring capital gains to offset."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is long/short direct indexing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Long/short direct indexing adds short positions to a long direct index, often in a 130/30 or more leveraged structure. Long positions produce harvestable losses when prices fall and short positions produce them when prices rise, so the strategy can keep realizing losses in markets where a long-only account would run dry. It requires margin and carries higher costs, and it suits investors with large taxable portfolios and recurring gains."
+      }
+    }
+  ]
+}
   </script>
 <script type="application/ld+json">
 {
@@ -454,12 +506,12 @@ function gtag_report_conversion(url) {
       <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#7BB3E8;">Tax Strategy</span>
     </div>
     <h1 id="speakable-headline" style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.6vw,2.6rem);font-weight:700;line-height:1.16;letter-spacing:-0.03em;color:white;margin-bottom:0.5rem;">
-      Tax Loss Harvesting & Direct Indexing:<br />Turning Volatility into a Tax Advantage
+      Tax-Loss Harvesting:<br />Rules, Year-End Timing &amp; Direct Indexing
     </h1>
     <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
-      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">March 18, 2026</span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">Updated November 6, 2026</span>
       <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);"></span>
-      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">9 min read</span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">13 min read</span>
       <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.25);"></span>
       <span style="font-size:0.8125rem;color:rgba(255,255,255,0.55);font-weight:400;">Andreas Wochtl, CFP®  ·  Rubiq Financial Partners</span>
     </div>
@@ -476,15 +528,15 @@ function gtag_report_conversion(url) {
       <div class="lg:col-span-2 article-body">
 
         <p id="speakable-summary" style="font-size:1.175rem;line-height:1.80;color:#1C2D44;font-weight:400;border-left:3px solid #C49A5A;padding-left:1.5rem;margin-bottom:2.5rem;">
-          Every market downturn, every correction, every period of volatility produces something valuable for a taxable investor: losses that can be harvested. Tax loss harvesting is the practice of selling securities that have declined in value, realizing those losses to offset gains elsewhere in your portfolio — and immediately reinvesting in a similar holding to maintain your market exposure. Done systematically, it converts the inevitable turbulence of markets into a structural tax advantage. Done through direct indexing, it becomes one of the most powerful tools in high-net-worth tax planning.
+          Tax-loss harvesting means selling an investment that has dropped below what you paid, using that loss to offset capital gains elsewhere, and reinvesting right away in a similar holding so your market exposure doesn't change. Done systematically, it turns ordinary market volatility into a lower tax bill. Done through direct indexing, it becomes one of the most useful tools in high-net-worth tax planning. This guide covers the rules, the year-end deadline, when to harvest gains instead, and how direct indexing scales the strategy.
         </p>
 
         <h2>The Mechanics: What Tax Loss Harvesting Actually Does</h2>
         <p>
-          The IRS taxes capital gains when you sell an appreciated investment. But it also recognizes capital losses when you sell something that has declined — and those losses can offset gains dollar-for-dollar. If you have $50,000 in gains from selling a property or a concentrated stock position, $50,000 in harvested losses eliminates the tax bill entirely. If losses exceed gains in a given year, up to $3,000 can be applied against ordinary income, with the remainder carried forward indefinitely into future years.
+          When you sell an investment for less than its cost basis, you realize a capital loss, and the IRS lets that loss offset capital gains dollar for dollar. Losses first offset gains of the same type (short-term against short-term, long-term against long-term), and any remainder then offsets the other type. If $50,000 of harvested losses meets $50,000 of gains from a property sale or a concentrated stock position, the federal tax on those gains is gone for the year. If losses exceed gains, up to $3,000 ($1,500 if married filing separately) can offset ordinary income, and the rest carries forward indefinitely, keeping its short- or long-term character.
         </p>
         <p>
-          The key constraint is the <strong>wash-sale rule</strong>: you cannot repurchase the same security — or a "substantially identical" one — within 30 days before or after the sale. This is what makes harvesting a management challenge rather than a simple trade. You must sell the losing position, immediately reinvest in a correlated but not identical substitute, and wait 30 days before returning to the original holding if desired. The goal is to capture the loss while preserving economic exposure to the market.
+          The key constraint is the <strong>wash-sale rule</strong>: if you buy the same security, or a "substantially identical" one, within 30 days before or after the sale, the loss is disallowed. That makes a 61-day window around every harvest. The rule reaches beyond the account you sold from: purchases in your IRA or Roth IRA, purchases by your spouse, and automatic dividend reinvestments all count. In practice you sell the losing position, immediately buy a correlated but not identical substitute, and wait at least 31 days before moving back to the original holding, if you want to at all.
         </p>
         <p>
           For an investor holding individual stocks, this is straightforward. Sold Apple at a loss? Buy Microsoft or a broad tech ETF for the 30-day window. The complication arises with mutual funds and ETFs: if you own an S&P 500 index fund, selling it to harvest a loss means finding a substitute index that is similar enough to maintain exposure but different enough to avoid wash-sale status. Two nearly identical S&P 500 funds from different providers generally satisfy the rule; two funds tracking the exact same index from the same provider do not.
@@ -502,6 +554,21 @@ function gtag_report_conversion(url) {
             </div>
           </div>
         </div>
+
+
+        <h2>Tax-Loss Harvesting Rules at a Glance</h2>
+        <ul>
+          <li><strong>Netting order.</strong> Short-term losses offset short-term gains first and long-term losses offset long-term gains first; any net loss then crosses over to the other type.</li>
+          <li><strong>Annual limit against income.</strong> Up to $3,000 of net capital loss ($1,500 married filing separately) can offset ordinary income each year.</li>
+          <li><strong>Carryforward.</strong> Unused federal losses carry forward indefinitely. Losses still unused at death can be used on the final return but do not pass to heirs.</li>
+          <li><strong>Wash-sale window.</strong> No purchase of the same or a substantially identical security from 30 days before to 30 days after the sale, across all your accounts and your spouse's.</li>
+          <li><strong>IRA purchases are the costly mistake.</strong> A wash sale triggered outside an IRA defers the loss by adding it to the replacement shares' basis. A replacement bought inside an IRA or Roth IRA disallows the loss permanently.</li>
+          <li><strong>Specific-lot identification.</strong> If you bought a position at different times, tell your custodian which lots to sell, usually the highest-cost ones, at the time of the trade. Many custodians otherwise default to first-in, first-out, which often sells your cheapest shares.</li>
+          <li><strong>Deadline.</strong> A loss counts in the year the trade executes, not when it settles. For 2026, the sale has to execute by the close of trading on Thursday, December 31.</li>
+        </ul>
+        <p>
+          The IRS has never published a precise definition of "substantially identical." Swapping one company's stock for a different company in the same industry, or an S&amp;P 500 fund for a total-market fund, is common practice. Swapping between two share classes of the same fund is not. Read the rules in <a href="https://www.irs.gov/publications/p550" target="_blank" rel="noopener noreferrer" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:400;">IRS Publication 550</a>, and when the replacement is close, ask your tax advisor before you trade.
+        </p>
 
         <h2>The Problem with Fund-Based Portfolios</h2>
         <p>
@@ -540,13 +607,19 @@ function gtag_report_conversion(url) {
           Direct indexing also enables <strong>personalization</strong> beyond tax: you can exclude specific securities (a company you work for, a sector you're overexposed to elsewhere, or holdings that conflict with personal values) without abandoning the index strategy. This flexibility is not possible inside a fund.
         </p>
 
+
+        <h3>Why Harvesting Slows Down Over Time</h3>
+        <p>
+          A new direct index harvests heavily in its first few years, because every position starts at today's price and any decline produces a loss. In a rising market, most lots eventually sit well above their cost basis, and new losses become scarce unless fresh cash is added. Harvesting also lowers your basis as it goes, so the portfolio builds an embedded gain over time. That gain is deferred, not forgiven: it is eliminated only if the shares are donated to charity or held until death, when heirs generally receive a step-up in basis on each lot. A good direct indexing plan accounts for this from the start, including how and when the portfolio will eventually be gifted, unwound or left to heirs.
+        </p>
+
         <div style="background:white;border:1px solid rgba(26,94,168,0.12);border-radius:10px;padding:2rem;margin:2rem 0;">
           <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2A74C8;margin-bottom:1.25rem;">Harvesting Potential: Fund vs. Direct Index</div>
           <div style="border-radius:8px;overflow:hidden;border:1px solid rgba(26,94,168,0.08);">
             <div class="comparison-row">
               <div class="comparison-header">Approach</div>
               <div class="comparison-header" style="text-align:center;">Annual Harvest Opportunities</div>
-              <div class="comparison-header" style="text-align:center;">Tax Alpha Range</div>
+              <div class="comparison-header" style="text-align:center;">Est. Annual Tax Alpha</div>
               <div class="comparison-header" style="text-align:center;">Customization</div>
             </div>
             <div class="comparison-row">
@@ -564,24 +637,24 @@ function gtag_report_conversion(url) {
             <div class="comparison-row" style="border-bottom:none;">
               <div class="comparison-cell comparison-highlight"><strong>Long/Short Direct Index</strong></div>
               <div class="comparison-cell comparison-highlight" style="text-align:center;">Both sides, amplified</div>
-              <div class="comparison-cell comparison-highlight" style="text-align:center;">3–50%+</div>
+              <div class="comparison-cell comparison-highlight" style="text-align:center;">Higher; varies widely</div>
               <div class="comparison-cell comparison-highlight" style="text-align:center;">Full</div>
             </div>
           </div>
           <div style="font-size:0.75rem;color:#9CA3AF;margin-top:1.25rem;font-style:italic;">
-            Tax alpha ranges are illustrative estimates based on industry research. Actual results depend on market conditions, portfolio size, turnover, and individual tax circumstances. Not a guarantee of future results.
+            Tax alpha ranges are illustrative estimates based on industry research and tend to be highest in a portfolio's early years. Actual results depend on market conditions, portfolio size, turnover, cash flows, and individual tax circumstances. Not a guarantee of future results.
           </div>
         </div>
 
         <h2>Long/Short Direct Indexing: The Advanced Strategy</h2>
         <p>
-          Standard direct indexing harvests losses from positions that have declined — but only from the long side. If a stock you own falls, you can harvest the loss. If a stock you don't own falls, that opportunity is invisible to you.
+          Standard direct indexing can only harvest from the long side: a loss exists only when a stock you own falls below its cost. Once the portfolio has risen for a few years, those opportunities thin out.
         </p>
         <p>
-          Long/short direct indexing changes that equation fundamentally. By adding <strong>short positions</strong> to the strategy, the manager can generate harvesting opportunities from stocks that decline even when you don't hold them. The short positions also serve as an additional source of alpha, since stocks that are shorted may be underweighted or excluded from the long book — the result is a more actively managed exposure profile that still maintains index-like risk characteristics overall.
+          Long/short direct indexing adds a book of <strong>short positions</strong>, often in a 130/30 structure or a more leveraged one. The short side creates a second source of losses. A long position produces a harvestable loss when its price falls; a short position produces one when its price rises. With both books in place, almost any market move leaves some positions under water and available to harvest.
         </p>
         <p>
-          The mechanics work as follows: the strategy holds a long book of index-representative stocks (similar to standard direct indexing) paired with a short book of securities that are either poor candidates for the long portfolio or that create offsetting exposures. When short positions increase in value (stocks fall), those gains can be closed and the proceeds reinvested. When positions decline against the short (i.e., the shorted stocks rise), those losses are available to harvest. The interaction between the long and short books creates a continuous cycle of gain and loss realization that, in aggregate, significantly amplifies the total harvesting volume.
+          The manager closes losing positions on either side, replaces them with similar exposure, and lets winning positions run, which defers those gains. Net market exposure stays close to the benchmark (130% long minus 30% short is 100% net), so the portfolio still behaves broadly like the index while realizing far more losses than a long-only account. The trade-offs are margin, borrowing costs, higher fees, and a growing deferred gain that eventually needs a plan: gifting, a step-up at death, or a deliberate unwind.
         </p>
 
         <div class="strategy-card">
@@ -612,30 +685,55 @@ function gtag_report_conversion(url) {
           <div class="strategy-body">
             Adds a short book alongside the long direct index, dramatically expanding the universe of harvesting opportunities. Because losses can be generated from both rising and falling individual securities (via short positions), total annual loss realization is substantially higher. This approach requires margin capability and is typically appropriate for investors with $1M or more in taxable assets who face significant recurring capital gains — such as business owners, executives with large equity compensation, or investors actively liquidating a concentrated position over time. The net market exposure remains broadly index-like despite the added complexity.
             <br /><br />
-            At the most aggressive end of the spectrum, providers like <strong>BlackRock's Aperio</strong> offer leveraged long/short structures — such as a 200/100 portfolio (200% long exposure, 100% short) — that can generate realized losses equal to <strong>50% or more of portfolio value in a single year.</strong> This creates an extraordinary pool of harvestable losses that an investor can deploy against capital gains from business sales, concentrated position liquidations, or other large taxable events. These structures are typically reserved for ultra-high-net-worth investors with multi-million-dollar taxable portfolios and significant, recurring gain events to offset. <a href="https://www.blackrock.com/us/financial-professionals/insights/delever-long-short-strategies" target="_blank" rel="noopener noreferrer" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:400;">Learn more about Aperio's long/short approach →</a>
+            At the most aggressive end of the spectrum, providers like <strong>BlackRock's Aperio</strong> offer leveraged long/short structures — such as a 200/100 portfolio (200% long exposure, 100% short) — that can realize losses equal to <strong>a large share of portfolio value in the early years.</strong> This creates an extraordinary pool of harvestable losses that an investor can deploy against capital gains from business sales, concentrated position liquidations, or other large taxable events. These structures are typically reserved for ultra-high-net-worth investors with multi-million-dollar taxable portfolios and significant, recurring gain events to offset. <a href="https://www.blackrock.com/us/financial-professionals/insights/delever-long-short-strategies" target="_blank" rel="noopener noreferrer" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:400;">Learn more about Aperio's long/short approach →</a>
           </div>
         </div>
 
         <h2>Who Benefits Most — and Minimum Scale Requirements</h2>
         <p>
-          Tax loss harvesting delivers maximum value to investors in high tax brackets with ongoing capital gains events. The math is straightforward: if you're in the 37% ordinary income bracket and the 20% long-term capital gains bracket (plus the 3.8% net investment income tax), every dollar of harvested loss saves 23.8 cents in capital gains taxes, or 37 cents if applied against short-term gains or ordinary income. The benefit is highly sensitive to your tax rate.
+          Tax loss harvesting delivers maximum value to investors in high tax brackets with ongoing capital gains events. The math is straightforward: if you're in the 37% ordinary income bracket and the 20% long-term capital gains bracket (plus the 3.8% net investment income tax), every dollar of harvested loss used against long-term gains saves 23.8 cents of federal tax, and every dollar used against short-term gains saves up to 40.8 cents (37% plus 3.8%). Only $3,000 a year can offset ordinary income. The benefit depends heavily on your tax rate, which is also why harvesting can be worth nothing in a low-income year (see below).
         </p>
         <ul>
-          <li><strong>Business owners and executives</strong> with equity compensation (RSUs, options) regularly generating short-term gains are among the highest-value candidates. Direct indexing losses, which can be long-term, offset short-term gains at the marginal rate — a particularly powerful combination.</li>
+          <li><strong>Business owners and executives</strong> with equity compensation (RSUs, options) who regularly generate short-term gains are among the highest-value candidates. Losses from a young direct index are mostly short-term, and they offset short-term gains first, which are taxed at ordinary rates.</li>
           <li><strong>Investors with concentrated positions</strong> looking to diversify gradually find direct indexing losses invaluable: each tranche of concentrated stock sold generates capital gains that the direct index can systematically offset.</li>
           <li><strong>Real estate investors</strong> who periodically sell appreciated properties face large one-time gain events that a standing loss carryforward from direct indexing can significantly defray.</li>
-          <li><strong>Retirees in the conversion corridor</strong> (ages 60–73) doing <a href="resources-roth-conversion" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:400;">Roth conversions</a> may generate taxable income that harvested losses can partially offset.</li>
+          <li><strong>Retirees in the conversion corridor</strong> (ages 60–73) doing <a href="resources-roth-conversion" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:400;">Roth conversions</a> can use harvested losses to absorb the gains from rebalancing or raising cash in a conversion year, so more of their bracket room goes to the conversion itself. Only $3,000 of net loss offsets the conversion income directly.</li>
         </ul>
         <p>
           Direct indexing requires a meaningful account size because the benefit scales with the number of individual positions — you need enough securities to generate harvesting opportunities and maintain index-like diversification simultaneously. Most programs begin at $250,000–$500,000 for long-only direct indexing; long/short strategies generally require $1M or more. Below those thresholds, the harvesting math doesn't justify the additional complexity and cost relative to simply using ETF pairs for basic loss swaps.
         </p>
 
-        <h2>The Tax Drag Problem: What You're Paying Without Knowing It</h2>
+
+        <h2>Year-End Tax-Loss Harvesting Checklist</h2>
         <p>
-          <a href="resources-tax-drag" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:400;">Tax drag</a> is the performance penalty that taxable investors pay each year through dividends, interest, and realized gains inside their portfolios. It is often invisible — it doesn't show up as a line item on a statement — but it compounds meaningfully over time. A portfolio generating 2% in annual tax drag over 20 years at a 7% gross return produces roughly 17% less ending wealth than the same portfolio managed to minimize drag. That is not a rounding error; it is a structural disadvantage that accumulates silently.
+          Most harvesting happens in November and December, when the year's gains are mostly known. Work through these before the last trading day:
+        </p>
+        <ul>
+          <li><strong>Total your realized gains so far,</strong> including mutual fund capital gain distributions. Most funds pay them in December and post estimates in November.</li>
+          <li><strong>Check last year's return for carryforward losses</strong> (Schedule D) before harvesting more than you need.</li>
+          <li><strong>Match losses to the gains you actually have.</strong> Short-term losses are most valuable against short-term gains.</li>
+          <li><strong>Turn off dividend reinvestment and automatic purchases</strong> in the same securities across every household account, including IRAs and your spouse's accounts, for the 30 days on either side of each sale.</li>
+          <li><strong>Choose replacement holdings in advance</strong> so you stay invested through the wash-sale window.</li>
+          <li><strong>Sell losing positions and donate winning ones.</strong> Give appreciated shares to charity or a <a href="daf-calculator" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:400;">donor-advised fund</a> instead of selling them, and never donate shares that are below cost: sell those, take the loss, and donate the cash.</li>
+          <li><strong>Avoid buying a mutual fund in early December</strong> in a taxable account, just before its distribution. You would owe tax on gains you didn't earn.</li>
+          <li><strong>Pennsylvania residents:</strong> harvest with this year's gains in mind, since Pennsylvania losses cannot carry forward (see the worked example below).</li>
+          <li><strong>Trade by December 31, 2026.</strong> The trade date controls, but leave a few days so you aren't trading illiquid positions on the last afternoon of the year.</li>
+        </ul>
+
+        <h2>When to Harvest Gains Instead of Losses</h2>
+        <p>
+          In a low-income year, the better move is often the opposite one. For 2026, long-term capital gains are taxed at a 0% federal rate for married couples with taxable income up to $98,900 ($49,450 for single filers). Retirees who haven't started Social Security or required minimum distributions, business owners in a slow year, and anyone between jobs can sell appreciated positions in that range, buy them right back (the wash-sale rule applies only to losses), and reset their cost basis higher at no federal tax.
         </p>
         <p>
-          Tax loss harvesting, and direct indexing specifically, is one of the most effective tools to reduce this drag. The losses generated offset taxable distributions and rebalancing gains, deferring — and in many cases permanently eliminating — a portion of the tax liability through the step-up in basis at death or charitable gifting of appreciated shares.
+          Harvesting losses in that same year can waste them: a loss used against gains that would have been taxed at 0% saves nothing federally. Gain harvesting has its own cautions. The gain raises your adjusted gross income, which can affect Medicare IRMAA surcharges two years later, ACA premium credits, and how much of your Social Security is taxed. Pennsylvania still taxes the gain at 3.07%. See our <a href="tax-planning" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:400;">2026 tax planning thresholds</a> for the full set of numbers.
+        </p>
+
+        <h2>The Tax Drag Problem: What You're Paying Without Knowing It</h2>
+        <p>
+          <a href="resources-tax-drag" style="color:#1A5EA8;text-decoration:underline;text-underline-offset:2px;font-weight:400;">Tax drag</a> is the performance penalty that taxable investors pay each year through dividends, interest, and realized gains inside their portfolios. It is often invisible — it doesn't show up as a line item on a statement — but it compounds meaningfully over time. A portfolio with 1% of annual tax drag over 20 years at a 7% gross return ends with roughly 17% less wealth than the same portfolio managed to minimize drag. That is not a rounding error; it is a structural disadvantage that accumulates silently.
+        </p>
+        <p>
+          Tax loss harvesting, and direct indexing specifically, is one of the most effective tools to reduce this drag. The losses generated offset taxable distributions and rebalancing gains, deferring the tax and, in many cases, eliminating it permanently through the step-up in basis at death or charitable gifts of appreciated shares.
         </p>
 
         <!-- Tax Calculator CTA Block -->
@@ -694,6 +792,21 @@ function gtag_report_conversion(url) {
           The result, over a full market cycle, is a portfolio that tracks its benchmark closely on a pre-tax basis while generating meaningfully better outcomes on an after-tax basis — the only number that actually matters.
         </p>
 
+
+        <h2>Tax-Loss Harvesting FAQ</h2>
+        <div>
+          <div class="faq-item"><h3>What is the deadline for tax-loss harvesting in 2026?</h3><p>A loss counts in the year the sale executes, not when it settles. For 2026, the trade must execute by the close of trading on Thursday, December 31, 2026. Leave a few days of cushion for less liquid positions.</p></div>
+          <div class="faq-item"><h3>Can I buy the same stock back after harvesting a loss?</h3><p>Yes, if you wait at least 31 days. Buying the same or a substantially identical security within 30 days before or after the sale triggers the wash-sale rule and disallows the loss. To stay invested in the meantime, buy a similar but not identical holding, such as another company in the same industry or a fund that tracks a different index.</p></div>
+          <div class="faq-item"><h3>Does the wash-sale rule apply to my IRA or my spouse&#x27;s account?</h3><p>Yes. A purchase of the same security in your IRA or Roth IRA, or by your spouse, within the 61-day window counts as a wash sale. When the replacement is bought inside an IRA, the loss is disallowed permanently rather than added to the new shares&#x27; basis.</p></div>
+          <div class="faq-item"><h3>How much of a capital loss can I deduct in one year?</h3><p>Capital losses offset capital gains without limit. If losses exceed gains, up to $3,000 of the net loss ($1,500 if married filing separately) can offset ordinary income each year, and the remainder carries forward to future years for federal purposes.</p></div>
+          <div class="faq-item"><h3>Do capital loss carryforwards expire?</h3><p>Federal capital loss carryforwards do not expire during your lifetime, but any loss still unused at death can be used only on the final income tax return and does not pass to heirs. Pennsylvania does not allow capital losses to carry forward at all.</p></div>
+          <div class="faq-item"><h3>Do heirs get a step-up in basis on every lot in a direct-indexing account?</h3><p>Generally yes. At death, each lot in a taxable account generally steps up to its market value, which erases the deferred gain built up by years of harvesting. Unused capital loss carryforwards, however, die with the account owner.</p></div>
+          <div class="faq-item"><h3>What is specific-lot identification and why does it matter for harvesting?</h3><p>Specific-lot identification lets you choose which purchase lots you sell, typically the ones with the highest cost basis, to realize the largest loss or smallest gain. You have to designate the lots at the time of the trade. Many custodians otherwise default to first-in, first-out, which often sells the lowest-basis shares.</p></div>
+          <div class="faq-item"><h3>When should I harvest gains instead of losses?</h3><p>In a year when your taxable income falls within the 0% long-term capital gains bracket (up to $98,900 for married couples filing jointly in 2026), selling appreciated positions and buying them back resets your cost basis higher with no federal tax. Harvesting losses that year can waste them, since they would offset gains taxed at 0%.</p></div>
+          <div class="faq-item"><h3>What is direct indexing and how does it improve tax-loss harvesting?</h3><p>Direct indexing owns the individual stocks in an index instead of a fund that holds them. Because each stock has its own cost basis, losses can be harvested on individual positions even when the overall index is up. The benefit is largest in the early years and for investors with recurring capital gains to offset.</p></div>
+          <div class="faq-item"><h3>What is long/short direct indexing?</h3><p>Long/short direct indexing adds short positions to a long direct index, often in a 130/30 or more leveraged structure. Long positions produce harvestable losses when prices fall and short positions produce them when prices rise, so the strategy can keep realizing losses in markets where a long-only account would run dry. It requires margin and carries higher costs, and it suits investors with large taxable portfolios and recurring gains.</p></div>
+        </div>
+
       </div><!-- /main content -->
 
       <!-- Sidebar -->
@@ -709,7 +822,7 @@ function gtag_report_conversion(url) {
             </div>
             <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
               <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">30 Days</div>
-              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Wash-sale window: cannot repurchase the same or substantially identical security within 30 days before or after the loss sale</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.25rem;">Wash-sale window: no purchase of the same or a substantially identical security 30 days before or after the loss sale, in any account you or your spouse own</div>
             </div>
             <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;margin-bottom:1rem;">
               <div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:white;line-height:1;">$250K+</div>
