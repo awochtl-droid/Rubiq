@@ -241,6 +241,52 @@ function gtag_report_conversion(url) {
       .cube-face.top    { transform:rotateX(90deg) translateZ(75px); }
       .cube-face.bottom { transform:rotateX(-90deg) translateZ(75px); }
     }
+    /* ── Contact form / booking tabs ── */
+    .rq-panel{max-width:576px;margin:0 auto;width:100%;border-radius:12px;overflow:hidden;background:#fff;
+      box-shadow:0 2px 6px rgba(15,23,36,.25),0 24px 60px rgba(8,14,24,.45)}
+    .rq-tabs{display:grid;grid-template-columns:1fr 1fr;background:#F3F1EC;border-bottom:1px solid rgba(44,62,85,.12)}
+    .rq-tab{appearance:none;border:0;background:transparent;padding:1rem .75rem;font:600 .82rem/1.2 Inter,system-ui,sans-serif;
+      letter-spacing:.03em;color:#5B6B80;cursor:pointer;border-bottom:3px solid transparent;transition:color .18s ease,background-color .18s ease}
+    .rq-tab:hover{color:#0F1724;background:rgba(255,255,255,.55)}
+    .rq-tab:active{background:rgba(255,255,255,.8)}
+    .rq-tab:focus-visible{outline:3px solid #D4AE6A;outline-offset:-3px}
+    .rq-tab[aria-selected="true"]{color:#0F1724;background:#fff;border-bottom-color:#C49A5A}
+    .rq-body{padding:1.6rem 1.6rem 1.75rem}
+    .rq-lede{font-size:.95rem;line-height:1.65;color:#2C3E55;margin:0 0 1.25rem}
+    .rq-row{display:grid;grid-template-columns:1fr 1fr;gap:0 1rem}
+    @media(max-width:560px){.rq-row{grid-template-columns:1fr}.rq-body{padding:1.25rem}}
+    .rq-field{margin:0 0 1rem;border:0;padding:0;min-width:0}
+    .rq-field label,.rq-field legend{display:block;font-size:.8rem;font-weight:600;color:#0F1724;margin:0 0 .35rem;padding:0}
+    .rq-opt{font-weight:400;color:#7A8899}
+    .rq-field input:not([type=radio]),.rq-field select,.rq-field textarea{width:100%;padding:.65rem .75rem;border:1px solid rgba(44,62,85,.28);
+      border-radius:6px;font:400 .95rem/1.4 Inter,system-ui,sans-serif;color:#0F1724;background:#fff;transition:border-color .18s ease}
+    .rq-field textarea{resize:vertical;min-height:96px}
+    .rq-field input:hover,.rq-field select:hover,.rq-field textarea:hover{border-color:rgba(44,62,85,.5)}
+    .rq-field input:focus-visible,.rq-field select:focus-visible,.rq-field textarea:focus-visible{outline:3px solid rgba(212,174,106,.6);outline-offset:0;border-color:#C49A5A}
+    .rq-field [aria-invalid="true"]{border-color:#B3261E}
+    .rq-radios label{display:inline-flex;align-items:center;gap:.4rem;font-weight:400;font-size:.92rem;color:#2C3E55;margin:.45rem 1.25rem 0 0;cursor:pointer}
+    .rq-radios input{accent-color:#133F73;width:1rem;height:1rem}
+    .rq-hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+    .rq-note{font-size:.78rem;line-height:1.55;color:#65748A;margin:.25rem 0 1rem}
+    .rq-error{font-size:.85rem;line-height:1.55;color:#B3261E;background:#FCEEEE;border-radius:6px;padding:.65rem .8rem;margin:0 0 1rem}
+    .rq-error a{color:#B3261E;font-weight:600}
+    .rq-submit{width:100%;appearance:none;border:0;border-radius:6px;padding:.9rem 1rem;cursor:pointer;
+      background:#C49A5A;color:#0F1724;font:700 .82rem/1 Inter,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;
+      transition:filter .18s ease,transform .18s cubic-bezier(.34,1.56,.64,1)}
+    .rq-submit:hover{filter:brightness(1.05)}
+    .rq-submit:active{transform:scale(.985)}
+    .rq-submit:focus-visible{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 6px #C49A5A}
+    .rq-submit[disabled]{opacity:.65;cursor:progress}
+    .rq-book{background:#fff}
+    #sticky-mobile-cta{display:none!important} /* the page itself is the contact form and calendar */
+    .rq-topic{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin:0 0 1rem;padding:.6rem .8rem;
+      background:#F7F1E6;border:1px solid rgba(196,154,90,.45);border-radius:6px;font-size:.88rem;color:#2C3E55}
+    .rq-topic strong{color:#0F1724;font-weight:600}
+    .rq-topic button{appearance:none;border:0;background:none;color:#133F73;font:600 .8rem Inter,system-ui,sans-serif;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:.2rem}
+    .rq-topic button:hover{color:#0F1724}.rq-topic button:active{transform:translateY(1px)}
+    .rq-topic button:focus-visible{outline:3px solid #D4AE6A;outline-offset:2px;border-radius:3px}
+    .rq-grid{display:grid;grid-template-columns:300px minmax(0,1fr);gap:3.5rem;align-items:start}
+    @media(max-width:900px){.rq-grid{grid-template-columns:minmax(0,1fr);gap:2.5rem}.rq-grid>.rq-panel{order:-1}}
   </style>
   <script type="application/ld+json">
   {
@@ -488,7 +534,7 @@ function gtag_report_conversion(url) {
   <div class="max-w-7xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
 
     <!-- Two-column: info left, form right -->
-    <div style="display:grid;grid-template-columns:300px 1fr;gap:3.5rem;align-items:start;">
+    <div class="rq-grid">
 
       <!-- ── Left: contact info ── -->
       <div style="position:sticky;top:100px;">
@@ -576,19 +622,58 @@ function gtag_report_conversion(url) {
 
       </div><!-- /left -->
 
-      <!-- ── Right: Booking widget ── -->
-      <div style="max-width:576px;margin:0 auto;width:100%;
-                  border-radius:12px;overflow:hidden;
-                  box-shadow:0 20px 60px rgba(0,0,0,0.50);">
+      <!-- ── Right: message form or booking calendar ── -->
+      <div class="rq-panel">
+        <div class="rq-tabs" role="tablist" aria-label="How would you like to reach us?">
+          <button type="button" role="tab" id="tab-msg" aria-selected="true" aria-controls="panel-msg" class="rq-tab">Send a message</button>
+          <button type="button" role="tab" id="tab-book" aria-selected="false" aria-controls="panel-book" class="rq-tab" tabindex="-1">Book a time</button>
+        </div>
+
+        <div id="panel-msg" role="tabpanel" aria-labelledby="tab-msg" class="rq-body">
+          <p class="rq-lede">Tell us a little about you and Andreas will get back to you within one business day.</p>
+          <form id="rq-form" novalidate>
+            <div id="rq-topic" class="rq-topic" hidden><span>Topic: <strong id="rq-topic-label"></strong></span><button type="button" id="rq-topic-clear" aria-label="Remove topic">Change</button></div>
+            <input type="hidden" name="topic" id="f-topic">
+            <div class="rq-row">
+              <div class="rq-field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required maxlength="120"></div>
+              <div class="rq-field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
+            </div>
+            <div class="rq-row">
+              <div class="rq-field"><label for="f-phone">Phone <span class="rq-opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+              <fieldset class="rq-field rq-radios"><legend>Best way to reach you</legend>
+                <label><input type="radio" name="preferred" value="email" checked> Email</label>
+                <label><input type="radio" name="preferred" value="phone"> Phone</label>
+              </fieldset>
+            </div>
+            <div class="rq-field"><label for="f-where">Where are your investment accounts today? <span class="rq-opt">(optional)</span></label>
+              <select id="f-where" name="where">
+                <option value="">Choose one</option>
+                <option value="wirehouse">Wirehouse (Merrill, Morgan Stanley, UBS, Wells Fargo)</option>
+                <option value="private_bank">Private bank</option>
+                <option value="independent">Independent advisor</option>
+                <option value="self">I manage them myself</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="rq-field"><label for="f-msg">What would you like to talk about? <span class="rq-opt">(optional)</span></label><textarea id="f-msg" name="message" rows="4" maxlength="3000"></textarea></div>
+            <div class="rq-hp" aria-hidden="true"><label for="f-hp">Leave this field empty</label><input id="f-hp" name="company_website" tabindex="-1" autocomplete="off"></div>
+            <p class="rq-note">Please don&rsquo;t include account numbers, Social Security numbers, or other sensitive details. We&rsquo;ll ask for anything we need once we talk.</p>
+            <p id="rq-error" class="rq-error" role="alert" hidden></p>
+            <button type="submit" class="rq-submit">Send message</button>
+          </form>
+        </div>
+
+        <div id="panel-book" role="tabpanel" aria-labelledby="tab-book" class="rq-book" hidden>
           <iframe
-            src="https://outlook.office.com/book/RubiqFinancialPartners@NETORG19667384.onmicrosoft.com/?ismsaljsauthenabled"
+            data-src="https://outlook.office.com/book/RubiqFinancialPartners@NETORG19667384.onmicrosoft.com/?ismsaljsauthenabled"
             width="100%"
             height="850"
             scrolling="yes"
             style="border:0;display:block;"
             title="Schedule a meeting with Rubiq Financial Partners">
           </iframe>
-      </div><!-- /booking widget -->
+        </div>
+      </div><!-- /panel -->
 
     </div><!-- /grid -->
   </div><!-- /container -->
@@ -673,6 +758,65 @@ function gtag_report_conversion(url) {
   },{passive:true});
   window.addEventListener('resize',function(){
     cta.style.display=window.innerWidth<768?'block':'none';
+  });
+})();
+</script>
+<script>
+(function(){
+  var tabs=[document.getElementById('tab-msg'),document.getElementById('tab-book')];
+  var panels=[document.getElementById('panel-msg'),document.getElementById('panel-book')];
+  if(!tabs[0])return;
+  function show(i,focus){
+    tabs.forEach(function(t,j){var on=i===j;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;panels[j].hidden=!on;});
+    if(i===1){var f=panels[1].querySelector('iframe');if(f&&!f.src)f.src=f.getAttribute('data-src');}
+    if(focus)tabs[i].focus();
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){show(i);});
+    t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();show(1-i,true);}});
+  });
+  if(location.hash==='#book')show(1);
+
+  var form=document.getElementById('rq-form'),F=form.elements,err=document.getElementById('rq-error'),btn=form.querySelector('.rq-submit');
+  var TOPICS={"401k-rollover-options":{"l":"401(k) Rollover Options","m":"I was reading your page on 401(k) Rollover Options and would like to talk about how it applies to me."},"721-exchange-upreit":{"l":"721 Exchange and UPREIT","m":"I was reading your page on 721 Exchange and UPREIT and would like to talk about how it applies to me."},"buffered-etf-backtest":{"l":"Buffered ETFs","m":"I was reading your page on buffered ETFs and would like to talk about how it applies to me."},"business-planning":{"l":"Working with Rubiq","m":"I would like to learn more about working with Rubiq and whether it is a fit for my family."},"case-study-entrepreneur":{"l":"Entrepreneur Case Study","m":"I read your case study and my situation sounds similar. I would like to talk."},"case-study-executive":{"l":"Corporate Executive Case Study","m":"I read your case study and my situation sounds similar. I would like to talk."},"case-study-private-wealth":{"l":"Private Wealth Client Case Study","m":"I read your case study and my situation sounds similar. I would like to talk."},"case-study-real-estate":{"l":"Real Estate Investor Case Study","m":"I read your case study and my situation sounds similar. I would like to talk."},"case-study-retirees":{"l":"Pre-Retiree Case Study","m":"I read your case study and my situation sounds similar. I would like to talk."},"case-study-uhnw":{"l":"UHNW Family Case Study","m":"I read your case study and my situation sounds similar. I would like to talk."},"cash-balance-plan":{"l":"Cash Balance Plans","m":"I was reading your page on Cash Balance Plans and would like to talk about how it applies to me."},"concentrated-stock":{"l":"A concentrated stock position","m":"I have a large position in one stock and would like to talk through my options for reducing the risk and the tax."},"daf-calculator":{"l":"A donor-advised fund","m":"I am thinking about a donor-advised fund and would like to talk through giving appreciated stock."},"depreciation-recapture":{"l":"Depreciation Recapture","m":"I was reading your page on Depreciation Recapture and would like to talk about how it applies to me."},"dst-calculator":{"l":"DSTs and 1031 exchanges","m":"I was reading your page on DSTs and 1031 exchanges and would like to talk about how it applies to me."},"dst-vs-tic-vs-reit":{"l":"DST vs. TIC vs. REIT vs. Direct Ownership","m":"I was reading your page on DST vs. TIC vs. REIT vs. Direct Ownership and would like to talk about how it applies to me."},"edge-alternatives":{"l":"Alternative investments","m":"I was reading your page on alternative investments and would like to talk about how it applies to me."},"edge-leverage":{"l":"Borrowing against my portfolio","m":"I would like to talk about using borrowing as part of my plan."},"edge-real-estate":{"l":"Real estate investing","m":"I was reading your page on real estate investing and would like to talk about how it applies to me."},"estate-planning":{"l":"Working with Rubiq","m":"I would like to learn more about working with Rubiq and whether it is a fit for my family."},"estate-tax-estimator":{"l":"The estate tax exemption","m":"I was reading your page on the estate tax exemption and would like to talk about how it applies to me."},"estate-tax-exemption":{"l":"The estate tax exemption","m":"I was reading your page on the estate tax exemption and would like to talk about how it applies to me."},"fee-only-vs-fee-based":{"l":"Your fees","m":"I have a few questions about how you are paid and what I would pay."},"fee-structure":{"l":"Your fees","m":"I have a few questions about your fees and how they compare with what I pay now."},"gift-tax-guide":{"l":"Gift Tax Guide","m":"I was reading your page on Gift Tax Guide and would like to talk about how it applies to me."},"grat-concentrated-stock":{"l":"A concentrated stock position","m":"I have a large position in one stock and would like to talk through my options for reducing the risk and the tax."},"how-to-fund-a-trust":{"l":"How to Fund a Trust","m":"I was reading your page on How to Fund a Trust and would like to talk about how it applies to me."},"hsa-investing":{"l":"HSA Investing","m":"I was reading your page on HSA Investing and would like to talk about how it applies to me."},"inherited-ira-rmd-calculator":{"l":"An inherited IRA","m":"I was reading your page on an inherited IRA and would like to talk about how it applies to me."},"inherited-ira-rules":{"l":"An inherited IRA","m":"I was reading your page on an inherited IRA and would like to talk about how it applies to me."},"insurance":{"l":"Working with Rubiq","m":"I would like to learn more about working with Rubiq and whether it is a fit for my family."},"investment-management":{"l":"Working with Rubiq","m":"I would like to learn more about working with Rubiq and whether it is a fit for my family."},"irrevocable-life-insurance-trust":{"l":"Irrevocable Life Insurance Trust (ILIT)","m":"I was reading your page on Irrevocable Life Insurance Trust (ILIT) and would like to talk about how it applies to me."},"leverage-calculator":{"l":"Borrowing against my portfolio","m":"I would like to talk through whether borrowing or paying cash makes more sense for me."},"local-wealth-management":{"l":"Working with Rubiq","m":"I would like to learn more about working with Rubiq and whether it is a fit for my family."},"mega-backdoor-roth":{"l":"Mega Backdoor Roth","m":"I was reading your page on Mega Backdoor Roth and would like to talk about how it applies to me."},"net-unrealized-appreciation":{"l":"Company stock in my 401(k)","m":"I hold company stock in my 401(k) and would like to talk about whether NUA makes sense for me."},"our-capabilities":{"l":"Working with Rubiq","m":"I would like to learn more about working with Rubiq and whether it is a fit for my family."},"our-clients":{"l":"Working with Rubiq","m":"I would like to learn more about working with Rubiq and whether it is a fit for my family."},"our-team":{"l":"Working with Rubiq","m":"I would like to learn more about working with Rubiq and whether it is a fit for my family."},"pennsylvania-inheritance-tax":{"l":"Pennsylvania Inheritance Tax","m":"I was reading your page on Pennsylvania Inheritance Tax and would like to talk about how it applies to me."},"pennsylvania-retirement-taxes":{"l":"Pennsylvania Retirement Taxes","m":"I was reading your page on Pennsylvania Retirement Taxes and would like to talk about how it applies to me."},"prepaid-variable-forward":{"l":"A concentrated stock position","m":"I have a large position in one stock and would like to talk through my options for reducing the risk and the tax."},"private-bank-vs-independent-advisor":{"l":"A second opinion on my private bank","m":"My accounts are at a private bank. I would like to understand what I pay in total and what an independent advisor would do differently.","w":"private_bank"},"private-credit-investing":{"l":"Private credit","m":"I am considering private credit and would like help evaluating funds and sizing an allocation."},"qoz-calculator":{"l":"Opportunity Zones","m":"I was reading your page on Opportunity Zones and would like to talk about how it applies to me."},"qsbs-calculator":{"l":"QSBS and founder stock","m":"I hold founder or early-employee stock and would like to talk about QSBS and my options."},"qsbs-guide":{"l":"QSBS and founder stock","m":"I hold founder or early-employee stock and would like to talk about QSBS and my options."},"resources-alternative-investments":{"l":"Private credit","m":"I am considering private credit and would like help evaluating funds and sizing an allocation."},"resources-annuities":{"l":"Annuities","m":"I was reading your page on annuities and would like to talk about how it applies to me."},"resources-asset-location":{"l":"Asset Location vs. Allocation","m":"I was reading your page on Asset Location vs. Allocation and would like to talk about how it applies to me."},"resources-bond-investing":{"l":"Bond investing","m":"I was reading your page on bond investing and would like to talk about how it applies to me."},"resources-dst-1031":{"l":"DSTs and 1031 exchanges","m":"I was reading your page on DSTs and 1031 exchanges and would like to talk about how it applies to me."},"resources-opportunity-zones":{"l":"Opportunity Zones","m":"I was reading your page on Opportunity Zones and would like to talk about how it applies to me."},"resources-rebalancing":{"l":"Portfolio Rebalancing","m":"I was reading your page on Portfolio Rebalancing and would like to talk about how it applies to me."},"resources-reits":{"l":"Private and public REITs","m":"I was reading your page on private and public REITs and would like to talk about how it applies to me."},"resources-roth-conversion":{"l":"Roth Conversion","m":"I was reading your page on Roth Conversion and would like to talk about how it applies to me."},"resources-secondaries":{"l":"Secondary funds","m":"I am interested in secondary funds and would like to understand how they could fit my portfolio."},"resources-section-351":{"l":"Section 351 Exchanges","m":"I was reading your page on Section 351 Exchanges and would like to talk about how it applies to me."},"resources-tax-drag":{"l":"Tax drag","m":"I was reading your page on tax drag and would like to talk about how it applies to me."},"resources-tax-loss-harvesting":{"l":"Tax-Loss Harvesting","m":"I was reading your page on Tax-Loss Harvesting and would like to talk about how it applies to me."},"retirement-planning":{"l":"Working with Rubiq","m":"I would like to learn more about working with Rubiq and whether it is a fit for my family."},"revocable-vs-irrevocable-trust":{"l":"Revocable vs. Irrevocable Trust","m":"I was reading your page on Revocable vs. Irrevocable Trust and would like to talk about how it applies to me."},"rule-of-55":{"l":"Rule of 55","m":"I was reading your page on Rule of 55 and would like to talk about how it applies to me."},"sdira-vs-cash-calculator":{"l":"A self-directed IRA","m":"I was reading your page on a self-directed IRA and would like to talk about how it applies to me."},"securities-based-line-of-credit":{"l":"Borrowing against my portfolio","m":"I would like a second opinion on borrowing against my portfolio, including the rate on any line of credit I have now."},"step-up-in-basis":{"l":"Step-Up in Basis","m":"I was reading your page on Step-Up in Basis and would like to talk about how it applies to me."},"tax-drag-quick-check":{"l":"Tax drag","m":"I was reading your page on tax drag and would like to talk about how it applies to me."},"tax-equivalent-yield-calculator":{"l":"Municipal bonds","m":"I was reading your page on municipal bonds and would like to talk about how it applies to me."},"tax-planning":{"l":"Working with Rubiq","m":"I would like to learn more about working with Rubiq and whether it is a fit for my family."},"uhnw-liquidity":{"l":"Borrowing against my portfolio","m":"I would like to talk through ways to raise cash without selling investments."},"what-is-a-fiduciary":{"l":"Working with a fiduciary","m":"I would like to understand how you work with clients as a fiduciary."},"wirehouse-vs-independent-advisor":{"l":"A second opinion on my wirehouse account","m":"My accounts are at a wirehouse. I would like to understand what I pay in total and what an independent advisor would do differently.","w":"wirehouse"}};
+  (function(){
+    var slug=(new URLSearchParams(location.search).get('topic')||'').replace(/[^a-z0-9-]/g,'');
+    var tp=TOPICS[slug];if(!tp)return;
+    var box=document.getElementById('rq-topic');
+    document.getElementById('rq-topic-label').textContent=tp.l;
+    F['topic'].value=tp.l;box.hidden=false;
+    if(!F['message'].value)F['message'].value=tp.m;
+    if(tp.w)F['where'].value=tp.w;
+    document.querySelector('.rq-lede').textContent='Just add your name and email. We\u2019ve started the message for you, and you can change it.';
+    document.getElementById('rq-topic-clear').addEventListener('click',function(){
+      box.hidden=true;F['topic'].value='';if(F['message'].value===tp.m)F['message'].value='';F['message'].focus();});
+    var panel=document.querySelector('.rq-panel');
+    function jump(){var y=panel.getBoundingClientRect().top+window.pageYOffset-88;window.scrollTo(0,Math.max(0,y));try{F['name'].focus({preventScroll:true});}catch(x){}}
+    if(document.readyState==='complete')jump();else window.addEventListener('load',jump);
+  })();
+  var t0=Date.now();
+  var FALLBACK=' You can also email <a href="mailto:andreas@rubiqfinancial.com">andreas@rubiqfinancial.com</a> or call <a href="tel:6102159499">(610) 215-9499</a>.';
+  function fail(msg){err.innerHTML=msg+FALLBACK;err.hidden=false;btn.disabled=false;btn.textContent='Send message';}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();err.hidden=true;
+    var name=F["name"].value.trim(),email=F["email"].value.trim(),phone=F["phone"].value.trim();
+    var pref=form.querySelector('input[name=preferred]:checked').value;
+    [F["name"],F["email"],F["phone"]].forEach(function(el){el.removeAttribute('aria-invalid');});
+    if(!name){F["name"].setAttribute('aria-invalid','true');F["name"].focus();return fail('Please add your name.');}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){F["email"].setAttribute('aria-invalid','true');F["email"].focus();return fail('Please check your email address.');}
+    if(pref==='phone'&&!phone){F["phone"].setAttribute('aria-invalid','true');F["phone"].focus();return fail('Please add a phone number so we can call you.');}
+    btn.disabled=true;btn.textContent='Sending…';
+    var body={name:name,email:email,phone:phone,preferred:pref,where:F["where"].value,message:F["message"].value,topic:F["topic"].value,
+      company_website:F["company_website"].value,elapsed_ms:Date.now()-t0,page:location.pathname};
+    fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+      .then(function(r){return r.json().catch(function(){return {ok:false};});})
+      .then(function(res){
+        if(!res.ok)return fail('Your message didn&rsquo;t go through.');
+        var done=false;function go(){if(!done){done=true;location.href='thank-you';}}
+        try{gtag('event','generate_lead',{form_name:'contact',event_callback:go});}catch(x){}
+        setTimeout(go,800);
+      })
+      .catch(function(){fail('Your message didn&rsquo;t go through.');});
   });
 })();
 </script>

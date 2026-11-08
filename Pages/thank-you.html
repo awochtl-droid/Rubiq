@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-15PBEWL3XZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // Don't count automated browsers (scanners, crawlers) or preview/test hosts.
+    window.__rqNoTrack = (function () {
+      try {
+        if (navigator.webdriver === true) return true;
+        if (!/(^|\.)rubiqfinancial\.com$/.test(location.hostname)) return true;
+        // Crawlers, headless browsers and page-speed testers that announce themselves
+        if (/HeadlessChrome|PhantomJS|Lighthouse|PageSpeed|GTmetrix|[a-z]bot\/|crawler|spider|Slurp/i.test(navigator.userAgent || '')) return true;
+        // Screen sizes seen only from data-center bots in our analytics
+        var r = screen.width + 'x' + screen.height;
+        if (r === '800x600' || r === '1280x1200' || r === '1024x1024' || r === '1366x1366') return true;
+        return false;
+      } catch (e) { return false; }
+    })();
+    if (!window.__rqNoTrack) {
+    // Start analytics only after a real person interacts (mouse, touch, scroll, key).
+    // Email link scanners (e.g. Microsoft Safe Links, running in data centers) open pages
+    // and follow links but never interact, so they were inflating sessions and
+    // Schedule-a-call clicks.
+    (function () {
+      var started = false;
+      var evts = ['pointermove', 'pointerdown', 'touchstart', 'wheel', 'keydown'];
+      function start(e) {
+        if (started || (e && e.isTrusted === false)) return;
+        // Browsers fire a pointermove on load when the cursor sits over the page; require real movement.
+        if (e && e.type === 'pointermove' && !e.movementX && !e.movementY) return;
+        started = true;
+        evts.forEach(function (t) { window.removeEventListener(t, start, true); });
+        gtag('config', 'G-15PBEWL3XZ');
+        gtag('config', 'AW-18023805978');
+      }
+      evts.forEach(function (t) { window.addEventListener(t, start, { capture: true, passive: true }); });
+    })();
+  }
+    function gtag_report_conversion(url) {
+      if (window.__rqNoTrack) { if (typeof url !== 'undefined') window.location = url; return false; }
+      // If analytics is blocked or slow, still open the link.
+      setTimeout(function () { if (typeof url !== 'undefined') window.location = url; }, 1000);
+      var callback = function () { if (typeof url !== 'undefined') window.location = url; };
+      gtag('event', 'conversion', {'send_to':'AW-18023805978/PYr9CKmg9qccEJrotZJD','value':1.0,'currency':'USD','event_callback':callback});
+      gtag('event', 'conversion', {'send_to':'AW-18023805978/sQ2MCNuQ0agcEJrotZJD','event_callback':callback});
+      return false;
+    }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You | Rubiq Financial Partners</title>
+  <meta name="description" content="Thanks for reaching out to Rubiq Financial Partners." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,sans-serif;color:#1C2D44}
+    .nav-blur{backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%)}
+    .nav-link{font-size:.8125rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.8);text-decoration:none}
+    .nav-link:hover,.nav-link:focus-visible{color:#D4AE6A}
+    a:focus-visible,button:focus-visible{outline:3px solid #D4AE6A;outline-offset:3px}
+    .focus-link{transition:color .18s ease,filter .18s ease,transform .18s ease}
+    .focus-link:hover{filter:brightness(.96)}
+    .focus-link:active{transform:translateY(1px)}
+    .content h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(1.5rem,3vw,2rem);line-height:1.2;color:#0F1724;margin:3rem 0 1rem;letter-spacing:-.02em}
+    .content h3{font-family:"Playfair Display",Georgia,serif;font-size:1.2rem;line-height:1.3;color:#0F1724;margin:0 0 .6rem}
+    .content p,.content li{font-size:.975rem;line-height:1.8;color:#405168;font-weight:300}
+    .content p{margin:0 0 1.1rem}
+    .content ul{padding-left:1.25rem;margin:.5rem 0 1.5rem}
+    .content li{padding-left:.25rem;margin:.35rem 0}
+    .content a{color:#1A5EA8;text-decoration:underline;text-underline-offset:3px}
+    .content a:hover{color:#133F73;text-decoration-thickness:2px}
+    .option-card{height:100%;padding:1.4rem;background:white;border:1px solid rgba(26,94,168,.12);border-radius:10px;box-shadow:0 8px 24px rgba(15,23,36,.04)}
+    .option-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9E7A32}
+    .faq-item{padding:1.25rem 0;border-bottom:1px solid rgba(44,62,85,.12)}
+    .faq-item h3{margin-bottom:.5rem}
+    .compare-wrap{overflow-x:auto;margin:1.5rem 0 2rem;border:1px solid rgba(26,94,168,.12);border-radius:10px;background:white;box-shadow:0 8px 24px rgba(15,23,36,.04)}
+    .compare{width:100%;min-width:560px;border-collapse:collapse}
+    .compare th,.compare td{text-align:left;vertical-align:top;padding:.8rem 1rem;border-bottom:1px solid rgba(26,94,168,.08);font-size:.875rem;line-height:1.6}
+    .compare thead th{background:rgba(26,94,168,.04);color:#0F1724;font-weight:600}
+    .compare tbody th{color:#0F1724;font-weight:600;width:24%}
+    .compare td{color:#405168;font-weight:300}
+    .compare tr:last-child th,.compare tr:last-child td{border-bottom:none}
+    @media(max-width:639px){
+      .compare{min-width:0}
+      .compare thead{display:none}
+      .compare tbody tr{display:block;padding:.9rem 1rem;border-bottom:1px solid rgba(26,94,168,.08)}
+      .compare tbody tr:last-child{border-bottom:none}
+      .compare tbody th,.compare tbody td{display:block;width:auto;border:0;padding:.15rem 0}
+      .compare tbody th{margin-bottom:.35rem}
+      .compare td::before{content:attr(data-label);display:block;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9E7A32;margin-top:.35rem}
+    }
+    .focus-link:focus-visible{outline:3px solid #D4AE6A;outline-offset:3px}
+    #mobile-menu{display:none}
+    @media(max-width:767px){#mobile-menu.open{display:flex}}
+    .skip-link:focus-visible{top:0!important}
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="focus-link skip-link" style="position:absolute;top:-100px;left:1rem;z-index:100;background:#C49A5A;color:#0F1724;padding:.75rem 1rem;font-weight:600">Skip to content</a>
+  <nav class="fixed top-0 left-0 right-0 z-50 nav-blur" style="background:rgba(15,23,36,.94);border-bottom:1px solid rgba(255,255,255,.08)">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between" style="height:72px">
+      <a href="../" aria-label="Rubiq Financial Partners home"><img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Vertical -White.png" alt="Rubiq Financial Partners" width="240" height="44" style="height:44px;width:auto" /></a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="our-capabilities" class="nav-link">Capabilities</a><a href="our-clients" class="nav-link">Clients</a><a href="our-team" class="nav-link">Team</a><a href="insights" class="nav-link">Resources</a><a href="fee-structure" class="nav-link">Fees</a>
+      </div>
+      <a class="hidden md:inline-flex focus-link" href="schedule" onclick="return gtag_report_conversion(this.href)" style="background:#C49A5A;color:#0F1724;padding:.7rem 1.1rem;border-radius:4px;text-decoration:none;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Schedule a Call</a>
+      <button class="md:hidden focus-link" type="button" aria-label="Toggle navigation" aria-expanded="false" onclick="var m=document.getElementById('mobile-menu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))" style="color:white;background:none;border:0;padding:.6rem;font-size:1.35rem">☰</button>
+    </div>
+    <div id="mobile-menu" style="background:#0F1724;padding:0 1.5rem 1.25rem;flex-direction:column">
+      <a href="our-capabilities" class="nav-link" style="padding:.8rem 0">Capabilities</a><a href="our-clients" class="nav-link" style="padding:.8rem 0">Clients</a><a href="our-team" class="nav-link" style="padding:.8rem 0">Team</a><a href="insights" class="nav-link" style="padding:.8rem 0">Resources</a><a href="fee-structure" class="nav-link" style="padding:.8rem 0">Fees</a>
+    </div>
+  </nav>
+
+    <main id="main-content" style="margin-top:72px;min-height:70vh;background:radial-gradient(ellipse at 80% 0%,rgba(196,154,90,.16),transparent 40%),linear-gradient(155deg,#0F1724 0%,#133F73 62%,#1A5EA8 100%);color:white;display:flex;align-items:center">
+    <div class="max-w-3xl mx-auto px-6 lg:px-10" style="padding:5rem 1.5rem">
+      <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.25rem,5vw,3.5rem);line-height:1.1;letter-spacing:-.03em;margin:0 0 1.25rem">Thank you. Your message is on its way.</h1>
+      <p style="font-size:1.05rem;line-height:1.8;color:rgba(255,255,255,.78);font-weight:300;max-width:600px;margin:0 0 1rem">Andreas will get back to you within one business day, by the method you chose.</p>
+      <p style="font-size:1.05rem;line-height:1.8;color:rgba(255,255,255,.78);font-weight:300;max-width:600px;margin:0 0 2rem">If you&rsquo;d rather pick a time now, you can <a href="contact#book" style="color:#D4AE6A;text-decoration:underline;text-underline-offset:3px">book a call on our calendar</a>.</p>
+      <a class="focus-link" href="insights" style="display:inline-block;border:1px solid rgba(212,174,106,.6);color:#D4AE6A;padding:.8rem 1.3rem;border-radius:4px;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Browse our guides</a>
+    </div>
+  </main>
+
+  <footer style="background:#0F1724;padding:1.5rem 0;color:rgba(255,255,255,.55)">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <a href="../"><img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png" alt="Rubiq Financial Partners" width="180" height="40" style="width:180px;height:auto" loading="lazy" /></a>
+      <p style="font-size:.72rem;text-align:center;line-height:1.6;margin:0">© 2026 Rubiq Financial Partners. Investment advisory services offered through Wealthcare Capital Partners, LLC, dba Rubiq Financial Partners, an SEC-registered investment adviser. Securities offered through LPL Financial, Member FINRA/SIPC. Wealthcare and Rubiq Financial Partners are separate entities from LPL Financial.<br />This page is for educational purposes and is not tax, legal, investment, or lending advice.</p>
+      <a class="nav-link focus-link" href="insights">All Resources</a>
+    </div>
+  </footer>
+</body>
+</html>
