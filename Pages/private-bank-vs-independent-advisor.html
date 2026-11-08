@@ -21,11 +21,29 @@
       } catch (e) { return false; }
     })();
     if (!window.__rqNoTrack) {
-      gtag('config', 'G-15PBEWL3XZ');
-      gtag('config', 'AW-18023805978');
-    }
+    // Start analytics only after a real person interacts (mouse, touch, scroll, key).
+    // Email link scanners (e.g. Microsoft Safe Links, running in data centers) open pages
+    // and follow links but never interact, so they were inflating sessions and
+    // Schedule-a-call clicks.
+    (function () {
+      var started = false;
+      var evts = ['pointermove', 'pointerdown', 'touchstart', 'wheel', 'keydown'];
+      function start(e) {
+        if (started || (e && e.isTrusted === false)) return;
+        // Browsers fire a pointermove on load when the cursor sits over the page; require real movement.
+        if (e && e.type === 'pointermove' && !e.movementX && !e.movementY) return;
+        started = true;
+        evts.forEach(function (t) { window.removeEventListener(t, start, true); });
+        gtag('config', 'G-15PBEWL3XZ');
+        gtag('config', 'AW-18023805978');
+      }
+      evts.forEach(function (t) { window.addEventListener(t, start, { capture: true, passive: true }); });
+    })();
+  }
     function gtag_report_conversion(url) {
       if (window.__rqNoTrack) { if (typeof url !== 'undefined') window.location = url; return false; }
+      // If analytics is blocked or slow, still open the link.
+      setTimeout(function () { if (typeof url !== 'undefined') window.location = url; }, 1000);
       var callback = function () { if (typeof url !== 'undefined') window.location = url; };
       gtag('event', 'conversion', {'send_to':'AW-18023805978/PYr9CKmg9qccEJrotZJD','value':1.0,'currency':'USD','event_callback':callback});
       gtag('event', 'conversion', {'send_to':'AW-18023805978/sQ2MCNuQ0agcEJrotZJD','event_callback':callback});
@@ -232,7 +250,7 @@
 
           <h2>Holding a large single stock position</h2>
           <p>Executives, founders, and long-term holders often turn to a private bank because it can do several things in-house: lend against the shares, hedge them with collars or prepaid variable forwards through its trading desk, offer access to exchange funds, and set up charitable or estate vehicles.</p>
-          <p>An independent advisor works with the same set of strategies but separates the advice from the execution. That can make it easier to compare hedge pricing from more than one counterparty, weigh exchange fund sponsors against each other, or conclude that a staged sale is simpler than any structured solution. Whichever route you take, each strategy carries different tax, liquidity, and counterparty trade-offs. Our <a href="concentrated-stock">concentrated stock guide</a> walks through the main options, and our <a href="grat-concentrated-stock">GRAT planning guide</a> covers one estate-transfer technique.</p>
+          <p>An independent advisor works with the same set of strategies but separates the advice from the execution. That can make it easier to compare hedge pricing from more than one counterparty, weigh exchange fund sponsors against each other, or conclude that a staged sale is simpler than any structured solution. Whichever route you take, each strategy carries different tax, liquidity, and counterparty trade-offs. Our <a href="concentrated-stock">concentrated stock guide</a> walks through the main options, our <a href="prepaid-variable-forward">prepaid variable forward guide</a> explains one common hedging contract, and our <a href="grat-concentrated-stock">GRAT planning guide</a> covers one estate-transfer technique.</p>
 
           <h2>Cost and conflicts of interest</h2>
           <p>Headline fees rarely tell the full story. To compare fairly, ask each firm for the all-in annual cost on your actual portfolio: the advisory or wealth management fee, underlying fund expenses, platform or placement fees on alternatives, structured product embedded costs, trading and custody fees, and loan spreads.</p>
@@ -290,6 +308,10 @@
           <li><a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/form-crs" target="_blank" rel="noopener noreferrer">Investor.gov: What is Form CRS?</a></li>
           <li><a href="https://www.finra.org/investors/insights/securities-backed-lines-credit" target="_blank" rel="noopener noreferrer">FINRA: Securities-Backed Lines of Credit</a></li>
         </ul>
+        <div style="margin-top:2rem;padding:1.25rem 1.4rem;border-left:3px solid #C49A5A;background:#F7F4EE;border-radius:4px">
+          <p style="margin:0 0 .4rem;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#133F73">For financial advisors</p>
+          <p style="margin:0">If you are an advisor weighing a move from a bank platform to an independent practice, or thinking about a continuity plan for your clients, Andreas Wochtl is glad to have a confidential conversation. <a href="schedule">Schedule a time to talk</a>.</p>
+        </div>
       </div>
     </section>
 

@@ -22,14 +22,32 @@
     } catch (e) { return false; }
   })();
   if (!window.__rqNoTrack) {
-    gtag('config', 'G-15PBEWL3XZ');
-    gtag('config', 'AW-18023805978');
+    // Start analytics only after a real person interacts (mouse, touch, scroll, key).
+    // Email link scanners (e.g. Microsoft Safe Links, running in data centers) open pages
+    // and follow links but never interact, so they were inflating sessions and
+    // Schedule-a-call clicks.
+    (function () {
+      var started = false;
+      var evts = ['pointermove', 'pointerdown', 'touchstart', 'wheel', 'keydown'];
+      function start(e) {
+        if (started || (e && e.isTrusted === false)) return;
+        // Browsers fire a pointermove on load when the cursor sits over the page; require real movement.
+        if (e && e.type === 'pointermove' && !e.movementX && !e.movementY) return;
+        started = true;
+        evts.forEach(function (t) { window.removeEventListener(t, start, true); });
+        gtag('config', 'G-15PBEWL3XZ');
+        gtag('config', 'AW-18023805978');
+      }
+      evts.forEach(function (t) { window.addEventListener(t, start, { capture: true, passive: true }); });
+    })();
   }
 </script>
 <!-- Event snippet for Book Now Click + Book Appointment conversions -->
 <script>
 function gtag_report_conversion(url) {
     if (window.__rqNoTrack) { if (typeof url !== 'undefined') window.location = url; return false; }
+      // If analytics is blocked or slow, still open the link.
+      setTimeout(function () { if (typeof url !== 'undefined') window.location = url; }, 1000);
   var callback = function () {
     if (typeof(url) != 'undefined') {
       window.location = url;
