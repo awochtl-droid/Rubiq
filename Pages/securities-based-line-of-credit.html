@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-15PBEWL3XZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // Don't count automated browsers (scanners, crawlers) or preview/test hosts.
+    window.__rqNoTrack = (function () {
+      try {
+        if (navigator.webdriver === true) return true;
+        if (!/(^|\.)rubiqfinancial\.com$/.test(location.hostname)) return true;
+        // Crawlers, headless browsers and page-speed testers that announce themselves
+        if (/HeadlessChrome|PhantomJS|Lighthouse|PageSpeed|GTmetrix|[a-z]bot\/|crawler|spider|Slurp/i.test(navigator.userAgent || '')) return true;
+        // Screen sizes seen only from data-center bots in our analytics
+        var r = screen.width + 'x' + screen.height;
+        if (r === '800x600' || r === '1280x1200' || r === '1024x1024' || r === '1366x1366') return true;
+        return false;
+      } catch (e) { return false; }
+    })();
+    if (!window.__rqNoTrack) {
+    // Start analytics only after a real person interacts (mouse, touch, scroll, key).
+    // Email link scanners (e.g. Microsoft Safe Links, running in data centers) open pages
+    // and follow links but never interact, so they were inflating sessions and
+    // Schedule-a-call clicks.
+    (function () {
+      var started = false;
+      var evts = ['pointermove', 'pointerdown', 'touchstart', 'wheel', 'keydown'];
+      function start(e) {
+        if (started || (e && e.isTrusted === false)) return;
+        // Browsers fire a pointermove on load when the cursor sits over the page; require real movement.
+        if (e && e.type === 'pointermove' && !e.movementX && !e.movementY) return;
+        started = true;
+        evts.forEach(function (t) { window.removeEventListener(t, start, true); });
+        gtag('config', 'G-15PBEWL3XZ');
+        gtag('config', 'AW-18023805978');
+      }
+      evts.forEach(function (t) { window.addEventListener(t, start, { capture: true, passive: true }); });
+    })();
+  }
+    function gtag_report_conversion(url) {
+      if (window.__rqNoTrack) { if (typeof url !== 'undefined') window.location = url; return false; }
+      // If analytics is blocked or slow, still open the link.
+      setTimeout(function () { if (typeof url !== 'undefined') window.location = url; }, 1000);
+      var callback = function () { if (typeof url !== 'undefined') window.location = url; };
+      gtag('event', 'conversion', {'send_to':'AW-18023805978/PYr9CKmg9qccEJrotZJD','value':1.0,'currency':'USD','event_callback':callback});
+      gtag('event', 'conversion', {'send_to':'AW-18023805978/sQ2MCNuQ0agcEJrotZJD','event_callback':callback});
+      return false;
+    }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SBLOC Rates: How a Securities-Based Line of Credit Works | Rubiq</title>
+  <meta name="description" content="SBLOC rates explained: how securities-based lines of credit are priced off SOFR, Schwab and Fidelity rate tiers, loan-to-value, margin calls, taxes, and SBLOC vs. margin." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/securities-based-line-of-credit" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Rubiq Financial Partners" />
+  <meta property="og:title" content="SBLOC Rates: How a Securities-Based Line of Credit Works | Rubiq" />
+  <meta property="og:description" content="SBLOC rates explained: how securities-based lines of credit are priced off SOFR, Schwab and Fidelity rate tiers, loan-to-value, margin calls, taxes, and SBLOC vs. margin." />
+  <meta property="og:url" content="https://www.rubiqfinancial.com/Pages/securities-based-line-of-credit" />
+  <meta property="og:image" content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SBLOC Rates: How a Securities-Based Line of Credit Works | Rubiq" />
+  <meta name="twitter:description" content="SBLOC rates explained: how securities-based lines of credit are priced off SOFR, Schwab and Fidelity rate tiers, loan-to-value, margin calls, taxes, and SBLOC vs. margin." />
+  <meta name="twitter:image" content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32x32.png" type="image/png" sizes="32x32" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,sans-serif;color:#1C2D44}
+    .nav-blur{backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%)}
+    .nav-link{font-size:.8125rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.8);text-decoration:none}
+    .nav-link:hover,.nav-link:focus-visible{color:#D4AE6A}
+    a:focus-visible,button:focus-visible{outline:3px solid #D4AE6A;outline-offset:3px}
+    .focus-link{transition:color .18s ease,filter .18s ease,transform .18s ease}
+    .focus-link:hover{filter:brightness(.96)}
+    .focus-link:active{transform:translateY(1px)}
+    .content h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(1.5rem,3vw,2rem);line-height:1.2;color:#0F1724;margin:3rem 0 1rem;letter-spacing:-.02em}
+    .content h3{font-family:"Playfair Display",Georgia,serif;font-size:1.2rem;line-height:1.3;color:#0F1724;margin:0 0 .6rem}
+    .content p,.content li{font-size:.975rem;line-height:1.8;color:#405168;font-weight:300}
+    .content p{margin:0 0 1.1rem}
+    .content ul{padding-left:1.25rem;margin:.5rem 0 1.5rem}
+    .content li{padding-left:.25rem;margin:.35rem 0}
+    .content a{color:#1A5EA8;text-decoration:underline;text-underline-offset:3px}
+    .content a:hover{color:#133F73;text-decoration-thickness:2px}
+    .option-card{height:100%;padding:1.4rem;background:white;border:1px solid rgba(26,94,168,.12);border-radius:10px;box-shadow:0 8px 24px rgba(15,23,36,.04)}
+    .option-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9E7A32}
+    .faq-item{padding:1.25rem 0;border-bottom:1px solid rgba(44,62,85,.12)}
+    .faq-item h3{margin-bottom:.5rem}
+    .compare-wrap{overflow-x:auto;margin:1.5rem 0 2rem;border:1px solid rgba(26,94,168,.12);border-radius:10px;background:white;box-shadow:0 8px 24px rgba(15,23,36,.04)}
+    .compare{width:100%;min-width:560px;border-collapse:collapse}
+    .compare th,.compare td{text-align:left;vertical-align:top;padding:.8rem 1rem;border-bottom:1px solid rgba(26,94,168,.08);font-size:.875rem;line-height:1.6}
+    .compare thead th{background:rgba(26,94,168,.04);color:#0F1724;font-weight:600}
+    .compare tbody th{color:#0F1724;font-weight:600;width:24%}
+    .compare td{color:#405168;font-weight:300}
+    .compare tr:last-child th,.compare tr:last-child td{border-bottom:none}
+    @media(max-width:639px){
+      .compare{min-width:0}
+      .compare thead{display:none}
+      .compare tbody tr{display:block;padding:.9rem 1rem;border-bottom:1px solid rgba(26,94,168,.08)}
+      .compare tbody tr:last-child{border-bottom:none}
+      .compare tbody th,.compare tbody td{display:block;width:auto;border:0;padding:.15rem 0}
+      .compare tbody th{margin-bottom:.35rem}
+      .compare td::before{content:attr(data-label);display:block;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9E7A32;margin-top:.35rem}
+    }
+    .focus-link:focus-visible{outline:3px solid #D4AE6A;outline-offset:3px}
+    #mobile-menu{display:none}
+    @media(max-width:767px){#mobile-menu.open{display:flex}}
+    .skip-link:focus-visible{top:0!important}
+      .calc{background:white;border:1px solid rgba(26,94,168,.14);border-radius:10px;padding:1.4rem;margin:1.5rem 0 2rem;box-shadow:0 8px 24px rgba(15,23,36,.04)}
+    .calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem}
+    .calc label{display:block;font-size:.8rem;font-weight:600;color:#0F1724;margin-bottom:.35rem}
+    .calc input{width:100%;padding:.6rem .7rem;border:1px solid rgba(44,62,85,.25);border-radius:6px;font:inherit;font-size:.95rem;color:#0F1724;background:#fff}
+    .calc input:focus-visible{outline:3px solid #D4AE6A;outline-offset:1px}
+    .calc-out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:1.25rem;padding-top:1.1rem;border-top:1px solid rgba(26,94,168,.1)}
+    .calc-out div span{display:block;font-size:.78rem;color:#65748A}
+    .calc-out div strong{font-family:"Playfair Display",Georgia,serif;font-size:1.6rem;color:#0F1724;font-variant-numeric:tabular-nums}
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SBLOC Rates: How a Securities-Based Line of Credit Works",
+  "description": "How securities-based lines of credit are priced, published rate tiers at Schwab and Fidelity, loan-to-value, maintenance calls, tax treatment, and how SBLOCs compare with margin and with wirehouse lending.",
+  "url": "https://www.rubiqfinancial.com/Pages/securities-based-line-of-credit",
+  "datePublished": "2026-11-08",
+  "dateModified": "2026-11-08",
+  "author": {
+    "@type": "Organization",
+    "name": "Rubiq Financial Partners"
+  },
+  "publisher": {
+    "@id": "https://www.rubiqfinancial.com/#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.rubiqfinancial.com/Pages/securities-based-line-of-credit"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.rubiqfinancial.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Resources",
+      "item": "https://www.rubiqfinancial.com/Pages/insights"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Securities-Based Line of Credit",
+      "item": "https://www.rubiqfinancial.com/Pages/securities-based-line-of-credit"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an SBLOC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A securities-based line of credit (SBLOC) is a revolving loan secured by the stocks, bonds, and funds in a taxable investment account. You can borrow against the portfolio without selling it, pay interest only on what you draw, and repay on your own schedule. The lender can require more collateral or sell holdings if the account value falls."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are current SBLOC rates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most SBLOCs float at SOFR plus a spread that shrinks as the line gets larger. As of November 2, 2026, with SOFR at 3.95%, Schwab's Pledged Asset Line ranged from 8.35% for the smallest lines to 6.35% for $2.5 million and up, before relationship discounts, and Fidelity's line of credit spreads ranged from SOFR + 3.10% to SOFR + 1.90%. Large relationships can often negotiate lower spreads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between an SBLOC and a margin loan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both are secured by your investments. A margin loan can be used to buy more securities, while an SBLOC is a non-purpose loan that cannot. SBLOCs are usually set up in a separate pledged account and are often priced lower than standard margin rates for larger balances."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use an SBLOC to buy stocks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. SBLOC proceeds cannot be used to buy or carry securities. They can be used for almost anything else, such as real estate, a tax bill, a business need, or bridge financing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is SBLOC interest tax-deductible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on how the money is used. Interest on money used for personal purposes is generally not deductible. Interest traced to an investment, such as a real estate purchase held for investment, or to a business may be deductible under the interest tracing rules, subject to limits. Confirm with your CPA before you borrow."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to an SBLOC if the market falls?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If the value of your collateral drops below what the loan requires, you will get a maintenance call to add assets or pay down the loan, usually within a few days. If you cannot, the lender can sell your holdings without notice, which may also trigger capital gains tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the buy, borrow, die strategy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It describes borrowing against appreciated assets instead of selling them, then holding the assets until death so heirs receive a step-up in cost basis. It can defer or avoid capital gains tax, but the interest compounds, the loan carries market risk, and the result depends on tax law that can change."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="focus-link skip-link" style="position:absolute;top:-100px;left:1rem;z-index:100;background:#C49A5A;color:#0F1724;padding:.75rem 1rem;font-weight:600">Skip to content</a>
+  <nav class="fixed top-0 left-0 right-0 z-50 nav-blur" style="background:rgba(15,23,36,.94);border-bottom:1px solid rgba(255,255,255,.08)">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between" style="height:72px">
+      <a href="../" aria-label="Rubiq Financial Partners home"><img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Vertical -White.png" alt="Rubiq Financial Partners" width="240" height="44" style="height:44px;width:auto" /></a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="our-capabilities" class="nav-link">Capabilities</a><a href="our-clients" class="nav-link">Clients</a><a href="our-team" class="nav-link">Team</a><a href="insights" class="nav-link">Resources</a><a href="fee-structure" class="nav-link">Fees</a>
+      </div>
+      <a class="hidden md:inline-flex focus-link" href="schedule" onclick="return gtag_report_conversion(this.href)" style="background:#C49A5A;color:#0F1724;padding:.7rem 1.1rem;border-radius:4px;text-decoration:none;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Schedule a Call</a>
+      <button class="md:hidden focus-link" type="button" aria-label="Toggle navigation" aria-expanded="false" onclick="var m=document.getElementById('mobile-menu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))" style="color:white;background:none;border:0;padding:.6rem;font-size:1.35rem">☰</button>
+    </div>
+    <div id="mobile-menu" style="background:#0F1724;padding:0 1.5rem 1.25rem;flex-direction:column">
+      <a href="our-capabilities" class="nav-link" style="padding:.8rem 0">Capabilities</a><a href="our-clients" class="nav-link" style="padding:.8rem 0">Clients</a><a href="our-team" class="nav-link" style="padding:.8rem 0">Team</a><a href="insights" class="nav-link" style="padding:.8rem 0">Resources</a><a href="fee-structure" class="nav-link" style="padding:.8rem 0">Fees</a>
+    </div>
+  </nav>
+
+      <header style="margin-top:72px;padding:5.5rem 0 4.5rem;background:radial-gradient(ellipse at 82% 5%,rgba(196,154,90,.18),transparent 38%),linear-gradient(150deg,#0F1724 0%,#133F73 62%,#1A5EA8 100%);color:white">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10">
+      <a href="insights" class="focus-link" style="display:inline-block;color:rgba(255,255,255,.65);font-size:.75rem;text-decoration:none;margin-bottom:1.6rem">← All Resources</a>
+      <p style="font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#D4AE6A;margin:0 0 1rem">Borrowing &amp; Liquidity</p>
+      <h1 style="max-width:850px;font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.35rem,5vw,4.25rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 1.25rem">SBLOC Rates: How a Securities-Based Line of Credit Works</h1>
+      <p style="max-width:720px;color:rgba(255,255,255,.77);font-size:1.08rem;font-weight:300;line-height:1.8;margin:0">Borrowing against your portfolio can fund a purchase, a tax bill, or a bridge loan without selling appreciated stock. Here is how the rate is set, what the published rates are today, and the risks that come with it.</p>
+    </div>
+  </header>
+
+  <main id="main-content" class="content">
+    <section style="background:#FAF8F4;padding:3.5rem 0">
+      <div class="max-w-6xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <article class="lg:col-span-2">
+          <p style="font-size:1.08rem;line-height:1.85;color:#1C2D44;border-left:3px solid #C49A5A;padding-left:1.25rem;margin:0 0 2rem">A securities-based line of credit (SBLOC) is a revolving loan secured by a taxable investment account. Your rate is a benchmark, usually SOFR, plus a spread that gets smaller as the line gets bigger. That spread is the part worth negotiating, and it varies more between lenders than most borrowers realize.</p>
+
+          <h2 style="margin-top:0">How SBLOC rates are set</h2>
+          <p>Nearly every securities-based line floats. The rate has two parts:</p>
+          <ul>
+            <li><strong>The index:</strong> usually the Secured Overnight Financing Rate (SOFR), which the New York Fed publishes every business day. It moves with Federal Reserve policy, so your rate changes when SOFR does. SOFR was 3.95% on November 2, 2026 (<a href="https://www.newyorkfed.org/markets/reference-rates/sofr" target="_blank" rel="noopener noreferrer">New York Fed</a>).</li>
+            <li><strong>The spread:</strong> a fixed margin the lender adds on top. It is set by the size of your line, and sometimes by how much else you keep with the firm.</li>
+          </ul>
+          <p>You pay interest only on what you draw, not on the full line, and most lenders require only monthly interest payments.</p>
+
+          <h2>Published SBLOC rates at Schwab and Fidelity</h2>
+          <p>Two of the largest custodians publish their rate tiers, which makes them a useful yardstick for any quote you receive. Rates below use SOFR of 3.95% as of November 2, 2026, and will move with it.</p>
+          <div class="compare-wrap">
+            <table class="compare">
+              <caption style="caption-side:top;text-align:left;padding:.8rem 1rem;font-weight:600;color:#0F1724;font-size:.9rem">Schwab Pledged Asset Line (by loan value of collateral)</caption>
+              <thead><tr><th scope="col">Line size</th><th scope="col">Spread</th><th scope="col">Rate at SOFR 3.95%</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">$100,000 to $249,999</th><td data-label="Spread">SOFR + 4.40%</td><td data-label="Rate at SOFR 3.95%">8.35%</td></tr>
+                <tr><th scope="row">$250,000 to $499,999</th><td data-label="Spread">SOFR + 3.90%</td><td data-label="Rate at SOFR 3.95%">7.85%</td></tr>
+                <tr><th scope="row">$500,000 to $999,999</th><td data-label="Spread">SOFR + 3.40%</td><td data-label="Rate at SOFR 3.95%">7.35%</td></tr>
+                <tr><th scope="row">$1,000,000 to $2,499,999</th><td data-label="Spread">SOFR + 2.90%</td><td data-label="Rate at SOFR 3.95%">6.85%</td></tr>
+                <tr><th scope="row">$2,500,000 and above</th><td data-label="Spread">SOFR + 2.40%</td><td data-label="Rate at SOFR 3.95%">6.35%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:.85rem">Schwab also offers Investor Advantage Pricing discounts of 0.25% to 1.00% for clients with $250,000 to $10 million or more in qualifying assets. Source: <a href="https://www.schwab.com/pledged-asset-line/rates" target="_blank" rel="noopener noreferrer">Schwab Pledged Asset Line rates</a>.</p>
+          <div class="compare-wrap">
+            <table class="compare">
+              <caption style="caption-side:top;text-align:left;padding:.8rem 1rem;font-weight:600;color:#0F1724;font-size:.9rem">Fidelity securities-backed line of credit (by line amount)</caption>
+              <thead><tr><th scope="col">Line size</th><th scope="col">Spread</th><th scope="col">Rate at SOFR 3.95%</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">$100,000 to $499,999</th><td data-label="Spread">SOFR + 3.10%</td><td data-label="Rate at SOFR 3.95%">7.05%</td></tr>
+                <tr><th scope="row">$500,000 to $999,999</th><td data-label="Spread">SOFR + 2.85%</td><td data-label="Rate at SOFR 3.95%">6.80%</td></tr>
+                <tr><th scope="row">$1,000,000 to $2,999,999</th><td data-label="Spread">SOFR + 2.35%</td><td data-label="Rate at SOFR 3.95%">6.30%</td></tr>
+                <tr><th scope="row">$3,000,000 and above</th><td data-label="Spread">SOFR + 1.90%</td><td data-label="Rate at SOFR 3.95%">5.85%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:.85rem">Fidelity&rsquo;s minimum line is $100,000. Source: <a href="https://www.fidelity.com/lending/securities-backed-line-of-credit" target="_blank" rel="noopener noreferrer">Fidelity securities-backed line of credit</a>. Both lenders can change their spreads at any time; confirm current terms before you apply.</p>
+          <p>Wirehouses and private banks such as Morgan Stanley, Merrill, and UBS also offer these lines, but they generally do not post a rate table the same way. Pricing is set case by case and can depend on how much you keep with the firm. Ask for the spread over SOFR in writing, and compare it with the tables above.</p>
+
+          <h2>Estimate your interest cost</h2>
+          <div class="calc" role="group" aria-labelledby="calc-h">
+            <p id="calc-h" style="font-weight:600;color:#0F1724;margin:0 0 1rem">SBLOC interest estimator</p>
+            <div class="calc-grid">
+              <div><label for="amt">Amount drawn ($)</label><input id="amt" type="number" inputmode="decimal" min="0" step="10000" value="500000"></div>
+              <div><label for="sofr">SOFR (%)</label><input id="sofr" type="number" inputmode="decimal" min="0" step="0.01" value="3.95"></div>
+              <div><label for="spr">Spread over SOFR (%)</label><input id="spr" type="number" inputmode="decimal" min="0" step="0.05" value="2.90"></div>
+            </div>
+            <div class="calc-out" aria-live="polite">
+              <div><span>Interest rate</span><strong id="o-rate">6.85%</strong></div>
+              <div><span>Monthly interest</span><strong id="o-mo">$2,854</strong></div>
+              <div><span>Annual interest</span><strong id="o-yr">$34,250</strong></div>
+            </div>
+            <p style="font-size:.8rem;color:#65748A;margin:1rem 0 0">Simple interest on a constant balance, for illustration only. Actual interest accrues daily at a rate that changes with SOFR.</p>
+          </div>
+          <p>On a $500,000 draw, every 0.50% of spread is $2,500 a year. The gap between the smallest and largest tiers above is 2% or more, which is why the size of the line, and the lender, matter as much as the benchmark. To test whether borrowing beats selling or paying cash, try our <a href="leverage-calculator">cash vs. leverage calculator</a>.</p>
+
+          <h2>How much you can borrow</h2>
+          <p>Lenders lend a percentage of each holding&rsquo;s value, called the loan value or advance rate. According to FINRA, it is typically 50% to 95% of the account value depending on what you own: broadly diversified stocks and funds sit at the lower end, high-grade bonds and Treasuries at the higher end. Concentrated positions, volatile stocks, and some funds may get less or nothing. Retirement accounts cannot be pledged.</p>
+
+          <h2>The risks to understand first</h2>
+          <ul>
+            <li><strong>Maintenance calls.</strong> If your holdings fall and the collateral no longer supports the loan, you must add assets or pay down the balance, usually within two or three days.</li>
+            <li><strong>Forced sales.</strong> If you cannot meet a call, the lender can sell your securities without notice, at a bad time and possibly with a tax bill.</li>
+            <li><strong>Demand loan.</strong> The lender can generally call the loan or change collateral rules at any time.</li>
+            <li><strong>Rising rates.</strong> A floating rate means your cost goes up when SOFR does.</li>
+            <li><strong>Harder to move.</strong> Pledged assets usually cannot transfer to another firm until the loan is repaid or refinanced.</li>
+          </ul>
+          <p>Source: <a href="https://www.finra.org/investors/insights/securities-backed-lines-credit" target="_blank" rel="noopener noreferrer">FINRA: Securities-Backed Lines of Credit</a>. A conservative rule many planners use is to draw well below the maximum so a market drop does not trigger a call.</p>
+
+          <h2>SBLOC vs. margin loan</h2>
+          <div class="compare-wrap">
+            <table class="compare">
+              <thead><tr><th scope="col">&nbsp;</th><th scope="col">SBLOC</th><th scope="col">Margin loan</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Can buy securities</th><td data-label="SBLOC">No (non-purpose loan)</td><td data-label="Margin loan">Yes</td></tr>
+                <tr><th scope="row">Account</th><td data-label="SBLOC">Separate pledged account, often at an affiliated bank</td><td data-label="Margin loan">Inside your brokerage account</td></tr>
+                <tr><th scope="row">Pricing</th><td data-label="SBLOC">SOFR plus a tiered spread</td><td data-label="Margin loan">Broker&rsquo;s base rate plus a spread, often higher for the same balance</td></tr>
+                <tr><th scope="row">Typical minimum</th><td data-label="SBLOC">$100,000 line</td><td data-label="Margin loan">Low</td></tr>
+                <tr><th scope="row">Calls and forced sales</th><td data-label="SBLOC">Yes</td><td data-label="Margin loan">Yes</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Taxes: borrowing instead of selling</h2>
+          <p>Borrowing does not trigger capital gains tax, which is the main reason families with low-basis stock use these lines instead of selling. Whether the interest is deductible depends on how the money is used: interest on personal spending generally is not, while interest traced to an investment or a business may be, subject to limits. Some families hold appreciated assets for life and borrow against them, so heirs receive a <a href="step-up-in-basis">step-up in basis</a>. That approach, sometimes called &ldquo;buy, borrow, die,&rdquo; depends on current tax law and on carrying the loan through every market. Talk to your CPA before you borrow.</p>
+
+<div class="booking-offer" style="background:linear-gradient(135deg,#0F1724 0%,#133F73 100%);border-radius:10px;padding:1.5rem 1.6rem;margin:2.25rem 0 2.5rem;box-shadow:0 10px 28px rgba(15,23,36,.18);">
+            <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;font-weight:600;line-height:1.3;color:white;margin:0 0 .45rem;">Already have a line at your bank or wirehouse?</p>
+            <p style="font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.78);font-weight:300;margin:0 0 1.1rem;">Bring your loan statement. We&rsquo;ll compare your spread with published rates and look at whether selling, borrowing, or a mix fits your tax picture better.</p>
+            <a class="focus-link" href="schedule" onclick="return gtag_report_conversion(this.href)" style="display:inline-block;background:#C49A5A;color:#0F1724;padding:.8rem 1.3rem;border-radius:4px;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;">Request a review</a>
+          </div>
+
+          <h2>Wirehouse and private bank lending vs. an independent advisor</h2>
+          <p>Lending is a big reason families keep assets at a wirehouse or private bank. The firm lends from its own balance sheet, and the rate can improve as you move more assets there. That can be a good trade, or it can be offset by higher fees elsewhere in the relationship. An independent advisor does not lend, but can compare your current line with custodian lines, such as those at Schwab and Fidelity, and with other lenders. Rubiq&rsquo;s clients hold their accounts at Schwab and Fidelity. See our comparisons of <a href="wirehouse-vs-independent-advisor">wirehouse vs. independent advisor</a> and <a href="private-bank-vs-independent-advisor">private bank vs. independent advisor</a>, and our guide to <a href="concentrated-stock">concentrated stock</a> if the collateral is mostly one company.</p>
+
+          <h2>Questions to ask any lender</h2>
+          <ul>
+            <li>What is my spread over SOFR, and what would lower it?</li>
+            <li>What advance rate applies to each of my holdings?</li>
+            <li>At what account value would I get a maintenance call, and how long would I have to meet it?</li>
+            <li>Can you change collateral rules or call the loan, and with what notice?</li>
+            <li>Does my advisor or the firm earn anything from this loan?</li>
+            <li>What happens to the line if I move my accounts?</li>
+          </ul>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-item"><h3>What is an SBLOC?</h3><p>A securities-based line of credit (SBLOC) is a revolving loan secured by the stocks, bonds, and funds in a taxable investment account. You can borrow against the portfolio without selling it, pay interest only on what you draw, and repay on your own schedule. The lender can require more collateral or sell holdings if the account value falls.</p></div>
+          <div class="faq-item"><h3>What are current SBLOC rates?</h3><p>Most SBLOCs float at SOFR plus a spread that shrinks as the line gets larger. As of November 2, 2026, with SOFR at 3.95%, Schwab&rsquo;s Pledged Asset Line ranged from 8.35% for the smallest lines to 6.35% for $2.5 million and up, before relationship discounts, and Fidelity&rsquo;s line of credit spreads ranged from SOFR + 3.10% to SOFR + 1.90%. Large relationships can often negotiate lower spreads.</p></div>
+          <div class="faq-item"><h3>What is the difference between an SBLOC and a margin loan?</h3><p>Both are secured by your investments. A margin loan can be used to buy more securities, while an SBLOC is a non-purpose loan that cannot. SBLOCs are usually set up in a separate pledged account and are often priced lower than standard margin rates for larger balances.</p></div>
+          <div class="faq-item"><h3>Can I use an SBLOC to buy stocks?</h3><p>No. SBLOC proceeds cannot be used to buy or carry securities. They can be used for almost anything else, such as real estate, a tax bill, a business need, or bridge financing.</p></div>
+          <div class="faq-item"><h3>Is SBLOC interest tax-deductible?</h3><p>It depends on how the money is used. Interest on money used for personal purposes is generally not deductible. Interest traced to an investment, such as a real estate purchase held for investment, or to a business may be deductible under the interest tracing rules, subject to limits. Confirm with your CPA before you borrow.</p></div>
+          <div class="faq-item"><h3>What happens to an SBLOC if the market falls?</h3><p>If the value of your collateral drops below what the loan requires, you will get a maintenance call to add assets or pay down the loan, usually within a few days. If you cannot, the lender can sell your holdings without notice, which may also trigger capital gains tax.</p></div>
+          <div class="faq-item"><h3>What is the buy, borrow, die strategy?</h3><p>It describes borrowing against appreciated assets instead of selling them, then holding the assets until death so heirs receive a step-up in cost basis. It can defer or avoid capital gains tax, but the interest compounds, the loan carries market risk, and the result depends on tax law that can change.</p></div>
+        </article>
+
+        <aside style="align-self:start;background:white;border:1px solid rgba(26,94,168,.12);border-radius:10px;padding:1.5rem;box-shadow:0 8px 24px rgba(15,23,36,.04)">
+          <p class="option-label">Before you borrow</p>
+          <h2 style="font-size:1.4rem;margin:0 0 1rem">Four numbers to know</h2>
+          <ol style="padding-left:1.2rem;margin:0">
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">Your spread over SOFR, in writing.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">The advance rate on each holding.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">The account value that would trigger a call.</li>
+            <li style="font-size:.88rem;line-height:1.65;margin:.5rem 0">The tax you would owe if you sold instead.</li>
+          </ol>
+          <p style="font-size:.8rem;line-height:1.65;margin:1rem 0 0;color:#65748A">Rates are from each lender&rsquo;s published tables as of November 2, 2026, and change with SOFR. Educational information only; not individualized investment, tax, legal, or lending advice. Rubiq does not make loans.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section style="padding:3.25rem 0;background:white">
+      <div class="max-w-4xl mx-auto px-6 lg:px-10">
+        <h2 style="margin-top:0">Sources and further reading</h2>
+        <ul>
+          <li><a href="https://www.schwab.com/pledged-asset-line/rates" target="_blank" rel="noopener noreferrer">Schwab: Pledged Asset Line rates and requirements</a></li>
+          <li><a href="https://www.fidelity.com/lending/securities-backed-line-of-credit" target="_blank" rel="noopener noreferrer">Fidelity: Securities-backed line of credit</a></li>
+          <li><a href="https://www.finra.org/investors/insights/securities-backed-lines-credit" target="_blank" rel="noopener noreferrer">FINRA: Securities-Backed Lines of Credit</a></li>
+          <li><a href="https://www.newyorkfed.org/markets/reference-rates/sofr" target="_blank" rel="noopener noreferrer">Federal Reserve Bank of New York: Secured Overnight Financing Rate data</a></li>
+          <li><a href="https://www.irs.gov/publications/p550" target="_blank" rel="noopener noreferrer">IRS Publication 550: investment interest expense</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="padding:3.5rem 0;background:linear-gradient(155deg,#0F1724 0%,#133F73 60%,#1A5EA8 100%);text-align:center">
+      <div class="max-w-3xl mx-auto px-6 lg:px-10">
+        <p style="font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#D4AE6A;margin:0 0 .75rem">A second opinion</p>
+        <h2 style="font-family:'Playfair Display',Georgia,serif;color:white;font-size:clamp(1.7rem,3.8vw,2.5rem);margin:0 0 1rem">Borrow against your portfolio with a plan.</h2>
+        <p style="font-size:.95rem;line-height:1.75;color:rgba(255,255,255,.75);font-weight:300;margin:0 auto 1.5rem;max-width:620px">We will look at what you need the money for, what selling would cost in tax, and how much borrowing your portfolio can safely carry.</p>
+        <a class="focus-link" href="schedule" onclick="return gtag_report_conversion(this.href)" style="display:inline-block;background:#C49A5A;color:#0F1724;padding:.85rem 1.4rem;border-radius:4px;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Request a review</a>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:#0F1724;padding:1.5rem 0;color:rgba(255,255,255,.55)">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <a href="../"><img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png" alt="Rubiq Financial Partners" width="180" height="40" style="width:180px;height:auto" loading="lazy" /></a>
+      <p style="font-size:.72rem;text-align:center;line-height:1.6;margin:0">© 2026 Rubiq Financial Partners. Investment advisory services offered through Wealthcare Capital Partners, LLC, dba Rubiq Financial Partners, an SEC-registered investment adviser. Securities offered through LPL Financial, Member FINRA/SIPC. Wealthcare and Rubiq Financial Partners are separate entities from LPL Financial.<br />This page is for educational purposes and is not tax, legal, investment, or lending advice.</p>
+      <a class="nav-link focus-link" href="insights">All Resources</a>
+    </div>
+  </footer>
+<!-- Sticky Mobile CTA -->
+<a id="sticky-mobile-cta" href="schedule"
+   style="display:none;position:fixed;bottom:-60px;left:1rem;right:1rem;z-index:9998;
+          background:linear-gradient(135deg,#C49A5A 0%,#D4AE6A 100%);
+          color:#0F1724;text-align:center;
+          font-family:'Inter',sans-serif;font-size:0.9375rem;font-weight:600;
+          letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;
+          padding:1rem;border-radius:6px;
+          box-shadow:0 -2px 16px rgba(0,0,0,0.25),0 4px 12px rgba(196,154,74,0.35);
+          transition:bottom 0.3s cubic-bezier(0.4,0,0.2,1);" onclick="return gtag_report_conversion(this.href)">
+  Schedule a Call
+</a>
+<style>
+  @media(min-width:768px){ #sticky-mobile-cta{display:none!important;} }
+</style>
+<script>
+(function(){
+  var cta=document.getElementById('sticky-mobile-cta');
+  if(!cta)return;
+  if(window.innerWidth<768) cta.style.display='block';
+  window.addEventListener('scroll',function(){
+    if(window.innerWidth>=768)return;
+    cta.style.display='block';
+    cta.style.bottom=window.scrollY>100?'1rem':'-60px';
+  },{passive:true});
+  window.addEventListener('resize',function(){
+    cta.style.display=window.innerWidth<768?'block':'none';
+  });
+})();
+</script>
+<script>
+(function(){
+  var a=document.getElementById('amt'),s=document.getElementById('sofr'),p=document.getElementById('spr');
+  if(!a)return;
+  var fmt=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
+  function num(el){var v=parseFloat(el.value);return isFinite(v)&&v>=0?v:0;}
+  function run(){var r=num(s)+num(p),yr=num(a)*r/100;
+    document.getElementById('o-rate').textContent=r.toFixed(2)+'%';
+    document.getElementById('o-mo').textContent=fmt.format(yr/12);
+    document.getElementById('o-yr').textContent=fmt.format(yr);}
+  [a,s,p].forEach(function(el){el.addEventListener('input',run);});run();
+})();
+</script>
+</body>
+</html>
