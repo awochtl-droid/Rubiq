@@ -241,6 +241,45 @@ function gtag_report_conversion(url) {
       .cube-face.top    { transform:rotateX(90deg) translateZ(75px); }
       .cube-face.bottom { transform:rotateX(-90deg) translateZ(75px); }
     }
+    /* ── Contact form / booking tabs ── */
+    .rq-panel{max-width:576px;margin:0 auto;width:100%;border-radius:12px;overflow:hidden;background:#fff;
+      box-shadow:0 2px 6px rgba(15,23,36,.25),0 24px 60px rgba(8,14,24,.45)}
+    .rq-tabs{display:grid;grid-template-columns:1fr 1fr;background:#F3F1EC;border-bottom:1px solid rgba(44,62,85,.12)}
+    .rq-tab{appearance:none;border:0;background:transparent;padding:1rem .75rem;font:600 .82rem/1.2 Inter,system-ui,sans-serif;
+      letter-spacing:.03em;color:#5B6B80;cursor:pointer;border-bottom:3px solid transparent;transition:color .18s ease,background-color .18s ease}
+    .rq-tab:hover{color:#0F1724;background:rgba(255,255,255,.55)}
+    .rq-tab:active{background:rgba(255,255,255,.8)}
+    .rq-tab:focus-visible{outline:3px solid #D4AE6A;outline-offset:-3px}
+    .rq-tab[aria-selected="true"]{color:#0F1724;background:#fff;border-bottom-color:#C49A5A}
+    .rq-body{padding:1.6rem 1.6rem 1.75rem}
+    .rq-lede{font-size:.95rem;line-height:1.65;color:#2C3E55;margin:0 0 1.25rem}
+    .rq-row{display:grid;grid-template-columns:1fr 1fr;gap:0 1rem}
+    @media(max-width:560px){.rq-row{grid-template-columns:1fr}.rq-body{padding:1.25rem}}
+    .rq-field{margin:0 0 1rem;border:0;padding:0;min-width:0}
+    .rq-field label,.rq-field legend{display:block;font-size:.8rem;font-weight:600;color:#0F1724;margin:0 0 .35rem;padding:0}
+    .rq-opt{font-weight:400;color:#7A8899}
+    .rq-field input:not([type=radio]),.rq-field select,.rq-field textarea{width:100%;padding:.65rem .75rem;border:1px solid rgba(44,62,85,.28);
+      border-radius:6px;font:400 .95rem/1.4 Inter,system-ui,sans-serif;color:#0F1724;background:#fff;transition:border-color .18s ease}
+    .rq-field textarea{resize:vertical;min-height:96px}
+    .rq-field input:hover,.rq-field select:hover,.rq-field textarea:hover{border-color:rgba(44,62,85,.5)}
+    .rq-field input:focus-visible,.rq-field select:focus-visible,.rq-field textarea:focus-visible{outline:3px solid rgba(212,174,106,.6);outline-offset:0;border-color:#C49A5A}
+    .rq-field [aria-invalid="true"]{border-color:#B3261E}
+    .rq-radios label{display:inline-flex;align-items:center;gap:.4rem;font-weight:400;font-size:.92rem;color:#2C3E55;margin:.45rem 1.25rem 0 0;cursor:pointer}
+    .rq-radios input{accent-color:#133F73;width:1rem;height:1rem}
+    .rq-hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+    .rq-note{font-size:.78rem;line-height:1.55;color:#65748A;margin:.25rem 0 1rem}
+    .rq-error{font-size:.85rem;line-height:1.55;color:#B3261E;background:#FCEEEE;border-radius:6px;padding:.65rem .8rem;margin:0 0 1rem}
+    .rq-error a{color:#B3261E;font-weight:600}
+    .rq-submit{width:100%;appearance:none;border:0;border-radius:6px;padding:.9rem 1rem;cursor:pointer;
+      background:#C49A5A;color:#0F1724;font:700 .82rem/1 Inter,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;
+      transition:filter .18s ease,transform .18s cubic-bezier(.34,1.56,.64,1)}
+    .rq-submit:hover{filter:brightness(1.05)}
+    .rq-submit:active{transform:scale(.985)}
+    .rq-submit:focus-visible{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 6px #C49A5A}
+    .rq-submit[disabled]{opacity:.65;cursor:progress}
+    .rq-book{background:#fff}
+    .rq-grid{display:grid;grid-template-columns:300px minmax(0,1fr);gap:3.5rem;align-items:start}
+    @media(max-width:900px){.rq-grid{grid-template-columns:minmax(0,1fr);gap:2.5rem}.rq-grid>.rq-panel{order:-1}}
   </style>
   <script type="application/ld+json">
   {
@@ -488,7 +527,7 @@ function gtag_report_conversion(url) {
   <div class="max-w-7xl mx-auto px-6 lg:px-10" style="position:relative;z-index:2;">
 
     <!-- Two-column: info left, form right -->
-    <div style="display:grid;grid-template-columns:300px 1fr;gap:3.5rem;align-items:start;">
+    <div class="rq-grid">
 
       <!-- ── Left: contact info ── -->
       <div style="position:sticky;top:100px;">
@@ -576,19 +615,56 @@ function gtag_report_conversion(url) {
 
       </div><!-- /left -->
 
-      <!-- ── Right: Booking widget ── -->
-      <div style="max-width:576px;margin:0 auto;width:100%;
-                  border-radius:12px;overflow:hidden;
-                  box-shadow:0 20px 60px rgba(0,0,0,0.50);">
+      <!-- ── Right: message form or booking calendar ── -->
+      <div class="rq-panel">
+        <div class="rq-tabs" role="tablist" aria-label="How would you like to reach us?">
+          <button type="button" role="tab" id="tab-msg" aria-selected="true" aria-controls="panel-msg" class="rq-tab">Send a message</button>
+          <button type="button" role="tab" id="tab-book" aria-selected="false" aria-controls="panel-book" class="rq-tab" tabindex="-1">Book a time</button>
+        </div>
+
+        <div id="panel-msg" role="tabpanel" aria-labelledby="tab-msg" class="rq-body">
+          <p class="rq-lede">Tell us a little about you and Andreas will get back to you within one business day.</p>
+          <form id="rq-form" novalidate>
+            <div class="rq-row">
+              <div class="rq-field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required maxlength="120"></div>
+              <div class="rq-field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
+            </div>
+            <div class="rq-row">
+              <div class="rq-field"><label for="f-phone">Phone <span class="rq-opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+              <fieldset class="rq-field rq-radios"><legend>Best way to reach you</legend>
+                <label><input type="radio" name="preferred" value="email" checked> Email</label>
+                <label><input type="radio" name="preferred" value="phone"> Phone</label>
+              </fieldset>
+            </div>
+            <div class="rq-field"><label for="f-where">Where are your investment accounts today? <span class="rq-opt">(optional)</span></label>
+              <select id="f-where" name="where">
+                <option value="">Choose one</option>
+                <option value="wirehouse">Wirehouse (Merrill, Morgan Stanley, UBS, Wells Fargo)</option>
+                <option value="private_bank">Private bank</option>
+                <option value="independent">Independent advisor</option>
+                <option value="self">I manage them myself</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="rq-field"><label for="f-msg">What would you like to talk about? <span class="rq-opt">(optional)</span></label><textarea id="f-msg" name="message" rows="4" maxlength="3000"></textarea></div>
+            <div class="rq-hp" aria-hidden="true"><label for="f-hp">Leave this field empty</label><input id="f-hp" name="company_website" tabindex="-1" autocomplete="off"></div>
+            <p class="rq-note">Please don&rsquo;t include account numbers, Social Security numbers, or other sensitive details. We&rsquo;ll ask for anything we need once we talk.</p>
+            <p id="rq-error" class="rq-error" role="alert" hidden></p>
+            <button type="submit" class="rq-submit">Send message</button>
+          </form>
+        </div>
+
+        <div id="panel-book" role="tabpanel" aria-labelledby="tab-book" class="rq-book" hidden>
           <iframe
-            src="https://outlook.office.com/book/RubiqFinancialPartners@NETORG19667384.onmicrosoft.com/?ismsaljsauthenabled"
+            data-src="https://outlook.office.com/book/RubiqFinancialPartners@NETORG19667384.onmicrosoft.com/?ismsaljsauthenabled"
             width="100%"
             height="850"
             scrolling="yes"
             style="border:0;display:block;"
             title="Schedule a meeting with Rubiq Financial Partners">
           </iframe>
-      </div><!-- /booking widget -->
+        </div>
+      </div><!-- /panel -->
 
     </div><!-- /grid -->
   </div><!-- /container -->
@@ -673,6 +749,49 @@ function gtag_report_conversion(url) {
   },{passive:true});
   window.addEventListener('resize',function(){
     cta.style.display=window.innerWidth<768?'block':'none';
+  });
+})();
+</script>
+<script>
+(function(){
+  var tabs=[document.getElementById('tab-msg'),document.getElementById('tab-book')];
+  var panels=[document.getElementById('panel-msg'),document.getElementById('panel-book')];
+  if(!tabs[0])return;
+  function show(i,focus){
+    tabs.forEach(function(t,j){var on=i===j;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;panels[j].hidden=!on;});
+    if(i===1){var f=panels[1].querySelector('iframe');if(f&&!f.src)f.src=f.getAttribute('data-src');}
+    if(focus)tabs[i].focus();
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){show(i);});
+    t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();show(1-i,true);}});
+  });
+  if(location.hash==='#book')show(1);
+
+  var form=document.getElementById('rq-form'),F=form.elements,err=document.getElementById('rq-error'),btn=form.querySelector('.rq-submit');
+  var t0=Date.now();
+  var FALLBACK=' You can also email <a href="mailto:andreas@rubiqfinancial.com">andreas@rubiqfinancial.com</a> or call <a href="tel:6102159499">(610) 215-9499</a>.';
+  function fail(msg){err.innerHTML=msg+FALLBACK;err.hidden=false;btn.disabled=false;btn.textContent='Send message';}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();err.hidden=true;
+    var name=F["name"].value.trim(),email=F["email"].value.trim(),phone=F["phone"].value.trim();
+    var pref=form.querySelector('input[name=preferred]:checked').value;
+    [F["name"],F["email"],F["phone"]].forEach(function(el){el.removeAttribute('aria-invalid');});
+    if(!name){F["name"].setAttribute('aria-invalid','true');F["name"].focus();return fail('Please add your name.');}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){F["email"].setAttribute('aria-invalid','true');F["email"].focus();return fail('Please check your email address.');}
+    if(pref==='phone'&&!phone){F["phone"].setAttribute('aria-invalid','true');F["phone"].focus();return fail('Please add a phone number so we can call you.');}
+    btn.disabled=true;btn.textContent='Sending…';
+    var body={name:name,email:email,phone:phone,preferred:pref,where:F["where"].value,message:F["message"].value,
+      company_website:F["company_website"].value,elapsed_ms:Date.now()-t0,page:location.pathname};
+    fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+      .then(function(r){return r.json().catch(function(){return {ok:false};});})
+      .then(function(res){
+        if(!res.ok)return fail('Your message didn&rsquo;t go through.');
+        var done=false;function go(){if(!done){done=true;location.href='thank-you';}}
+        try{gtag('event','generate_lead',{form_name:'contact',event_callback:go});}catch(x){}
+        setTimeout(go,800);
+      })
+      .catch(function(){fail('Your message didn&rsquo;t go through.');});
   });
 })();
 </script>
