@@ -130,7 +130,7 @@
 
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/concentrated-stock</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -171,8 +171,14 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.rubiqfinancial.com/Pages/wirehouse-vs-independent-advisor</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.rubiqfinancial.com/Pages/private-bank-vs-independent-advisor</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -257,7 +263,7 @@
 
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/resources-alternative-investments</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -348,7 +354,7 @@
 
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/resources-secondaries</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -356,7 +362,7 @@
   <!-- Calculators -->
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/daf-calculator</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
