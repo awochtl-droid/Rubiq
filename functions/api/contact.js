@@ -53,6 +53,7 @@ export async function onRequestPost({ request, env }) {
   const preferred = clean(data.preferred, 20) === 'phone' ? 'Phone' : 'Email';
   const where = WHERE[clean(data.where, 20)] ?? WHERE.other;
   const message = clean(data.message, 3000);
+  const topic = clean(data.topic, 80);
   const page = clean(data.page, 300);
 
   if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return json({ ok: false, error: 'invalid' }, 400);
@@ -67,6 +68,7 @@ export async function onRequestPost({ request, env }) {
     `Email: ${email}`,
     `Phone: ${phone || '(not given)'}`,
     `Prefers: ${preferred}`,
+    `Topic: ${topic || '(none)'}`,
     `Accounts today: ${where}`,
     '',
     'Message:',
@@ -83,7 +85,7 @@ export async function onRequestPost({ request, env }) {
       from: env.CONTACT_FROM || FROM_DEFAULT,
       to: [env.CONTACT_TO || TO_DEFAULT],
       reply_to: email,
-      subject: `Website inquiry: ${name}`,
+      subject: topic ? `Website inquiry: ${name} (${topic})` : `Website inquiry: ${name}`,
       text,
     }),
   });
