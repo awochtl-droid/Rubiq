@@ -45,3 +45,11 @@
 
 /robots.txt
   Cache-Control: public, max-age=3600
+
+# ── Keep the Cloudflare preview hosts out of search results ──
+# The live site is www.rubiqfinancial.com; the pages.dev copies duplicate it.
+https://rubiq-9qy.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.rubiq-9qy.pages.dev/*
+  X-Robots-Tag: noindex
