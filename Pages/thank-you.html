@@ -38,6 +38,12 @@
         gtag('config', 'AW-18023805978');
       }
       evts.forEach(function (t) { window.addEventListener(t, start, { capture: true, passive: true }); });
+      // Someone who just sent the contact form has already proved they are a real person.
+      // Start analytics now so the Google Ads "Contact form submitted" conversion (this page loading)
+      // is recorded even if they close the page without touching it.
+      try {
+        if (sessionStorage.getItem('rq_lead') === '1') { sessionStorage.removeItem('rq_lead'); start(); }
+      } catch (x) {}
     })();
   }
     function gtag_report_conversion(url) {

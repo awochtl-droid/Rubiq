@@ -827,6 +827,8 @@ function gtag_report_conversion(url) {
       .then(function(res){
         if(!res.ok){var m=(res.errors&&res.errors[0]&&res.errors[0].message)?res.errors[0].message+'.':'Your message didn&rsquo;t go through.';return fail(m.replace(/</g,'&lt;'));}
         var done=false;function go(){if(!done){done=true;location.href='thank-you';}}
+        // Tell the thank-you page this visit is a real, completed form so it can record the lead right away.
+        try{sessionStorage.setItem('rq_lead','1');}catch(x){}
         try{gtag('event','generate_lead',{form_name:'contact',event_callback:go});}catch(x){}
         setTimeout(go,800);
       })
