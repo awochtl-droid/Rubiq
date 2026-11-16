@@ -14,9 +14,11 @@
       if (!/(^|\.)rubiqfinancial\.com$/.test(location.hostname)) return true;
       // Crawlers, headless browsers and page-speed testers that announce themselves
       if (/HeadlessChrome|PhantomJS|Lighthouse|PageSpeed|GTmetrix|[a-z]bot\/|crawler|spider|Slurp/i.test(navigator.userAgent || '')) return true;
+      // Linux desktops (not Android): in our analytics these are almost all data-center scanners
+      if (/Linux/.test(navigator.userAgent || '') && !/Android/.test(navigator.userAgent || '')) return true;
       // Screen sizes seen only from data-center bots in our analytics
       var r = screen.width + 'x' + screen.height;
-      if (r === '800x600' || r === '1280x1200' || r === '1024x1024' || r === '1366x1366') return true;
+      if (r === '800x600' || r === '1280x1200' || r === '1024x1024' || r === '1366x1366' || r === '4096x1152' || r === '3438x1934') return true;
       return false;
     } catch (e) { return false; }
   })();
