@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-15PBEWL3XZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // Don't count automated browsers (scanners, crawlers) or preview/test hosts.
+    window.__rqNoTrack = (function () {
+      try {
+        if (navigator.webdriver === true) return true;
+        if (!/(^|\.)rubiqfinancial\.com$/.test(location.hostname)) return true;
+        // Crawlers, headless browsers and page-speed testers that announce themselves
+        if (/HeadlessChrome|PhantomJS|Lighthouse|PageSpeed|GTmetrix|[a-z]bot\/|crawler|spider|Slurp/i.test(navigator.userAgent || '')) return true;
+        // Linux desktops (not Android): in our analytics these are almost all data-center scanners
+        if (/Linux/.test(navigator.userAgent || '') && !/Android/.test(navigator.userAgent || '')) return true;
+        // Screen sizes seen only from data-center bots in our analytics
+        var r = screen.width + 'x' + screen.height;
+        if (r === '800x600' || r === '1280x1200' || r === '1024x1024' || r === '1366x1366' || r === '4096x1152' || r === '3438x1934') return true;
+        return false;
+      } catch (e) { return false; }
+    })();
+    if (!window.__rqNoTrack) {
+    // Start analytics only after a real person interacts (mouse, touch, scroll, key).
+    // Email link scanners (e.g. Microsoft Safe Links, running in data centers) open pages
+    // and follow links but never interact, so they were inflating sessions and
+    // Schedule-a-call clicks.
+    (function () {
+      var started = false;
+      var evts = ['pointermove', 'pointerdown', 'touchstart', 'wheel', 'keydown'];
+      function start(e) {
+        if (started || (e && e.isTrusted === false)) return;
+        // Browsers fire a pointermove on load when the cursor sits over the page; require real movement.
+        if (e && e.type === 'pointermove' && !e.movementX && !e.movementY) return;
+        started = true;
+        evts.forEach(function (t) { window.removeEventListener(t, start, true); });
+        gtag('config', 'G-15PBEWL3XZ');
+        gtag('config', 'AW-18023805978');
+      }
+      evts.forEach(function (t) { window.addEventListener(t, start, { capture: true, passive: true }); });
+    })();
+  }
+  </script>
+  <script>
+    function gtag_report_conversion(url) {
+      if (window.__rqNoTrack) { if (typeof url !== 'undefined') window.location = url; return false; }
+      // If analytics is blocked or slow, still open the link.
+      setTimeout(function () { if (typeof url !== 'undefined') window.location = url; }, 1000);
+      var callback = function () {
+        if (typeof url !== 'undefined') window.location = url;
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18023805978/PYr9CKmg9qccEJrotZJD',
+        'value': 1.0,
+        'currency': 'USD',
+        'event_callback': callback
+      });
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18023805978/sQ2MCNuQ0agcEJrotZJD',
+        'event_callback': callback
+      });
+      return false;
+    }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charitable Remainder Trusts: How They Work &amp; Risks | Rubiq</title>
+  <meta name="description" content="How a charitable remainder trust (CRT) pays you income, then gives the rest to charity: CRAT vs. CRUT, payout and 10% rules, taxes, and risks." />
+  <link rel="canonical" href="https://www.rubiqfinancial.com/Pages/charitable-remainder-trust" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Rubiq Financial Partners" />
+  <meta property="og:title" content="Charitable Remainder Trusts: How They Work &amp; Risks | Rubiq" />
+  <meta property="og:description" content="How a charitable remainder trust (CRT) pays you income, then gives the rest to charity: CRAT vs. CRUT, payout and 10% rules, taxes, and risks." />
+  <meta property="og:url" content="https://www.rubiqfinancial.com/Pages/charitable-remainder-trust" />
+  <meta property="og:image" content="https://www.rubiqfinancial.com/Media/og-social.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Charitable Remainder Trusts: How They Work &amp; Risks | Rubiq" />
+  <meta name="twitter:description" content="How a charitable remainder trust (CRT) pays you income, then gives the rest to charity: CRAT vs. CRUT, payout and 10% rules, taxes, and risks." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#0F1724; --blue:#1A5EA8; --navy:#133F73; --gold:#C49A5A; --gold-light:#D4AE6A; --text:#2C3E55; --muted:#4A5568; --paper:#FAF8F4; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--text); font-family:Inter,system-ui,sans-serif; }
+    a { color:var(--blue); }
+    a:focus-visible { outline:3px solid var(--gold); outline-offset:3px; }
+    .wrap { width:min(100% - 3rem, 960px); margin-inline:auto; }
+    .topbar { background:rgba(15,23,36,.96); border-bottom:1px solid rgba(255,255,255,.08); }
+    .topbar-inner { min-height:72px; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .logo { display:inline-flex; align-items:center; }
+    .logo img { display:block; width:auto; height:42px; }
+    .nav-links { display:flex; align-items:center; gap:1.5rem; }
+    .nav-links a { color:rgba(255,255,255,.78); font-size:.8rem; text-decoration:none; }
+    .nav-links a:hover { color:var(--gold-light); }
+    .nav-links .schedule { padding:.7rem 1rem; border-radius:5px; background:var(--gold); color:var(--ink); font-weight:700; }
+    .hero { background:linear-gradient(145deg,var(--ink),var(--navy) 58%,var(--blue)); color:white; padding:5.5rem 0 4.5rem; }
+    .eyebrow { margin:0 0 1rem; color:var(--gold-light); font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    h1,h2,h3 { font-family:"Playfair Display",Georgia,serif; color:var(--ink); }
+    h1 { max-width:800px; margin:0 0 1.25rem; color:white; font-size:clamp(2.2rem,5vw,3.7rem); line-height:1.08; letter-spacing:-.03em; }
+    .hero p:last-child { max-width:720px; margin:0; color:rgba(255,255,255,.78); font-size:1.05rem; line-height:1.8; }
+    main { background:var(--paper); padding:3rem 0 4rem; }
+    .content { max-width:760px; margin-inline:auto; }
+    .intro { padding:1.25rem 1.5rem; margin:0 0 2rem; border-left:3px solid var(--blue); background:white; font-size:1.05rem; line-height:1.8; }
+    .summary { margin:0 0 2.5rem; padding:1.5rem 1.75rem; border:1px solid rgba(26,94,168,.14); border-radius:9px; background:white; box-shadow:0 4px 18px rgba(26,94,168,.05); }
+    .summary strong { display:block; margin-bottom:.5rem; color:var(--blue); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; }
+    .summary p { margin:0; line-height:1.75; }
+    article h2 { margin:2.75rem 0 .8rem; font-size:clamp(1.5rem,3vw,2rem); line-height:1.2; letter-spacing:-.02em; }
+    article h3 { margin:1.5rem 0 .4rem; font-size:1.15rem; }
+    article p, article li { font-size:.95rem; line-height:1.8; }
+    article p { margin:.75rem 0; }
+    article ul, article ol { padding-left:1.25rem; }
+    .scenario-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin:1.5rem 0; }
+    .scenario { padding:1.25rem; border:1px solid rgba(26,94,168,.12); border-radius:8px; background:white; }
+    .scenario h3 { margin:0 0 .5rem; color:var(--blue); font-size:1rem; }
+    .scenario p { margin:0; font-size:.85rem; line-height:1.7; }
+    .callout { margin:2rem 0; padding:1.5rem 1.75rem; border-left:3px solid var(--gold); border-radius:0 8px 8px 0; background:rgba(196,154,90,.10); }
+    .callout p { margin:0; }
+    .sources { margin-top:2rem; padding:1.5rem; border:1px solid rgba(26,94,168,.12); border-radius:8px; background:white; }
+    .sources h2 { margin:0 0 .75rem; font-size:1.25rem; }
+    .sources ul { margin:.5rem 0 0; }
+    .sources li { font-size:.85rem; }
+    .cta { margin-top:3rem; padding:2rem; border-radius:10px; background:linear-gradient(135deg,var(--ink),var(--navy)); color:white; }
+    .cta h2 { margin:0 0 .5rem; color:white; font-size:1.55rem; }
+    .cta p { margin:.5rem 0 1.25rem; color:rgba(255,255,255,.75); line-height:1.7; }
+    .cta a { display:inline-block; padding:.8rem 1.2rem; border-radius:5px; background:var(--gold); color:var(--ink); font-size:.85rem; font-weight:700; text-decoration:none; }
+    .cta a:hover { background:var(--gold-light); }
+    footer { padding:1.5rem 0; background:var(--ink); color:rgba(255,255,255,.62); font-size:.75rem; line-height:1.7; }
+    footer p { margin:.35rem 0; }
+    footer a { color:rgba(255,255,255,.7); }
+    @media(max-width:650px) {
+      .wrap { width:min(100% - 2rem, 960px); }
+      .nav-links .secondary-link { display:none; }
+      .hero { padding:4.5rem 0 3.5rem; }
+      .scenario-grid { grid-template-columns:1fr; }
+      .summary,.intro,.cta { padding:1.25rem; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Charitable Remainder Trusts: An Overview",
+        "description": "An educational overview of charitable remainder trusts: how CRATs and CRUTs work, the payout and 10% remainder rules, how payments are taxed, the charitable deduction, and the trade-offs to review with an attorney and CPA.",
+        "url": "https://www.rubiqfinancial.com/Pages/charitable-remainder-trust",
+        "datePublished": "2026-11-19",
+        "dateModified": "2026-11-19",
+        "author": { "@type": "Person", "name": "Andreas Wochtl, CFP®", "url": "https://www.rubiqfinancial.com/Pages/our-team" },
+        "publisher": { "@type": "Organization", "name": "Rubiq Financial Partners", "url": "https://www.rubiqfinancial.com" },
+        "mainEntityOfPage": "https://www.rubiqfinancial.com/Pages/charitable-remainder-trust"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.rubiqfinancial.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.rubiqfinancial.com/Pages/insights" },
+          { "@type": "ListItem", "position": 3, "name": "Charitable Remainder Trusts", "item": "https://www.rubiqfinancial.com/Pages/charitable-remainder-trust" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I take assets back out of a charitable remainder trust?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The IRS describes charitable remainder trusts as irrevocable, so assets transferred to the trust cannot be taken back. The donor or other beneficiaries receive the required payments, and the remainder goes to charity."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the trust pay capital gains tax when it sells appreciated stock?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A charitable remainder trust is generally exempt from income tax under Section 664(c), so a sale inside the trust generally is not taxed at the trust level. Gain is generally taxed to the beneficiary as payments are made, under the four-tier ordering rules. Basis, timing, and the specific assets matter, so review the details with a tax professional."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much has to go to charity?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The present value of the charity's remainder must be at least 10 percent of the value contributed, valued under Section 7520. The amount the charity actually receives depends on the trust terms, investment results, and the payments made."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <nav class="topbar" aria-label="Main navigation">
+    <div class="wrap topbar-inner">
+      <a class="logo" href="../" aria-label="Rubiq Financial Partners home">
+        <img src="../Brand_assets/Rubiq Financial Partners Logo - FINAL2 - Horizontal -White.png" alt="Rubiq Financial Partners" width="240" height="44" />
+      </a>
+      <div class="nav-links">
+        <a href="insights">Insights</a>
+        <a class="secondary-link" href="estate-planning">Estate Planning</a>
+        <a class="schedule" href="contact" onclick="return gtag_report_conversion(this.href)">Schedule a Conversation</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Estate Planning · Charitable Giving</p>
+      <h1>Charitable Remainder Trusts: An Overview</h1>
+      <p>A charitable remainder trust (CRT) pays income to you or other beneficiaries for life or a set term, then passes what is left to charity. It is irrevocable, so it is hard to undo. Here is how it works, how payments are taxed, and what to weigh before you talk with your attorney and CPA.</p>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <article class="wrap content">
+      <p class="intro">A CRT can be one way to pair a charitable goal with income from appreciated assets such as stock, real estate, or a business interest. The trade-off is permanence: assets placed in the trust cannot be taken back, and a charity ultimately receives the remainder.</p>
+
+      <aside class="summary" aria-label="Key points">
+        <strong>At a glance</strong>
+        <p>A CRT is an irrevocable trust that pays income for up to 20 years or for one or more lifetimes, then gives the remainder to a qualified charity. Each year's payout must be 5% to 50% of trust value, and the charity's projected share must be at least 10% of what was contributed. Payments are taxed to beneficiaries in a set order, and the donor may qualify for a partial income tax deduction. Results depend on the trust terms, the assets, interest rates, and current law.</p>
+      </aside>
+
+      <h2>What is a charitable remainder trust?</h2>
+      <p>You (the donor) transfer cash, securities, real estate, or other property into a trust. The trust pays at least one living beneficiary, often the donor, a spouse, or both, for up to 20 years or for life. When the term ends, the remainder goes to one or more qualified charities. The IRS describes these trusts as irrevocable (<a href="https://www.irs.gov/charities-non-profits/charitable-remainder-trusts" target="_blank" rel="noopener noreferrer">IRS: Charitable remainder trusts</a>).</p>
+      <p>The trust itself is generally exempt from income tax (<a href="https://www.law.cornell.edu/uscode/text/26/664" target="_blank" rel="noopener noreferrer">26 U.S.C. § 664(c)</a>). That is why a CRT is often considered for appreciated assets: the trust may sell and reinvest without paying tax at the trust level, and beneficiaries are taxed as payments reach them.</p>
+
+      <h2>Two main types, and a variation</h2>
+      <div class="scenario-grid" aria-label="Types of charitable remainder trusts">
+        <section class="scenario">
+          <h3>Annuity trust (CRAT)</h3>
+          <p>Pays a fixed dollar amount each year, set at 5% to 50% of the trust's initial value. The payment does not change and no assets can be added later. A CRAT must also pass a 5% probability test on the chance of running out of assets before the term ends (Rev. Rul. 77-374).</p>
+        </section>
+        <section class="scenario">
+          <h3>Unitrust (CRUT)</h3>
+          <p>Pays a fixed percentage, 5% to 50%, of the trust's value measured each year. Payments rise and fall with the assets, and additional contributions are generally allowed.</p>
+        </section>
+        <section class="scenario">
+          <h3>Income-limited unitrust</h3>
+          <p>A CRUT can be written to pay only the trust's actual income when that is less than the set percentage, with make-up payments later if income allows (§ 664(d)(3)). It may matter when the trust holds assets that produce little income at first.</p>
+        </section>
+      </div>
+
+      <h2>Rules every CRT has to meet</h2>
+      <ul>
+        <li><strong>Irrevocable, with a qualified charity.</strong> The remainder must go to an organization described in <a href="https://www.law.cornell.edu/uscode/text/26/170" target="_blank" rel="noopener noreferrer">§ 170(c)</a>.</li>
+        <li><strong>Term.</strong> Up to 20 years, or the life or lives of individuals living when the trust is created.</li>
+        <li><strong>Payout.</strong> At least 5% and no more than 50% each year (<a href="https://www.law.cornell.edu/uscode/text/26/664" target="_blank" rel="noopener noreferrer">§ 664(d)(1) and (d)(2)</a>).</li>
+        <li><strong>10% remainder test.</strong> The present value of the charity's remainder must be at least 10% of the value contributed. For a CRUT, this is tested on each contribution. A high payout rate, a long term, or a young beneficiary can push the remainder below 10%.</li>
+        <li><strong>Governing document.</strong> The IRS publishes sample trust forms for annuity trusts (Rev. Procs. 2003-53 through 2003-60) and unitrusts (<a href="https://www.irs.gov/irb/2005-34_IRB" target="_blank" rel="noopener noreferrer">Rev. Procs. 2005-52 through 2005-59</a>). An attorney drafts the actual trust.</li>
+        <li><strong>Annual filing.</strong> The trustee files <a href="https://www.irs.gov/forms-pubs/about-form-5227" target="_blank" rel="noopener noreferrer">Form 5227</a> each year. A trust with unrelated business taxable income owes an excise tax equal to that amount (§ 664(c)(2)).</li>
+      </ul>
+      <p>The remainder is valued with the IRS's monthly <a href="https://www.irs.gov/businesses/small-businesses-self-employed/section-7520-interest-rates" target="_blank" rel="noopener noreferrer">Section 7520 rate</a>. For a CRAT, a higher rate generally means a larger remainder value, and a lower rate a smaller one. The rate changes every month, so check the current figure with your attorney when the trust is designed.</p>
+
+      <h2>How payments are taxed</h2>
+      <p>Payments to a beneficiary carry out the trust's income in a set order, and each year's distribution is treated as coming from the first category that still has amounts left (<a href="https://www.law.cornell.edu/uscode/text/26/664" target="_blank" rel="noopener noreferrer">§ 664(b)</a>):</p>
+      <ol>
+        <li>Ordinary income</li>
+        <li>Capital gain</li>
+        <li>Other income, including tax-exempt income</li>
+        <li>Return of principal, which is not taxed</li>
+      </ol>
+      <p>Beneficiaries report their payments from Schedule K-1 (Form 1041). Because a sale of appreciated assets inside the trust is not taxed at the trust level, the gain generally reaches the beneficiary through the capital gain tier over the years the payments continue, instead of all at once.</p>
+
+      <h2>The charitable deduction</h2>
+      <p>A donor may claim a partial income tax deduction equal to the present value of the charity's remainder interest. That is roughly the value contributed minus the present value of the payments the donor keeps (<a href="https://www.law.cornell.edu/cfr/text/26/1.664-2" target="_blank" rel="noopener noreferrer">Treas. Reg. § 1.664-2(c)</a>). Adjusted gross income limits and § 170(e) can reduce the deduction for some kinds of property.</p>
+      <p>Two 2026 changes from the One Big Beautiful Bill Act (P.L. 119-21) can shrink the benefit for itemizers. Charitable gifts are deductible only above 0.5% of adjusted gross income, and for taxpayers in the 37% bracket the value of itemized deductions is capped at 35% (<a href="https://tax.thomsonreuters.com/news/charitable-deduction-unpacked-individual-itemizers/" target="_blank" rel="noopener noreferrer">Thomson Reuters</a>; <a href="https://www.cpapracticeadvisor.com/2026/02/18/planning-for-charitable-contributions-in-2026/178317/" target="_blank" rel="noopener noreferrer">CPA Practice Advisor</a>). Have your CPA model the deduction using your own income, including the gain from the year the trust is funded.</p>
+
+      <h2>What to weigh before funding one</h2>
+      <ul>
+        <li><strong>It is permanent.</strong> You cannot reclaim assets or rewrite the payout after the trust is funded.</li>
+        <li><strong>Your heirs do not receive the remainder.</strong> A charity does. Some families consider pairing a CRT with life insurance held in an <a href="irrevocable-life-insurance-trust">irrevocable life insurance trust</a> to replace the value for heirs. Also compare the trust against leaving appreciated assets to heirs with a <a href="step-up-in-basis">stepped-up basis</a>.</li>
+        <li><strong>Payments follow the type.</strong> A CRAT payment is fixed and cannot adjust. A CRUT payment moves with the markets, so it can fall.</li>
+        <li><strong>Costs and upkeep.</strong> Expect legal drafting, a trustee, valuations, annual Form 5227 filing, and ongoing investment oversight.</li>
+        <li><strong>Not every asset fits.</strong> Illiquid assets, real estate with debt, and closely held or S corporation stock need an attorney's review before they go in. Self-dealing and other prohibited transactions can trigger excise taxes.</li>
+        <li><strong>Timing matters for sales.</strong> If an asset is about to be sold, the trust generally needs to be funded before a binding sale agreement. Your attorney should review the timing.</li>
+        <li><strong>The law can change.</strong> Deduction rules and rates move, as the 2026 changes show.</li>
+      </ul>
+
+      <h2>Where a CRT may fit</h2>
+      <div class="scenario-grid" aria-label="Situations where a CRT may be considered">
+        <section class="scenario">
+          <h3>Low-basis stock</h3>
+          <p>An investor who wants to diversify a highly appreciated position without recognizing all the gain at once, and who has a real charitable goal. See the <a href="concentrated-stock">concentrated stock guide</a> for the other options.</p>
+        </section>
+        <section class="scenario">
+          <h3>A business or property sale</h3>
+          <p>An owner expecting a large gain who is open to giving to charity later. Timing and who owns the asset at the time of sale are central. See <a href="exit-planning">exit planning</a>.</p>
+        </section>
+        <section class="scenario">
+          <h3>Income plus giving</h3>
+          <p>A donor who wants income now and a gift to charity later. If you want a gift now and no income, compare a <a href="daf-calculator">donor-advised fund</a>.</p>
+        </section>
+      </div>
+
+      <div class="callout">
+        <p><strong>Choose the tool that matches the goal.</strong> A CRT gives income to you and the remainder to charity. A <a href="grat-concentrated-stock">GRAT</a> aims to move future growth to family. A <a href="prepaid-variable-forward">prepaid variable forward</a> raises cash against shares without an outright sale. Each has different tax, cost, and risk trade-offs.</p>
+      </div>
+
+      <h2>How Rubiq fits into the planning process</h2>
+      <p>Rubiq's role is investment and financial planning: helping you decide whether a CRT fits your portfolio, income needs, charitable goals, and family plans, and managing the trust's investments if you ask us to. We help organize the scenarios and coordinate with your other professionals. Rubiq does not draft trusts, provide legal or tax advice, or promise a tax outcome.</p>
+      <ul>
+        <li><strong>Financial advisor:</strong> compares the CRT with other approaches, models payments against your income needs, and plans how the assets are invested.</li>
+        <li><strong>Estate-planning attorney:</strong> decides whether a CRT is legally suitable, drafts the trust, and handles funding and timing.</li>
+        <li><strong>CPA or tax advisor:</strong> models the deduction, the tax on payments, and the annual reporting.</li>
+      </ul>
+
+      <h2>Common questions about charitable remainder trusts</h2>
+      <h3>Can I take assets back out of a charitable remainder trust?</h3>
+      <p>No. The IRS describes charitable remainder trusts as irrevocable, so assets transferred to the trust cannot be taken back. The donor or other beneficiaries receive the required payments, and the remainder goes to charity.</p>
+      <h3>Does the trust pay capital gains tax when it sells appreciated stock?</h3>
+      <p>A charitable remainder trust is generally exempt from income tax under Section 664(c), so a sale inside the trust generally is not taxed at the trust level. Gain is generally taxed to the beneficiary as payments are made, under the four-tier ordering rules. Basis, timing, and the specific assets matter, so review the details with a tax professional.</p>
+      <h3>How much has to go to charity?</h3>
+      <p>The present value of the charity's remainder must be at least 10 percent of the value contributed, valued under Section 7520. The amount the charity actually receives depends on the trust terms, investment results, and the payments made.</p>
+
+      <section class="sources" aria-labelledby="sources-heading">
+        <h2 id="sources-heading">Professional and government references</h2>
+        <ul>
+          <li><a href="https://www.irs.gov/charities-non-profits/charitable-remainder-trusts" target="_blank" rel="noopener noreferrer">IRS — Charitable remainder trusts</a></li>
+          <li><a href="https://www.law.cornell.edu/uscode/text/26/664" target="_blank" rel="noopener noreferrer">26 U.S.C. § 664 — Charitable remainder trusts</a></li>
+          <li><a href="https://www.law.cornell.edu/uscode/text/26/7520" target="_blank" rel="noopener noreferrer">26 U.S.C. § 7520 — Valuation tables</a></li>
+          <li><a href="https://www.law.cornell.edu/cfr/text/26/1.664-2" target="_blank" rel="noopener noreferrer">Treas. Reg. § 1.664-2 — Charitable remainder annuity trust</a></li>
+          <li><a href="https://www.irs.gov/businesses/small-businesses-self-employed/section-7520-interest-rates" target="_blank" rel="noopener noreferrer">IRS — Section 7520 interest rates</a></li>
+          <li><a href="https://www.irs.gov/irb/2005-34_IRB" target="_blank" rel="noopener noreferrer">IRS — Rev. Procs. 2005-52 through 2005-59 (sample unitrust forms), Internal Revenue Bulletin 2005-34</a></li>
+          <li><a href="https://www.irs.gov/forms-pubs/about-form-5227" target="_blank" rel="noopener noreferrer">IRS — Form 5227, Split-Interest Trust Information Return</a></li>
+          <li><a href="https://tax.thomsonreuters.com/news/charitable-deduction-unpacked-individual-itemizers/" target="_blank" rel="noopener noreferrer">Thomson Reuters — Charitable deduction unpacked for individual itemizers (2026 changes)</a></li>
+          <li><a href="https://www.cpapracticeadvisor.com/2026/02/18/planning-for-charitable-contributions-in-2026/178317/" target="_blank" rel="noopener noreferrer">CPA Practice Advisor — Planning for charitable contributions in 2026</a></li>
+        </ul>
+        <p>These references are general resources, not a substitute for advice about a specific trust or gift.</p>
+      </section>
+
+      <section class="cta" aria-labelledby="cta-heading">
+        <h2 id="cta-heading">Put the strategy in context</h2>
+        <p>Talk through how a charitable remainder trust may fit your income, tax, and giving picture. Trust design and tax advice should come from your qualified attorney and tax professional.</p>
+        <a href="contact?topic=charitable-remainder-trust" onclick="return gtag_report_conversion(this.href)">Schedule a planning conversation</a>
+      </section>
+
+      <p style="margin-top:2rem;font-size:.82rem;line-height:1.7;color:#68778A;">For educational purposes only; not tax, legal, investment, or accounting advice. Charitable remainder trusts are complex, irrevocable arrangements with tax, liquidity, and estate considerations and may not be appropriate for every donor. No tax result, income stream, or investment outcome is guaranteed. Consult your estate-planning attorney and tax professional before taking action.</p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>© 2026 Rubiq Financial Partners. Investment advisory services offered through Wealthcare Capital Partners, LLC, dba Rubiq Financial Partners, an SEC-registered investment adviser. Securities offered through LPL Financial, Member FINRA/SIPC. Wealthcare and Rubiq Financial Partners are separate entities from LPL Financial.</p>
+      <p>Rubiq Financial Partners is not a law firm or tax advisor and does not provide legal, tax preparation, or accounting services. Not a solicitation in any jurisdiction where not registered or exempt.</p>
+      <p><a href="insights">Insights</a> · <a href="estate-planning">Estate Planning</a> · <a href="our-team">Our Team</a></p>
+    </div>
+  </footer>
+</body>
+</html>
