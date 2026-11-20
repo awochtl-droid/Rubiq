@@ -4,5 +4,6 @@ Allow: /
 Disallow: /node_modules/
 Disallow: /cdn-cgi/
 Disallow: /Pages/data/
+Disallow: /_unpublished/
 
 Sitemap: https://www.rubiqfinancial.com/sitemap.xml
