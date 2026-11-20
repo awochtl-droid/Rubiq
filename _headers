@@ -53,3 +53,7 @@ https://rubiq-9qy.pages.dev/*
 
 https://:version.rubiq-9qy.pages.dev/*
   X-Robots-Tag: noindex
+
+# Unpublished holding folder
+/_unpublished/*
+  X-Robots-Tag: noindex
