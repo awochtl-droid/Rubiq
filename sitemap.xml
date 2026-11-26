@@ -135,6 +135,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.rubiqfinancial.com/Pages/charitable-remainder-trust</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.rubiqfinancial.com/Pages/grat-concentrated-stock</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -171,6 +177,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.rubiqfinancial.com/Pages/securities-based-line-of-credit</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.rubiqfinancial.com/Pages/wirehouse-vs-independent-advisor</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -190,6 +202,13 @@
   </url>
 
   <!-- Edge Strategy Pages -->
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/real-estate-professionals</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/edge-real-estate</loc>
     <lastmod>2026-03-21</lastmod>
@@ -530,6 +549,36 @@
   </url>
   <url>
     <loc>https://www.rubiqfinancial.com/Pages/cash-balance-plan</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/financial-advisor-for-business-owners</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/solo-401k-vs-cash-balance-plan</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/exit-planning</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/buy-sell-agreement</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rubiqfinancial.com/Pages/how-to-read-your-brokerage-1099</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
